@@ -28,6 +28,7 @@
 #include <algorithm>
 #include <thread>
 #include <chrono>
+#include <queue>
 
 /**************************************************************************/
 /*!

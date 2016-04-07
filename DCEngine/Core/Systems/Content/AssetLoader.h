@@ -16,6 +16,31 @@ namespace DCEngine {
     using Extension = std::string;
     using FilePaths = std::list<std::string>;
     using ResourcePool = std::map < Extension, FilePaths>;
+
+    // Data structures
+    struct FileData {
+      std::string Path;
+      unsigned Size;
+      FileData(const std::string& path, unsigned size) : Path(path), Size(size) {}
+
+      bool operator()(const FileData& lhs, const FileData& rhs) {
+        if (lhs.Size != rhs.Size) return lhs.Size > rhs.Size;
+        return lhs.Path > rhs.Path;
+     } 
+
+      // Sorting function
+      struct SortBiggest {
+        bool operator()(const FileData& lhs, const FileData& rhs) {
+          if (lhs.Size != rhs.Size) return lhs.Size > rhs.Size;
+          return lhs.Path > rhs.Path;
+        }
+      };
+
+
+    };
+
+    using FileQueue = std::priority_queue<FileData, std::vector<FileData>, FileData::SortBiggest>;
+
         
     // Asset Loader
     class AssetLoader {

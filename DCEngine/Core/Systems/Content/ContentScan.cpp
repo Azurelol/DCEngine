@@ -60,15 +60,31 @@ namespace DCEngine {
       auto& levels = pool[Level::Extension()];
       auto& archetypes = pool[Archetype::Extension()];
       auto& collisionGroups = pool[CollisionGroup::Extension()];
-      auto& colliisonTables = pool[CollisionTable::Extension()];
+      auto& collisionTables = pool[CollisionTable::Extension()];
       auto& physicsMaterials = pool[PhysicsMaterial::Extension()];
       auto& zilchScripts = pool[ZilchScript::Extension()];
       //-----------------------------------------------------------//
       // Add methods
       auto spriteSourceMethod = std::bind(static_cast<void(Content::*)(const std::string&)>(&Content::AddSpriteSource), this, std::placeholders::_1);
+      auto soundCueMethod = std::bind(static_cast<void(Content::*)(const std::string&)>(&Content::AddSoundCue), this, std::placeholders::_1);
+      auto fontMethod = std::bind(static_cast<void(Content::*)(const std::string&)>(&Content::AddFont), this, std::placeholders::_1);
+      auto bankMethod = std::bind(static_cast<void(Content::*)(const std::string&)>(&Content::AddBank), this, std::placeholders::_1);
+      auto spriteLayersMethod = std::bind(static_cast<void(Content::*)(const std::string&)>(&Content::AddSpriteLayer), this, std::placeholders::_1);
+      auto spriteLayerOrdersMethod = std::bind(static_cast<void(Content::*)(const std::string&)>(&Content::AddSpriteLayerOrder), this, std::placeholders::_1);
+      auto levelMethod = std::bind(static_cast<void(Content::*)(const std::string&)>(&Content::AddLevel), this, std::placeholders::_1);
+      auto archetypeMethod = std::bind(static_cast<void(Content::*)(const std::string&)>(&Content::AddArchetype), this, std::placeholders::_1);
+      auto collisionGroupsMethod = std::bind(static_cast<void(Content::*)(const std::string&)>(&Content::AddCollisionGroup), this, std::placeholders::_1);
+      auto collisionTablesMethod = std::bind(static_cast<void(Content::*)(const std::string&)>(&Content::AddCollisionTable), this, std::placeholders::_1);
+      auto physicsMaterialsMethod = std::bind(static_cast<void(Content::*)(const std::string&)>(&Content::AddPhysicsMaterial), this, std::placeholders::_1);
+      auto zilchScriptsMethod = std::bind(static_cast<void(Content::*)(const std::string&)>(&Content::AddZilchScript), this, std::placeholders::_1);
+      //-------------------------------------------------------------//
       
-      // Try with a static method
-      auto threadSpriteSource = std::thread(AssetLoader::LoadS, spriteSources, spriteSourceMethod);
+
+      // Load SpriteSources using several threads.
+      //auto threadSpriteSource = std::thread(AssetLoader::LoadS, spriteSources, spriteSourceMethod);
+      //auto spriteSourcesBySize
+      // Sort the spritesource files by size
+
       //AssetLoader loader;
       //loader.Load(spriteSources, spriteSourceMethod);
       
@@ -90,8 +106,8 @@ namespace DCEngine {
         auto resourceName = FileSystem::FileNoExtension(resource);
         auto extension = FileSystem::FileExtension(resource);
         // 2. Depending on the extension, add the specific resource:
-        //if (extension == SpriteSource::Extension())
-        //  AddSpriteSource(resource);
+        if (extension == SpriteSource::Extension())
+          AddSpriteSource(resource);
         if (extension == SpriteLayer::Extension())
           AddSpriteLayer(resource);
         else if (extension == SpriteLayerOrder::Extension())
@@ -117,7 +133,7 @@ namespace DCEngine {
       }
 
       // Wait until all threads are finished before leaving scope
-      if (threadSpriteSource.joinable()) threadSpriteSource.join();
+      //if (threadSpriteSource.joinable()) threadSpriteSource.join();
 
 
     }
