@@ -173,6 +173,10 @@ namespace DCEngine {
       DCTrace << ObjectName << "::DestroyAll - Removing all objects from the space.\n";
     // For every GameObject in the space
     for (auto object : GameObjectContainer) {
+      // Do not delete the Editor Camera!
+      if (object->HasComponent("EditorCameraController"))
+        continue;
+
       // Mark the object for destruction on next frame
       DCTrace << " - " << object->Name() << "\n";
       Daisy->getSystem<Systems::Factory>()->MarkGameObject(*object);

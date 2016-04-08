@@ -47,11 +47,56 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Loads the Font data from file
+  */
+  /**************************************************************************/
+  bool Font::LoadFontFromFile()
+  {
+    // Initialize the FreeType library
+    if (FT_Init_FreeType(&FreeTypeLibrary)) {
+      DCTrace << "Font::Load - Error! Could not initialize FreeType library! \n";
+      return false;
+    }
+
+    // Load the font from file
+    if (FT_New_Face(FreeTypeLibrary, AssetPath.c_str(), 0, &FontData)) {
+      DCTrace << "Font::Load - Error! Failed to load font \n";
+      return false;
+    }
+
+    // Define the font size to extract from this face. This function sets
+    // the font's width and height parameters. Setting the widh to 0
+    // lets the face dynamically calculate the width based on a given height.
+    FT_Set_Pixel_Sizes(FontData, 0, 48);
+    return true;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Generates the font.
+  */
+  /**************************************************************************/
+  bool Font::GenerateFont()
+  {
+    // Generate the map of character textures
+    GenerateCharacters(FontData);
+    DCTrace << "Font::Load - Font was successfully loaded! \n";
+
+    // Clear FreeType's resources now that we are done processing glyphs
+    FT_Done_Face(FontData);
+    FT_Done_FreeType(FreeTypeLibrary);
+    
+    return true;
+  }
+
+  /**************************************************************************/
+  /*!
   @brief Loads a font from file into the Font resource.
   @param The name of the font file.
   */
   /**************************************************************************/
   bool Font::Add() {
+
     FT_Library ft;
 
     // Initialize the FreeType library

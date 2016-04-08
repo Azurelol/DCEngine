@@ -305,6 +305,7 @@
     <ClCompile Include="Core\Engine\Delegate.cpp" />
     <ClCompile Include="Core\Engine\Engine.cpp" />
     <ClCompile Include="Core\Daisy.cpp" />
+    <ClCompile Include="Core\Engine\EngineLoad.cpp" />
     <ClCompile Include="Core\Engine\EventDelegate.cpp" />
     <ClCompile Include="Core\Engine\Math.cpp" />
     <ClCompile Include="Core\Engine\Profiler.cpp" />

@@ -31,11 +31,11 @@ namespace DCEngine {
       DCTrace << "\n[Content::LoadDefaultResources] - Loading default resources \n";
 
       // In the future, find a way to dynamically find the folder paths?
-      auto SpritePath = CoreAssetsPath + "Sprites/";
-      auto SoundPath = CoreAssetsPath + "Sounds/";
-      auto FontPath = CoreAssetsPath + "Fonts/";
-      auto ShaderPath = CoreAssetsPath + "Shaders/";
-      auto ArchetypePath = CoreAssetsPath + "Archetypes/";
+      auto SpritePath = Settings.DefaultAssetPath + "Sprites/";
+      auto SoundPath = Settings.DefaultAssetPath + "Sounds/";
+      auto FontPath = Settings.DefaultAssetPath + "Fonts/";
+      auto ShaderPath = Settings.DefaultAssetPath + "Shaders/";
+      auto ArchetypePath = Settings.DefaultAssetPath + "Archetypes/";
 
       // Load default shaders
       AddShader(std::string("SpriteShader"), ShaderPtr(new Shader(std::string("SpriteShader"),
@@ -372,11 +372,11 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::GenerateDefaultResources()
     {
-      AddSpriteLayer(DefaultSpriteLayer, SpriteLayerPtr(new SpriteLayer(DefaultSpriteLayer)));
-      AddSpriteLayerOrder(DefaultSpriteLayerOrder, SpriteLayerOrderPtr(new SpriteLayerOrder(DefaultSpriteLayerOrder)));
-      AddCollisionGroup(DefaultCollisionGroup, CollisionGroupPtr(new CollisionGroup(DefaultCollisionGroup)));
-      AddCollisionTable(DefaultCollisionTable, CollisionTablePtr(new CollisionTable(DefaultCollisionTable)));
-      AddPhysicsMaterial(DefaultPhysicsMaterial, PhysicsMaterialPtr(new PhysicsMaterial(DefaultPhysicsMaterial)));
+      AddSpriteLayer(Settings.DefaultSpriteLayer, SpriteLayerPtr(new SpriteLayer(Settings.DefaultSpriteLayer)));
+      AddSpriteLayerOrder(Settings.DefaultSpriteLayerOrder, SpriteLayerOrderPtr(new SpriteLayerOrder(Settings.DefaultSpriteLayerOrder)));
+      AddCollisionGroup( Settings.DefaultCollisionGroup, CollisionGroupPtr(new CollisionGroup(   Settings.DefaultCollisionGroup)));
+      AddCollisionTable( Settings.DefaultCollisionTable, CollisionTablePtr(new CollisionTable(   Settings.DefaultCollisionTable)));
+      AddPhysicsMaterial(Settings.DefaultPhysicsMaterial, PhysicsMaterialPtr(new PhysicsMaterial(Settings.DefaultPhysicsMaterial)));
     }
 
     /**************************************************************************/

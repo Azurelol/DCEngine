@@ -17,17 +17,17 @@ namespace DCEngine {
     class EditorCreator : public EditorModule {
     public:
       EditorCreator();
-      void CreateTransform();
-      void CreateSprite();
-      void CreateSpriteText();
-      void CreateParticleSystem();
-      void CreateLight();
-      void CreateCamera();      
-      void CreateFromArchetype(const std::string& archetypeName);
+      GameObjectPtr CreateTransform();
+      GameObjectPtr CreateSprite();
+      GameObjectPtr CreateSpriteText();
+      GameObjectPtr CreateParticleSystem();
+      GameObjectPtr CreateLight();
+      GameObjectPtr CreateCamera();
+      GameObjectPtr CreateFromArchetype(const std::string& archetypeName);
       void RebuildAllObjectsOnSpace();
 
     private:
-      void Create(std::string name, std::vector<std::string>& components);
+      GameObjectPtr Create(std::string name, std::vector<std::string>& components);
       void OnEditorRebuildZilchComponents(Events::EditorRebuildZilchComponents* event);
       void OnScriptingLibraryPatched(Events::ScriptingLibraryPatched* event);
 

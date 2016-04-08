@@ -26,6 +26,9 @@ namespace DCEngine {
       if (!Settings.GridActive)
         return;
 
+      if (!EditorCamera)
+        return;
+
       auto cameraPos = EditorCamera->getComponent<Components::Transform>()->getTranslation();
       // The editor grid will always be in front of the camera.
       Vec3 gridStartPos(cameraPos.x, cameraPos.y, 0);
@@ -90,6 +93,10 @@ namespace DCEngine {
     {
       // If the editor camera needs to be set
       if (set) {
+        // If there's a previous editor camera, do nothing
+        if (EditorCamera)
+          return;
+
         //DCTrace << "Editor::SetEditorCamera - Setting the editor camera. \n";
         auto editorCamera = Daisy->getSystem<Systems::Factory>()->CreateGameObject("EditorCamera", *CurrentSpace, false);
         editorCamera->setLocked(true);

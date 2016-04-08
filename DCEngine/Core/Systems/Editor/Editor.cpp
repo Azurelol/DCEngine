@@ -34,17 +34,19 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::Initialize()
     {
-      //auto& a = Settings;
-
       if (TRACE_INITIALIZE)
         DCTrace << "Editor::Initialize \n";
+
+      // Subscribe to project loaded events
+      Daisy->Connect<Events::ContentProjectLoaded>(&Editor::OnContentProjectLoadedEvent, this);
       // Store a reference to the Reflection System
       ReflectionSystem = Daisy->getSystem<Reflection>();
       // Subscribe to events
       Subscribe();
       // Set the default space for the editor to work on
       CurrentSpace = Daisy->getGameSession()->getDefaultSpace();
-      DispatchSystemEvents::EditorInitialize(*this);      
+      DispatchSystemEvents::EditorInitialize(*this);
+   
     }
 
     /**************************************************************************/
@@ -59,6 +61,16 @@ namespace DCEngine {
       Daisy->Connect<Events::MouseUpdate>(Daisy->getMouse(), &Editor::OnMouseUpdateEvent, this);
       Daisy->Connect<Events::KeyDown>(Daisy->getKeyboard(), &Editor::OnKeyDownEvent, this);
       Daisy->Connect<Events::EditorEnabled>(&Editor::OnEditorEnabledEvent, this);
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Event received when the current project has been loaded.
+    */
+    /**************************************************************************/
+    void Editor::OnContentProjectLoadedEvent(Events::ContentProjectLoaded * event)
+    {
+
     }
 
     /**************************************************************************/
@@ -88,8 +100,7 @@ namespace DCEngine {
      
       if (TRACE_UPDATE)
         DCTrace << "Editor::Update \n";
-      DisplayEditor(); 
-      DisplayTool();     
+      DisplayEditor();    
 
       
     }
@@ -247,6 +258,8 @@ namespace DCEngine {
       for (auto& module : ActiveModules)
         module->Display();
 
+      // Display the editor tools
+      DisplayTool();
       // Display all known editor windows
       DisplayMainMenuBar();
       WidgetLevel();

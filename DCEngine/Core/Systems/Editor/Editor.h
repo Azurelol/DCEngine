@@ -200,6 +200,7 @@ namespace DCEngine {
       void Update(float dt);
       void Terminate();
       // Events
+      void OnContentProjectLoadedEvent(Events::ContentProjectLoaded* event);
       void OnEditorEnabledEvent(Events::EditorEnabled* event);
       void OnKeyDownEvent(Events::KeyDown* event);
       void OnMouseDownEvent(Events::MouseDown* event);

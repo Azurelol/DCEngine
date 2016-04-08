@@ -22,6 +22,22 @@ namespace DCEngine {
     using Name##Container = std::map<Name##Ptr>;  \
     using Name##Handle = std::string              
 
+    /**************************************************************************/
+    /*!
+    \brief  AssetsQueue A queue of assets that can be accessed for operations
+            on them.
+    */
+    /**************************************************************************/
+    struct ResourceQueue {
+      std::queue<ResourcePtr> Assets;
+      std::mutex AssetsLock;
+      void Lock() { AssetsLock.lock(); }
+      void Unlock() { AssetsLock.unlock(); }
+    };
+
+
+
+
     using ResourceHandle = std::string;
       
 
@@ -40,8 +56,6 @@ namespace DCEngine {
     private:
       using ResourceTypePtr = std::shared_ptr<Resource>;
       Map Container;
-
-
     };
 
 

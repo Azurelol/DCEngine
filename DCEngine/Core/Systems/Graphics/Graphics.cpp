@@ -121,6 +121,10 @@ namespace DCEngine {
         for (auto&& drawList : mDrawList)
           drawList.clear();
       }
+
+      // Load any graphical assets
+      LoadGraphicalResources();
+
     }
 
 
@@ -329,6 +333,38 @@ namespace DCEngine {
     void Graphics::Terminate() {
       DCTrace << "Graphics::Terminate \n";
       GraphicsHandler->Terminate();
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief Loads all currently loaded graphical assets from the Content system
+           into the GPU.
+    */
+    /**************************************************************************/
+    void Graphics::LoadGraphicalResources()
+    {
+      auto& resources = Daisy->getSystem<Content>()->LoadedGraphicalResources();
+      std::lock_guard<std::mutex> lock(resources.AssetsLock);
+
+      // If there's no resourcesto load..
+      if (resources.Assets.empty())
+        return;
+
+      // Load the latest resource
+      auto& resource = resources.Assets.front();
+
+      // SpriteSource
+      if (auto spriteSource = dynamic_cast<SpriteSource*>(resource)) {
+        spriteSource->GenerateTexture();
+      }
+      // Font
+      else if (auto font = dynamic_cast<Font*>(resource)) {
+        font->GenerateFont();
+      }
+
+      // Remove it from the queue
+      resources.Assets.pop();
+
     }
 
     /**************************************************************************/

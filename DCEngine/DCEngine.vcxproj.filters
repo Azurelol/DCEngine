@@ -975,6 +975,9 @@
     <ClCompile Include="Core\Systems\Content\ContentScan.cpp">
       <Filter>Core\Systems\Content</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Engine\EngineLoad.cpp">
+      <Filter>Core\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">

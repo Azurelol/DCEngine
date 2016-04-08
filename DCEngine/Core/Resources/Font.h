@@ -51,11 +51,15 @@ namespace DCEngine {
 
     Font(std::string fontFile);
     static std::string Extension() { return ".Font"; }
+    bool LoadFontFromFile();
+    bool GenerateFont();
     void GenerateCharacters(FT_Face face);
     bool Add();
 
   private:
     std::string AssetPath;
+    FT_Library FreeTypeLibrary;
+    FT_Face FontData;
 
   };
 

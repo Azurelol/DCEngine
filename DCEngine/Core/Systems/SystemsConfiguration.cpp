@@ -231,10 +231,10 @@ namespace DCEngine {
     {
     }
 
-		GraphicsConfig::GraphicsConfig() : Configuration("Graphics"),
-			MaxDrawLayers(5), ScreenWidth(1440), ScreenHeight(900), Framerate(60), Fullscreen(false),
-			Caption("Daisy Chain Engine"), ClearColor(0.0f, 0.5f, 1.0f, 1.0f), ViewportScale(1.0f, 1.0f),
-			ViewportRatio(1.0f, 1.0f), Exposure(.5f), Samples(4)
+    GraphicsConfig::GraphicsConfig() : Configuration("Graphics"),
+      MaxDrawLayers(5), ScreenWidth(1440), ScreenHeight(900), Framerate(60), Fullscreen(false),
+      Caption("Daisy Chain Engine"), ClearColor(0.0f, 0.5f, 1.0f, 1.0f), ViewportScale(1.0f, 1.0f),
+      ViewportRatio(1.0f, 1.0f), Exposure(.5f), Samples(4)
     {
     }
 
@@ -246,6 +246,14 @@ namespace DCEngine {
     {
     }
 
+    ContentConfig::ContentConfig() : Configuration("Content"), 
+      DefaultImage("Wow"), DefaultFont("Verdana"), DefaultCollisionTable(CollisionTable::Default()),
+      DefaultCollisionGroup("DefaultCollisionGroup"), DefaultPhysicsMaterial("DefaultPhysicsMaterial"),
+      DefaultSpriteLayer("DefaultSpriteLayer"), DefaultSpriteLayerOrder(SpriteLayerOrder::Default()),
+      DefaultSound("Beep"), DefaultTexture("SampleTexture")
+    {
+    }
+
     void DebugConfig::Serialize(Json::Value & root)
     {
     }
@@ -253,6 +261,8 @@ namespace DCEngine {
     void DebugConfig::Deserialize(Json::Value & root)
     {
     }
+
+
 
 }
 }
