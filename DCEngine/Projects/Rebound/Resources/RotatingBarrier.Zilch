@@ -1,0 +1,23 @@
+class RotatingBarrier : ZilchComponent
+{
+    [Property]
+    var Layer : Real = 0;
+    function Initialize()
+    {
+        //Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+        Daisy.Connect(this.Owner, DaisyEvent.GeneratorDeathEvent, this.OnGeneratorDeathEvent);
+    }
+
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+      if(this.Layer == 0)
+      {
+        //this.Owner.Destroy();
+      }
+    }
+    
+    function OnGeneratorDeathEvent(event : GeneratorDeathEvent)
+    {
+      this.Layer -= 1;
+    }
+}

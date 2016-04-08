@@ -7,15 +7,11 @@ class FinalBossHealth : ZilchComponent
     {
         Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
         Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollisionStartedEvent);
+        Daisy.Connect(this.Owner, DaisyEvent.DeathEvent, this.OnDeathEvent);
     }
 
     function OnLogicUpdate(event : LogicUpdate)
-    {
-      if(this.Owner.HealthControllerZ.Health <= 0)
-      {
-        this.Die();
-      }
-    }
+    {}
     
     function OnCollisionStartedEvent(event : CollisionStarted)
     {
@@ -25,7 +21,7 @@ class FinalBossHealth : ZilchComponent
       }
     }
     
-    function Die()
+    function OnDeathEvent(event : DeathEvent)
     {
       
     }
