@@ -26,8 +26,6 @@ Each space has its own instances of the core systems of the engine.
 
 namespace DCEngine {
     
-
-
   
   /**************************************************************************/
   /*!
@@ -266,12 +264,12 @@ namespace DCEngine {
       DCTrace << ObjectName << " Space::LoadLevel - Loading " << level->Name() << " level.\n";
 
     // Set it as the current level
-    CurrentLevel = level;
+    CurrentLevelRef = level;
 
     DestroyAll();
 
     // Load GameObjects into the space
-    for (auto gameObject : CurrentLevel->GameObjects) {
+    for (auto gameObject : CurrentLevelRef->GameObjects) {
       AddObject(gameObject);
     }
 
@@ -305,7 +303,7 @@ namespace DCEngine {
     // Clear the current objects from the space
     DestroyAll();
     // Set it as the current level
-    CurrentLevel = level;
+    CurrentLevelRef = level;
     // Build all the GameObjects from the level
     Daisy->getSystem<Systems::Factory>()->BuildFromLevel(level, *this);
     // Set the default camera
@@ -325,6 +323,17 @@ namespace DCEngine {
       DispatchGameEvents::AllObjectsInitialized(this);
     }
 
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Returns the currently loaded level.
+  @return  A pointer to the level resource.
+  */
+  /**************************************************************************/
+  LevelPtr Space::CurrentLevel()
+  {
+    return CurrentLevelRef;
   }
 
   /**************************************************************************/
@@ -353,8 +362,8 @@ namespace DCEngine {
     // DestroyAll();
     
     // Load the level again
-    if (CurrentLevel != nullptr)
-      LoadLevel(CurrentLevel);
+    if (CurrentLevelRef != nullptr)
+      LoadLevel(CurrentLevelRef);
   }
   
   /**************************************************************************/

@@ -67,6 +67,8 @@ namespace DCEngine {
   /**************************************************************************/
   Action::~Action()
   {
+    if (DCE_TRACE_ACTIONS_DTOR)
+      DCTrace << Type << "::Action::~Action \n";
     Destroyed++;
   }
 

@@ -43,6 +43,7 @@ namespace DCEngine {
       DCTrace << Type << "::Clear - Removed '" << InactiveActions.size() << "' actions: \n";
       for (auto& action : InactiveActions) {
         DCTrace << " - " << action->Type << "\n";
+        delete action; 
       }
     }
       

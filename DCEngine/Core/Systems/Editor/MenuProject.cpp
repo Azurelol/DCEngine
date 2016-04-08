@@ -134,8 +134,8 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::SaveCurrentLevel()
     {      
-      if (CurrentSpace->CurrentLevel) {
-        auto currentLevelName = CurrentSpace->CurrentLevel->Name();
+      if (CurrentSpace->CurrentLevel()) {
+        auto currentLevelName = CurrentSpace->CurrentLevel()->Name();
         SaveLevel(currentLevelName);
       }
     }

@@ -80,20 +80,32 @@ namespace DCEngine {
     float mostTimeElapsed = 0;
     // In an ActionGroup, every action is updated in parallel, given the same 
     // time slice.
-    for (auto& action : ActiveActions) {
-      auto timeElapsed = action->Update(dt);
+    for (size_t i = 0; i < ActiveActions.size(); ++i) {
+      auto timeElapsed = ActiveActions[i]->Update(dt);
       // If this action took longer than the previous action, it is the new maximum
       if (timeElapsed > mostTimeElapsed)
         mostTimeElapsed = timeElapsed;
       // If the action was completed (Meaning that it was completed in less time
       // than the time slice given)
-      if (timeElapsed <= dt && action->Finished()) {
+      if (timeElapsed <= dt && ActiveActions[i]->Finished()) {
         // Mark the action to be cleared
-        InactiveActions.push_back(action);
+        InactiveActions.push_back(ActiveActions[i]);
       }
     }
 
-    auto& a = InactiveActions;
+    //for (auto& action : ActiveActions) {
+    //  auto timeElapsed = action->Update(dt);
+    //  // If this action took longer than the previous action, it is the new maximum
+    //  if (timeElapsed > mostTimeElapsed)
+    //    mostTimeElapsed = timeElapsed;
+    //  // If the action was completed (Meaning that it was completed in less time
+    //  // than the time slice given)
+    //  if (timeElapsed <= dt && action->Finished()) {
+    //    // Mark the action to be cleared
+    //    InactiveActions.push_back(action);
+    //  }
+    //}
+
 
     // Sweep all inactive actions
     Clear();

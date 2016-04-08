@@ -140,8 +140,8 @@ namespace DCEngine {
       // Get the current project's name
       auto projectName = Settings.ProjectProperties->ProjectName;
       std::string levelName;
-      if (CurrentSpace->CurrentLevel)
-        levelName = CurrentSpace->CurrentLevel->getObjectName();
+      if (CurrentSpace->CurrentLevel())
+        levelName = CurrentSpace->CurrentLevel()->getObjectName();
 
       DispatchSystemEvents::SetWindowCaption(projectName + " - Level: " + levelName + " - Daisy Chain Engine");
     }
