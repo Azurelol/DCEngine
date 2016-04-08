@@ -65,9 +65,9 @@ namespace DCEngine
     // Scripts
     #define DCE_TRACE_SCRIPTS 0
     // Actions
-    #define DCE_TRACE_ACTIONS_CTOR 0
-    #define DCE_TRACE_ACTIONS_DTOR 0
-    #define DCE_TRACE_ACTIONS_ADD 0
+    #define DCE_TRACE_ACTIONS_CTOR   0
+    #define DCE_TRACE_ACTIONS_DTOR   1
+    #define DCE_TRACE_ACTIONS_ADD    0
     #define DCE_TRACE_ACTIONS_REMOVE 0
     #define DCE_TRACE_ACTIONS_UPDATE 0
 

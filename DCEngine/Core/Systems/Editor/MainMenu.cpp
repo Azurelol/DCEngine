@@ -104,6 +104,8 @@ namespace DCEngine {
           ImGui::Separator();
           if (ImGui::MenuItem("Load Level"))
             Windows.LoadLevelEnabled = !Windows.LoadLevelEnabled;
+          if (ImGui::MenuItem("Duplicate Level"))
+            Resources.ToggleDuplicateLevel();
           if (ImGui::MenuItem("Save Level"))
             Windows.SaveLevelEnabled = !Windows.SaveLevelEnabled;
           if (ImGui::MenuItem("Reload Level"))

@@ -51,6 +51,8 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Vec3, SystemSize);
 			DCE_DEFINE_PROPERTY(Boolean, Additive);
 			DCE_DEFINE_PROPERTY(Boolean, Lock);
+			DCE_DEFINE_PROPERTY(unsigned, DrawLayer);
+
 
       ZilchDeclareDerivedType(SpriteParticleSystem, Graphical);
       SpriteParticleSystem(Entity& owner);

@@ -22,8 +22,8 @@ in the world space through the drawing of sprites.
 namespace DCEngine {
   namespace Components
   {
-		ShaderPtr Sprite::mShader;
-		GLuint Sprite::mVAO;
+    ShaderPtr Sprite::mShader;
+    GLuint Sprite::mVAO;
     DCE_COMPONENT_DEFINE_DEPENDENCIES(Sprite, "Transform");
     
     /**************************************************************************/
@@ -51,7 +51,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Sprite, FlipY);
       DCE_BINDING_DEFINE_PROPERTY(Sprite, AnimationActive);
       DCE_BINDING_DEFINE_PROPERTY(Sprite, AnimationSpeed);
-			DCE_BINDING_DEFINE_PROPERTY(Sprite, DrawLayer);
+      DCE_BINDING_DEFINE_PROPERTY(Sprite, DrawLayer);
       DCE_BINDING_PROPERTY_DEFINE_RANGE(DrawLayer, 0, 5);
       DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyDrawLayer, attributeRangeDrawLayer);
       DCE_BINDING_PROPERTY_SET_UNSIGNED(propertyDrawLayer);
@@ -93,7 +93,7 @@ namespace DCEngine {
     Sprite::~Sprite()
     {
       // Deregister this component from the GraphicsSpace
-			SpaceRef->getComponent<GraphicsSpace>()->RemoveGraphicsComponent(this);
+      SpaceRef->getComponent<GraphicsSpace>()->RemoveGraphicsComponent(this);
     }
 
     /**************************************************************************/
@@ -140,181 +140,181 @@ namespace DCEngine {
       DCTrace << "Color set using 255 function = " << Color.x << " " << Color.y << " " << Color.z << " " << Color.w << ".\n";
     }
 
-		void Sprite::Update(float dt)
-		{
-			SpriteSourcePtr spriteSrc = Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource);
-			//Animation update
-			if (UpdateAnimationSpeed())//Check whether the animation speed is 0
-			{
-				if (AnimationActive == true)
-				{
-					AnimationSpeedFPSCounter += dt;
-					if (AnimationSpeedFPSCounter >= AnimationSpeedFPS)
-					{
-						AnimationSpeedFPSCounter = 0;
-						CurrentColumn++;
-						//Check whether it reaches the next line.
-						if (CurrentColumn + spriteSrc->ColumnCount * CurrentRow >= spriteSrc->TotalFrame)
-						{
-							if (spriteSrc->Looping)
-							{
-								CurrentColumn = 0;
-								CurrentRow = 0;
-							}
-							else
-								AnimationActive = false;
-						}
-						else if (CurrentColumn >= spriteSrc->ColumnCount)
-						{
-							CurrentRow++;
-							CurrentColumn = 0;
-							if (CurrentRow >= spriteSrc->RowCount)
-								CurrentRow = 0;
-						}
-					}
-				}
-			}
-		}
+    void Sprite::Update(float dt)
+    {
+      SpriteSourcePtr spriteSrc = Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource);
+      //Animation update
+      if (UpdateAnimationSpeed())//Check whether the animation speed is 0
+      {
+        if (AnimationActive == true)
+        {
+          AnimationSpeedFPSCounter += dt;
+          if (AnimationSpeedFPSCounter >= AnimationSpeedFPS)
+          {
+            AnimationSpeedFPSCounter = 0;
+            CurrentColumn++;
+            //Check whether it reaches the next line.
+            if (CurrentColumn + spriteSrc->ColumnCount * CurrentRow >= spriteSrc->TotalFrame)
+            {
+              if (spriteSrc->Looping)
+              {
+                CurrentColumn = 0;
+                CurrentRow = 0;
+              }
+              else
+                AnimationActive = false;
+            }
+            else if (CurrentColumn >= spriteSrc->ColumnCount)
+            {
+              CurrentRow++;
+              CurrentColumn = 0;
+              if (CurrentRow >= spriteSrc->RowCount)
+                CurrentRow = 0;
+            }
+          }
+        }
+      }
+    }
 
-		void Sprite::SetUniforms(ShaderPtr shader, Camera* camera, Light* light)
-		{
-			if (!shader)
-			{
-				silhouette = false;
-				shader = mShader;
-			}
-			else silhouette = true;
-			shader->Use();
-			shader->SetInteger("isTexture", 1);
-			//set matrix uniforms
-			auto transform = TransformComponent;
-			glm::mat4 modelMatrix;
-			// Matrices
-			modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
-				transform->Translation.y,
-				transform->Translation.z));
-			modelMatrix = glm::rotate(modelMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
-			modelMatrix = glm::scale(modelMatrix, glm::vec3(transform->Scale.x,
-				transform->Scale.y, 1.0f));
-			shader->SetMatrix4("model", modelMatrix);
+    void Sprite::SetUniforms(ShaderPtr shader, Camera* camera, Light* light)
+    {
+      if (!shader)
+      {
+        silhouette = false;
+        shader = mShader;
+      }
+      else silhouette = true;
+      shader->Use();
+      shader->SetInteger("isTexture", 1);
+      //set matrix uniforms
+      auto transform = TransformComponent;
+      glm::mat4 modelMatrix;
+      // Matrices
+      modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
+        transform->Translation.y,
+        transform->Translation.z));
+      modelMatrix = glm::rotate(modelMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
+      modelMatrix = glm::scale(modelMatrix, glm::vec3(transform->Scale.x,
+        transform->Scale.y, 1.0f));
+      shader->SetMatrix4("model", modelMatrix);
 
-			glm::mat4 rotationMatrix;
-			rotationMatrix = glm::rotate(rotationMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
-			shader->SetMatrix4("rotation", rotationMatrix);
+      glm::mat4 rotationMatrix;
+      rotationMatrix = glm::rotate(rotationMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
+      shader->SetMatrix4("rotation", rotationMatrix);
 
-			auto spriteSrc = Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource);
-			if (FlipX == true)
-				shader->SetInteger("flipx", 1);
-			else
-				shader->SetInteger("flipx", 0);
+      auto spriteSrc = Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource);
+      if (FlipX == true)
+        shader->SetInteger("flipx", 1);
+      else
+        shader->SetInteger("flipx", 0);
 
-			if (FlipY == true)
-				shader->SetInteger("flipy", 1);
-			else
-				shader->SetInteger("flipy", 0);
-			shader->SetVector4f("spriteColor", Color);
-			shader->SetInteger("image", 0);
-			glActiveTexture(GL_TEXTURE0); // Used for 3D???
-			spriteSrc->getTexture().Bind();
-			shader->SetInteger("totalColumns", spriteSrc->ColumnCount);
-			shader->SetInteger("totalRows", spriteSrc->RowCount);
-			if (AnimationActive == true)//Check whether it has animation
-			{
-				if (CheckAnimationIntialized() == false)
-				{
-					shader->SetInteger("currentColumn", StartColumn);
-					shader->SetInteger("currentRow", StartRow);
-				}
-				else
-				{
-					shader->SetInteger("currentColumn", CurrentColumn);
-					shader->SetInteger("currentRow", CurrentRow);
-				}
-			}
-			else
-			{
-				shader->SetInteger("currentColumn", 0);
-				shader->SetInteger("currentRow", 0);
-			}
+      if (FlipY == true)
+        shader->SetInteger("flipy", 1);
+      else
+        shader->SetInteger("flipy", 0);
+      shader->SetVector4f("spriteColor", Color);
+      shader->SetInteger("image", 0);
+      glActiveTexture(GL_TEXTURE0); // Used for 3D???
+      spriteSrc->getTexture().Bind();
+      shader->SetInteger("totalColumns", spriteSrc->ColumnCount);
+      shader->SetInteger("totalRows", spriteSrc->RowCount);
+      if (AnimationActive == true)//Check whether it has animation
+      {
+        if (CheckAnimationIntialized() == false)
+        {
+          shader->SetInteger("currentColumn", StartColumn);
+          shader->SetInteger("currentRow", StartRow);
+        }
+        else
+        {
+          shader->SetInteger("currentColumn", CurrentColumn);
+          shader->SetInteger("currentRow", CurrentRow);
+        }
+      }
+      else
+      {
+        shader->SetInteger("currentColumn", 0);
+        shader->SetInteger("currentRow", 0);
+      }
 
-			shader->SetInteger("useLight", false);
-			if (light)
-			{
-				shader->SetInteger("useLight", true);
-				glm::mat4 lightMatrix;
-				Components::Transform* lightTransform = light->Owner()->getComponent<Components::Transform>();
+      shader->SetInteger("useLight", false);
+      if (light)
+      {
+        shader->SetInteger("useLight", true);
+        glm::mat4 lightMatrix;
+        Components::Transform* lightTransform = light->Owner()->getComponent<Components::Transform>();
 
-				lightMatrix = glm::translate(lightMatrix, glm::vec3(
-					lightTransform->Translation.x,
-					lightTransform->Translation.y,
-					lightTransform->Translation.z));
-				lightMatrix = glm::rotate(lightMatrix, lightTransform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
-				lightMatrix = glm::scale(lightMatrix, glm::vec3(lightTransform->Scale.x,
-					lightTransform->Scale.y, 1.0f));
+        lightMatrix = glm::translate(lightMatrix, glm::vec3(
+          lightTransform->Translation.x,
+          lightTransform->Translation.y,
+          lightTransform->Translation.z));
+        lightMatrix = glm::rotate(lightMatrix, lightTransform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
+        lightMatrix = glm::scale(lightMatrix, glm::vec3(lightTransform->Scale.x,
+          lightTransform->Scale.y, 1.0f));
 
-				std::string var("gLight.");
-				std::string member;
-				member = var + "Visible";
-				shader->SetInteger(member.c_str(), light->getVisible());
-				member = var + "VisibilityCulling";
-				shader->SetInteger(member.c_str(), light->getVisibilityCulling());
-				member = var + "VisibilityEvents";
-				shader->SetInteger(member.c_str(), light->getVisibilityEvents());
-				member = var + "CastShadows";
-				shader->SetInteger(member.c_str(), light->getVisibilityEvents());
-				member = var + "Diffuse";
-				shader->SetInteger(member.c_str(), light->getDiffuse());
-				member = var + "LightType";
-				shader->SetInteger(member.c_str(), light->getTypeAsInt());
-				member = var + "Color";
-				shader->SetVector4f(member.c_str(), light->getColor());
-				member = var + "Intensity";
-				shader->SetFloat(member.c_str(), light->getIntensity());
-				member = var + "Range";
-				shader->SetFloat(member.c_str(), light->getRange());
-				member = var + "Falloff";
-				shader->SetFloat(member.c_str(), light->getFalloff());
-				member = var + "Direction";
-				shader->SetVector3f(member.c_str(), light->getDirectionVector());
-				member = var + "InnerAngle";
-				shader->SetFloat(member.c_str(), light->getInnerAngle() * 3.141593f / 360.0f);
-				member = var + "OuterAngle";
-				shader->SetFloat(member.c_str(), light->getOuterAngle() * 3.141593f / 360.0f);
-				member = var + "Position";
-				shader->SetVector3f(member.c_str(), lightTransform->Translation);
-				member = var + "Model";
-				shader->SetMatrix4(member.c_str(), lightMatrix);
-			}
+        std::string var("gLight.");
+        std::string member;
+        member = var + "Visible";
+        shader->SetInteger(member.c_str(), light->getVisible());
+        member = var + "VisibilityCulling";
+        shader->SetInteger(member.c_str(), light->getVisibilityCulling());
+        member = var + "VisibilityEvents";
+        shader->SetInteger(member.c_str(), light->getVisibilityEvents());
+        member = var + "CastShadows";
+        shader->SetInteger(member.c_str(), light->getVisibilityEvents());
+        member = var + "Diffuse";
+        shader->SetInteger(member.c_str(), light->getDiffuse());
+        member = var + "LightType";
+        shader->SetInteger(member.c_str(), light->getTypeAsInt());
+        member = var + "Color";
+        shader->SetVector4f(member.c_str(), light->getColor());
+        member = var + "Intensity";
+        shader->SetFloat(member.c_str(), light->getIntensity());
+        member = var + "Range";
+        shader->SetFloat(member.c_str(), light->getRange());
+        member = var + "Falloff";
+        shader->SetFloat(member.c_str(), light->getFalloff());
+        member = var + "Direction";
+        shader->SetVector3f(member.c_str(), light->getDirectionVector());
+        member = var + "InnerAngle";
+        shader->SetFloat(member.c_str(), light->getInnerAngle() * 3.141593f / 360.0f);
+        member = var + "OuterAngle";
+        shader->SetFloat(member.c_str(), light->getOuterAngle() * 3.141593f / 360.0f);
+        member = var + "Position";
+        shader->SetVector3f(member.c_str(), lightTransform->Translation);
+        member = var + "Model";
+        shader->SetMatrix4(member.c_str(), lightMatrix);
+      }
 
-			// Set the projection matrix
-			shader->SetMatrix4("projection", camera->GetProjectionMatrix());
-			// Set the view matrix 
-			shader->SetMatrix4("view", camera->GetViewMatrix());
-		}
+      // Set the projection matrix
+      shader->SetMatrix4("projection", camera->GetProjectionMatrix());
+      // Set the view matrix 
+      shader->SetMatrix4("view", camera->GetViewMatrix());
+    }
 
-		void Sprite::Draw(void)
-		{
+    void Sprite::Draw(void)
+    {
       // Skip drawing if visible is false...
       if (!Visible)
         return;
 
-			glBindVertexArray(mVAO);
-			if(silhouette)
-				glDrawArrays(GL_LINE_LOOP, 0, 4);
-			else
-				glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-			glBindVertexArray(0);
-		}
+      glBindVertexArray(mVAO);
+      if(silhouette)
+        glDrawArrays(GL_LINE_LOOP, 0, 4);
+      else
+        glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+      glBindVertexArray(0);
+    }
 
-		void Sprite::SetShader()
-		{
-			mShader->Use();
-		}
+    void Sprite::SetShader()
+    {
+      mShader->Use();
+    }
 
-		//unsigned Sprite::GetDrawLayer(void)
-		//{
-		//	return DrawLayer;
-		//}
+    //unsigned Sprite::GetDrawLayer(void)
+    //{
+    //	return DrawLayer;
+    //}
 
     /**************************************************************************/
     /*!

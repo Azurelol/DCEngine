@@ -132,9 +132,6 @@ namespace DCEngine {
   /**************************************************************************/
   void ActionSpace::Sweep()
   {
-    for (auto& action : InactiveActions) {
-
-    }
   }
 
 
