@@ -352,6 +352,9 @@
     <Filter Include="Core\Systems\Content\AssetLoader">
       <UniqueIdentifier>{d6e5f5f9-c8eb-4e86-9c12-de77cbbaabd8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\Input">
+      <UniqueIdentifier>{be8bcceb-00ab-4c97-bee5-04d679d25a9f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">

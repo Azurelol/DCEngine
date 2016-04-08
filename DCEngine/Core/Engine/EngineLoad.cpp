@@ -63,7 +63,9 @@ namespace DCEngine {
     // Display a Sprite on the current space
     if (enable) {
       //Systems::Editor::Access().SetEditorCamera(true);
-      //sprite = Systems::Editor::Access().Creator.CreateSprite();
+      sprite = Systems::Editor::Access().Creator.CreateSprite();
+      sprite->getComponent<Components::Sprite>()->setSpriteSource("Wow");
+      sprite->getComponent<Components::Transform>()->setScale(Vec3(10, 10, 1));
     }
     // Remove it
     else {

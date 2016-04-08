@@ -127,9 +127,9 @@ namespace DCEngine {
         auto defaultcam = CurrentSpace->getComponent<Components::CameraViewport>()->FindDefaultCamera();
         // Set it as the default camera
         CurrentSpace->getComponent<Components::CameraViewport>()->setCamera(defaultcam);
+
         // Remove the editor camera from the space
         auto editorCamera = CurrentSpace->FindObjectByName("EditorCamera");
-
         if (editorCamera)
           editorCamera->Destroy();
         EditorCamera = nullptr;

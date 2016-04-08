@@ -45,6 +45,7 @@ namespace DCEngine {
       Subscribe();
       // Set the default space for the editor to work on
       CurrentSpace = Daisy->getGameSession()->getDefaultSpace();
+
       DispatchSystemEvents::EditorInitialize(*this);
    
     }
@@ -61,7 +62,22 @@ namespace DCEngine {
       Daisy->Connect<Events::MouseUpdate>(Daisy->getMouse(), &Editor::OnMouseUpdateEvent, this);
       Daisy->Connect<Events::KeyDown>(Daisy->getKeyboard(), &Editor::OnKeyDownEvent, this);
       Daisy->Connect<Events::EditorEnabled>(&Editor::OnEditorEnabledEvent, this);
+      Daisy->Connect<Events::SpaceInitialized>(Daisy->getGameSession(), &Editor::OnSpaceInitializedEvent, this);
     }
+
+    /**************************************************************************/
+    /*!
+    \brief  Event received when a space has been initialized
+    */
+    /**************************************************************************/
+    void Editor::OnSpaceInitializedEvent(Events::SpaceInitialized * event)
+    {
+      // Once the default space has been initialized, set the editor camera
+      if (event->Name == CurrentSpace->Name()) {
+        SetEditorCamera(true);
+      }
+    }
+
 
     /**************************************************************************/
     /*!
@@ -167,6 +183,8 @@ namespace DCEngine {
         // Clear previous commands
         Settings.Commands.CommandsCurrent.clear();
         Settings.Commands.CommandsUndo.clear();
+        // Set the editor camera
+        // SetEditorCamera(true);
       }
       // Editor OFF
       else {

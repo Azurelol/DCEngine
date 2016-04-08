@@ -33,7 +33,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(EditorCameraController, MoveSpeed);
       DCE_BINDING_DEFINE_PROPERTY(EditorCameraController, RotSpeed);
       DCE_BINDING_DEFINE_PROPERTY(EditorCameraController, ZoomSpeed);
-	  DCE_BINDING_DEFINE_PROPERTY(EditorCameraController, ZoomMax);
+    DCE_BINDING_DEFINE_PROPERTY(EditorCameraController, ZoomMax);
     }
     #endif
 
@@ -49,6 +49,11 @@ namespace DCEngine {
       TransformComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
       // Set it as the space's default camera ( Maybe not needed?)
       SpaceRef->getComponent<Components::CameraViewport>()->setCamera(CameraComponent);
+    }
+
+    EditorCameraController::~EditorCameraController()
+    {
+      DCTrace << "EditorCameraController::~EditorCameraController: \n";
     }
 
     /**************************************************************************/

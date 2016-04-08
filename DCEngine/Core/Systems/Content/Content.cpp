@@ -147,18 +147,33 @@ namespace DCEngine {
     void Content::LoadAllResources()
     {
       DCTrace << " Content::LoadAllResources: '" << ProjectInfo->ProjectName << "' has started loading... \n";
+
       // Generate every SoundCue from file
       for (auto& soundCue : MapSoundCue) {
         soundCue.second->Load();
         soundCue.second->Generate();
       }
+
       // Load all banks from file, then add them to audio system
       for (auto& bank : MapBank) {
         bank.second->Load();
         bank.second->Add();
       }
-      Daisy->getSystem<Audio>()->Generate();    
+      Daisy->getSystem<Audio>()->Generate();  
+
+      // Load every script..
+      for (auto& script : MapZilchScript) {
+        script.second->Load();
+        script.second->IncludeScript();
+      }
+      Daisy->getSystem<Reflection>()->Handler()->CompileScripts();
       
+      // Load the project's graphical resources on a separate thread
+      if (LoadingThread.joinable())
+        LoadingThread.join();
+
+      LoadingThread = std::thread(&Content::LoadGraphicalResources, this);
+
 
       // Load its texture onto the graphics system
       //for (auto& spriteSource : MapSpriteSource) {
@@ -166,6 +181,24 @@ namespace DCEngine {
       //  spriteSource.second->LoadTexture();
       //}
 
+
+
+      // Generate every SpriteSource's texture
+      for (auto& spriteSource : MapSpriteSource) {
+        //spriteSource.second->GenerateTexture();
+      }
+      
+      DCTrace << " Content::LoadAllResources: '" << ProjectInfo->ProjectName << "' is done loading. \n";
+
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Loads graphical resources from file.
+    */
+    /**************************************************************************/
+    void Content::LoadGraphicalResources()
+    {
       // Load every SpriteSource's image from file
       for (auto& spriteSource : MapSpriteSource) {
         spriteSource.second->Load();
@@ -174,16 +207,6 @@ namespace DCEngine {
         std::lock_guard<std::mutex> lock(LoadedGraphicalResourcesQueue.AssetsLock);
         LoadedGraphicalResourcesQueue.Assets.push(spriteSource.second.get());
       }
-
-      // Generate every SpriteSource's texture
-      for (auto& spriteSource : MapSpriteSource) {
-        //spriteSource.second->GenerateTexture();
-      }
-
-      
-
-
-      //sf::Context::
 
       // Load every Font
       for (auto& font : MapFont) {
@@ -197,21 +220,7 @@ namespace DCEngine {
         //font.second->Add();
       }
 
-      // Load every script..
-      for (auto& script : MapZilchScript) {
-        script.second->Load();
-        script.second->IncludeScript();
-      }
-      Daisy->getSystem<Reflection>()->Handler()->CompileScripts();
-
-
-      // Do not continue until all contents have been loaded
-      //for (auto& thread : threads) {
-      //  if (thread.joinable()) thread.join();
-      //}
-
-      DCTrace << " Content::LoadAllResources: '" << ProjectInfo->ProjectName << "' is done loading. \n";
-
+      //if (LoadingThread.joinable()) LoadingThread.join();
     }
 
     /**************************************************************************/
@@ -246,9 +255,7 @@ namespace DCEngine {
       if (FileSystem::FileReadToString(projectDataPath, projectDataString))
         worked = Serialization::Deserialize(ProjectInfo.get(), projectDataString);
 
-      // Load the project''s resources on a separate thread
-      LoadingThread = std::thread(&Content::LoadProjectResources, this);
-      //LoadProjectResources();
+      LoadProjectResources();
     }
 
     /**************************************************************************/

@@ -175,6 +175,7 @@ namespace DCEngine {
       void LoadProjectAssets(); //!< Load the assets used by the loaded project.      
       void GenerateDefaultResources();
       void LoadAllResources();
+      void LoadGraphicalResources();
       void LoadProjectData(const std::string&);
       // Events
       void OnContentFileMoved(Events::ContentFileMoved* event);

@@ -90,6 +90,10 @@ namespace DCEngine {
       gameObject->GamesessionRef = GameSessionRef;
       gameObject->Initialize();
     }
+    
+    // Announce that this Space has been initialized
+    DispatchGameEvents::SpaceInitialized(Name());
+
   }
 
   /**************************************************************************/
@@ -174,8 +178,8 @@ namespace DCEngine {
     // For every GameObject in the space
     for (auto object : GameObjectContainer) {
       // Do not delete the Editor Camera!
-      if (object->HasComponent("EditorCameraController"))
-        continue;
+      //if (object->HasComponent("EditorCameraController"))
+      //  continue;
 
       // Mark the object for destruction on next frame
       DCTrace << " - " << object->Name() << "\n";

@@ -44,7 +44,7 @@
           }, 
           "Camera": 
           {
-            "FieldOfView": 250.000000, 
+            "FieldOfView": 175.000000, 
             "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 

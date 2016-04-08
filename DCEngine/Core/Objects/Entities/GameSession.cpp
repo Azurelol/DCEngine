@@ -48,8 +48,11 @@ namespace DCEngine {
     DCTrace << "[" << ObjectName << "::Initialize - Initializing all spaces... ] \n";
 
     // Initialize all spaces
-    for (auto space : ActiveSpaces)
+    for (auto space : ActiveSpaces) {
       space.second->Initialize();
+    }
+
+
   }
 
   /**************************************************************************/

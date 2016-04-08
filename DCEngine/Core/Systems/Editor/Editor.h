@@ -182,6 +182,7 @@ namespace DCEngine {
       void MoveToViewportCenter(GameObject* gameobject);
       // Window, Input
       void ApplyEditorWindowLayout();
+      //void CreateEditorCamera
       void SetEditorCamera(bool);
       void Hotkeys(Events::KeyDown* event);
       void UpdateCaption();
@@ -200,6 +201,7 @@ namespace DCEngine {
       void Update(float dt);
       void Terminate();
       // Events
+      void OnSpaceInitializedEvent(Events::SpaceInitialized* event);
       void OnContentProjectLoadedEvent(Events::ContentProjectLoaded* event);
       void OnEditorEnabledEvent(Events::EditorEnabled* event);
       void OnKeyDownEvent(Events::KeyDown* event);
