@@ -13,6 +13,9 @@
 #include "EngineReference.h"
 #include "../Debug/DebugGraphics.h"
 
+#define DEFAULT_FONT_SIZE 12
+#define AVG_CHARACTER_HEIGHT 35
+
 namespace DCEngine {
   namespace Components {
 		ShaderPtr SpriteText::mShader;
@@ -118,7 +121,8 @@ namespace DCEngine {
 				transform->Translation.y,
 				transform->Translation.z));
 			modelMatrix = glm::scale(modelMatrix,
-				glm::vec3(transform->Scale.x / 12, transform->Scale.y / 12, 1.0f));
+				glm::vec3(transform->Scale.x / (DEFAULT_FONT_SIZE * AVG_CHARACTER_HEIGHT),
+					transform->Scale.y / (DEFAULT_FONT_SIZE * AVG_CHARACTER_HEIGHT), 1.0f));
 			shader->SetMatrix4("model", modelMatrix);
 			shader->SetMatrix4("projection", camera->GetProjectionMatrix());
 			shader->SetMatrix4("view", camera->GetViewMatrix());

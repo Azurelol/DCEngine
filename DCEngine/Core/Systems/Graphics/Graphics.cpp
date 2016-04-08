@@ -408,6 +408,10 @@ namespace DCEngine {
     void Graphics::OnWindowResizeEvent(Events::WindowResize * event)
     {
       Settings.ViewportScale = event->Dimensions;
+			Settings.ScreenWidth = event->Dimensions.x;
+			Settings.ScreenHeight = event->Dimensions.y;
+			GraphicsHandler->FreeFBO();
+			GraphicsHandler->ConfigureFBO();
       DCTrace << "Graphics::OnWindowResizeEvent - Width: " << Settings.ViewportScale.x
         << " Height " << Settings.ViewportScale.y << "\n";
 
