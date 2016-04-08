@@ -63,6 +63,7 @@ namespace DCEngine {
 
       /* Events */
       void OnWindowFullScreenToggleEvent(Events::WindowFullScreenToggle* event);
+			void OnWindowResizeEvent(Events::WindowResize* event);
       void OnEngineExitEvent(Events::EngineExit* event);
       void OnSetWindowCaptionEvent(Events::SetWindowCaption* event);
 

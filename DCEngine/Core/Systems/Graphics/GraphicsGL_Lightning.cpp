@@ -99,7 +99,7 @@ namespace DCEngine {
 
 			// Restore local stuff
 			glDepthMask(GL_TRUE);
-			glDrawBuffer(GL_FRONT);
+			glDrawBuffer(GL_BACK);
 			glEnable(GL_CULL_FACE);
 			glDisable(GL_DEPTH_CLAMP);
 		}
@@ -199,8 +199,7 @@ namespace DCEngine {
 		{
 			SystemMethodTimer timer("RenderScene", EnumeratedSystem::Graphics);
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
-			glDrawBuffer(GL_FRONT);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			glDrawBuffer(GL_BACK);
 			glDisable(GL_BLEND);
 			FinalRenderShader->Use();
 			FinalRenderShader->SetInteger("useLight", lit);

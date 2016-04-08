@@ -3188,7 +3188,8 @@
               }
             }, 
             "Additive": true, 
-            "Lock": false
+            "Lock": false, 
+            "DrawLayer": 4
           }, 
           "ParticleEmitter": 
           {
@@ -6046,7 +6047,8 @@
               }
             }, 
             "Additive": true, 
-            "Lock": false
+            "Lock": false, 
+            "DrawLayer": 4
           }, 
           "ParticleEmitter": 
           {
