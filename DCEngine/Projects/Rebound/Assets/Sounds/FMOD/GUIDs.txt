@@ -11,14 +11,12 @@
 {6d78847b-0201-46f4-9c15-27f043b80a73} event:/Ball/BallDissipate
 {1e3c77a7-b49f-4287-8713-200907c566d1} event:/Environment/AcidHiss
 {0b91709c-aad0-457e-90a6-9a9ffc0547ea} event:/Environment/GeneratorExplode
-{a74a8374-205a-4db6-88f7-8c0f8a55f3c8} event:/Environment/HitShidl
+{a74a8374-205a-4db6-88f7-8c0f8a55f3c8} event:/Environment/HitShield
 {ab4d2488-e5d3-420a-a789-faf6d2a4ebdf} event:/Environment/GeneratorPowerOn
 {87d753cb-5e01-4edf-a29e-4ca52d467068} event:/Environment/HitBioField
-{c70f1aed-60bf-4a11-941e-1a1fe70090ed} event:/Environment/HitNullField
 {b3503bea-b5b1-4de2-9255-039924e8687b} event:/Environment/InterfaceNotify
 {d3a8bc64-9543-4d49-b74b-6bf7e0e88a6f} event:/Environment/InterfaceReply
 {9ad871ba-fc7f-4391-a192-137305316012} event:/Environment/PressurePlateClick
-{20d97fcc-de7a-4323-a087-bfbd71f500a2} event:/Environment/SandSlide
 {740974cd-17da-4a6b-8d07-b8f6fe5853da} event:/Environment/SandSlideLong
 {feab9062-7128-4b6f-92ff-03f1d033a632} event:/Environment/SandSlideMedium
 {358831b4-314f-48f0-9f8c-dbba4dfab14f} event:/Environment/SandSlideShort
