@@ -119,7 +119,11 @@
         "ShieldBashDistance": 2.000000, 
         "ShieldBashOutTime": 0.200000, 
         "ShieldBashInTime": 0.100000, 
-        "ShieldBashCooldown": 1.000000
+        "ShieldBashCooldown": 1.000000,
+        "AttackSound": "SentinelAttack",
+        "DeathSound": "SentinelDeath",
+        "TakeDamageSound": "SentinelTakeDamage",
+        "HitBallSound": "SentinelHitBall"
       }
     }, 
     "Children": 

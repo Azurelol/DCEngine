@@ -52,6 +52,10 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(float, ShieldVelocityDifferenceThreshold);
       DCE_DEFINE_PROPERTY(float, ShieldActivationSpeed);
 
+      DCE_DEFINE_PROPERTY(String, AttackSound);
+      DCE_DEFINE_PROPERTY(String, DeathSound);
+      DCE_DEFINE_PROPERTY(String, TakeDamageSound);
+
       // Methods
       Lancer(Entity& owner) : Component(std::string("Lancer"), owner) {}
       ~Lancer();
@@ -73,6 +77,11 @@ namespace DCEngine {
       int maxHealth;
       bool IsInvulnerable;
       LancerShield *shield;
+
+      String AttackSound;
+      String DeathSound;
+      String TakeDamageSound;
+
       bool ModifyHealth(int amount);
 
       class Global : public IState<Lancer>

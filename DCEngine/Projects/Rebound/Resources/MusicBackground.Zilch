@@ -21,7 +21,8 @@ class MusicBackground : ZilchComponent
 	function Terminate()
 	{	
 		Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA `this.Name` is terminating!");
-		
+		//this.Instance.Stop(StopMode.Immediate);
+		this.Instance.ForceStop();
 		//if (this.Instance != null)
 		//{	
 			//this.Instance.Stop(StopMode.Immediate);

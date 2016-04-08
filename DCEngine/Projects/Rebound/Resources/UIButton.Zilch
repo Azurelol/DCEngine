@@ -53,13 +53,13 @@ class UIButton : ZilchComponent
 
     // State SoundCue resources
     [Property]
-    var SelectSound : String = "MenuSelect";
+    var SelectSound : String = "";
     
     [Property]
-    var CancelSound : String = "MenuCancel";
+    var CancelSound : String = "";
     
     [Property]
-    var HoverSound : String = "MenuHover";
+    var HoverSound : String = "";
 
     // Current Stae of the button
     var CurState : ButtonState = ButtonState.Default;

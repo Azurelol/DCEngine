@@ -51,6 +51,11 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(float, ShieldBashInTime);
       DCE_DEFINE_PROPERTY(float, ShieldBashCooldown);
 
+      DCE_DEFINE_PROPERTY(String, AttackSound);
+      DCE_DEFINE_PROPERTY(String, DeathSound);
+      DCE_DEFINE_PROPERTY(String, TakeDamageSound);
+      DCE_DEFINE_PROPERTY(String, HitBallSound);
+
       // Methods
       ZilchDeclareDerivedType(Sentinel, Component);
       Sentinel(Entity& owner) : Component(std::string("Sentinel"), owner) {}
@@ -76,6 +81,12 @@ namespace DCEngine {
       bool IsInvulnerable;
       bool isBashing;
       bool canBash;
+
+      String AttackSound;
+      String DeathSound;
+      String TakeDamageSound;
+      String HitBallSound;
+
       void CreateShield();
       void UpdateShield();
       void ShieldBash();

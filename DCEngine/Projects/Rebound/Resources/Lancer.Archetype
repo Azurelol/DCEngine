@@ -115,7 +115,10 @@
         "IdleRange": 1000.000000, 
         "ChargeForce": 100.000000, 
         "ShieldVelocityDifferenceThreshold": 1.000000, 
-        "ShieldActivationSpeed": 5.000000
+        "ShieldActivationSpeed": 5.000000,
+        "AttackSound": "LancerAttack",
+        "DeathSound": "LancerDeath",
+        "TakeDamageSound": "LancerTakeDamage"
       }
     }, 
     "Children": 

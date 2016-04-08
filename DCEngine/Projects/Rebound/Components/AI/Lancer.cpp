@@ -11,6 +11,8 @@
 #include "Lancer.h"
 #include "../../../CoreComponents.h"
 
+#define POSTEVENT(name) SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(name)
+
 namespace DCEngine {
   namespace Components {
 
@@ -31,6 +33,10 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Lancer, ChargeForce);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, ShieldVelocityDifferenceThreshold);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, ShieldActivationSpeed);
+
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, AttackSound);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, DeathSound);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, TakeDamageSound);
     }
 
     // Dependancies
@@ -78,6 +84,10 @@ namespace DCEngine {
       {
         ModifyHealth(-1);
       }
+      else if (event->OtherObject->getComponent<PlayerController>() != NULL)
+      {
+        POSTEVENT(AttackSound);
+      }
     }
 
     bool Lancer::ModifyHealth(int amount)
@@ -94,10 +104,17 @@ namespace DCEngine {
           health = 0;
       }
 
+
       if (health == 0)
       {
+        POSTEVENT(DeathSound);
         stateMachine->ChangeState(Die::Instance());
       }
+      else
+      {
+        POSTEVENT(TakeDamageSound);
+      }
+
 
       if (oldHealth == health)
         return false;

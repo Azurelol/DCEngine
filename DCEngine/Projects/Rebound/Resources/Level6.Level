@@ -7381,7 +7381,11 @@
             "ShieldBashDistance": 2.000000, 
             "ShieldBashOutTime": 0.200000, 
             "ShieldBashInTime": 0.100000, 
-            "ShieldBashCooldown": 1.000000
+            "ShieldBashCooldown": 1.000000, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": "", 
+            "HitBallSound": ""
           }
         }, 
         "Children": 
@@ -8903,7 +8907,11 @@
             "ShieldBashDistance": 2.000000, 
             "ShieldBashOutTime": 0.200000, 
             "ShieldBashInTime": 0.100000, 
-            "ShieldBashCooldown": 1.000000
+            "ShieldBashCooldown": 1.000000, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": "", 
+            "HitBallSound": ""
           }
         }, 
         "Children": 
@@ -9179,7 +9187,10 @@
             "IdleRange": 1000.000000, 
             "ChargeForce": 100.000000, 
             "ShieldVelocityDifferenceThreshold": 1.000000, 
-            "ShieldActivationSpeed": 5.000000
+            "ShieldActivationSpeed": 5.000000, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": ""
           }
         }, 
         "Children": 
@@ -9643,7 +9654,11 @@
             "ShieldBashDistance": 2.000000, 
             "ShieldBashOutTime": 0.200000, 
             "ShieldBashInTime": 0.100000, 
-            "ShieldBashCooldown": 1.000000
+            "ShieldBashCooldown": 1.000000, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": "", 
+            "HitBallSound": ""
           }
         }, 
         "Children": 
@@ -11100,7 +11115,10 @@
             "IdleRange": 1000.000000, 
             "ChargeForce": 100.000000, 
             "ShieldVelocityDifferenceThreshold": 1.000000, 
-            "ShieldActivationSpeed": 5.000000
+            "ShieldActivationSpeed": 5.000000, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": ""
           }
         }, 
         "Children": 
@@ -11413,6 +11431,7 @@
             "StandAnimation": "PlayerStand", 
             "JumpAnimation": "PlayerFall", 
             "RunAnimation": "Char_Asha_Run_Spritesheet", 
+            "FallAnimation": "Char_Asha_Fall_Spritesheet", 
             "AutoPlayTimer": 2.000000, 
             "TeleportStartSound": "Teleport", 
             "TeleportArriveSound": "TeleportArrive", 

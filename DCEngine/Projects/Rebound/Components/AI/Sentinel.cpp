@@ -11,6 +11,9 @@
 #include "Sentinel.h"
 #include "../../../CoreComponents.h"
 
+#define POSTEVENT(name) SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(name)
+
+
 namespace DCEngine {
   namespace Components {
 
@@ -37,6 +40,11 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, ShieldBashOutTime);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, ShieldBashInTime);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, ShieldBashCooldown);
+
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, AttackSound);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, DeathSound);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, TakeDamageSound);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, HitBallSound);
     }
 
     DCE_COMPONENT_DEFINE_DEPENDENCIES(Sentinel, "Transform", "RigidBody", "Sprite");
@@ -89,7 +97,12 @@ namespace DCEngine {
     {
       if (event->OtherObject->getComponent<BallController>() != NULL)
       {
+        POSTEVENT(HitBallSound);
         ModifyHealth(-1);
+      }
+      else if (event->OtherObject->getComponent<PlayerController>() != NULL)
+      {
+        POSTEVENT(AttackSound);
       }
     }
 
@@ -109,7 +122,12 @@ namespace DCEngine {
 
       if (health == 0)
       {
+        POSTEVENT(DeathSound);
         stateMachine->ChangeState(Die::Instance());
+      }
+      else
+      {
+        POSTEVENT(TakeDamageSound);
       }
 
       if (oldHealth == health)
