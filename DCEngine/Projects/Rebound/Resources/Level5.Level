@@ -83,7 +83,7 @@
             {
               "Vec3": 
               {
-                "x": -40.770409, 
+                "x": -41.770409, 
                 "y": -24.923590, 
                 "z": 0.000000
               }
@@ -246,8 +246,8 @@
             {
               "Vec3": 
               {
-                "x": -104.511116, 
-                "y": -36.677036, 
+                "x": -33.908600, 
+                "y": 11.862194, 
                 "z": 0.000000
               }
             }, 
@@ -1421,8 +1421,8 @@
             {
               "Vec3": 
               {
-                "x": -140.558594, 
-                "y": -71.928360, 
+                "x": -129.123260, 
+                "y": -66.650513, 
                 "z": 0.000000
               }
             }, 
@@ -1619,11 +1619,7 @@
             "ShieldBashDistance": 2.000000, 
             "ShieldBashOutTime": 0.200000, 
             "ShieldBashInTime": 0.100000, 
-            "ShieldBashCooldown": 1.000000, 
-            "AttackSound": "", 
-            "DeathSound": "", 
-            "TakeDamageSound": "", 
-            "HitBallSound": ""
+            "ShieldBashCooldown": 1.000000
           }
         }, 
         "Children": 
@@ -1873,10 +1869,7 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }, 
-            "AttackSound": "", 
-            "DeathSound": "", 
-            "TakeDamageSound": ""
+            }
           }
         }, 
         "Children": 
@@ -2034,10 +2027,7 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }, 
-            "AttackSound": "", 
-            "DeathSound": "", 
-            "TakeDamageSound": ""
+            }
           }
         }, 
         "Children": 
@@ -2195,10 +2185,7 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }, 
-            "AttackSound": "", 
-            "DeathSound": "", 
-            "TakeDamageSound": ""
+            }
           }
         }, 
         "Children": 
@@ -2912,8 +2899,8 @@
             {
               "Vec3": 
               {
-                "x": -119.385948, 
-                "y": -66.852402, 
+                "x": -144.474106, 
+                "y": -55.955009, 
                 "z": 0.000000
               }
             }, 
@@ -2930,8 +2917,8 @@
             {
               "Vec3": 
               {
-                "x": 10.000000, 
-                "y": 1.000000, 
+                "x": 1.000000, 
+                "y": 10.000000, 
                 "z": 1.000000
               }
             }
@@ -3736,10 +3723,7 @@
             "IdleRange": 1000.000000, 
             "ChargeForce": 100.000000, 
             "ShieldVelocityDifferenceThreshold": 1.000000, 
-            "ShieldActivationSpeed": 5.000000, 
-            "AttackSound": "", 
-            "DeathSound": "", 
-            "TakeDamageSound": ""
+            "ShieldActivationSpeed": 5.000000
           }
         }, 
         "Children": 
@@ -3953,10 +3937,7 @@
             "IdleRange": 1000.000000, 
             "ChargeForce": 100.000000, 
             "ShieldVelocityDifferenceThreshold": 1.000000, 
-            "ShieldActivationSpeed": 5.000000, 
-            "AttackSound": "", 
-            "DeathSound": "", 
-            "TakeDamageSound": ""
+            "ShieldActivationSpeed": 5.000000
           }
         }, 
         "Children": 
@@ -4530,11 +4511,7 @@
             "ShieldBashDistance": 2.000000, 
             "ShieldBashOutTime": 0.200000, 
             "ShieldBashInTime": 0.100000, 
-            "ShieldBashCooldown": 1.000000, 
-            "AttackSound": "", 
-            "DeathSound": "", 
-            "TakeDamageSound": "", 
-            "HitBallSound": ""
+            "ShieldBashCooldown": 1.000000
           }
         }, 
         "Children": 
@@ -4660,11 +4637,7 @@
             "ShieldBashDistance": 2.000000, 
             "ShieldBashOutTime": 0.200000, 
             "ShieldBashInTime": 0.100000, 
-            "ShieldBashCooldown": 1.000000, 
-            "AttackSound": "", 
-            "DeathSound": "", 
-            "TakeDamageSound": "", 
-            "HitBallSound": ""
+            "ShieldBashCooldown": 1.000000
           }
         }, 
         "Children": 
@@ -4822,10 +4795,7 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }, 
-            "AttackSound": "", 
-            "DeathSound": "", 
-            "TakeDamageSound": ""
+            }
           }
         }, 
         "Children": 
@@ -4983,10 +4953,7 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }, 
-            "AttackSound": "", 
-            "DeathSound": "", 
-            "TakeDamageSound": ""
+            }
           }
         }, 
         "Children": 
@@ -5144,10 +5111,7 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }, 
-            "AttackSound": "", 
-            "DeathSound": "", 
-            "TakeDamageSound": ""
+            }
           }
         }, 
         "Children": 
@@ -5305,10 +5269,7 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }, 
-            "AttackSound": "", 
-            "DeathSound": "", 
-            "TakeDamageSound": ""
+            }
           }
         }, 
         "Children": 
@@ -5466,10 +5427,7 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }, 
-            "AttackSound": "", 
-            "DeathSound": "", 
-            "TakeDamageSound": ""
+            }
           }
         }, 
         "Children": 
@@ -5627,10 +5585,7 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }, 
-            "AttackSound": "", 
-            "DeathSound": "", 
-            "TakeDamageSound": ""
+            }
           }
         }, 
         "Children": 
@@ -5712,7 +5667,7 @@
             {
               "Vec3": 
               {
-                "x": -49.474663, 
+                "x": -48.035164, 
                 "y": -36.320786, 
                 "z": 0.000000
               }
@@ -6945,7 +6900,7 @@
             {
               "Vec3": 
               {
-                "x": -37.218952, 
+                "x": -37.806683, 
                 "y": -24.881737, 
                 "z": 0.000000
               }
@@ -7478,8 +7433,448 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 140, 
-        "Name": "MusicManager", 
+        "GameObjectID": 446, 
+        "Name": "Ground", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -119.758904, 
+                "y": -66.852402, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 10.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 446, 
+        "Name": "Ground", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -139.983871, 
+                "y": -61.415020, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 10.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 446, 
+        "Name": "Ground", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -209.021240, 
+                "y": -86.843422, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 22.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 446, 
+        "Name": "Ground", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -144.503540, 
+                "y": -42.617371, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 15.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 446, 
+        "Name": "Ground", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -140.018585, 
+                "y": -50.496628, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 10.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 332, 
+        "Name": "LandingParticle", 
         "Components": 
         {
           "Transform": 
@@ -7512,12 +7907,344 @@
               }
             }
           }, 
-          "MusicBackground": 
+          "SpriteParticleSystem": 
           {
-            "PlayOnStart": true, 
-            "StopOnTerminate": true, 
-            "Track": "mainMenu", 
-            "Volume": 1.000000
+            "Visible": true, 
+            "Tint": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Texture": "WhiteCloud", 
+            "VelocityScale": 1.000000, 
+            "LengthScale": 1.000000, 
+            "SystemSize": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 4.000000, 
+                "z": 4.000000
+              }
+            }, 
+            "Additive": false, 
+            "Lock": false, 
+            "DrawLayer": 4
+          }, 
+          "ParticleEmitter": 
+          {
+            "Active": true, 
+            "ResetCount": false, 
+            "EmitCount": 10, 
+            "EmitRate": 5000, 
+            "EmitVariance": 0, 
+            "Size": 1.000000, 
+            "SizeVariance": 1.000000, 
+            "Lifetime": 1.000000, 
+            "LifetimeVariance": 1.000000, 
+            "Spin": 100.000000, 
+            "SpinVariance": 100.000000, 
+            "StartVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 5.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }
+          }, 
+          "LinearParticleAnimator": 
+          {
+            "Force": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 5.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomForce": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Torque": 0.000000, 
+            "Growth": -2.000000, 
+            "Dampening": 3.000000
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 11, 
+        "Name": "LandingParticleSand", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -3.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteParticleSystem": 
+          {
+            "Visible": true, 
+            "Tint": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.550000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Texture": "WhiteCloud", 
+            "VelocityScale": 1.000000, 
+            "LengthScale": 1.000000, 
+            "SystemSize": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 4.000000, 
+                "z": 4.000000
+              }
+            }, 
+            "Additive": false, 
+            "Lock": false, 
+            "DrawLayer": 4
+          }, 
+          "ParticleEmitter": 
+          {
+            "Active": true, 
+            "ResetCount": false, 
+            "EmitCount": 10, 
+            "EmitRate": 5000, 
+            "EmitVariance": 0, 
+            "Size": 2.000000, 
+            "SizeVariance": 1.000000, 
+            "Lifetime": 1.000000, 
+            "LifetimeVariance": 1.000000, 
+            "Spin": 100.000000, 
+            "SpinVariance": 1004.000000, 
+            "StartVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 7.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }
+          }, 
+          "LinearParticleAnimator": 
+          {
+            "Force": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 5.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomForce": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Torque": 0.000000, 
+            "Growth": -5.000000, 
+            "Dampening": 3.000000
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 11, 
+        "Name": "LandingParticleUrban", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 3.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteParticleSystem": 
+          {
+            "Visible": true, 
+            "Tint": 
+            {
+              "Vec4": 
+              {
+                "x": 0.100000, 
+                "y": 0.100000, 
+                "z": 0.150000, 
+                "w": 1.000000
+              }
+            }, 
+            "Texture": "WhiteCloud", 
+            "VelocityScale": 1.000000, 
+            "LengthScale": 1.000000, 
+            "SystemSize": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 4.000000, 
+                "z": 4.000000
+              }
+            }, 
+            "Additive": false, 
+            "Lock": false, 
+            "DrawLayer": 4
+          }, 
+          "ParticleEmitter": 
+          {
+            "Active": true, 
+            "ResetCount": false, 
+            "EmitCount": 10, 
+            "EmitRate": 5000, 
+            "EmitVariance": 0, 
+            "Size": 0.750000, 
+            "SizeVariance": 0.300000, 
+            "Lifetime": 1.000000, 
+            "LifetimeVariance": 1.000000, 
+            "Spin": 100.000000, 
+            "SpinVariance": 1004.000000, 
+            "StartVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 3.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }
+          }, 
+          "LinearParticleAnimator": 
+          {
+            "Force": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 5.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomForce": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Torque": 0.000000, 
+            "Growth": -1.000000, 
+            "Dampening": 3.000000
           }
         }, 
         "Children": 

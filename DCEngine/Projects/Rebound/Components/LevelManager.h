@@ -43,6 +43,7 @@ namespace DCEngine {
       Real Timer = 1;
       Fade* FadeRef;
       Boolean TimerStarted = false;
+	  Transform* TransformRef;
 
     };
   }
