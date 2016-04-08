@@ -1,0 +1,70 @@
+class PanButton : ZilchComponent
+{
+	[Property]
+	var PanBy : Real2 = Real2(0,0);
+
+	[Property]
+	var PanTime : Real = 0.0;
+
+	[Property]
+	var PanEase : Ease = Ease.Linear;
+
+	[Property]
+	var HoverSoundName : String = "";
+	var HoverSoundInstance : SoundInstance;
+
+	[Property]
+	var ClickSoundName : String = "";
+	var ClickSoundInstance : SoundInstance;
+
+    function Initialize()
+    {
+        Daisy.Connect(this.Owner, DaisyEvent.UIButtonEvent, this.OnUIButtonEvent);
+    }
+
+    function OnUIButtonEvent(event : UIButtonEvent)
+    {
+    	if(event.State == ButtonState.Default)
+        {
+            this.OnButtonDefault();
+        }
+        
+        if(event.State == ButtonState.Hovered)
+        {
+            this.OnButtonHovered();
+        }
+        
+        if(event.State == ButtonState.Clicked)
+        {
+            this.OnButtonClicked();
+        }
+    }
+
+    function OnButtonDefault()
+    {
+
+    }
+
+    function OnButtonHovered()
+    {
+    	if(this.HoverSoundName != "")
+    	{
+    		this.HoverSoundInstance = this.Space.SoundSpace.PlayCue(this.HoverSoundName);
+    	}
+    }
+
+    function OnButtonClicked()
+    {
+    	if(this.ClickSoundName != "")
+    	{
+    		this.ClickSoundInstance = this.Space.SoundSpace.PlayCue(this.ClickSoundName);
+    	}
+    	
+    	var panEvent = PanEvent();
+    	panEvent.PanBy = this.PanBy;
+    	panEvent.PanTime = this.PanTime;
+    	panEvent.PanEase = this.PanEase;
+
+    	this.Space.Dispatch(DaisyEvent.PanEvent, panEvent);
+    }
+}
