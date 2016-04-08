@@ -69,7 +69,7 @@ class SimpleAnimator : ZilchComponent
 
         if(this.AnimateOnInitialize)
         {
-            //this.StartAnimation();
+            this.StartAnimation();
         }
     }
 

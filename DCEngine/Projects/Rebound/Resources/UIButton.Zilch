@@ -32,6 +32,9 @@ class UIButton : ZilchComponent
     
     [Property]
     var ClickedColor : Real4 = Real4(1,1,1,1);
+
+    [Property]
+    var ClickedSprite : String = "";
     
     [Property]
     var InactiveColor : Real4 = Real4(1,1,1,1);
@@ -47,17 +50,7 @@ class UIButton : ZilchComponent
 
     [Property]
     var ExpansionTime : Real;
-    /*
-    // State SoundCue resources
-    [Property]
-    var DefaultSound : SoundCue = null;
     
-    [Property]
-    var HoverSound : SoundCue = null;
-    
-    [Property]
-    var ClickedSound : SoundCue = null;
-    */
     // Current Stae of the button
     var CurState : ButtonState = ButtonState.Default;
 

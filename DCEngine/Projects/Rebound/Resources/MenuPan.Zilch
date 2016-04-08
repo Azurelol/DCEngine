@@ -1,0 +1,25 @@
+class PanEvent : ZilchEvent
+{
+	var PanBy : Real2 = Real2(0,0);
+	var PanTime : Real = 0.0;
+	var PanEase : Ease = Ease.Linear;
+	sends PanEvent : PanEvent;
+}
+
+class MenuPan : ZilchComponent
+{
+    function Initialize()
+    {
+        Daisy.Connect(this.Space, DaisyEvent.PanEvent, this.OnPanEvent);
+    }
+
+    function OnPanEvent(event : PanEvent)
+    {
+    	var panLoc = Real3(this.Owner.Transform.Translation.X + event.PanBy.X, this.Owner.Transform.Translation.Y + event.PanBy.Y,
+    											this.Owner.Transform.Translation.Z);
+
+    	var panSeq = Actions.Sequence(this.Owner.Actions);
+
+    	Actions.Property(panSeq, @this.Owner.Transform.Translation, panLoc, event.PanTime, event.PanEase);
+    }
+}
