@@ -229,6 +229,8 @@ namespace DCEngine {
     struct ContentConfig : public Configuration {
       ContentConfig();
       static std::string FileName() { return "ConfigurationContent.cfg"; }
+      bool MultiThreaded;
+      // Defaults
       std::string DefaultAssetPath;
       String DefaultLoadingScreen;
       std::string DefaultImage;

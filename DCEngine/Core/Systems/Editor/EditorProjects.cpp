@@ -161,18 +161,18 @@ namespace DCEngine {
         if (load) {
           // If set to play mode, disable the editor
           if (play)
-            Access().ToggleEditor(false);
+            Access().ToggleEditor(false, false);
           // Otherwise, load the editor right away
           else {
             DCTrace << "Editor::LoadProject - Default level found editor turned on \n";
-            Access().ToggleEditor(true);
+            Access().ToggleEditor(true, false);
           }
 
         }
 
         // No default level set, turn on the editor!
         else
-          Access().ToggleEditor(true);
+          Access().ToggleEditor(true, false);
 
         InitializingProject = false;
       }

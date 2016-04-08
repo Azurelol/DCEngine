@@ -52,7 +52,7 @@ namespace DCEngine {
       void Add(CommandPtr command);
       bool IsEnabled();
       void ToggleEditor();
-      void ToggleEditor(bool);
+      void ToggleEditor(bool toggle, bool reload = true);
       SpacePtr CurrentSpace;
       static Editor& Access();
 

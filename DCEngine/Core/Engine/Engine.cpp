@@ -137,8 +137,8 @@ namespace DCEngine {
     for (auto sys : Systems) {
       sys->Initialize();
     }  
-    // Load all resources, both defaults and project-specific
-    getSystem<Systems::Content>()->LoadAllResources();
+    // Load all engine's resources, single-threadedly
+    getSystem<Systems::Content>()->LoadAllResources(false);
     // Subscribe to events
     Subscribe();
     DCTrace << "[Engine::Initialize - All engine systems initialized]\n";

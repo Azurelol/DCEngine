@@ -21,14 +21,14 @@ in the world space through the drawing of sprites.
 
 namespace DCEngine {
 
-	enum class BlendModeType {
-		Alpha,
-		Additive,
-		Multiply,
-		MultiplyAdd,
-		ColorAdditive,
-		None,
-	};
+  enum class BlendModeType {
+    Alpha,
+    Additive,
+    Multiply,
+    MultiplyAdd,
+    ColorAdditive,
+    None,
+  };
 
   namespace Systems {
     class Graphics;
@@ -66,7 +66,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(bool, FlipY);
       DCE_DEFINE_PROPERTY(bool, AnimationActive);
       DCE_DEFINE_PROPERTY(float, AnimationSpeed);
-			DCE_DEFINE_PROPERTY(unsigned, DrawLayer);
+      DCE_DEFINE_PROPERTY(unsigned, DrawLayer);
       
       // Methods
       //return 1, speed is not 0. return 0, speed is 0
@@ -75,12 +75,12 @@ namespace DCEngine {
       bool CheckAnimationIntialized(void);
       void SetColorUsing255(Vec3 newColor);
 
-			//graphical inhereted
-			virtual void Update(float dt);
-			virtual void SetUniforms(ShaderPtr shader, Camera* camera, Light* light);
-			virtual void Draw(void);
-			virtual void SetShader();
-			//unsigned GetDrawLayer(void);
+      //graphical inhereted
+      virtual void Update(float dt);
+      virtual void SetUniforms(ShaderPtr shader, Camera* camera, Light* light);
+      virtual void Draw(void);
+      virtual void SetShader();
+      //unsigned GetDrawLayer(void);
 
       // Constructor
       ZilchDeclareDerivedType(Sprite, Graphical);
@@ -92,8 +92,8 @@ namespace DCEngine {
       glm::mat4 FlipMatrix;
       bool XFlipped = false;
       bool YFlipped = false;
-			static ShaderPtr mShader;
-			static GLuint mVAO;
+      static ShaderPtr mShader;
+      static GLuint mVAO;
 
     private:
 
@@ -102,8 +102,8 @@ namespace DCEngine {
       bool AnimationInitialized = false;
       float AnimationSpeedFPS = 0;
       float AnimationSpeedFPSCounter = 0;
-			//unsigned DrawLayer;
-			bool silhouette;
+      //unsigned DrawLayer;
+      bool silhouette;
     };
 
   }

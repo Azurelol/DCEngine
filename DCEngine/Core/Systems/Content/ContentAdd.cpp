@@ -26,7 +26,7 @@ namespace DCEngine {
     Figure out a way to find the folder paths dynamically.
     */
     /**************************************************************************/
-    void Content::LoadCoreAssets()
+    void Content::LoadCoreResources()
     {
       DCTrace << "\n[Content::LoadDefaultResources] - Loading default resources \n";
 

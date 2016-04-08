@@ -246,7 +246,7 @@ namespace DCEngine {
     {
     }
 
-    ContentConfig::ContentConfig() : Configuration("Content"), 
+    ContentConfig::ContentConfig() : Configuration("Content"), MultiThreaded(true),
       DefaultImage("Wow"), DefaultFont("Verdana"), DefaultCollisionTable(CollisionTable::Default()),
       DefaultCollisionGroup("DefaultCollisionGroup"), DefaultPhysicsMaterial("DefaultPhysicsMaterial"),
       DefaultSpriteLayer("DefaultSpriteLayer"), DefaultSpriteLayerOrder(SpriteLayerOrder::Default()),

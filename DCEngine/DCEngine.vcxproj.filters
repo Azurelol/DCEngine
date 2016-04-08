@@ -981,6 +981,9 @@
     <ClCompile Include="Core\Engine\EngineLoad.cpp">
       <Filter>Core\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Components\LoadingScreen.cpp">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1652,6 +1655,9 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Content\AssetLoader.h">
       <Filter>Core\Systems\Content\AssetLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\LoadingScreen.h">
+      <Filter>Core\Components\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

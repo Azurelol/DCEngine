@@ -97,14 +97,12 @@ namespace DCEngine {
       void ScanForSoundCues(std::string soundCuePath);
       void ScanForFonts(std::string fontPath);
       void ScanAndGenerateResources();
-      // Get the current project's settings
-      ProjectDataPtr& ProjectSettings();
-
       // Maybe.. add the others too.
       void AddSoundCue(std::string& soundCueName, SoundCuePtr soundcuePtr);            
       // Projects
       void LoadProject(const std::string& projectDataPath);
       void SaveProject(const std::string& projectPath);
+      ProjectDataPtr& ProjectSettings();
       ProjectProperties& getProjectInfo() { return *(this->ProjectInfo.get()); }
       // DTOR
       ~Content();
@@ -171,11 +169,10 @@ namespace DCEngine {
       void Update(float dt);
       void Terminate();
       // Loading functions
-      void LoadCoreAssets(); //!< Load default content files for the engine.   
-      void LoadProjectAssets(); //!< Load the assets used by the loaded project.      
       void GenerateDefaultResources();
-      void LoadAllResources();
-      void LoadGraphicalResources();
+      void LoadCoreResources(); //!< Load default content files for the engine.   
+      void LoadAllResources(bool multiThreaded);
+      void LoadGraphicalResourcesMT();
       void LoadProjectData(const std::string&);
       // Events
       void OnContentFileMoved(Events::ContentFileMoved* event);

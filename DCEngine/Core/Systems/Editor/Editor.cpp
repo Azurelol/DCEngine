@@ -164,7 +164,7 @@ namespace DCEngine {
     @brief  Toggles the editor on and off.
     */
     /**************************************************************************/
-    void Editor::ToggleEditor(bool toggle)
+    void Editor::ToggleEditor(bool toggle, bool reload)
     {
       // Editor ON
       if (toggle) {
@@ -175,8 +175,12 @@ namespace DCEngine {
         //DCTrace << "Editor::ToggleEditor - Dispatching 'EnginePaused' event \n";
         // Quit the Game
         DispatchGameEvents::GameEnded();
-        // Reload the level
-        ReloadLevel();
+
+        // Reload the level from the editor
+        if (reload) {
+          ReloadLevel();
+        }
+
         // Toggle the widgets
         Windows.LibraryEnabled = true;
         Windows.ObjectsEnabled = true;
@@ -198,8 +202,11 @@ namespace DCEngine {
         // Set the editor camera
         SetEditorCamera(false);
         Deselect();
+
         // Ask the space to reload the level
-        CurrentSpace->ReloadLevel();
+        if (reload) {
+          CurrentSpace->ReloadLevel();
+        }
         
         
       }

@@ -52,7 +52,7 @@ namespace DCEngine {
       ProjectInfo->ResourcePath = "Projects/Rebound/Resources/";
       ProjectInfo->AssetPath = "Projects/Rebound/Assets/";
       // Load the default resources of the engine's
-      LoadCoreAssets();
+      LoadCoreResources();
     }
 
     /**************************************************************************/
@@ -144,7 +144,7 @@ namespace DCEngine {
            have already been initialized.
     */
     /**************************************************************************/
-    void Content::LoadAllResources()
+    void Content::LoadAllResources(bool multiThreaded)
     {
       DCTrace << " Content::LoadAllResources: '" << ProjectInfo->ProjectName << "' has started loading... \n";
 
@@ -168,24 +168,31 @@ namespace DCEngine {
       }
       Daisy->getSystem<Reflection>()->Handler()->CompileScripts();
       
-      // Load the project's graphical resources on a separate thread
-      if (LoadingThread.joinable())
-        LoadingThread.join();
+      // If loading graphical resources multi-threadedly
+      if (multiThreaded) {
+        // Load the project's graphical resources on a separate thread
+        if (LoadingThread.joinable())
+          LoadingThread.join();
 
-      LoadingThread = std::thread(&Content::LoadGraphicalResources, this);
+        LoadingThread = std::thread(&Content::LoadGraphicalResourcesMT, this);
+      }
+      // Else if doing sequentially on main thread
+      else {
 
+        // Load every spritesource
+        for (auto& spriteSource : MapSpriteSource) {
+          spriteSource.second->Load();
+          spriteSource.second->LoadImageFromFile();
+          spriteSource.second->GenerateTexture();
+        }
 
-      // Load its texture onto the graphics system
-      //for (auto& spriteSource : MapSpriteSource) {
-      //  spriteSource.second->Load();
-      //  spriteSource.second->LoadTexture();
-      //}
+        // Load every Font
+        for (auto& font : MapFont) {
+          font.second->Load();
+          font.second->LoadFontFromFile();
+          font.second->GenerateFont();
+        }
 
-
-
-      // Generate every SpriteSource's texture
-      for (auto& spriteSource : MapSpriteSource) {
-        //spriteSource.second->GenerateTexture();
       }
       
       DCTrace << " Content::LoadAllResources: '" << ProjectInfo->ProjectName << "' is done loading. \n";
@@ -197,12 +204,18 @@ namespace DCEngine {
     @brief Loads graphical resources from file.
     */
     /**************************************************************************/
-    void Content::LoadGraphicalResources()
+    void Content::LoadGraphicalResourcesMT()
     {
+
+      // Update the queue before using it
+      LoadedGraphicalResourcesQueue.NumLoaded = 0;
+      LoadedGraphicalResourcesQueue.NumTotal = MapSpriteSource.size() + MapFont.size();
+
       // Load every SpriteSource's image from file
       for (auto& spriteSource : MapSpriteSource) {
         spriteSource.second->Load();
         spriteSource.second->LoadImageFromFile();
+        
         // Add it to the queue of assets ready to be loaded by the graphics system
         std::lock_guard<std::mutex> lock(LoadedGraphicalResourcesQueue.AssetsLock);
         LoadedGraphicalResourcesQueue.Assets.push(spriteSource.second.get());
@@ -212,30 +225,17 @@ namespace DCEngine {
       for (auto& font : MapFont) {
         font.second->Load();
         font.second->LoadFontFromFile();
+
         // Add it to the queue of assets ready to be loaded by the graphics system
         std::lock_guard<std::mutex> lock(LoadedGraphicalResourcesQueue.AssetsLock);
         LoadedGraphicalResourcesQueue.Assets.push(font.second.get());
-
-        // font.second->GenerateFont();
-        //font.second->Add();
       }
 
-      //if (LoadingThread.joinable()) LoadingThread.join();
+      // Now that the graphical resources are done loading, the project is ready to be launched
+      DispatchSystemEvents::ContentProjectLoaded();
+
     }
-
-    /**************************************************************************/
-    /*!
-    @brief Deserializes a ProjectProperties file for project data settings.
-    */
-    /**************************************************************************/
-    void Content::LoadProjectData(const std::string& projectData)
-    {
-      // Load the loaded project's assets
-      LoadProjectAssets();
-
-      DCTrace << "Content::LoadProjectData - Finished loading all project data. \n";
-    }
-
+    
 
     /**************************************************************************/
     /*!
@@ -268,24 +268,6 @@ namespace DCEngine {
     {
     }
 
-    /**************************************************************************/
-    /*!
-    @brief  Load all of the project's assets.
-    */
-    /**************************************************************************/
-    void Content::LoadProjectAssets()
-    {
-      auto LevelPath = Settings.DefaultAssetPath + "Levels/";
-
-      // Load levels
-      std::vector<std::string> levels;
-      if (!FileSystem::DirectoryListFilePaths(LevelPath, levels))
-        throw DCException("Content::LoadCoreAssets - Failed to load archetype files!");
-      for (auto level : levels) {
-        auto archetypeName = FileSystem::FileNoExtension(level);
-        AddLevel(archetypeName, LevelPtr(new Level(level)));
-      }
-    }
 
     /**************************************************************************/
     /*!
@@ -300,7 +282,7 @@ namespace DCEngine {
       // Scan for the project's resources
       ScanResources();
       // Load the resources
-      LoadAllResources();
+      LoadAllResources(Settings.MultiThreaded);
       // Start the file scanner on the current project
       bool scanning = true;
       if (scanning) {
@@ -315,9 +297,7 @@ namespace DCEngine {
       Loading = false;
 
       // Announce that it's been loaded
-      DispatchSystemEvents::ContentProjectLoaded();
-
-
+      // DispatchSystemEvents::ContentProjectLoaded();
     }
 
     /**************************************************************************/

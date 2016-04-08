@@ -353,6 +353,10 @@ namespace DCEngine {
       // Load the latest resource
       auto& resource = resources.Assets.front();
 
+      // Update the statistics (A bit prematurely!)
+      resources.LastLoaded = resource->Name();
+      resources.NumLoaded++;
+
       // SpriteSource
       if (auto spriteSource = dynamic_cast<SpriteSource*>(resource)) {
         spriteSource->GenerateTexture();
@@ -364,7 +368,6 @@ namespace DCEngine {
 
       // Remove it from the queue
       resources.Assets.pop();
-
     }
 
     /**************************************************************************/

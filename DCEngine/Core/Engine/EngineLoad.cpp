@@ -58,14 +58,24 @@ namespace DCEngine {
     DCTrace << __FUNCTION__ << " \n";
 
     // The loading screen object
-    static GameObjectPtr sprite;
+    //static GameObjectPtr sprite;
 
     // Display a Sprite on the current space
     if (enable) {
-      //Systems::Editor::Access().SetEditorCamera(true);
-      sprite = Systems::Editor::Access().Creator.CreateSprite();
-      sprite->getComponent<Components::Sprite>()->setSpriteSource("Wow");
-      sprite->getComponent<Components::Transform>()->setScale(Vec3(10, 10, 1));
+
+      // Progress
+      auto progressText = Systems::Editor::Access().Creator.CreateSpriteText();
+      progressText->AddComponentByName("LoadingScreen");
+      progressText->getComponent<Components::LoadingScreen>()->Initialize();
+
+      // Control object
+
+      // Background
+      //auto control = Systems::Editor::Access().Creator.CreateSprite();
+      //control->getComponent<Components::Sprite>()->setSpriteSource("Wow");
+      //control->getComponent<Components::Transform>()->setScale(Vec3(10, 10, 1));
+
+      
     }
     // Remove it
     else {
