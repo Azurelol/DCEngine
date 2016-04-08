@@ -40,13 +40,14 @@ namespace DCEngine {
       Real JumpFrames = 1.0f;
       Real JumpFramesApplied = 0.0f;
       Real Health = 10.0f;
-      Real AirBrakeScalar = 0.95f; //multiplies your current y velocity by this when you release jump while jumping upwards
+      Real AirBrakeScalar = 0.94f; //multiplies your current y velocity by this when you release jump while jumping upwards
       Real TurnSpeedScalar = 5.0f; //how much faster you accelerate when attemping to accelerate opposite your current velocity
       Real VelocityXCap = 30.0f;
       Real GroundFriction = 0.2f;
-      String StandAnimation = "PlayerStand";
-      String JumpAnimation = "PlayerFall";
-      String RunAnimation = "PlayerRun";
+      String StandAnimation = "Char_Asha_Idle_Spritesheet";
+      String JumpAnimation = "Char_Asha_Jump_Spritesheet";
+      String RunAnimation = "Char_Asha_Run_Spritesheet";
+	  String FallAnimation = "Char_Asha_Fall_Spritesheet";
 	  
       String TeleportStartSound = "Teleport";
       String TeleportArriveSound = "TeleportArrive";
@@ -58,6 +59,7 @@ namespace DCEngine {
       Transform* TransformRef;
       RigidBody* RigidBodyRef;
       BoxCollider* ColliderRef;
+	  GameObject* BallRef;
 
       DCE_DEFINE_PROPERTY(Real, MoveSpeed);
 	  DCE_DEFINE_PROPERTY(Real, VelocityXCap);
@@ -71,13 +73,13 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(String, StandAnimation);
       DCE_DEFINE_PROPERTY(String, JumpAnimation);
       DCE_DEFINE_PROPERTY(String, RunAnimation);
-
+	  DCE_DEFINE_PROPERTY(String, FallAnimation);
       DCE_DEFINE_PROPERTY(String, TeleportStartSound);
       DCE_DEFINE_PROPERTY(String, TeleportArriveSound);
       DCE_DEFINE_PROPERTY(String, JumpSound);
       DCE_DEFINE_PROPERTY(String, LandSound);
       DCE_DEFINE_PROPERTY(String, FootstepSound);
-	    DCE_DEFINE_PROPERTY(String, CollideSound);
+	  DCE_DEFINE_PROPERTY(String, CollideSound);
 
 
       PlayerController(Entity& owner) : Component(std::string("PlayerController"), owner) {}

@@ -55,14 +55,7 @@ namespace DCEngine {
 				BallRef->getComponent<Components::BallController>()->Locked = true;
 				BallRef->getComponent<Components::RigidBody>()->setDynamicState(DynamicStateType::Static);
 			}
-		}
 
-		void LockField::OnCollisionEndedEvent(Events::CollisionEnded * event)
-		{
-		}
-
-		void LockField::OnCollisionPersistedEvent(Events::CollisionPersisted * event)
-		{
 			if (event->OtherObject->getComponent<Components::PlayerController>() && BallRef)
 			{
 				BallRef->getComponent<Components::RigidBody>()->setDynamicState(DynamicStateType::Dynamic);
@@ -73,6 +66,15 @@ namespace DCEngine {
 				}
 				BallRef = NULL;
 			}
+		}
+
+		void LockField::OnCollisionEndedEvent(Events::CollisionEnded * event)
+		{
+		}
+
+		void LockField::OnCollisionPersistedEvent(Events::CollisionPersisted * event)
+		{
+
 		}
 
 		void LockField::OnMouseUpEvent(Events::MouseUp * event)

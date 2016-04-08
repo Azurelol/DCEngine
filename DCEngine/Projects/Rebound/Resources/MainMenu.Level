@@ -1304,6 +1304,7 @@
       }, 
       "GameObject": 
       {
+<<<<<<< HEAD
         "Locked": false, 
         "GameObjectID": 589, 
         "Name": "Light", 
@@ -1441,6 +1442,8 @@
       }, 
       "GameObject": 
       {
+=======
+>>>>>>> eb1aa0d982854973aec922d2df00a2d84f344cd7
         "Locked": true, 
         "GameObjectID": 82, 
         "Name": "CenterData", 
@@ -1650,8 +1653,13 @@
       "GameObject": 
       {
         "Locked": false, 
+<<<<<<< HEAD
         "GameObjectID": 98, 
         "Name": "HtPElements", 
+=======
+        "GameObjectID": 590, 
+        "Name": "Background", 
+>>>>>>> eb1aa0d982854973aec922d2df00a2d84f344cd7
         "Components": 
         {
           "Transform": 
@@ -1660,6 +1668,7 @@
             {
               "Vec3": 
               {
+<<<<<<< HEAD
                 "x": 34.477657, 
                 "y": -13.205085, 
                 "z": 0.000000
@@ -1910,6 +1919,11 @@
                 "x": 3.379325, 
                 "y": -23.205086, 
                 "z": 0.000000
+=======
+                "x": 0.133617, 
+                "y": 0.000000, 
+                "z": -1.000000
+>>>>>>> eb1aa0d982854973aec922d2df00a2d84f344cd7
               }
             }, 
             "Rotation": 
@@ -1925,12 +1939,18 @@
             {
               "Vec3": 
               {
+<<<<<<< HEAD
                 "x": 1.000000, 
                 "y": 1.000000, 
+=======
+                "x": 150.000000, 
+                "y": 100.000000, 
+>>>>>>> eb1aa0d982854973aec922d2df00a2d84f344cd7
                 "z": 1.000000
               }
             }
           }, 
+<<<<<<< HEAD
           "PanButton": 
           {
             "PanBy": 
@@ -2426,6 +2446,9 @@
             }
           }, 
           "SpriteText": 
+=======
+          "Sprite": 
+>>>>>>> eb1aa0d982854973aec922d2df00a2d84f344cd7
           {
             "Visible": true, 
             "Color": 
@@ -2438,6 +2461,7 @@
                 "w": 1.000000
               }
             }, 
+<<<<<<< HEAD
             "Font": "SafetyMedium", 
             "FontSize": 5, 
             "Text": "How To Play", 
@@ -2466,10 +2490,19 @@
             "ScaleDelay": 0.000000, 
             "ScaleSpeed": 0.000000, 
             "ScaleEase": "Linear"
+=======
+            "SpriteSource": "Level5", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+>>>>>>> eb1aa0d982854973aec922d2df00a2d84f344cd7
           }
         }, 
         "Children": 
         {
+<<<<<<< HEAD
           "GameObject": 
           {
             "Locked": false, 
@@ -2533,13 +2566,20 @@
             {
             }
           }
+=======
+>>>>>>> eb1aa0d982854973aec922d2df00a2d84f344cd7
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
+<<<<<<< HEAD
         "GameObjectID": 432, 
         "Name": "CrTitle", 
+=======
+        "GameObjectID": 589, 
+        "Name": "Light", 
+>>>>>>> eb1aa0d982854973aec922d2df00a2d84f344cd7
         "Components": 
         {
           "Transform": 
@@ -2548,9 +2588,15 @@
             {
               "Vec3": 
               {
+<<<<<<< HEAD
                 "x": -10.738459, 
                 "y": -30.064434, 
                 "z": 0.000000
+=======
+                "x": 3.109465, 
+                "y": 27.775234, 
+                "z": 2.000000
+>>>>>>> eb1aa0d982854973aec922d2df00a2d84f344cd7
               }
             }, 
             "Rotation": 
@@ -2566,15 +2612,31 @@
             {
               "Vec3": 
               {
+<<<<<<< HEAD
                 "x": 0.100000, 
                 "y": 0.100000, 
+=======
+                "x": 1.000000, 
+                "y": 1.000000, 
+>>>>>>> eb1aa0d982854973aec922d2df00a2d84f344cd7
                 "z": 1.000000
               }
             }
           }, 
+<<<<<<< HEAD
           "SpriteText": 
           {
             "Visible": true, 
+=======
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": false, 
+            "Diffuse": false, 
+            "Type": "Spot", 
+>>>>>>> eb1aa0d982854973aec922d2df00a2d84f344cd7
             "Color": 
             {
               "Vec4": 
@@ -2585,6 +2647,7 @@
                 "w": 1.000000
               }
             }, 
+<<<<<<< HEAD
             "Font": "SafetyMedium", 
             "FontSize": 5, 
             "Text": "Credits", 
@@ -2701,10 +2764,17 @@
               }
             }, 
             "Rotation": 
+=======
+            "Intensity": 1.429000, 
+            "Range": 500.000000, 
+            "Falloff": 0.563000, 
+            "DirectionVector": 
+>>>>>>> eb1aa0d982854973aec922d2df00a2d84f344cd7
             {
               "Vec3": 
               {
                 "x": 0.000000, 
+<<<<<<< HEAD
                 "y": 0.000000, 
                 "z": 0.000000
               }
@@ -2760,10 +2830,19 @@
             "ScaleDelay": 0.000000, 
             "ScaleSpeed": 0.000000, 
             "ScaleEase": "Linear"
+=======
+                "y": -1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.600000, 
+            "OuterAngle": 180.000015
+>>>>>>> eb1aa0d982854973aec922d2df00a2d84f344cd7
           }
         }, 
         "Children": 
         {
+<<<<<<< HEAD
           "GameObject": 
           {
             "Locked": false, 
@@ -2827,6 +2906,8 @@
             {
             }
           }
+=======
+>>>>>>> eb1aa0d982854973aec922d2df00a2d84f344cd7
         }
       }
     }

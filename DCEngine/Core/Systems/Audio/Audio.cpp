@@ -184,6 +184,7 @@ namespace DCEngine {
       // Pulls the data from the SoundCue and save it on the instance.
       instance->Type = soundCue->Type;
       // Copy the Playback settings
+      instance->Settings.Loop = soundCue->Loop;
       instance->Settings.Mode = soundCue->Mode;
       instance->Settings.Volume = soundCue->Volume;
       instance->Settings.VolumeVariation = soundCue->VolumeVariation;

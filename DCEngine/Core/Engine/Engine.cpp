@@ -318,6 +318,7 @@ namespace DCEngine {
     // Dispatch the logic update event to the gamesession
     CurrentGameSession->Dispatch<Events::LogicUpdate>(logicUpdateEvent);
     CurrentGameSession->Dispatch<Events::FrameUpdate>(frameUpdateEvent);
+
     // Dispatch update events to all active spaces
     for (auto space : CurrentGameSession->ActiveSpaces) {
       space.second->Update(dt);

@@ -20,61 +20,28 @@ namespace DCEngine {
     class Editor;
     class EditorResources : public EditorModule {
     public:
+      
+      void ToggleDuplicateLevel();
+
+      // CTOR
       EditorResources();
-      template <typename ResourceMap> bool DisplayResourceList(std::string type, ResourceMap* map);
-      // Templated genius function
+      template <typename ResourceMap> bool DisplayResourceList(std::string type, ResourceMap* map);      
       template <typename ResourceMap>
       bool DisplayResourceList(std::string resourceType, ResourceMap* map,
         std::function<void(const std::string&)> singleClick,
         std::function<void(const std::string&)> doubleClick);
-
-      //template <typename ResourceMap, typename SingleClickClass, typename DoubleClickClass,
-      //          typename SingleClickFn, typename DoubleClickFn> 
-      //bool DisplayResourceList(std::string type, ResourceMap* map, SingleClickClass scClass, 
-      //                          void(SingleClickClass::* SingleClickFn singleClickFn)(const std::string&),
-      //                          void(DoubleClickClass::* DoubleClickFn doubleClickFn)(const std::string&)) {
-      //  if (ImGui::TreeNode(type.c_str())) {
-      //    for (auto& resource : map) {
-      //      auto resourceName = resource.second->Name().c_str();
-
-      //      bool selected = Access().SelectedObject() && Access().SelectedObject()->getObjectID() 
-      //                                                             == resource.second->getObjectID();
-      //      if (ImGui::Selectable(resourceName, selected)) {
-      //        SingleClickClass.SingleClickFn(resourceName);      
-      //      }
-      //      if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
-      //        Creator.CreateFromArchetype(resource.second->Name());
-      //        break;
-      //      }
-      //    }
-      //    ImGui::TreePop();
-      //  }
-      //}
-
-      //void WindowAddResource();
-      //void ResourceCreate(std::string& name, ResourceType type);
-      //void ResourceAddFromFile(std::string& name, ResourceType type);
-      //bool CreateLevel(std::string&);
-      //ResourcePtr CreateBank(std::string& name, std::string& assetPath);
-      //ResourcePtr CreateCollisionGroup(std::string& name);
-      //ResourcePtr CreateCollisionTable(std::string& name);
-      //ResourcePtr CreatePhysicsMaterial(std::string& name);
-      //ResourcePtr CreateSpriteSource(std::string& name, std::string& assetPath);
-      //ResourcePtr CreateSoundCue(std::string& name, std::string& assetPath);
-      //ResourcePtr CreateZilchScript(std::string& name);
-      //ResourcePtr CreateFont(std::string& name, std::string& assetPath);
-      //ResourcePtr CreateSpriteLayer(std::string& name);
-      //ResourcePtr CreateSpriteLayerOrder(std::string& name);
-      //bool SelectEnumeration(Zilch::Property*, ObjectPtr, unsigned int&);
-      //bool SelectResource(Zilch::Property*, ObjectPtr, unsigned int&);
-      //template <typename ResourceMap>
-      //bool SelectResource(std::string resourceType, ResourceMap* map, Zilch::Property * resource, ObjectPtr component, unsigned int propertyID);
-      //void WindowCollisionTableEditor();
-      //void WindowSpriteLayerOrderEditor();
-      //ResourcePtr SelectedCollisionTable;
-      //SpriteLayerOrderPtr SelectedSpriteLayerOrder;
+      
 
     private:
+      // Windows
+      struct Windows {
+        bool DuplicateLevels;
+        Windows() : DuplicateLevels(false) {}
+      };
+      Windows ActiveWindows;
+      // Methods
+      void DisplayDuplicateLevelWindow();
+      void DuplicateLevel(const std::string& name);
 
     };
     
