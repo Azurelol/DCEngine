@@ -1,0 +1,66 @@
+class DialogTrigger : ZilchComponent
+{
+	[Property]
+	var DialogTextObjectName : String = "";
+	
+	[Property]
+	var OnlyOnFirstCollision : Boolean = true;
+	
+	[Property]
+	var Message1 : MessageEvent = MessageEvent();
+	[Property]
+	var Message2 : MessageEvent = MessageEvent();
+	[Property]
+	var Message3 : MessageEvent = MessageEvent();
+	
+	var Active : Boolean = false;
+	var MessageNumber : Integer = 1;
+	var FirstCollisionOccurred : Boolean = false;
+    function Initialize()
+    {
+		this.Message1.Message = "HELLO";
+		this.Message2.Message = "HI";
+		this.Message3.Message = "Whats UP";
+		
+		this.Message1.NewMessage = true;
+		this.Message2.NewMessage = true;
+		this.Message3.NewMessage = true;
+		
+        Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDown);
+		Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollision);
+    }
+
+    function OnMouseDown(event : MouseDown)
+    {
+		if(this.Active == false && this.DialogTextObjectName != "" && 
+		(this.OnlyOnFirstCollision == false || this.FirstCollisionOccurred == false))
+		{
+			var ourText = this.Space.FindObjectByName(this.DialogTextObjectName);
+			if(ourText.DialogText.MessageComplete)
+			{
+				if(this.MessageNumber == 1)
+				{
+					ourText.Dispatch(DaisyEvent.MessageEvent, this.Message1);
+				}
+				if(this.MessageNumber == 2)
+				{
+					ourText.Dispatch(DaisyEvent.MessageEvent, this.Message2);
+				}
+				if(this.MessageNumber == 3)
+				{
+					ourText.Dispatch(DaisyEvent.MessageEvent, this.Message3);
+				}
+			}
+			else
+			{
+				ourText.DialogText.FinishMessage();
+			}
+		}
+	}
+
+    function OnCollision(event : CollisionStarted)
+    {
+		this.Active = true;
+    }
+	
+}

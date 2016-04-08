@@ -9,6 +9,22 @@ class DamageEvent : DaisyEvent
 class ToggleColorEvent : ZilchEvent
 {
 }
+class MessageEvent : ZilchEvent
+{
+	var NewMessage : Boolean = false;
+	var NewProperties : Boolean = false;
+    var SystemDelay : Real = -1.0;
+    var MessageTime : Real = -1.0;
+    var ScaleTimeWithSize : Boolean = true;
+    var TimePerChar : Real = -1.0;
+	var Message : String = "";
+	var WordWrap : Integer = -1;
+    var FadeEase : Ease = Ease.Linear;
+	var DeleteAfterTime : Boolean = true;
+	var TimeToDelete : Real = -1.0;
+	var CurTime : Real = -1.0;
+	var ThePlace : Integer = -1;
+}
 
 class ScreenShakeEvent : ZilchEvent
 {

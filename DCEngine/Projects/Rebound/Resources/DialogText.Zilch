@@ -1,0 +1,124 @@
+class DialogText : ZilchComponent
+{
+    [Property]
+    var SystemDelay : Real = 0.0;
+	
+    [Property]
+    var MessageTime : Real = 5.0;
+	
+    [Property]
+    var ScaleTimeWithSize : Boolean = true;
+	
+    [Property]
+    var TimePerChar : Real = 0.5;
+	
+	[Property]
+	var Message : String = "";
+	
+	[Property]
+	var WordWrap : Integer = 15;
+	
+	[Property]
+    var FadeEase : Ease = Ease.Linear;
+	
+	[Property]
+	var DeleteAfterTime : Boolean = true;
+	
+	[Property]
+	var TimeToDelete : Real = 10.0;
+	var CurTime : Real = 0.0;
+	var MessageComplete : Boolean = true;
+	
+	var ThePlace : Integer = 0;
+	
+    function Initialize()
+    {
+		this.Owner.SpriteText.Text = "";
+		this.Owner.SpriteText.WordWrap = this.WordWrap;
+		this.SetMessage(this.Message);
+        Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+        Daisy.Connect(this.Owner, DaisyEvent.MessageEvent, this.OnMessageEvent);
+		//this.SayMessage();
+    }
+
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+		if(this.ThePlace == 0 || this.ThePlace == this.Message.Count)
+			this.MessageComplete = true;
+		else
+			this.MessageComplete = false;
+	
+		this.CurTime += event.Dt;
+		if(this.CurTime > this.TimeToDelete && this.DeleteAfterTime == true)
+		{
+			this.WipeMessage();
+			this.CurTime = 0;
+		}
+		this.Owner.SpriteText.Text = this.Message.SubString(0, this.ThePlace);
+    }
+	
+	function FinishMessage()
+	{
+		this.ThePlace = this.Message.Count;
+	}
+	
+	function OnMessageEvent(event : MessageEvent)
+	{
+		if(event.NewProperties == true)
+		{
+			if(this.SystemDelay != -1)
+				this.SystemDelay = event.SystemDelay;
+			if(this.MessageTime != -1)
+				this.MessageTime = event.MessageTime;
+			this.ScaleTimeWithSize = event.ScaleTimeWithSize;
+			if(this.TimePerChar != -1)
+				this.TimePerChar = event.TimePerChar;
+			if(this.WordWrap != -1)
+				this.WordWrap = event.WordWrap;
+			this.FadeEase = event.FadeEase;
+			this.DeleteAfterTime = event.DeleteAfterTime;
+			if(this.TimeToDelete != -1)
+				this.TimeToDelete = event.TimeToDelete;
+			if(this.CurTime != -1)
+				this.CurTime = event.CurTime;
+			if(this.ThePlace != -1)
+				this.ThePlace = event.ThePlace;
+			
+		}
+		if(event.NewMessage == true)
+		{
+			this.Message = event.Message;
+		}
+		this.SayMessage();
+	}
+	
+	function SetMessage(message : String)
+	{
+		this.Message = message;
+	}
+	
+	function SayMessage()
+	{
+        var masterSeq = Actions.Sequence(this.Owner.Actions);
+        var masterGrp = Actions.Group(this.Owner.Actions);
+		
+        Actions.Delay(masterSeq, this.SystemDelay);
+        Actions.Delay(masterGrp, this.SystemDelay);
+		
+		if(this.ScaleTimeWithSize == true)
+		{
+			Actions.Property(masterSeq, @this.ThePlace, this.Message.Count, this.TimePerChar*this.Message.Count, this.FadeEase);
+		}
+		else
+		{
+			Actions.Property(masterSeq, @this.ThePlace, this.Message.Count, this.MessageTime, this.FadeEase);
+		}
+		
+	}
+	
+	function WipeMessage()
+	{
+		this.Owner.SpriteText.Text = "";
+		this.ThePlace = 0;
+	}
+}
