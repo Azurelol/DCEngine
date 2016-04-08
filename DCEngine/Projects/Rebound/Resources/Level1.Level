@@ -1880,12 +1880,12 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "PlayerStand", 
+            "SpriteSource": "Char_Asha_Idle_Spritesheet", 
             "FlipX": false, 
             "FlipY": false, 
-            "AnimationActive": false, 
+            "AnimationActive": true, 
             "AnimationSpeed": 10.000000, 
-            "DrawLayer": 5
+            "DrawLayer": 0
           }, 
           "RigidBody": 
           {
@@ -1938,8 +1938,8 @@
           }, 
           "PlayerController": 
           {
-            "MoveSpeed": 1.000000, 
-            "VelocityXCap": 7.000000, 
+            "MoveSpeed": 0.350000, 
+            "VelocityXCap": 30.000000, 
             "JumpPower": 30.000000, 
             "JumpFrames": 1.000000, 
             "Health": 10.000000, 

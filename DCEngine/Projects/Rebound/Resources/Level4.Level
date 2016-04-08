@@ -65,7 +65,7 @@
       {
         "Locked": true, 
         "GameObjectID": 293, 
-        "Name": "Sprite", 
+        "Name": "WhiteboardBackground", 
         "Components": 
         {
           "Transform": 
@@ -941,8 +941,7 @@
               }
             }, 
             "Additive": true, 
-            "Lock": false, 
-            "DrawLayer": 4
+            "Lock": false
           }, 
           "ParticleEmitter": 
           {
@@ -6869,10 +6868,7 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }, 
-            "AttackSound": "", 
-            "DeathSound": "", 
-            "TakeDamageSound": ""
+            }
           }
         }, 
         "Children": 
@@ -7030,10 +7026,7 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }, 
-            "AttackSound": "", 
-            "DeathSound": "", 
-            "TakeDamageSound": ""
+            }
           }
         }, 
         "Children": 
@@ -7191,10 +7184,7 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }, 
-            "AttackSound": "", 
-            "DeathSound": "", 
-            "TakeDamageSound": ""
+            }
           }
         }, 
         "Children": 
@@ -7444,10 +7434,7 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }, 
-            "AttackSound": "", 
-            "DeathSound": "", 
-            "TakeDamageSound": ""
+            }
           }
         }, 
         "Children": 
@@ -7881,10 +7868,7 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }, 
-            "AttackSound": "", 
-            "DeathSound": "", 
-            "TakeDamageSound": ""
+            }
           }
         }, 
         "Children": 
@@ -8042,10 +8026,7 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }, 
-            "AttackSound": "", 
-            "DeathSound": "", 
-            "TakeDamageSound": ""
+            }
           }
         }, 
         "Children": 
@@ -8329,10 +8310,7 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }, 
-            "AttackSound": "", 
-            "DeathSound": "", 
-            "TakeDamageSound": ""
+            }
           }
         }, 
         "Children": 
@@ -9747,8 +9725,8 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 140, 
-        "Name": "MusicManager", 
+        "GameObjectID": 214, 
+        "Name": "Foreground3", 
         "Components": 
         {
           "Transform": 
@@ -9757,9 +9735,9 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
+                "x": -1.642122, 
+                "y": 21.197083, 
+                "z": -0.010000
               }
             }, 
             "Rotation": 
@@ -9775,18 +9753,341 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
+                "x": 475.000000, 
+                "y": 200.000000, 
                 "z": 1.000000
               }
             }
           }, 
-          "MusicBackground": 
+          "Sprite": 
           {
-            "PlayOnStart": true, 
-            "StopOnTerminate": true, 
-            "Track": "TheOldWorld", 
-            "Volume": 1.000000
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Level4_Foreground_03", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 3
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 214, 
+        "Name": "Foreground1", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -1.642122, 
+                "y": 21.197083, 
+                "z": -0.010000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 475.000000, 
+                "y": 200.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Level4_Foreground_01", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 3
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 214, 
+        "Name": "Foreground2", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -1.642122, 
+                "y": 21.197083, 
+                "z": -0.010000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 475.000000, 
+                "y": 200.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Level4_Foreground_02", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 3
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 214, 
+        "Name": "Background1", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -1.642122, 
+                "y": 21.197083, 
+                "z": -0.020000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 475.000000, 
+                "y": 200.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Level1_Background_01", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 1
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 214, 
+        "Name": "Midground", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -1.642122, 
+                "y": 21.197083, 
+                "z": -0.020000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 475.000000, 
+                "y": 200.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Level4_Midground", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 2
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 214, 
+        "Name": "Background2", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -1.642122, 
+                "y": 21.197083, 
+                "z": -0.020000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 475.000000, 
+                "y": 200.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Level4_Background_02", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 1
           }
         }, 
         "Children": 

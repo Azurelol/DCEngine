@@ -32,6 +32,9 @@ class UIButton : ZilchComponent
     
     [Property]
     var ClickedColor : Real4 = Real4(1,1,1,1);
+
+    [Property]
+    var ClickedSprite : String = "";
     
     [Property]
     var InactiveColor : Real4 = Real4(1,1,1,1);

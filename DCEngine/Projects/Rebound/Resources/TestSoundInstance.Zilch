@@ -43,4 +43,8 @@ class TestSoundInstance : ZilchComponent
     function Resume() {
     	this.Instance.Resume();
     }
+    // StopModes are "Immediate" and "Fade"
+    function Terminate() {
+    	this.Instance.Stop(StopMode.Immediate);
+    }
 }

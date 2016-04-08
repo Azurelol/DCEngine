@@ -28,7 +28,8 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, DoAutoPlay);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, StandAnimation);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpAnimation);
-	    DCE_BINDING_DEFINE_PROPERTY(PlayerController, RunAnimation);
+	  DCE_BINDING_DEFINE_PROPERTY(PlayerController, RunAnimation);
+	  DCE_BINDING_DEFINE_PROPERTY(PlayerController, FallAnimation);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, AutoPlayTimer);
 
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, TeleportStartSound);
@@ -55,6 +56,7 @@ namespace DCEngine {
       TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>(); // ew
       RigidBodyRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::RigidBody>();
       ColliderRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::BoxCollider>();
+	  BallRef = SpaceRef->FindObjectByName("Ball");
       SpriteComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
 
       // ColliderRef->	 
@@ -259,12 +261,17 @@ namespace DCEngine {
         //SpriteComponent->HaveAnimation = true;
         //SpriteComponent->AnimationActive = true;
         Jumping = false;
-        if (RigidBodyRef->getVelocity().y > 0)
+        if (RigidBodyRef->getVelocity().y > 0 && BallRef->getComponent<Components::BallController>()->Locked == false)
         {
           RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Vec3(1, AirBrakeScalar, 1));
         }
       }
+	  if (RigidBodyRef->getVelocity().y < 0 && SpriteComponent->SpriteSource == JumpAnimation)
+	  {
 
+		  SpriteComponent->SpriteSource = FallAnimation;
+		  SpriteComponent->AnimationActive = true;
+	  }
       if (Daisy->getKeyboard()->KeyIsDown(Keys::A))
       {
         SpriteComponent->FlipX = true;
@@ -274,7 +281,7 @@ namespace DCEngine {
         if (Grounded)
         {
           SpriteComponent->SpriteSource = RunAnimation;
-          SpriteComponent->AnimationActive = true;
+		  SpriteComponent->AnimationActive = true;
           SoundFootstep();
         }
       }
@@ -287,7 +294,7 @@ namespace DCEngine {
         if (Grounded)
         {
           SpriteComponent->SpriteSource = RunAnimation;
-          SpriteComponent->AnimationActive = true;
+		  SpriteComponent->AnimationActive = true;
           SoundFootstep();
         }
       }
@@ -475,32 +482,34 @@ namespace DCEngine {
 	  {
 		  DCEngine::CastFilter filter;
 		  filter.CollisionGroups.push_back(CollisionGroup::Find("Terrain"));
+		  filter.CollisionGroups.push_back(CollisionGroup::Find("Ball"));
 		  filter.Include = true;
 		  auto physicsSpace = this->SpaceRef->getComponent<Components::PhysicsSpace>();
 		  DCEngine::Ray ray;
 		  ray.Direction = Vec3(0, -1, 0);
-		  ray.Origin = Vec3(TransformRef->Translation) + Vec3(TransformRef->Scale.x / 2.1, -TransformRef->Scale.y / 2.01, 0);
-		  auto result = physicsSpace->CastRay(ray);
+		  ray.Origin = TransformRef->Translation + Vec3(TransformRef->Scale.x / 2.1, -TransformRef->Scale.y / 2.01, 0);
+		  auto result = physicsSpace->CastRay(ray, filter);
 		  DCTrace << "raydist1 = " << result.Distance << "\n";
-		  if (result.Distance < 0.005)
+		  auto graphicsSpace = this->SpaceRef->getComponent<Components::GraphicsSpace>();
+		  graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0,-1,0), Vec4(1, 0, 0, 1));
+		  if (result.Distance < 0.02)
 		  {
-			  int x = 9001;
 			  return true;
 		  }
-		  ray.Origin = Vec3(TransformRef->Translation) + Vec3(0, -TransformRef->Scale.y / 2, 0);
+		  ray.Origin = TransformRef->Translation + Vec3(0, -TransformRef->Scale.y / 2.01, 0);
 		  result = physicsSpace->CastRay(ray, filter);
 		  DCTrace << "raydist2 = " << result.Distance << "\n";
-		  if (result.Distance < 0.005)
+		  graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
+		  if (result.Distance < 0.02)
 		  {
-			  int x = 9001;
 			  return true;
 		  }
-		  ray.Origin = Vec3(TransformRef->Translation) + Vec3(-TransformRef->Scale.x / 2.1, -TransformRef->Scale.y / 2.01, 0);
+		  ray.Origin = TransformRef->Translation + Vec3(-TransformRef->Scale.x / 2.1, -TransformRef->Scale.y / 2.01, 0);
 		  result = physicsSpace->CastRay(ray, filter);
 		  DCTrace << "raydist3 = " << result.Distance << "\n";
-		  if (result.Distance < 0.005)
+		  graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
+		  if (result.Distance < 0.02)
 		  {
-			  int x = 9001;
 			  return true;
 		  }
 		  return false;

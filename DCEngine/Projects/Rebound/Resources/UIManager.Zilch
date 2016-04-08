@@ -1,5 +1,49 @@
 class UIManager : ZilchComponent
 {
+	[Property]
+	var HtPPanBy : Real2 = Real2(0,0);
+
+	[Property]
+	var HtPPanTime : Real = 0.0;
+
+	[Property]
+	var HtPEase : Ease = Ease.Linear;
+
+	[Property]
+	var CrPanBy : Real2 = Real2(0,0);
+
+	[Property]
+	var CrPanTime : Real = 0.0;
+
+	[Property]
+	var CrEase : Ease = Ease.Linear;
+
+	[Property]
+	var NGPanBy : Real2 = Real2(0,0);
+
+	[Property]
+	var NGPanTime : Real = 0.0;
+
+	[Property]
+	var NGEase : Ease = Ease.Linear;
+
+	[Property]
+	var OpPanBy : Real2 = Real2(0,0);
+
+	[Property]
+	var OpPanTime : Real = 0.0;
+
+	[Property]
+	var OpEase : Ease = Ease.Linear;
+
+	[Property]
+	var HoverSoundName : String = "";
+	var HoverSoundInstance : SoundInstance;
+
+	[Property]
+	var ClickSoundName : String = "";
+	var ClickSoundInstance : SoundInstance;
+
 	var ButtonList : Array[Entity] = null;
 
     var RefText : Entity = null;
@@ -81,6 +125,11 @@ class UIManager : ZilchComponent
 
     function OnButtonHovered(button : Entity)
     {
+    	if(this.HoverSoundName != "")
+    	{
+    		this.HoverSoundInstance = this.Space.SoundSpace.PlayCue(this.HoverSoundName);
+    	}
+
         if(this.RefText == null || this.RefText.SpriteText == null)
         {
             return;
@@ -111,23 +160,41 @@ class UIManager : ZilchComponent
 
     function OnButtonClicked(button : Entity)
     {
+    	if(this.ClickSoundName != "")
+    	{
+    		this.ClickSoundInstance = this.Space.SoundSpace.PlayCue(this.ClickSoundName);
+    	}
+
     	if(button.Name == "NewGameButton")
     	{
     		this.Space.LoadLevel("Level1");
     	}
     	else if(button.Name == "HowToPlayButton")
     	{
-            Console.WriteLine("HOW TO PLAY LOGIC TBD");
-    		//this.Space.LoadLevel("HowToPlay");
+            var htpPan = PanEvent();
+            htpPan.PanBy = this.HtPPanBy;
+            htpPan.PanTime = this.HtPPanTime;
+            htpPan.PanEase = this.HtPEase;
+
+            this.Space.Dispatch(DaisyEvent.PanEvent, htpPan);
     	}
     	else if(button.Name == "OptionsButton")
     	{
-    		Console.WriteLine("OPTIONS LOGIC TBD");
-    		//this.Space.LoadLevel("Level1");
+    		var opPan = PanEvent();
+            opPan.PanBy = this.OpPanBy;
+            opPan.PanTime = this.OpPanTime;
+            opPan.PanEase = this.OpEase;
+
+            this.Space.Dispatch(DaisyEvent.PanEvent, opPan);
     	}
     	else if(button.Name == "CreditsButton")
     	{
-    		Console.WriteLine("CREDITS LOGIC TBD");
+    		var crPan = PanEvent();
+            crPan.PanBy = this.CrPanBy;
+            crPan.PanTime = this.CrPanTime;
+            crPan.PanEase = this.CrEase;
+
+            this.Space.Dispatch(DaisyEvent.PanEvent, crPan);
     	}
     	else if(button.Name == "QuitGameButton")
     	{

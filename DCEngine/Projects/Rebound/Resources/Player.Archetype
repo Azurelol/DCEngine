@@ -13,8 +13,8 @@
         {
           "Vec3": 
           {
-            "x": -13.755283, 
-            "y": 17.302092, 
+            "x": -86.085693, 
+            "y": -41.104252, 
             "z": 0.000000
           }
         }, 
@@ -53,7 +53,7 @@
         "SpriteSource": "PlayerStand", 
         "FlipX": false, 
         "FlipY": false, 
-        "AnimationActive": true, 
+        "AnimationActive": false, 
         "AnimationSpeed": 10.000000, 
         "DrawLayer": 0
       }, 
@@ -108,7 +108,8 @@
       }, 
       "PlayerController": 
       {
-        "MoveSpeed": 0.700000, 
+        "MoveSpeed": 0.350000, 
+        "VelocityXCap": 30.000000, 
         "JumpPower": 30.000000, 
         "JumpFrames": 1.000000, 
         "Health": 10.000000, 
@@ -118,7 +119,13 @@
         "StandAnimation": "Char_Asha_Idle_Spritesheet", 
         "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
         "RunAnimation": "Char_Asha_Run_Spritesheet", 
-        "AutoPlayTimer": 2.000000
+        "AutoPlayTimer": 2.000000, 
+        "TeleportStartSound": "Teleport", 
+        "TeleportArriveSound": "TeleportArrive", 
+        "JumpSound": "Jump", 
+        "LandSound": "Land", 
+        "FootstepSound": "Step", 
+        "CollideSound": "Collide"
       }, 
       "Light": 
       {
@@ -126,6 +133,7 @@
         "VisibilityCulling": false, 
         "VisibilityEvents": false, 
         "CastShadows": false, 
+        "Diffuse": false, 
         "Type": "Point", 
         "Color": 
         {
