@@ -1,101 +1,62 @@
-class MusicPlayEvent : ZilchEvent {
-	var Track : String;
-}  
-
-class MusicStopEvent : ZilchEvent {                
-
-}
-
-/*
-	Known problems
-		The editor and the level will both have an active MusicBackground
-		When the level is started from the editor, it is possible that the Initialize whill beging, but the Editor will then terminate.
-		How to avoid?
-			Don't stop if in editor?
-
-	Global volumes?
-		Groups and VCAs will alter.
-
-	What if we want music to continue across levels?
-		Boolean - stop on terminate.
-*/
-
 class MusicBackground : ZilchComponent
-{
-	[Property] var PlayOnStart : Boolean;
-	[Property] var StopOnTerminate : Boolean;
-	[Property] var DefaultTrack : String;
-	[Property] var DefaultVolume : Real;
-
-  var CurrentInstance : SoundInstance;
-	//var CurrentInstance : SoundInstance;
+{	
+	[Property] var PlayOnStart : Boolean = true;
+	[Property] var StopOnTerminate : Boolean = false;
+	[Property] var Track : String = "";
+	[Property] var Volume : Real = 1.0;
+	
+	var Instance : SoundInstance = null;
 
     function Initialize()
     {
-    	Daisy.Connect(this.Space, DaisyEvent.MusicPlayEvent, this.OnMusicPlayEvent);
-    	Daisy.Connect(this.Space, DaisyEvent.MusicStopEvent, this.OnMusicPlayEvent);
-    	
-   		// Check for illegal values
-    	this.DefaultVolume = this.TruncateVolume(this.DefaultVolume);
-
     	// If we were given a default track, and we are told to start, begin playing on initialize.
-    	if ( (this.DefaultTrack != "") && (this.PlayOnStart) )
+    	if ( (this.Track != "") && (this.PlayOnStart) )
     	{
-    		this.Play(this.DefaultTrack);
+			this.Instance = this.Space.SoundSpace.PlayCue(this.Track);
     	}
-
-        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+		
+		this.ChangeVolume(this.Volume);
     }
 
-    function OnMusicPlayEvent(event : MusicPlayEvent){
-    	// ?
-    }
+	function Terminate()
+	{	
+		Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA `this.Name` is terminating!");
+		
+		//if (this.Instance != null)
+		//{	
+			//this.Instance.Stop(StopMode.Immediate);
+		//}
+	}
 
-    function OnMusicStopEvent(event : MusicStopEvent){    	
-    	// ?
-    }
-
-   	function Terminate() {
-   		// stop all currently playing music.
-   		/*
-		if (this.StopOnTerminate == true)
+    function Pause()
+	{
+		if (this.Instance != null)
 		{
-			this.Stop();
+			this.Instance.Pause();
 		}
-   		*/
-
-      Console.WriteLine("Terminating `this.Name`");
-	   }
-
-    function Play(track : String) {
-    	// Play the provided string.
-    	// Set Volume
     }
 
-    function Pause() {
-    	// pause the currently playing track.
-    }
-
-	function Resume() {
-    	// resume playing the currently playing track.
+	function Resume()
+	{
+		if (this.Instance != null)
+		{
+			this.Instance.Resume();
+		}
     }    
 
-    function ChangeVolume(vol : Real) {
+    function ChangeVolume(vol : Real)
+	{
+		// If the instance is null, it doesn't matter if the given value is valid or not.
+		if (this.Instance == null)
+		{
+			return;
+		}
+		
     	// Safety check; valid volumes are on range [0, 1]
     	vol = this.TruncateVolume(vol);
 
     	// Set the volume to a provided value.
-    	//void InterpolateVolume(Real newVolume, Real time);
-    }
-
-    function SetParameter(val : Real)
-    {
-    	// Sound designer only useds [0, 1]
-    }
-
-    function Stop() {
-    	// stop the CURRENT PLAYING sound.
-    	// void SoundInstance::Stop()
+		this.Instance.InterpolateVolume(vol, 0);
     }
 
     function TruncateVolume(vol : Real) : Real
@@ -112,9 +73,5 @@ class MusicBackground : ZilchComponent
 
    		// Volume is fine. Return as is.
    		return vol;
-    }
-
-    function OnLogicUpdate(event : LogicUpdate)
-    {
     }
 }

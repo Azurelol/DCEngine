@@ -122,6 +122,9 @@
         "AttackJumpStrengthX": 10.000000, 
         "AttackJumpStrengthY": 15.000000, 
         "AttackJumpPeriod": 1.000000, 
+		"AttackSound": "ScrapperAttack",
+		"DeathSound": "ScrapperDeath",
+		"TakeDamageSound": "ScrapperTakeDamage",
         "IdleColor": 
         {
           "Vec4": 

@@ -1998,7 +1998,8 @@
                 "w": 1.000000
               }
             }, 
-            "TargetName": "Gate1"
+            "TargetName": "Gate1", 
+            "SwitchSound": ""
           }
         }, 
         "Children": 
@@ -4040,7 +4041,8 @@
               }
             }, 
             "Additive": true, 
-            "Lock": false
+            "Lock": false, 
+            "DrawLayer": 4
           }, 
           "ParticleEmitter": 
           {
@@ -5290,7 +5292,8 @@
                 "w": 1.000000
               }
             }, 
-            "TargetName": "Door1"
+            "TargetName": "Door1", 
+            "SwitchSound": ""
           }
         }, 
         "Children": 
@@ -5402,7 +5405,8 @@
                 "w": 1.000000
               }
             }, 
-            "TargetName": "Gate1"
+            "TargetName": "Gate1", 
+            "SwitchSound": ""
           }
         }, 
         "Children": 
@@ -5514,7 +5518,8 @@
                 "w": 1.000000
               }
             }, 
-            "TargetName": "Shield1"
+            "TargetName": "Shield1", 
+            "SwitchSound": ""
           }
         }, 
         "Children": 
@@ -5626,7 +5631,8 @@
                 "w": 1.000000
               }
             }, 
-            "TargetName": "Shield2"
+            "TargetName": "Shield2", 
+            "SwitchSound": ""
           }
         }, 
         "Children": 
@@ -6000,7 +6006,8 @@
                 "w": 1.000000
               }
             }, 
-            "TargetName": "Shield2"
+            "TargetName": "Shield2", 
+            "SwitchSound": ""
           }
         }, 
         "Children": 
@@ -8407,6 +8414,55 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 140, 
+        "Name": "MusicManager", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "MusicBackground": 
+          {
+            "PlayOnStart": true, 
+            "StopOnTerminate": true, 
+            "Track": "DesertLab", 
+            "Volume": 1.000000
           }
         }, 
         "Children": 

@@ -12,6 +12,8 @@
 #include "Grunt.h"
 #include "../../../CoreComponents.h"
 
+#define POSTEVENT(name) SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(name)
+
 namespace DCEngine {
   namespace Components {
 
@@ -41,6 +43,10 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Grunt, IdleColor);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, PatrolColor);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, AttackColor);
+
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, AttackSound);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, DeathSound);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, TakeDamageSound);
     }
 
     // Dependancies
@@ -98,6 +104,10 @@ namespace DCEngine {
       {
         ModifyHealth(-1);
       }
+      else if (event->OtherObject->getComponent<PlayerController>() != NULL)
+      {
+        POSTEVENT(AttackSound);
+      }
     }
 
     bool Grunt::ModifyHealth(int amount)
@@ -116,7 +126,12 @@ namespace DCEngine {
 
       if (health == 0)
       {
+        POSTEVENT(DeathSound);
         stateMachine->ChangeState(Die::Instance());
+      }
+      else
+      {
+        POSTEVENT(TakeDamageSound);
       }
 
       if (oldHealth == health)
@@ -352,8 +367,6 @@ namespace DCEngine {
       //DCTrace << "Grunt Die Enter\n";
 
       owner->RigidBodyRef->setVelocity(Vec3(0, 0, 0));
-
-      // Death sound?
     }
 
     void Grunt::Die::Update(Grunt *owner)

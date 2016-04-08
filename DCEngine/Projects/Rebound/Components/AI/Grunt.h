@@ -65,6 +65,10 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Vec4, PatrolColor);
       DCE_DEFINE_PROPERTY(Vec4, AttackColor);
 
+      DCE_DEFINE_PROPERTY(String, AttackSound);
+      DCE_DEFINE_PROPERTY(String, DeathSound);
+      DCE_DEFINE_PROPERTY(String, TakeDamageSound);
+
       // Methods
       Grunt(Entity& owner) : Component(std::string("Grunt"), owner) {}
       ~Grunt();
@@ -88,8 +92,11 @@ namespace DCEngine {
       float jumpTimer = 0;
       float dt;
       Vec4 defaultColor;
-      bool ModifyHealth(int amount);
+      String AttackSound;
+      String DeathSound;
+      String TakeDamageSound;
 
+      bool ModifyHealth(int amount);
       void Jump(int direction, float period, float strengthX, float strengthY);
 
       class Global : public IState<Grunt>

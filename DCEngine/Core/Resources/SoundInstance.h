@@ -45,6 +45,7 @@ namespace DCEngine {
     void InterpolatePitch(Real newPitch, Real time);
     void Resume();
     void Pause();
+    void ForceStop(void);
     void Stop(StopMode mode = StopMode::AllowFadeOut);
     bool IsPlaying();
     // CTOR

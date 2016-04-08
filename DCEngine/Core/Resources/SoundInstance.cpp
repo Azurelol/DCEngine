@@ -39,6 +39,7 @@ namespace DCEngine {
     ZilchBindMethod(builder, type, &SoundInstance::InterpolatePitch, ZilchNoOverload, "InterpolatePitch", "newPitch, time");
     ZilchBindMethod(builder, type, &SoundInstance::Resume, ZilchNoOverload, "Resume", ZilchNoNames);
     ZilchBindMethod(builder, type, &SoundInstance::Pause, ZilchNoOverload, "Pause", ZilchNoNames);
+    ZilchBindMethod(builder, type, &SoundInstance::ForceStop, ZilchNoOverload, "ForceStop", ZilchNoNames);
     ZilchBindMethod(builder, type, &SoundInstance::Stop, ZilchNoOverload, "Stop", ZilchNoNames);
     ZilchBindMethod(builder, type, &SoundInstance::IsPlaying, ZilchNoOverload, "IsPlaying", ZilchNoNames);
     // Properties
@@ -134,6 +135,18 @@ namespace DCEngine {
       SoundHandle.EventInstance->setPaused(true);
     else if (Type == SoundCue::SoundCueType::File && SoundHandle.Channel)
       SoundHandle.Channel->setPaused(true);
+  }
+
+  void SoundInstance::ForceStop(void)
+  {
+    if (Type == SoundCue::SoundCueType::Event && SoundHandle.EventInstance)
+    {
+      SoundHandle.EventInstance->stop(FMOD_STUDIO_STOP_IMMEDIATE);
+    }
+    else if (Type == SoundCue::SoundCueType::File && SoundHandle.Channel)
+    {
+      SoundHandle.Channel->stop();
+    }
   }
 
   /**************************************************************************/

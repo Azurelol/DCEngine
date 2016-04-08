@@ -42,12 +42,12 @@
               }
             }
           }, 
-          "MusicManager": 
+          "MusicBackground": 
           {
-            "Track": "NO TRACK SET", 
-            "Volume": 0.000000, 
             "PlayOnStart": true, 
-            "StopOnEnd": false
+            "StopOnTerminate": true, 
+            "Track": "MainMenu", 
+            "Volume": 1.000000
           }
         }, 
         "Children": 
@@ -429,7 +429,10 @@
                   }
                 }, 
                 "ExpansionScale": 1.100000, 
-                "ExpansionTime": 0.100000
+                "ExpansionTime": 0.100000, 
+                "SelectSound": "MenuSelect", 
+                "CancelSound": "MenuCancel", 
+                "HoverSound": "MenuHover"
               }
             }, 
             "Children": 
@@ -618,7 +621,10 @@
                   }
                 }, 
                 "ExpansionScale": 1.100000, 
-                "ExpansionTime": 0.100000
+                "ExpansionTime": 0.100000, 
+                "SelectSound": "MenuSelect", 
+                "CancelSound": "MenuCancel", 
+                "HoverSound": "MenuHover"
               }
             }, 
             "Children": 
@@ -807,7 +813,10 @@
                   }
                 }, 
                 "ExpansionScale": 1.100000, 
-                "ExpansionTime": 0.100000
+                "ExpansionTime": 0.100000, 
+                "SelectSound": "MenuSelect", 
+                "CancelSound": "MenuCancel", 
+                "HoverSound": "MenuHover"
               }
             }, 
             "Children": 
@@ -996,7 +1005,10 @@
                   }
                 }, 
                 "ExpansionScale": 1.100000, 
-                "ExpansionTime": 0.100000
+                "ExpansionTime": 0.100000, 
+                "SelectSound": "MenuSelect", 
+                "CancelSound": "MenuCancel", 
+                "HoverSound": "MenuHover"
               }
             }, 
             "Children": 
@@ -1185,7 +1197,10 @@
                   }
                 }, 
                 "ExpansionScale": 1.050000, 
-                "ExpansionTime": 0.000000
+                "ExpansionTime": 0.000000, 
+                "SelectSound": "MenuSelect", 
+                "CancelSound": "MenuCancel", 
+                "HoverSound": "MenuHover"
               }
             }, 
             "Children": 

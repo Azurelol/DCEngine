@@ -16,7 +16,7 @@ class UIButton : ZilchComponent
     // Should theis component be active?
     [Property]
     var Active : Boolean = true;
-    
+	
     // State colors
     [Property]
     var DefaultColor : Real4 = Real4(1,1,1,1);
@@ -47,17 +47,17 @@ class UIButton : ZilchComponent
 
     [Property]
     var ExpansionTime : Real;
-    /*
+
     // State SoundCue resources
     [Property]
-    var DefaultSound : SoundCue = null;
+    var SelectSound : String = "MenuSelect";
     
     [Property]
-    var HoverSound : SoundCue = null;
+    var CancelSound : String = "MenuCancel";
     
     [Property]
-    var ClickedSound : SoundCue = null;
-    */
+    var HoverSound : String = "MenuHover";
+
     // Current Stae of the button
     var CurState : ButtonState = ButtonState.Default;
 
@@ -91,6 +91,11 @@ class UIButton : ZilchComponent
 	{
 		if(this.Active)
 		{
+			if (this.HoverSound != "")
+			{
+				this.Space.SoundSpace.PlayCue(this.HoverSound);
+			}
+		
 			this.EnterHoveredState();
 		}
 		
@@ -108,6 +113,11 @@ class UIButton : ZilchComponent
 	{
 		if(this.CurState == ButtonState.Hovered)
 		{
+			if (this.SelectSound != "")
+			{
+				this.Space.SoundSpace.PlayCue(this.SelectSound);
+			}
+		
 			this.EnterClickedState();
 		}
 	}
@@ -125,7 +135,7 @@ class UIButton : ZilchComponent
 	}
 
 	function EnterDefaultState()
-	{
+	{	
 		this.Active = true;
 		this.CurState = ButtonState.Default;
 		this.Owner.Sprite.Color = this.DefaultColor;

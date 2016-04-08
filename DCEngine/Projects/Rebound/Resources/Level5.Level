@@ -1982,7 +1982,10 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }
+            }, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": ""
           }
         }, 
         "Children": 
@@ -2140,7 +2143,10 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }
+            }, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": ""
           }
         }, 
         "Children": 
@@ -2298,7 +2304,10 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }
+            }, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": ""
           }
         }, 
         "Children": 
@@ -3507,7 +3516,8 @@
               }
             }, 
             "Additive": true, 
-            "Lock": false
+            "Lock": false, 
+            "DrawLayer": 4
           }, 
           "ParticleEmitter": 
           {
@@ -5201,7 +5211,10 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }
+            }, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": ""
           }
         }, 
         "Children": 
@@ -5359,7 +5372,10 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }
+            }, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": ""
           }
         }, 
         "Children": 
@@ -5517,7 +5533,10 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }
+            }, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": ""
           }
         }, 
         "Children": 
@@ -5675,7 +5694,10 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }
+            }, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": ""
           }
         }, 
         "Children": 
@@ -5833,7 +5855,10 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }
+            }, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": ""
           }
         }, 
         "Children": 
@@ -5991,7 +6016,10 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }
+            }, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": ""
           }
         }, 
         "Children": 
@@ -6479,7 +6507,8 @@
               }
             }, 
             "Additive": true, 
-            "Lock": false
+            "Lock": false, 
+            "DrawLayer": 4
           }, 
           "ParticleEmitter": 
           {
@@ -7146,6 +7175,55 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 2
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 140, 
+        "Name": "MusicManager", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "MusicBackground": 
+          {
+            "PlayOnStart": true, 
+            "StopOnTerminate": true, 
+            "Track": "mainMenu", 
+            "Volume": 1.000000
           }
         }, 
         "Children": 

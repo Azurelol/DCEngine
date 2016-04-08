@@ -9,6 +9,9 @@ class Button : ZilchComponent
     [Property]
     var TargetName : String = "";
 
+	[Property]
+    var SwitchSound : String = "";
+	
     var Active : Boolean;
 
     function Initialize()
@@ -35,15 +38,22 @@ class Button : ZilchComponent
 
 			this.Active = !this.Active;
 			
-        var tevent = ToggleEvent();
-        tevent.Source = this.Owner;
+			var tevent = ToggleEvent();
+			tevent.Source = this.Owner;
 		
 			var target = this.Space.FindObjectByName(this.TargetName);
-			if (target != null) 
-				{
-					target.Dispatch(DaisyEvent.ToggleEvent, tevent);
-				}
-          //this.Space.FindObjectByName(this.TargetName).Dispatch(DaisyEvent.ToggleEvent, tevent);
+			if (target != null) 	
+			{
+				target.Dispatch(DaisyEvent.ToggleEvent, tevent);
+			}
+			
+			// If there is a sound for the button, play it now
+			if (this.SwitchSound != "")
+			{
+				this.Space.SoundSpace.PlayCue(this.SwitchSound);
+			}
+			
+			//this.Space.FindObjectByName(this.TargetName).Dispatch(DaisyEvent.ToggleEvent, tevent);
 		}
     }
 }
