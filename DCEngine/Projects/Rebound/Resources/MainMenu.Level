@@ -1626,21 +1626,21 @@
             "AnimateOnInitialize": true, 
             "SystemDelay": 0.000000, 
             "LoopSystem": true, 
-            "UseFadeIn": false, 
+            "UseFadeIn": true, 
             "UseFadeOut": false, 
             "FadeSpeed": 0.000000, 
             "FadeEase": "Linear", 
-            "MoveIterations": 1, 
+            "MoveIterations": 0, 
             "MoveX": 0.000000, 
             "MoveY": 0.200000, 
             "MoveDelay": 0.000000, 
             "MoveSpeed": 1.000000, 
-            "MoveEase": "QuadOut", 
+            "MoveEase": "Linear", 
             "ScaleIterations": 0, 
             "ScaleRatio": 1.100000, 
             "ScaleDelay": 0.000000, 
-            "ScaleSpeed": 1.000000, 
-            "ScaleEase": "QuadOut"
+            "ScaleSpeed": 0.000000, 
+            "ScaleEase": "Linear"
           }
         }, 
         "Children": 
@@ -1660,8 +1660,8 @@
             {
               "Vec3": 
               {
-                "x": 34.477657, 
-                "y": -13.205085, 
+                "x": 31.234337, 
+                "y": -12.945619, 
                 "z": 0.000000
               }
             }, 
@@ -2451,16 +2451,16 @@
             "AnimateOnInitialize": false, 
             "SystemDelay": 0.000000, 
             "LoopSystem": true, 
-            "UseFadeIn": false, 
+            "UseFadeIn": true, 
             "UseFadeOut": false, 
             "FadeSpeed": 0.000000, 
             "FadeEase": "Linear", 
-            "MoveIterations": 1, 
+            "MoveIterations": 0, 
             "MoveX": 0.000000, 
             "MoveY": 0.200000, 
             "MoveDelay": 0.000000, 
-            "MoveSpeed": 1.000000, 
-            "MoveEase": "QuadOut", 
+            "MoveSpeed": 0.000000, 
+            "MoveEase": "Linear", 
             "ScaleIterations": 0, 
             "ScaleRatio": 1.000000, 
             "ScaleDelay": 0.000000, 
@@ -2598,16 +2598,16 @@
             "AnimateOnInitialize": false, 
             "SystemDelay": 0.000000, 
             "LoopSystem": true, 
-            "UseFadeIn": false, 
+            "UseFadeIn": true, 
             "UseFadeOut": false, 
             "FadeSpeed": 0.000000, 
             "FadeEase": "Linear", 
-            "MoveIterations": 1, 
+            "MoveIterations": 0, 
             "MoveX": 0.000000, 
             "MoveY": 0.200000, 
             "MoveDelay": 0.000000, 
-            "MoveSpeed": 1.000000, 
-            "MoveEase": "QuadOut", 
+            "MoveSpeed": 0.000000, 
+            "MoveEase": "Linear", 
             "ScaleIterations": 0, 
             "ScaleRatio": 1.000000, 
             "ScaleDelay": 0.000000, 
@@ -2745,16 +2745,16 @@
             "AnimateOnInitialize": true, 
             "SystemDelay": 0.000000, 
             "LoopSystem": true, 
-            "UseFadeIn": false, 
+            "UseFadeIn": true, 
             "UseFadeOut": false, 
             "FadeSpeed": 0.000000, 
             "FadeEase": "Linear", 
-            "MoveIterations": 1, 
+            "MoveIterations": 0, 
             "MoveX": 0.000000, 
             "MoveY": 0.200000, 
             "MoveDelay": 0.000000, 
-            "MoveSpeed": 1.000000, 
-            "MoveEase": "QuadOut", 
+            "MoveSpeed": 0.000000, 
+            "MoveEase": "Linear", 
             "ScaleIterations": 0, 
             "ScaleRatio": 1.000000, 
             "ScaleDelay": 0.000000, 
@@ -4159,13 +4159,13 @@
             "MoveX": 0.000000, 
             "MoveY": 0.000000, 
             "MoveDelay": 0.000000, 
-            "MoveSpeed": 0.000000, 
+            "MoveSpeed": 2.000000, 
             "MoveEase": "Linear", 
-            "ScaleIterations": 1, 
+            "ScaleIterations": 0, 
             "ScaleRatio": 1.050000, 
             "ScaleDelay": 0.000000, 
-            "ScaleSpeed": 2.000000, 
-            "ScaleEase": "QuadOut"
+            "ScaleSpeed": 0.000000, 
+            "ScaleEase": "Linear"
           }
         }, 
         "Children": 
@@ -4563,8 +4563,8 @@
             {
               "Vec3": 
               {
-                "x": 44.420532, 
-                "y": -6.543303, 
+                "x": 34.742947, 
+                "y": -6.356132, 
                 "z": 0.000000
               }
             }, 
@@ -4612,7 +4612,7 @@
             "AnimateOnInitialize": true, 
             "SystemDelay": 0.000000, 
             "LoopSystem": true, 
-            "UseFadeIn": false, 
+            "UseFadeIn": true, 
             "UseFadeOut": false, 
             "FadeSpeed": 0.000000, 
             "FadeEase": "Linear", 
@@ -4644,8 +4644,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 43.912701, 
-                    "y": -6.893741, 
+                    "x": 34.235115, 
+                    "y": -6.706570, 
                     "z": 0.000000
                   }
                 }, 
@@ -4707,8 +4707,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 54.540031, 
-                    "y": -7.029405, 
+                    "x": 44.862446, 
+                    "y": -6.842234, 
                     "z": 0.000000
                   }
                 }, 
@@ -4770,8 +4770,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 48.707130, 
-                    "y": -6.783049, 
+                    "x": 39.029545, 
+                    "y": -6.595878, 
                     "z": 0.000000
                   }
                 }, 
@@ -4833,8 +4833,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 50.521702, 
-                    "y": -6.565027, 
+                    "x": 40.844116, 
+                    "y": -6.377856, 
                     "z": 0.000000
                   }
                 }, 
@@ -4897,8 +4897,8 @@
             {
               "Vec3": 
               {
-                "x": 51.107277, 
-                "y": -11.129036, 
+                "x": 41.248959, 
+                "y": -10.978013, 
                 "z": 0.000000
               }
             }, 
@@ -4946,7 +4946,7 @@
             "AnimateOnInitialize": true, 
             "SystemDelay": 0.000000, 
             "LoopSystem": true, 
-            "UseFadeIn": false, 
+            "UseFadeIn": true, 
             "UseFadeOut": false, 
             "FadeSpeed": 0.000000, 
             "FadeEase": "Linear", 
@@ -4978,8 +4978,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 50.769489, 
-                    "y": -11.436964, 
+                    "x": 40.911171, 
+                    "y": -11.285941, 
                     "z": 0.000000
                   }
                 }, 
@@ -5041,8 +5041,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 52.856026, 
-                    "y": -11.702904, 
+                    "x": 42.997707, 
+                    "y": -11.551881, 
                     "z": 0.000000
                   }
                 }, 
@@ -5106,8 +5106,8 @@
             {
               "Vec3": 
               {
-                "x": 45.107277, 
-                "y": -11.129036, 
+                "x": 35.248959, 
+                "y": -10.978013, 
                 "z": 0.000000
               }
             }, 
@@ -5155,7 +5155,7 @@
             "AnimateOnInitialize": true, 
             "SystemDelay": 0.000000, 
             "LoopSystem": true, 
-            "UseFadeIn": false, 
+            "UseFadeIn": true, 
             "UseFadeOut": false, 
             "FadeSpeed": 0.000000, 
             "FadeEase": "Linear", 
@@ -5187,8 +5187,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 44.720097, 
-                    "y": -11.436964, 
+                    "x": 34.861778, 
+                    "y": -11.285941, 
                     "z": 0.000000
                   }
                 }, 
@@ -5250,8 +5250,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 40.407845, 
-                    "y": -11.712584, 
+                    "x": 30.549526, 
+                    "y": -11.561561, 
                     "z": 0.000000
                   }
                 }, 
@@ -5315,8 +5315,8 @@
             {
               "Vec3": 
               {
-                "x": 45.880215, 
-                "y": -6.822451, 
+                "x": 36.202629, 
+                "y": -6.635280, 
                 "z": 0.000000
               }
             }, 
@@ -5355,6 +5355,632 @@
             "Font": "Electrolize-Regular", 
             "FontSize": 3, 
             "Text": "or", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 150, 
+        "Name": "Mouse1", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 64.319923, 
+                "y": -6.882784, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 8.000000, 
+                "y": 8.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "mouseLeft", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 152, 
+        "Name": "LMouse1", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 53.841564, 
+                "y": -16.448473, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 0.100000, 
+                "y": 0.100000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.382000, 
+                "z": 0.765000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 3, 
+            "Text": "Slam", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 152, 
+        "Name": "LMouse2", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 54.624992, 
+                "y": -5.788961, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 0.100000, 
+                "y": 0.100000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.382000, 
+                "z": 0.765000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 3, 
+            "Text": "Hold: Charge", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 152, 
+        "Name": "LMouse3", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 53.372242, 
+                "y": -7.619669, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 0.100000, 
+                "y": 0.100000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.382000, 
+                "z": 0.765000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 3, 
+            "Text": "Release: Throw", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 150, 
+        "Name": "Mouse2", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 59.473190, 
+                "y": -17.033922, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 8.000000, 
+                "y": 8.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "mouseAll", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 945, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 59.472633, 
+                "y": -17.071535, 
+                "z": -0.010000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 14.000000, 
+                "y": 8.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.588000
+              }
+            }, 
+            "SpriteSource": "CircleFull", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 2
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 945, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 59.492531, 
+                "y": -6.860661, 
+                "z": -0.010000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 14.000000, 
+                "y": 8.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.588000
+              }
+            }, 
+            "SpriteSource": "CircleFull", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 2
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 152, 
+        "Name": "WithBall", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 55.432343, 
+                "y": -2.648332, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 0.100000, 
+                "y": 0.100000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "SafetyMedium", 
+            "FontSize": 4, 
+            "Text": "Ball Held", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 152, 
+        "Name": "BallFree", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 55.441864, 
+                "y": -12.859205, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 0.100000, 
+                "y": 0.100000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "SafetyMedium", 
+            "FontSize": 4, 
+            "Text": "Ball Free", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 152, 
+        "Name": "RMouse1", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 61.883698, 
+                "y": -16.448473, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 0.100000, 
+                "y": 0.100000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.853000, 
+                "z": 0.912000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 3, 
+            "Text": "Attract", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
             "WordWrap": 0, 

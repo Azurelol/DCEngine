@@ -61,11 +61,17 @@ class SimpleAnimator : ZilchComponent
     
     [Property]
     var ScaleEase : Ease = Ease.Linear;
+
+    var StartPos : Real3;
+
+    var StartScale : Real3;
     
     function Initialize()
     {
         Daisy.Connect(this.Owner, Events.AnimEvent, this.OnAnimEvent);
 
+        this.StartPos = this.Owner.Transform.Translation;
+        this.StartScale = this.Owner.Transform.Scale;
 
         if(this.AnimateOnInitialize)
         {
@@ -152,6 +158,8 @@ class SimpleAnimator : ZilchComponent
             Actions.Call(pScaleSeq, this.ScaleDown);
             Actions.Delay(pScaleSeq, this.ScaleSpeed);
         }
+
+        Actions.Call(pScaleSeq, this.ResetScale);
     }
     
     function PerformMove()
@@ -168,6 +176,8 @@ class SimpleAnimator : ZilchComponent
             Actions.Call(pMoveSeq, this.MoveBack);
             Actions.Delay(pMoveSeq, this.MoveSpeed);
         }
+
+        Actions.Call(pMoveSeq, this.ResetPos);
     }
     
     function ScaleUp()
@@ -179,7 +189,6 @@ class SimpleAnimator : ZilchComponent
     
     function ScaleDown()
     {
-        Console.WriteLine("down");
         var scaleSeq = Actions.Sequence(this.Owner.Actions);
         
         Actions.Property(scaleSeq, @this.Owner.Transform.Scale, this.Owner.Transform.Scale / this.ScaleRatio, this.ScaleSpeed, this.ScaleEase);
@@ -201,5 +210,15 @@ class SimpleAnimator : ZilchComponent
         Actions.Property(movSeq, @this.Owner.Transform.Translation, 
         Real3(this.Owner.Transform.Translation.X - this.MoveX, this.Owner.Transform.Translation.Y - this.MoveY, this.Owner.Transform.Translation.Z),
         this.MoveSpeed, this.MoveEase);
+    }
+
+    function ResetPos()
+    {
+    	this.Owner.Transform.Translation = this.StartPos;
+    }
+
+    function ResetScale()
+    {
+    	this.Owner.Transform.Scale = this.StartScale;
     }
 }
