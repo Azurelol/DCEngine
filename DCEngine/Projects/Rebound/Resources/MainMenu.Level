@@ -1630,12 +1630,12 @@
             "UseFadeOut": false, 
             "FadeSpeed": 0.000000, 
             "FadeEase": "Linear", 
-            "MoveIterations": 0, 
+            "MoveIterations": 1, 
             "MoveX": 0.000000, 
             "MoveY": 0.200000, 
             "MoveDelay": 0.000000, 
             "MoveSpeed": 1.000000, 
-            "MoveEase": "Linear", 
+            "MoveEase": "QuadOut", 
             "ScaleIterations": 0, 
             "ScaleRatio": 1.100000, 
             "ScaleDelay": 0.000000, 
@@ -1660,8 +1660,8 @@
             {
               "Vec3": 
               {
-                "x": 31.234337, 
-                "y": -12.945619, 
+                "x": 28.634663, 
+                "y": -12.981725, 
                 "z": 0.000000
               }
             }, 
@@ -2402,7 +2402,7 @@
               "Vec3": 
               {
                 "x": 41.117523, 
-                "y": 0.315218, 
+                "y": 3.315218, 
                 "z": 0.000000
               }
             }, 
@@ -2484,7 +2484,7 @@
                   "Vec3": 
                   {
                     "x": 41.030418, 
-                    "y": 0.366156, 
+                    "y": 3.366156, 
                     "z": 0.000000
                   }
                 }, 
@@ -2696,7 +2696,7 @@
               "Vec3": 
               {
                 "x": -44.387169, 
-                "y": 0.929446, 
+                "y": 2.929446, 
                 "z": 0.000000
               }
             }, 
@@ -2778,7 +2778,7 @@
                   "Vec3": 
                   {
                     "x": -44.474274, 
-                    "y": 0.980384, 
+                    "y": 2.980384, 
                     "z": 0.000000
                   }
                 }, 
@@ -4159,13 +4159,13 @@
             "MoveX": 0.000000, 
             "MoveY": 0.000000, 
             "MoveDelay": 0.000000, 
-            "MoveSpeed": 2.000000, 
+            "MoveSpeed": 0.000000, 
             "MoveEase": "Linear", 
-            "ScaleIterations": 0, 
+            "ScaleIterations": 1, 
             "ScaleRatio": 1.050000, 
             "ScaleDelay": 0.000000, 
-            "ScaleSpeed": 0.000000, 
-            "ScaleEase": "Linear"
+            "ScaleSpeed": 1.000000, 
+            "ScaleEase": "QuadOut"
           }
         }, 
         "Children": 
@@ -4539,7 +4539,7 @@
             }, 
             "Font": "Electrolize-Regular", 
             "FontSize": 1, 
-            "Text": "All content    2016 DigiPen (USA) Corporation, all rights reserved.", 
+            "Text": "All content     2016 DigiPen (USA) Corporation, all rights reserved.", 
             "PixelsPerUnit": 64, 
             "Smoothing": false, 
             "WordWrap": 0, 
@@ -4563,8 +4563,8 @@
             {
               "Vec3": 
               {
-                "x": 34.742947, 
-                "y": -6.356132, 
+                "x": 32.143272, 
+                "y": -6.392238, 
                 "z": 0.000000
               }
             }, 
@@ -4618,10 +4618,10 @@
             "FadeEase": "Linear", 
             "MoveIterations": 1, 
             "MoveX": 0.000000, 
-            "MoveY": 0.500000, 
+            "MoveY": 0.150000, 
             "MoveDelay": 0.000000, 
             "MoveSpeed": 1.000000, 
-            "MoveEase": "Linear", 
+            "MoveEase": "QuadOut", 
             "ScaleIterations": 0, 
             "ScaleRatio": 1.000000, 
             "ScaleDelay": 0.000000, 
@@ -4644,8 +4644,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 34.235115, 
-                    "y": -6.706570, 
+                    "x": 31.635441, 
+                    "y": -6.742676, 
                     "z": 0.000000
                   }
                 }, 
@@ -4707,8 +4707,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 44.862446, 
-                    "y": -6.842234, 
+                    "x": 42.262772, 
+                    "y": -6.878340, 
                     "z": 0.000000
                   }
                 }, 
@@ -4746,7 +4746,7 @@
                 }, 
                 "Font": "Electrolize-Regular", 
                 "FontSize": 4, 
-                "Text": "Up", 
+                "Text": "Jump", 
                 "PixelsPerUnit": 64, 
                 "Smoothing": true, 
                 "WordWrap": 0, 
@@ -4770,8 +4770,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 39.029545, 
-                    "y": -6.595878, 
+                    "x": 36.429871, 
+                    "y": -6.631984, 
                     "z": 0.000000
                   }
                 }, 
@@ -4833,8 +4833,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 40.844116, 
-                    "y": -6.377856, 
+                    "x": 38.244442, 
+                    "y": -6.413962, 
                     "z": 0.000000
                   }
                 }, 
@@ -4897,8 +4897,8 @@
             {
               "Vec3": 
               {
-                "x": 41.248959, 
-                "y": -10.978013, 
+                "x": 38.649284, 
+                "y": -11.014119, 
                 "z": 0.000000
               }
             }, 
@@ -4951,11 +4951,11 @@
             "FadeSpeed": 0.000000, 
             "FadeEase": "Linear", 
             "MoveIterations": 1, 
-            "MoveX": 0.500000, 
+            "MoveX": 0.150000, 
             "MoveY": 0.000000, 
             "MoveDelay": 0.000000, 
             "MoveSpeed": 1.000000, 
-            "MoveEase": "Linear", 
+            "MoveEase": "QuadOut", 
             "ScaleIterations": 0, 
             "ScaleRatio": 1.000000, 
             "ScaleDelay": 0.000000, 
@@ -4978,8 +4978,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 40.911171, 
-                    "y": -11.285941, 
+                    "x": 38.311497, 
+                    "y": -11.322047, 
                     "z": 0.000000
                   }
                 }, 
@@ -5041,8 +5041,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 42.997707, 
-                    "y": -11.551881, 
+                    "x": 40.398033, 
+                    "y": -11.587987, 
                     "z": 0.000000
                   }
                 }, 
@@ -5106,8 +5106,8 @@
             {
               "Vec3": 
               {
-                "x": 35.248959, 
-                "y": -10.978013, 
+                "x": 32.649284, 
+                "y": -11.014119, 
                 "z": 0.000000
               }
             }, 
@@ -5160,11 +5160,11 @@
             "FadeSpeed": 0.000000, 
             "FadeEase": "Linear", 
             "MoveIterations": 1, 
-            "MoveX": -0.500000, 
+            "MoveX": -0.150000, 
             "MoveY": 0.000000, 
             "MoveDelay": 0.000000, 
             "MoveSpeed": 1.000000, 
-            "MoveEase": "Linear", 
+            "MoveEase": "QuadOut", 
             "ScaleIterations": 0, 
             "ScaleRatio": 1.000000, 
             "ScaleDelay": 0.000000, 
@@ -5187,8 +5187,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 34.861778, 
-                    "y": -11.285941, 
+                    "x": 32.262104, 
+                    "y": -11.322047, 
                     "z": 0.000000
                   }
                 }, 
@@ -5250,8 +5250,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 30.549526, 
-                    "y": -11.561561, 
+                    "x": 27.949852, 
+                    "y": -11.597667, 
                     "z": 0.000000
                   }
                 }, 
@@ -5315,8 +5315,8 @@
             {
               "Vec3": 
               {
-                "x": 36.202629, 
-                "y": -6.635280, 
+                "x": 33.602955, 
+                "y": -6.671386, 
                 "z": 0.000000
               }
             }, 
@@ -5378,8 +5378,8 @@
             {
               "Vec3": 
               {
-                "x": 64.319923, 
-                "y": -6.882784, 
+                "x": 62.848328, 
+                "y": -6.837908, 
                 "z": 0.000000
               }
             }, 
@@ -5440,8 +5440,8 @@
             {
               "Vec3": 
               {
-                "x": 53.841564, 
-                "y": -16.448473, 
+                "x": 46.078476, 
+                "y": -16.769711, 
                 "z": 0.000000
               }
             }, 
@@ -5503,8 +5503,8 @@
             {
               "Vec3": 
               {
-                "x": 54.624992, 
-                "y": -5.788961, 
+                "x": 53.153393, 
+                "y": -5.744085, 
                 "z": 0.000000
               }
             }, 
@@ -5566,8 +5566,8 @@
             {
               "Vec3": 
               {
-                "x": 53.372242, 
-                "y": -7.619669, 
+                "x": 51.900642, 
+                "y": -7.574791, 
                 "z": 0.000000
               }
             }, 
@@ -5629,8 +5629,8 @@
             {
               "Vec3": 
               {
-                "x": 59.473190, 
-                "y": -17.033922, 
+                "x": 51.710098, 
+                "y": -17.355160, 
                 "z": 0.000000
               }
             }, 
@@ -5691,8 +5691,8 @@
             {
               "Vec3": 
               {
-                "x": 59.472633, 
-                "y": -17.071535, 
+                "x": 51.709549, 
+                "y": -17.392773, 
                 "z": -0.010000
               }
             }, 
@@ -5753,8 +5753,8 @@
             {
               "Vec3": 
               {
-                "x": 59.492531, 
-                "y": -6.860661, 
+                "x": 58.020931, 
+                "y": -6.815785, 
                 "z": -0.010000
               }
             }, 
@@ -5815,8 +5815,8 @@
             {
               "Vec3": 
               {
-                "x": 55.432343, 
-                "y": -2.648332, 
+                "x": 53.960743, 
+                "y": -2.603456, 
                 "z": 0.000000
               }
             }, 
@@ -5878,8 +5878,8 @@
             {
               "Vec3": 
               {
-                "x": 55.441864, 
-                "y": -12.859205, 
+                "x": 47.678776, 
+                "y": -13.180444, 
                 "z": 0.000000
               }
             }, 
@@ -5941,8 +5941,8 @@
             {
               "Vec3": 
               {
-                "x": 61.883698, 
-                "y": -16.448473, 
+                "x": 54.120609, 
+                "y": -16.769711, 
                 "z": 0.000000
               }
             }, 
@@ -5985,6 +5985,549 @@
             "Smoothing": true, 
             "WordWrap": 0, 
             "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 126, 
+        "Name": "KeyFreeze", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 61.175117, 
+                "y": -15.672766, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "keyBack", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }, 
+          "SimpleAnimator": 
+          {
+            "AnimateOnInitialize": true, 
+            "SystemDelay": 0.000000, 
+            "LoopSystem": true, 
+            "UseFadeIn": true, 
+            "UseFadeOut": false, 
+            "FadeSpeed": 0.000000, 
+            "FadeEase": "Linear", 
+            "MoveIterations": 0, 
+            "MoveX": 0.500000, 
+            "MoveY": 0.000000, 
+            "MoveDelay": 0.000000, 
+            "MoveSpeed": 1.000000, 
+            "MoveEase": "QuadOut", 
+            "ScaleIterations": 1, 
+            "ScaleRatio": 1.050000, 
+            "ScaleDelay": 0.000000, 
+            "ScaleSpeed": 1.000000, 
+            "ScaleEase": "Linear"
+          }
+        }, 
+        "Children": 
+        {
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 254, 
+            "Name": "SpriteText", 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 60.837326, 
+                    "y": -15.980695, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.090000, 
+                    "y": 0.090000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "SpriteText": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "Font": "SafetyMedium", 
+                "FontSize": 3, 
+                "Text": "F", 
+                "PixelsPerUnit": 64, 
+                "Smoothing": true, 
+                "WordWrap": 0, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 388, 
+            "Name": "RightText", 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 62.923851, 
+                    "y": -16.246628, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.100000, 
+                    "y": 0.100000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "SpriteText": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.200000, 
+                    "y": 0.800000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "Font": "Electrolize-Regular", 
+                "FontSize": 4, 
+                "Text": "Freeze", 
+                "PixelsPerUnit": 64, 
+                "Smoothing": true, 
+                "WordWrap": 0, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 126, 
+        "Name": "KeyDissipate", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 61.175117, 
+                "y": -18.672764, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "keyBack", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }, 
+          "SimpleAnimator": 
+          {
+            "AnimateOnInitialize": true, 
+            "SystemDelay": 0.000000, 
+            "LoopSystem": true, 
+            "UseFadeIn": true, 
+            "UseFadeOut": false, 
+            "FadeSpeed": 0.000000, 
+            "FadeEase": "Linear", 
+            "MoveIterations": 0, 
+            "MoveX": 0.500000, 
+            "MoveY": 0.000000, 
+            "MoveDelay": 0.000000, 
+            "MoveSpeed": 1.000000, 
+            "MoveEase": "QuadOut", 
+            "ScaleIterations": 1, 
+            "ScaleRatio": 1.050000, 
+            "ScaleDelay": 0.000000, 
+            "ScaleSpeed": 1.000000, 
+            "ScaleEase": "Linear"
+          }
+        }, 
+        "Children": 
+        {
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 254, 
+            "Name": "SpriteText", 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 60.837326, 
+                    "y": -18.980694, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.090000, 
+                    "y": 0.090000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "SpriteText": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "Font": "SafetyMedium", 
+                "FontSize": 3, 
+                "Text": "E", 
+                "PixelsPerUnit": 64, 
+                "Smoothing": true, 
+                "WordWrap": 0, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 388, 
+            "Name": "RightText", 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 62.923851, 
+                    "y": -19.246632, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.100000, 
+                    "y": 0.100000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "SpriteText": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.200000, 
+                    "y": 0.800000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "Font": "Electrolize-Regular", 
+                "FontSize": 4, 
+                "Text": "Dissipate", 
+                "PixelsPerUnit": 64, 
+                "Smoothing": true, 
+                "WordWrap": 0, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 1101, 
+        "Name": "MoveText", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 32.060089, 
+                "y": -3.467950, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 0.100000, 
+                "y": 0.100000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "SafetyMedium", 
+            "FontSize": 4, 
+            "Text": "Movement", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 184, 
+        "Name": "Copyright", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 14.969303, 
+                "y": -27.860674, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 0.400000, 
+                "y": 0.400000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "copyrightSymbol", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 5
           }
         }, 
         "Children": 
