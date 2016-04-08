@@ -86,7 +86,8 @@ namespace DCEngine {
     void InputSFML::PollEvents() {
 
       // Check all window's events that were triggered since the last iteration
-      if (WindowContext->pollEvent(_event) == false)
+
+		if (WindowContext->pollEvent(_event) == false)
         return;
 
       // Poll for events
