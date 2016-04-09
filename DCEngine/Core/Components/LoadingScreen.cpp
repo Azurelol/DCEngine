@@ -79,9 +79,9 @@ namespace DCEngine {
       TextProgress->setText(progressText);
 
       // Rotate the animation object
-      //static auto rotFactor = 20;
-      //auto currentRotation = AnimationObj->getComponent<Transform>()->getRotation();
-      //AnimationObj->getComponent<Transform>()->setRotation(Vec3(0, -0, currentRotation.z * 1 + dt * rotFactor));
+      static auto rotFactor = 20;
+      auto currentRotation = AnimationObj->getComponent<Transform>()->getRotation();
+      AnimationObj->getComponent<Transform>()->setRotation(Vec3(0, -0, currentRotation.z * 1 + dt * rotFactor));
 
     }
 
@@ -109,11 +109,11 @@ namespace DCEngine {
       // Progress Bar
 
       // Animation Object
-      //AnimationObj = SpaceRef->CreateObject();
-      //AnimationObj->getComponent<Transform>()->setTranslation(Vec3(25, -20, 0));
-      //AnimationObj->getComponent<Transform>()->setScale(Vec3(25, 25, 0));
-      //auto animationObjSprite = dynamic_cast<Sprite*>(AnimationObj->AddComponentByName("Sprite"));
-      //animationObjSprite->setSpriteSource("Jotaro");
+      AnimationObj = SpaceRef->CreateObject();
+      AnimationObj->getComponent<Transform>()->setTranslation(Vec3(25, -20, 0));
+      AnimationObj->getComponent<Transform>()->setScale(Vec3(25, 25, 0));
+      auto animationObjSprite = dynamic_cast<Sprite*>(AnimationObj->AddComponentByName("Sprite"));
+      animationObjSprite->setSpriteSource("Jotaro");
     }
 
   }

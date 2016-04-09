@@ -18,8 +18,8 @@
             {
               "Vec3": 
               {
-                "x": 5.195876, 
-                "y": 3.876289, 
+                "x": 0.000000, 
+                "y": 0.000000, 
                 "z": 1.000000
               }
             }, 
@@ -366,8 +366,8 @@
             {
               "Vec3": 
               {
-                "x": -46.451729, 
-                "y": 21.543293, 
+                "x": -33.451729, 
+                "y": 15.543293, 
                 "z": 0.000000
               }
             }, 
@@ -404,7 +404,7 @@
               }
             }, 
             "Font": "SafetyMedium", 
-            "FontSize": 5, 
+            "FontSize": 50, 
             "Text": "I am Doge", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -429,8 +429,8 @@
             {
               "Vec3": 
               {
-                "x": -53.649315, 
-                "y": -28.812975, 
+                "x": -30.447845, 
+                "y": -13.730039, 
                 "z": 0.000000
               }
             }, 
@@ -467,7 +467,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 4, 
+            "FontSize": 40, 
             "Text": "!So dogey", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
