@@ -1949,6 +1949,7 @@
             "StandAnimation": "Char_Asha_Idle_Spritesheet", 
             "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
             "RunAnimation": "Char_Asha_Run_Spritesheet", 
+            "FallAnimation": "Char_Asha_Fall_Spritesheet", 
             "AutoPlayTimer": 2.000000, 
             "TeleportStartSound": "Teleport", 
             "TeleportArriveSound": "TeleportArrive", 
@@ -6063,7 +6064,8 @@
               }
             }, 
             "Additive": true, 
-            "Lock": false
+            "Lock": false, 
+            "DrawLayer": 4
           }, 
           "ParticleEmitter": 
           {
