@@ -32,7 +32,6 @@ namespace DCEngine {
     class WindowSFML;
 
     class Graphics : public System {
-      ZilchDeclareBaseType(Graphics, Zilch::TypeCopyMode::ReferenceType);
       friend class Engine;
       friend class WindowSFML;
       friend class GraphicsGL;
