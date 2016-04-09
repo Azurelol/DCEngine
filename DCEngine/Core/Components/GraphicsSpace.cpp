@@ -104,15 +104,15 @@ namespace DCEngine {
       return LightComponents;
     }
 
-    void SetResolution(unsigned x, unsigned y)
+    void GraphicsSpace::SetResolution(unsigned x, unsigned y)
     {
       Daisy->getSystem<Systems::Graphics>()->SetResolution(x, y);
     }
-    void SetAntiAliasingLevel(unsigned samples)
+    void GraphicsSpace::SetAntiAliasingLevel(unsigned samples)
     {
       Daisy->getSystem<Systems::Graphics>()->SetAntiAliasingLevel(samples);
     }
-    void ToggleFullscreen()
+    void GraphicsSpace::ToggleFullscreen()
     {
       Daisy->getSystem<Systems::Graphics>()->ToggleFullscreen();
     }
