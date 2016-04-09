@@ -63,7 +63,7 @@ namespace DCEngine {
     /**************************************************************************/
     void EditorResources::ToggleDuplicateLevel()
     {
-      std::strcpy(LevelName, Access().CurrentSpace->CurrentLevel()->Name().c_str());
+      std::strcpy(LevelName, Access().CurrentSpace->getCurrentLevel()->Name().c_str());
       ActiveWindows.DuplicateLevels = true;
     }
 

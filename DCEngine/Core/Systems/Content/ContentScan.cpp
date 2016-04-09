@@ -195,15 +195,14 @@ namespace DCEngine {
       DCTrace << "Content::ScanForLevels - Scanning for levels on the current project at: " << levelPath << "\n";
       //std::string LevelPath("Projects/Rebound/Resources/Levels/");
 
-      // Load sound files
       std::vector<std::string> levels;
       if (!FileSystem::DirectoryListFilePaths(levelPath, levels, Level::Extension())) {
         auto exceptionInfo = std::string("Content::ScanForLevels - Failed to find level directory: " + levelPath);
         throw DCException(exceptionInfo);
       }
       for (auto level : levels) {
-        auto soundName = FileSystem::FileNoExtension(level);
-        AddLevel(soundName, LevelPtr(new Level(level)));
+        auto name = FileSystem::FileNoExtension(level);
+        AddLevel(name, LevelPtr(new Level(level)));
       }
     }
 

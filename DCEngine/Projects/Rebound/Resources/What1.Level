@@ -468,7 +468,7 @@
             }, 
             "Font": "Electrolize-Regular", 
             "FontSize": 4, 
-            "Text": "So doge", 
+            "Text": "!So dogey", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
             "WordWrap": 0, 
@@ -492,9 +492,9 @@
             {
               "Vec3": 
               {
-                "x": 40.060081, 
-                "y": -8.902929, 
-                "z": 0.000000
+                "x": 16.060081, 
+                "y": -1.902929, 
+                "z": -0.100000
               }
             }, 
             "Rotation": 
@@ -503,7 +503,7 @@
               {
                 "x": 0.000000, 
                 "y": 0.000000, 
-                "z": 0.000000
+                "z": 45.000000
               }
             }, 
             "Scale": 

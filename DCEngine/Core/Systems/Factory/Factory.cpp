@@ -271,6 +271,9 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void Factory::MarkGameObject(GameObject& gameObj) {
+      // If it isn't marked for deleteing, insert it
+      if (GameObjectsToBeDeleted.count(&gameObj))
+        return;
       GameObjectsToBeDeleted.insert(GameObjectPtr(&gameObj));
     }
 

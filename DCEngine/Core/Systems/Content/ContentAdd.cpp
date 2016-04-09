@@ -293,7 +293,6 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::AddLevel(const std::string & levelName, LevelPtr levelPtr)
     {
-      // Prevent duplicates
       if (MapLevel.count(levelName)) {
         // Overwrite the current level
         MapLevel.erase(levelName);

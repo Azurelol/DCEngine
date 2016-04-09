@@ -54,7 +54,7 @@ namespace DCEngine {
     void Deserialize(Zilch::JsonValue* properties);
 
     // Levels
-    LevelPtr CurrentLevel();
+    DCE_DEFINE_PROPERTY(LevelPtr, CurrentLevel);
     void LoadLevel(std::string& level);
     void ReloadLevel();
 
@@ -78,7 +78,7 @@ namespace DCEngine {
 
   private:
         
-    LevelPtr CurrentLevelRef; //!< The currently-loaded level.
+    LevelPtr CurrentLevel; //!< The currently-loaded level.
     GameSession* GameSessionRef; //!< The gamesession in which this space resides
     GameObjectVec GameObjectContainer; //!< A vector of GameObjects this space holds.
     //!< A container of recently created GameObjects. They are added onto the main container on the next frame.
