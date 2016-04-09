@@ -15,7 +15,6 @@ class CameraControllerZilch : ZilchComponent
     
     function Initialize()
     {
-		Console.WriteLine("CAMERA init");
         Daisy.Connect(this.Space, DaisyEvent.ScreenShakeEvent, this.OnScreenShakeEvent);
         Daisy.Connect(this.Space, DaisyEvent.ChangeCameraOffsetEvent, this.OnChangeCameraOffsetEvent);
         Daisy.Connect(this.Space, DaisyEvent.PlayerBroadcastEvent, this.OnPlayerBroadcastEvent);
