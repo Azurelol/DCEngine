@@ -399,6 +399,10 @@ namespace DCEngine {
       return nullptr;
     }
     auto gameObject = Daisy->getSystem<Systems::Factory>()->CreateGameObject(archetype, *this, true);
+    if (!gameObject) {
+      DCTrace << ObjectName << "::Space::CreateObject - Could not create the GameObject! \n";
+      return nullptr;
+    }
     // Add it to the recently-created GameObjects container
     // RecentlyCreatedGameObjects.push_back(gameObject);
     //DCTrace << Name() << "::Space::CreateObject: Created '" << archetypeName << "' \n";

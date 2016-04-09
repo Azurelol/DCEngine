@@ -160,10 +160,10 @@
 			"buffers":
 			[
 				{
-					"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
+					"file": "/C/Users/Dale/Documents/GameProjects/Moonward/Repo/DCEngine/Projects/Rebound/Resources/EnemySpawner.Zilch",
 					"settings":
 					{
-						"buffer_size": 1257,
+						"buffer_size": 1873,
 						"line_ending": "Windows"
 					}
 				}
@@ -204,6 +204,7 @@
 			},
 			"file_history":
 			[
+				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/SimpleAnimator.Zilch",
 				"/D/DCEngine/DCEngine/Projects/Rebound/Resources/Level2Generator.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
@@ -218,7 +219,6 @@
 				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/SimpleAnimator.Zilch",
 				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestRayCasting.Zilch",
 				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/DebugMove.Zilch",
-				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
 				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/BasicController.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/SimpleInputManager.Zilch",
@@ -235,7 +235,7 @@
 			],
 			"find":
 			{
-				"height": 23.0
+				"height": 68.0
 			},
 			"find_in_files":
 			{
@@ -278,27 +278,27 @@
 					[
 						{
 							"buffer": 0,
-							"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
+							"file": "/C/Users/Dale/Documents/GameProjects/Moonward/Repo/DCEngine/Projects/Rebound/Resources/EnemySpawner.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 1257,
+								"buffer_size": 1873,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										1203,
-										1203
+										0,
+										0
 									]
 								],
 								"settings":
 								{
-									"syntax": "Packages/C#/C#.sublime-syntax"
+									"syntax": "Packages/Text/Plain text.tmLanguage"
 								},
-								"translation.x": -0.0,
-								"translation.y": 270.0,
+								"translation.x": 0.0,
+								"translation.y": 450.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -309,7 +309,7 @@
 			],
 			"incremental_find":
 			{
-				"height": 23.0
+				"height": 68.0
 			},
 			"input":
 			{
@@ -343,11 +343,11 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,1163,539,296,1839",
+			"position": "0,0,1,-1,-1,-1,-1,998,353,131,1653",
 			"project": "",
 			"replace":
 			{
-				"height": 42.0
+				"height": 132.0
 			},
 			"save_all_on_build": true,
 			"select_file":
