@@ -140,6 +140,7 @@ namespace DCEngine {
     virtual void AttachToRelative(EntityPtr parent) {}
     virtual void Detach() {}
     virtual void DetachRelative() {}
+    virtual void Destroy() {}
 
   protected:
     EntityPtr ParentRef;

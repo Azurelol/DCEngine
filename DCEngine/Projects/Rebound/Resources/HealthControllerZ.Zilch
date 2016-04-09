@@ -5,8 +5,8 @@ class HealthControllerZ : ZilchComponent
     [Property] var MaxHealth : Real = 0;
     [Property] var  StartingHealth : Real = 0;
     [Property] var  IsInvulnerable : Boolean = false;
-	[Property] var  InvTime : Real = 0;
-	var CurrentTime : Real = 0;
+    [Property] var  InvTime : Real = 0;
+    var CurrentTime : Real = 0;
 
     var  Health : Real = 0;
 
@@ -25,11 +25,11 @@ class HealthControllerZ : ZilchComponent
       
     }
 
-	function OnKeyDownEvent(event : KeyDown) {
-	
+	function OnKeyDownEvent(event : KeyDown)
+  {
 		// This guy is kil
 		if (event.Key == Keys.D) {
-			this.ModifyHealth(0);
+			//this.ModifyHealth(0);
 		}
 	}
     function ModifyHealth(amount : Real) : Boolean
@@ -58,7 +58,7 @@ class HealthControllerZ : ZilchComponent
 
       if (this.Health == 0)
       {
-		var deathEvent = DeathEvent();
+        var deathEvent = DeathEvent();
         this.Owner.Dispatch(DaisyEvent.DeathEvent, deathEvent);
       }
 

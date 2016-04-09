@@ -35,6 +35,8 @@ namespace DCEngine {
 			Connect(gameObj, Events::CollisionEnded, LockField::OnCollisionEndedEvent);
 			TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>(); // ew
 			SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
+			SpriteRef->SpriteSource = "tile_collector_off";
+			SpriteRef->Color = Vec4(1, 1, 1, 1);
 		}
 
 		void LockField::OnMouseDownEvent(Events::MouseDown * event)
@@ -53,6 +55,7 @@ namespace DCEngine {
 				BallRef = event->OtherObject;
 				BallRef->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation);
 				BallRef->getComponent<Components::BallController>()->Locked = true;
+				SpriteRef->SpriteSource = "tile_collector_on";
 				BallRef->getComponent<Components::RigidBody>()->setDynamicState(DynamicStateType::Static);
 			}
 
@@ -60,6 +63,7 @@ namespace DCEngine {
 			{
 				BallRef->getComponent<Components::RigidBody>()->setDynamicState(DynamicStateType::Dynamic);
 				BallRef->getComponent<Components::BallController>()->Locked = false;
+				SpriteRef->SpriteSource = "tile_collector_off";
 				if (event->OtherObject->Parent() != nullptr)
 				{
 					BallRef->getComponent<Components::BallController>()->ParentToPlayer();
