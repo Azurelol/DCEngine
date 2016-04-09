@@ -9,10 +9,14 @@ class DamageEvent : DaisyEvent
 class ToggleColorEvent : ZilchEvent
 {
 }
+class ActivateDialog : ZilchEvent
+{
+}
 class MessageEvent : ZilchEvent
 {
 	var NewMessage : Boolean = false;
 	var NewProperties : Boolean = false;
+	
     var SystemDelay : Real = -1.0;
     var MessageTime : Real = -1.0;
     var ScaleTimeWithSize : Boolean = true;

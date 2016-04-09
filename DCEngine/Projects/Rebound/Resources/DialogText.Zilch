@@ -13,7 +13,7 @@ class DialogText : ZilchComponent
     var TimePerChar : Real = 0.5;
 	
 	[Property]
-	var Message : String = "";
+	var Message : String = "what";
 	
 	[Property]
 	var WordWrap : Integer = 15;
@@ -26,9 +26,15 @@ class DialogText : ZilchComponent
 	
 	[Property]
 	var TimeToDelete : Real = 10.0;
-	var CurTime : Real = 0.0;
-	var MessageComplete : Boolean = true;
 	
+	[Property]
+	var UnitsAbovePlayer : Integer = 10;
+	
+	[Property]
+	var ArbitraryXShift : Integer = -5;
+	
+	var CurTime : Real = 0.0;
+	var Finished : Boolean = false;
 	var ThePlace : Integer = 0;
 	
     function Initialize()
@@ -43,23 +49,31 @@ class DialogText : ZilchComponent
 
     function OnLogicUpdate(event : LogicUpdate)
     {
-		if(this.ThePlace == 0 || this.ThePlace == this.Message.Count)
-			this.MessageComplete = true;
-		else
-			this.MessageComplete = false;
-	
+		var player = this.Space.FindObjectByName("Player");
+		this.Owner.Transform.Translation = Real3(player.Transform.Translation.X + this.ArbitraryXShift,
+												 player.Transform.Translation.Y + this.UnitsAbovePlayer,
+												 this.Owner.Transform.Translation.Z);
+		//.Transform.Translation.Y = player.Owner.Transform.Y;
+		if(this.ThePlace == this.Message.Count)
+			this.Finished = true;
 		this.CurTime += event.Dt;
 		if(this.CurTime > this.TimeToDelete && this.DeleteAfterTime == true)
 		{
 			this.WipeMessage();
 			this.CurTime = 0;
 		}
-		this.Owner.SpriteText.Text = this.Message.SubString(0, this.ThePlace);
+		//if(this.Finished == true)
+		//{
+		//	this.Owner.SpriteText.Text = this.Message;
+		//}
+		//else
+			this.Owner.SpriteText.Text = this.Message.SubString(0, this.ThePlace);
     }
 	
 	function FinishMessage()
 	{
-		this.ThePlace = this.Message.Count;
+		//this.Finished = true;
+		//this.ThePlace = this.Message.Count;
 	}
 	
 	function OnMessageEvent(event : MessageEvent)
@@ -87,14 +101,16 @@ class DialogText : ZilchComponent
 		}
 		if(event.NewMessage == true)
 		{
-			this.Message = event.Message;
+			this.SetMessage(event.Message);
 		}
 		this.SayMessage();
 	}
 	
 	function SetMessage(message : String)
 	{
+		this.Finished = false;
 		this.Message = message;
+		this.ThePlace = 0;
 	}
 	
 	function SayMessage()
