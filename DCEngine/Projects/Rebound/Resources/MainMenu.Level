@@ -170,10 +170,73 @@
           }, 
           "MenuPan": 
           {
+            "FadeSpriteName": "Shroud"
           }
         }, 
         "Children": 
         {
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 568, 
+            "Name": "Shroud", 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 4.000000, 
+                    "y": -8.000000, 
+                    "z": 0.900000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 8.000000, 
+                    "y": 8.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000, 
+                    "w": 0.000000
+                  }
+                }, 
+                "SpriteSource": "square", 
+                "FlipX": false, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }
         }
       }, 
       "GameObject": 
@@ -323,16 +386,6 @@
             }, 
             "CrPanTime": 1.000000, 
             "CrEase": "QuadOut", 
-            "NGPanBy": 
-            {
-              "Vec2": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000
-              }
-            }, 
-            "NGPanTime": 0.000000, 
-            "NGEase": "Linear", 
             "OpPanBy": 
             {
               "Vec2": 
@@ -1626,7 +1679,7 @@
             "AnimateOnInitialize": true, 
             "SystemDelay": 0.000000, 
             "LoopSystem": true, 
-            "UseFadeIn": true, 
+            "UseFadeIn": false, 
             "UseFadeOut": false, 
             "FadeSpeed": 0.000000, 
             "FadeEase": "Linear", 
@@ -1641,6 +1694,20 @@
             "ScaleDelay": 0.000000, 
             "ScaleSpeed": 0.000000, 
             "ScaleEase": "Linear"
+          }, 
+          "GameStarter": 
+          {
+            "NGPanBy": 
+            {
+              "Vec2": 
+              {
+                "x": 0.000000, 
+                "y": 40.000000
+              }
+            }, 
+            "NGPanTime": 1.000000, 
+            "NGEase": "QuadIn", 
+            "LoadFadeEase": "Linear"
           }
         }, 
         "Children": 
@@ -2451,7 +2518,7 @@
             "AnimateOnInitialize": false, 
             "SystemDelay": 0.000000, 
             "LoopSystem": true, 
-            "UseFadeIn": true, 
+            "UseFadeIn": false, 
             "UseFadeOut": false, 
             "FadeSpeed": 0.000000, 
             "FadeEase": "Linear", 
@@ -2598,7 +2665,7 @@
             "AnimateOnInitialize": false, 
             "SystemDelay": 0.000000, 
             "LoopSystem": true, 
-            "UseFadeIn": true, 
+            "UseFadeIn": false, 
             "UseFadeOut": false, 
             "FadeSpeed": 0.000000, 
             "FadeEase": "Linear", 
@@ -2745,7 +2812,7 @@
             "AnimateOnInitialize": true, 
             "SystemDelay": 0.000000, 
             "LoopSystem": true, 
-            "UseFadeIn": true, 
+            "UseFadeIn": false, 
             "UseFadeOut": false, 
             "FadeSpeed": 0.000000, 
             "FadeEase": "Linear", 
@@ -4164,7 +4231,7 @@
             "ScaleIterations": 1, 
             "ScaleRatio": 1.050000, 
             "ScaleDelay": 0.000000, 
-            "ScaleSpeed": 1.000000, 
+            "ScaleSpeed": 3.000000, 
             "ScaleEase": "QuadOut"
           }
         }, 
@@ -4612,7 +4679,7 @@
             "AnimateOnInitialize": true, 
             "SystemDelay": 0.000000, 
             "LoopSystem": true, 
-            "UseFadeIn": true, 
+            "UseFadeIn": false, 
             "UseFadeOut": false, 
             "FadeSpeed": 0.000000, 
             "FadeEase": "Linear", 
@@ -4946,7 +5013,7 @@
             "AnimateOnInitialize": true, 
             "SystemDelay": 0.000000, 
             "LoopSystem": true, 
-            "UseFadeIn": true, 
+            "UseFadeIn": false, 
             "UseFadeOut": false, 
             "FadeSpeed": 0.000000, 
             "FadeEase": "Linear", 
@@ -5155,7 +5222,7 @@
             "AnimateOnInitialize": true, 
             "SystemDelay": 0.000000, 
             "LoopSystem": true, 
-            "UseFadeIn": true, 
+            "UseFadeIn": false, 
             "UseFadeOut": false, 
             "FadeSpeed": 0.000000, 
             "FadeEase": "Linear", 
@@ -6053,7 +6120,7 @@
             "AnimateOnInitialize": true, 
             "SystemDelay": 0.000000, 
             "LoopSystem": true, 
-            "UseFadeIn": true, 
+            "UseFadeIn": false, 
             "UseFadeOut": false, 
             "FadeSpeed": 0.000000, 
             "FadeEase": "Linear", 
@@ -6061,13 +6128,13 @@
             "MoveX": 0.500000, 
             "MoveY": 0.000000, 
             "MoveDelay": 0.000000, 
-            "MoveSpeed": 1.000000, 
-            "MoveEase": "QuadOut", 
+            "MoveSpeed": 0.000000, 
+            "MoveEase": "Linear", 
             "ScaleIterations": 1, 
             "ScaleRatio": 1.050000, 
             "ScaleDelay": 0.000000, 
             "ScaleSpeed": 1.000000, 
-            "ScaleEase": "Linear"
+            "ScaleEase": "QuadOut"
           }
         }, 
         "Children": 
@@ -6262,7 +6329,7 @@
             "AnimateOnInitialize": true, 
             "SystemDelay": 0.000000, 
             "LoopSystem": true, 
-            "UseFadeIn": true, 
+            "UseFadeIn": false, 
             "UseFadeOut": false, 
             "FadeSpeed": 0.000000, 
             "FadeEase": "Linear", 
@@ -6270,13 +6337,13 @@
             "MoveX": 0.500000, 
             "MoveY": 0.000000, 
             "MoveDelay": 0.000000, 
-            "MoveSpeed": 1.000000, 
-            "MoveEase": "QuadOut", 
+            "MoveSpeed": 0.000000, 
+            "MoveEase": "Linear", 
             "ScaleIterations": 1, 
             "ScaleRatio": 1.050000, 
             "ScaleDelay": 0.000000, 
             "ScaleSpeed": 1.000000, 
-            "ScaleEase": "Linear"
+            "ScaleEase": "QuadOut"
           }
         }, 
         "Children": 
@@ -6528,6 +6595,130 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 5
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": true, 
+        "GameObjectID": 590, 
+        "Name": "Background", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 15.140377, 
+                "y": -43.659241, 
+                "z": -0.510000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 170.000000, 
+                "y": 200.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Level5", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": true, 
+        "GameObjectID": 590, 
+        "Name": "Background", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 15.140377, 
+                "y": -60.659241, 
+                "z": -0.510000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 170.000000, 
+                "y": 200.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Level5", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
           }
         }, 
         "Children": 
