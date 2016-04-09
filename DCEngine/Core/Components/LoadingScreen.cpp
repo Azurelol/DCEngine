@@ -73,12 +73,12 @@ namespace DCEngine {
     void LoadingScreen::Update(float dt)
     {
       // Update the progress of the loading
-
-      // DCTrace << "Loading screeen!!!";
       static auto& resources = Daisy->getSystem<Systems::Content>()->LoadedGraphicalResources();
       auto progressText = resources.LastLoaded + " - [" + std::to_string(resources.NumLoaded) + "/" 
                           + std::to_string(resources.NumTotal) + "]";
       TextProgress->setText(progressText);
+      // Rotate the animation object
+
     }
 
     /**************************************************************************/
@@ -103,6 +103,12 @@ namespace DCEngine {
       TextProgress = dynamic_cast<SpriteText*>(TextProgressObj->AddComponentByName("SpriteText"));
       TextProgress->setFontSize(1);
       // Progress Bar
+
+      // Animation Object
+      //AnimationObj = SpaceRef->CreateObject();
+      //AnimationObj->getComponent<Transform>()->setTranslation(Vec3(15, -20, 0));
+      //auto animationObjSprite = dynamic_cast<Sprite*>(AnimationObj->AddComponentByName("Sprite"));
+      //animationObjSprite->setSpriteSource("")
     }
 
   }
