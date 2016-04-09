@@ -242,6 +242,7 @@
             "StandAnimation": "PlayerStand", 
             "JumpAnimation": "PlayerFall", 
             "RunAnimation": "Char_Asha_Run_Spritesheet", 
+            "FallAnimation": "Char_Asha_Fall_Spritesheet", 
             "AutoPlayTimer": 2.000000, 
             "TeleportStartSound": "Teleport", 
             "TeleportArriveSound": "TeleportArrive", 
@@ -941,7 +942,8 @@
               }
             }, 
             "Additive": true, 
-            "Lock": false
+            "Lock": false, 
+            "DrawLayer": 4
           }, 
           "ParticleEmitter": 
           {
@@ -6434,7 +6436,11 @@
             "ShieldBashDistance": 2.000000, 
             "ShieldBashOutTime": 0.200000, 
             "ShieldBashInTime": 0.100000, 
-            "ShieldBashCooldown": 1.000000
+            "ShieldBashCooldown": 1.000000, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": "", 
+            "HitBallSound": ""
           }
         }, 
         "Children": 
@@ -6868,7 +6874,10 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }
+            }, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": ""
           }
         }, 
         "Children": 
@@ -7026,7 +7035,10 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }
+            }, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": ""
           }
         }, 
         "Children": 
@@ -7184,7 +7196,10 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }
+            }, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": ""
           }
         }, 
         "Children": 
@@ -7434,7 +7449,10 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }
+            }, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": ""
           }
         }, 
         "Children": 
@@ -7868,7 +7886,10 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }
+            }, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": ""
           }
         }, 
         "Children": 
@@ -8026,7 +8047,10 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }
+            }, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": ""
           }
         }, 
         "Children": 
@@ -8152,7 +8176,11 @@
             "ShieldBashDistance": 2.000000, 
             "ShieldBashOutTime": 0.200000, 
             "ShieldBashInTime": 0.100000, 
-            "ShieldBashCooldown": 1.000000
+            "ShieldBashCooldown": 1.000000, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": "", 
+            "HitBallSound": ""
           }
         }, 
         "Children": 
@@ -8310,7 +8338,10 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }
+            }, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": ""
           }
         }, 
         "Children": 
@@ -8436,7 +8467,11 @@
             "ShieldBashDistance": 2.000000, 
             "ShieldBashOutTime": 0.200000, 
             "ShieldBashInTime": 0.100000, 
-            "ShieldBashCooldown": 1.000000
+            "ShieldBashCooldown": 1.000000, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": "", 
+            "HitBallSound": ""
           }
         }, 
         "Children": 
@@ -8654,7 +8689,11 @@
             "ShieldBashDistance": 2.000000, 
             "ShieldBashOutTime": 0.200000, 
             "ShieldBashInTime": 0.100000, 
-            "ShieldBashCooldown": 1.000000
+            "ShieldBashCooldown": 1.000000, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": "", 
+            "HitBallSound": ""
           }
         }, 
         "Children": 
@@ -8780,7 +8819,11 @@
             "ShieldBashDistance": 2.000000, 
             "ShieldBashOutTime": 0.200000, 
             "ShieldBashInTime": 0.100000, 
-            "ShieldBashCooldown": 1.000000
+            "ShieldBashCooldown": 1.000000, 
+            "AttackSound": "", 
+            "DeathSound": "", 
+            "TakeDamageSound": "", 
+            "HitBallSound": ""
           }
         }, 
         "Children": 

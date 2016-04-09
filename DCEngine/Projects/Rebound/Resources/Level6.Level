@@ -12782,8 +12782,8 @@
           }, 
           "MusicBackground": 
           {
-            "PlayOnStart": true, 
-            "StopOnTerminate": true, 
+            "PlayOnStart": false, 
+            "StopOnTerminate": false, 
             "Track": "MachineHeart", 
             "Volume": 1.000000
           }

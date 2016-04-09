@@ -9780,8 +9780,8 @@
           }, 
           "MusicBackground": 
           {
-            "PlayOnStart": true, 
-            "StopOnTerminate": true, 
+            "PlayOnStart": false, 
+            "StopOnTerminate": false, 
             "Track": "DesertLab", 
             "Volume": 1.000000
           }

@@ -4957,7 +4957,8 @@
                 "z": 1.000000, 
                 "w": 0.010000
               }
-            }
+            }, 
+            "DissipateSound": "BallDissipate"
           }
         }, 
         "Children": 
@@ -5069,7 +5070,8 @@
                 "z": 1.000000, 
                 "w": 0.010000
               }
-            }
+            }, 
+            "DissipateSound": "BallDissipate"
           }
         }, 
         "Children": 
@@ -5782,7 +5784,8 @@
                 "z": 1.000000, 
                 "w": 0.010000
               }
-            }
+            }, 
+            "DissipateSound": "BallDissipate"
           }
         }, 
         "Children": 
@@ -7238,7 +7241,8 @@
                 "z": 1.000000, 
                 "w": 0.010000
               }
-            }
+            }, 
+            "DissipateSound": "BallDissipate"
           }
         }, 
         "Children": 

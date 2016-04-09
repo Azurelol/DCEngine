@@ -39,7 +39,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(BallController, MinAttractSpeed);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, ParentToPlayer);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, FreezeBall);
-    DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, PseudoFreezeBall);
+      DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, PseudoFreezeBall);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, LockBall);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, UnlockBall);
 
@@ -215,7 +215,7 @@ namespace DCEngine {
 
       // If collides with any type of enemy
       //if ( event->OtherObject->getObjectID() == SENTINEL_SHIELD_ID )
-      if ( event->OtherObject->getObjectName().compare("Sentinel Shield") )
+      if ( event->OtherObject->getObjectName().compare("Sentinel Shield") == true )
       {
         SoundCollideWithSentinelShield();
       }
@@ -475,7 +475,7 @@ namespace DCEngine {
 
     void BallController::SoundCollideWithSentinelShield(void)
     {
-      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CollideSound);
+      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("SentinelHitBall");
     }
   }
 }
