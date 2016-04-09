@@ -2,7 +2,12 @@ class DialogBackgroundBehavior : ZilchComponent
 {
 	[Property]
 	var UnitsAbovePlayer : Integer = 10;
+	[Property]
+	var UnitsInFrontOfPlayer : Integer = 2;
 	
+	var TitleUnitsAbove : Real = 1.5;
+	var TitleUnitsLeft : Real = 4;
+	var DialogSpeaker : Entity;
     function Initialize()
     {
         Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
@@ -10,8 +15,17 @@ class DialogBackgroundBehavior : ZilchComponent
 
     function OnLogicUpdate(event : LogicUpdate)
     {
+		//this.DialogSpeaker = this.Space.FindObjectByName("DialogSpeaker");
+		//this.DialogSpeaker.Transform.Translation = Real3(this.Owner.Transform.Translation.X - this.TitleUnitsLeft,
+		//										 this.Owner.Transform.Translation.Y + this.TitleUnitsAbove,
+		//										 this.Owner.Transform.Translation.Z);
 		var player = this.Space.FindObjectByName("Player");
-		this.Owner.Transform.Translation = Real3(player.Transform.Translation.X,
+		var xShift = this.UnitsInFrontOfPlayer;
+		if(player.RigidBody.Velocity.X < 0)
+		{
+			xShift = -xShift;
+		}
+		this.Owner.Transform.Translation = Real3(player.Transform.Translation.X + xShift,
 												 player.Transform.Translation.Y + this.UnitsAbovePlayer,
 												 this.Owner.Transform.Translation.Z);
     }
