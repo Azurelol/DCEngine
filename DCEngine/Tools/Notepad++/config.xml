@@ -13,7 +13,7 @@
         <GUIConfig name="UserDefineDlg" position="undocked">hide</GUIConfig>
         <GUIConfig name="TabSetting" size="4" replaceBySpace="no" />
         <!--App position-->
-        <GUIConfig name="AppPosition" x="250" y="184" width="1037" height="717" isMaximized="no" />
+        <GUIConfig name="AppPosition" x="427" y="290" width="1037" height="717" isMaximized="no" />
         <!-- For the primary scintilla view,
              2 status for Attribut lineNumberMargin, bookMarkMargin, indentGuideLine and currentLineHilitingShow: "show" or "hide"
              4 status for Attribut folderMarkStyle : "simple", "arrow", "circle" and "box"  -->
@@ -98,19 +98,31 @@
         </GUIConfig>
     </GUIConfigs>
     <!-- The History of opened files list -->
-    <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="no" dlgAlwaysVisible="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="0" transparencyMode="1" transparency="150" dotMatchesNewline="no" />
+    <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="no" dlgAlwaysVisible="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="0" transparencyMode="1" transparency="150" dotMatchesNewline="no">
+        <Find name="PlayCue" />
+        <Find name="this.//CancelSound" />
+        <Find name="CancelhSound" />
+        <Find name="CancelSound" />
+        <Find name="CanelSound" />
+        <Replace name="//this.CancelSound" />
+        <Replace name="//CancelSound" />
+    </FindHistory>
     <History nbMaxFile="15" inSubMenu="no" customLength="-1">
-        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\BasicController.Zilch" />
-        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\BallTemp.Zilch" />
-        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\MusicBackground.Zilch" />
-        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\PressurePlate.Zilch" />
-        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\CornerBallEnergyGenerationers.Zilch" />
-        <File filename="C:\Users\John\Documents\ZeroProjects\Graviator\Content\SimpleAnimator.z" />
-        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\UIButton.Zilch" />
         <File filename="C:\Sandbox\Moonward\DCEngine\DCEngine\Projects\Rebound\Resources\Button.Zilch" />
-        <File filename="C:\Sandbox\Moonward\DCEngine\DCEngine\Projects\Rebound\Resources\UIButton.Zilch" />
-        <File filename="C:\Sandbox\Moonward\DCEngine\DCEngine\Projects\Rebound\Resources\MusicBackground.Zilch" />
-        <File filename="C:\Sandbox\Moonward\DCEngine\DCEngine\Projects\Rebound\Resources\TestSoundInstance.Zilch" />
+        <File filename="C:\Sandbox\Moonward\DCEngine\DCEngine\Projects\Rebound\Resources\BallTemp.Zilch" />
+        <File filename="C:\Sandbox\Moonward\DCEngine\DCEngine\Projects\Rebound\Resources\BasicController.Zilch" />
+        <File filename="C:\Sandbox\Moonward\DCEngine\DCEngine\Projects\Rebound\Resources\CameraControllerZilch.Zilch" />
+        <File filename="C:\Sandbox\Moonward\DCEngine\DCEngine\Projects\Rebound\Resources\CameraOffsetVolumeZilch.Zilch" />
+        <File filename="C:\Sandbox\Moonward\DCEngine\DCEngine\Projects\Rebound\Resources\Collector.Zilch" />
+        <File filename="C:\Sandbox\Moonward\DCEngine\DCEngine\Projects\Rebound\Resources\CornerBallEnergyGenerationers.Zilch" />
+        <File filename="C:\Sandbox\Moonward\DCEngine\DCEngine\Projects\Rebound\Resources\CustomEvents.Zilch" />
+        <File filename="C:\Sandbox\Moonward\DCEngine\DCEngine\Projects\Rebound\Resources\DebugMove.Zilch" />
+        <File filename="C:\Sandbox\Moonward\DCEngine\DCEngine\Projects\Rebound\Resources\EnergyShield.Zilch" />
+        <File filename="C:\Sandbox\Moonward\DCEngine\DCEngine\Projects\Rebound\Resources\FadeZilch.Zilch" />
+        <File filename="C:\Sandbox\Moonward\DCEngine\DCEngine\Projects\Rebound\Resources\FinalBossHealth.Zilch" />
+        <File filename="C:\Sandbox\Moonward\DCEngine\DCEngine\Projects\Rebound\Resources\GateLogic.Zilch" />
+        <File filename="C:\Sandbox\Moonward\DCEngine\DCEngine\Projects\Rebound\Resources\HazardAreaZilch.Zilch" />
+        <File filename="C:\Sandbox\Moonward\DCEngine\DCEngine\Projects\Rebound\Resources\HealthControllerZ.Zilch" />
     </History>
     <ProjectPanels>
         <ProjectPanel id="0" workSpaceFile="" />
