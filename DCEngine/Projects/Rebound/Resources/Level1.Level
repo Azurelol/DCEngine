@@ -1580,7 +1580,7 @@
               "Vec3": 
               {
                 "x": 148.723846, 
-                "y": 10.780749, 
+                "y": 11.367414, 
                 "z": 0.000000
               }
             }, 
@@ -1843,8 +1843,8 @@
             {
               "Vec3": 
               {
-                "x": -9.174590, 
-                "y": 19.285355, 
+                "x": 82.962395, 
+                "y": 30.420143, 
                 "z": 0.000000
               }
             }, 
@@ -1885,7 +1885,7 @@
             "FlipY": false, 
             "AnimationActive": true, 
             "AnimationSpeed": 10.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "RigidBody": 
           {
@@ -1939,7 +1939,7 @@
           "PlayerController": 
           {
             "MoveSpeed": 0.350000, 
-            "VelocityXCap": 30.000000, 
+            "VelocityXCap": 10.000000, 
             "JumpPower": 30.000000, 
             "JumpFrames": 1.000000, 
             "Health": 10.000000, 
@@ -2695,7 +2695,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 250, 
+        "GameObjectID": 279, 
         "Name": "Shield", 
         "Components": 
         {
@@ -2736,9 +2736,9 @@
             {
               "Vec4": 
               {
-                "x": 0.235000, 
-                "y": 0.470000, 
-                "z": 0.745000, 
+                "x": 0.200000, 
+                "y": 0.400000, 
+                "z": 0.700000, 
                 "w": 0.500000
               }
             }, 
@@ -2751,8 +2751,8 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Shield", 
-            "PhysicsMaterial": "", 
+            "CollisionGroup": "DefaultCollisionGroup", 
+            "PhysicsMaterial": "DefaultPhysicsMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -2771,9 +2771,34 @@
                 "z": 0.000000
               }
             }, 
-            "Ghost": false, 
+            "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }, 
+          "EnergyShield": 
+          {
+            "RepulseSpeed": 100, 
+            "Active": true, 
+            "ActiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.400000, 
+                "z": 0.700000, 
+                "w": 0.500000
+              }
+            }, 
+            "InactiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.200000, 
+                "z": 0.700000, 
+                "w": 0.010000
+              }
+            }
           }
         }, 
         "Children": 
@@ -5863,8 +5888,8 @@
             {
               "Vec3": 
               {
-                "x": -6.198933, 
-                "y": 15.835693, 
+                "x": 81.938057, 
+                "y": 30.970482, 
                 "z": 0.000000
               }
             }, 
@@ -9548,7 +9573,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": false, 
+        "Locked": true, 
         "GameObjectID": 120, 
         "Name": "Background1", 
         "Components": 
@@ -9610,7 +9635,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 122, 
         "Name": "Foreground", 
         "Components": 
@@ -9621,9 +9646,9 @@
             {
               "Vec3": 
               {
-                "x": 157.242004, 
-                "y": 6.551495, 
-                "z": -0.000000
+                "x": 156.957947, 
+                "y": 6.470942, 
+                "z": 0.000000
               }
             }, 
             "Rotation": 
@@ -9639,8 +9664,8 @@
             {
               "Vec3": 
               {
-                "x": 379.000000, 
-                "y": 185.000000, 
+                "x": 380.000000, 
+                "y": 185.500000, 
                 "z": 1.000000
               }
             }
