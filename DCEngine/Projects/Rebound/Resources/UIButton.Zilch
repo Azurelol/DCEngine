@@ -35,6 +35,9 @@ class UIButton : ZilchComponent
 
     [Property]
     var ClickedSprite : String = "";
+
+    [Property]
+    var CooldownPeriod : Real = 1.0;
     
     [Property]
     var InactiveColor : Real4 = Real4(1,1,1,1);
@@ -51,11 +54,12 @@ class UIButton : ZilchComponent
     [Property]
     var ExpansionTime : Real;
     
-    // Current Stae of the button
+    // Current State of the button
     var CurState : ButtonState = ButtonState.Default;
 
     var TextReference : Entity = null;
 
+    var AllowClicks : Boolean;
     
 	
     function Initialize()
@@ -63,7 +67,10 @@ class UIButton : ZilchComponent
         Daisy.Connect(this.Owner, DaisyEvent.MouseEnter, this.OnMouseEnter);
 		Daisy.Connect(this.Owner, DaisyEvent.MouseExit, this.OnMouseExit);
 		Daisy.Connect(this.Owner, DaisyEvent.ToggleEvent, this.OnToggleEvent);
+		Daisy.Connect(this.Space, DaisyEvent.CameraInMotion, this.OnCameraInMotion);
 		Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDown);
+
+		this.AllowClicks = true;
 
 		if(this.TextReferenceName != "")
 		{
@@ -78,6 +85,11 @@ class UIButton : ZilchComponent
 		{
 			this.EnterInactiveState();
 		}
+    }
+
+    function OnCameraInMotion(event : CameraInMotion)
+    {
+    	this.AllowClicks = !event.CamMoving;
     }
 	
 	function OnMouseEnter(event : MouseEnter)
@@ -99,7 +111,7 @@ class UIButton : ZilchComponent
 
 	function OnMouseDown(event : MouseDown)
 	{
-		if(this.CurState == ButtonState.Hovered)
+		if(this.CurState == ButtonState.Hovered && this.AllowClicks)
 		{
 			this.EnterClickedState();
 		}
@@ -144,7 +156,6 @@ class UIButton : ZilchComponent
 			this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 0.9);
 		}
 
-		//this.Space.SoundSpace.PlayCue(this.HoveredSound);
 		this.Expand();
 		this.ReportState();
 	}
@@ -159,7 +170,6 @@ class UIButton : ZilchComponent
 			this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 1.0);
 		}
 
-		//this.Space.SoundSpace.PlayCue(this.ClickedSound);
 		this.ReportState();
 	}
 

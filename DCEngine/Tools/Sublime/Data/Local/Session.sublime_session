@@ -16,8 +16,60 @@
 				"selected_items":
 				[
 					[
+						"A",
+						"AllowClicks"
+					],
+					[
+						"All",
+						"AllowClicks"
+					],
+					[
+						"pan",
+						"panSeq"
+					],
+					[
+						"Coo",
+						"Cooldown"
+					],
+					[
+						"Time",
+						"TimesMoved"
+					],
+					[
+						"Use",
+						"UseFadeIn"
+					],
+					[
+						"Ani",
+						"AnimStep"
+					],
+					[
 						"Fade",
-						"FadeEvent"
+						"FadeOut"
+					],
+					[
+						"Res",
+						"ResetPos"
+					],
+					[
+						"Sca",
+						"ScaleUp"
+					],
+					[
+						"Scale",
+						"ScaleIterations"
+					],
+					[
+						"Per",
+						"PerformMove"
+					],
+					[
+						"Perf",
+						"PerformScale"
+					],
+					[
+						"Anim",
+						"AnimStep"
 					],
 					[
 						"NG",
@@ -204,6 +256,14 @@
 					}
 				},
 				{
+					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/SimpleAnimator.Zilch",
+					"settings":
+					{
+						"buffer_size": 7562,
+						"line_ending": "Windows"
+					}
+				},
+				{
 					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GameStarter.Zilch",
 					"settings":
 					{
@@ -212,10 +272,18 @@
 					}
 				},
 				{
+					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
+					"settings":
+					{
+						"buffer_size": 4750,
+						"line_ending": "Windows"
+					}
+				},
+				{
 					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/MenuPan.Zilch",
 					"settings":
 					{
-						"buffer_size": 1296,
+						"buffer_size": 1758,
 						"line_ending": "Windows"
 					}
 				}
@@ -323,7 +391,7 @@
 			"groups":
 			[
 				{
-					"selected": 0,
+					"selected": 4,
 					"sheets":
 					[
 						{
@@ -339,8 +407,8 @@
 								"selection":
 								[
 									[
-										3940,
-										3940
+										1071,
+										1071
 									]
 								],
 								"settings":
@@ -348,14 +416,42 @@
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
 								"translation.x": 0.0,
-								"translation.y": 2115.0,
+								"translation.y": 450.0,
 								"zoom_level": 1.0
 							},
-							"stack_index": 0,
+							"stack_index": 2,
 							"type": "text"
 						},
 						{
 							"buffer": 1,
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/SimpleAnimator.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 7562,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										2454,
+										2454
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C#/C#.sublime-syntax"
+								},
+								"translation.x": 0.0,
+								"translation.y": 1215.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 3,
+							"type": "text"
+						},
+						{
+							"buffer": 2,
 							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GameStarter.Zilch",
 							"semi_transient": false,
 							"settings":
@@ -376,38 +472,66 @@
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
 								"translation.x": 0.0,
-								"translation.y": 225.0,
+								"translation.y": 132.0,
 								"zoom_level": 1.0
 							},
-							"stack_index": 2,
+							"stack_index": 4,
 							"type": "text"
 						},
 						{
-							"buffer": 2,
-							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/MenuPan.Zilch",
+							"buffer": 3,
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 1296,
+								"buffer_size": 4750,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										1287,
-										1287
+										1749,
+										1749
 									]
 								],
 								"settings":
 								{
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
-								"translation.x": -0.0,
-								"translation.y": 0.0,
+								"translation.x": 0.0,
+								"translation.y": 1656.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 1,
+							"type": "text"
+						},
+						{
+							"buffer": 4,
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/MenuPan.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 1758,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1265,
+										1265
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C#/C#.sublime-syntax"
+								},
+								"translation.x": 0.0,
+								"translation.y": 315.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 0,
 							"type": "text"
 						}
 					]
@@ -449,7 +573,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,976,587,109,1887",
+			"position": "0,0,1,-32000,-32000,-1,-1,1002,549,135,1849",
 			"project": "",
 			"replace":
 			{

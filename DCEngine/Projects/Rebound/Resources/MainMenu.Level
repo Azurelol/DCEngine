@@ -502,6 +502,7 @@
                   }
                 }, 
                 "ClickedSprite": "", 
+                "CooldownPeriod": 1.000000, 
                 "InactiveColor": 
                 {
                   "Vec4": 
@@ -692,6 +693,7 @@
                   }
                 }, 
                 "ClickedSprite": "", 
+                "CooldownPeriod": 1.000000, 
                 "InactiveColor": 
                 {
                   "Vec4": 
@@ -882,6 +884,7 @@
                   }
                 }, 
                 "ClickedSprite": "", 
+                "CooldownPeriod": 1.000000, 
                 "InactiveColor": 
                 {
                   "Vec4": 
@@ -1072,6 +1075,7 @@
                   }
                 }, 
                 "ClickedSprite": "", 
+                "CooldownPeriod": 1.000000, 
                 "InactiveColor": 
                 {
                   "Vec4": 
@@ -1262,6 +1266,7 @@
                   }
                 }, 
                 "ClickedSprite": "", 
+                "CooldownPeriod": 1.000000, 
                 "InactiveColor": 
                 {
                   "Vec4": 
@@ -1868,6 +1873,7 @@
                   }
                 }, 
                 "ClickedSprite": "", 
+                "CooldownPeriod": 1.000000, 
                 "InactiveColor": 
                 {
                   "Vec4": 
@@ -2115,6 +2121,7 @@
                   }
                 }, 
                 "ClickedSprite": "", 
+                "CooldownPeriod": 1.000000, 
                 "InactiveColor": 
                 {
                   "Vec4": 
@@ -2362,6 +2369,7 @@
                   }
                 }, 
                 "ClickedSprite": "", 
+                "CooldownPeriod": 1.000000, 
                 "InactiveColor": 
                 {
                   "Vec4": 
