@@ -59,7 +59,7 @@ namespace DCEngine {
 
 		void WindowSFML::resizeWindow(float x, float y)
 		{
-			//WindowContext->setSize(sf::Vector2u(unsigned(x), unsigned(y)));
+			WindowContext->setSize(sf::Vector2u(unsigned(x), unsigned(y)));
 			//WindowContext->setActive();
 			////Daisy->getSystem<Graphics>()->GraphicsHandler->FreeFBO();
 			////Daisy->getSystem<Graphics>()->GraphicsHandler->Initialize();
@@ -82,6 +82,8 @@ namespace DCEngine {
 			//auto graphicsSystem = Daisy->getSystem<Graphics>();
 			//Daisy->getSystem<GUI>()->Initialize();
       // This is stupid, but I can't pass in the sf::Style enum as a param :(
+			ContextSettings.antialiasingLevel = WindowInterface.Settings.Samples;
+
       switch (style) {
       case WindowMode::Default:
         WindowInterface.Settings.ScreenWidth = widthRecord;
@@ -120,7 +122,7 @@ namespace DCEngine {
       // Stores the settings for the underlying SFML window context
       ContextSettings.depthBits = _depthBits;
       ContextSettings.stencilBits = _stencilBits;
-      ContextSettings.antialiasingLevel = _antiAliasingLevel;
+      ContextSettings.antialiasingLevel = WindowInterface.Settings.Samples;
       ContextSettings.majorVersion = _majorVersion;
       ContextSettings.minorVersion = _minorVersion;
 
@@ -137,7 +139,7 @@ namespace DCEngine {
       // Or if it starts as windowed
       else {
         WindowContext.reset(new sf::Window(sf::VideoMode(WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
-          WindowInterface.Caption, sf::Style::Default, ContextSettings));
+          WindowInterface.Caption, sf::Style::Titlebar | sf::Style::Close, ContextSettings));
         Mode = WindowMode::Default;
         DispatchSystemEvents::WindowFullScreenDisabled();
       }

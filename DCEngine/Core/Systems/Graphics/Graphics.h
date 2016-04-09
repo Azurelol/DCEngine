@@ -49,6 +49,11 @@ namespace DCEngine {
       void DrawRectangle(const Vec3& pos, Real& width, Real& height, const Vec4& color, Components::Camera& cam, bool fill = false);
       void DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color, Components::Camera& cam);
 
+			//graphicsSettings
+			void SetResolution(const glm::uvec2& resolution);
+			void SetAntiAliasingLevel(unsigned samples);
+			void ToggleFullscreen();
+
     private:
 
       GraphicsConfig& Settings;		

@@ -409,6 +409,7 @@
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Draw.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Lightning.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsRender.cpp" />
+    <ClCompile Include="Core\Systems\Graphics\GraphicsSettings.cpp" />
     <ClCompile Include="Core\Systems\GUI\GUI.cpp" />
     <ClCompile Include="Core\Systems\GUI\ImGuiSFML.cpp" />
     <ClCompile Include="Core\Systems\GUI\Windows.cpp" />

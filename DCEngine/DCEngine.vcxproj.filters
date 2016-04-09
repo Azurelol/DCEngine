@@ -984,6 +984,9 @@
     <ClCompile Include="Core\Components\LoadingScreen.cpp">
       <Filter>Core\Components\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Systems\Graphics\GraphicsSettings.cpp">
+      <Filter>Core\Systems\Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
