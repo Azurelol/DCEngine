@@ -23,6 +23,6 @@ class CornerBallEnergyGenerationers : ZilchComponent
     function OnDeathEvent(event : DeathEvent)
     {
       var deathEvent = GeneratorDeathEvent();
-      this.Owner.Dispatch(DaisyEvent.GeneratorDeathEvent, deathEvent);
+      this.Space.Dispatch(DaisyEvent.GeneratorDeathEvent, deathEvent);
     }
 }

@@ -81,7 +81,10 @@ namespace DCEngine {
       //SpriteTextContainer getSpriteTextContainer(); // Returns the container of SpriteText to be drawn
 			//std::vector<SpriteParticleSystem*> getParticleSystem(); // Returns the emission components
 
-			
+
+      void SetResolution(unsigned x, unsigned y);
+      void SetAntiAliasingLevel(unsigned samples);
+      void ToggleFullscreen();
 
       void OnLogicUpdate(Events::LogicUpdate* updateEvent);
 			unsigned CurrentScreenWidth, CurrentScreenHeight;

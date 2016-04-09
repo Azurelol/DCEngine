@@ -18,6 +18,7 @@ receives rendering requests and draws on the window.
 #include "GraphicsGL.h"
 #include "../../Components/GraphicsSpace.h"
 #include "../../Components/SpriteParticleSystem.h"
+#include <ZILCH\Zilch.hpp>
 
 namespace DCEngine {
   class Engine;
@@ -50,7 +51,7 @@ namespace DCEngine {
       void DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color, Components::Camera& cam);
 
 			//graphicsSettings
-			void SetResolution(const glm::uvec2& resolution);
+			void SetResolution(unsigned x, unsigned y);
 			void SetAntiAliasingLevel(unsigned samples);
 			void ToggleFullscreen();
 

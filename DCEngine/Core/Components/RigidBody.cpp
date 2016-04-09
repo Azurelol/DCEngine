@@ -124,7 +124,8 @@ namespace DCEngine
 
       if (Gravity)
       {
-        newAcceleration = AccumulatedForce * InverseMass + Acceleration + (Gravitydir * (PHYSICS::Gravity * Gravityratio));
+        float gravity = this->SpaceRef->getComponent<Components::PhysicsSpace>()->getGravity();
+        newAcceleration = AccumulatedForce * InverseMass + Acceleration + (Gravitydir * (gravity * Gravityratio));
       }
       else
       {
@@ -303,7 +304,8 @@ namespace DCEngine
 
       if (Gravity)
       {
-        return (Acceleration + (Gravitydir * (Gravityratio * PHYSICS::Gravity)));
+        float gravity = this->SpaceRef->getComponent<Components::PhysicsSpace>()->getGravity();
+        return (Acceleration + (Gravitydir * (Gravityratio * gravity)));
       }
 
       return Acceleration;

@@ -16,11 +16,12 @@ namespace DCEngine
 {
 	namespace Systems
 	{
-		void Graphics::SetResolution(const glm::uvec2& resolution)
+
+		void Graphics::SetResolution(unsigned x, unsigned y)
 		{
-			Settings.ScreenWidth = resolution.x;
-			Settings.ScreenHeight = resolution.y;
-			DispatchSystemEvents::WindowResize(resolution);
+			Settings.ScreenWidth = x;
+			Settings.ScreenHeight = y;
+			DispatchSystemEvents::WindowResize(Vec2(x,y));
 		}
 		void Graphics::SetAntiAliasingLevel(unsigned samples)
 		{

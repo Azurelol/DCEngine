@@ -1,3 +1,5 @@
+enum Speaker { Asha, Dude}
+
 class DialogTrigger : ZilchComponent
 {
 	[Property]
@@ -12,17 +14,31 @@ class DialogTrigger : ZilchComponent
 	[Property]
 	var Message1String : String = "";
 	[Property]
+	var Message1Speaker : Speaker = Speaker.Dude;
+	[Property]
 	var Message2String : String = "";
+	[Property]
+	var Message2Speaker : Speaker = Speaker.Dude;
 	[Property]
 	var Message3String : String = "";
 	[Property]
+	var Message3Speaker : Speaker = Speaker.Dude;
+	[Property]
 	var Message4String : String = "";
+	[Property]
+	var Message4Speaker : Speaker = Speaker.Dude;
 	[Property]
 	var Message5String : String = "";
 	[Property]
+	var Message5Speaker : Speaker = Speaker.Dude;
+	[Property]
 	var Message6String : String = "";
 	[Property]
+	var Message6Speaker : Speaker = Speaker.Dude;
+	[Property]
 	var Message7String : String = "";
+	[Property]
+	var Message7Speaker : Speaker = Speaker.Dude;
 	
 	var Message1 : MessageEvent = MessageEvent();
 	var Message2 : MessageEvent = MessageEvent();
@@ -104,11 +120,13 @@ class DialogTrigger : ZilchComponent
 					var curEvent = this.Message1;
 					if(this.MessageNumber == 1)
 					{
+						ourText.DialogText.CurSpeaker = this.Message1Speaker;
 						if(this.Message1String == "")
 							this.SendWipeMessage();
 					}
 					if(this.MessageNumber == 2)
 					{
+						ourText.DialogText.CurSpeaker = this.Message2Speaker;
 						if(this.Message2String != "")
 							curEvent = this.Message2;
 						else
@@ -119,6 +137,7 @@ class DialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 3)
 					{
+						ourText.DialogText.CurSpeaker = this.Message3Speaker;
 						if(this.Message3String != "")
 							curEvent = this.Message3;
 						else
@@ -129,6 +148,7 @@ class DialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 4)
 					{
+						ourText.DialogText.CurSpeaker = this.Message4Speaker;
 						if(this.Message4String != "")
 							curEvent = this.Message4;
 						else
@@ -139,6 +159,7 @@ class DialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 5)
 					{
+						ourText.DialogText.CurSpeaker = this.Message5Speaker;
 						if(this.Message5String != "")
 							curEvent = this.Message5;
 						else
@@ -149,6 +170,7 @@ class DialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 6)
 					{
+						ourText.DialogText.CurSpeaker = this.Message6Speaker;
 						if(this.Message6String != "")
 							curEvent = this.Message6;
 						else
@@ -159,6 +181,7 @@ class DialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 7)
 					{
+						ourText.DialogText.CurSpeaker = this.Message7Speaker;
 						if(this.Message7String != "")
 							curEvent = this.Message7;
 						else
