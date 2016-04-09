@@ -19,7 +19,7 @@
               "Vec3": 
               {
                 "x": 0.046214, 
-                "y": 0.000000, 
+                "y": -2.000000, 
                 "z": 1.000000
               }
             }, 
@@ -44,17 +44,26 @@
           }, 
           "Camera": 
           {
-            "FieldOfView": 169.655014, 
+            "FieldOfView": 170.000000, 
             "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 90.000000, 
             "Projection": "Perspective"
           }, 
-          "CameraController": 
+          "CameraControllerZilch": 
           {
-            "TargetName": "Player", 
-            "InterpolationSpeed": 0.060000
+            "InterpolationSpeed": 0.060000, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "ScreenShakeMagnitude": 3.000000
           }
         }, 
         "Children": 
@@ -7132,8 +7141,8 @@
             {
               "Vec3": 
               {
-                "x": 1.500000, 
-                "y": 1.500000, 
+                "x": 0.500000, 
+                "y": 0.500000, 
                 "z": 1.000000
               }
             }
@@ -7754,8 +7763,8 @@
             {
               "Vec3": 
               {
-                "x": 1.500000, 
-                "y": 1.500000, 
+                "x": 0.750000, 
+                "y": 0.750000, 
                 "z": 1.000000
               }
             }
@@ -7912,8 +7921,8 @@
             {
               "Vec3": 
               {
-                "x": 1.500000, 
-                "y": 1.500000, 
+                "x": 0.750000, 
+                "y": 0.750000, 
                 "z": 1.000000
               }
             }
@@ -8070,8 +8079,8 @@
             {
               "Vec3": 
               {
-                "x": 1.500000, 
-                "y": 1.500000, 
+                "x": 0.750000, 
+                "y": 0.750000, 
                 "z": 1.000000
               }
             }
@@ -8228,8 +8237,8 @@
             {
               "Vec3": 
               {
-                "x": 1.500000, 
-                "y": 1.500000, 
+                "x": 0.750000, 
+                "y": 0.750000, 
                 "z": 1.000000
               }
             }
@@ -8386,8 +8395,8 @@
             {
               "Vec3": 
               {
-                "x": 1.500000, 
-                "y": 1.500000, 
+                "x": 0.750000, 
+                "y": 0.750000, 
                 "z": 1.000000
               }
             }
@@ -8544,8 +8553,8 @@
             {
               "Vec3": 
               {
-                "x": 1.500000, 
-                "y": 1.500000, 
+                "x": 0.750000, 
+                "y": 0.750000, 
                 "z": 1.000000
               }
             }
@@ -11275,8 +11284,8 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
-        "GameObjectID": 200, 
+        "Locked": false, 
+        "GameObjectID": 147, 
         "Name": "Player", 
         "Components": 
         {
@@ -11304,8 +11313,8 @@
             {
               "Vec3": 
               {
-                "x": 2.000000, 
-                "y": 2.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -11323,12 +11332,12 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "PlayerRun", 
+            "SpriteSource": "Char_Asha_Idle_Spritesheet", 
             "FlipX": false, 
             "FlipY": false, 
-            "AnimationActive": false, 
+            "AnimationActive": true, 
             "AnimationSpeed": 10.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "RigidBody": 
           {
@@ -11381,16 +11390,16 @@
           }, 
           "PlayerController": 
           {
-            "MoveSpeed": 0.700000, 
-            "VelocityXCap": 30.000000, 
-            "JumpPower": 30.000000, 
+            "MoveSpeed": 0.170000, 
+            "VelocityXCap": 5.000000, 
+            "JumpPower": 15.000000, 
             "JumpFrames": 1.000000, 
             "Health": 10.000000, 
             "AirBrakeScalar": 0.950000, 
             "TurnSpeedScalar": 5.000000, 
             "DoAutoPlay": true, 
-            "StandAnimation": "PlayerStand", 
-            "JumpAnimation": "PlayerFall", 
+            "StandAnimation": "Char_Asha_Idle_Spritesheet", 
+            "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
             "RunAnimation": "Char_Asha_Run_Spritesheet", 
             "FallAnimation": "Char_Asha_Fall_Spritesheet", 
             "AutoPlayTimer": 2.000000, 
@@ -11446,7 +11455,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 201, 
         "Name": "Ball", 
         "Components": 
