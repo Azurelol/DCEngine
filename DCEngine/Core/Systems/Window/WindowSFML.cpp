@@ -59,10 +59,12 @@ namespace DCEngine {
 
 		void WindowSFML::resizeWindow(float x, float y)
 		{
-			WindowContext->setSize(sf::Vector2u(unsigned(x), unsigned(y)));
-			WindowContext->setActive();
-			Daisy->getSystem<Graphics>()->RestoreState();
-			Daisy->getSystem<GUI>()->ReloadVAO();
+			//WindowContext->setSize(sf::Vector2u(unsigned(x), unsigned(y)));
+			//WindowContext->setActive();
+			////Daisy->getSystem<Graphics>()->GraphicsHandler->FreeFBO();
+			////Daisy->getSystem<Graphics>()->GraphicsHandler->Initialize();
+			//Daisy->getSystem<Graphics>()->RestoreState();
+			////Daisy->getSystem<GUI>()->ReloadVAO();
 		}
 
     /**************************************************************************/
