@@ -544,7 +544,7 @@
                       {
                         "x": 2.584223, 
                         "y": -4.764062, 
-                        "z": 0.001000
+                        "z": 0.000000
                       }
                     }, 
                     "Rotation": 
@@ -560,8 +560,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": 0.050000, 
-                        "y": 0.050000, 
+                        "x": 1.000000, 
+                        "y": 1.000000, 
                         "z": 1.000000
                       }
                     }
@@ -580,7 +580,7 @@
                       }
                     }, 
                     "Font": "SafetyMedium", 
-                    "FontSize": 3, 
+                    "FontSize": 5, 
                     "Text": "New Game", 
                     "PixelsPerUnit": 64, 
                     "Smoothing": true, 
@@ -735,7 +735,7 @@
                       {
                         "x": 7.842339, 
                         "y": -9.984624, 
-                        "z": 0.001000
+                        "z": 0.000000
                       }
                     }, 
                     "Rotation": 
@@ -751,8 +751,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": 0.050000, 
-                        "y": 0.050000, 
+                        "x": 1.000000, 
+                        "y": 1.000000, 
                         "z": 1.000000
                       }
                     }
@@ -771,7 +771,7 @@
                       }
                     }, 
                     "Font": "SafetyMedium", 
-                    "FontSize": 3, 
+                    "FontSize": 5, 
                     "Text": "How To    Play", 
                     "PixelsPerUnit": 64, 
                     "Smoothing": true, 
@@ -942,8 +942,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": 0.050000, 
-                        "y": 0.050000, 
+                        "x": 1.000000, 
+                        "y": 1.000000, 
                         "z": 1.000000
                       }
                     }
@@ -962,7 +962,7 @@
                       }
                     }, 
                     "Font": "SafetyMedium", 
-                    "FontSize": 3, 
+                    "FontSize": 5, 
                     "Text": "Options", 
                     "PixelsPerUnit": 64, 
                     "Smoothing": true, 
@@ -1133,8 +1133,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": 0.050000, 
-                        "y": 0.050000, 
+                        "x": 1.000000, 
+                        "y": 1.000000, 
                         "z": 1.000000
                       }
                     }
@@ -1153,7 +1153,7 @@
                       }
                     }, 
                     "Font": "SafetyMedium", 
-                    "FontSize": 3, 
+                    "FontSize": 5, 
                     "Text": "Credits", 
                     "PixelsPerUnit": 64, 
                     "Smoothing": true, 
@@ -1306,8 +1306,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": -13.481449, 
-                        "y": -19.654278, 
+                        "x": -13.609931, 
+                        "y": -19.754208, 
                         "z": 0.001000
                       }
                     }, 
@@ -1324,8 +1324,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": 0.050000, 
-                        "y": 0.050000, 
+                        "x": 1.000000, 
+                        "y": 1.000000, 
                         "z": 1.000000
                       }
                     }
@@ -1344,7 +1344,7 @@
                       }
                     }, 
                     "Font": "SafetyMedium", 
-                    "FontSize": 3, 
+                    "FontSize": 6, 
                     "Text": "Quit Game", 
                     "PixelsPerUnit": 64, 
                     "Smoothing": true, 
@@ -1588,8 +1588,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.040000, 
-                    "y": 0.040000, 
+                    "x": 1.000000, 
+                    "y": 1.000000, 
                     "z": 1.000000
                   }
                 }
@@ -1608,7 +1608,7 @@
                   }
                 }, 
                 "Font": "Electrolize-Regular", 
-                "FontSize": 3, 
+                "FontSize": 4, 
                 "Text": "View and change the game's settings", 
                 "PixelsPerUnit": 64, 
                 "Smoothing": true, 
@@ -1913,8 +1913,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": 33.435310, 
-                        "y": -18.267071, 
+                        "x": 33.708508, 
+                        "y": -18.187782, 
                         "z": 0.001000
                       }
                     }, 
@@ -1931,8 +1931,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": 0.050000, 
-                        "y": 0.050000, 
+                        "x": 1.000000, 
+                        "y": 1.000000, 
                         "z": 1.000000
                       }
                     }
@@ -1951,7 +1951,7 @@
                       }
                     }, 
                     "Font": "SafetyMedium", 
-                    "FontSize": 4, 
+                    "FontSize": 6, 
                     "Text": "Back", 
                     "PixelsPerUnit": 64, 
                     "Smoothing": true, 
@@ -2161,8 +2161,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": 2.336978, 
-                        "y": -28.267067, 
+                        "x": 2.604645, 
+                        "y": -28.255428, 
                         "z": 0.001000
                       }
                     }, 
@@ -2179,8 +2179,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": 0.050000, 
-                        "y": 0.050000, 
+                        "x": 1.000000, 
+                        "y": 1.000000, 
                         "z": 1.000000
                       }
                     }
@@ -2199,7 +2199,7 @@
                       }
                     }, 
                     "Font": "SafetyMedium", 
-                    "FontSize": 4, 
+                    "FontSize": 6, 
                     "Text": "Back", 
                     "PixelsPerUnit": 64, 
                     "Smoothing": true, 
@@ -2409,8 +2409,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": -25.368893, 
-                        "y": -19.440475, 
+                        "x": -25.119764, 
+                        "y": -19.450058, 
                         "z": 0.001000
                       }
                     }, 
@@ -2427,8 +2427,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": 0.050000, 
-                        "y": 0.050000, 
+                        "x": 1.000000, 
+                        "y": 1.000000, 
                         "z": 1.000000
                       }
                     }
@@ -2447,7 +2447,7 @@
                       }
                     }, 
                     "Font": "SafetyMedium", 
-                    "FontSize": 4, 
+                    "FontSize": 6, 
                     "Text": "Back", 
                     "PixelsPerUnit": 64, 
                     "Smoothing": true, 
@@ -2494,8 +2494,8 @@
             {
               "Vec3": 
               {
-                "x": 0.100000, 
-                "y": 0.100000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -2514,7 +2514,7 @@
               }
             }, 
             "Font": "SafetyMedium", 
-            "FontSize": 5, 
+            "FontSize": 16, 
             "Text": "How To Play", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -2576,8 +2576,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.100000, 
-                    "y": 0.100000, 
+                    "x": 1.000000, 
+                    "y": 1.000000, 
                     "z": 1.000000
                   }
                 }
@@ -2596,7 +2596,7 @@
                   }
                 }, 
                 "Font": "SafetyMedium", 
-                "FontSize": 5, 
+                "FontSize": 16, 
                 "Text": "How To Play", 
                 "PixelsPerUnit": 64, 
                 "Smoothing": true, 
@@ -2641,8 +2641,8 @@
             {
               "Vec3": 
               {
-                "x": 0.100000, 
-                "y": 0.100000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -2661,7 +2661,7 @@
               }
             }, 
             "Font": "SafetyMedium", 
-            "FontSize": 5, 
+            "FontSize": 16, 
             "Text": "Credits", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -2723,8 +2723,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.100000, 
-                    "y": 0.100000, 
+                    "x": 1.000000, 
+                    "y": 1.000000, 
                     "z": 1.000000
                   }
                 }
@@ -2743,7 +2743,7 @@
                   }
                 }, 
                 "Font": "SafetyMedium", 
-                "FontSize": 5, 
+                "FontSize": 16, 
                 "Text": "Credits", 
                 "PixelsPerUnit": 64, 
                 "Smoothing": true, 
@@ -2788,8 +2788,8 @@
             {
               "Vec3": 
               {
-                "x": 0.100000, 
-                "y": 0.100000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -2808,7 +2808,7 @@
               }
             }, 
             "Font": "SafetyMedium", 
-            "FontSize": 5, 
+            "FontSize": 16, 
             "Text": "Options", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -2870,8 +2870,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.100000, 
-                    "y": 0.100000, 
+                    "x": 1.000000, 
+                    "y": 1.000000, 
                     "z": 1.000000
                   }
                 }
@@ -2890,7 +2890,7 @@
                   }
                 }, 
                 "Font": "SafetyMedium", 
-                "FontSize": 5, 
+                "FontSize": 16, 
                 "Text": "Options", 
                 "PixelsPerUnit": 64, 
                 "Smoothing": true, 
@@ -2935,8 +2935,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -2955,7 +2955,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 9, 
             "Text": "Chikara Honda", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -2998,8 +2998,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -3018,7 +3018,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 9, 
             "Text": "Jason Jorgenson", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3061,8 +3061,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -3081,7 +3081,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 9, 
             "Text": "Will Mao", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3124,8 +3124,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -3144,7 +3144,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 9, 
             "Text": "John Myres", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3187,8 +3187,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -3207,7 +3207,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 9, 
             "Text": "Gabe Neumann", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3250,8 +3250,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -3270,7 +3270,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 9, 
             "Text": "Michael Pitaniello", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3313,8 +3313,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -3333,7 +3333,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 9, 
             "Text": "Abby Snider", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3376,8 +3376,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -3396,7 +3396,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 9, 
             "Text": "Christian Sagel", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3439,8 +3439,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -3459,7 +3459,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 9, 
             "Text": "Blaine Reiner", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3502,8 +3502,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -3522,7 +3522,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 9, 
             "Text": "Connor Tilley", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3565,8 +3565,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -3585,7 +3585,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 9, 
             "Text": "Character Artist", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3628,8 +3628,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -3648,7 +3648,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 9, 
             "Text": "AI Programmer", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3691,8 +3691,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -3711,7 +3711,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 9, 
             "Text": "Graphics Programmer", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3754,8 +3754,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -3774,7 +3774,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 9, 
             "Text": "Producer & Designer", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3817,8 +3817,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -3837,7 +3837,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 9, 
             "Text": "Tools Programmer", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3880,8 +3880,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -3900,7 +3900,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 9, 
             "Text": "Sound Designer", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3943,8 +3943,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -3963,7 +3963,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 9, 
             "Text": "Environment Artist", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -4006,8 +4006,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -4026,7 +4026,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 9, 
             "Text": "Technical Director", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -4069,8 +4069,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -4089,7 +4089,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 9, 
             "Text": "Physics Programmer", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -4132,8 +4132,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -4152,7 +4152,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 9, 
             "Text": "Gameplay Programmer", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -4278,8 +4278,8 @@
             {
               "Vec3": 
               {
-                "x": 0.100000, 
-                "y": 0.100000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -4298,7 +4298,7 @@
               }
             }, 
             "Font": "SafetyMedium", 
-            "FontSize": 4, 
+            "FontSize": 11, 
             "Text": "Special Thanks", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -4341,8 +4341,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -4361,7 +4361,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 9, 
             "Text": "Allan Deutsch", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -4404,8 +4404,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -4424,7 +4424,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 2, 
+            "FontSize": 6, 
             "Text": "For his mentorship", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -4467,8 +4467,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -4487,7 +4487,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 9, 
             "Text": "Mariah Millard", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -4530,8 +4530,8 @@
             {
               "Vec3": 
               {
-                "x": 0.090000, 
-                "y": 0.090000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -4550,7 +4550,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 2, 
+            "FontSize": 6, 
             "Text": "For her logo design", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -4566,7 +4566,7 @@
       {
         "Locked": false, 
         "GameObjectID": 72, 
-        "Name": "Copyright", 
+        "Name": "CopyrightText", 
         "Components": 
         {
           "Transform": 
@@ -4593,8 +4593,8 @@
             {
               "Vec3": 
               {
-                "x": 0.100000, 
-                "y": 0.100000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -4613,7 +4613,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 1, 
+            "FontSize": 4, 
             "Text": "All content     2016 DigiPen (USA) Corporation, all rights reserved.", 
             "PixelsPerUnit": 64, 
             "Smoothing": false, 
@@ -4737,8 +4737,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.090000, 
-                    "y": 0.090000, 
+                    "x": 1.000000, 
+                    "y": 1.000000, 
                     "z": 1.000000
                   }
                 }
@@ -4757,7 +4757,7 @@
                   }
                 }, 
                 "Font": "SafetyMedium", 
-                "FontSize": 3, 
+                "FontSize": 10, 
                 "Text": "W", 
                 "PixelsPerUnit": 64, 
                 "Smoothing": true, 
@@ -4800,8 +4800,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.100000, 
-                    "y": 0.100000, 
+                    "x": 1.000000, 
+                    "y": 1.000000, 
                     "z": 1.000000
                   }
                 }
@@ -4820,7 +4820,7 @@
                   }
                 }, 
                 "Font": "Electrolize-Regular", 
-                "FontSize": 4, 
+                "FontSize": 12, 
                 "Text": "Jump", 
                 "PixelsPerUnit": 64, 
                 "Smoothing": true, 
@@ -4863,8 +4863,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.090000, 
-                    "y": 0.090000, 
+                    "x": 1.000000, 
+                    "y": 1.000000, 
                     "z": 1.000000
                   }
                 }
@@ -4883,7 +4883,7 @@
                   }
                 }, 
                 "Font": "SafetyMedium", 
-                "FontSize": 3, 
+                "FontSize": 10, 
                 "Text": "Space", 
                 "PixelsPerUnit": 64, 
                 "Smoothing": true, 
@@ -5071,8 +5071,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.090000, 
-                    "y": 0.090000, 
+                    "x": 1.000000, 
+                    "y": 1.000000, 
                     "z": 1.000000
                   }
                 }
@@ -5091,7 +5091,7 @@
                   }
                 }, 
                 "Font": "SafetyMedium", 
-                "FontSize": 3, 
+                "FontSize": 10, 
                 "Text": "D", 
                 "PixelsPerUnit": 64, 
                 "Smoothing": true, 
@@ -5134,8 +5134,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.100000, 
-                    "y": 0.100000, 
+                    "x": 1.000000, 
+                    "y": 1.000000, 
                     "z": 1.000000
                   }
                 }
@@ -5154,7 +5154,7 @@
                   }
                 }, 
                 "Font": "Electrolize-Regular", 
-                "FontSize": 4, 
+                "FontSize": 14, 
                 "Text": "Right", 
                 "PixelsPerUnit": 64, 
                 "Smoothing": true, 
@@ -5280,8 +5280,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.090000, 
-                    "y": 0.090000, 
+                    "x": 1.000000, 
+                    "y": 1.000000, 
                     "z": 1.000000
                   }
                 }
@@ -5300,7 +5300,7 @@
                   }
                 }, 
                 "Font": "SafetyMedium", 
-                "FontSize": 3, 
+                "FontSize": 10, 
                 "Text": "A", 
                 "PixelsPerUnit": 64, 
                 "Smoothing": true, 
@@ -5343,8 +5343,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.100000, 
-                    "y": 0.100000, 
+                    "x": 1.000000, 
+                    "y": 1.000000, 
                     "z": 1.000000
                   }
                 }
@@ -5363,7 +5363,7 @@
                   }
                 }, 
                 "Font": "Electrolize-Regular", 
-                "FontSize": 4, 
+                "FontSize": 14, 
                 "Text": "Left", 
                 "PixelsPerUnit": 64, 
                 "Smoothing": true, 
@@ -5381,7 +5381,7 @@
       {
         "Locked": false, 
         "GameObjectID": 1101, 
-        "Name": "SpriteText", 
+        "Name": "OrText", 
         "Components": 
         {
           "Transform": 
@@ -5408,8 +5408,8 @@
             {
               "Vec3": 
               {
-                "x": 0.100000, 
-                "y": 0.100000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -5428,7 +5428,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 10, 
             "Text": "or", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -5533,8 +5533,8 @@
             {
               "Vec3": 
               {
-                "x": 0.100000, 
-                "y": 0.100000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -5553,7 +5553,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 10, 
             "Text": "Slam", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -5596,8 +5596,8 @@
             {
               "Vec3": 
               {
-                "x": 0.100000, 
-                "y": 0.100000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -5616,7 +5616,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 10, 
             "Text": "Hold: Charge", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -5659,8 +5659,8 @@
             {
               "Vec3": 
               {
-                "x": 0.100000, 
-                "y": 0.100000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -5679,7 +5679,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 10, 
             "Text": "Release: Throw", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -5908,8 +5908,8 @@
             {
               "Vec3": 
               {
-                "x": 0.100000, 
-                "y": 0.100000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -5928,7 +5928,7 @@
               }
             }, 
             "Font": "SafetyMedium", 
-            "FontSize": 4, 
+            "FontSize": 14, 
             "Text": "Ball Held", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -5971,8 +5971,8 @@
             {
               "Vec3": 
               {
-                "x": 0.100000, 
-                "y": 0.100000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -5991,7 +5991,7 @@
               }
             }, 
             "Font": "SafetyMedium", 
-            "FontSize": 4, 
+            "FontSize": 14, 
             "Text": "Ball Free", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -6034,8 +6034,8 @@
             {
               "Vec3": 
               {
-                "x": 0.100000, 
-                "y": 0.100000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -6054,7 +6054,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 3, 
+            "FontSize": 10, 
             "Text": "Attract", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -6178,8 +6178,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.090000, 
-                    "y": 0.090000, 
+                    "x": 1.000000, 
+                    "y": 1.000000, 
                     "z": 1.000000
                   }
                 }
@@ -6198,7 +6198,7 @@
                   }
                 }, 
                 "Font": "SafetyMedium", 
-                "FontSize": 3, 
+                "FontSize": 10, 
                 "Text": "F", 
                 "PixelsPerUnit": 64, 
                 "Smoothing": true, 
@@ -6241,8 +6241,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.100000, 
-                    "y": 0.100000, 
+                    "x": 1.000000, 
+                    "y": 1.000000, 
                     "z": 1.000000
                   }
                 }
@@ -6261,7 +6261,7 @@
                   }
                 }, 
                 "Font": "Electrolize-Regular", 
-                "FontSize": 4, 
+                "FontSize": 12, 
                 "Text": "Freeze", 
                 "PixelsPerUnit": 64, 
                 "Smoothing": true, 
@@ -6387,8 +6387,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.090000, 
-                    "y": 0.090000, 
+                    "x": 1.000000, 
+                    "y": 1.000000, 
                     "z": 1.000000
                   }
                 }
@@ -6407,7 +6407,7 @@
                   }
                 }, 
                 "Font": "SafetyMedium", 
-                "FontSize": 3, 
+                "FontSize": 10, 
                 "Text": "E", 
                 "PixelsPerUnit": 64, 
                 "Smoothing": true, 
@@ -6450,8 +6450,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.100000, 
-                    "y": 0.100000, 
+                    "x": 1.000000, 
+                    "y": 1.000000, 
                     "z": 1.000000
                   }
                 }
@@ -6470,7 +6470,7 @@
                   }
                 }, 
                 "Font": "Electrolize-Regular", 
-                "FontSize": 4, 
+                "FontSize": 12, 
                 "Text": "Dissipate", 
                 "PixelsPerUnit": 64, 
                 "Smoothing": true, 
@@ -6515,8 +6515,8 @@
             {
               "Vec3": 
               {
-                "x": 0.100000, 
-                "y": 0.100000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -6535,7 +6535,7 @@
               }
             }, 
             "Font": "SafetyMedium", 
-            "FontSize": 4, 
+            "FontSize": 14, 
             "Text": "Movement", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -6560,8 +6560,8 @@
             {
               "Vec3": 
               {
-                "x": 14.969303, 
-                "y": -27.860674, 
+                "x": 15.275105, 
+                "y": -27.848192, 
                 "z": 0.000000
               }
             }, 
