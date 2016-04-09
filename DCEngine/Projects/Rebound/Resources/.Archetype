@@ -3,8 +3,8 @@
   "GameObject": 
   {
     "Locked": false, 
-    "GameObjectID": 907, 
-    "Name": "Sky", 
+    "GameObjectID": 461, 
+    "Name": "LockField", 
     "Components": 
     {
       "Transform": 
@@ -13,9 +13,9 @@
         {
           "Vec3": 
           {
-            "x": 47.992409, 
-            "y": 18.895372, 
-            "z": 0.500000
+            "x": 60.585648, 
+            "y": -62.468822, 
+            "z": 0.000000
           }
         }, 
         "Rotation": 
@@ -31,8 +31,8 @@
         {
           "Vec3": 
           {
-            "x": 200.000000, 
-            "y": 50.000000, 
+            "x": 1.000000, 
+            "y": 1.000000, 
             "z": 1.000000
           }
         }
@@ -45,9 +45,9 @@
           "Vec4": 
           {
             "x": 1.000000, 
-            "y": 0.316000, 
-            "z": 0.754000, 
-            "w": 0.650000
+            "y": 0.000000, 
+            "z": 1.000000, 
+            "w": 1.000000
           }
         }, 
         "SpriteSource": "square", 
@@ -56,6 +56,36 @@
         "AnimationActive": false, 
         "AnimationSpeed": 1.000000, 
         "DrawLayer": 0
+      }, 
+      "BoxCollider": 
+      {
+        "CollisionGroup": "Default", 
+        "PhysicsMaterial": "", 
+        "Size": 
+        {
+          "Vec3": 
+          {
+            "x": 1.000000, 
+            "y": 1.000000, 
+            "z": 1.000000
+          }
+        }, 
+        "Offset": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Ghost": true, 
+        "SendsEvents": true, 
+        "IsDrawingCollider": false
+      }, 
+      "LockField": 
+      {
+        "Timer": 0.000000
       }
     }, 
     "Children": 
