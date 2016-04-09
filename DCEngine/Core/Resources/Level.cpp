@@ -10,8 +10,9 @@ into a space.
 
 */
 /******************************************************************************/
-
 #include "Level.h"
+
+#include "../Engine/Engine.h"
 
 namespace DCEngine {
 
@@ -47,6 +48,11 @@ namespace DCEngine {
   /**************************************************************************/
   Level::~Level() {
 
+  }
+
+  LevelPtr Level::Find(std::string name)
+  {
+    return Daisy->getSystem<Systems::Content>()->getLevel(name);
   }
   
 

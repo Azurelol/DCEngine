@@ -35,6 +35,8 @@ namespace DCEngine
   }
 
   namespace Debug {
+    
+    #define DCE_TRACE_PAUSE 0
 
     //static Systems::DebugConfig::TraceTypes& Tracing();
     static bool TraceFactoryResourceAdd = 0;
@@ -74,10 +76,14 @@ namespace DCEngine
     class Trace {
     public:
 
-      Trace(std::string fileName);
-      ~Trace();
+      struct Config {
 
-      
+
+
+      };
+
+      Trace(std::string fileName);
+      ~Trace();      
       template<typename T>
       Trace& operator<<(const T& data) {
       #ifndef _PRODUCTION

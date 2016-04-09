@@ -85,7 +85,7 @@ namespace DCEngine {
 
     // Find the Initialize/Terminate functions
     InitializeFunc = boundType->FindFunction("Initialize", Zilch::Array<Zilch::Type*>(), ZilchTypeId(void), Zilch::FindMemberOptions::None);
-    TerminateFunc = boundType->FindFunction("Terminate", Zilch::Array<Zilch::Type*>(), ZilchTypeId(void), Zilch::FindMemberOptions::None);
+    //TerminateFunc = boundType->FindFunction("Terminate", Zilch::Array<Zilch::Type*>(), ZilchTypeId(void), Zilch::FindMemberOptions::None);
     // Attempt to find the OnLogicUpdate function
     OnLogicUpdateFunc = boundType->FindFunction("OnLogicUpdate", Zilch::Array<Zilch::Type*>(ZeroInit, ZilchTypeId(Events::LogicUpdate)), 
                                                                                             ZilchTypeId(void), Zilch::FindMemberOptions::None);
@@ -147,6 +147,9 @@ namespace DCEngine {
   /**************************************************************************/
   void ZilchComponent::Terminate()
   {
+    auto boundType = BoundType();
+    TerminateFunc = boundType->FindFunction("Terminate", Zilch::Array<Zilch::Type*>(), 
+                    ZilchTypeId(void), Zilch::FindMemberOptions::None);
 
     if (!TerminateFunc)
       return;

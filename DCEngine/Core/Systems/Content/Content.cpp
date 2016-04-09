@@ -22,7 +22,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     Content::Content(ContentConfig& config) : System(std::string("ContentSystem"), EnumeratedSystem::Content),
-      Settings(config), Loading(false) {
+      Settings(config), IsProjectLoaded(false) {
       ProjectInfo.reset(new ProjectProperties());
     }
 
@@ -175,6 +175,13 @@ namespace DCEngine {
           LoadingThread.join();
 
         LoadingThread = std::thread(&Content::LoadGraphicalResourcesMT, this);
+
+        //if (LoadingThread.joinable()) {        
+        //  LoadingThread.join();
+        //  DispatchSystemEvents::ContentProjectLoaded();
+        //}
+
+        // Now that the graphical resources are done loading, the project is ready to be launched
       }
       // Else if doing sequentially on main thread
       else {
@@ -231,8 +238,10 @@ namespace DCEngine {
         LoadedGraphicalResourcesQueue.Assets.push(font.second.get());
       }
 
-      // Now that the graphical resources are done loading, the project is ready to be launched
-      DispatchSystemEvents::ContentProjectLoaded();
+      std::lock_guard<std::mutex> lock(LoadingLock);
+      IsProjectLoaded = true;
+
+      //DispatchSystemEvents::ContentProjectLoaded();
 
     }
     
@@ -245,8 +254,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::LoadProject(const std::string& projectDataPath)
     {
-      // Signal that we are currently loading the project
-      Loading = true;
+      IsProjectLoaded = false;
 
       // Deserialize the project data
       ProjectInfo.reset(new ProjectProperties);
@@ -272,7 +280,9 @@ namespace DCEngine {
     /**************************************************************************/
     /*!
     @brief  Loads all of the project's resources. When they are done loading, 
-            it will send an event.
+            it will send an event. 
+    @note   The project will only be finally loaded once all graphical resources
+            have been loaded into memory.
     */
     /**************************************************************************/
     void Content::LoadProjectResources()
@@ -292,10 +302,7 @@ namespace DCEngine {
         ProjectScanner.reset(new FileScanner(settings));
         ProjectScanner->Initialize();
       }
-
-      // Signal that we are done loading the project
-      Loading = false;
-
+            
       // Announce that it's been loaded
       // DispatchSystemEvents::ContentProjectLoaded();
     }
@@ -308,7 +315,13 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::Update(float dt) {
       SystemTimer profile(this->Name());
-      // On every update, scan for resources being changed outside the application. (Hot loading?)
+
+      // Check for loader threads being completed
+      if (IsProjectLoaded) {
+        DispatchSystemEvents::ContentProjectLoaded();
+        std::lock_guard<std::mutex> lock(LoadingLock);
+        IsProjectLoaded = false;
+      }
     }
 
     /**************************************************************************/

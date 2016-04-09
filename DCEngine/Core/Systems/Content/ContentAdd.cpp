@@ -64,8 +64,11 @@ namespace DCEngine {
         ShaderPath + "FinalRenderShader.vs",
         ShaderPath + "FinalRenderShader.frag")));
       
+      // Add the loading screen level
+      //AddLevel("LoadingScreen", LevelPtr(new ))
+
       // Scan for default assets and generate resources
-      ScanAndGenerateResources();
+      ScanForLevels(Settings.DefaultAssetPath);
       // Load sprites
       ScanForSpriteSources(SpritePath);
       // Load sound files

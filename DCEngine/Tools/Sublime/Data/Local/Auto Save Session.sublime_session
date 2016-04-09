@@ -160,10 +160,10 @@
 			"buffers":
 			[
 				{
-					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/SimpleAnimator.Zilch",
+					"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
 					"settings":
 					{
-						"buffer_size": 7686,
+						"buffer_size": 1257,
 						"line_ending": "Windows"
 					}
 				}
@@ -204,10 +204,10 @@
 			},
 			"file_history":
 			[
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/SimpleAnimator.Zilch",
 				"/D/DCEngine/DCEngine/Projects/Rebound/Resources/Level2Generator.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PanButton.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/SimpleAnimator.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/MenuPan.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
@@ -278,27 +278,27 @@
 					[
 						{
 							"buffer": 0,
-							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/SimpleAnimator.Zilch",
+							"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 7686,
+								"buffer_size": 1257,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										1727,
-										1727
+										1081,
+										1081
 									]
 								],
 								"settings":
 								{
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
-								"translation.x": 0.0,
-								"translation.y": 945.0,
+								"translation.x": -0.0,
+								"translation.y": 270.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -343,7 +343,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-32000,-32000,-1,-1,937,270,70,1570",
+			"position": "0,0,1,-1,-1,-1,-1,1051,-1448,184,-148",
 			"project": "",
 			"replace":
 			{

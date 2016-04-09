@@ -109,14 +109,14 @@ namespace DCEngine {
 
     private:      
       ContentConfig& Settings;
+      // Resource loading
       std::thread LoadingThread;
-      bool Loading;
+      std::mutex LoadingLock;
+      ResourceQueue LoadedGraphicalResourcesQueue;
+      bool IsProjectLoaded;
       // Data
       ProjectDataPtr ProjectInfo;
       std::unique_ptr<FileScanner> ProjectScanner;
-      // Renderable
-      ResourceQueue LoadedGraphicalResourcesQueue;
-
       // Resource maps      
       std::map<std::string, ShaderPtr> MapShader;
       FontMap MapFont;

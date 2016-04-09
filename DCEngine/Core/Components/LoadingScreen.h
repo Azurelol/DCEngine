@@ -16,6 +16,7 @@ namespace DCEngine {
 
     // Forward reference
     class SpriteText;
+    class Light;
 
     class LoadingScreen : public Component {
       ZilchDeclareDerivedType(LoadingScreen, Component);
@@ -27,6 +28,7 @@ namespace DCEngine {
       GameObjectPtr BackgroundSpriteObj;
       // Light
       GameObjectPtr LightObj;
+      Light* LightSource;
       // Title Text
       GameObjectPtr ProjectTitleObj;
       SpriteText* ProjectTitleText;

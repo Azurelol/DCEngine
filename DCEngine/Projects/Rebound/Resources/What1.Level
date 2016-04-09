@@ -403,7 +403,7 @@
                 "w": 1.000000
               }
             }, 
-            "Font": "SafetyMedium", 
+            "Font": "VerdanaBold", 
             "FontSize": 50, 
             "Text": "I am Doge", 
             "PixelsPerUnit": 64, 
@@ -466,7 +466,7 @@
                 "w": 1.000000
               }
             }, 
-            "Font": "Electrolize-Regular", 
+            "Font": "VerdanaBold", 
             "FontSize": 40, 
             "Text": "!So dogey", 
             "PixelsPerUnit": 64, 

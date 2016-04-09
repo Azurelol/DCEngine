@@ -173,8 +173,8 @@ namespace DCEngine {
   /**************************************************************************/
   void Space::DestroyAll()
   {
-    if (DCE_TRACE_GAMEOBJECT_ADD)
-      DCTrace << ObjectName << "::DestroyAll - Removing all objects from the space.\n";
+   // if (DCE_TRACE_GAMEOBJECT_ADD)
+   //   DCTrace << ObjectName << "::DestroyAll - Removing all objects from the space.\n";
     // For every GameObject in the space
     for (auto object : GameObjectContainer) {
       // Do not delete the Editor Camera!
@@ -182,7 +182,7 @@ namespace DCEngine {
       //  continue;
 
       // Mark the object for destruction on next frame
-      DCTrace << " - " << object->Name() << "\n";
+      //DCTrace << " - " << object->Name() << "\n";
       Daisy->getSystem<Systems::Factory>()->MarkGameObject(*object);
       //RemoveObject(*object);
     }
@@ -318,9 +318,7 @@ namespace DCEngine {
     auto camera = getComponent<Components::CameraViewport>()->FindDefaultCamera();
     // If the editor is not enabled, initialize all their components too
     auto editorEnabled = Daisy->getSystem<Systems::Editor>()->IsEnabled();
-    DCTrace << "\n\n"
-            << "/------------------------------------------------/ \n";
-
+    DCTrace << "//----- LEVEL LOADED -----/ \n";
     if (!editorEnabled) 
     {
       // Initialize every object
@@ -330,7 +328,7 @@ namespace DCEngine {
       // Announce that all objects have been initialized
       DispatchGameEvents::AllObjectsInitialized(this);
     }
-
+    DCTrace << "//-----------------------/ \n";
   }
 
   /**************************************************************************/

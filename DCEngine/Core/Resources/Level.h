@@ -16,11 +16,16 @@
 
 namespace DCEngine {
   
+  class Level;
+  using LevelWeakPtr = Level*;
+  using LevelPtr = std::shared_ptr<Level>;
+
   class Level : public Resource {
   public:
     Level(std::string name);
     Level(std::string name, std::string serializedData);
     ~Level();
+    static LevelPtr Find(std::string);
     static std::string Extension() { return ".Level"; }
     //void Save(std::string& serializedData);
     bool Load();
@@ -33,7 +38,7 @@ namespace DCEngine {
 
   };
   
-  using LevelPtr = std::shared_ptr<Level>;
+  
   using LevelHandle = std::string;
 
 }

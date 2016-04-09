@@ -60,13 +60,19 @@ namespace DCEngine {
     // The loading screen object
     //static GameObjectPtr sprite;
 
+    bool loadLevel = false;
+
     // Display a Sprite on the current space
     if (enable) {
 
-      // Progress
-      auto progressText = Systems::Editor::Access().Creator.CreateSpriteText();
-      progressText->AddComponentByName("LoadingScreen");
-      progressText->getComponent<Components::LoadingScreen>()->Initialize();
+      if (loadLevel) {
+        CurrentGameSession->DefaultSpace->LoadLevel(std::string("LoadingScreen"));
+      }
+      else {
+        auto progressText = Systems::Editor::Access().Creator.CreateSpriteText();
+        progressText->AddComponentByName("LoadingScreen");
+        progressText->getComponent<Components::LoadingScreen>()->Initialize();
+      }
 
       // Control object
 

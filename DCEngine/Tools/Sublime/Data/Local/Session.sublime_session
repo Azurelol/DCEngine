@@ -16,6 +16,10 @@
 				"selected_items":
 				[
 					[
+						"Move",
+						"MoveSpeed"
+					],
+					[
 						"Pan",
 						"PanBy"
 					],
@@ -156,10 +160,10 @@
 			"buffers":
 			[
 				{
-					"file": "/D/DCEngine/DCEngine/Projects/Rebound/Resources/Level2Generator.Zilch",
+					"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
 					"settings":
 					{
-						"buffer_size": 223,
+						"buffer_size": 1257,
 						"line_ending": "Windows"
 					}
 				}
@@ -200,9 +204,10 @@
 			},
 			"file_history":
 			[
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/SimpleAnimator.Zilch",
+				"/D/DCEngine/DCEngine/Projects/Rebound/Resources/Level2Generator.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PanButton.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/SimpleAnimator.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/MenuPan.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
@@ -230,7 +235,7 @@
 			],
 			"find":
 			{
-				"height": 68.0
+				"height": 23.0
 			},
 			"find_in_files":
 			{
@@ -273,27 +278,27 @@
 					[
 						{
 							"buffer": 0,
-							"file": "/D/DCEngine/DCEngine/Projects/Rebound/Resources/Level2Generator.Zilch",
+							"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 223,
+								"buffer_size": 1257,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										0,
-										0
+										1203,
+										1203
 									]
 								],
 								"settings":
 								{
-									"syntax": "Packages/Text/Plain text.tmLanguage"
+									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
+								"translation.x": -0.0,
+								"translation.y": 270.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -304,7 +309,7 @@
 			],
 			"incremental_find":
 			{
-				"height": 68.0
+				"height": 23.0
 			},
 			"input":
 			{
@@ -338,11 +343,11 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,1018,644,151,1944",
+			"position": "0,0,1,-1,-1,-1,-1,1163,539,296,1839",
 			"project": "",
 			"replace":
 			{
-				"height": 132.0
+				"height": 42.0
 			},
 			"save_all_on_build": true,
 			"select_file":

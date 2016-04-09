@@ -260,7 +260,8 @@ namespace DCEngine {
   /**************************************************************************/
   void Engine::OnEnginePauseEvent(Events::EnginePause * event)
   {
-    DCTrace << "Engine::OnEnginePauseEvent - Paused \n";
+    if (DCE_TRACE_PAUSE)
+      DCTrace << "Engine::OnEnginePauseEvent - Paused \n";
     this->Paused = true;
   }
 
@@ -271,7 +272,8 @@ namespace DCEngine {
   /**************************************************************************/
   void Engine::OnEngineResumeEvent(Events::EngineResume * event)
   {
-    DCTrace << "Engine::OnEngineResumeEvent - Resumed \n";
+    if (DCE_TRACE_PAUSE)
+      DCTrace << "Engine::OnEngineResumeEvent - Resumed \n";
     this->Paused = false;
   }
 
