@@ -215,7 +215,7 @@ namespace DCEngine {
 
       // If collides with any type of enemy
       //if ( event->OtherObject->getObjectID() == SENTINEL_SHIELD_ID )
-      if ( event->OtherObject->getObjectName().compare("Sentinel Shield") == true )
+      if ( event->OtherObject->getObjectName().compare("Sentinel Shield") == 0 )
       {
         SoundCollideWithSentinelShield();
       }
