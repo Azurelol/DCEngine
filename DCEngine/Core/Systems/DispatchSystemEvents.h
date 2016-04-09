@@ -36,6 +36,7 @@ namespace DCEngine {
       
       static void SetWindowCaption(std::string name);
       static void WindowResize(const Vec2&);
+			static void WindowRecreate();
       static void WindowFullScreenToggle(bool enabled);
       static void WindowFullScreenEnabled();
       static void WindowFullScreenDisabled();

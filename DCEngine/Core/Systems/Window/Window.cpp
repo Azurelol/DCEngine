@@ -56,6 +56,7 @@ namespace DCEngine {
       Daisy->Connect<Events::EngineExit>(&Window::OnEngineExitEvent, this);
       Daisy->Connect<Events::SetWindowCaption>(&Window::OnSetWindowCaptionEvent, this);
 			Daisy->Connect<Events::WindowResize>(&Window::OnWindowResizeEvent, this);
+			Daisy->Connect<Events::WindowRecreate>(&Window::OnWindowRecreateEvent, this);
     }
 
     /**************************************************************************/
@@ -72,7 +73,13 @@ namespace DCEngine {
 		void Window::OnWindowResizeEvent(Events::WindowResize * event)
 		{
 			DCTrace << "Window::OnWindowResizeEvent - \n";
-			WindowHandler->resizeWindow(event->Dimensions.x, event->Dimensions.y);
+			//WindowHandler->resizeWindow(event->Dimensions.x, event->Dimensions.y);
+		}
+
+		void Window::OnWindowRecreateEvent(Events::WindowRecreate * event)
+		{
+			DCTrace << "Window::OnWindowResizeEvent - \n";
+			WindowHandler->recreateWindow();
 		}
 
     void Window::OnEngineExitEvent(Events::EngineExit * event)

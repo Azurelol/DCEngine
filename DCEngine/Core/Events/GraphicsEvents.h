@@ -37,5 +37,10 @@ namespace DCEngine {
       Vec2 Dimensions;
     };
 
+		class WindowRecreate : public Event {
+		public:
+			WindowRecreate() : Event("WindowRecreate") {}
+		};
+
   }
 }

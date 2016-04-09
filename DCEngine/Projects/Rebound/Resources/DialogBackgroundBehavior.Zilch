@@ -1,0 +1,18 @@
+class DialogBackgroundBehavior : ZilchComponent
+{
+	[Property]
+	var UnitsAbovePlayer : Integer = 10;
+	
+    function Initialize()
+    {
+        Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+		var player = this.Space.FindObjectByName("Player");
+		this.Owner.Transform.Translation = Real3(player.Transform.Translation.X,
+												 player.Transform.Translation.Y + this.UnitsAbovePlayer,
+												 this.Owner.Transform.Translation.Z);
+    }
+}
