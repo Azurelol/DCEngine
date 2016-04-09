@@ -84,9 +84,8 @@ namespace DCEngine {
 			
 
       void OnLogicUpdate(Events::LogicUpdate* updateEvent);
-
-    private:
-
+			unsigned CurrentScreenWidth, CurrentScreenHeight;
+		private:
       Graphics* GraphicsSystem;
       CameraViewport* CameraViewportComponent;
       GameObjectRawVec models_;  //!< Container of models that need to be rendered
