@@ -41,6 +41,7 @@ namespace DCEngine {
     ZilchBindMethod(builder, type, &Entity::AttachToRelative, ZilchNoOverload, "AttachToRelative", "parent");
     ZilchBindMethod(builder, type, &Entity::Detach, ZilchNoOverload, "Detach", ZilchNoNames);
     ZilchBindMethod(builder, type, &Entity::DetachRelative, ZilchNoOverload, "DetachRelative", ZilchNoNames);
+    ZilchBindMethod(builder, type, &Entity::Destroy, ZilchNoOverload, "Destroy", ZilchNoNames);
     // Actions
     DCE_BINDING_DEFINE_PROPERTY_NOSETTER(Entity, Actions);
     // Archetypes

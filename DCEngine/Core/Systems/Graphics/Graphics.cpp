@@ -211,39 +211,6 @@ namespace DCEngine {
 
         for (auto&& drawList : mDrawList)
           drawList.clear();
-        //if (!lightComponents.empty())
-        //{
-        //	glDrawBuffer(GL_NONE);
-        //	RenderZ0Scene(camera, 0);
-        //	for (const auto& light : lightComponents)
-        //	{
-        //		if (light->getCastShadows())
-        //		{
-        //			glDepthFunc(GL_LESS);
-        //			glDrawBuffer(GL_NONE);
-        //			glEnable(GL_STENCIL_TEST);
-        //
-        //			RenderShadows(camera, light);
-        //
-        //			glStencilFunc(GL_GEQUAL, 0x1, 0xFF);
-        //			glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
-        //		}
-        //		glDrawBuffer(GL_FRONT_AND_BACK);
-        //		glDepthFunc(GL_LEQUAL);
-        //
-        //		glEnable(GL_BLEND);
-        //		glBlendFunc(GL_ONE, GL_ONE);
-        //		RenderScene(camera, light);
-        //
-        //		glClear(GL_STENCIL_BUFFER_BIT);
-        //	}
-        //}
-        //else
-        //{
-        //	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-        //	RenderScene(camera);
-        //}
-        
       }
     }
 
@@ -427,6 +394,8 @@ namespace DCEngine {
     void Graphics::OnWindowFullScreenEnabledEvent(Events::WindowFullScreenEnabled * event)
     {
       std::string willNoticeMe = "Will I am enabled";
+			GraphicsHandler->FreeFBO();
+			GraphicsHandler->Initialize();
     }
 
     /**************************************************************************/
@@ -437,6 +406,8 @@ namespace DCEngine {
     void Graphics::OnWindowFullScreenDisabledEvent(Events::WindowFullScreenDisabled * event)
     {
       std::string willNoticeMe = "Will I am disabled";
+			GraphicsHandler->FreeFBO();
+			GraphicsHandler->Initialize();
     }
 
     /**************************************************************************/
@@ -447,9 +418,13 @@ namespace DCEngine {
     void Graphics::OnWindowResizeEvent(Events::WindowResize * event)
     {
       Settings.ViewportScale = event->Dimensions;
+			Settings.ScreenWidth = event->Dimensions.x;
+			Settings.ScreenHeight = event->Dimensions.y;
+			//sf::View(sf::FloatRect(0.f, 0.f, event->Dimensions.x, event->Dimensions.y));
+			GraphicsHandler->FreeFBO();
+			GraphicsHandler->Initialize();
       DCTrace << "Graphics::OnWindowResizeEvent - Width: " << Settings.ViewportScale.x
         << " Height " << Settings.ViewportScale.y << "\n";
-
     }
 
     /**************************************************************************/
