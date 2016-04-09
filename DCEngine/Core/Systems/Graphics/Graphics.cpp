@@ -373,7 +373,7 @@ namespace DCEngine {
     void Graphics::RestoreState()
     {
       GraphicsHandler->RestoreState();
-      GraphicsHandler->ConfigureSpriteVAO();
+      //GraphicsHandler->ConfigureSpriteVAO();
     }
 
     /**************************************************************************/
@@ -417,14 +417,13 @@ namespace DCEngine {
     /**************************************************************************/
     void Graphics::OnWindowResizeEvent(Events::WindowResize * event)
     {
-      Settings.ViewportScale = event->Dimensions;
+      //Settings.ViewportScale = event->Dimensions;
 			Settings.ScreenWidth = event->Dimensions.x;
 			Settings.ScreenHeight = event->Dimensions.y;
-			//sf::View(sf::FloatRect(0.f, 0.f, event->Dimensions.x, event->Dimensions.y));
 			GraphicsHandler->FreeFBO();
 			GraphicsHandler->Initialize();
-      DCTrace << "Graphics::OnWindowResizeEvent - Width: " << Settings.ViewportScale.x
-        << " Height " << Settings.ViewportScale.y << "\n";
+      DCTrace << "Graphics::OnWindowResizeEvent - Width: " << event->Dimensions.x
+        << " Height " << event->Dimensions.y << "\n";
     }
 
     /**************************************************************************/

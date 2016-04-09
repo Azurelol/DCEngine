@@ -33,7 +33,7 @@ namespace DCEngine {
       friend class GUI;
       friend class InputSFML;
     public:
-		void ReloadVAO() { ImGuiSFMLCreateDeviceObjects(); }
+		void ReloadVAO() { ImGuiSFMLReCreateDeviceObjects(); }
 
     private:      
       /* Event Data */
@@ -62,6 +62,7 @@ namespace DCEngine {
       IMGUI_API void ImGuiSFMLProcessEvent(sf::Event& event);            
       /* Rendering */
       IMGUI_API bool ImGuiSFMLCreateDeviceObjects();
+			IMGUI_API bool ImGuiSFMLReCreateDeviceObjects();
       IMGUI_API void ImGuiSFMLGenerateFontTexture();
       IMGUI_API void ImGuiSFMLInitializeRendering();  
       // The function we pass to ImGui for rendering must be marked static?

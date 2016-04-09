@@ -59,10 +59,12 @@ namespace DCEngine {
 
 		void WindowSFML::resizeWindow(float x, float y)
 		{
-			WindowContext->setSize(sf::Vector2u(unsigned(x), unsigned(y)));
-			WindowContext->setActive();
-			Daisy->getSystem<Graphics>()->RestoreState();
-			Daisy->getSystem<GUI>()->ReloadVAO();
+			//WindowContext->setSize(sf::Vector2u(unsigned(x), unsigned(y)));
+			//WindowContext->setActive();
+			////Daisy->getSystem<Graphics>()->GraphicsHandler->FreeFBO();
+			////Daisy->getSystem<Graphics>()->GraphicsHandler->Initialize();
+			//Daisy->getSystem<Graphics>()->RestoreState();
+			//Daisy->getSystem<GUI>()->ReloadVAO();
 		}
 
     /**************************************************************************/
@@ -78,7 +80,7 @@ namespace DCEngine {
     {
       // Save the current OpenGL state
 			//auto graphicsSystem = Daisy->getSystem<Graphics>();
-
+			//Daisy->getSystem<GUI>()->Initialize();
       // This is stupid, but I can't pass in the sf::Style enum as a param :(
       switch (style) {
       case WindowMode::Default:
@@ -105,7 +107,7 @@ namespace DCEngine {
 
       // Restore the previous OpenGL state
       //Daisy->getSystem<Graphics>()->RestoreState();
-      //Daisy->getSystem<GUI>()->ReloadVAO();
+      Daisy->getSystem<GUI>()->Initialize();
     }
 
     /**************************************************************************/

@@ -113,7 +113,6 @@ namespace DCEngine {
       GraphicsGL(GraphicsConfig& settings);
       void Initialize();
       void ViewportUpdate();
-      void ResizeViewport(glm::vec2 ratio);
       void Terminate();
       void StartFrame();
       void EndFrame();

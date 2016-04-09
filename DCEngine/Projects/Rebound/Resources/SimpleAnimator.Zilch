@@ -30,6 +30,8 @@ class SimpleAnimator : ZilchComponent
     // Translation changes
     [Property]
     var MoveIterations : Integer = 0;
+
+    var TimesMoved : Integer;
     
     [Property]
     var MoveX : Real = 0.0;
@@ -49,6 +51,8 @@ class SimpleAnimator : ZilchComponent
     // Scale changes
     [Property]
     var ScaleIterations : Integer = 0;
+
+    var TimesScaled : Integer = 0;
     
     [Property]
     var ScaleRatio : Real = 1.0;
@@ -61,25 +65,64 @@ class SimpleAnimator : ZilchComponent
     
     [Property]
     var ScaleEase : Ease = Ease.Linear;
+
+    var StartPos : Real3;
+
+    var StartScale : Real3;
+
+    var AnimStep : Integer;
     
     function Initialize()
     {
         Daisy.Connect(this.Owner, Events.AnimEvent, this.OnAnimEvent);
 
+        this.StartPos = this.Owner.Transform.Translation;
+        this.StartScale = this.Owner.Transform.Scale;
+        this.TimesScaled = 0;
+        this.TimesMoved = 0;
+        this.AnimStep = 0;
 
         if(this.AnimateOnInitialize)
         {
-            this.StartAnimation();
+            var masterSeq = Actions.Sequence(this.Owner.Actions);
+    		Actions.Delay(masterSeq, this.SystemDelay);
+        	Actions.Call(masterSeq, this.AnimateByStep);
         }
     }
 
     function OnAnimEvent(event : AnimEvent)
     {
-        this.StartAnimation;
+    	var masterSeq = Actions.Sequence(this.Owner.Actions);
+    	Actions.Delay(masterSeq, this.SystemDelay);
+        Actions.Call(masterSeq, this.AnimateByStep);
     }
 
-    function StartAnimation()
+    function AnimateByStep()
     {
+    	Console.WriteLine("Animating at `this.AnimStep`");
+    	if(this.AnimStep == 0)
+    	{
+    		this.FadeIn();
+    	}
+    	else if(this.AnimStep == 1)
+    	{
+    		this.PerformMove();
+    	}
+    	else if(this.AnimStep == 2)
+    	{
+    		this.PerformScale();
+    	}
+    	else if(this.AnimStep == 3)
+    	{
+    		this.FadeOut();
+    	}
+    	else if(this.LoopSystem)
+    	{
+    		this.AnimStep = 0;
+    		this.AnimateByStep();
+    	}
+    	/*OLD LOGIC, USES ACTION GROUPS*/ 
+    	/*
         var masterSeq = Actions.Sequence(this.Owner.Actions);
         var masterGrp = Actions.Group(this.Owner.Actions);
         
@@ -106,67 +149,95 @@ class SimpleAnimator : ZilchComponent
         {
             Actions.Call(masterSeq, this.StartAnimation);
         }
+        */
+
+        /*NEW LOGIC, NO GROUPS*/
+        /*
+        var masterSeq = Actions.Sequence(this.Owner.Actions);
+        
+        Actions.Delay(masterSeq, this.SystemDelay);
+        
+		if(this.UseFadeIn)
+		{
+			Actions.Call(masterSeq, this.FadeIn);
+		}
+		
+        Actions.Call(masterSeq, this.PerformScale);
+        Actions.Call(masterSeq, this.PerformMove);
+        
+		if(this.UseFadeOut)
+		{
+			Actions.Call(masterSeq, this.FadeOut);
+		}
+        
+        if(this.LoopSystem)
+        {
+            Actions.Call(masterSeq, this.StartAnimation);
+        }
+        */
     }
     
     function FadeIn()
     {
         var fadeSeq = Actions.Sequence(this.Owner.Actions);
         
-        if(this.Owner.Sprite != null)
+        if(this.Owner.Sprite != null && this.UseFadeIn)
         {
             Actions.Property(fadeSeq, @this.Owner.Sprite.Color, Real4(this.Owner.Sprite.Color.XYZ, 1.0), this.FadeSpeed, this.FadeEase);
         }
         
-        if(this.Owner.SpriteText != null)
+        if(this.Owner.SpriteText != null && this.UseFadeIn)
         {
             Actions.Property(fadeSeq, @this.Owner.SpriteText.Color, Real4(this.Owner.SpriteText.Color.XYZ, 1.0), this.FadeSpeed, this.FadeEase);
         }
+
+        ++this.AnimStep;
+        Actions.Call(fadeSeq, this.AnimateByStep);
     }
     
     function FadeOut()
     {
         var fadeSeq = Actions.Sequence(this.Owner.Actions);
         
-        if(this.Owner.Sprite != null)
+        if(this.Owner.Sprite != null && this.UseFadeOut)
         {
             Actions.Property(fadeSeq, @this.Owner.Sprite.Color, Real4(this.Owner.Sprite.Color.XYZ, 0.0), this.FadeSpeed, this.FadeEase);
         }
         
-        if(this.Owner.SpriteText != null)
+        if(this.Owner.SpriteText != null && this.UseFadeOut)
         {
             Actions.Property(fadeSeq, @this.Owner.SpriteText.Color, Real4(this.Owner.SpriteText.Color.XYZ, 0.0), this.FadeSpeed, this.FadeEase);
         }
+
+        ++this.AnimStep;
+        Actions.Call(fadeSeq, this.AnimateByStep);
     }
     
     function PerformScale()
     {
-        var pScaleSeq = Actions.Sequence(this.Owner.Actions);
-        
-        Actions.Delay(pScaleSeq, this.ScaleDelay);
-        
-        for(var i = 0; i < this.ScaleIterations; ++i)
+        if(this.TimesScaled < this.ScaleIterations)
         {
-            Actions.Call(pScaleSeq, this.ScaleUp);
-            Actions.Delay(pScaleSeq, this.ScaleSpeed);
-            
-            Actions.Call(pScaleSeq, this.ScaleDown);
-            Actions.Delay(pScaleSeq, this.ScaleSpeed);
+        	this.ScaleUp();
+        }
+        else
+        {
+        	this.TimesScaled = 0;
+        	++this.AnimStep;
+        	this.AnimateByStep();
         }
     }
     
     function PerformMove()
     {
-        var pMoveSeq = Actions.Sequence(this.Owner.Actions);
-        
-        Actions.Delay(pMoveSeq, this.MoveDelay);
-        
-        for(var i = 0; i < this.MoveIterations; ++i)
+        if(this.TimesMoved < this.MoveIterations)
         {
-            Actions.Call(pMoveSeq, this.MoveTo);
-            Actions.Delay(pMoveSeq, this.MoveSpeed);
-            
-            Actions.Call(pMoveSeq, this.MoveBack);
-            Actions.Delay(pMoveSeq, this.MoveSpeed);
+        	this.MoveTo();
+        }
+        else
+        {
+        	this.TimesMoved = 0;
+        	++this.AnimStep;
+        	this.AnimateByStep();
         }
     }
     
@@ -175,14 +246,17 @@ class SimpleAnimator : ZilchComponent
         var scaleSeq = Actions.Sequence(this.Owner.Actions);
         
         Actions.Property(scaleSeq, @this.Owner.Transform.Scale, this.Owner.Transform.Scale * this.ScaleRatio, this.ScaleSpeed, this.ScaleEase);
+        Actions.Call(scaleSeq, this.ScaleDown);
     }
     
     function ScaleDown()
     {
-        Console.WriteLine("down");
         var scaleSeq = Actions.Sequence(this.Owner.Actions);
         
         Actions.Property(scaleSeq, @this.Owner.Transform.Scale, this.Owner.Transform.Scale / this.ScaleRatio, this.ScaleSpeed, this.ScaleEase);
+        Actions.Call(scaleSeq, this.ResetScale);
+        ++this.TimesScaled;
+        Actions.Call(scaleSeq, this.PerformScale);
     }
     
     function MoveTo()
@@ -192,6 +266,7 @@ class SimpleAnimator : ZilchComponent
         Actions.Property(movSeq, @this.Owner.Transform.Translation, 
         Real3(this.Owner.Transform.Translation.X + this.MoveX, this.Owner.Transform.Translation.Y + this.MoveY, this.Owner.Transform.Translation.Z),
         this.MoveSpeed, this.MoveEase);
+        Actions.Call(movSeq, this.MoveBack);
     }
     
     function MoveBack()
@@ -201,5 +276,20 @@ class SimpleAnimator : ZilchComponent
         Actions.Property(movSeq, @this.Owner.Transform.Translation, 
         Real3(this.Owner.Transform.Translation.X - this.MoveX, this.Owner.Transform.Translation.Y - this.MoveY, this.Owner.Transform.Translation.Z),
         this.MoveSpeed, this.MoveEase);
+
+        Actions.Call(movSeq, this.ResetPos);
+        ++this.TimesMoved;
+        Actions.Call(movSeq, this.PerformMove);
+
+    }
+
+    function ResetPos()
+    {
+    	this.Owner.Transform.Translation = this.StartPos;
+    }
+
+    function ResetScale()
+    {
+    	this.Owner.Transform.Scale = this.StartScale;
     }
 }
