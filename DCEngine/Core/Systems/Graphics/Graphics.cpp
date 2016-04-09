@@ -164,55 +164,55 @@ namespace DCEngine {
     \note
     */
     /**************************************************************************/
-    void Graphics::DrawSprite(Components::Sprite & sprite, Components::Camera& cam, float dt) {
-      
-      // For every Space with a 'GraphicsSpace' component...
-      for (Components::GraphicsSpace* gfxSpace : ActiveGraphicsSpaces) {
+    //void Graphics::DrawSprite(Components::Sprite & sprite, Components::Camera& cam, float dt) {
+    //  
+    //  // For every Space with a 'GraphicsSpace' component...
+    //  for (Components::GraphicsSpace* gfxSpace : ActiveGraphicsSpaces) {
 
-        // Get the default camera from the 'CameraViewport' component
-        Components::Camera* camera = gfxSpace->Owner()->getComponent<Components::CameraViewport>()->getCamera();
+    //    // Get the default camera from the 'CameraViewport' component
+    //    Components::Camera* camera = gfxSpace->Owner()->getComponent<Components::CameraViewport>()->getCamera();
 
-        // Do not update the space if no camera has been set
-        if (camera == nullptr)
-          continue;
+    //    // Do not update the space if no camera has been set
+    //    if (camera == nullptr)
+    //      continue;
 
-        std::vector<Components::Graphical*> graphicalComponents = gfxSpace->getGraphicsComponents();
-        for (auto graphicalComponent : graphicalComponents)
-          mDrawList[graphicalComponent->getDrawLayer()].push_back(graphicalComponent);
+    //    std::vector<Components::Graphical*> graphicalComponents = gfxSpace->getGraphicsComponents();
+    //    for (auto graphicalComponent : graphicalComponents)
+    //      mDrawList[graphicalComponent->getDrawLayer()].push_back(graphicalComponent);
 
-        std::vector<Components::Light*> lightComponents;
-        if (Settings.LightningEnabled)
-          lightComponents = gfxSpace->getLightComponents();
+    //    std::vector<Components::Light*> lightComponents;
+    //    if (Settings.LightningEnabled)
+    //      lightComponents = gfxSpace->getLightComponents();
 
-        lightComponents.erase(std::remove_if(lightComponents.begin(), lightComponents.end(), 
-          [] (Components::Light* light) { return !light->getVisible(); }), lightComponents.end());
+    //    lightComponents.erase(std::remove_if(lightComponents.begin(), lightComponents.end(), 
+    //      [] (Components::Light* light) { return !light->getVisible(); }), lightComponents.end());
 
-        UpdateObjects(dt);
+    //    UpdateObjects(dt);
 
-        GraphicsHandler->PreRender(camera);
+    //    GraphicsHandler->PreRender(camera);
 
-        if (!lightComponents.empty())
-        {
-          for (const auto& light : lightComponents)
-          {
-            if (light->getCastShadows())
-              GraphicsHandler->RenderShadows(camera, light);
-            GraphicsHandler->RenderLights(light);
-          }
-          GraphicsHandler->RenderScene(camera->getExposure(), true);
-        }
-        else
-        {
-          GraphicsHandler->RenderLights(0);
-          GraphicsHandler->RenderScene(camera->getExposure(), false);
-        }
+    //    if (!lightComponents.empty())
+    //    {
+    //      for (const auto& light : lightComponents)
+    //      {
+    //        if (light->getCastShadows())
+    //          GraphicsHandler->RenderShadows(camera, light);
+    //        GraphicsHandler->RenderLights(light);
+    //      }
+    //      GraphicsHandler->RenderScene(camera->getExposure(), true);
+    //    }
+    //    else
+    //    {
+    //      GraphicsHandler->RenderLights(0);
+    //      GraphicsHandler->RenderScene(camera->getExposure(), false);
+    //    }
 
-        DrawDebug(camera);
+    //    DrawDebug(camera);
 
-        for (auto&& drawList : mDrawList)
-          drawList.clear();
-      }
-    }
+    //    for (auto&& drawList : mDrawList)
+    //      drawList.clear();
+    //  }
+    //}
 
     /**************************************************************************/
     /*!
@@ -222,17 +222,17 @@ namespace DCEngine {
     \note
     */
     /**************************************************************************/
-    void Graphics::DrawSpriteText(Components::SpriteText & st, Components::Camera & cam)
-    {
-      if (TRACE_UPDATE)
-        DCTrace << "Graphics::DrawSpriteText - Drawing " << st.Owner()->Name() << "\n";
-      //GraphicsHandler->DrawSpriteText(st, cam);
-    }
+    //void Graphics::DrawSpriteText(Components::SpriteText & st, Components::Camera & cam)
+    //{
+    //  if (TRACE_UPDATE)
+    //    DCTrace << "Graphics::DrawSpriteText - Drawing " << st.Owner()->Name() << "\n";
+    //  //GraphicsHandler->DrawSpriteText(st, cam);
+    //}
 
-    void Graphics::DrawParticles(Components::SpriteParticleSystem& particles, Components::Camera & cam, double dt)
-    {
-      GraphicsHandler->DrawParticles(particles, cam, dt);
-    }
+    //void Graphics::DrawParticles(Components::SpriteParticleSystem& particles, Components::Camera & cam, double dt)
+    //{
+    //  GraphicsHandler->DrawParticles(particles, cam, dt);
+    //}
 
     /**************************************************************************/
     /*!
@@ -241,9 +241,9 @@ namespace DCEngine {
     \note
     */
     /**************************************************************************/
-    void Graphics::DrawDebug(DebugDrawObject & debugDraw)
+    /*void Graphics::DrawDebug(DebugDrawObject & debugDraw)
     {
-    }
+    }*/
 
     /**************************************************************************/
     /*!
