@@ -33,6 +33,7 @@ namespace DCEngine {
     //std::string SourceFile;
   };
 
+  using ArchetypeHandle = std::string;
   using ArchetypePtr = std::shared_ptr<Archetype>;
   using ArchetypeContainer = std::vector<ArchetypePtr>;
 

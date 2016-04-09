@@ -61,7 +61,10 @@ namespace DCEngine {
     @brief  Light constructor.
     */
     /**************************************************************************/
-    Light::Light(Entity & owner) : Component(std::string("Light"), owner)
+    Light::Light(Entity & owner) : Component(std::string("Light"), owner), 
+      Visible(true), CastShadows(true), Type(LightType::Point), 
+      Color(1.0f, 1.0f, 1.0f, 1.0f), Range(20.0f), Intensity(1.0f), Falloff(0.1f),
+      DirectionVector(Vec3(1.0f, 0.0f, 0.0f)), InnerAngle(0.6f), OuterAngle(0.8f)
     {
 			Initialize();
     }
@@ -86,6 +89,12 @@ namespace DCEngine {
 			SpaceRef->getComponent<GraphicsSpace>()->RegisterLightComponent(this);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief Returns the light's current type as an integer rather than an enum.
+    @return The light type, as an integer.
+    */
+    /**************************************************************************/
     int Light::getTypeAsInt()
     {
       switch (Type) {
@@ -100,9 +109,9 @@ namespace DCEngine {
       case LightType::Ambient:
         return 2;
         break;
-
-
       }
+
+      return -1;
     }
 
   }

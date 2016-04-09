@@ -172,6 +172,17 @@ namespace DCEngine {
       auto eventsDeleted = std::string("Events deleted: ") +
         std::to_string(Event::EventsDestroyed);
       ImGui::Text(eventsDeleted.c_str());      
+
+      ///////////
+      // Events
+      ///////////
+      auto actionsCreated = std::string("Actions created: ") +
+        std::to_string(Action::Created);
+      ImGui::Text(actionsCreated.c_str());
+      auto actionsDeleted = std::string("Actions deleted: ") +
+        std::to_string(Action::Destroyed);
+      ImGui::Text(actionsDeleted.c_str());
+
     }
 
   }

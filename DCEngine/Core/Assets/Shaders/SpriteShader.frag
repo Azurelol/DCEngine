@@ -73,7 +73,7 @@ float GenerateSpotLightValues(vec3 position, float range, float falloff, vec3 di
 	angleFalloff = (angleDifference - outerAngle) / (innerAngle - outerAngle);
 	clamp(angleFalloff, 0, 1);
 	clamp(luminesence, 0, 1);
-	return min(luminesence, angleFalloff);
+	return luminesence * angleFalloff;
 }
 
 vec3 GenerateIlluminationValues(void)
@@ -82,27 +82,24 @@ vec3 GenerateIlluminationValues(void)
 	for(int i = 0; i < numLights; ++i)
 	{
 		Light light = Lights[i];
-		if(light.Visible)
+		float diffI = 0;
+		switch(light.LightType)
 		{
-			float diffI = 0;
-			switch(light.LightType)
-			{
-			case 0:
-				diffI = GeneratePointLightValues(light.Position, light.Range, light.Falloff);
-				break;
-			case 1:
-				diffI = GenerateSpotLightValues(light.Position, light.Range, light.Falloff,
-					light.Direction, light.InnerAngle, light.OuterAngle, light.Model);
-				break;
-			default:
-				diffI = 1;
-				break;
-			}
-			diffI *= light.Intensity;
-			coefficients.x += light.Color.x * diffI;
-			coefficients.y += light.Color.y * diffI;
-			coefficients.z += light.Color.z * diffI;
+		case 0:
+			diffI = GeneratePointLightValues(light.Position, light.Range, light.Falloff);
+			break;
+		case 1:
+			diffI = GenerateSpotLightValues(light.Position, light.Range, light.Falloff,
+				light.Direction, light.InnerAngle, light.OuterAngle, light.Model);
+			break;
+		default:
+			diffI = 1;
+			break;
 		}
+		diffI *= light.Intensity;
+		coefficients.x += light.Color.x * diffI; 
+		coefficients.y += light.Color.y * diffI;
+		coefficients.z += light.Color.z * diffI;
 	}
 	return coefficients;
 }

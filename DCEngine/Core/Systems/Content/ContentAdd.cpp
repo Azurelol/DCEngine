@@ -50,6 +50,10 @@ namespace DCEngine {
 			AddShader(std::string("ParticleShader"), ShaderPtr(new Shader(std::string("ParticleShader"),
 				ShaderPath + "ParticleShader.vs",
 				ShaderPath + "ParticleShader.frag")));
+			AddShader(std::string("ShadowingShader"), ShaderPtr(new Shader(std::string("ShadowingShader"),
+				ShaderPath + "ShadowingShader.vs",
+				ShaderPath + "ShadowingShader.frag",
+				ShaderPath + "ShadowingShader.geo")));
 
       // Load shaders
       //std::vector<std::string> coreShaders;
@@ -330,7 +334,7 @@ namespace DCEngine {
         else if (extension == Font::Extension())
           AddFont(resourceName, FontPtr(new Font(resource)));
         else if (extension == SoundCue::Extension())
-          AddSoundCue(resourceName, SoundCuePtr(new SoundCue(resource, SoundCue::WhatType::File)));
+          AddSoundCue(resourceName, SoundCuePtr(new SoundCue(resource, SoundCue::SoundCueType::File)));
         else if (extension == Level::Extension())
           AddLevel(resourceName, LevelPtr(new Level(resource)));        
         else if (extension == Archetype::Extension())
@@ -481,7 +485,7 @@ namespace DCEngine {
       }
       for (auto sound : soundCues) {
         auto soundName = FileSystem::FileNoExtension(sound);
-        auto soundCue = SoundCuePtr(new SoundCue(sound, SoundCue::WhatType::File));
+        auto soundCue = SoundCuePtr(new SoundCue(sound, SoundCue::SoundCueType::File));
         soundCue->setAssetPath(sound);
         AddSoundCue(soundName, soundCue);
       }

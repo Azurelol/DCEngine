@@ -78,7 +78,10 @@ namespace DCEngine {
       float GetAnimationSpeedFPS(void);
       void ResetSpeedCounter(void);
       void SetColorUsing255(Vec3 newColor);
+
+			//Virtual Methods
 			virtual void Update(float dt);
+			virtual void SetModelMatrix(void);
 			virtual void Draw(Camera& camera);
 			//unsigned GetDrawLayer(void);
 

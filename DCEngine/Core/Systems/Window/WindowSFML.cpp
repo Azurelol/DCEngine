@@ -9,8 +9,7 @@
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
-
-#include <Windows.h>
+#include <Windows.h> // Oh dios mio
 
 #include "WindowSFML.h"
 #include "Window.h"
@@ -22,8 +21,8 @@ namespace DCEngine {
   namespace Systems {
 
 
-	  float localCounter = 0;
-	  int frameCounter = 0;
+    float localCounter = 0;
+    int frameCounter = 0;
     /**************************************************************************/
     /*!
     \brief  Constructor for the WindowSFML class.
@@ -48,15 +47,15 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void WindowSFML::setFullScreen()
-    {      
+    {
       if (Mode != WindowMode::Fullscreen) {
         setWindow(WindowMode::Fullscreen);
         Mode = WindowMode::Fullscreen;
-      }        
+      }
       else {
         setWindow(WindowMode::Default);
         Mode = WindowMode::Default;
-      }      
+      }
     }
 
     /**************************************************************************/
@@ -65,33 +64,29 @@ namespace DCEngine {
     @param  The mode of the window. FullScreen or Windowed.
     @todo   Don't directly call the Graphics system by friending it. Instead
             send an event to replace it.
-			2) Line 92, 93 reload VAO after creating a new window(fullscreen->window, window->fullscreen) 
+      2) Line 92, 93 reload VAO after creating a new window(fullscreen->window, window->fullscreen)
     */
     /**************************************************************************/
     void WindowSFML::setWindow(WindowMode style)
     {
-      // Create the window
-      //if (WindowContext != nullptr)
-      //  WindowContext->close();
-
       // Save the current OpenGL state
       Daisy->getSystem<Graphics>()->BackupState();
 
       // This is stupid, but I can't pass in the sf::Style enum as a param :(
       switch (style) {
       case WindowMode::Default:
-		  WindowInterface.Width = widthRecord;
-		  WindowInterface.Height = heightRecord;
+        WindowInterface.Width = widthRecord;
+        WindowInterface.Height = heightRecord;
         WindowContext->create(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
-                              WindowInterface.Caption, sf::Style::Default, ContextSettings);
+          WindowInterface.Caption, sf::Style::Default, ContextSettings);
         break;
-      case WindowMode::Fullscreen :
-		  widthRecord = WindowInterface.Width;
-		  heightRecord = WindowInterface.Height;
-		  WindowInterface.Width = sf::VideoMode::getDesktopMode().width;
-		  WindowInterface.Height = sf::VideoMode::getDesktopMode().height;
+      case WindowMode::Fullscreen:
+        widthRecord = WindowInterface.Width;
+        heightRecord = WindowInterface.Height;
+        WindowInterface.Width = sf::VideoMode::getDesktopMode().width;
+        WindowInterface.Height = sf::VideoMode::getDesktopMode().height;
         WindowContext->create(sf::VideoMode(WindowInterface.Width, WindowInterface.Height),
-                              WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
+          WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
         break;
       }
       // After this call, the application will run at the same frequency as the monitor's refresh rate
@@ -101,12 +96,7 @@ namespace DCEngine {
 
       // Restore the previous OpenGL state
       Daisy->getSystem<Graphics>()->RestoreState();
-	  Daisy->getSystem<GUI>()->ReloadVAO();
-
-      // Reload textures
-      //Daisy->getSystem<Content>()->LoadTextures();
-
-      // The window context needs to give the input system a reference to this pointer
+      Daisy->getSystem<GUI>()->ReloadVAO();
     }
 
     /**************************************************************************/
@@ -114,8 +104,8 @@ namespace DCEngine {
     \brief  Initializes SFML, configuring the window before creating it.
     */
     /**************************************************************************/
-    void WindowSFML::Initialize() {    
-      
+    void WindowSFML::Initialize() {
+
       // Stores the settings for the underlying SFML window context
       ContextSettings.depthBits = _depthBits;
       ContextSettings.stencilBits = _stencilBits;
@@ -125,8 +115,8 @@ namespace DCEngine {
 
       // If it starts as fullscreen
       if (WindowInterface.Fullscreen) {
-        WindowContext.reset(new sf::Window(sf::VideoMode(sf::VideoMode::getDesktopMode().width, 
-                                                         sf::VideoMode::getDesktopMode().height),
+        WindowContext.reset(new sf::Window(sf::VideoMode(sf::VideoMode::getDesktopMode().width,
+          sf::VideoMode::getDesktopMode().height),
           WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings));
         Mode = WindowMode::Fullscreen;
       }
@@ -156,29 +146,24 @@ namespace DCEngine {
     /**************************************************************************/
     void WindowSFML::Update(float dt) {
 
-      //auto currentTime = Clock.restart().asSeconds();
-      //float fps = 1.f / (currentTime - LastTime);
-      //LastTime = currentTime;
-		localCounter += dt;
-		++frameCounter;
-		if (localCounter > 0.5)
-		{
-			std::stringstream ss;
-			ss << WindowInterface.Caption << "              [fps=" << int(frameCounter / localCounter) << "]";
-			WindowContext->setTitle(ss.str());
-			windowsTitle = ss.str();
-			localCounter = 0;
-			frameCounter = 0;
-		}
-
-      //DCTrace << "WindowSFML::Update - FPS: " << dt << "\n";
-
+      localCounter += dt;
+      ++frameCounter;
+      if (localCounter > 0.5)
+      {
+        std::stringstream ss;
+        ss << WindowInterface.Caption << "              [FPS =" << int(frameCounter / localCounter) << "]";
+        WindowContext->setTitle(ss.str());
+        windowsTitle = ss.str();
+        localCounter = 0;
+        frameCounter = 0;
+      }
+      
       // Checks at the start of loop iteration if SFML has been instructed
       // to close, and if so tell the engine to stop running.
-		if (EventObj.type == sf::Event::Closed)
-		{
-			Terminate();
-		}
+      if (EventObj.type == sf::Event::Closed)
+      {
+        Terminate();
+      }
     }
 
     /**************************************************************************/
@@ -187,17 +172,17 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void WindowSFML::StartFrame() {
-      
+
     }
 
     /**************************************************************************/
     /*!
     \brief Displays on the screen what has been rendered to the window so far,
            typically called after all OpenGL rendering calls have been done
-           for the current frame.     
+           for the current frame.
     */
     /**************************************************************************/
-    void WindowSFML::EndFrame() {    
+    void WindowSFML::EndFrame() {
       WindowContext->display();
     }
 
@@ -210,11 +195,5 @@ namespace DCEngine {
       WindowContext->close();
       Daisy->Stop();
     }
-  
   }
-
-
-  
-
-
 }

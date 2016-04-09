@@ -18,6 +18,7 @@ namespace DCEngine {
   namespace Systems {
 
     void DisplayImage(Zilch::Property* property, ObjectPtr object);
+    static SoundInstanceHandle EditorSoundPreview;    
     void PreviewSound(Zilch::Property* property, ObjectPtr object);
     
     /**************************************************************************/
@@ -154,7 +155,8 @@ namespace DCEngine {
     @param  object A pointer to the Component.
     @note   Properties are listed from the order they were defined.
     @todo   Refactor the property-setting so I DONT COPY PASTE THE SAME
-            3 LINES.
+            3 LINES. 
+            Dios mio, 200 line function!
     */
     /**************************************************************************/
     bool Editor::DisplayProperties(ObjectPtr object) {
@@ -202,13 +204,7 @@ namespace DCEngine {
         //if (!property->Attributes.empty()) {
           modified = SelectResource(property, object, propertyID);
           continue;
-        }
-        
-        // If the bound field/property does not have the Property Attribute, do
-        // nothing.
-        //if (!property->HasAttribute("Property"))
-        //  continue;              
-
+        }   
         
         // Create an exception report object
         Zilch::ExceptionReport report;
@@ -217,7 +213,9 @@ namespace DCEngine {
         getCall.SetHandleVirtual(Zilch::Call::This, object);        
         getCall.Invoke(report);        
                 
+        /*=======================
         // Property: Enumeration
+        =======================*/        
         if (Zilch::Type::IsEnumType(property->PropertyType)) {
           ImGui::PushID(propertyID++);
           std::vector<const char *> enums;
@@ -249,12 +247,12 @@ namespace DCEngine {
             modified = true;
             thisModified = false;
           }
-          //if (ImGui::Selectable)
           ImGui::PopID();
         }
         
-
+        /*=======================
         // Property: Boolean
+        =======================*/
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Boolean))) {
           auto boolean = getCall.Get<Zilch::Boolean>(Zilch::Call::Return);
 
@@ -275,7 +273,9 @@ namespace DCEngine {
           ImGui::PopID();
         }
 
+        /*=======================
         // Property: String
+        =======================*/
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::String))) {
           auto string = getCall.Get<Zilch::String>(Zilch::Call::Return);
           char buf[128];
@@ -298,35 +298,57 @@ namespace DCEngine {
           ImGui::PopID();
         }
         
+        /*=======================
         // Property: Integer
+        =======================*/
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Integer))) {
           auto integer = getCall.Get<Zilch::Integer>(Zilch::Call::Return);
 
           static bool thisModified = false;
           // If the user has given input, set the property
           ImGui::PushID(propertyID++);
-          if (ImGui::InputInt(property->Name.c_str(), &integer)) {
-            
-            // Unsigned
-            if (property->HasAttribute("Unsigned")) {
-              if (integer < 0)
-                integer = 0;
-            }
 
-            Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
-            setCall.SetHandleVirtual(Zilch::Call::This, object);
-            setCall.Set(0, integer);
-            setCall.Invoke(report);
+          // If using slider
+          if (property->HasAttribute("Range")) {
+            //auto range = property->Attributes.find_pointer("Range");
+            //auto& min = range->Parameters.front().NumberValue;
+            //auto& max = range->Parameters.back().NumberValue;
+            //if (ImGui::SliderInt(property->Name.c_str(), &integer, static_cast<int>(min), static_cast<int>(max))) {
+
+            //  Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
+            //  setCall.SetHandleVirtual(Zilch::Call::This, object);
+            //  setCall.Set(0, integer);
+            //  setCall.Invoke(report);
+            //}
           }
+          else {
+            if (ImGui::InputInt(property->Name.c_str(), &integer)) {
+
+              // Unsigned
+              if (property->HasAttribute("Unsigned")) {
+                if (integer < 0)
+                  integer = 0;
+              }
+
+              Zilch::Call setCall(property->Set, Daisy->getSystem<Reflection>()->Handler()->getState());
+              setCall.SetHandleVirtual(Zilch::Call::This, object);
+              setCall.Set(0, integer);
+              setCall.Invoke(report);
+            }
+          }
+
           if (thisModified && ImGui::GetIO().WantCaptureKeyboard == false)
           {
             modified = true;
             thisModified = false;
           }
+
           ImGui::PopID();
         }
 
+        /*=======================
         // Property: Integer2
+        =======================*/
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Integer2))) {
           auto integer2 = getCall.Get<Zilch::Integer2>(Zilch::Call::Return);
           int int2[2] = { integer2.x, integer2.y };
@@ -348,7 +370,9 @@ namespace DCEngine {
           ImGui::PopID();
         }
 
+        /*=======================
         // Property: Integer3
+        =======================*/
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Integer3))) {
           auto integer3 = getCall.Get<Zilch::Integer3>(Zilch::Call::Return);
           int int3[3] = { integer3.x, integer3.y, integer3.z };
@@ -370,7 +394,9 @@ namespace DCEngine {
           ImGui::PopID();
         }
 
+        /*=======================
         // Property: Integer4
+        =======================*/
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Integer4))) {
           auto integer4 = getCall.Get<Zilch::Integer4>(Zilch::Call::Return);
           int int4[4] = { integer4.x, integer4.y, integer4.z, integer4.w};
@@ -393,7 +419,9 @@ namespace DCEngine {
           ImGui::PopID();
         }
 
-        // Property: Real (float)
+        /*=======================
+        // Property: Real
+        =======================*/
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real))) {
           auto real = getCall.Get<Zilch::Real>(Zilch::Call::Return);
           // If the user has given input, set the property
@@ -423,7 +451,9 @@ namespace DCEngine {
           ImGui::PopID();
         }
 
-        // Property: Real2 (Vec2)
+        /*=======================
+        // Property: Real2
+        =======================*/
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real2))) {
           auto vec2 = getCall.Get<Zilch::Real2>(Zilch::Call::Return);
           float vec2f[2] = { vec2.x, vec2.y };
@@ -446,7 +476,9 @@ namespace DCEngine {
           ImGui::PopID();
         }
 
-        // Property: Real3 (Vec3)
+        /*=======================
+        // Property: Real3
+        =======================*/
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real3))) {
           auto vec3 = getCall.Get<Zilch::Real3>(Zilch::Call::Return);
           float vec3f[3] = { vec3.x, vec3.y, vec3.z };
@@ -470,7 +502,9 @@ namespace DCEngine {
           ImGui::PopID(); 
         }        
 
-        // Property: Real4 (Vec4)
+        /*=======================
+        // Property: Real4
+        =======================*/
         else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Real4))) {
           auto vec4 = getCall.Get<Zilch::Real4>(Zilch::Call::Return);
           float vec4f[4] = { vec4.x, vec4.y, vec4.z, vec4.w};
@@ -497,6 +531,8 @@ namespace DCEngine {
       // If the object was modified...
       return modified;
     }
+
+
 
     /**************************************************************************/
     /*!
@@ -558,22 +594,35 @@ namespace DCEngine {
       int currentComponent = 0;
       ImGui::Separator();
       ImGui::TextColored(ImVec4(1, 0, 0.5, 1), "Add Components: ");
+
       if (ImGui::Combo("##components", &currentComponent, componentNames.data(), componentNames.size())) {
         auto componentName = std::string(componentNames.at(currentComponent));
+        auto component = selectedEntity->AddComponentByName(componentName, false);
+        
         DCTrace << "Editor::AddComponent - " << componentName << "\n";
-        auto& dependencies = Components::Sprite::mDependencies;
-        selectedEntity->AddComponentByName(componentName, false);
-        Scanned = false;
+
+        // If there's a missing dependency...
+        if (!component->HasDependencies()) {
+          auto missingDependency = component->MissingDependencies();
+          // Send a popup!
+          Windows::PopUpData data;
+          data.Title = "Missing Dependency";
+          data.Message = "- " + missingDependency;
+          data.Confirmation = "I am sorry...";
+          auto popUp = WindowPtr(new Windows::PopUp(data));
+          GUI::Add(popUp);
+          // Remove the component
+          component->Destroy();
+          return false;
+        }
         // A component was added
         return true;
+        Scanned = false;
       }
 
       // No component was added
       return false;
     }
-
-
-
 
     /**************************************************************************/
     /*!
@@ -582,7 +631,9 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::RevertToArchetype()
     {
+      // Delete the object
 
+      // Recreate it from archetype, setting up parenting again
     }
 
     /**************************************************************************/
@@ -622,6 +673,8 @@ namespace DCEngine {
     /**************************************************************************/
     void PreviewSound(Zilch::Property * property, ObjectPtr object)
     {
+      static bool playedOnce = false;
+
       // Create an exception report object
       Zilch::ExceptionReport report;
       Zilch::Call getCall(property->Get, Daisy->getSystem<Reflection>()->Handler()->getState());
@@ -634,11 +687,17 @@ namespace DCEngine {
       auto soundCue = dynamic_cast<SoundCue*>(object);
 
       if (ImGui::Button("Preview")) {
-        Daisy->getSystem<Audio>()->PlaySound(std::string(soundCue->getObjectName()));
+        // If it's loaded, call it to stop first
+        if (playedOnce)
+          EditorSoundPreview->Stop();
+
+        EditorSoundPreview = Daisy->getSystem<Audio>()->PlaySound(std::string(soundCue->getObjectName()));
+        playedOnce = true;
       }
       ImGui::SameLine();
-      if (ImGui::Button("Stop Preview")) {
-        Daisy->getSystem<Audio>()->StopSound(std::string(soundCue->getObjectName()));
+      if (ImGui::Button("Stop Preview") && EditorSoundPreview) {
+        EditorSoundPreview->Stop();
+        //Daisy->getSystem<Audio>()->StopSound(std::string(soundCue->getObjectName()));
       }
 
     }

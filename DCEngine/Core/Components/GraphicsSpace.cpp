@@ -64,7 +64,8 @@ namespace DCEngine {
     \brief Initializes the GraphicsSpace component.
     */
     /**************************************************************************/
-    void GraphicsSpace::Initialize() {
+    void GraphicsSpace::Initialize()
+		{
       // Store a reference to the space's 'CameraViewport' component
       CameraViewportComponent = Owner()->getComponent<Components::CameraViewport>();
       // Register this space to the graphics system

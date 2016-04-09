@@ -24,7 +24,7 @@ namespace DCEngine {
   {
 		ShaderPtr Sprite::mShader;
 		GLuint Sprite::mVAO;
-    DCE_COMPONENT_DEFINE_DEPENDENCIES(Sprite, "Transform", "BoxCollider");
+    DCE_COMPONENT_DEFINE_DEPENDENCIES(Sprite, "Transform");
     
     /**************************************************************************/
     /*!
@@ -68,7 +68,9 @@ namespace DCEngine {
     Sprite::Sprite(Entity& owner) : Graphical(std::string("Sprite"), owner), DrawLayer(0) {
       // Register this component to the GraphicsSpace so that it can be drawn
       // by the graphics system.
-      Register();
+
+      if (this->HasDependencies())
+        Register();
     }
 
     /**************************************************************************/
@@ -203,34 +205,6 @@ namespace DCEngine {
 					}
 				}
 			}
-		}
-
-		void Sprite::Draw(Camera& camera)
-		{
-      // Skip drawing if visible is false...
-      if (!this->Visible)
-        return;
-
-			mShader->SetInteger("isTexture", 1);
-			glEnable(GL_BLEND);
-			//glEnable(GL_TEXTURE_2D);
-			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-			glDepthFunc(GL_LEQUAL);
-
-			// Retrieve the 'SpriteSource' resource from the content system
-			auto spriteSrc = Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource);
-
-			// We use transform data for drawing:
-			auto transform = TransformComponent;
-
-			// Create the matrix of the transform
-			GLfloat verticesOffset = 0.5f;
-			glm::mat4 modelMatrix;
-
-			// Matrices
-			modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
-				transform->Translation.y,
-				transform->Translation.z));
 			if (FlipX == true)
 			{
 				mShader->SetInteger("flipx", 1);
@@ -248,20 +222,42 @@ namespace DCEngine {
 			{
 				mShader->SetInteger("flipy", 0);
 			}
-			modelMatrix = glm::rotate(modelMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
-			modelMatrix = glm::rotate(modelMatrix, 0.0f, glm::vec3(0.0f, 0.0f, 1.0f));
-			modelMatrix = glm::scale(modelMatrix, glm::vec3(transform->Scale.x,
-				transform->Scale.y, 0.0f));
-
-
-			// Update the uniforms in the shader to this particular sprite's data 
-			mShader->SetMatrix4("model", modelMatrix);
+			mShader->SetInteger("isTexture", 1);
 			mShader->SetVector4f("spriteColor", Color);
 			mShader->SetFloat("CutMinX", (float)spriteSrc->MinX / spriteSrc->PicWidth);
 			mShader->SetFloat("CutMaxX", (float)spriteSrc->MaxX / spriteSrc->PicWidth);
 			mShader->SetFloat("CutMinY", (float)spriteSrc->MinY / spriteSrc->PicHeight);
 			mShader->SetFloat("CutMaxY", (float)spriteSrc->MaxY / spriteSrc->PicHeight);
+		}
 
+		void Sprite::SetModelMatrix(void)
+		{
+			glm::mat4 modelMatrix;
+			Components::Transform* transform = TransformComponent;
+			modelMatrix = glm::translate(modelMatrix, glm::vec3(transform->Translation.x,
+				transform->Translation.y,
+				transform->Translation.z));
+			modelMatrix = glm::rotate(modelMatrix, transform->Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
+			modelMatrix = glm::rotate(modelMatrix, 0.0f, glm::vec3(0.0f, 0.0f, 1.0f));
+			modelMatrix = glm::scale(modelMatrix, glm::vec3(transform->Scale.x,
+				transform->Scale.y, 0.0f));
+			mShader->SetMatrix4("model", modelMatrix);
+		}
+
+		void Sprite::Draw(Camera& camera)
+		{
+      // Skip drawing if visible is false...
+      if (!this->Visible)
+        return;
+
+			
+			//glEnable(GL_BLEND);
+			////glEnable(GL_TEXTURE_2D);
+			//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			//glDepthFunc(GL_LEQUAL);
+
+			// Retrieve the 'SpriteSource' resource from the content system
+			auto spriteSrc = Daisy->getSystem<Systems::Content>()->getSpriteSrc(SpriteSource);
 
 			// Set the active texture
 			glActiveTexture(GL_TEXTURE0); // Used for 3D???
@@ -270,8 +266,6 @@ namespace DCEngine {
 			glBindVertexArray(mVAO);
 			glDrawArrays(GL_TRIANGLES, 0, 6);
 			glBindVertexArray(0);
-
-			//DrawArrays(SpriteVAO, 6, GL_TRIANGLES);
 		}
 
 		//unsigned Sprite::GetDrawLayer(void)

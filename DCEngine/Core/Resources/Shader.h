@@ -21,8 +21,7 @@ namespace DCEngine {
   class Shader : public Resource {
   public:
     
-    Shader(std::string& shaderName, std::string vertexPath, std::string fragmentPath);
-    
+    Shader(std::string& shaderName, std::string vertexPath, std::string fragmentPath, std::string geometryPath = std::string());
     bool Load();
     std::string Extension() { return ".Shader"; }
     void Compile();    
@@ -57,8 +56,10 @@ namespace DCEngine {
 
     std::string VertexPath; //!< The path of the vertex shader file.
     std::string FragmentPath; //!< The path of the fragment shader file.
+		std::string GeometryPath; //!< The path of the fragment shader file.
     std::string vertexCode;  //!< The raw vertex shader code in GLSL
     std::string fragmentCode; //!< The raw fragment shader code in GLSL
+		std::string geometryCode; //!< The raw fragment shader code in GLSL
     GLuint ShaderProgramID; //!< The shader program, tracked by its id
     std::unordered_map<std::string, GLint> ShaderUniformsMap;
 

@@ -48,7 +48,7 @@ namespace DCEngine {
   
   /**************************************************************************/
   /*!
-  @class  Base class for delegates used for the event system.
+  @class EventDelegate Base class for delegates used for the event system.
   */
   /**************************************************************************/
   class EventDelegate {
@@ -62,8 +62,8 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  @class  Templated class that allows member functions to connect
-          to an entity's events.
+  @class EventMemberFunctionDelegate Templated class that allows member 
+         functions to connect to an entity's events.
   */
   /**************************************************************************/
   template <typename Class, typename EventClass>

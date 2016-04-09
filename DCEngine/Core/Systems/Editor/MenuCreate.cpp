@@ -37,7 +37,7 @@ namespace DCEngine {
       // Save the command
       auto command = CommandPtr(new CommandObjectCreation(transform, CurrentSpace,
                                           CommandObjectCreation::Setting::Create));
-      Settings.Commands.Add(command);
+      Add(command);
 
     }
 
@@ -63,7 +63,7 @@ namespace DCEngine {
       // Save the command
       auto command = CommandPtr(new CommandObjectCreation(sprite, CurrentSpace,
                                     CommandObjectCreation::Setting::Create));
-      Settings.Commands.Add(command);
+      Add(command);
 
     }
 
@@ -86,7 +86,7 @@ namespace DCEngine {
       // Save the command
       auto command = CommandPtr(new CommandObjectCreation(spriteText, CurrentSpace,
                                     CommandObjectCreation::Setting::Create));
-      Settings.Commands.Add(command);
+      Add(command);
     }
 
     /**************************************************************************/
@@ -112,7 +112,7 @@ namespace DCEngine {
       // Save the command
       auto command = CommandPtr(new CommandObjectCreation(psystem, CurrentSpace,
                                     CommandObjectCreation::Setting::Create));
-      Settings.Commands.Add(command);
+      Add(command);
     }
 
     /**************************************************************************/
@@ -131,12 +131,13 @@ namespace DCEngine {
       // Save the command
       auto command = CommandPtr(new CommandObjectCreation(gameObject, CurrentSpace,
                                     CommandObjectCreation::Setting::Create));
-      Settings.Commands.Add(command);
+      Add(command);
     }
 
     /**************************************************************************/
     /*!
     @brief  Moves the object to the viewport's center.
+    @param  A pointer to the GameObject.
     */
     /**************************************************************************/
     void Editor::MoveToViewportCenter(GameObject* gameobject)
@@ -148,6 +149,7 @@ namespace DCEngine {
     /**************************************************************************/
     /*!
     @brief  Saves a GameObject's configuration into an Archetype to file.
+    @param  archetype The name of the archetype.
     @todo   Refactor how the path is pulled.
     */
     /**************************************************************************/

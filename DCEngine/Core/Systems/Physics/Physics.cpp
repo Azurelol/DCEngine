@@ -142,6 +142,9 @@ namespace DCEngine {
     /**************************************************************************/
     bool Physics::IsObjectWithinBoundingArea(Vec3 & center, float width, float height, GameObjectPtr gameObject)
     {
+      if (!gameObject->HasComponent("Transform"))
+        return false;
+
       auto& translation = gameObject->getComponent<Components::Transform>()->getTranslation();
       auto& scale = gameObject->getComponent<Components::Transform>()->getScale();
       auto& rotation = gameObject->getComponent<Components::Transform>()->getRotation();
@@ -206,15 +209,15 @@ namespace DCEngine {
 
 				BroadPhaseDetection(physpace, pairs);
 
-        Integrate(dt, physpace);
+	      Integrate(dt, physpace);
 
-        NarrowPhaseDetection(pairs, contactlist);
+		    NarrowPhaseDetection(pairs, contactlist);
 
 				Resolution::Resolve(dt, contactlist);
 
 				PublishResults(physpace);
 
-        //UpdateTransforms(physpace);
+				UpdateTransforms(physpace);
 			}
 
 
@@ -274,7 +277,7 @@ namespace DCEngine {
     /*!
     @brief Iterate through all the objects with a 'Transform' component and
     update transforms based on parenting.
-    @param A pointer to the 'PhysicsSpace' component.
+    @param physpace A pointer to the 'PhysicsSpace' component.
     */
     /**************************************************************************/
     void Physics::UpdateTransforms(Components::PhysicsSpace *physpace)
@@ -283,6 +286,10 @@ namespace DCEngine {
 
       for (auto current : *objects)
       {
+        // If it doesn't have a transform...
+        if (!current->HasComponent("Transform"))
+          continue;
+
         current->getComponent<Components::Transform>()->UpdateTranslation();
         current->getComponent<Components::Transform>()->UpdateRotation();
       }
@@ -345,7 +352,7 @@ namespace DCEngine {
       std::string str1, str2;
 
 
-      for (auto pair : pairs)
+      for (auto &pair : pairs)
       {
      
          auto rigidbody1 = pair.obj1->getComponent<Components::RigidBody>();
@@ -406,16 +413,8 @@ namespace DCEngine {
          {
            str2 = cir2->getCollisionGroup();
          }
-     
-         if (str1 == str2)
-         {
-           pair.filter = CollisionFilter();
-         }
-         else
-         {
-           // need to access the collision table and get info from it
-           pair.filter = Daisy->getSystem<Content>()->getCollisionTable(std::string(physpace->getCollisionTable()))->GetFilter(str1, str2);
-         }
+
+         pair.filter = Daisy->getSystem<Content>()->getCollisionTable(std::string(physpace->getCollisionTable()))->GetFilter(str1, str2);
       }
 
 

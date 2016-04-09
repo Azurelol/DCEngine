@@ -28,23 +28,27 @@ namespace DCEngine {
 
       auto cameraPos = EditorCamera->getComponent<Components::Transform>()->getTranslation();
       // The editor grid will always be in front of the camera.
-      Vec3 gridStartPos(cameraPos.x, cameraPos.y, cameraPos.z - 1);
-      Real edge = 500; // We want to make sure we draw 'very' from far away??
+			Vec3 gridStartPos(cameraPos.x, cameraPos.y, 0);
+      Real edge = 5000; // We want to make sure we draw 'very' from far away??
       unsigned lines = 100;
       // Start drawings from the center of the screen and outwards
       for (unsigned int i = 0; i < lines; ++i) {
         // Draw the horizontal lines
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Vec3(gridStartPos.x - edge, gridStartPos.y + (i * Settings.GridLength), gridStartPos.z),
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(
+					Vec3(gridStartPos.x - edge, gridStartPos.y + (i * Settings.GridLength), gridStartPos.z),
           Vec3(gridStartPos.x + edge, gridStartPos.y + (i * Settings.GridLength), gridStartPos.z),
           Settings.GridColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Vec3(gridStartPos.x - edge, gridStartPos.y - (i * Settings.GridLength), gridStartPos.z),
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(
+					Vec3(gridStartPos.x - edge, gridStartPos.y - (i * Settings.GridLength), gridStartPos.z),
           Vec3(gridStartPos.x + edge, gridStartPos.y - (i * Settings.GridLength), gridStartPos.z),
           Settings.GridColor);
         // Draw the vertical lines
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Vec3(gridStartPos.x + (i * Settings.GridLength), gridStartPos.y - edge, gridStartPos.z),
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(
+					Vec3(gridStartPos.x + (i * Settings.GridLength), gridStartPos.y - edge, gridStartPos.z),
           Vec3(gridStartPos.x + (i * Settings.GridLength), gridStartPos.y + edge, gridStartPos.z),
           Settings.GridColor);
-        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(Vec3(gridStartPos.x - (i * Settings.GridLength), gridStartPos.y - edge, gridStartPos.z),
+        CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawLineSegment(
+					Vec3(gridStartPos.x - (i * Settings.GridLength), gridStartPos.y - edge, gridStartPos.z),
           Vec3(gridStartPos.x - (i * Settings.GridLength), gridStartPos.y + edge, gridStartPos.z),
           Settings.GridColor);
       }
@@ -91,8 +95,9 @@ namespace DCEngine {
         // Camera properties      
         //editorCamera->getComponent<Components::DebugAudio>()->Track1 = "soulja";
         //editorCamera->getComponent<Components::DebugAudio>()->Track2 = "Halloween 1";
-        editorCamera->getComponent<Components::Transform>()->Translation = Vec3(1.0f, 11.0f, 1.0f);
-        editorCamera->getComponent<Components::Camera>()->Size = 70;
+        editorCamera->getComponent<Components::Transform>()->Translation = Vec3(0.0f, 0.0f, 40.0f);
+        editorCamera->getComponent<Components::Camera>()->setSize(70);
+        editorCamera->getComponent<Components::Camera>()->setFarPlane(500);
         editorCamera->getComponent<Components::Camera>()->Projection = ProjectionMode::Perspective;
         // Add the camera to the current space
         CurrentSpace->AddObject(editorCamera);

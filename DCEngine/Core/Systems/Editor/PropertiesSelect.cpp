@@ -38,7 +38,11 @@ namespace DCEngine {
       // Whether a property was modified
       bool modified = false;
 
-      if (resource->HasAttribute("SpriteSource")) {
+      if (resource->HasAttribute("Archetype")) {
+        auto container = Daisy->getSystem<Content>()->AllArchetypes();
+        modified = SelectResource<ArchetypeMap>("Archetype", container, resource, object, propertyID);
+      }
+      else if (resource->HasAttribute("SpriteSource")) {
         auto container = Daisy->getSystem<Content>()->AllSpriteSources();
         modified = SelectResource<SpriteSourceMap>("SpriteSource", container, resource, object, propertyID);
       }

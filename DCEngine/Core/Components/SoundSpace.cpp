@@ -46,7 +46,6 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void SoundSpace::Initialize() {
-      //Daisy->Connect<Events::LogicUpdate>(SpaceRef, &SoundSpace::OnLogicUpdate, this);
       Connect(SpaceRef, Events::LogicUpdate, SoundSpace::OnLogicUpdate);
       TestMusic();
 
@@ -54,26 +53,45 @@ namespace DCEngine {
       Daisy->getSystem<Systems::Audio>()->Register(*this);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Receives a LogicUpdate event.
+    @param  event The update event.
+    */
+    /**************************************************************************/
     void SoundSpace::OnLogicUpdate(Events::LogicUpdate* event) {
-      //DCTrace << "SoundSpace::OnLogicUpdate \n";
     }
 
     /**************************************************************************/
     /*!
-    @brief  Plays a 'SoundCue', forwarding the data to the Audio system.
+    @brief  Plays a 'SoundCue', returning a SoundInstance handle to it.
+    @param  soundCueName The name of the 'SoundCue' to play.
+    @return A SoundInstance, an object that acts as the particular instance
+            of that playing of the sound cue.
+    */
+    /**************************************************************************/
+    SoundInstanceHandle SoundSpace::PlayCue(std::string soundCueName)
+    {
+      return Daisy->getSystem<Systems::Audio>()->PlaySound(soundCueName);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Pauses a 'SoundCue', returning a SoundInstance handle to it.
     @param  soundCueName The name of the 'SoundCue' to play.
     */
     /**************************************************************************/
-    void SoundSpace::PlayCue(std::string soundCueName)
-    {
-      Daisy->getSystem<Systems::Audio>()->PlaySound(soundCueName);
-    }
-
     void SoundSpace::PauseCue(std::string soundCueName)
     {
       Daisy->getSystem<Systems::Audio>()->PauseSound(soundCueName);
     }
 
+    /**************************************************************************/
+    /*!
+    @brief  Resumes a 'SoundCue', returning a SoundInstance handle to it.
+    @param  soundCueName The name of the 'SoundCue' to play.
+    */
+    /**************************************************************************/
     void SoundSpace::ResumeCue(std::string soundCueName)
     {
       Daisy->getSystem<Systems::Audio>()->ResumeSound(soundCueName);

@@ -66,11 +66,8 @@ namespace DCEngine {
     bool DraggingX = false;
     bool DraggingY = false;
     float DragOffset = 0;
-
-    using GameObjectInitialPosition = std::pair<GameObjectPtr, Vec3>;
-    using GameObjectInitialPositions = std::vector<GameObjectInitialPosition>;
-    GameObjectInitialPositions InitialGameObjectPositions;
-
+        
+    TransformDataPairVec InitialGameObjectTransforms;
     // Rotating
     bool Rotating = false;
     // Scaling

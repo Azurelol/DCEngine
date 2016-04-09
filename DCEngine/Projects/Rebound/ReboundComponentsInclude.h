@@ -32,3 +32,5 @@
 #include "Components\PowerField.h"
 #include "Components\AI\Grunt.h"
 #include "Components\HealthController.h"
+#include "Components\AI\Sentinel.h"
+#include "Components\AI\Lancer.h"

@@ -18,29 +18,24 @@ namespace DCEngine {
     class Transform;
     class EditorCameraController : public Component {
     public:
-
-#if (DCE_USE_ZILCH_INTERNAL_BINDING)
-      ZilchDeclareDerivedType(EditorCameraController, Component);
-#endif
-
-      /* Properties */
+      
+      // Properties
       Real MoveSpeed = 3;
       Real RotSpeed = 15;
-      Real ZoomSpeed = 10;
+      Real ZoomSpeed = 5;
+      Real ZoomRatio = 0.08;
       Boolean MoveByKey = false;
-
       DCE_DEFINE_PROPERTY(Real, MoveSpeed);
       DCE_DEFINE_PROPERTY(Real, RotSpeed);
       DCE_DEFINE_PROPERTY(Real, ZoomSpeed);
-
-      /* Initialize */
+      // Initialize
+      ZilchDeclareDerivedType(EditorCameraController, Component);
       EditorCameraController(Entity& owner) : Component(std::string("EditorCameraController"), owner) {}
       void Initialize();
-      /* Events */
+      // Events 
       void OnKeyDownEvent(Events::KeyDown* event);
       void OnKeyUpEvent(Events::KeyUp* event);
       void OnMouseScrollEvent(Events::MouseScroll* event);
-
 
     private:
       Camera* CameraComponent;

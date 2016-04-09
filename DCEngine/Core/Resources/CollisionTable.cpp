@@ -38,8 +38,9 @@ namespace DCEngine
   /**************************************************************************/
   CollisionTable::CollisionTable(std::string collisionTableFile) :
     Resource("CollisionTable", FileSystem::FileNoExtension(collisionTableFile), collisionTableFile)
-  {
+  {    
     AddGroup(CollisionGroup("Default"));
+    ScanForGroups();
   }
 
   /**************************************************************************/
@@ -51,31 +52,35 @@ namespace DCEngine
   CollisionTable::CollisionTable(void) : Resource("CollisionTable", "CollisionTable", "NoFile")
   {
     AddGroup(CollisionGroup("Default"));
+    ScanForGroups();
   }
 
 
-  std::vector<CollisionGroup> const &CollisionTable::GetGroups(void) const
+  std::vector<CollisionGroup> &CollisionTable::GetGroups(void)
   {
     return Groups;
   }
 
-  std::vector<CollisionFilter> const & CollisionTable::GetPairs(void) const
+  std::vector<CollisionFilter>  & CollisionTable::GetPairs(void)
   {
     return Pairs;
   }
 
-  CollisionFilter &CollisionTable::GetFilter(std::string const &group1, std::string const &group2)
+  const CollisionFilter &CollisionTable::GetFilter(std::string const &group1, std::string const &group2)
   {
     for (auto &Pair : Pairs)
     {
-      if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
+      if ((Pair.Pairing.first == group1 && Pair.Pairing.second == group2) || (Pair.Pairing.first == group2 && Pair.Pairing.second == group1))
       {
         return Pair;
       }
     }
 
+    ScanForGroups();
 
-    DCTrace << "CollisionTable::GetFilter - Tried to get filter of a paring that doesnt exist" << " Group1:" << group1 << " Group2:" << group2 << "\n";
+    return GetFilter(group1, group2);
+
+    throw DCException(std::string("CollisionTable::GetFilter - Tried to get filter of a paring that doesnt exist") + std::string(" Group1:") + group1 + std::string(" Group2:") + std::string("\n"));
     return Pairs[0];
   }
 
@@ -135,7 +140,7 @@ namespace DCEngine
   {
     for (auto& Pair : Pairs)
     {
-      if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
+		if ((Pair.Pairing.first == group1 && Pair.Pairing.second == group2) || (Pair.Pairing.first == group2 && Pair.Pairing.second == group1))
       {
         Pair.CollisionFlag = state;
         return true;
@@ -147,15 +152,20 @@ namespace DCEngine
     return false;
   }
 
-  CollisionFlag &CollisionTable::GetResolve(std::string const &group1, std::string const &group2)
+  const CollisionFlag &CollisionTable::GetResolve(std::string const &group1, std::string const &group2)
   {
     for (auto& Pair : Pairs)
     {
-      if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
+		if ((Pair.Pairing.first == group1 && Pair.Pairing.second == group2) || (Pair.Pairing.first == group2 && Pair.Pairing.second == group1))
       {
         return Pair.CollisionFlag;
       }
     }   
+
+    ScanForGroups();
+
+    return GetResolve(group1, group2);
+
 
     throw DCException(std::string("CollisionTable::GetResolve - Tried to get resolution of a paring that doesnt exist") + std::string(" Group1:") + group1 + std::string(" Group2:") + std::string("\n"));
     
@@ -165,7 +175,7 @@ namespace DCEngine
   {
     for (auto& Pair : Pairs)
     {
-      if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
+		if ((Pair.Pairing.first == group1 && Pair.Pairing.second == group2) || (Pair.Pairing.first == group2 && Pair.Pairing.second == group1))
       {
         Pair.CollisionStartBlock = state;
         return true;
@@ -177,15 +187,19 @@ namespace DCEngine
     return false;
   }
 
-  CollisionBlock &CollisionTable::GetStartBlock(std::string const &group1, std::string const &group2)
+  const CollisionBlock &CollisionTable::GetStartBlock(std::string const &group1, std::string const &group2)
   {
     for (auto& Pair : Pairs)
     {
-      if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
+		if ((Pair.Pairing.first == group1 && Pair.Pairing.second == group2) || (Pair.Pairing.first == group2 && Pair.Pairing.second == group1))
       {
         return Pair.CollisionStartBlock;
       }
     }
+
+    ScanForGroups();
+
+    return GetStartBlock(group1, group2);
 
     throw DCException(std::string("CollisionTable::GetStartBlock - Tried to get start block of a paring that doesnt exist") + std::string(" Group1:") + group1 + std::string(" Group2:") + std::string("\n"));
 
@@ -195,7 +209,7 @@ namespace DCEngine
   {
     for (auto& Pair : Pairs)
     {
-      if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
+		if ((Pair.Pairing.first == group1 && Pair.Pairing.second == group2) || (Pair.Pairing.first == group2 && Pair.Pairing.second == group1))
       {
         Pair.CollisionEndBlock = state;
         return true;
@@ -206,15 +220,19 @@ namespace DCEngine
     return false;
   }
 
-  CollisionBlock &CollisionTable::GetEndBlock(std::string const &group1, std::string const &group2)
+  const CollisionBlock &CollisionTable::GetEndBlock(std::string const &group1, std::string const &group2)
   {
     for (auto& Pair : Pairs)
     {
-      if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
+		if ((Pair.Pairing.first == group1 && Pair.Pairing.second == group2) || (Pair.Pairing.first == group2 && Pair.Pairing.second == group1))
       {
         return Pair.CollisionEndBlock;
       }
     }
+
+    ScanForGroups();
+
+    return GetEndBlock(group1, group2);
 
     throw DCException(std::string("CollisionTable::GetEndBlock - Tried to get end block of a paring that doesnt exist") + std::string(" Group1:") + group1 + std::string(" Group2:") + std::string("\n"));
 
@@ -224,7 +242,7 @@ namespace DCEngine
   {
     for (auto& Pair : Pairs)
     {
-      if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
+		if ((Pair.Pairing.first == group1 && Pair.Pairing.second == group2) || (Pair.Pairing.first == group2 && Pair.Pairing.second == group1))
       {
         Pair.PreSolveBlock = state;
         return true;
@@ -236,15 +254,19 @@ namespace DCEngine
     return false;
   }
 
-  CollisionBlock &CollisionTable::GetPreSolveBlock(std::string const &group1, std::string const &group2)
+  const CollisionBlock &CollisionTable::GetPreSolveBlock(std::string const &group1, std::string const &group2)
   {
     for (auto& Pair : Pairs)
     {
-      if ((Pair.Pairing.first == group1 || Pair.Pairing.first == group2) && (Pair.Pairing.second == group1 || Pair.Pairing.second == group2))
+		if ((Pair.Pairing.first == group1 && Pair.Pairing.second == group2) || (Pair.Pairing.first == group2 && Pair.Pairing.second == group1))
       {
         return Pair.PreSolveBlock;
       }
     }
+
+    ScanForGroups();
+
+    return GetPreSolveBlock(group1, group2);
 
     throw DCException(std::string("CollisionTable::GetPreSolveBlock - Tried to get end block of a paring that doesnt exist") + std::string(" Group1:") + group1 + std::string(" Group2:") + std::string("\n"));
   }
@@ -271,6 +293,17 @@ namespace DCEngine
     Pairs = rhs.Pairs;
 
     return *this;
+  }
+
+  void CollisionTable::ScanForGroups(void)
+  {
+    DCTrace << "Scanning lol \n";
+    auto Groups = Daisy->getSystem<Systems::Content>()->AllCollisionGroups();
+
+    for (auto group : *Groups)
+    {
+      AddGroup(group.first);
+    }
   }
 
 }

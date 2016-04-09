@@ -152,6 +152,42 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief  Checks whether this component's owner has all the components
+          this component depends on.
+  @return Whether this component's dependencies have been fulfilled.
+  */
+  /**************************************************************************/
+  bool Component::HasDependencies()
+  {
+    // Look for every component dependency in this component's owner
+    for (auto& dependency : Dependencies()) {
+      if (!this->Owner()->HasComponent(dependency))
+        return false;
+    }
+    // All dependencies were found
+    return true;
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief  Checks whether this component's owner has all the components
+  this component depends on.
+  @return Whether this component's dependencies have been fulfilled.
+  */
+  /**************************************************************************/
+  std::string Component::MissingDependencies()
+  {
+    // Look for every component dependency in this component's owner
+    for (auto& dependency : Dependencies()) {
+      if (this->Owner()->HasComponent(dependency) == false)
+        return dependency;
+    }
+    // All dependencies were found
+    return std::string();
+  }
+  
+  /**************************************************************************/
+  /*!
   @brief Adds a dependency to this component.
   @param componentName The component this component depends on.
   @return The success of the operation.
@@ -170,23 +206,7 @@ namespace DCEngine {
   //  Dependencies.push_back(componentName);
   //}
 
-  /**************************************************************************/
-  /*!
-  @brief  Checks whether this component's owner has all the components
-          this component depends on.
-  @return Whether this component's dependencies have been fulfilled.
-  */
-  /**************************************************************************/
-  //bool Component::CheckForDependencies()
-  //{
-  //  // Look for every component dependency in this component's owner
-  //  for (auto& dependency : Dependencies) {
-  //    if (this->Owner()->HasComponent(dependency) == false)
-  //      return false;
-  //  }
-  //  // All dependencies were found
-  //  return true;
-  //}
+
 
   /**************************************************************************/
   /*!

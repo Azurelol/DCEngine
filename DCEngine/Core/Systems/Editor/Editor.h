@@ -35,6 +35,8 @@ namespace DCEngine {
 
     class Editor : public System {
       friend class Engine;
+      // Modules. @toodo I would prefer not to friend all my modules to give them private access.
+      friend class EditorCreator;
 
     public:
 
@@ -64,22 +66,21 @@ namespace DCEngine {
            
       //EditorToolPtr ActiveToolHandle;
       //TransformToolPtr TransformToolHandle;
-      
-      // Selection
-      void DrawSelection();
       void DisplayTool();
       void UseTool(GameObjectPtr gameObject, Vec2& position);
       void DrawTranslateTool();
       void DrawRotateTool();
       void DrawScaleTool();
-      ObjectContainer SelectedObjects;
       void MoveObject(const Vec3&);
       void TransformStartDragging();
       void TransformDrag(Vec2&);
-      void ReleaseObject();
-
+      void TransformDragRelease();
+      
       // Settings
       EditorConfig Settings;
+      // Modules
+      EditorCreator Creator;
+
       EditorWindows Windows;
       TransformToolData Transformation;
 
@@ -103,6 +104,7 @@ namespace DCEngine {
       // Properties
       void WindowProperties();
       bool DisplayProperties(ObjectPtr);
+      //template <typename PropertyType, typename InputFunction, typename SetValue> bool DisplayProperty(Zilch::Property* property, SetValue value)
       void DisplayEntityProperties();
       void DisplayResourceProperties();
       bool AddComponent(EntityPtr);
@@ -130,11 +132,14 @@ namespace DCEngine {
       void ExportGame();
       void Exit();
       // Select
+      ObjectContainer SelectedObjects;
+      void DrawSelection();
       void SelectObjectFromSpace(GameObject*);
       GameObject* FindObjectFromSpace(Vec2 pos);
       GameObjectPtr IsSelectableGameObject(ObjectPtr);
       void SelectObject(GameObject* obj);
       void Select(ObjectPtr);
+      void SelectionAddOrRemoveToMultiple(GameObjectPtr);
       void Deselect();
       void SelectSpace();
       void CenterSelected();
@@ -208,6 +213,8 @@ namespace DCEngine {
       void OnMouseUpEvent(Events::MouseUp* event);
       void OnMouseUpdateEvent(Events::MouseUpdate* event);
 
+      int consoleWindowStringLength = 0;
+      int oldConsoleWindowStringLength = 0;
     };
     
   }

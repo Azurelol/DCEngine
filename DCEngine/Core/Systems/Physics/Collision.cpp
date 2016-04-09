@@ -79,6 +79,11 @@ namespace DCEngine
       }
     }
 
+    if (!result.rigid1 && !result.rigid2)
+    {
+      return false;
+    }
+
     /* get the colliders */
     auto boxcollider1 = obj1->getComponent<Components::BoxCollider>();
     auto boxcollider2 = obj2->getComponent<Components::BoxCollider>();
@@ -304,7 +309,7 @@ namespace DCEngine
 
     return true;
     //Check X
-    glm::vec3 positionDelta = transform1->Translation - transform2->Translation;
+    glm::vec3 positionDelta = Translation1 - Translation2;
     float xDiff = boxcollider1->getColliderScale().x / 2.0f + boxcollider2->getColliderScale().x / 2.0f - fabs(positionDelta.x);
 
     //Boxes overlapping on x-axis?
@@ -911,6 +916,9 @@ namespace DCEngine
   {
     Components::BoxCollider *collider = rect->getComponent<Components::BoxCollider>();
     Components::Transform *transform = rect->getComponent<Components::Transform>();
+
+    if (!transform)
+      return false;
 
     float height, width;
 

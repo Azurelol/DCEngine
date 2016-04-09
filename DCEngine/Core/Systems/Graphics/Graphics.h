@@ -40,7 +40,6 @@ namespace DCEngine {
 			friend class WindowSFML;
 			friend class GraphicsGL;
 		public:
-
       // Registration
 			void Register(Components::GraphicsSpace& graphicsSpace);
 			void Deregister(Components::GraphicsSpace& graphicsSpace);
@@ -57,8 +56,10 @@ namespace DCEngine {
 
 		private:
 
+			static std::unique_ptr<GraphicsGL> GraphicsHandler;
+
       GraphicsConfig Settings;
-			std::unique_ptr<GraphicsGL> GraphicsHandler;
+			
 			const int screenwidth_ = 1024;
 			const int screenheight_ = 768;
 			Vec4 ClearColor = Vec4(0.0f, 0.5f, 1.0f, 1.0f);
@@ -67,6 +68,9 @@ namespace DCEngine {
 			Mat4 ViewMatrix;
 			Mat4 ViewProjMatrix;
 			std::vector<Components::GraphicsSpace*> graphicsSpaces_;
+
+			
+			
 
 			// Base methods
 			void StartFrame();
@@ -80,19 +84,63 @@ namespace DCEngine {
 			Graphics(GraphicsConfig settings);
 			void Initialize();
 			void Subscribe();
+
+			//Main Methods
 			void Update(float dt);
+			void RenderDepths(float dt, Components::Camera* camera);
+			void RenderShadows(float dt, Components::Camera* camera, const std::vector<Components::Light*>& lightComponents);
+			void RenderScene(float dt, Components::Camera* camera);
+			void RenderObjects(float dt, Components::Camera* camera);
+			void DrawDebug();
 			void Terminate();
 
 			//2D draw list
 			//int TotalObjNumG = 0;
 			//int TotalObjTranspNumG = 0;
 			std::vector<std::vector<Components::Graphical*>> mDrawList;
-			std::vector<Components::Light*> mLightList;
+			//std::vector<Components::Light*> mLightList;
+			
 			//std::vector<Components::Sprite*>  NonTextureObjNontransp;
 			//std::vector<Components::Sprite*>  TextureObjNontransp;
 			//std::vector<Components::Sprite*> NonTextureObjtransp;
 			//std::vector<Components::Sprite*> TextureObjtransp;
 			void SendCountToGL(int TotalObjNumG, int TotalObjTransNumG);
+			class DebugObject
+			{
+			public:
+				DebugObject(const Vec4&, const Vec3&);
+				virtual void Draw(void) const = 0;
+			protected:
+				Vec4 color;
+				Vec3 position;
+			};
+			class DebugLine : public DebugObject
+			{
+			public:
+				DebugLine(const Vec4&, const Vec3&, const Vec3&);
+				virtual void Draw(void) const;
+			private:
+				Vec3 endPosition;
+			};
+			class DebugRectangle : public DebugObject
+			{
+			public:
+				DebugRectangle(const Vec4&, const Vec3&, const Vec2&);
+				virtual void Draw(void) const;
+			private:
+				Vec2 scale;
+			};
+			class DebugCircle : public DebugObject
+			{
+			public:
+				DebugCircle(const Vec4&, const Vec3&, float);
+				virtual void Draw(void) const;
+			private:
+				float radius;
+			};
+			std::vector<DebugLine> mDebugLineList;
+			std::vector<DebugRectangle> mDebugRectangleList;
+			std::vector<DebugCircle> mDebugCircleList;
 		};
 
 

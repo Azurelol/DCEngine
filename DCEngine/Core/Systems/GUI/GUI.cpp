@@ -86,7 +86,12 @@ namespace DCEngine {
     /**************************************************************************/
     void GUI::Update(float dt)
     {
-      
+      // Clear inactive windows
+      ClearInactive();
+      // Draw every active window
+      for (auto& window : ActiveWindows) {
+        window->Display();
+      }
     }
 
     /**************************************************************************/
@@ -101,6 +106,58 @@ namespace DCEngine {
 
       DCTrace << "GUI::Terminate \n";
       GUIHandler->Terminate();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Displays a PopUp.
+    */
+    /**************************************************************************/
+    void GUI::PopUp(Windows::PopUpData & data)
+    {
+      ImGui::OpenPopup(data.Title.c_str());
+      if (ImGui::BeginPopupModal(data.Title.c_str())) {
+        ImGui::Text(data.Message.c_str());
+        if (ImGui::Button(data.Confirmation.c_str())) {
+          ImGui::CloseCurrentPopup();
+        }
+        ImGui::EndPopup();
+      }
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Adds a window to the GUI system.
+    @param A pointer to the Window.
+    */
+    /**************************************************************************/
+    void GUI::Add(WindowPtr window)
+    {
+      Daisy->getSystem<GUI>()->ActiveWindows.push_back(window);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Removes an active window from the GUI system.
+    @param A pointer to the Window.
+    */
+    /**************************************************************************/
+    void GUI::Remove(WindowPtr window)
+    {
+      InactiveWindows.push_back(window);      
+    }
+
+    void GUI::ClearInactive()
+    {
+      if (InactiveWindows.empty())
+        return;
+
+      auto iter = std::find(ActiveWindows.begin(), ActiveWindows.end(), InactiveWindows.back());
+      InactiveWindows.pop_back();
+      ActiveWindows.erase(iter);
+
+      // Recursionlol
+      ClearInactive();
     }
 
   }

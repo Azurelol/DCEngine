@@ -17,24 +17,35 @@ namespace DCEngine {
   namespace Components
   {
     /**************************************************************************/
-/*!
-@brief Provides the definition of this class to Zilch.
-@note This can only go in the translational unit (.cpp)
-*/
-/**************************************************************************/
-#if(DCE_USE_ZILCH_INTERNAL_BINDING)
+    /*!
+    @brief Provides the definition of this class to Zilch.
+    @note This can only go in the translational unit (.cpp)
+    */
+    /**************************************************************************/
     ZilchDefineType(Transform, "Transform", DCEngineCore, builder, type) {
-      //DCE_BINDING_INTERNAL_COMPONENT_SET_HANDLE_TYPE;
       // Constructor / Destructor
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Transform);
-      //ZilchBindConstructor(builder, type, Transform, "owner", Entity&);
-      //ZilchBindDestructor(builder, type, Transform);
       // Properties
       ZilchBindProperty(builder, type, &Transform::getTranslation, &Transform::setTranslation, "Translation");
       ZilchBindProperty(builder, type, &Transform::getRotation, &Transform::setRotation, "Rotation");
       ZilchBindProperty(builder, type, &Transform::getScale, &Transform::setScale, "Scale");
     }
-#endif
+
+    /**************************************************************************/
+    /*!
+    @brief Initializes the GameObject.
+    @note  The WorldRotation's Z component is set at 0 because ???
+    */
+    /**************************************************************************/
+    TransformDataPair Transform::getTransformDataPair()
+    {
+      TransformDataPair data;
+      data.first = this;
+      data.second.Translation = Translation;
+      data.second.Rotation = Rotation;
+      data.second.Scale = Scale;
+      return data;
+    }
 
     /**************************************************************************/
     /*!
@@ -61,9 +72,17 @@ namespace DCEngine {
 
       if (firstloop)
       {
-        PrevRotation = Rotation;
+        PrevTranslation = Translation;
         return;
       }
+
+      //auto physpace = this->ObjectOwner-> //->getComponent<Components::PhysicsSpace>();
+
+      //if (Translation.x > physpace->MaxX)
+      {
+        //physpace->MaxX = Translation.x;
+      }
+
 
       if (dynamic_cast<GameObject*>(this->Owner()))
       {

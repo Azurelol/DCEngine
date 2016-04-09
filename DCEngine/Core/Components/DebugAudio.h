@@ -20,21 +20,26 @@ namespace DCEngine {
     class DebugAudio : public Component {
     public:
 
-      String Track1 = "soulja";
-      String Track2;
-      String Track3;
-      String CurrentSoundCue;
-
-      /* Initialize */
+      SoundInstanceHandle MyJam;
+      SoundCueHandle Track1 = "soulja";
+      SoundCueHandle Track2;
+      SoundCueHandle Track3;
+      SoundCueHandle CurrentSoundCue;
+      DCE_DEFINE_PROPERTY(SoundCueHandle, Track1);
+      DCE_DEFINE_PROPERTY(SoundCueHandle, Track2);
+      DCE_DEFINE_PROPERTY(SoundCueHandle, Track3);
+            
+      ZilchDeclareDerivedType(DebugAudio, Component);
       DebugAudio(Entity& owner) : Component(std::string("DebugAudio"), owner) {}
+      ~DebugAudio();
       void Initialize();
-      virtual void Serialize(Json::Value& root);
-      virtual void Deserialize(Json::Value& root);
 
-      /* Events */
       void OnKeyDownEvent(Events::KeyDown* event);
       void OnKeyUpEvent(Events::KeyUp* event);
+
       void ChangeTrack(std::string& track);
+      void ChangeVolume(float increment);
+      void Pause(bool);
 
     private:
     };

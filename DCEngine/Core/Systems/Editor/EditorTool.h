@@ -43,6 +43,8 @@ namespace DCEngine {
     };
     using EditorToolPtr = std::shared_ptr<EditorTool>;
 
+    
+
     /**************************************************************************/
     /*!
     @class TransformTool Tool for transforming GameObjects.
@@ -63,7 +65,7 @@ namespace DCEngine {
       //void RotateObject(Vec2&);
       //void ScaleObject(Vec2&);
       //void ScaleObject(Vec3);
-      //void ReleaseObject();
+      //void TransformDragRelease();
       //void UseTool(GameObjectPtr gameObject, Vec2& position);
       //void ReleaseTool();
 
@@ -102,7 +104,6 @@ namespace DCEngine {
     };
 
     using TransformToolPtr = std::shared_ptr<TransformTool>;
-
 
 
 

@@ -12,6 +12,7 @@ namespace DCEngine {
   struct Ray {
     Vec3 Origin;
     Vec3 Direction;
+    //Components::PhysicsSpace *Space;
   };
 
 }

@@ -21,7 +21,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     Editor::Editor(EditorConfig settings) : System(std::string("EditorSystem"), EnumeratedSystem::Editor), 
-                                                          Settings(settings)
+                                                          Settings(settings), Creator(*this)
     {      
     }
 
@@ -147,6 +147,9 @@ namespace DCEngine {
         // Toggle the widgets
         Windows.LibraryEnabled = true;
         Windows.ObjectsEnabled = true;
+        // Clear previous commands
+        Settings.Commands.CommandsCurrent.clear();
+        Settings.Commands.CommandsUndo.clear();
       }
       // Editor OFF
       else {
@@ -161,6 +164,8 @@ namespace DCEngine {
         Deselect();
         // Ask the space to reload the level
         CurrentSpace->ReloadLevel();
+        
+        
       }
     }
 
@@ -214,6 +219,7 @@ namespace DCEngine {
     {
       // Allow diagnostics even without the editor!
       WindowDiagnostics();
+      WindowConsole();
 
       if (!Settings.EditorEnabled)
         return;
@@ -229,7 +235,6 @@ namespace DCEngine {
       WindowProperties();
       WindowSaveLevel();
       WindowLoadLevel();    
-      WindowConsole();
       WindowCreateFromArchetype();
       WindowTools();
       WindowAddResource();

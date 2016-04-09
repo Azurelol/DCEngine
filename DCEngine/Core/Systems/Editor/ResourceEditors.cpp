@@ -26,20 +26,110 @@ namespace DCEngine {
       std::string title = "CollisionTable Editor - " + SelectedCollisionTable->Name();
       ImGui::Begin(title.c_str(), &Windows.CollisionTableEditorEnabled);
       
+
+      auto &Groups = Daisy->getSystem<Content>()->getCollisionTable(SelectedCollisionTable->Name())->GetGroups();
+      
+      auto &Pairs = Daisy->getSystem<Content>()->getCollisionTable(SelectedCollisionTable->Name())->GetPairs();
       // Create an array from all available collision groups (so that we have random access)
-      std::vector<CollisionGroupPtr> groups;
-      for (auto& group : *Daisy->getSystem<Content>()->AllCollisionGroups()) {
-        groups.push_back(group.second);
+
+      static char GroupName[64];
+
+      for (auto& group : Groups)
+      {
+        Math::ClampString(group.Name().c_str(), GroupName, 4);
+        ImGui::Text(GroupName);
+        ImGui::SameLine();
       }
-      // For every collision group, create a row
-      for (unsigned int i = 0; i < groups.size(); ++i) {        
-        ImGui::Text(groups[i]->Name().c_str());
-        for (unsigned int j = i + 1; j < groups.size(); ++j) {
-          ImGui::SameLine();
-          if (ImGui::Button(groups[j]->Name().c_str())) {
-            // Display a dialog of the pair between this group and the other?
+
+      ImGui::Text(" ");
+
+     static CollisionFilter *Selection = &(Pairs[1]);
+
+      for (auto& group : Groups) 
+      {
+        Math::ClampString(group.Name().c_str(), GroupName, 4);
+        ImGui::Text(GroupName);
+        for (auto &pair : Pairs)
+        {
+          if (pair.Pairing.first == group.Name() || pair.Pairing.second == group.Name())
+          {
+            ImGui::SameLine();
+            if (ImGui::Button(" "))
+            {
+              Selection = &pair;
+            }
           }
         }
+      }
+
+      ImGui::Separator();
+
+      ImGui::Text("Pairing: ");
+
+      ImGui::SameLine();
+
+      ImGui::Text((Selection->Pairing.first + std::string(" and ") + Selection->Pairing.second).c_str());
+
+      ImGui::Text("Resolution:");
+
+      ImGui::SameLine();
+      
+      switch (Selection->CollisionFlag)
+      {
+        case CollisionFlag::Resolve:
+          ImGui::Text("Resolve");
+          break;
+        case CollisionFlag::SkipResolution:
+          ImGui::Text("Skip Resolution");
+          break;
+        case CollisionFlag::SkipDetecting:
+          ImGui::Text("Skip Detection");
+          break;
+      }
+
+      if (ImGui::Button("Resolve"))
+      {
+        Selection->CollisionFlag = CollisionFlag::Resolve;
+      }
+      ImGui::SameLine();
+      if (ImGui::Button("Skip Resolution"))
+      {
+        Selection->CollisionFlag = CollisionFlag::SkipResolution;
+      }
+      ImGui::SameLine();
+      if (ImGui::Button("Skip Detection"))
+      {
+        Selection->CollisionFlag = CollisionFlag::SkipDetecting;
+      }
+
+      
+      ImGui::Text("Collision Started Event:");
+
+      ImGui::SameLine();
+
+      switch (Selection->CollisionStartBlock.SendEventsToA)
+      {
+      case true:
+        ImGui::Text("True");
+        break;
+      case false:
+        ImGui::Text("False");
+        break;
+      }
+
+      if (ImGui::Button("Resolve"))
+      {
+        Selection->CollisionFlag = CollisionFlag::Resolve;
+      }
+      ImGui::SameLine();
+      if (ImGui::Button("Skip Resolution"))
+      {
+        Selection->CollisionFlag = CollisionFlag::SkipResolution;
+      }
+      ImGui::SameLine();
+      if (ImGui::Button("Skip Detection"))
+      {
+        Selection->CollisionFlag = CollisionFlag::SkipDetecting;
       }
 
       ImGui::End();

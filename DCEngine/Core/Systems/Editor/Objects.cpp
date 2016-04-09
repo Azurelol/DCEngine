@@ -48,16 +48,8 @@ namespace DCEngine {
       for (auto& object : *objects) {
         ImGui::PushID(objID++);
         auto objectName = object->Name().c_str();   
-        // If the user has selected the GameObject.
-        //if (ImGui::Selectable(objectName)) {
-        //auto selectedObject = SelectedObject();
-        //static unsigned selectedObjectID = 0;
-        //if (selectedObject)
-        //  selectedObjectID = selectedObject->getObjectID();
-        //unsigned objectID = object->getObjectID();
-        //if (ImGui::Selectable(objectName, selectedObjectID == objectID)) {
 
-
+        // If the object was found among one of those selected..
         if (ImGui::Selectable(objectName, SelectedObject() && SelectedObject()->getObjectID() == object->getObjectID())) {
           SelectObject(object);
           Windows.PropertiesEnabled = true;

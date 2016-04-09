@@ -47,7 +47,7 @@ namespace DCEngine {
 
       // Draw the bounding rectangle
       CurrentSpace->getComponent<Components::GraphicsSpace>()->DrawRectangle(Selection.MultiSelectMidpoint,
-        Selection.MultiSelectArea.x, Selection.MultiSelectArea.y, Selection.MultiSelectColor);
+        Selection.MultiSelectArea.x, Selection.MultiSelectArea.y, Selection.MultiSelectColor, true);
     }
 
     /**************************************************************************/

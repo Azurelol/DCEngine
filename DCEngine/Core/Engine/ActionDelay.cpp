@@ -26,7 +26,7 @@ namespace DCEngine {
   @param dt The duration for this delay action.
   */
   /**************************************************************************/
-  ActionDelay::ActionDelay(ActionSetPtr set, Real duration)
+  ActionDelay::ActionDelay(ActionSetPtr set, Real duration) : Action("ActionDelay")
   {
     if (DCE_TRACE_ACTIONS_CTOR)
       DCTrace << "ActionDelay::ActionDelay: Constructed! \n";
@@ -43,19 +43,27 @@ namespace DCEngine {
   /**************************************************************************/
   float ActionDelay::Update(float dt)
   {
-    if (IsFinished)
-      return 0.0f;
-
-    auto timeLeft = Duration - Elapsed;
+    //if (this->IsFinished)
+    //  return 0.0f;
+    
     Elapsed += dt;
+    auto timeLeft = Duration - Elapsed;
     if (Elapsed >= Duration) {
       if (DCE_TRACE_ACTIONS_UPDATE)
         DCTrace << "ActionDelay::Update: Finished! \n";
       IsFinished = true;
-    } else if (DCE_TRACE_ACTIONS_UPDATE)
+    } 
+    else if (DCE_TRACE_ACTIONS_UPDATE)
       DCTrace << "ActionDelay::Update: dt = '" << dt << "', timeLeft = '" << timeLeft << "' \n";
 
-    return std::max(0.0f, dt - timeLeft);
+    // Return the time consumed from this action. 
+    auto timeConsumed = 0.0f;
+    if (timeLeft < dt)
+      timeConsumed = dt;
+    else
+      timeConsumed = timeLeft;
+
+    return timeConsumed;
   }
 
 }

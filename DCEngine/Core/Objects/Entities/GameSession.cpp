@@ -16,6 +16,11 @@
 
 namespace DCEngine {
 
+  /**************************************************************************/
+  /*!
+  \brief GameSession constructor.
+  */
+  /**************************************************************************/
   GameSession::GameSession(std::string name) : Entity(name) {
     if (TRACE_ON && TRACE_CONSTRUCTOR)
       DCTrace << ObjectName << "::GameSession - Constructor\n";

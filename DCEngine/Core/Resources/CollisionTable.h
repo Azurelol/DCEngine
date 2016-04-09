@@ -79,17 +79,18 @@ namespace DCEngine {
 
     bool AddGroup(CollisionGroup group);
     bool AddGroup(std::string group);
-    std::vector<CollisionGroup> const &GetGroups(void) const;
-    std::vector<CollisionFilter> const &GetPairs(void) const;
-    CollisionFilter &GetFilter(std::string const &group1, std::string const &group2);
+    std::vector<CollisionGroup> &GetGroups(void);
+    std::vector<CollisionFilter> &GetPairs(void);
+    void ScanForGroups(void);
+    const CollisionFilter &GetFilter(std::string const &group1, std::string const &group2);
     bool SetResolve(std::string const &group1, std::string const &group2, CollisionFlag state);
-    CollisionFlag &GetResolve(std::string const &group1, std::string const &group2);
+    const CollisionFlag &GetResolve(std::string const &group1, std::string const &group2);
     bool SetStartBlock(std::string const &group1, std::string const &group2, CollisionBlock state);
-    CollisionBlock &GetStartBlock(std::string const &group1, std::string const &group2);
+    const CollisionBlock &GetStartBlock(std::string const &group1, std::string const &group2);
     bool SetEndBlock(std::string const &group1, std::string const &group2, CollisionBlock state);
-    CollisionBlock &GetEndBlock(std::string const &group1, std::string const &group2);
+    const CollisionBlock &GetEndBlock(std::string const &group1, std::string const &group2);
     bool SetPreSolveBlock(std::string const &group1, std::string const &group2, CollisionBlock state);
-    CollisionBlock &GetPreSolveBlock(std::string const &group1, std::string const &group2);
+    const CollisionBlock &GetPreSolveBlock(std::string const &group1, std::string const &group2);
 
     CollisionTable &operator=(const CollisionTable & rhs);
 

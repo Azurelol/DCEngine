@@ -109,9 +109,11 @@ namespace DCEngine {
       Windows.PropertiesEnabled = true;
       
       // Save its boundaries
-      Selection.SelectedBoundingCenter = obj->getComponent<Components::Transform>()->getTranslation();
-      Selection.SelectedBoundingWidth = obj->getComponent<Components::Transform>()->getScale().x;
-      Selection.SelectedBoundingHeight = obj->getComponent<Components::Transform>()->getScale().y;
+      if (obj->HasComponent("Transform")) {
+        Selection.SelectedBoundingCenter = obj->getComponent<Components::Transform>()->getTranslation();
+        Selection.SelectedBoundingWidth = obj->getComponent<Components::Transform>()->getScale().x;
+        Selection.SelectedBoundingHeight = obj->getComponent<Components::Transform>()->getScale().y;
+      }
 
       Select(obj);      
       if (EditorCamera && Settings.TransformTool_IsComponent)
@@ -158,6 +160,45 @@ namespace DCEngine {
     {
       SelectedObjects.clear();
       SelectedObjects.push_back(object);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Adds or removes the selected object depending on whether
+            it is already being selected or not.
+    @param gameObject A pointer to the GameObject.
+    */
+    /**************************************************************************/
+    void Editor::SelectionAddOrRemoveToMultiple(GameObjectPtr gameObject)
+    {
+      // If the object is already selected, deselect
+      if (IsSelected(gameObject)) {
+        auto objectPos = std::find(SelectedObjects.begin(), SelectedObjects.end(), 
+                                   dynamic_cast<ObjectPtr>(gameObject));
+        // If the object was found, deselect it
+        if (*objectPos) {
+          auto back = SelectedObjects.end() - 1; // Because end returns 1 past
+          // If it's not the last element already
+          if (objectPos != back)
+            std::iter_swap(objectPos, back);
+          SelectedObjects.pop_back();
+          return;
+        }
+      }
+
+      // If the object was not found, add it
+      SelectedObjects.push_back(dynamic_cast<ObjectPtr>(gameObject));
+
+
+      //// Look for the object among the SelectedObjects
+      //for (auto& object : SelectedObjects) {
+      //  // If the object was found..
+      //  if (object->getObjectID() == gameObject->getObjectID()) {
+      //    std::swap(object, )
+      //  }
+      //}
+
+
     }
 
     /**************************************************************************/

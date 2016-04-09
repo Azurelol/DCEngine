@@ -13,6 +13,7 @@
 #pragma once
 #include <FMOD\fmod.hpp>
 #include <FMOD\fmod_errors.h>
+#include <FMOD/fmod_studio.hpp>
 
 namespace DCEngine {
   
@@ -22,8 +23,9 @@ namespace DCEngine {
 
     FMOD::Channel* Channel;
     FMOD::Sound* Handle;
+    FMOD::Studio::EventInstance* EventInstance;
 
-    FMODSoundHandle() {}
+    FMODSoundHandle() : Channel(nullptr), Handle(nullptr), EventInstance(nullptr) {}
     FMOD::Sound* operator->() { return Handle; }
     // What do these do, again? 
     //FMODSoundHandle(FMODSoundHandle&&) = default;

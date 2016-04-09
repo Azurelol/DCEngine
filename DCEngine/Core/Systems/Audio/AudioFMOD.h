@@ -25,6 +25,7 @@
 // Headers
 #include "AudioFMOD_Utilities.h"
 #include "..\..\..\Core\Debug\Debug.h"
+#include "..\..\Resources\SoundInstance.h"
 
 namespace DCEngine {
   namespace Systems {
@@ -39,11 +40,15 @@ namespace DCEngine {
       // Playback
       bool PlaySound(FMOD::Sound* soundPtr, FMOD::Channel** channel, PlaybackSettings& settings);
       bool PlaySound(EventDescriptionHandle& eventHandle, PlaybackSettings& settings);
+      bool PlaySound(EventDescriptionHandle& eventHandle, FMOD::Studio::EventInstance** instance, PlaybackSettings& settings);
       void ResumeSound(FMOD::Channel* channel);
       void ResumeSound(EventDescriptionHandle& eventHandle);
+      void ResumeSound(FMOD::Studio::EventInstance& eventInstance);
       void PauseSound(FMOD::Channel* channel);
       void PauseSound(EventDescriptionHandle& eventHandle);
+      void PauseSound(FMOD::Studio::EventInstance& eventHandle);
       void StopSound(FMOD::Channel* channel);
+      void StopSound(FMOD::Studio::EventInstance* instance);
       void StopSound(EventDescriptionHandle& eventHandle);
       void StopAll();
       void SetVolume(FMOD::Channel* soundPtr, float volume);
