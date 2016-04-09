@@ -45,7 +45,7 @@ int main(int argc, char* argv[]) {
   }
   catch (Debug::Exception exception) 
   {
-    ImGui::SetNextWindowSize(ImVec2(150, 150), ImGuiSetCond_FirstUseEver);
+   /* ImGui::SetNextWindowSize(ImVec2(150, 150), ImGuiSetCond_FirstUseEver);
     ImGui::Begin("ExceptionWindow");
     ImGui::OpenPopup("Exception");
     if (ImGui::BeginPopupModal("Exception")) {
@@ -56,7 +56,7 @@ int main(int argc, char* argv[]) {
       }
     }
     ImGui::EndPopup();
-    ImGui::End();
+    ImGui::End();*/
 
 
     DCTrace << exception << "\n";

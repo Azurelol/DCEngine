@@ -77,7 +77,11 @@ namespace DCEngine {
       auto progressText = resources.LastLoaded + " - [" + std::to_string(resources.NumLoaded) + "/" 
                           + std::to_string(resources.NumTotal) + "]";
       TextProgress->setText(progressText);
+
       // Rotate the animation object
+      //static auto rotFactor = 20;
+      //auto currentRotation = AnimationObj->getComponent<Transform>()->getRotation();
+      //AnimationObj->getComponent<Transform>()->setRotation(Vec3(0, -0, currentRotation.z * 1 + dt * rotFactor));
 
     }
 
@@ -93,22 +97,23 @@ namespace DCEngine {
       //-----------------------------------------------------------------------//
       // Title Text
       ProjectTitleObj = SpaceRef->CreateObject();
-      ProjectTitleObj->getComponent<Transform>()->setTranslation(Vec3(-10, 25, 0));
+      ProjectTitleObj->getComponent<Transform>()->setTranslation(Vec3(0, 25, 0));
       ProjectTitleText = dynamic_cast<SpriteText*>(ProjectTitleObj->AddComponentByName("SpriteText"));
       ProjectTitleText->setText("Loading 'Rebound'");
-      ProjectTitleText->setFontSize(2);
+      ProjectTitleText->setFontSize(30);
       // Progress Text
       TextProgressObj = SpaceRef->CreateObject();
-      ProjectTitleObj->getComponent<Transform>()->setTranslation(Vec3(-10, -5, 0));
+      TextProgressObj->getComponent<Transform>()->setTranslation(Vec3(-10, -5, 0));
       TextProgress = dynamic_cast<SpriteText*>(TextProgressObj->AddComponentByName("SpriteText"));
-      TextProgress->setFontSize(1);
+      TextProgress->setFontSize(12);
       // Progress Bar
 
       // Animation Object
       //AnimationObj = SpaceRef->CreateObject();
-      //AnimationObj->getComponent<Transform>()->setTranslation(Vec3(15, -20, 0));
+      //AnimationObj->getComponent<Transform>()->setTranslation(Vec3(25, -20, 0));
+      //AnimationObj->getComponent<Transform>()->setScale(Vec3(25, 25, 0));
       //auto animationObjSprite = dynamic_cast<Sprite*>(AnimationObj->AddComponentByName("Sprite"));
-      //animationObjSprite->setSpriteSource("")
+      //animationObjSprite->setSpriteSource("Jotaro");
     }
 
   }
