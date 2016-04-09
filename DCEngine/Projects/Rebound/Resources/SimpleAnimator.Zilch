@@ -82,6 +82,11 @@ class SimpleAnimator : ZilchComponent
         this.TimesMoved = 0;
         this.AnimStep = 0;
 
+        if(this.MoveSpeed + this.FadeSpeed + this.ScaleSpeed <= 0.1)
+        {
+        	this.LoopSystem = false;
+        }
+
         if(this.AnimateOnInitialize)
         {
             var masterSeq = Actions.Sequence(this.Owner.Actions);

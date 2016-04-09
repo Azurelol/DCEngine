@@ -1,0 +1,87 @@
+class EnemySpawner : ZilchComponent
+{
+	[Property]
+	var Scrapper : Boolean = false;
+	
+	[Property]
+	var Lancer : Boolean = false;
+	
+	[Property]
+	var Shield : Boolean = false;
+  
+  [Property]
+  var SpawnMinDist : Real = 0;
+  
+  [Property]
+  var SpawnMaxDist : Real = 0;
+  
+  [Property]
+  var SpawnTime : Real = 0;
+  
+  var CurrentTime : Real = 0;
+  
+  var SpawnNumber : Integer = 0;
+	
+    function Initialize()
+    {
+      Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+      if(this.Scrapper)
+      {
+        this.SpawnNumber += 1;
+      }
+      
+      if(this.Lancer)
+      {
+        this.SpawnNumber += 1;
+      }
+      
+      if(this.Shield)
+      {
+        this.SpawnNumber += 1;
+      }
+    }
+
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+      //Scrapper Sentinal Lancer
+      this.CurrentTime += event.Dt;
+      var randomGenerator : Random = Random();
+      var spawnPosition = this.Owner.Transform.Translation + Real3(randomGenerator.Range(this.SpawnMinDist, this.SpawnMaxDist),0,0);
+      
+      if(this.CurrentTime >= this.SpawnTime && this.SpawnTime != 0)
+      {
+        // spawn shit
+        
+        while(true)
+        {
+          var selection = randomGenerator.DieRoll(3);
+          
+          if(selection == 1 && this.Scrapper)
+          {
+            var obj = this.Space.CreateObject("Scrapper");
+            
+            obj.Transform.Translation = spawnPosition;
+            
+            break;
+          }
+          
+          if(selection == 2 && this.Lancer)
+          {
+            var obj = this.Space.CreateObject("Lancer");
+            
+            obj.Transform.Translation = spawnPosition;
+            break;
+          }
+          
+          if(selection == 3 && this.Shield)
+          {
+            var obj = this.Space.CreateObject("Shield");
+            
+            obj.Transform.Translation = spawnPosition;
+            break;
+          }
+        }
+      }
+      
+    }
+}
