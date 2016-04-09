@@ -79,7 +79,7 @@ namespace DCEngine {
 		void Window::OnWindowRecreateEvent(Events::WindowRecreate * event)
 		{
 			DCTrace << "Window::OnWindowResizeEvent - \n";
-			//WindowHandler->resizeWindow(event->Dimensions.x, event->Dimensions.y);
+			WindowHandler->recreateWindow();
 		}
 
     void Window::OnEngineExitEvent(Events::EngineExit * event)

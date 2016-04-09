@@ -60,11 +60,14 @@ namespace DCEngine {
 		void WindowSFML::resizeWindow(float x, float y)
 		{
 			WindowContext->setSize(sf::Vector2u(unsigned(x), unsigned(y)));
-			//WindowContext->setActive();
-			////Daisy->getSystem<Graphics>()->GraphicsHandler->FreeFBO();
-			////Daisy->getSystem<Graphics>()->GraphicsHandler->Initialize();
-			//Daisy->getSystem<Graphics>()->RestoreState();
-			//Daisy->getSystem<GUI>()->ReloadVAO();
+		}
+
+		void WindowSFML::recreateWindow(void)
+		{
+			ContextSettings.antialiasingLevel = WindowInterface.Settings.Samples;
+			WindowContext->create(sf::VideoMode(
+				WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
+				WindowInterface.Caption, sf::Style::Titlebar | sf::Style::Close, ContextSettings);
 		}
 
     /**************************************************************************/
@@ -88,8 +91,9 @@ namespace DCEngine {
       case WindowMode::Default:
         WindowInterface.Settings.ScreenWidth = widthRecord;
         WindowInterface.Settings.ScreenHeight = heightRecord;
-        WindowContext->create(sf::VideoMode(WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
-          WindowInterface.Caption, sf::Style::Default, ContextSettings);
+        WindowContext->create(sf::VideoMode(
+					WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
+          WindowInterface.Caption, sf::Style::Titlebar | sf::Style::Close, ContextSettings);
         DispatchSystemEvents::WindowFullScreenDisabled();
         break;
       case WindowMode::Fullscreen:
@@ -97,7 +101,8 @@ namespace DCEngine {
         heightRecord = WindowInterface.Settings.ScreenHeight;
         WindowInterface.Settings.ScreenWidth = sf::VideoMode::getDesktopMode().width;
         WindowInterface.Settings.ScreenHeight = sf::VideoMode::getDesktopMode().height;
-        WindowContext->create(sf::VideoMode(WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
+        WindowContext->create(sf::VideoMode(
+					WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
           WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
         DispatchSystemEvents::WindowFullScreenEnabled();
         break;
@@ -138,7 +143,8 @@ namespace DCEngine {
       }
       // Or if it starts as windowed
       else {
-        WindowContext.reset(new sf::Window(sf::VideoMode(WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
+        WindowContext.reset(new sf::Window(sf::VideoMode(
+					WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
           WindowInterface.Caption, sf::Style::Titlebar | sf::Style::Close, ContextSettings));
         Mode = WindowMode::Default;
         DispatchSystemEvents::WindowFullScreenDisabled();
