@@ -12,6 +12,7 @@
 #include "../../../CoreComponents.h"
 
 #define POSTEVENT(name) SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(name)
+#define DEFAULT_TIMER 0.5
 
 namespace DCEngine {
   namespace Components {
@@ -71,10 +72,24 @@ namespace DCEngine {
       player = SpaceRef->FindObjectByName(PlayerName);
 
       shield = gameObj->Children().front()->getComponent<LancerShield>();
+
+      timer = 0.0;
+      cooldown = DEFAULT_TIMER;
+      canPlay = true;
     }
 
     void Lancer::OnLogicUpdateEvent(Events::LogicUpdate * event)
     {
+      if (canPlay == false)
+      {
+        timer += event->Dt;
+        if (cooldown <= timer)
+        {
+          canPlay = true;
+          timer = 0.0;
+        }
+      }
+
       stateMachine->Update();
     }
 
@@ -86,7 +101,7 @@ namespace DCEngine {
       }
       else if (event->OtherObject->getComponent<PlayerController>() != NULL)
       {
-        POSTEVENT(AttackSound);
+        PlayAttackSound();
       }
     }
 
@@ -107,12 +122,12 @@ namespace DCEngine {
 
       if (health == 0)
       {
-        POSTEVENT(DeathSound);
+        PlayDeathSound();
         stateMachine->ChangeState(Die::Instance());
       }
       else
       {
-        POSTEVENT(TakeDamageSound);
+        PlayDamagedSound();
       }
 
 
@@ -123,6 +138,32 @@ namespace DCEngine {
     }
 
 
+    void Lancer::PlayAttackSound(void)
+    {
+      if (canPlay == true)
+      {
+        POSTEVENT(AttackSound);
+        canPlay = false;
+      }
+    }
+
+    void Lancer::PlayDamagedSound(void)
+    {
+      if (canPlay == true)
+      {
+        POSTEVENT(TakeDamageSound);
+        canPlay = false;
+      }
+    }
+
+    void Lancer::PlayDeathSound(void)
+    {
+      if (canPlay == true)
+      {
+        POSTEVENT(DeathSound);
+        canPlay = false;
+      }
+    }
 
 
 #pragma region Global State

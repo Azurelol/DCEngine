@@ -12,7 +12,7 @@
 #include "../../../CoreComponents.h"
 
 #define POSTEVENT(name) SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(name)
-
+#define DEFAULT_TIMER 0.5
 
 namespace DCEngine {
   namespace Components {
@@ -80,10 +80,24 @@ namespace DCEngine {
       isBashing = false;
       canBash = true;
       CreateShield();
+
+      timer = 0.0;
+      cooldown = DEFAULT_TIMER;
+      canPlay = true;
     }
 
     void Sentinel::OnLogicUpdateEvent(Events::LogicUpdate * event)
     {
+      if (canPlay == false)
+      {
+        timer += event->Dt;
+        if (cooldown <= timer)
+        {
+          canPlay = true;
+          timer = 0.0;
+        }
+      }
+
       stateMachine->Update();
       dt = event->Dt;
 
@@ -102,7 +116,7 @@ namespace DCEngine {
       }
       else if (event->OtherObject->getComponent<PlayerController>() != NULL)
       {
-        POSTEVENT(AttackSound);
+        PlayAttackSound();
       }
     }
 
@@ -134,6 +148,34 @@ namespace DCEngine {
         return false;
       else
         return true;
+    }
+
+
+    void Sentinel::PlayAttackSound(void)
+    {
+      if (canPlay == true)
+      {
+        POSTEVENT(AttackSound);
+        canPlay = false;
+      }
+    }
+
+    void Sentinel::PlayDamagedSound(void)
+    {
+      if (canPlay == true)
+      {
+        POSTEVENT(TakeDamageSound);
+        canPlay = false;
+      }
+    }
+
+    void Sentinel::PlayDeathSound(void)
+    {
+      if (canPlay == true)
+      {
+        POSTEVENT(DeathSound);
+        canPlay = false;
+      }
     }
 
     void Sentinel::CreateShield()
@@ -175,6 +217,8 @@ namespace DCEngine {
 
       Vec3 playerDirection = glm::normalize(playerPosition - thisPosition);
       
+      POSTEVENT(AttackSound);
+
       ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
       Actions::Property(seq, isBashing, true, 0.0f, Ease::Linear);
       Actions::Property(seq, canBash, false, 0.0f, Ease::Linear);

@@ -68,6 +68,10 @@ namespace DCEngine {
       GameObject* TrailRef;
       String PlayerName = "Player";
 
+      double timer;
+      double cooldown;
+      bool canPlay;
+
       DCE_DEFINE_PROPERTY(String, PlayerName);
       //DCE_DEFINE_PROPERTY(Boolean, Translation);
       DCE_DEFINE_PROPERTY(Real, MoveSpeed);
@@ -119,6 +123,7 @@ namespace DCEngine {
       void SoundFreeze(void);
       void SoundCommand(void);
       void SoundCollide(void);
+      void SoundCollideWithSentinelShield(void);
 
       String FreezeSound  = "BallFreeze";
       String CommandSound = "BallCommand";

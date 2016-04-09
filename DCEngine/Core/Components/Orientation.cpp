@@ -70,7 +70,7 @@ namespace DCEngine
 
       // convert to degrees first
 
-      DeltaRot = DeltaRot * 180.0f / 3.14159265359;
+      DeltaRot = static_cast<float>(DeltaRot * 180.0f / 3.14159265359);
 
       this->Owner()->getComponent<Components::Transform>()->Rotation.z -= DeltaRot;
 

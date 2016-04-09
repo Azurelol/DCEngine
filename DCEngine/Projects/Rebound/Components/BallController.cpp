@@ -12,6 +12,7 @@
 #include "../../CoreComponents.h"
 #include "../../../Core/Engine/SteeringBehaviors.h"
 
+#define SENTINEL_SHIELD_ID 67
 
 namespace DCEngine {
 
@@ -81,6 +82,9 @@ namespace DCEngine {
       RigidBodyRef->setRestitution(Restitution);
       RigidBodyRef->setFriction(Friction);
       //CollisionTableRef->SetResolve("Ball", "Player", CollisionFlag::SkipResolution);
+      timer = 0.0;
+      cooldown = .5;
+      canPlay = true;
     }
 
     void BallController::OnMouseDownEvent(Events::MouseDown * event)
@@ -207,8 +211,15 @@ namespace DCEngine {
         }
       }
 
+      //DCTrace << "Ball colliding with " << event->OtherObject->getObjectName() << " id " << event->OtherObject->getObjectID() << "\n";
+
       // If collides with any type of enemy
-      if ( (hitPlayer == false) && (hitTerrain == false) )
+      //if ( event->OtherObject->getObjectID() == SENTINEL_SHIELD_ID )
+      if ( event->OtherObject->getObjectName().compare("Sentinel Shield") )
+      {
+        SoundCollideWithSentinelShield();
+      }
+      else if ( (hitPlayer == false) && (hitTerrain == false) )
       {
         SoundCollide();
       }
@@ -230,6 +241,16 @@ namespace DCEngine {
 
     void BallController::OnLogicUpdateEvent(Events::LogicUpdate * event)
     {
+      if (canPlay == false)
+      {
+        timer += event->Dt;
+        if (cooldown <= timer)
+        {
+          canPlay = true;
+          timer = 0.0;
+        }
+      }
+
       //DCTrace << "BallController::Init- trail is at" << TrailRef->getComponent<Components::Transform>()->getTranslation().x << ", " << TrailRef->getComponent<Components::Transform>()->getTranslation().y << "\n";
       //DCTrace << "BallController::Init- ball is at" << TransformRef->getTranslation().x << ", " << TransformRef->getTranslation().y << "\n";
       if (gameObj->Parent() != nullptr)
@@ -445,9 +466,17 @@ namespace DCEngine {
 
     void BallController::SoundCollide(void)
     {
-      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CollideSound);
+      if (canPlay == true)
+      {
+        SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CollideSound);
+        canPlay = false;
+      }
     }
 
+    void BallController::SoundCollideWithSentinelShield(void)
+    {
+      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CollideSound);
+    }
   }
 }
 

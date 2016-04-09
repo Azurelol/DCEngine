@@ -78,14 +78,18 @@ namespace DCEngine {
     {
       return;
       for (auto& instance : ActiveSoundInstances) {
-        //SoundInstance::Dereference(instance)->Stop();
+        SoundInstance::Dereference(instance)->ForceStop();
         instance.Delete();
       }
       for (auto& instance : ActiveSoundInstancePtrs) {
-        //if (instance)
-        //  instance->Stop();
-        delete instance.get();
+        if (instance) 
+          instance->ForceStop();
+
+        // If we're clearing all instances of the object, then there should be no issue of another object trying to use it int he future.
+        instance.reset();
+        //delete instance.get();
       }
+
       ActiveSoundInstances.clear();
       ActiveSoundInstancePtrs.clear();
     }

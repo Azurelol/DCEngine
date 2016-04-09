@@ -124,7 +124,7 @@ namespace DCEngine {
     : ActionBaseProperty(set, duration, ease), Property(prop), InitialValue(prop), EndValue(value)
   {
     // Calculate the difference
-    Difference = EndValue - InitialValue;
+    Difference = static_cast<DCEngine::Real>(EndValue - InitialValue);
   }
 
   /**************************************************************************/
@@ -153,7 +153,7 @@ namespace DCEngine {
     // If there is time left...
     else {
       timeConsumed = timeLeft;
-      Property = std::ceil(currVal);
+      Property = static_cast<DCEngine::Integer>(std::ceil(currVal));
     }
 
     return timeConsumed;
@@ -176,7 +176,7 @@ namespace DCEngine {
     call.Invoke(Report);
     InitialValue = call.Get<DCEngine::Boolean>(Zilch::Call::Return);
     // Calculate the difference
-    Difference = EndValue - InitialValue;
+    Difference = static_cast<DCEngine::Real>(EndValue - InitialValue);
   }
 
   /**************************************************************************/

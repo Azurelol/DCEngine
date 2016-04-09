@@ -87,11 +87,19 @@ namespace DCEngine {
       String TakeDamageSound;
       String HitBallSound;
 
+      double timer;
+      double cooldown;
+      bool canPlay;
+
       void CreateShield();
       void UpdateShield();
       void ShieldBash();
       bool ModifyHealth(int amount);
      
+      void PlayAttackSound(void);
+      void PlayDamagedSound(void);
+      void PlayDeathSound(void);
+
       class Global : public IState<Sentinel>
       {
       public:

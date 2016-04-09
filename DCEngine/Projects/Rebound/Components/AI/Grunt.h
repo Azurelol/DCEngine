@@ -96,8 +96,16 @@ namespace DCEngine {
       String DeathSound;
       String TakeDamageSound;
 
+      double timer;
+      double cooldown;
+      bool canPlay;
+
       bool ModifyHealth(int amount);
       void Jump(int direction, float period, float strengthX, float strengthY);
+
+      void PlayAttackSound(void);
+      void PlayDamagedSound(void);
+      void PlayDeathSound(void);
 
       class Global : public IState<Grunt>
       {

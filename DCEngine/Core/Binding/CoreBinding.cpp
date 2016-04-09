@@ -161,6 +161,7 @@ namespace DCEngine {
     // Setup extension properties for Entity
     auto interface = Systems::ZilchInterface::Get();
     auto& boundTypes = builder.BoundTypes.values();
+    //auto boundTypes = builder.BoundTypes.values();
     while (!boundTypes.empty()) {
       interface.SetupTypeProperty(boundTypes.front(), ZilchTypeId(Component), ZilchTypeId(Entity), boundTypes.front(),
                                   &builder, Systems::GetNativeComponent);

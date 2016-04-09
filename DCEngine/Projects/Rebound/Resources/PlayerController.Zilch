@@ -24,7 +24,17 @@ class ZPlayerController : ZilchComponent
     var RunAnimation : String = "Char_Asha_Run_Spritesheet";
     [Property]
     var AutoPlayTimer : Real = 2.0;
-    
+	[Property]
+	var JumpSound : String = "Jump";
+	[Property]
+	var LandSound : String = "Land";
+	[Property]
+	var TakeDamageSound : String = "Collide";
+    [Property]
+	var FootstepSound : String = "Step";
+	[Property]
+	var FootstepSoundEnabled : Boolean = false;
+	
 	var Grounded : Boolean = true;
 	var Jumping : Boolean = false;
 	var Invincible : Boolean = false;
@@ -44,8 +54,6 @@ class ZPlayerController : ZilchComponent
     var ColliderRef : BoxCollider = null;
 
 	var SpriteComponent : Sprite = null;
-	var FootstepSound : String = "";
-	var FootstepSoundEnabled : Boolean = false;
 	
     function Initialize()
     {

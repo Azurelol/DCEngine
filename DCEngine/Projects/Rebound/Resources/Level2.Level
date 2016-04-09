@@ -124,6 +124,7 @@
             "StandAnimation": "Char_Asha_Idle_Spritesheet", 
             "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
             "RunAnimation": "Char_Asha_Run_Spritesheet", 
+            "FallAnimation": "Char_Asha_Fall_Spritesheet", 
             "AutoPlayTimer": 2.000000, 
             "TeleportStartSound": "Teleport", 
             "TeleportArriveSound": "TeleportArrive", 
@@ -1998,7 +1999,8 @@
                 "w": 1.000000
               }
             }, 
-            "TargetName": "Gate1"
+            "TargetName": "Gate1", 
+            "SwitchSound": ""
           }
         }, 
         "Children": 
@@ -4040,7 +4042,8 @@
               }
             }, 
             "Additive": true, 
-            "Lock": false
+            "Lock": false, 
+            "DrawLayer": 4
           }, 
           "ParticleEmitter": 
           {
@@ -5290,7 +5293,8 @@
                 "w": 1.000000
               }
             }, 
-            "TargetName": "Gate1"
+            "TargetName": "Gate1", 
+            "SwitchSound": ""
           }
         }, 
         "Children": 
@@ -5402,7 +5406,8 @@
                 "w": 1.000000
               }
             }, 
-            "TargetName": "Shield1"
+            "TargetName": "Shield1", 
+            "SwitchSound": ""
           }
         }, 
         "Children": 
@@ -5514,7 +5519,8 @@
                 "w": 1.000000
               }
             }, 
-            "TargetName": "Shield2"
+            "TargetName": "Shield2", 
+            "SwitchSound": ""
           }
         }, 
         "Children": 
@@ -5888,7 +5894,8 @@
                 "w": 1.000000
               }
             }, 
-            "TargetName": "Shield2"
+            "TargetName": "Shield2", 
+            "SwitchSound": ""
           }
         }, 
         "Children": 
@@ -8406,7 +8413,8 @@
                 "w": 1.000000
               }
             }, 
-            "TargetName": "Door1"
+            "TargetName": "Door1", 
+            "SwitchSound": ""
           }
         }, 
         "Children": 

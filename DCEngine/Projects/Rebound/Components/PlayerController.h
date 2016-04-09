@@ -19,7 +19,7 @@ namespace DCEngine {
     class Sprite;
     class Transform;
     class RigidBody;
-	class BoxCollider;
+	  class BoxCollider;
     class PlayerController : public Component {
 
     public:
@@ -47,22 +47,22 @@ namespace DCEngine {
       String StandAnimation = "Char_Asha_Idle_Spritesheet";
       String JumpAnimation = "Char_Asha_Jump_Spritesheet";
       String RunAnimation = "Char_Asha_Run_Spritesheet";
-	  String FallAnimation = "Char_Asha_Fall_Spritesheet";
+	    String FallAnimation = "Char_Asha_Fall_Spritesheet";
 	  
       String TeleportStartSound = "Teleport";
       String TeleportArriveSound = "TeleportArrive";
       String FootstepSound = "Step";
       String JumpSound = "Jump";
       String LandSound = "Land";
-      String CollideSound = "Collide";
+      String CollideSound = "HitShield";
 
       Transform* TransformRef;
       RigidBody* RigidBodyRef;
       BoxCollider* ColliderRef;
-	  GameObject* BallRef;
+	    GameObject* BallRef;
 
       DCE_DEFINE_PROPERTY(Real, MoveSpeed);
-	  DCE_DEFINE_PROPERTY(Real, VelocityXCap);
+	    DCE_DEFINE_PROPERTY(Real, VelocityXCap);
       DCE_DEFINE_PROPERTY(Real, JumpPower);
       DCE_DEFINE_PROPERTY(Real, JumpFrames);
       DCE_DEFINE_PROPERTY(Real, Health);
@@ -73,13 +73,13 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(String, StandAnimation);
       DCE_DEFINE_PROPERTY(String, JumpAnimation);
       DCE_DEFINE_PROPERTY(String, RunAnimation);
-	  DCE_DEFINE_PROPERTY(String, FallAnimation);
+	    DCE_DEFINE_PROPERTY(String, FallAnimation);
       DCE_DEFINE_PROPERTY(String, TeleportStartSound);
       DCE_DEFINE_PROPERTY(String, TeleportArriveSound);
       DCE_DEFINE_PROPERTY(String, JumpSound);
       DCE_DEFINE_PROPERTY(String, LandSound);
       DCE_DEFINE_PROPERTY(String, FootstepSound);
-	  DCE_DEFINE_PROPERTY(String, CollideSound);
+	    DCE_DEFINE_PROPERTY(String, CollideSound);
 
 
       PlayerController(Entity& owner) : Component(std::string("PlayerController"), owner) {}
@@ -95,7 +95,7 @@ namespace DCEngine {
       void Jump();
       void TakeDamage(int damage);
       void Die();
-	  Boolean CheckForGround();
+	    Boolean CheckForGround();
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
       ZilchDeclareDerivedType(PlayerController, Component);
 #endif
@@ -108,7 +108,13 @@ namespace DCEngine {
       void MoveLeft();
       void MoveRight();
       Boolean FootstepSoundEnabled = false;
-      void SoundFootstep(void);
+      
+      void PlaydFootstep(void);
+      void PlayLandSound(void);
+      void PlayJumpSound(void);
+      void PlayHitSound(void);
+      void PlayTeleportStartSound(void);
+      void PlayTeleportEndSound(void);
     };
   }
 

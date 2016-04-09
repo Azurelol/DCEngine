@@ -19,7 +19,7 @@ namespace DCEngine {
     ZilchDefineType(PlayerController, "PlayerController", Rebound, builder, type) {
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(PlayerController);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, MoveSpeed);
-	  DCE_BINDING_DEFINE_PROPERTY(PlayerController, VelocityXCap);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, VelocityXCap);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpPower);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpFrames);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, Health);
@@ -28,8 +28,8 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, DoAutoPlay);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, StandAnimation);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpAnimation);
-	  DCE_BINDING_DEFINE_PROPERTY(PlayerController, RunAnimation);
-	  DCE_BINDING_DEFINE_PROPERTY(PlayerController, FallAnimation);
+	    DCE_BINDING_DEFINE_PROPERTY(PlayerController, RunAnimation);
+	    DCE_BINDING_DEFINE_PROPERTY(PlayerController, FallAnimation);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, AutoPlayTimer);
 
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, TeleportStartSound);
@@ -66,8 +66,6 @@ namespace DCEngine {
       //ColliderRef->setCollisionGroup("Player");
       //RigidBodyRef->setGravity(false);
 
-
-      //SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("Dogma");
     }
 
     void PlayerController::OnMouseDownEvent(Events::MouseDown * event)
@@ -152,9 +150,7 @@ namespace DCEngine {
     {
       if (event->OtherObject->getComponent<Components::Transform>()->getTranslation().y + event->OtherObject->getComponent<Components::Transform>()->getScale().y / 2 < TransformRef->getTranslation().y)
       {
-        //Grounded = true;
-        // play landing sound.
-        SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(LandSound);
+        PlayLandSound();
         auto particle = SpaceRef->CreateObject("LandingParticle");
         if (particle)
         {
@@ -208,7 +204,7 @@ namespace DCEngine {
           Dead = false;
           this->SpaceRef->ReloadLevel();
     		  // Play teleport in sound.
-          SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(TeleportArriveSound);
+          PlayTeleportStartSound();
         }
         return;
       }
@@ -281,8 +277,8 @@ namespace DCEngine {
         if (Grounded)
         {
           SpriteComponent->SpriteSource = RunAnimation;
-		  SpriteComponent->AnimationActive = true;
-          SoundFootstep();
+		      SpriteComponent->AnimationActive = true;
+          PlaydFootstep();
         }
       }
       else if (Daisy->getKeyboard()->KeyIsDown(Keys::D))
@@ -294,8 +290,8 @@ namespace DCEngine {
         if (Grounded)
         {
           SpriteComponent->SpriteSource = RunAnimation;
-		  SpriteComponent->AnimationActive = true;
-          SoundFootstep();
+		      SpriteComponent->AnimationActive = true;
+          PlaydFootstep();
         }
       }
       else
@@ -328,9 +324,8 @@ namespace DCEngine {
 		    DCTrace << "PlayerController::Jump";
 	    }
   	  // play jump sound
-      //SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(JumpSound);
-      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(JumpSound);
-	  Grounded = false;
+      PlayJumpSound();
+  	  Grounded = false;
     }
 
     void PlayerController::TakeDamage(int damage)
@@ -343,7 +338,7 @@ namespace DCEngine {
       Health -= damage;
 
       // Play hurt sound.
-      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CollideSound);
+      PlayHitSound();
 
       if (PlayerControllerTraceOn)
       {
@@ -367,13 +362,12 @@ namespace DCEngine {
       SpriteComponent->Color = Vec4(0, 0, 0, 1);
       Dead = true;
       auto cameraRef = SpaceRef->FindObjectByName("Camera");
-      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("Death");
       if (cameraRef)
       {
         cameraRef->getComponent<Components::CameraController>()->DoScreenShake = true;
       }
       // play teleport start.
-      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(TeleportStartSound);
+      PlayTeleportEndSound();
     }
 
 
@@ -489,7 +483,7 @@ namespace DCEngine {
 		  ray.Direction = Vec3(0, -1, 0);
 		  ray.Origin = TransformRef->Translation + Vec3(TransformRef->Scale.x / 2.1, -TransformRef->Scale.y / 2.01, 0);
 		  auto result = physicsSpace->CastRay(ray, filter);
-		  DCTrace << "raydist1 = " << result.Distance << "\n";
+		  //DCTrace << "raydist1 = " << result.Distance << "\n";
 		  auto graphicsSpace = this->SpaceRef->getComponent<Components::GraphicsSpace>();
 		  graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0,-1,0), Vec4(1, 0, 0, 1));
 		  if (result.Distance < 0.02)
@@ -498,7 +492,7 @@ namespace DCEngine {
 		  }
 		  ray.Origin = TransformRef->Translation + Vec3(0, -TransformRef->Scale.y / 2.01, 0);
 		  result = physicsSpace->CastRay(ray, filter);
-		  DCTrace << "raydist2 = " << result.Distance << "\n";
+		  //DCTrace << "raydist2 = " << result.Distance << "\n";
 		  graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
 		  if (result.Distance < 0.02)
 		  {
@@ -506,7 +500,7 @@ namespace DCEngine {
 		  }
 		  ray.Origin = TransformRef->Translation + Vec3(-TransformRef->Scale.x / 2.1, -TransformRef->Scale.y / 2.01, 0);
 		  result = physicsSpace->CastRay(ray, filter);
-		  DCTrace << "raydist3 = " << result.Distance << "\n";
+		  //DCTrace << "raydist3 = " << result.Distance << "\n";
 		  graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
 		  if (result.Distance < 0.02)
 		  {
@@ -515,9 +509,36 @@ namespace DCEngine {
 		  return false;
 	  }
 
-    void PlayerController::SoundFootstep(void)
+    void PlayerController::PlaydFootstep(void)
     {
       //SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(FootstepSound);
     }
+
+    void PlayerController::PlayLandSound(void)
+    {
+      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(LandSound);
+    }
+
+    void PlayerController::PlayJumpSound(void)
+    {
+      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(JumpSound);
+    }
+
+    void PlayerController::PlayHitSound(void)
+    {
+      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CollideSound);
+    }
+
+    void PlayerController::PlayTeleportStartSound(void)
+    {
+      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(TeleportArriveSound);
+    }
+    
+
+    void PlayerController::PlayTeleportEndSound(void)
+    {
+      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(TeleportStartSound);
+    }
+
   }
 }
