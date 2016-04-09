@@ -1,0 +1,59 @@
+class StartGame : ZilchEvent
+{
+	sends StartGame : StartGame;
+}
+
+class GameStarter : ZilchComponent
+{
+	[Property]
+	var NGPanBy : Real2 = Real2(0,0);
+
+	[Property]
+	var NGPanTime : Real = 0.0;
+
+	[Property]
+	var NGEase : Ease = Ease.Linear;
+
+	[Property]
+	var LoadFadeEase : Ease = Ease.Linear;
+
+    function Initialize()
+    {
+        Daisy.Connect(this.Space, DaisyEvent.StartGame, this.OnStartGame);
+    }
+
+    function OnStartGame(event : StartGame)
+    {
+    	var startSeq = Actions.Sequence(this.Owner.Actions);
+    	Actions.Call(startSeq, this.StartPan);
+    	Actions.Call(startSeq, this.StartFade);
+    	Actions.Delay(startSeq, this.NGPanTime);
+    	Actions.Call(startSeq, this.LoadNew);
+    }
+
+    function StartPan()
+    {
+    	var ngPan = PanEvent();
+        ngPan.PanBy = this.NGPanBy;
+        ngPan.PanTime = this.NGPanTime;
+        ngPan.PanEase = this.NGEase;
+
+        this.Space.Dispatch(DaisyEvent.PanEvent, ngPan);
+    }
+
+    function StartFade()
+    {
+    	var ngFade = FadeEvent();
+    	ngFade.FadeTime = this.NGPanTime;
+    	ngFade.FadeEase = this.LoadFadeEase;
+
+    	this.Space.Dispatch(DaisyEvent.FadeEvent, ngFade);
+    }
+
+    function LoadNew()
+    {
+    	this.Space.LoadLevel("Level1");
+    }
+
+
+}
