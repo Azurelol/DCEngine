@@ -55,6 +55,7 @@ namespace DCEngine {
       Daisy->Connect<Events::WindowFullScreenToggle>(&Window::OnWindowFullScreenToggleEvent, this);
       Daisy->Connect<Events::EngineExit>(&Window::OnEngineExitEvent, this);
       Daisy->Connect<Events::SetWindowCaption>(&Window::OnSetWindowCaptionEvent, this);
+			Daisy->Connect<Events::WindowResize>(&Window::OnWindowResizeEvent, this);
     }
 
     /**************************************************************************/
@@ -67,6 +68,12 @@ namespace DCEngine {
       DCTrace << "Window::OnWindowFullScreenToggleEvent - \n";
       setFullscreen();
     }
+
+		void Window::OnWindowResizeEvent(Events::WindowResize * event)
+		{
+			DCTrace << "Window::OnWindowResizeEvent - \n";
+			WindowHandler->resizeWindow(event->Dimensions.x, event->Dimensions.y);
+		}
 
     void Window::OnEngineExitEvent(Events::EngineExit * event)
     {

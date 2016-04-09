@@ -9,6 +9,8 @@
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
+
+#define WIN32_LEAN_AND_MEAN
 #include <Windows.h> // Oh dios mio
 
 #include "WindowSFML.h"
@@ -55,6 +57,14 @@ namespace DCEngine {
       }
     }
 
+		void WindowSFML::resizeWindow(float x, float y)
+		{
+			WindowContext->setSize(sf::Vector2u(unsigned(x), unsigned(y)));
+			WindowContext->setActive();
+			Daisy->getSystem<Graphics>()->RestoreState();
+			Daisy->getSystem<GUI>()->ReloadVAO();
+		}
+
     /**************************************************************************/
     /*!
     @brief  Sets the window context.
@@ -67,7 +77,7 @@ namespace DCEngine {
     void WindowSFML::setWindow(WindowMode style)
     {
       // Save the current OpenGL state
-      Daisy->getSystem<Graphics>()->BackupState();
+			//auto graphicsSystem = Daisy->getSystem<Graphics>();
 
       // This is stupid, but I can't pass in the sf::Style enum as a param :(
       switch (style) {
@@ -94,8 +104,8 @@ namespace DCEngine {
       WindowContext->setFramerateLimit(WindowInterface.Settings.Framerate);
 
       // Restore the previous OpenGL state
-      Daisy->getSystem<Graphics>()->RestoreState();
-      Daisy->getSystem<GUI>()->ReloadVAO();
+      //Daisy->getSystem<Graphics>()->RestoreState();
+      //Daisy->getSystem<GUI>()->ReloadVAO();
     }
 
     /**************************************************************************/
@@ -119,6 +129,8 @@ namespace DCEngine {
           WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings));
         Mode = WindowMode::Fullscreen;
         DispatchSystemEvents::WindowFullScreenEnabled();
+				WindowInterface.Settings.ScreenWidth = sf::VideoMode::getDesktopMode().width;
+				WindowInterface.Settings.ScreenHeight = sf::VideoMode::getDesktopMode().height;
       }
       // Or if it starts as windowed
       else {
