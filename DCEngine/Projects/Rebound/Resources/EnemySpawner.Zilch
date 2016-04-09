@@ -20,25 +20,11 @@ class EnemySpawner : ZilchComponent
   
   var CurrentTime : Real = 0;
   
-  var SpawnNumber : Integer = 0;
+  var Spawned : Boolean = false;
 	
     function Initialize()
     {
       Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
-      if(this.Scrapper)
-      {
-        this.SpawnNumber += 1;
-      }
-      
-      if(this.Lancer)
-      {
-        this.SpawnNumber += 1;
-      }
-      
-      if(this.Shield)
-      {
-        this.SpawnNumber += 1;
-      }
     }
 
     function OnLogicUpdate(event : LogicUpdate)
@@ -51,13 +37,15 @@ class EnemySpawner : ZilchComponent
       if(this.CurrentTime >= this.SpawnTime && this.SpawnTime != 0)
       {
         // spawn shit
+        this.CurrentTime = 0;
         
         while(true)
         {
           var selection = randomGenerator.DieRoll(3);
           
-          if(selection == 1 && this.Scrapper)
+          if(selection == 1 && this.Scrapper && this.Spawned == false)
           {
+            Console.WriteLine("Creating object");
             var obj = this.Space.CreateObject("Scrapper");
             
             obj.Transform.Translation = spawnPosition;
@@ -65,7 +53,7 @@ class EnemySpawner : ZilchComponent
             break;
           }
           
-          if(selection == 2 && this.Lancer)
+          if(selection == 2 && this.Lancer && this.Spawned == false)
           {
             var obj = this.Space.CreateObject("Lancer");
             
@@ -73,7 +61,7 @@ class EnemySpawner : ZilchComponent
             break;
           }
           
-          if(selection == 3 && this.Shield)
+          if(selection == 3 && this.Shield && this.Spawned == false)
           {
             var obj = this.Space.CreateObject("Shield");
             
