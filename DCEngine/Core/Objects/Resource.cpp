@@ -43,7 +43,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   Resource::Resource(std::string resourceType, std::string name, std::string resourcePath) 
-                     : Object(name), ResourceType(resourceType), ResourcePath(resourcePath) {
+                     : Object(name), ResourceType(resourceType), ResourcePath(resourcePath), Hidden(false) {
   }
 
   /**************************************************************************/

@@ -98,7 +98,7 @@ namespace DCEngine {
                                          // X-axis
 
         // Bounding rectangle
-				auto space = CurrentSpace->getComponent<Components::GraphicsSpace>();
+        auto space = CurrentSpace->getComponent<Components::GraphicsSpace>();
         space->DrawRectangle(pos, Selection.SelectedBoundingWidth / 8, 
                       Selection.SelectedBoundingWidth / 8, Vec4(1, 1, 1, 1));
         // X-axis

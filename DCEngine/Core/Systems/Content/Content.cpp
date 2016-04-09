@@ -21,10 +21,20 @@ namespace DCEngine {
     @brief Constructor for the Content system.
     */
     /**************************************************************************/
-    Content::Content(std::string& coreAssetsPath) :
-      System(std::string("ContentSystem"), EnumeratedSystem::Content),
-      CoreAssetsPath(coreAssetsPath) {
+    Content::Content(ContentConfig& config) : System(std::string("ContentSystem"), EnumeratedSystem::Content),
+      Settings(config), Loading(false) {
       ProjectInfo.reset(new ProjectProperties());
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Destructor.
+    */
+    /**************************************************************************/
+    Content::~Content()
+    {
+      if (LoadingThread.joinable())
+        LoadingThread.join();
     }
 
     /**************************************************************************/
@@ -42,7 +52,7 @@ namespace DCEngine {
       ProjectInfo->ResourcePath = "Projects/Rebound/Resources/";
       ProjectInfo->AssetPath = "Projects/Rebound/Assets/";
       // Load the default resources of the engine's
-      LoadCoreAssets();
+      LoadCoreResources();
     }
 
     /**************************************************************************/
@@ -134,75 +144,22 @@ namespace DCEngine {
            have already been initialized.
     */
     /**************************************************************************/
-    void Content::LoadAllResources()
+    void Content::LoadAllResources(bool multiThreaded)
     {
       DCTrace << " Content::LoadAllResources: '" << ProjectInfo->ProjectName << "' has started loading... \n";
+
       // Generate every SoundCue from file
       for (auto& soundCue : MapSoundCue) {
         soundCue.second->Load();
         soundCue.second->Generate();
       }
+
       // Load all banks from file, then add them to audio system
       for (auto& bank : MapBank) {
         bank.second->Load();
         bank.second->Add();
       }
-      Daisy->getSystem<Audio>()->Generate();
-
-
-
-
-      // We will create 4 threads to load images
-      //AssetLoader::ALSettings alSettings(4);
-      //AssetLoader spriteLoader(alSettings);
-      //auto spriteSourceLoad = std::bind(&SpriteSource::LoadTexture);
-      //spriteLoader.Load<SpriteSourceMap, SpriteSourcePtr>(MapSpriteSource, spriteSourceLoad);      
-      
-      //------------------------------------------------------------------------// 
-      // Sort the spriteSources by file size
-      //FileData::SortBiggest sortFunc;
-      //FileQueue sortedSpriteSources(sortFunc);
-      //for (auto& spriteSource : MapSpriteSource) {
-      //  auto fileData = FileData(spriteSource.first, FileSystem::FileSize(spriteSource.second->getAssetPath()));
-      //  sortedSpriteSources.push(fileData);
-      //}
-      //// Create partitions depending on the number of threads
-      //size_t threadCount = 1;
-      //std::vector<std::thread> threads;
-      //std::vector<std::vector<SpriteSourcePtr>> partitions(threadCount);
-      //int i = 0;
-      //while (!sortedSpriteSources.empty()) {
-      //  auto file = sortedSpriteSources.top(); sortedSpriteSources.pop();
-      //  partitions[i++ % partitions.size()].push_back(MapSpriteSource.at(file.Path));
-      //}       
-      //// For each partition, create a tread
-      //for (auto& partition : partitions) {
-      //  threads.push_back(std::thread(LoadSpriteSourceTextures, partition));
-      //}
-
-      //------------------------------------------------------------------------//
-      
-      //// Load every SpriteSource's texture
-      //for (auto& spriteSource : MapSpriteSource) {
-      //  // Load the SpriteSource's properties data from file
-      //  spriteSource.second->Load();
-      //  spriteSource.second->LoadImageFromFile();
-      //  spriteSource.second->GenerateTexture();
-      //}
-
-      
-      // Load its texture onto the graphics system
-      for (auto& spriteSource : MapSpriteSource) {
-        spriteSource.second->Load();
-        spriteSource.second->LoadTexture();
-      }
-
-
-      // Load every Font
-      for (auto& font : MapFont) {
-        font.second->Load();
-        font.second->Add();
-      }
+      Daisy->getSystem<Audio>()->Generate();  
 
       // Load every script..
       for (auto& script : MapZilchScript) {
@@ -210,30 +167,75 @@ namespace DCEngine {
         script.second->IncludeScript();
       }
       Daisy->getSystem<Reflection>()->Handler()->CompileScripts();
+      
+      // If loading graphical resources multi-threadedly
+      if (multiThreaded) {
+        // Load the project's graphical resources on a separate thread
+        if (LoadingThread.joinable())
+          LoadingThread.join();
 
+        LoadingThread = std::thread(&Content::LoadGraphicalResourcesMT, this);
+      }
+      // Else if doing sequentially on main thread
+      else {
 
-      // Do not continue until all contents have been loaded
-      //for (auto& thread : threads) {
-      //  if (thread.joinable()) thread.join();
-      //}
+        // Load every spritesource
+        for (auto& spriteSource : MapSpriteSource) {
+          spriteSource.second->Load();
+          spriteSource.second->LoadImageFromFile();
+          spriteSource.second->GenerateTexture();
+        }
 
+        // Load every Font
+        for (auto& font : MapFont) {
+          font.second->Load();
+          font.second->LoadFontFromFile();
+          font.second->GenerateFont();
+        }
+
+      }
+      
       DCTrace << " Content::LoadAllResources: '" << ProjectInfo->ProjectName << "' is done loading. \n";
 
     }
 
     /**************************************************************************/
     /*!
-    @brief Deserializes a ProjectProperties file for project data settings.
+    @brief Loads graphical resources from file.
     */
     /**************************************************************************/
-    void Content::LoadProjectData(const std::string& projectData)
+    void Content::LoadGraphicalResourcesMT()
     {
-      // Load the loaded project's assets
-      LoadProjectAssets();
 
-      DCTrace << "Content::LoadProjectData - Finished loading all project data. \n";
+      // Update the queue before using it
+      LoadedGraphicalResourcesQueue.NumLoaded = 0;
+      LoadedGraphicalResourcesQueue.NumTotal = MapSpriteSource.size() + MapFont.size();
+
+      // Load every SpriteSource's image from file
+      for (auto& spriteSource : MapSpriteSource) {
+        spriteSource.second->Load();
+        spriteSource.second->LoadImageFromFile();
+        
+        // Add it to the queue of assets ready to be loaded by the graphics system
+        std::lock_guard<std::mutex> lock(LoadedGraphicalResourcesQueue.AssetsLock);
+        LoadedGraphicalResourcesQueue.Assets.push(spriteSource.second.get());
+      }
+
+      // Load every Font
+      for (auto& font : MapFont) {
+        font.second->Load();
+        font.second->LoadFontFromFile();
+
+        // Add it to the queue of assets ready to be loaded by the graphics system
+        std::lock_guard<std::mutex> lock(LoadedGraphicalResourcesQueue.AssetsLock);
+        LoadedGraphicalResourcesQueue.Assets.push(font.second.get());
+      }
+
+      // Now that the graphical resources are done loading, the project is ready to be launched
+      DispatchSystemEvents::ContentProjectLoaded();
+
     }
-
+    
 
     /**************************************************************************/
     /*!
@@ -243,26 +245,17 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::LoadProject(const std::string& projectDataPath)
     {
+      // Signal that we are currently loading the project
+      Loading = true;
+
       // Deserialize the project data
       ProjectInfo.reset(new ProjectProperties);
       std::string projectDataString;
       bool worked;
       if (FileSystem::FileReadToString(projectDataPath, projectDataString))
         worked = Serialization::Deserialize(ProjectInfo.get(), projectDataString);
-      // Load it
-      LoadProjectResources();
-      // Start the file scanner on the current project
-      bool scanning = true;
-      if (scanning) {
-        auto settings = FileScanner::FSSettings();
-        settings.DirectoryPath = ProjectInfo->ProjectPath + ProjectInfo->ResourcePath;
-        settings.Frequency = 1;
-        ProjectScanner.reset(new FileScanner(settings));
-        ProjectScanner->Initialize();
-      }
-      // Announce that it's been loaded
-      DispatchSystemEvents::ContentProjectLoaded();
 
+      LoadProjectResources();
     }
 
     /**************************************************************************/
@@ -275,34 +268,36 @@ namespace DCEngine {
     {
     }
 
+
     /**************************************************************************/
     /*!
-    @brief  Load all of the project's assets.
+    @brief  Loads all of the project's resources. When they are done loading, 
+            it will send an event.
     */
     /**************************************************************************/
-    void Content::LoadProjectAssets()
-    {
-      auto LevelPath = CoreAssetsPath + "Levels/";
-
-      // Load levels
-      std::vector<std::string> levels;
-      if (!FileSystem::DirectoryListFilePaths(LevelPath, levels))
-        throw DCException("Content::LoadCoreAssets - Failed to load archetype files!");
-      for (auto level : levels) {
-        auto archetypeName = FileSystem::FileNoExtension(level);
-        AddLevel(archetypeName, LevelPtr(new Level(level)));
-      }
-    }
-
     void Content::LoadProjectResources()
     {
       DCTrace << "Content::LoadProjectResources - \n";
 
-      // Scan for the resources... 
+      // Scan for the project's resources
       ScanResources();
       // Load the resources
-      LoadAllResources();
+      LoadAllResources(Settings.MultiThreaded);
+      // Start the file scanner on the current project
+      bool scanning = true;
+      if (scanning) {
+        auto settings = FileScanner::FSSettings();
+        settings.DirectoryPath = ProjectInfo->ProjectPath + ProjectInfo->ResourcePath;
+        settings.Frequency = 1;
+        ProjectScanner.reset(new FileScanner(settings));
+        ProjectScanner->Initialize();
+      }
 
+      // Signal that we are done loading the project
+      Loading = false;
+
+      // Announce that it's been loaded
+      // DispatchSystemEvents::ContentProjectLoaded();
     }
 
     /**************************************************************************/

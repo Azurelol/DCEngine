@@ -32,21 +32,21 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(String, Text);
       DCE_DEFINE_PROPERTY(Integer, PixelsPerUnit);
       DCE_DEFINE_PROPERTY(Boolean, Smoothing);
-			DCE_DEFINE_PROPERTY(Integer, WordWrap);
-			DCE_DEFINE_PROPERTY(unsigned, DrawLayer);
+      DCE_DEFINE_PROPERTY(Integer, WordWrap);
+      DCE_DEFINE_PROPERTY(unsigned, DrawLayer);
 
       ZilchDeclareDerivedType(SpriteText, Graphical);
       SpriteText(Entity& owner);
       virtual ~SpriteText();
       void Register();
       void Initialize();
-			void Update(float dt);
-			void SetUniforms(ShaderPtr shader, Camera* camera, Light* light);
-			void Draw(void);
+      void Update(float dt);
+      void SetUniforms(ShaderPtr shader, Camera* camera, Light* light);
+      void Draw(void);
       Transform* TransformComponent;
 
-			static ShaderPtr mShader;
-			static GLuint mVAO, mVBO;
+      static ShaderPtr mShader;
+      static GLuint mVAO, mVBO;
 
     private:
 
@@ -57,7 +57,7 @@ namespace DCEngine {
       String Text = "";
       Integer PixelsPerUnit = 64;
       Boolean Smoothing = true;
-			Integer WordWrap;
+      Integer WordWrap;
 
 
     };

@@ -31,6 +31,14 @@ namespace DCEngine {
     delete event;
   }
 
+  void DispatchGameEvents::SpaceInitialized(String name)
+  {
+    auto event = new Events::SpaceInitialized();
+    event->Name = name;
+    Daisy->getGameSession()->Dispatch<Events::SpaceInitialized>(event);
+    delete event;
+  }
+
   void DispatchGameEvents::GameFocusIn()
   {
     auto event = new Events::GameFocusIn();

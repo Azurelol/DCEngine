@@ -352,6 +352,9 @@
     <Filter Include="Core\Systems\Content\AssetLoader">
       <UniqueIdentifier>{d6e5f5f9-c8eb-4e86-9c12-de77cbbaabd8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\Input">
+      <UniqueIdentifier>{be8bcceb-00ab-4c97-bee5-04d679d25a9f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -974,6 +977,12 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Content\ContentScan.cpp">
       <Filter>Core\Systems\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\EngineLoad.cpp">
+      <Filter>Core\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\LoadingScreen.cpp">
+      <Filter>Core\Components\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1646,6 +1655,9 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Content\AssetLoader.h">
       <Filter>Core\Systems\Content\AssetLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\LoadingScreen.h">
+      <Filter>Core\Components\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

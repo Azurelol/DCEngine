@@ -90,6 +90,10 @@ namespace DCEngine {
       gameObject->GamesessionRef = GameSessionRef;
       gameObject->Initialize();
     }
+    
+    // Announce that this Space has been initialized
+    DispatchGameEvents::SpaceInitialized(Name());
+
   }
 
   /**************************************************************************/
@@ -173,6 +177,10 @@ namespace DCEngine {
       DCTrace << ObjectName << "::DestroyAll - Removing all objects from the space.\n";
     // For every GameObject in the space
     for (auto object : GameObjectContainer) {
+      // Do not delete the Editor Camera!
+      //if (object->HasComponent("EditorCameraController"))
+      //  continue;
+
       // Mark the object for destruction on next frame
       DCTrace << " - " << object->Name() << "\n";
       Daisy->getSystem<Systems::Factory>()->MarkGameObject(*object);
@@ -264,12 +272,12 @@ namespace DCEngine {
       DCTrace << ObjectName << " Space::LoadLevel - Loading " << level->Name() << " level.\n";
 
     // Set it as the current level
-    CurrentLevelRef = level;
+    setCurrentLevel(level);
 
     DestroyAll();
 
     // Load GameObjects into the space
-    for (auto gameObject : CurrentLevelRef->GameObjects) {
+    for (auto gameObject : getCurrentLevel()->GameObjects) {
       AddObject(gameObject);
     }
 
@@ -303,7 +311,7 @@ namespace DCEngine {
     // Clear the current objects from the space
     DestroyAll();
     // Set it as the current level
-    CurrentLevelRef = level;
+    setCurrentLevel(level);
     // Build all the GameObjects from the level
     Daisy->getSystem<Systems::Factory>()->BuildFromLevel(level, *this);
     // Set the default camera
@@ -323,17 +331,6 @@ namespace DCEngine {
       DispatchGameEvents::AllObjectsInitialized(this);
     }
 
-  }
-
-  /**************************************************************************/
-  /*!
-  @brief  Returns the currently loaded level.
-  @return  A pointer to the level resource.
-  */
-  /**************************************************************************/
-  LevelPtr Space::CurrentLevel()
-  {
-    return CurrentLevelRef;
   }
 
   /**************************************************************************/
@@ -362,8 +359,8 @@ namespace DCEngine {
     // DestroyAll();
     
     // Load the level again
-    if (CurrentLevelRef != nullptr)
-      LoadLevel(CurrentLevelRef);
+    if (getCurrentLevel() != nullptr)
+      LoadLevel(getCurrentLevel());
   }
   
   /**************************************************************************/

@@ -43,6 +43,7 @@ namespace DCEngine {
     {
       Daisy->Connect<Events::ScriptingLibraryCompiled>(&EditorProjects::OnScriptingLibraryCompiled, this);
       Daisy->Connect<Events::ScriptingLibraryCompilationFailure>(&EditorProjects::OnScriptingLibraryCompilationFailure, this);
+      Daisy->Connect<Events::ContentProjectLoaded>(&EditorProjects::OnContentProjectLoadedEvent, this);
     }
 
     /**************************************************************************/
@@ -87,16 +88,33 @@ namespace DCEngine {
     /**************************************************************************/
     void EditorProjects::LoadProject(const std::string& path)
     {
+      // Disable the editor while loading a project
+      Access().Settings.EditorEnabled = false;
+
       // Load the project's data into the Content system. This will
       // automatically load its resources/assets for use.
       Daisy->getSystem<Content>()->LoadProject(path);
+    }
+
+
+    /**************************************************************************/
+    /*!
+    @brief  Event received when the project has finished loading all its resources.
+    @param  event The event object.
+    */
+    /**************************************************************************/
+    void EditorProjects::OnContentProjectLoadedEvent(Events::ContentProjectLoaded * event)
+    {
+      // Destroy the current editor camera
+      Access().SetEditorCamera(false);
+      // Turn on the editor
+      Access().Settings.EditorEnabled = true;
       // Save a pointer to the project data
       Access().Settings.ProjectProperties = &Daisy->getSystem<Content>()->getProjectInfo();
       // Update the window caption to display the current project
       auto projectName = Access().Settings.ProjectProperties->ProjectName;
       DCTrace << "Editor::LoadProject - Opening: " << projectName << "\n";
       DispatchSystemEvents::SetWindowCaption(projectName + "- Daisy Chain Engine");
-      
       // Check that the scripting library has been compiled successfully before
       // trying to load the default level.
       InitializeProject();
@@ -143,18 +161,18 @@ namespace DCEngine {
         if (load) {
           // If set to play mode, disable the editor
           if (play)
-            Access().ToggleEditor(false);
+            Access().ToggleEditor(false, false);
           // Otherwise, load the editor right away
           else {
             DCTrace << "Editor::LoadProject - Default level found editor turned on \n";
-            Access().ToggleEditor(true);
+            Access().ToggleEditor(true, false);
           }
 
         }
 
         // No default level set, turn on the editor!
         else
-          Access().ToggleEditor(true);
+          Access().ToggleEditor(true, false);
 
         InitializingProject = false;
       }

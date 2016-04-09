@@ -194,7 +194,7 @@ namespace DCEngine {
         DCE_JSON_SERIALIZE(Fullscreen);
         DCE_JSON_SERIALIZE(Caption);
         DCE_JSON_SERIALIZE(Exposure);
-				DCE_JSON_SERIALIZE(Samples);
+        DCE_JSON_SERIALIZE(Samples);
         //root["MaxDrawLayers"] = MaxDrawLayers;
         root["ClearColorW"] = ClearColor.w;
         root["ClearColorZ"] = ClearColor.z;
@@ -210,11 +210,65 @@ namespace DCEngine {
         DCE_JSON_DESERIALIZE_INTRINSIC(Fullscreen).asBool();
         DCE_JSON_DESERIALIZE_INTRINSIC(Caption).asString();
         DCE_JSON_DESERIALIZE_INTRINSIC(Exposure).asFloat();
-				DCE_JSON_DESERIALIZE_INTRINSIC(Samples).asInt();
+        DCE_JSON_DESERIALIZE_INTRINSIC(Samples).asInt();
         ClearColor.x = root.get("ClearColorX", "").asFloat();
         ClearColor.y = root.get("ClearColorY", "").asFloat();
         ClearColor.z = root.get("ClearColorZ", "").asFloat();
         ClearColor.w = root.get("ClearColorW", "").asFloat();
+      }
+
+    };
+
+    /**************************************************************************/
+    /*!
+    @struct ContentConfig Configuration for Content system.
+    */
+    /**************************************************************************/
+    struct ContentConfig : public Configuration {
+      ContentConfig();
+      static std::string FileName() { return "ConfigurationContent.cfg"; }
+      bool MultiThreaded;
+      // Defaults
+      std::string DefaultAssetPath;
+      String DefaultLoadingScreen;
+      std::string DefaultImage;
+      std::string DefaultFont;
+      std::string DefaultCollisionTable;
+      std::string DefaultCollisionGroup;
+      std::string DefaultPhysicsMaterial;
+      std::string DefaultSpriteLayer;
+      std::string DefaultSpriteLayerOrder;
+      std::string DefaultSound;
+      std::string DefaultTexture;
+
+      void Serialize(Json::Value& root) {
+        DCE_JSON_SERIALIZE(DefaultAssetPath);
+        DCE_JSON_SERIALIZE(DefaultLoadingScreen);
+
+        DCE_JSON_SERIALIZE(DefaultImage);
+        DCE_JSON_SERIALIZE(DefaultFont);
+        DCE_JSON_SERIALIZE(DefaultCollisionTable);
+        DCE_JSON_SERIALIZE(DefaultCollisionGroup);
+        DCE_JSON_SERIALIZE(DefaultPhysicsMaterial);
+        DCE_JSON_SERIALIZE(DefaultSpriteLayer);
+        DCE_JSON_SERIALIZE(DefaultSpriteLayerOrder);
+        DCE_JSON_SERIALIZE(DefaultSound);
+        DCE_JSON_SERIALIZE(DefaultTexture);
+      }
+
+      void Deserialize(Json::Value& root) {
+        DCE_JSON_DESERIALIZE_INTRINSIC(DefaultAssetPath).asString();
+        DCE_JSON_DESERIALIZE_INTRINSIC(DefaultLoadingScreen).asString();
+
+        DCE_JSON_DESERIALIZE_INTRINSIC(DefaultImage).asString();
+        DCE_JSON_DESERIALIZE_INTRINSIC(DefaultFont).asString();
+        DCE_JSON_DESERIALIZE_INTRINSIC(DefaultCollisionTable).asString();
+        DCE_JSON_DESERIALIZE_INTRINSIC(DefaultCollisionGroup).asString();
+        DCE_JSON_DESERIALIZE_INTRINSIC(DefaultPhysicsMaterial).asString();
+        DCE_JSON_DESERIALIZE_INTRINSIC(DefaultSpriteLayer).asString();
+        DCE_JSON_DESERIALIZE_INTRINSIC(DefaultSpriteLayerOrder).asString();
+        DCE_JSON_DESERIALIZE_INTRINSIC(DefaultSound).asString();
+        DCE_JSON_DESERIALIZE_INTRINSIC(DefaultTexture).asString();
       }
 
     };
@@ -290,6 +344,7 @@ namespace DCEngine {
       EditorConfig Editor;
       GraphicsConfig Graphics;
       AudioConfig Audio;
+      ContentConfig Content;
       GUIConfig GUI;
       DebugConfig Debug;
       static ConfigurationFiles& Access();

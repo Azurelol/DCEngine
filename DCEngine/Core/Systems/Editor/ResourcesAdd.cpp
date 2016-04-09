@@ -139,8 +139,8 @@ namespace DCEngine {
     {
       DCTrace << "Editor::CreateLevel - Creating " << name << "\n";
       // Save the current level, if there's one loaded
-      if (CurrentSpace->CurrentLevel())
-        SaveLevel(CurrentSpace->CurrentLevel()->Name());
+      if (CurrentSpace->getCurrentLevel())
+        SaveLevel(CurrentSpace->getCurrentLevel()->Name());
       // Destroy the objects in the space
       CurrentSpace->DestroyAll();
       // Add a default camera from the 'Camera' archetype

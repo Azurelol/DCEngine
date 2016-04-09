@@ -73,7 +73,7 @@ namespace DCEngine {
       Graphics(GraphicsConfig& settings);
       void Initialize();
       void Subscribe();
-      //Main Methods
+      // Main Methods
       void Update(float dt);
       void UpdateObjects(float dt);
       void RenderShadows(Components::Camera* camera, Components::Light* light);
@@ -82,6 +82,8 @@ namespace DCEngine {
       void RenderZ0Scene(Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
       void DrawDebug(Components::Camera* camera);
       void Terminate();
+      // Assets
+      void LoadGraphicalResources();
 
       //2D draw list
       //int TotalObjNumG = 0;
