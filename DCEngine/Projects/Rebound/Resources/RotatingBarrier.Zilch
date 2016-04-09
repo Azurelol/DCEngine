@@ -9,15 +9,15 @@ class RotatingBarrier : ZilchComponent
     }
 
     function OnLogicUpdate(event : LogicUpdate)
-    {
-      if(this.Layer == 0)
-      {
-        //this.Owner.Destroy();
-      }
-    }
+    {}
     
     function OnGeneratorDeathEvent(event : GeneratorDeathEvent)
     {
+      if(this.Layer == 1)
+      {
+        this.Owner.Destroy();
+      }
+      
       this.Layer -= 1;
     }
 }

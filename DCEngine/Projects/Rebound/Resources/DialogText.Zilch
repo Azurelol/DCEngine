@@ -28,17 +28,30 @@ class DialogText : ZilchComponent
 	var TimeToDelete : Real = 10.0;
 	
 	[Property]
-	var UnitsAbovePlayer : Integer = 10;
-	
-	[Property]
 	var ArbitraryXShift : Integer = -5;
 	
+	[Property]
+	var AshaVoiceColor : Real4 = Real4(0,1,0,1);
+	[Property]
+	var DudeVoiceColor : Real4 = Real4(1,0,0,1);
+	
+	var XShiftPerChar : Real;
 	var CurTime : Real = 0.0;
 	var Finished : Boolean = false;
 	var ThePlace : Integer = 0;
+	var CurSpeaker : Speaker = Speaker.Dude;
 	
     function Initialize()
     {
+		if(this.CurSpeaker == Speaker.Asha)
+		{
+			this.Owner.SpriteText.Color = this.AshaVoiceColor;
+		}
+		else if(this.CurSpeaker == Speaker.Dude)
+		{
+			this.Owner.SpriteText.Color = this.DudeVoiceColor;
+		}
+		this.XShiftPerChar = 4.0/10;
 		this.Owner.SpriteText.Text = "";
 		this.Owner.SpriteText.WordWrap = this.WordWrap;
 		this.SetMessage(this.Message);
@@ -49,9 +62,18 @@ class DialogText : ZilchComponent
 
     function OnLogicUpdate(event : LogicUpdate)
     {
-		var player = this.Space.FindObjectByName("Player");
-		this.Owner.Transform.Translation = Real3(player.Transform.Translation.X + this.ArbitraryXShift,
-												 player.Transform.Translation.Y + this.UnitsAbovePlayer,
+		var dialogBackground = this.Space.FindObjectByName("DialogBackground");
+		var xShift : Real = 0;
+		if(this.WordWrap > this.Message.Count)
+		{
+			xShift = this.XShiftPerChar*this.WordWrap;
+		}
+		else
+		{
+			xShift = this.XShiftPerChar*this.Message.Count;
+		}
+		this.Owner.Transform.Translation = Real3(dialogBackground.Transform.Translation.X - xShift,
+												 dialogBackground.Transform.Translation.Y,
 												 this.Owner.Transform.Translation.Z);
 		//.Transform.Translation.Y = player.Owner.Transform.Y;
 		if(this.ThePlace == this.Message.Count)
@@ -103,6 +125,7 @@ class DialogText : ZilchComponent
 		{
 			this.SetMessage(event.Message);
 		}
+		this.WipeMessage();
 		this.SayMessage();
 	}
 	
@@ -136,5 +159,13 @@ class DialogText : ZilchComponent
 	{
 		this.Owner.SpriteText.Text = "";
 		this.ThePlace = 0;
+		if(this.CurSpeaker == Speaker.Asha)
+		{
+			this.Owner.SpriteText.Color = this.AshaVoiceColor;
+		}
+		else if(this.CurSpeaker == Speaker.Dude)
+		{
+			this.Owner.SpriteText.Color = this.DudeVoiceColor;
+		}
 	}
 }

@@ -60,6 +60,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(bool, AllowSleep);
       DCE_DEFINE_PROPERTY(bool, Mode2D);
       DCE_DEFINE_PROPERTY(bool, Deterministic);
+      DCE_DEFINE_PROPERTY(float, Gravity);
 
       ZilchDeclareDerivedType(PhysicsSpace, Component);
       PhysicsSpace(Entity& owner);
@@ -70,6 +71,7 @@ namespace DCEngine {
       float MaxX = 0;
       float MinY = 0;
       float MaxY = 0;
+      float Gravity = 45.0f;
 
     private:
 

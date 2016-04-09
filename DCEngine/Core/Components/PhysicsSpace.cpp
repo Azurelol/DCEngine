@@ -31,6 +31,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(PhysicsSpace, AllowSleep);
       DCE_BINDING_DEFINE_PROPERTY(PhysicsSpace, Mode2D);
       DCE_BINDING_DEFINE_PROPERTY(PhysicsSpace, Deterministic);
+      DCE_BINDING_DEFINE_PROPERTY(PhysicsSpace, Gravity);
       DCE_BINDING_DEFINE_PROPERTY(PhysicsSpace, CollisionTable);
       DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyCollisionTable, attributeCollisionTable);
 
