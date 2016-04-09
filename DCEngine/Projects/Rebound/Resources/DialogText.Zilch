@@ -63,7 +63,7 @@ class DialogText : ZilchComponent
     function OnLogicUpdate(event : LogicUpdate)
     {
 		var dialogBackground = this.Space.FindObjectByName("DialogBackground");
-		var xShift : Real;
+		var xShift : Real = 0;
 		if(this.WordWrap > this.Message.Count)
 		{
 			xShift = this.XShiftPerChar*this.WordWrap;
