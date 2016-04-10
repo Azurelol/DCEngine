@@ -12,6 +12,9 @@ class DialogTrigger : ZilchComponent
 	var ActiveOnCollision : Boolean = true;
 	
 	[Property]
+	var ActiveOnlyOnce : Boolean = true;
+	
+	[Property]
 	var Message1String : String = "";
 	[Property]
 	var Message1Speaker : Speaker = Speaker.Dude;
@@ -50,6 +53,7 @@ class DialogTrigger : ZilchComponent
 	
 	
 	var Active : Boolean = false;
+	var NoMoreActivating : Boolean = false;
 	var MessageNumber : Integer = 1;
 	var FirstCollisionOccurred : Boolean = false;
 	
@@ -100,11 +104,13 @@ class DialogTrigger : ZilchComponent
 
 	function SendWipeMessage()
 	{
+		if(this.ActiveOnlyOnce)
+		{
+			this.NoMoreActivating = true;
+		}
+		this.Active = false;
 		var ourText = this.Space.FindObjectByName(this.DialogTextObjectName);
-		var curEvent = MessageEvent();
-		curEvent.NewMessage = true;
-		curEvent.Message = "";
-		ourText.Dispatch(DaisyEvent.MessageEvent, curEvent);
+		ourText.DialogText.WipeMessage();
 	}
 	
     function OnMouseDown(event : MouseDown)
@@ -208,14 +214,15 @@ class DialogTrigger : ZilchComponent
 	
 	function OnActivateDialogEvent(event : ActivateDialog)
 	{
-		this.Active = true;
+		if(this.NoMoreActivating == false)
+			this.Active = true;
 	}
 
     function OnCollision(event : CollisionStarted)
     {
 		if(event.OtherObject.Name == "Player")
 		{
-			if(this.Active == false)
+			if(this.Active == false && this.NoMoreActivating == false)
 			{
 				var curEvent = this.Message1;
 				var ourText = this.Space.FindObjectByName(this.DialogTextObjectName);

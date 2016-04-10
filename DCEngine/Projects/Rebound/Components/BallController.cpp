@@ -31,6 +31,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(BallController, NormalGravity);
       DCE_BINDING_DEFINE_PROPERTY(BallController, ShotGravity);
       DCE_BINDING_DEFINE_PROPERTY(BallController, ChargedColor);
+      DCE_BINDING_DEFINE_PROPERTY(BallController, ForcedFreeze);
       DCE_BINDING_DEFINE_PROPERTY(BallController, FreezeEnabled);
       DCE_BINDING_DEFINE_PROPERTY(BallController, MaxAttractSpeed);
       DCE_BINDING_DEFINE_PROPERTY(BallController, MaxAttractForce);
@@ -38,6 +39,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(BallController, MinAttractSpeed);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, ParentToPlayer);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, FreezeBall);
+      DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, ToggleForceFreeze);
     DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, PseudoFreezeBall);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, LockBall);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, UnlockBall);
@@ -86,6 +88,11 @@ namespace DCEngine {
     void BallController::OnMouseDownEvent(Events::MouseDown * event)
     {
 
+      if (ForcedFreeze == true)
+      {
+        return;
+      }
+
       // Call the CameraViewport component of the space with this screen position.. ?
 
 
@@ -129,6 +136,11 @@ namespace DCEngine {
 
     void BallController::OnMouseUpEvent(Events::MouseUp * event)
     {
+
+      if (ForcedFreeze == true)
+      {
+        return;
+      }
       if (event->ButtonReleased == MouseButton::Left)
       {
         if (gameObj->Parent() != nullptr)
@@ -230,6 +242,7 @@ namespace DCEngine {
 
     void BallController::OnLogicUpdateEvent(Events::LogicUpdate * event)
     {
+
       //DCTrace << "BallController::Init- trail is at" << TrailRef->getComponent<Components::Transform>()->getTranslation().x << ", " << TrailRef->getComponent<Components::Transform>()->getTranslation().y << "\n";
       //DCTrace << "BallController::Init- ball is at" << TransformRef->getTranslation().x << ", " << TransformRef->getTranslation().y << "\n";
       if (gameObj->Parent() != nullptr)
@@ -240,6 +253,10 @@ namespace DCEngine {
       //DCTrace << (CollisionTableRef->GetResolve("Ball", "Player");
       if (Daisy->getKeyboard()->KeyIsDown(Keys::F))
       {
+        if (ForcedFreeze == true)
+        {
+          return;
+        }
         if (BallControllerTraceOn)
         {
           DCTrace << "BallController::OnLogicUpdate :: F key pressed";
@@ -248,14 +265,26 @@ namespace DCEngine {
       }			
       if (Daisy->getKeyboard()->KeyIsDown(Keys::E))
       {
+        if (ForcedFreeze == true)
+        {
+          return;
+        }
         ParentToPlayer();
       }
       if (ControlScheme == ControlScheme::Connor && Daisy->getMouse()->MouseDown(MouseButton::Left))
       {
+        if (ForcedFreeze == true)
+        {
+          return;
+        }
         AttractBall();
       }
       if (ControlScheme == ControlScheme::John && Daisy->getMouse()->MouseDown(MouseButton::Right))
       {
+        if (ForcedFreeze == true)
+        {
+          return;
+        }
         AttractBall();
       }
       if (Charging)
@@ -375,8 +404,24 @@ namespace DCEngine {
       }
     }
 
-  void BallController::PseudoFreezeBall()
-  {
+    void BallController::ToggleForceFreeze()
+    {
+      if (ForcedFreeze == false)
+      {
+        UnlockBall();
+        CollidingWithPlayer = true;
+        ParentToPlayer();
+       // FreezeBall();
+        ForcedFreeze = true;
+      }
+      else
+      {
+        ForcedFreeze = false;
+      }
+    }
+
+    void BallController::PseudoFreezeBall()
+    {
     if (Frozen || Locked || !FreezeEnabled)
     {
       return;

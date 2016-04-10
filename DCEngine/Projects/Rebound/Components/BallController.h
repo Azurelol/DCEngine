@@ -59,6 +59,7 @@ namespace DCEngine {
       Real ShotGravity = 0.1f;
       Real NormalGravity = 0.25f;
       Boolean Charging = false;
+      Boolean ForcedFreeze = false;
       Boolean FreezeEnabled = true;
       Vec4 FrozenColor = Vec4(1, 0, 1, 1);
       Vec4 NormalColor = Vec4(0.0f, 0.7f, 0.3f, 1.0f);
@@ -81,6 +82,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Vec4, FrozenColor);
       DCE_DEFINE_PROPERTY(Vec4, NormalColor);
       DCE_DEFINE_PROPERTY(Vec4, ChargedColor);
+      DCE_DEFINE_PROPERTY(Boolean, ForcedFreeze);
       DCE_DEFINE_PROPERTY(Boolean, FreezeEnabled);
       DCE_DEFINE_PROPERTY(Boolean, Charging);
       DCE_DEFINE_PROPERTY(Real, MaxAttractSpeed);
@@ -104,7 +106,8 @@ namespace DCEngine {
       void ParentToPlayer();
       void AttractBall();
       void FreezeBall();
-	  void PseudoFreezeBall();
+      void ToggleForceFreeze();
+	    void PseudoFreezeBall();
       void LockBall();
       void UnlockBall();
 

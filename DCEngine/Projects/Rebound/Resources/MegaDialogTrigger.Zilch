@@ -10,51 +10,102 @@ class MegaDialogTrigger : ZilchComponent
 	var ActiveOnCollision : Boolean = true;
 	
 	[Property]
+	var ActiveOnlyOnce : Boolean = true;
+	
+	[Property]
 	var Message1String : String = "";
+	[Property]
+	var Message1Speaker : Speaker = Speaker.Dude;
 	[Property]
 	var Message2String : String = "";
 	[Property]
+	var Message2Speaker : Speaker = Speaker.Dude;
+	[Property]
 	var Message3String : String = "";
+	[Property]
+	var Message3Speaker : Speaker = Speaker.Dude;
 	[Property]
 	var Message4String : String = "";
 	[Property]
+	var Message4Speaker : Speaker = Speaker.Dude;
+	[Property]
 	var Message5String : String = "";
+	[Property]
+	var Message5Speaker : Speaker = Speaker.Dude;
 	[Property]
 	var Message6String : String = "";
 	[Property]
+	var Message6Speaker : Speaker = Speaker.Dude;
+	[Property]
 	var Message7String : String = "";
+	[Property]
+	var Message7Speaker : Speaker = Speaker.Dude;
 	[Property]
 	var Message8String : String = "";
 	[Property]
+	var Message9Speaker : Speaker = Speaker.Dude;
+	[Property]
 	var Message9String : String = "";
+	[Property]
+	var Message10Speaker : Speaker = Speaker.Dude;
 	[Property]
 	var Message10String : String = "";
 	[Property]
+	var Message11Speaker : Speaker = Speaker.Dude;
+	[Property]
 	var Message11String : String = "";
+	[Property]
+	var Message12Speaker : Speaker = Speaker.Dude;
 	[Property]
 	var Message12String : String = "";
 	[Property]
+	var Message13Speaker : Speaker = Speaker.Dude;
+	[Property]
 	var Message13String : String = "";
+	[Property]
+	var Message14Speaker : Speaker = Speaker.Dude;
 	[Property]
 	var Message14String : String = "";
 	[Property]
+	var Message15Speaker : Speaker = Speaker.Dude;
+	[Property]
 	var Message15String : String = "";
+	[Property]
+	var Message16Speaker : Speaker = Speaker.Dude;
 	[Property]
 	var Message16String : String = "";
 	[Property]
+	var Message17Speaker : Speaker = Speaker.Dude;
+	[Property]
 	var Message17String : String = "";
+	[Property]
+	var Message18Speaker : Speaker = Speaker.Dude;
 	[Property]
 	var Message18String : String = "";
 	[Property]
+	var Message8Speaker : Speaker = Speaker.Dude;
+	[Property]
+	var Message19Speaker : Speaker = Speaker.Dude;
+	[Property]
 	var Message19String : String = "";
+	[Property]
+	var Message20Speaker : Speaker = Speaker.Dude;
 	[Property]
 	var Message20String : String = "";
 	[Property]
+	var Message21Speaker : Speaker = Speaker.Dude;
+	[Property]
 	var Message21String : String = "";
+	[Property]
+	var Message22Speaker : Speaker = Speaker.Dude;
 	[Property]
 	var Message22String : String = "";
 	[Property]
+	var Message23Speaker : Speaker = Speaker.Dude;
+	[Property]
 	var Message23String : String = "";
+	[Property]
+	var Message24Speaker : Speaker = Speaker.Dude;
 	[Property]
 	var Message24String : String = "";
 	
@@ -85,10 +136,11 @@ class MegaDialogTrigger : ZilchComponent
 	
 	
 	var Active : Boolean = false;
+	var NoMoreActivating : Boolean = false;
 	var MessageNumber : Integer = 1;
 	var FirstCollisionOccurred : Boolean = false;
 	
-    function Initialize()
+	function Initialize()
     {
 		if(this.Message1String != "")
 		{
@@ -220,14 +272,15 @@ class MegaDialogTrigger : ZilchComponent
 
 	function SendWipeMessage()
 	{
+		if(this.ActiveOnlyOnce)
+		{
+			this.NoMoreActivating = true;
+		}
+		this.Active = false;
 		var ourText = this.Space.FindObjectByName(this.DialogTextObjectName);
-		var curEvent = MessageEvent();
-		curEvent.NewMessage = true;
-		curEvent.Message = "";
-		ourText.Dispatch(DaisyEvent.MessageEvent, curEvent);
+		ourText.DialogText.WipeMessage();
 	}
-	
-    function OnMouseDown(event : MouseDown)
+	function OnMouseDown(event : MouseDown)
     {
 		if(event.ButtonPressed == MouseButton.Left)
 		{
@@ -240,11 +293,13 @@ class MegaDialogTrigger : ZilchComponent
 					var curEvent = this.Message1;
 					if(this.MessageNumber == 1)
 					{
+						ourText.DialogText.CurSpeaker = this.Message1Speaker;
 						if(this.Message1String == "")
 							this.SendWipeMessage();
 					}
 					if(this.MessageNumber == 2)
 					{
+						ourText.DialogText.CurSpeaker = this.Message2Speaker;
 						if(this.Message2String != "")
 							curEvent = this.Message2;
 						else
@@ -255,6 +310,7 @@ class MegaDialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 3)
 					{
+						ourText.DialogText.CurSpeaker = this.Message3Speaker;
 						if(this.Message3String != "")
 							curEvent = this.Message3;
 						else
@@ -265,6 +321,7 @@ class MegaDialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 4)
 					{
+						ourText.DialogText.CurSpeaker = this.Message4Speaker;
 						if(this.Message4String != "")
 							curEvent = this.Message4;
 						else
@@ -275,6 +332,7 @@ class MegaDialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 5)
 					{
+						ourText.DialogText.CurSpeaker = this.Message5Speaker;
 						if(this.Message5String != "")
 							curEvent = this.Message5;
 						else
@@ -285,6 +343,7 @@ class MegaDialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 6)
 					{
+						ourText.DialogText.CurSpeaker = this.Message6Speaker;
 						if(this.Message6String != "")
 							curEvent = this.Message6;
 						else
@@ -295,6 +354,8 @@ class MegaDialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 7)
 					{
+						if
+						ourText.DialogText.CurSpeaker = this.Message7Speaker;
 						if(this.Message7String != "")
 							curEvent = this.Message7;
 						else
@@ -305,6 +366,7 @@ class MegaDialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 8)
 					{
+						ourText.DialogText.CurSpeaker = this.Message8Speaker;
 						if(this.Message8String != "")
 							curEvent = this.Message8;
 						else
@@ -315,6 +377,7 @@ class MegaDialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 9)
 					{
+						ourText.DialogText.CurSpeaker = this.Message9Speaker;
 						if(this.Message9String != "")
 							curEvent = this.Message9;
 						else
@@ -325,6 +388,7 @@ class MegaDialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 10)
 					{
+						ourText.DialogText.CurSpeaker = this.Message10Speaker;
 						if(this.Message10String != "")
 							curEvent = this.Message10;
 						else
@@ -335,6 +399,7 @@ class MegaDialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 11)
 					{
+						ourText.DialogText.CurSpeaker = this.Message11Speaker;
 						if(this.Message11String != "")
 							curEvent = this.Message11;
 						else
@@ -345,6 +410,7 @@ class MegaDialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 12)
 					{
+						ourText.DialogText.CurSpeaker = this.Message12Speaker;
 						if(this.Message12String != "")
 							curEvent = this.Message12;
 						else
@@ -353,10 +419,11 @@ class MegaDialogTrigger : ZilchComponent
 							return;
 						}
 					}
-					else if(this.MessageNumber == 13)
+					else if(this.MessageNumber == 113)
 					{
+						ourText.DialogText.CurSpeaker = this.Message13Speaker;
 						if(this.Message13String != "")
-							curEvent = this.Message13;
+							curEvent = this.Message14;
 						else
 						{
 							this.SendWipeMessage();
@@ -365,8 +432,9 @@ class MegaDialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 14)
 					{
+						ourText.DialogText.CurSpeaker = this.Message14Speaker;
 						if(this.Message14String != "")
-							curEvent = this.Message14;
+							curEvent = this.Message15;
 						else
 						{
 							this.SendWipeMessage();
@@ -375,8 +443,9 @@ class MegaDialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 15)
 					{
+						ourText.DialogText.CurSpeaker = this.Message15Speaker;
 						if(this.Message15String != "")
-							curEvent = this.Message15;
+							curEvent = this.Message16;
 						else
 						{
 							this.SendWipeMessage();
@@ -385,6 +454,7 @@ class MegaDialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 16)
 					{
+						ourText.DialogText.CurSpeaker = this.Message16Speaker;
 						if(this.Message16String != "")
 							curEvent = this.Message16;
 						else
@@ -395,6 +465,7 @@ class MegaDialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 17)
 					{
+						ourText.DialogText.CurSpeaker = this.Message17Speaker;
 						if(this.Message17String != "")
 							curEvent = this.Message17;
 						else
@@ -405,6 +476,7 @@ class MegaDialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 18)
 					{
+						ourText.DialogText.CurSpeaker = this.Message18Speaker;
 						if(this.Message18String != "")
 							curEvent = this.Message18;
 						else
@@ -415,6 +487,7 @@ class MegaDialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 19)
 					{
+						ourText.DialogText.CurSpeaker = this.Message19Speaker;
 						if(this.Message19String != "")
 							curEvent = this.Message19;
 						else
@@ -425,6 +498,7 @@ class MegaDialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 20)
 					{
+						ourText.DialogText.CurSpeaker = this.Message20Speaker;
 						if(this.Message20String != "")
 							curEvent = this.Message20;
 						else
@@ -435,6 +509,7 @@ class MegaDialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 21)
 					{
+						ourText.DialogText.CurSpeaker = this.Message21Speaker;
 						if(this.Message21String != "")
 							curEvent = this.Message21;
 						else
@@ -445,6 +520,7 @@ class MegaDialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 22)
 					{
+						ourText.DialogText.CurSpeaker = this.Message22Speaker;
 						if(this.Message22String != "")
 							curEvent = this.Message22;
 						else
@@ -455,6 +531,7 @@ class MegaDialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 23)
 					{
+						ourText.DialogText.CurSpeaker = this.Message23Speaker;
 						if(this.Message23String != "")
 							curEvent = this.Message23;
 						else
@@ -465,6 +542,7 @@ class MegaDialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 24)
 					{
+						ourText.DialogText.CurSpeaker = this.Message24Speaker;
 						if(this.Message24String != "")
 							curEvent = this.Message24;
 						else
@@ -491,14 +569,15 @@ class MegaDialogTrigger : ZilchComponent
 	
 	function OnActivateDialogEvent(event : ActivateDialog)
 	{
-		this.Active = true;
+		if(this.NoMoreActivating == false)
+			this.Active = true;
 	}
 
     function OnCollision(event : CollisionStarted)
     {
 		if(event.OtherObject.Name == "Player")
 		{
-			if(this.Active == false)
+			if(this.Active == false && this.NoMoreActivating == false)
 			{
 				var curEvent = this.Message1;
 				var ourText = this.Space.FindObjectByName(this.DialogTextObjectName);

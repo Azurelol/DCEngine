@@ -6021,6 +6021,7 @@
                 "w": 1.000000
               }
             }, 
+            "ForcedFreeze": false, 
             "FreezeEnabled": true, 
             "MaxAttractSpeed": 50.000000, 
             "MaxAttractForce": 100.000000, 
@@ -8630,7 +8631,7 @@
                 "x": 0.000000, 
                 "y": 0.000000, 
                 "z": 0.000000, 
-                "w": 1.000000
+                "w": 0.161000
               }
             }, 
             "SpriteSource": "square", 
@@ -9858,19 +9859,20 @@
             "DialogTextObjectName": "DialogText", 
             "OnlyOnFirstCollision": false, 
             "ActiveOnCollision": true, 
-            "Message1String": "123", 
+            "ActiveOnlyOnce": true, 
+            "Message1String": "1Dude", 
             "Message1Speaker": "Dude", 
-            "Message2String": "456", 
+            "Message2String": "1Asha", 
             "Message2Speaker": "Asha", 
-            "Message3String": "1233", 
+            "Message3String": "2Dude", 
             "Message3Speaker": "Dude", 
-            "Message4String": "12344", 
+            "Message4String": "2Asha", 
             "Message4Speaker": "Asha", 
-            "Message5String": "12222", 
+            "Message5String": "3Dude", 
             "Message5Speaker": "Dude", 
-            "Message6String": "123333", 
+            "Message6String": "4Dude", 
             "Message6Speaker": "Dude", 
-            "Message7String": "233", 
+            "Message7String": "3Asha", 
             "Message7Speaker": "Asha"
           }
         }, 
@@ -9893,7 +9895,7 @@
               {
                 "x": -9.000000, 
                 "y": 23.000000, 
-                "z": -0.002000
+                "z": 0.001000
               }
             }, 
             "Rotation": 
@@ -9958,7 +9960,7 @@
                   {
                     "x": -12.800000, 
                     "y": 24.400000, 
-                    "z": -0.002000
+                    "z": 0.002000
                   }
                 }, 
                 "Rotation": 
@@ -9990,10 +9992,10 @@
                     "x": 0.667000, 
                     "y": 0.467000, 
                     "z": 0.533000, 
-                    "w": 1.000000
+                    "w": 0.000000
                   }
                 }, 
-                "Font": "SafetyMedium", 
+                "Font": "Verdana", 
                 "FontSize": 5, 
                 "Text": "Speaker", 
                 "PixelsPerUnit": 64, 
@@ -10021,7 +10023,7 @@
                   {
                     "x": -12.757063, 
                     "y": 23.723198, 
-                    "z": -0.001000
+                    "z": 0.002000
                   }
                 }, 
                 "Rotation": 
@@ -10056,7 +10058,7 @@
                     "w": 1.000000
                   }
                 }, 
-                "Font": "Electrolize-Regular", 
+                "Font": "VerdanaBold", 
                 "FontSize": 5, 
                 "Text": "TWENTYCHARACTERSPLSS THANKS", 
                 "PixelsPerUnit": 64, 
@@ -10067,33 +10069,32 @@
               "DialogText": 
               {
                 "SystemDelay": 0.000000, 
-                "FadeInTime": 3.000000, 
+                "FadeInTime": 1.000000, 
+                "FadeEase": "QuadIn", 
                 "MessageTime": 5.000000, 
                 "ScaleTimeWithSize": true, 
                 "TimePerChar": 0.100000, 
-                "Message": "what", 
-                "WordWrap": 30, 
-                "FadeEase": "Linear", 
+                "Message": "WSDA", 
+                "WordWrap": 15, 
+                "TextEase": "Linear", 
                 "DeleteAfterTime": false, 
                 "TimeToDelete": 10.000000, 
                 "AshaVoiceColor": 
                 {
-                  "Vec4": 
+                  "Vec3": 
                   {
                     "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
+                    "y": 1.000000, 
+                    "z": 0.000000
                   }
                 }, 
                 "DudeVoiceColor": 
                 {
-                  "Vec4": 
+                  "Vec3": 
                   {
                     "x": 1.000000, 
                     "y": 0.000000, 
-                    "z": 0.000000, 
-                    "w": 1.000000
+                    "z": 0.000000
                   }
                 }
               }
