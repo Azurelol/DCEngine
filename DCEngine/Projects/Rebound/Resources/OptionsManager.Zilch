@@ -231,7 +231,8 @@ class OptionsManager : ZilchComponent
 
     	if(button.Name == "FullScreenB")
         {
-            //this.Space.GraphicsSpace.ToggleFullscreen();
+        	Console.WriteLine("Switching to fullscreen");
+            this.Space.GraphicsSpace.ToggleFullscreen();
         }
         else if(button.Name == "NextRatio")
         {
