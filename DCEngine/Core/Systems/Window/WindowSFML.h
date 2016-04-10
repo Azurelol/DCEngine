@@ -20,6 +20,7 @@
 #include "..\..\..\Dependencies\include\GLEW\glew.h"
 // SFML
 #include "..\..\..\Dependencies\include\SFML\Window.hpp"
+#include "..\..\..\Dependencies\include\SFML\Graphics\Image.hpp"
 
 namespace DCEngine {
   namespace Systems {
@@ -54,6 +55,7 @@ namespace DCEngine {
       WindowMode Mode = WindowMode::Default;
       
       sf::Vector2i getWindowDimensions();
+			sf::Image image;
       void setFullScreen();
 			void resizeWindow(float x, float y);
 			void recreateWindow();
