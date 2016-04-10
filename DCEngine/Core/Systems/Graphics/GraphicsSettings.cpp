@@ -16,13 +16,6 @@ namespace DCEngine
 {
 	namespace Systems
 	{
-#if(DCE_USE_ZILCH_INTERNAL_BINDING)
-    ZilchDefineType(Graphics, "Graphics", DCEngineCore, builder, type) {
-      ZilchBindMethod(builder, type, &Graphics::SetResolution, ZilchNoOverload, "SetResolution", "resolution");
-      ZilchBindMethod(builder, type, &Graphics::SetAntiAliasingLevel, ZilchNoOverload, "SetAntiAliasingLevel", "samples");
-      ZilchBindMethod(builder, type, &Graphics::ToggleFullscreen, ZilchNoOverload, "ToggleFullscreen", ZilchNoNames);
-    }
-#endif
 
 		void Graphics::SetResolution(unsigned x, unsigned y)
 		{
@@ -47,6 +40,14 @@ namespace DCEngine
 				DispatchSystemEvents::WindowFullScreenEnabled();
 				Settings.Fullscreen = true;
 			}
+		}
+		unsigned Graphics::GetScreenWidth() const
+		{
+			return Settings.ScreenWidth;
+		}
+		unsigned Graphics::GetScreenHeight() const
+		{
+			return Settings.ScreenHeight;
 		}
 	}
 }

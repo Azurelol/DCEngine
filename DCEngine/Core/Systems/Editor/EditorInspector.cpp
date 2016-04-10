@@ -75,7 +75,7 @@ namespace DCEngine {
       // Upload to Archetype
       if (ImGui::Button("Upload to Archetype")) {
         DCTrace << "Editor::WindowProperties - Uploading to Archetype \n";
-        Access().Archetypes.UploadArchetype(selectedEntity->getArchetype());
+        Access().Archetypes.UploadArchetype(selectedEntity);
         //SaveArchetype(selectedEntity->getArchetype());
       }
       ImGui::SameLine();
@@ -122,7 +122,7 @@ namespace DCEngine {
       // If the entity was modified or a componen was added, save the level
       if (modified || componentAdded) {
         selectedEntity->setModifiedFromArchetype(true);
-        Access().SaveCurrentLevel();
+        Access().Projects.SaveCurrentLevel();
       }
     }
 
@@ -303,6 +303,28 @@ namespace DCEngine {
 
       // No component was added
       return false;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Selects the Space object for property inspection.
+    */
+    /**************************************************************************/
+    void EditorInspector::SelectSpace()
+    {
+      Access().Select(Access().CurrentSpace);
+      Toggle(true);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Selects the GameSession object for property inspection.
+    */
+    /**************************************************************************/
+    void EditorInspector::SelectGameSession()
+    {
+      Access().Select(Access().CurrentSpace->getGameSession());
+      Toggle(true);
     }
 
     /**************************************************************************/

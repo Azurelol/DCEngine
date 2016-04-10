@@ -51,23 +51,25 @@ namespace DCEngine {
     SpacePtr GetSpace(std::string name);
     SpaceMap& AllSpaces();
     Space* getDefaultSpace();
-    void TestGameSession();
-
 
   private:
 
-
-    void Initialize();
-    void Update(float dt);
-    void UpdateSpace(SpacePtr space, float dt);
-    void OnUpdateEvent() {};
-    void RemoveSpace(SpacePtr);
-
-
+    // Members
     Space* DefaultSpace;
     std::string _defaultSpace = "Daisy Space";
     SystemVec Systems; //!< Container for the GameSession's systems. 
     SpaceMap ActiveSpaces; //!< A map of spaces created by the engine.
+    // Methods
+    void Initialize();
+    void Subscribe();
+    void Update(float dt);
+    void UpdateSpace(SpacePtr space, float dt);
+    void OnUpdateEvent() {};
+    void RemoveSpace(SpacePtr);   
+
+
+
+
 
   }; // GameSession
 

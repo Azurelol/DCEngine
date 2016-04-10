@@ -22,8 +22,9 @@ engine's underlying graphics system.
 
 namespace DCEngine {
 
-  class Graphics;
-
+	namespace Systems {
+		class Graphics;
+	}
   namespace Components {
 
     class Camera;
@@ -38,7 +39,7 @@ namespace DCEngine {
 		using LightComponentContainer = std::vector<Light*>;
 
     class GraphicsSpace : public Component {
-      friend class Graphics;
+      friend class Systems::Graphics;
 
     public:
 
@@ -81,13 +82,16 @@ namespace DCEngine {
       //SpriteTextContainer getSpriteTextContainer(); // Returns the container of SpriteText to be drawn
 			//std::vector<SpriteParticleSystem*> getParticleSystem(); // Returns the emission components
 
-			
+
+      void SetResolution(unsigned x, unsigned y);
+      void SetAntiAliasingLevel(unsigned samples);
+      void ToggleFullscreen();
+			unsigned GetScreenWidth();
+			unsigned GetScreenHeight() const;
 
       void OnLogicUpdate(Events::LogicUpdate* updateEvent);
-
-    private:
-
-      Graphics* GraphicsSystem;
+		private:
+      Systems::Graphics* GraphicsSystem;
       CameraViewport* CameraViewportComponent;
       GameObjectRawVec models_;  //!< Container of models that need to be rendered
       //SpriteContainer SpriteContainer; //!< Container of sprites that need to be drawn    

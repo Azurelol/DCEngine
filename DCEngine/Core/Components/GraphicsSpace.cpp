@@ -34,6 +34,9 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(GraphicsSpace, SpriteLayerOrder);
       DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertySpriteLayerOrder, attributeSpriteLayerOrder);
       DCE_BINDING_DEFINE_PROPERTY(GraphicsSpace, Active);
+      ZilchBindMethod(builder, type, &GraphicsSpace::SetResolution, ZilchNoOverload, "SetResolution", "x, y");
+      ZilchBindMethod(builder, type, &GraphicsSpace::SetAntiAliasingLevel, ZilchNoOverload, "SetAntiAliasingLevel", "samples");
+      ZilchBindMethod(builder, type, &GraphicsSpace::ToggleFullscreen, ZilchNoOverload, "ToggleFullscreen", ZilchNoNames);
       //ZilchBindProperty(builder, type, &RigidBody::getDynamicState, &RigidBody::setDynamicState, "DynamicState");
     }
     #endif
@@ -100,6 +103,27 @@ namespace DCEngine {
     {
       return LightComponents;
     }
+
+    void GraphicsSpace::SetResolution(unsigned x, unsigned y)
+    {
+      Daisy->getSystem<Systems::Graphics>()->SetResolution(x, y);
+    }
+    void GraphicsSpace::SetAntiAliasingLevel(unsigned samples)
+    {
+      Daisy->getSystem<Systems::Graphics>()->SetAntiAliasingLevel(samples);
+    }
+    void GraphicsSpace::ToggleFullscreen()
+    {
+      Daisy->getSystem<Systems::Graphics>()->ToggleFullscreen();
+    }
+		unsigned GraphicsSpace::GetScreenWidth()
+		{
+			return GraphicsSystem->GetScreenWidth();
+		}
+		unsigned GraphicsSpace::GetScreenHeight() const
+		{
+			return GraphicsSystem->GetScreenHeight();
+		}
 
     /**************************************************************************/
     /*!

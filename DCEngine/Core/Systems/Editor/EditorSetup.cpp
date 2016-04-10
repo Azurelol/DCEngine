@@ -102,6 +102,7 @@ namespace DCEngine {
         auto editorCamera = CurrentSpace->CreateObject();
         editorCamera->setObjectName("EditorCamera");
         editorCamera->setLocked(true);
+        editorCamera->setProtected(true);
         editorCamera->AddComponentByName("Camera", true);
         editorCamera->AddComponentByName("EditorCameraController", true);
         // Whether the editor's transform tool is a component

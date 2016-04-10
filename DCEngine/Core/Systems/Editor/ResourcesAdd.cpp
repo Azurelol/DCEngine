@@ -140,13 +140,16 @@ namespace DCEngine {
       DCTrace << "Editor::CreateLevel - Creating " << name << "\n";
       // Save the current level, if there's one loaded
       if (CurrentSpace->getCurrentLevel())
-        SaveLevel(CurrentSpace->getCurrentLevel()->Name());
+        Projects.SaveLevel(CurrentSpace->getCurrentLevel()->Name());
       // Destroy the objects in the space
       CurrentSpace->DestroyAll();
-      // Add a default camera from the 'Camera' archetype
-      CurrentSpace->CreateObject("Camera");      
+      // Add the default LevelSettings object
+      Creator.CreateLevelSettings();
+      // Add a default camera
+      Creator.CreateCamera();
+      //CurrentSpace->CreateObject("Camera");      
       // Save the level
-      SaveLevel(name);
+      Projects.SaveLevel(name);
       // Add the editor camera right away
       SetEditorCamera(true);
       return true;
