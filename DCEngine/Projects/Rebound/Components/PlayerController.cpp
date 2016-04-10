@@ -492,7 +492,7 @@ namespace DCEngine {
 			//DCTrace << "raydist1 = " << result.Distance << "\n";
 			auto graphicsSpace = this->SpaceRef->getComponent<Components::GraphicsSpace>();
 			graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
-			if (result.Distance < 0.02)
+			if (result.Distance < 0.2)
 			{
 				return true;
 			}
@@ -500,7 +500,7 @@ namespace DCEngine {
 			result = physicsSpace->CastRay(ray, filter);
 			//DCTrace << "raydist2 = " << result.Distance << "\n";
 			graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
-			if (result.Distance < 0.02)
+			if (result.Distance < 0.2)
 			{
 				return true;
 			}
@@ -508,7 +508,7 @@ namespace DCEngine {
 			result = physicsSpace->CastRay(ray, filter);
 			//DCTrace << "raydist3 = " << result.Distance << "\n";
 			graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
-			if (result.Distance < 0.02)
+			if (result.Distance < 0.2)
 			{
 				return true;
 			}
