@@ -48,7 +48,7 @@ namespace DCEngine {
       // Check if the resource is present in the map
       if (!MapFont.count(fontName)) {
         // Return a default font
-        return MapFont.at(DefaultFont);
+        return MapFont.at(Settings.DefaultFont);
       }
 
       return MapFont.at(fontName);
@@ -66,7 +66,7 @@ namespace DCEngine {
       if (!MapSpriteSource.count(spriteName)) {
         //DCTrace << "Content::getSpriteSrc - " << spriteName << " was not found! Using default: \n";
         // Return a default '404 image not found.
-        return MapSpriteSource.at(DefaultImage);
+        return MapSpriteSource.at(Settings.DefaultImage);
       }
 
       //SpriteSourcePtr spriteSource(SpriteSourceMap.at(spriteName));
@@ -138,7 +138,7 @@ namespace DCEngine {
       // Check if the resource is present in the map
       if (!MapCollisionGroup.count(groupName)) {
         // Return a default resource
-        return MapCollisionGroup.at(DefaultCollisionGroup);
+        return MapCollisionGroup.at(Settings.DefaultCollisionGroup);
       }
       return MapCollisionGroup.at(groupName);
     }
@@ -154,7 +154,7 @@ namespace DCEngine {
       // Check if the resource is present in the map
       if (!MapCollisionTable.count(table)) {
         // Return a default resource
-        return MapCollisionTable.at(DefaultCollisionTable);
+        return MapCollisionTable.at(Settings.DefaultCollisionTable);
       }
       return MapCollisionTable.at(table);
     }
@@ -175,22 +175,22 @@ namespace DCEngine {
     /**************************************************************************/
     PhysicsMaterialPtr Content::getPhysicsMaterial(const std::string & materialName)
     {
-      return getResource<PhysicsMaterialMap, PhysicsMaterialPtr>(materialName, MapPhysicsMaterial, DefaultPhysicsMaterial);
+      return getResource<PhysicsMaterialMap, PhysicsMaterialPtr>(materialName, MapPhysicsMaterial, Settings.DefaultPhysicsMaterial);
     }
 
     SpriteLayerPtr Content::getSpriteLayer(const std::string & name)
     {
-      return getResource<SpriteLayerMap, SpriteLayerPtr>(name, MapSpriteLayer, DefaultSpriteLayer);
+      return getResource<SpriteLayerMap, SpriteLayerPtr>(name, MapSpriteLayer, Settings.DefaultSpriteLayer);
     }
 
     TexturePtr Content::getTexture(const std::string & name)
     {
-      return getResource<TextureMap, TexturePtr>(name, MapTextures, DefaultTexture);
+      return getResource<TextureMap, TexturePtr>(name, MapTextures, Settings.DefaultTexture);
     }
 
     SpriteLayerOrderPtr Content::getSpriteLayerOrder(const std::string & name)
     {
-      return getResource<SpriteLayerOrderMap, SpriteLayerOrderPtr>(name, MapSpriteLayerOrder, DefaultSpriteLayerOrder);
+      return getResource<SpriteLayerOrderMap, SpriteLayerOrderPtr>(name, MapSpriteLayerOrder, Settings.DefaultSpriteLayerOrder);
     }
 
     /**************************************************************************/

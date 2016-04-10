@@ -11,10 +11,12 @@
 /******************************************************************************/
 #pragma once
 #include "../System.h"
+#include <GLEW\glew.h>
 
 // ImGui with SFML backend
 #include "ImGuiSFML.h"
 #include "Windows.h"
+
 
 namespace DCEngine {
 
@@ -40,7 +42,7 @@ namespace DCEngine {
       static bool IsMouseDoubleClicked();      
       static bool SliderFloat2(std::string label, ImVec2& vec2, float min, float max);
       static bool SliderFloat4(std::string label, ImVec4& vec4, float min, float max);
-      static void SetFont(const std::string& fontPath, unsigned pixelSize);
+      void SetFont(const std::string& fontPath, unsigned pixelSize);
     
     private:
       GUIConfig& Settings;
@@ -63,6 +65,7 @@ namespace DCEngine {
       std::vector<WindowPtr> InactiveWindows;
       sf::Event* EventObj;
       std::string DefaultFont;
+			unsigned FontTexture;
 
     
       

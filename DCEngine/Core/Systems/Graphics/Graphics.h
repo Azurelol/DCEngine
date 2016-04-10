@@ -18,6 +18,7 @@ receives rendering requests and draws on the window.
 #include "GraphicsGL.h"
 #include "../../Components/GraphicsSpace.h"
 #include "../../Components/SpriteParticleSystem.h"
+#include <ZILCH\Zilch.hpp>
 
 namespace DCEngine {
   class Engine;
@@ -49,6 +50,15 @@ namespace DCEngine {
       void DrawRectangle(const Vec3& pos, Real& width, Real& height, const Vec4& color, Components::Camera& cam, bool fill = false);
       void DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color, Components::Camera& cam);
 
+			//graphicsSettings
+			void SetResolution(unsigned x, unsigned y);
+			void SetAntiAliasingLevel(unsigned samples);
+			void ToggleFullscreen();
+			//Setting Gettors
+			unsigned GetScreenWidth() const;
+			unsigned GetScreenHeight() const;
+
+
     private:
 
       GraphicsConfig& Settings;		
@@ -73,7 +83,7 @@ namespace DCEngine {
       Graphics(GraphicsConfig& settings);
       void Initialize();
       void Subscribe();
-      //Main Methods
+      // Main Methods
       void Update(float dt);
       void UpdateObjects(float dt);
       void RenderShadows(Components::Camera* camera, Components::Light* light);
@@ -82,6 +92,8 @@ namespace DCEngine {
       void RenderZ0Scene(Components::Camera* camera, Components::Light* light, ShaderPtr shader = 0);
       void DrawDebug(Components::Camera* camera);
       void Terminate();
+      // Assets
+      void LoadGraphicalResources();
 
       //2D draw list
       //int TotalObjNumG = 0;

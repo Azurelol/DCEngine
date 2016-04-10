@@ -55,8 +55,8 @@ namespace DCEngine {
     void Loop();
     void Terminate();
     auto Stop() { Active = false; }
-    void LoadProject(std::string& filename);
-    void StartProject();    
+    //void LoadProject(std::string& filename);
+    //void StartProject();    
     float Dt() { return DeltaTime; }
 
     Keyboard* getKeyboard() { return KeyboardHandle.get(); }
@@ -78,8 +78,6 @@ namespace DCEngine {
     template<typename EventClass, typename SystemClass, typename MemberFunction>
     void Connect(MemberFunction fn, SystemClass* sys);
     template <typename EventClass> void Dispatch(Event* eventObj);
-    void Test();
-    
     
     //template<typename EventClass>
     //void ZilchConnect(Entity* publisher, Zilch::Function* fn, ZilchComponent* inst);
@@ -109,6 +107,9 @@ namespace DCEngine {
     ActionSpace ActionSpace; 
     std::map<std::type_index, std::list<DCEngine::EventDelegate*>> ObserverRegistry;
 
+    // Loading actions
+    void DisplayLoadingScreen(bool enable);
+    void ConstructSystems();
     void LoadDefaultSpace();
     // Updates
     void Update(float dt);   
@@ -118,6 +119,7 @@ namespace DCEngine {
     template <typename Type> bool LoadConfiguration(Type& config, std::string fileName);
     // Events
     void Subscribe();
+    void OnContentProjectLoadedEvent(Events::ContentProjectLoaded* event);
     void OnWindowLostFocusEvent(Events::WindowLostFocus* event);
     void OnWindowGainedFocusEvent(Events::WindowGainedFocus* event);    
     void OnEnginePauseEvent(Events::EnginePause* event);

@@ -23,6 +23,7 @@
 #include "Components\SpriteText.h"
 #include "Components\Reactive.h"
 #include "Components\Light.h"
+#include "Components\LoadingScreen.h"
 // Particles
 #include "Components\SpriteParticleSystem.h"
 #include "Components\ParticleEmitter.h"

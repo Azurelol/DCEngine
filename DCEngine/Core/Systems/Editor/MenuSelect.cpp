@@ -232,7 +232,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::Deselect()
     {
-      DCTrace << "Editor::Deselect \n";
+      //DCTrace << "Editor::Deselect \n";
       SelectedObjects.clear();
       if (EditorCamera && Settings.TransformTool_IsComponent)
         EditorCamera->getComponent<Components::TransformTool>()->Deselect();

@@ -112,8 +112,7 @@ namespace DCEngine {
     bool HasComponent(const std::string& name);    
     template <typename ComponentClass> void RemoveComponentByName();
     void RemoveAllComponents();
-    void RemoveComponentByName(std::string componentName);
-    void RemoveComponent(ComponentPtr component);    
+    void RemoveComponentByName(std::string componentName);  
     ComponentVec AllComponents();
     ComponentHandleVec& AllComponentsByHandle();    
     void Swap(ComponentPtr, Direction);

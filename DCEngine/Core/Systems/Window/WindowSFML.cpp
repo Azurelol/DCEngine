@@ -9,6 +9,8 @@
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
+
+#define WIN32_LEAN_AND_MEAN
 #include <Windows.h> // Oh dios mio
 
 #include "WindowSFML.h"
@@ -55,6 +57,31 @@ namespace DCEngine {
       }
     }
 
+		void WindowSFML::resizeWindow(float x, float y)
+		{
+			WindowInterface.Settings.ScreenWidth = x;
+			WindowInterface.Settings.ScreenHeight = y;
+			if (Mode != WindowMode::Fullscreen)
+			{
+				WindowContext->setSize(sf::Vector2u(unsigned(x), unsigned(y)));
+			}
+			else
+			{
+				WindowContext->create(sf::VideoMode(
+					WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
+					WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
+				Daisy->getSystem<GUI>()->Initialize();
+			}
+		}
+
+		void WindowSFML::recreateWindow(void)
+		{
+			ContextSettings.antialiasingLevel = WindowInterface.Settings.Samples;
+			WindowContext->create(sf::VideoMode(
+				WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
+				WindowInterface.Caption, sf::Style::Titlebar | sf::Style::Close, ContextSettings);
+		}
+
     /**************************************************************************/
     /*!
     @brief  Sets the window context.
@@ -67,23 +94,27 @@ namespace DCEngine {
     void WindowSFML::setWindow(WindowMode style)
     {
       // Save the current OpenGL state
-      Daisy->getSystem<Graphics>()->BackupState();
-
+			//auto graphicsSystem = Daisy->getSystem<Graphics>();
+			//Daisy->getSystem<GUI>()->Initialize();
       // This is stupid, but I can't pass in the sf::Style enum as a param :(
+			ContextSettings.antialiasingLevel = WindowInterface.Settings.Samples;
+
       switch (style) {
       case WindowMode::Default:
         WindowInterface.Settings.ScreenWidth = widthRecord;
         WindowInterface.Settings.ScreenHeight = heightRecord;
-        WindowContext->create(sf::VideoMode(WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
-          WindowInterface.Caption, sf::Style::Default, ContextSettings);
+        WindowContext->create(sf::VideoMode(
+					WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
+          WindowInterface.Caption, sf::Style::Titlebar | sf::Style::Close, ContextSettings);
         DispatchSystemEvents::WindowFullScreenDisabled();
         break;
       case WindowMode::Fullscreen:
         widthRecord = WindowInterface.Settings.ScreenWidth;
         heightRecord = WindowInterface.Settings.ScreenHeight;
-        WindowInterface.Settings.ScreenWidth = sf::VideoMode::getDesktopMode().width;
-        WindowInterface.Settings.ScreenHeight = sf::VideoMode::getDesktopMode().height;
-        WindowContext->create(sf::VideoMode(WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
+        //WindowInterface.Settings.ScreenWidth = sf::VideoMode::getDesktopMode().width;
+        //WindowInterface.Settings.ScreenHeight = sf::VideoMode::getDesktopMode().height;
+        WindowContext->create(sf::VideoMode(
+					WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
           WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
         DispatchSystemEvents::WindowFullScreenEnabled();
         break;
@@ -94,8 +125,8 @@ namespace DCEngine {
       WindowContext->setFramerateLimit(WindowInterface.Settings.Framerate);
 
       // Restore the previous OpenGL state
-      Daisy->getSystem<Graphics>()->RestoreState();
-      Daisy->getSystem<GUI>()->ReloadVAO();
+      //Daisy->getSystem<Graphics>()->RestoreState();
+      Daisy->getSystem<GUI>()->Initialize();
     }
 
     /**************************************************************************/
@@ -108,7 +139,7 @@ namespace DCEngine {
       // Stores the settings for the underlying SFML window context
       ContextSettings.depthBits = _depthBits;
       ContextSettings.stencilBits = _stencilBits;
-      ContextSettings.antialiasingLevel = _antiAliasingLevel;
+      ContextSettings.antialiasingLevel = WindowInterface.Settings.Samples;
       ContextSettings.majorVersion = _majorVersion;
       ContextSettings.minorVersion = _minorVersion;
 
@@ -119,11 +150,14 @@ namespace DCEngine {
           WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings));
         Mode = WindowMode::Fullscreen;
         DispatchSystemEvents::WindowFullScreenEnabled();
+				WindowInterface.Settings.ScreenWidth = sf::VideoMode::getDesktopMode().width;
+				WindowInterface.Settings.ScreenHeight = sf::VideoMode::getDesktopMode().height;
       }
       // Or if it starts as windowed
       else {
-        WindowContext.reset(new sf::Window(sf::VideoMode(WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
-          WindowInterface.Caption, sf::Style::Default, ContextSettings));
+        WindowContext.reset(new sf::Window(sf::VideoMode(
+					WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
+          WindowInterface.Caption, sf::Style::Titlebar | sf::Style::Close, ContextSettings));
         Mode = WindowMode::Default;
         DispatchSystemEvents::WindowFullScreenDisabled();
       }

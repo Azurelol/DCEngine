@@ -66,7 +66,8 @@ namespace DCEngine {
     /**************************************************************************/
     void Physics::OnEnginePauseEvent(Events::EnginePause * event)
     {
-      DCTrace << "Physics::OnEnginePausedEvent - Pause \n";
+      if (DCE_TRACE_PAUSE)
+        DCTrace << "Physics::OnEnginePausedEvent - Pause \n";
       this->Paused = true;
     }
 
@@ -78,7 +79,8 @@ namespace DCEngine {
     /**************************************************************************/
     void Physics::OnEngineResumeEvent(Events::EngineResume * event)
     {
-      DCTrace << "Physics::OnEngineResumeEvent - Resume \n";
+      if (DCE_TRACE_PAUSE)
+        DCTrace << "Physics::OnEngineResumeEvent - Resume \n";
       this->Paused = false;
     }
 

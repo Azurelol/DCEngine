@@ -23,17 +23,13 @@ namespace DCEngine {
       static void ObjectInitializer(Entity* entity, Entity* parent, Space* space, GameSession* gameSession);
       static void AllObjectsInitialized(Entity* entity);
 
-      // When the window gains focus
+      static void SpaceInitialized(String name);
+
       static void GameFocusIn();
-      // When the window loses focus
       static void GameFocusOut();
-      // When the game is loaded
       static void GameLoad();
-      // When the game wishes to quit
       static void GameRequestQuit();
-      // When the game is started
       static void GameStarted();
-      // When the game is ended
       static void GameEnded();
       // When ???
       static void GameSetup();

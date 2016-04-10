@@ -226,6 +226,98 @@ namespace DCEngine {
       return true;
     }
 
+		IMGUI_API bool ImGuiSFML::ImGuiSFMLReCreateDeviceObjects()
+		{
+			// 1. Backup the current OpenGL state
+			//GLint lastTexture, lastArrayBuffer, lastVertexArray;
+			//glGetIntegerv(GL_TEXTURE_BINDING_2D, &lastTexture);
+			//glGetIntegerv(GL_ARRAY_BUFFER_BINDING, &lastArrayBuffer);
+			//glGetIntegerv(GL_VERTEX_ARRAY_BINDING, &lastVertexArray);
+			
+			//2. Store a handle to the shader program used by ImGui
+			
+			if (COMPILE_SHADER_MANUALLY) {
+				// 2. Compile a shader
+				const GLchar *vertex_shader =
+					"#version 330\n"
+					"uniform mat4 ProjMtx;\n"
+					"in vec2 Position;\n"
+					"in vec2 UV;\n"
+					"in vec4 Color;\n"
+					"out vec2 Frag_UV;\n"
+					"out vec4 Frag_Color;\n"
+					"void main()\n"
+					"{\n"
+					"	Frag_UV = UV;\n"
+					"	Frag_Color = Color;\n"
+					"	gl_Position = ProjMtx * vec4(Position.xy,0,1);\n"
+					"}\n";
+			
+				const GLchar* fragment_shader =
+					"#version 330\n"
+					"uniform sampler2D Texture;\n"
+					"in vec2 Frag_UV;\n"
+					"in vec4 Frag_Color;\n"
+					"out vec4 Out_Color;\n"
+					"void main()\n"
+					"{\n"
+					"	Out_Color = Frag_Color * texture( Texture, Frag_UV.st);\n"
+					"}\n";
+			
+				ShaderHandle = glCreateProgram();
+				VertexHandle = glCreateShader(GL_VERTEX_SHADER);
+				FragHandle = glCreateShader(GL_FRAGMENT_SHADER);
+			
+				glShaderSource(VertexHandle, 1, &vertex_shader, 0);
+				glShaderSource(FragHandle, 1, &fragment_shader, 0);
+			
+				glCompileShader(VertexHandle);
+				glCompileShader(FragHandle);
+			
+				glAttachShader(ShaderHandle, VertexHandle);
+				glAttachShader(ShaderHandle, FragHandle);
+				glLinkProgram(ShaderHandle);
+			}
+			else {
+				GUIShader = Daisy->getSystem<Content>()->getShader("GUIShader");
+				GUIShader->Compile();
+				ShaderHandle = GUIShader->Get();
+			}
+
+			// 3.  Save handles to the uniforms
+			AttribLocationTex = glGetUniformLocation(ShaderHandle, "Texture");
+			AttribLocationProjMtx = glGetUniformLocation(ShaderHandle, "ProjMtx");
+			AttribLocationPosition = glGetAttribLocation(ShaderHandle, "Position");
+			AttribLocationUV = glGetAttribLocation(ShaderHandle, "UV");
+			AttribLocationColor = glGetAttribLocation(ShaderHandle, "Color");
+
+			glGenBuffers(1, &VBOHandle);
+			glGenBuffers(1, &ElementsHandle);
+
+			glGenVertexArrays(1, &VAOHandle);
+			glBindVertexArray(VAOHandle);
+			glBindBuffer(GL_ARRAY_BUFFER, VBOHandle);
+			glEnableVertexAttribArray(AttribLocationPosition);
+			glEnableVertexAttribArray(AttribLocationUV);
+			glEnableVertexAttribArray(AttribLocationColor);
+
+#define OFFSETOF(TYPE, ELEMENT) ((size_t)&(((TYPE *)0)->ELEMENT))
+			glVertexAttribPointer(AttribLocationPosition, 2, GL_FLOAT, GL_FALSE, sizeof(ImDrawVert), (GLvoid*)OFFSETOF(ImDrawVert, pos));
+			glVertexAttribPointer(AttribLocationUV, 2, GL_FLOAT, GL_FALSE, sizeof(ImDrawVert), (GLvoid*)OFFSETOF(ImDrawVert, uv));
+			glVertexAttribPointer(AttribLocationColor, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(ImDrawVert), (GLvoid*)OFFSETOF(ImDrawVert, col));
+#undef OFFSETOF
+
+			// 4. Generate font textures
+			ImGuiSFMLGenerateFontTexture();
+
+			// 5. Restores the modified OpenGL state
+			//glBindTexture(GL_TEXTURE_2D, lastTexture);
+			//glBindBuffer(GL_ARRAY_BUFFER, lastArrayBuffer);
+			//glBindVertexArray(lastVertexArray);
+
+			return true;
+		}
+
     /**************************************************************************/
     /*!
     @brief  Generates a font Texture and binds it to ImGui.
@@ -346,7 +438,8 @@ namespace DCEngine {
       // Update time step
       static double time = 0.0f;
       const double currentTime = TimeElapsed.getElapsedTime().asSeconds();
-      io.DeltaTime = static_cast<float>(currentTime - time);
+			float deltaTime = static_cast<float>(currentTime - time);
+			io.DeltaTime = MAX(deltaTime, 0.f);
       time = currentTime;
 
       // Update inputs

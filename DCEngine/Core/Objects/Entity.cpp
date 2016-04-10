@@ -359,23 +359,7 @@ namespace DCEngine {
     }
 
   }
-
-  /**************************************************************************/
-  /*!
-  @brief  Removes the component from the entity.
-  @param  component A pointer to the component.
-  */
-  /**************************************************************************/
-  void Entity::RemoveComponent(ComponentPtr component)
-  {
-    //ComponentsContainer.erase(std::remove(ComponentsContainer.begin(),
-    //                          ComponentsContainer.end(), 
-    //  [&](std::unique_ptr<Component> const& p) {
-    //  return p.get() == component;
-    //}),
-    //                          ComponentsContainer.end());
-  }
-
+  
   /**************************************************************************/
   /*!
   @brief  Returns a container of pointers to the components this entity owns.

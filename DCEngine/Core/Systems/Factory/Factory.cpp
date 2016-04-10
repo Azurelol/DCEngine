@@ -168,7 +168,8 @@ namespace DCEngine {
       // Zilch Components
       else {  
         componentHandle = state->AllocateDefaultConstructedHeapObject(boundType, report, Zilch::HeapFlags::ReferenceCounted);
-        Component::Dereference(componentHandle)->PostDefaultConstructor(name, entity);
+        if (!componentHandle.IsNull())
+          Component::Dereference(componentHandle)->PostDefaultConstructor(name, entity);
       }
       // Return the handle to this component
       return componentHandle;
@@ -270,6 +271,9 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void Factory::MarkGameObject(GameObject& gameObj) {
+      // If it isn't marked for deleteing, insert it
+      if (GameObjectsToBeDeleted.count(&gameObj))
+        return;
       GameObjectsToBeDeleted.insert(GameObjectPtr(&gameObj));
     }
 

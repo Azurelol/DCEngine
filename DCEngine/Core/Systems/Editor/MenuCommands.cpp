@@ -210,7 +210,7 @@ namespace DCEngine {
 
       // If the deleted resource is the current level.. 
       if (auto level = dynamic_cast<Level*>(resource)) {
-        if (level == CurrentSpace->CurrentLevel().get()) {
+        if (level == CurrentSpace->getCurrentLevel().get()) {
           // Clear the current level
 
         }

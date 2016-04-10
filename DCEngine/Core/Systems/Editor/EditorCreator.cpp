@@ -16,33 +16,33 @@ namespace DCEngine {
       Daisy->Connect<Events::ScriptingLibraryPatched>(&EditorCreator::OnScriptingLibraryPatched, this);
     }
 
-    void EditorCreator::CreateTransform()
+    GameObjectPtr EditorCreator::CreateTransform()
     {
       std::vector<std::string> components;
-      Create("Transform", components);
+      return Create("Transform", components);
     }
 
-    void EditorCreator::CreateSprite()
+    GameObjectPtr EditorCreator::CreateSprite()
     {
       std::vector<std::string> components;
       components.push_back("Sprite");
-      Create("Sprite", components);
+      return Create("Sprite", components);
     }
 
-    void EditorCreator::CreateSpriteText()
+    GameObjectPtr EditorCreator::CreateSpriteText()
     {
       std::vector<std::string> components;
       components.push_back("SpriteText");
-      Create("SpriteText", components);
+      return Create("SpriteText", components);
     }
 
-    void EditorCreator::CreateParticleSystem()
+    GameObjectPtr EditorCreator::CreateParticleSystem()
     {
       std::vector<std::string> components;
       components.push_back("SpriteParticleSystem");
       components.push_back("ParticleEmitter");
       components.push_back("LinearParticleAnimator");
-      Create("ParticleSystem", components);
+      return Create("ParticleSystem", components);
     }
 
     /**************************************************************************/
@@ -50,11 +50,11 @@ namespace DCEngine {
     @brief Creates a light on the editor's current level.
     */
     /**************************************************************************/
-    void EditorCreator::CreateLight()
+    GameObjectPtr EditorCreator::CreateLight()
     {
       std::vector<std::string> components;
       components.push_back("Light");
-      Create("Light", components);
+      return Create("Light", components);
 
     }
 
@@ -63,11 +63,11 @@ namespace DCEngine {
     @brief Creates a camera on the editor's current level.
     */
     /**************************************************************************/
-    void EditorCreator::CreateCamera()
+    GameObjectPtr EditorCreator::CreateCamera()
     {
       std::vector<std::string> components;
       components.push_back("Camera");
-      Create("Camera", components);
+      return Create("Camera", components);
     }
 
     /**************************************************************************/
@@ -76,7 +76,7 @@ namespace DCEngine {
     @param archetypeName The name of the Archetype.
     */
     /**************************************************************************/
-    void EditorCreator::CreateFromArchetype(const std::string & archetypeName)
+    GameObjectPtr EditorCreator::CreateFromArchetype(const std::string & archetypeName)
     {
       auto gameObject = Access().CurrentSpace->CreateObject(Daisy->getSystem<Content>()->getArchetype(archetypeName));
       // Begin as not modified from the archetype
@@ -89,6 +89,8 @@ namespace DCEngine {
       auto command = CommandPtr(new CommandObjectCreation(gameObject, Access().CurrentSpace,
         CommandObjectCreation::Setting::Create));
       Access().Add(command);
+
+      return gameObject;
     }
 
     /**************************************************************************/
@@ -98,7 +100,7 @@ namespace DCEngine {
     @param components A vector of the components the object requires.
     */
     /**************************************************************************/
-    void EditorCreator::Create(std::string name, std::vector<std::string>& components)
+    GameObjectPtr EditorCreator::Create(std::string name, std::vector<std::string>& components)
     {
       // Create the object
       auto object = Access().CurrentSpace->CreateObject();
@@ -115,6 +117,8 @@ namespace DCEngine {
         CommandObjectCreation::Setting::Create));
       Access().Add(command);
       DCTrace << "EditorCreator::Create - Created '" << name << "'\n";
+
+      return object;
     }
 
     void EditorCreator::OnEditorRebuildZilchComponents(Events::EditorRebuildZilchComponents * event)

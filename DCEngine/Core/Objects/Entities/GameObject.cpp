@@ -107,6 +107,9 @@ namespace DCEngine {
   /**************************************************************************/
   GameObject::~GameObject()
   {
+    //if (DCE_TRACE_GAMEOBJECT_DESTRUCTOR)
+    DCTrace << "GameObject::~GameObject: '" << Name() << "' \n";
+
     // If the GameObject is attached to a Parent, detach
     if (ParentRef)
       Detach();
