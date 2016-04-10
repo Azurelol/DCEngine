@@ -59,7 +59,19 @@ namespace DCEngine {
 
 		void WindowSFML::resizeWindow(float x, float y)
 		{
-			WindowContext->setSize(sf::Vector2u(unsigned(x), unsigned(y)));
+			WindowInterface.Settings.ScreenWidth = x;
+			WindowInterface.Settings.ScreenHeight = y;
+			if (Mode != WindowMode::Fullscreen)
+			{
+				WindowContext->setSize(sf::Vector2u(unsigned(x), unsigned(y)));
+			}
+			else
+			{
+				WindowContext->create(sf::VideoMode(
+					WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
+					WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
+				Daisy->getSystem<GUI>()->Initialize();
+			}
 		}
 
 		void WindowSFML::recreateWindow(void)
@@ -99,8 +111,8 @@ namespace DCEngine {
       case WindowMode::Fullscreen:
         widthRecord = WindowInterface.Settings.ScreenWidth;
         heightRecord = WindowInterface.Settings.ScreenHeight;
-        WindowInterface.Settings.ScreenWidth = sf::VideoMode::getDesktopMode().width;
-        WindowInterface.Settings.ScreenHeight = sf::VideoMode::getDesktopMode().height;
+        //WindowInterface.Settings.ScreenWidth = sf::VideoMode::getDesktopMode().width;
+        //WindowInterface.Settings.ScreenHeight = sf::VideoMode::getDesktopMode().height;
         WindowContext->create(sf::VideoMode(
 					WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
           WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
