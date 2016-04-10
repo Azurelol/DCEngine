@@ -7096,8 +7096,8 @@
             {
               "Vec3": 
               {
-                "x": 74.002235, 
-                "y": 29.286610, 
+                "x": 73.719170, 
+                "y": 29.327047, 
                 "z": 0.000000
               }
             }, 
@@ -7105,8 +7105,8 @@
             {
               "Vec3": 
               {
-                "x": 74.002235, 
-                "y": 29.286610, 
+                "x": 73.719170, 
+                "y": 29.327047, 
                 "z": 0.000000
               }
             }, 
@@ -7114,8 +7114,8 @@
             {
               "Vec3": 
               {
-                "x": 74.002235, 
-                "y": 29.286610, 
+                "x": 73.719170, 
+                "y": 29.327047, 
                 "z": 0.000000
               }
             }, 
@@ -7260,7 +7260,7 @@
           {
             "Visible": true, 
             "VisibilityCulling": false, 
-            "VisibilityEvents": false, 
+            "VisibilityEvents": true, 
             "CastShadows": false, 
             "Diffuse": false, 
             "Type": "Point", 
@@ -7275,8 +7275,8 @@
               }
             }, 
             "Intensity": 5.347000, 
-            "Range": 0.300000, 
-            "Falloff": 0.951000, 
+            "Range": 4.167000, 
+            "Falloff": 0.583000, 
             "DirectionVector": 
             {
               "Vec3": 
