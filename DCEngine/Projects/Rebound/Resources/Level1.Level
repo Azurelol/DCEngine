@@ -7274,9 +7274,9 @@
                 "w": 1.000000
               }
             }, 
-            "Intensity": 4.000000, 
-            "Range": 0.199998, 
-            "Falloff": 0.900000, 
+            "Intensity": 5.347000, 
+            "Range": 0.300000, 
+            "Falloff": 0.951000, 
             "DirectionVector": 
             {
               "Vec3": 
