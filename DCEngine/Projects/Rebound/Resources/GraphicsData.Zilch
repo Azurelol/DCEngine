@@ -15,17 +15,19 @@ class GraphicsData : ZilchComponent
 
     function OnGraphicsChange(event : GraphicsChange)
     {
-    	if(event.NewRes != Resolution.Unchanged && event.NewRes != this.CurrentResolution)
-    	{
-    		this.CurrentResolution = event.NewRes;
-    		this.ApplyResolution(event.NewRes);
-    	}
 
     	if(event.NewAA != AntiAlias.Unchanged && event.NewAA != this.CurrentAA)
     	{
     		this.CurrentAA = event.NewAA;
     		this.ApplyAntiAlias(event.NewAA);
     	}
+    	
+    	if(event.NewRes != Resolution.Unchanged && event.NewRes != this.CurrentResolution)
+    	{
+    		this.CurrentResolution = event.NewRes;
+    		this.ApplyResolution(event.NewRes);
+    	}
+
     }
 
     function ApplyAntiAlias(newAA : AntiAlias)
