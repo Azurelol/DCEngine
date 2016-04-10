@@ -489,7 +489,7 @@ namespace DCEngine {
 			ray.Direction = Vec3(0, -1, 0);
 			ray.Origin = TransformRef->Translation + Vec3(TransformRef->Scale.x / 2.1, -TransformRef->Scale.y / 2.01, 0);
 			auto result = physicsSpace->CastRay(ray, filter);
-			DCTrace << "raydist1 = " << result.Distance << "\n";
+			//DCTrace << "raydist1 = " << result.Distance << "\n";
 			auto graphicsSpace = this->SpaceRef->getComponent<Components::GraphicsSpace>();
 			graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
 			if (result.Distance < 0.02)
@@ -498,7 +498,7 @@ namespace DCEngine {
 			}
 			ray.Origin = TransformRef->Translation + Vec3(0, -TransformRef->Scale.y / 2.01, 0);
 			result = physicsSpace->CastRay(ray, filter);
-			DCTrace << "raydist2 = " << result.Distance << "\n";
+			//DCTrace << "raydist2 = " << result.Distance << "\n";
 			graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
 			if (result.Distance < 0.02)
 			{
@@ -506,7 +506,7 @@ namespace DCEngine {
 			}
 			ray.Origin = TransformRef->Translation + Vec3(-TransformRef->Scale.x / 2.1, -TransformRef->Scale.y / 2.01, 0);
 			result = physicsSpace->CastRay(ray, filter);
-			DCTrace << "raydist3 = " << result.Distance << "\n";
+			//DCTrace << "raydist3 = " << result.Distance << "\n";
 			graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
 			if (result.Distance < 0.02)
 			{

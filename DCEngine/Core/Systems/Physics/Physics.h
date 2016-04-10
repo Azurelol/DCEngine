@@ -40,10 +40,6 @@ namespace DCEngine {
     Vec3 Normal;
   };
 
-  namespace PHYSICS
-  {
-    const float Gravity = 60.0f;
-  }
 
   namespace Systems
   {

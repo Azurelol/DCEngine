@@ -232,7 +232,7 @@ namespace DCEngine {
 
     GraphicsConfig::GraphicsConfig() : Configuration("Graphics"),
       MaxDrawLayers(5), ScreenWidth(1440), ScreenHeight(900), Framerate(60), Fullscreen(false),
-      Caption("Daisy Chain Engine"), ClearColor(0.0f, 0.5f, 1.0f, 1.0f), Exposure(.5f), Samples(4)
+      Caption("Daisy Chain Engine"), ClearColor(0.0f, 0.5f, 1.0f, 1.0f), Samples(4)
     {
     }
 

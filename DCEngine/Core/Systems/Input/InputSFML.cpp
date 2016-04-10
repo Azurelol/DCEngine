@@ -142,6 +142,7 @@ namespace DCEngine {
         KeyboardRef->KeyDown_D = false;
         KeyboardRef->KeyDown_Space = false;
 
+				DispatchSystemEvents::EnginePause();
         DispatchSystemEvents::WindowLostFocus();
         break;
 

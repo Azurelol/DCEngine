@@ -128,6 +128,7 @@ namespace DCEngine {
         keyDown->Key = Keys::F8;
         break;
       case sf::Keyboard::F9:
+				DispatchSystemEvents::WindowResize(Vec2(800, 600));
         keyDown->Key = Keys::F9;
         break;
       case sf::Keyboard::F10: // RESERVED: Toggle Fullscreen

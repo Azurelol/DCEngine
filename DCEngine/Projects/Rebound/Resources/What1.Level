@@ -420,7 +420,7 @@
       {
         "Locked": false, 
         "GameObjectID": 16, 
-        "Name": "SoDoge", 
+        "Name": "Exclamation", 
         "Components": 
         {
           "Transform": 
@@ -429,8 +429,8 @@
             {
               "Vec3": 
               {
-                "x": -30.447845, 
-                "y": -13.730039, 
+                "x": -33.040436, 
+                "y": 1.751443, 
                 "z": 0.000000
               }
             }, 
@@ -468,7 +468,7 @@
             }, 
             "Font": "VerdanaBold", 
             "FontSize": 40, 
-            "Text": "!So dogey", 
+            "Text": "Very Suprise!", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
             "WordWrap": 0, 
@@ -543,9 +543,15 @@
       }, 
       "GameObject": 
       {
+<<<<<<< HEAD
         "Locked": true, 
         "GameObjectID": 16, 
         "Name": "LevelSettings", 
+=======
+        "Locked": false, 
+        "GameObjectID": 16, 
+        "Name": "SoDoge", 
+>>>>>>> 2f2fd9743c8a8540f33f1c8041b3c84027f78601
         "Components": 
         {
           "Transform": 
@@ -554,8 +560,13 @@
             {
               "Vec3": 
               {
+<<<<<<< HEAD
                 "x": 0.000000, 
                 "y": 0.000000, 
+=======
+                "x": -30.447845, 
+                "y": -13.730039, 
+>>>>>>> 2f2fd9743c8a8540f33f1c8041b3c84027f78601
                 "z": 0.000000
               }
             }, 
@@ -577,6 +588,30 @@
                 "z": 1.000000
               }
             }
+<<<<<<< HEAD
+=======
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "VerdanaBold", 
+            "FontSize": 40, 
+            "Text": "!So dogey", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 0
+>>>>>>> 2f2fd9743c8a8540f33f1c8041b3c84027f78601
           }
         }, 
         "Children": 

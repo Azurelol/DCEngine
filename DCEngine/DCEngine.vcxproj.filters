@@ -987,8 +987,13 @@
     <ClCompile Include="Core\Components\LoadingScreen.cpp">
       <Filter>Core\Components\Graphics</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Core\Components\DefaultGameSetup.cpp">
       <Filter>Core\Components\GameSession</Filter>
+=======
+    <ClCompile Include="Core\Systems\Graphics\GraphicsSettings.cpp">
+      <Filter>Core\Systems\Graphics</Filter>
+>>>>>>> 2f2fd9743c8a8540f33f1c8041b3c84027f78601
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
