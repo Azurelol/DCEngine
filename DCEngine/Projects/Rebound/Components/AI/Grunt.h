@@ -13,6 +13,7 @@
 #include "../ReboundComponent.h"
 #include "../../../../Core/Systems/StateMachine/StateMachine.h"
 #include "../../ReboundEvents.h"
+#include <random>
 
 namespace DCEngine {
   namespace Components {
@@ -41,10 +42,10 @@ namespace DCEngine {
       float AttackJumpStrengthX;
       float AttackJumpStrengthY;
       float AttackJumpPeriod;
-      bool IsDebugColorActive;
-      Vec4 IdleColor = Vec4(0, 1, 0, 1);
-      Vec4 PatrolColor = Vec4(0, 0, 1, 1);
-      Vec4 AttackColor = Vec4(1, 0, 0, 1);
+      //bool IsDebugColorActive;
+      //Vec4 IdleColor = Vec4(0, 1, 0, 1);
+      //Vec4 PatrolColor = Vec4(0, 0, 1, 1);
+      //Vec4 AttackColor = Vec4(1, 0, 0, 1);
 
       
 
@@ -68,10 +69,10 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(float, AttackJumpStrengthX);
       DCE_DEFINE_PROPERTY(float, AttackJumpStrengthY);
       DCE_DEFINE_PROPERTY(float, AttackJumpPeriod);
-      DCE_DEFINE_PROPERTY(Vec4, IdleColor);
-      DCE_DEFINE_PROPERTY(Vec4, PatrolColor);
-      DCE_DEFINE_PROPERTY(Vec4, AttackColor);
-      DCE_DEFINE_PROPERTY(bool, IsDebugColorActive);
+      //DCE_DEFINE_PROPERTY(Vec4, IdleColor);
+      //DCE_DEFINE_PROPERTY(Vec4, PatrolColor);
+      //DCE_DEFINE_PROPERTY(Vec4, AttackColor);
+      //DCE_DEFINE_PROPERTY(bool, IsDebugColorActive);
 
       // Methods
       Grunt(Entity& owner) : Component(std::string("Grunt"), owner) {}
@@ -85,7 +86,6 @@ namespace DCEngine {
 #endif
 
     private:
-      
       StateMachine<Grunt> *stateMachine;
       GameObject *player;
       GameObjectPtr head;

@@ -11,7 +11,7 @@
 /******************************************************************************/
 #include "Grunt.h"
 #include "../../../CoreComponents.h"
-#include <random>
+
 
 namespace DCEngine {
   namespace Components {
@@ -48,10 +48,10 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Grunt, AttackJumpStrengthX);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, AttackJumpStrengthY);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, AttackJumpPeriod);
-      DCE_BINDING_DEFINE_PROPERTY(Grunt, IdleColor);
-      DCE_BINDING_DEFINE_PROPERTY(Grunt, PatrolColor);
-      DCE_BINDING_DEFINE_PROPERTY(Grunt, AttackColor);
-      DCE_BINDING_DEFINE_PROPERTY(Grunt, IsDebugColorActive);
+      //DCE_BINDING_DEFINE_PROPERTY(Grunt, IdleColor);
+      //DCE_BINDING_DEFINE_PROPERTY(Grunt, PatrolColor);
+      //DCE_BINDING_DEFINE_PROPERTY(Grunt, AttackColor);
+      //DCE_BINDING_DEFINE_PROPERTY(Grunt, IsDebugColorActive);
     }
 
     // Dependancies
@@ -80,10 +80,12 @@ namespace DCEngine {
       endPosition = startingPosition;
 
       //defaultColor = SpriteRef->Color;
-      // Make these static? Maybe?
-      std::default_random_engine generator;
-      std::uniform_real_distribution<float> distribution(1, 0);
+ 
+      std::random_device rd;
+      std::mt19937 generator(rd());
+      std::uniform_real_distribution<float> distribution(0, 1);
       float rand = distribution(generator);
+
       if (IsPatrolRight)
       {
         endPosition.x = startingPosition.x + PatrolDistance;

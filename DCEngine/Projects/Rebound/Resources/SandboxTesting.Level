@@ -23,6 +23,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -12.240935, 
+                "y": -1.628062, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -12.240935, 
+                "y": -1.628062, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -125,7 +143,9 @@
             "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
             "RunAnimation": "Char_Asha_Run_Spritesheet", 
             "FallAnimation": "Char_Asha_Fall_Spritesheet", 
+            "ThrowAnimation": "Char_Asha_Throw_Spritesheet", 
             "AutoPlayTimer": 2.000000, 
+            "LandingParticle": "LandingParticle", 
             "TeleportStartSound": "Teleport", 
             "TeleportArriveSound": "TeleportArrive", 
             "JumpSound": "Jump", 
@@ -186,6 +206,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -4.076957, 
+                "y": 68.495171, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -4.076957, 
+                "y": 68.495171, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -261,6 +299,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -0.059314, 
+                "y": -4.535312, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -0.059314, 
+                "y": -4.535312, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -357,6 +413,24 @@
                 "z": 10.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 5.964065, 
+                "y": 1.720640, 
+                "z": 10.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 5.964065, 
+                "y": 1.720640, 
+                "z": 10.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -414,6 +488,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -100.000000, 
+                "y": 10.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -100.000000, 
+                "y": 10.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -700,6 +792,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -108.938919, 
+                "y": 6.791775, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -108.938919, 
+                "y": 6.791775, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -771,6 +881,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.172485, 
+                "y": 1.079386, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.172485, 
+                "y": 1.079386, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -808,38 +936,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "IsDebugColorActive": false
+            "AttackJumpPeriod": 1.000000
           }, 
           "BoxCollider": 
           {
@@ -925,6 +1022,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -2.172485, 
+                "y": 1.079386, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -2.172485, 
+                "y": 1.079386, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -962,38 +1077,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "IsDebugColorActive": false
+            "AttackJumpPeriod": 1.000000
           }, 
           "BoxCollider": 
           {
@@ -1067,6 +1151,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 2.827517, 
+                "y": 1.079386, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 2.827517, 
+                "y": 1.079386, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -1104,38 +1206,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "IsDebugColorActive": false
+            "AttackJumpPeriod": 1.000000
           }, 
           "BoxCollider": 
           {
@@ -1209,6 +1280,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 5.827517, 
+                "y": 1.079386, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 5.827517, 
+                "y": 1.079386, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -1246,38 +1335,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "IsDebugColorActive": false
+            "AttackJumpPeriod": 1.000000
           }, 
           "BoxCollider": 
           {
@@ -1351,6 +1409,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -9.172482, 
+                "y": 2.079386, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -9.172482, 
+                "y": 2.079386, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -1388,38 +1464,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "IsDebugColorActive": false
+            "AttackJumpPeriod": 1.000000
           }, 
           "BoxCollider": 
           {
