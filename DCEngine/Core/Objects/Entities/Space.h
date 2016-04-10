@@ -33,6 +33,7 @@ namespace DCEngine {
     class Editor;
     class Factory;
     class EditorObjects;
+    class EditorProjects;
   }
 
   class Space : public Entity {
@@ -40,6 +41,7 @@ namespace DCEngine {
     friend class Systems::Factory;
     friend class Systems::Editor;    
     friend class Systems::EditorObjects;
+    friend class Systems::EditorProjects;
   
   public:
 

@@ -101,6 +101,7 @@ namespace DCEngine {
     void setArchetype(std::string);
     std::string getArchetype() const;
     DCE_DEFINE_PROPERTY(bool, ModifiedFromArchetype);
+    DCE_DEFINE_PROPERTY(bool, Protected);
     // Components    
     template<typename ComponentClass> bool AddComponent(bool initialize = false);
     ComponentPtr AddComponentByName(const std::string& name, bool initialize = false);
@@ -150,10 +151,10 @@ namespace DCEngine {
     EntityType type_;
 
   private:
-
     std::string ArchetypeName;
     bool IsInitialized;
     bool ModifiedFromArchetype;
+    bool Protected;
     // Events
     ObserverRegistryMapStr ObserverRegistryByString;
     ObserverRegistryMapTypeIndex ObserverRegistry;

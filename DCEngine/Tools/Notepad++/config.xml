@@ -13,10 +13,12 @@
         <GUIConfig name="UserDefineDlg" position="undocked">hide</GUIConfig>
         <GUIConfig name="TabSetting" size="4" replaceBySpace="no" />
         <!--App position-->
-        <GUIConfig name="AppPosition" x="862" y="219" width="1035" height="717" isMaximized="no" />
+        <<<< HEAD
+        <GUIConfig name="AppPosition" x="606" y="316" width="955" height="659" isMaximized="no" /=======
+        <GUIConfig name="AppPosition" x="604" y="222" width="955" height="659" isMaximized="no" /&gt;&gt;&gt;&gt;&gt;&gt;&gt; 3355638d2dacbbcf889690e6ffc0018ef2635b06
         <!-- For the primary scintilla view,
              2 status for Attribut lineNumberMargin, bookMarkMargin, indentGuideLine and currentLineHilitingShow: "show" or "hide"
-             4 status for Attribut folderMarkStyle : "simple", "arrow", "circle" and "box"  -->
+             4 status for Attribut folderMarkStyle : "simple", "arrow", "circle" and "box"  --
         <GUIConfig name="ScintillaPrimaryView" lineNumberMargin="show" bookMarkMargin="show" folderMarkStyle="box" indentGuideLine="show" currentLineHilitingShow="show" Wrap="no" edge="no" edgeNbColumn="100" wrapSymbolShow="hide" zoom="0" whiteSpaceShow="hide" eolShow="hide" lineWrapMethod="aligned" disableAdvancedScrolling="no" borderEdge="yes" zoom2="0" borderWidth="2" smoothFont="no" />
         <!-- For the secodary scintilla view,
              2 status for Attribut lineNumberMargin, bookMarkMargin, indentGuideLine and currentLineHilitingShow: "show" or "hide"
@@ -87,9 +89,13 @@
         <GUIConfig name="ScintillaGlobalSettings" enableMultiSelection="no" />
         <GUIConfig name="openSaveDir" value="0" defaultDirPath="" />
         <GUIConfig name="titleBar" short="no" />
-        <GUIConfig name="stylerTheme" path="C:\Users\Dale\Documents\GameProjects\Moonward\Repo\DCEngine\Tools\Notepad++\stylers.xml" />
-        <GUIConfig name="delimiterSelection" leftmostDelimiter="40" rightmostDelimiter="41" delimiterSelectionOnEntireDocument="no" />
+        <<<< HEAD
+        <GUIConfig name="stylerTheme" path="C:\Development\DCEngine\DCEngine\Tools\Notepad++\stylers.xml" /=======
+        <GUIConfig name="stylerTheme" path="C:\Users\Dale\Documents\GameProjects\Moonward\Repo\DCEngine\Tools\Notepad++\themes\Monokai.xml" /&gt;&gt;&gt;&gt;&gt;&gt;&gt; 3355638d2dacbbcf889690e6ffc0018ef2635b06
+        <GUIConfig name="delimiterSelection" leftmostDelimiter="40" rightmostDelimiter="41" delimiterSelectionOnEntireDocument="no" /
         <GUIConfig name="MISC" fileSwitcherWithoutExtColumn="no" backSlashIsEscapeCharacterForSql="yes" newStyleSaveDlg="no" />
+        <GUIConfig name="stylerTheme" path="D:\DCEngine\DCEngine\Tools\Notepad++\stylers.xml" />
+        <GUIConfig name="delimiterSelection" leftmostDelimiter="40" rightmostDelimiter="41" delimiterSelectionOnEntireDocument="0" />
         <GUIConfig name="DockingManager" leftWidth="200" rightWidth="200" topHeight="200" bottomHeight="200">
             <ActiveTabs cont="0" activeTab="-1" />
             <ActiveTabs cont="1" activeTab="-1" />
@@ -100,13 +106,7 @@
     <!-- The History of opened files list -->
     <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="no" dlgAlwaysVisible="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="0" transparencyMode="1" transparency="150" dotMatchesNewline="no" />
     <History nbMaxFile="15" inSubMenu="no" customLength="-1">
-        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\BasicController.Zilch" />
-        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\BallTemp.Zilch" />
-        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\MusicBackground.Zilch" />
-        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\PressurePlate.Zilch" />
-        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\CornerBallEnergyGenerationers.Zilch" />
-        <File filename="C:\Users\John\Documents\ZeroProjects\Graviator\Content\SimpleAnimator.z" />
-        <File filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\UIButton.Zilch" />
+        <File filename="D:\DCEngine\DCEngine\Projects\Rebound\Resources\Player.Zilch" />
     </History>
     <ProjectPanels>
         <ProjectPanel id="0" workSpaceFile="" />

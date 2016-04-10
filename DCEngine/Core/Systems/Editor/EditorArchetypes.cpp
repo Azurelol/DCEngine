@@ -47,9 +47,26 @@ namespace DCEngine {
   /**************************************************************************/
     void EditorArchetypes::Select(ArchetypeHandle archetype)
     {    
+      // Create a dummy object
+
       // Instantiate the archetype
       CurrentArchetype = ArchetypeSpace->CreateObject(archetype);
       Access().Select(CurrentArchetype);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Deselects the currently selected Archetype.
+    */
+    /**************************************************************************/
+    void EditorArchetypes::Deselect()
+    {
+      if (!CurrentArchetype)
+        return;
+
+      // Destroy the current archetype object
+      CurrentArchetype->Destroy();
+      CurrentArchetype = nullptr;
     }
 
     /**************************************************************************/
@@ -70,14 +87,17 @@ namespace DCEngine {
     @note This will overwrite any Archetypes named after it.
     */
     /**************************************************************************/
-    void EditorArchetypes::UploadArchetype(ArchetypeHandle archetype)
+    void EditorArchetypes::UploadArchetype(EntityPtr entity)
     {
+      // Get the entity's archetype
+      auto archetype = entity->getArchetype();
+
       // Get the current project's archetype path
       auto path = Access().Settings.ProjectProperties->ProjectPath + Access().Settings.ProjectProperties->ResourcePath
                    + archetype + Archetype::Extension();
 
       // Create the archetype
-      auto archetypePtr = Daisy->getSystem<Factory>()->BuildArchetype(path, dynamic_cast<GameObjectPtr>(Access().SelectedObject()));
+      auto archetypePtr = Daisy->getSystem<Factory>()->BuildArchetype(path, dynamic_cast<GameObjectPtr>(entity));
       // Save it
       archetypePtr->Save();
       // Scan for archetypes again
@@ -105,7 +125,7 @@ namespace DCEngine {
     @return A pointer to the archetype.
     */
     /**************************************************************************/
-    GameObject* EditorArchetypes::Current()
+    EntityPtr EditorArchetypes::Current()
     {
       return CurrentArchetype;
     }
@@ -120,20 +140,7 @@ namespace DCEngine {
       ArchetypeSpace = Daisy->getGameSession()->CreateSpace("ArchetypeSpace");
     }
 
-    /**************************************************************************/
-    /*!
-    @brief Deselects the currently selected Archetype.
-    */
-    /**************************************************************************/
-    void EditorArchetypes::Deselect()
-    {
-      if (!CurrentArchetype)
-        return;
 
-      // Destroy the current archetype object
-      CurrentArchetype->Destroy();
-      CurrentArchetype = nullptr;
-    }
 
     /**************************************************************************/
     /*!
@@ -142,14 +149,28 @@ namespace DCEngine {
     /**************************************************************************/
     void EditorArchetypes::UpdateArchetypeInstances(ArchetypeHandle archetypeName)
     {
-      // For every level in the project...
-      for (auto& gameObject : *Access().CurrentSpace->AllObjects()) {
-        // If the GameObject is of the same archetype and has not been modified
-        bool modified = gameObject->getModifiedFromArchetype();
-        if (gameObject->getArchetype() == archetypeName && !modified) {
-          RevertToArchetype(gameObject);
+      // If the current archetype is a GameObject
+      if (GameObject::IsA(CurrentArchetype)) {
+        // For every level in the project...
+        for (auto& gameObject : *Access().CurrentSpace->AllObjects()) {
+          // If the GameObject is of the same archetype and has not been modified
+          bool modified = gameObject->getModifiedFromArchetype();
+          if (gameObject->getArchetype() == archetypeName && !modified) {
+            RevertToArchetype(gameObject);
+          }
         }
       }
+
+      // If it's a Space
+      if (auto space = dynamic_cast<SpacePtr>(CurrentArchetype)) {
+        RevertToArchetype(space);
+      }
+
+      // If it's the GameSession
+      if (auto gameSession = dynamic_cast<GameSession*>(CurrentArchetype)) {
+        RevertToArchetype(gameSession);
+      }
+
     }
 
 
