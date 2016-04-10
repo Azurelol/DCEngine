@@ -58,9 +58,7 @@ namespace DCEngine {
     // Properties. This one is handwritten since we use the identifier "Name", rather than ObjectName
     auto propertyName = ZilchBindProperty(builder, type, &Object::getObjectName, &Object::setObjectName, "Name");  
     Zilch::Attribute propertyTagName; propertyTagName.Name = "Property";  
-    propertyName->Attributes.push_back(propertyTagName);
-
-    
+    propertyName->Attributes.push_back(propertyTagName);    
   }
 
 
@@ -89,22 +87,6 @@ namespace DCEngine {
     ZilchBindMethod(builder, type, &Mouse::MouseDown, ZilchNoOverload, "MouseDown", ZilchNoNames);
     ZilchBindMethod(builder, type, &Mouse::MouseUp, ZilchNoOverload, "MouseUp", ZilchNoNames);*/
   }
-
-  /*!************************************************************************\
-  @brief  GameSession Definition
-  \**************************************************************************/
-  ZilchDefineType(GameSession, "GameSession", DCEngineCore, builder, type) {
-    DCE_BINDING_SET_HANDLE_TYPE_POINTER;
-    // Constructor / Destructor
-    ZilchBindConstructor(builder, type, GameSession, "name", std::string);
-    ZilchBindDestructor(builder, type, GameSession);      // Methods
-    // Methods
-    ZilchBindMethod(builder, type, &GameSession::CreateSpace, ZilchNoOverload, "CreateSpace", "name, initialize");
-    ZilchBindMethod(builder, type, &GameSession::GetSpace, ZilchNoOverload, "FindSpaceByName", "name");
-    ZilchBindMethod(builder, type, &GameSession::getDefaultSpace, ZilchNoOverload, "GetDefaultSpace", ZilchNoNames);
-    ZilchBindMethod(builder, type, &GameSession::TestGameSession, ZilchNoOverload, "TestGameSession", ZilchNoNames);
-  }
-
 
 
   /*!************************************************************************\

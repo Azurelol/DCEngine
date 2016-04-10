@@ -129,7 +129,7 @@ namespace DCEngine {
             if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0)) {
               // Load the selected level
               DCTrace << "Editor::WidgetLibrary - Loading: " << resourceName << "\n";
-              LoadLevel(resourceName);
+              Projects.LoadLevel(resourceName);
               break;
             }
           }

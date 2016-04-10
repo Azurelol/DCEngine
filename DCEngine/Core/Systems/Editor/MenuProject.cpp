@@ -78,68 +78,8 @@ namespace DCEngine {
       Projects.LoadProject(path);
       return;
 
-      // Load the project's data into the Content system. This will
-      // automatically load its resources/assets for use.
-      Daisy->getSystem<Content>()->LoadProject(path);
-      // Save a pointer to the project data
-      Settings.ProjectProperties = Daisy->getSystem<Content>()->ProjectInfo.get();
-      // Update the window caption to display the current project
-      auto projectName = Daisy->getSystem<Content>()->ProjectInfo->ProjectName;
-      DCTrace << "Editor::LoadProject - Opening: " << projectName << "\n";
-      DispatchSystemEvents::SetWindowCaption(projectName + "- Daisy Chain Engine");
-      // Check that the scripting library has been compiled successfully before
-      // trying to load the default level.
-
-
-      // Load its default level 
-      auto play = Settings.ProjectProperties->Play;
-      auto load = LoadLevel(Settings.ProjectProperties->DefaultLevel);
-      //
-      if (load) {
-        if (play) {       
-          ToggleEditor(false);
-        }
-          
-        else {
-          DCTrace << "Editor::LoadProject - Default level found editor turned on \n";
-          ToggleEditor(true);
-        }
-      }
-      // No default level set, turn on the editor!
-      else
-        ToggleEditor(true);
-
      }
-    
-
-    /**************************************************************************/
-    /*!
-    @brief  Autosaves the current project.
-    */
-    /**************************************************************************/
-    void Editor::AutoSave()
-    {
-      // The timer's update will return true every 60 seconds. When it does so,
-      // we will automatically save the current level.
-      if (Settings.AutoSaveTimer.Update()) {
-        DCTrace << "Editor::AutoSave - Autosaving... \n";
-        SaveCurrentLevel();
-      }
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Saves the currently-loaded level.
-    */
-    /**************************************************************************/
-    void Editor::SaveCurrentLevel()
-    {      
-      if (CurrentSpace->getCurrentLevel()) {
-        auto currentLevelName = CurrentSpace->getCurrentLevel()->Name();
-        SaveLevel(currentLevelName);
-      }
-    }
-
+        
     /**************************************************************************/
     /*!
     @brief  Starts the game, reloading the level from the last settings saved
@@ -153,7 +93,7 @@ namespace DCEngine {
       
       // If on editor mode, save the currently-loaded level before exiting the editor
       if (Settings.EditorEnabled)      
-        SaveCurrentLevel();
+        Access().Projects.SaveCurrentLevel();
 
       // Turn the editor on/off
       ToggleEditor(!Settings.EditorEnabled);
@@ -185,7 +125,7 @@ namespace DCEngine {
     {
       Deselect();
       // Save the currently-loaded level before exiting the editor
-      SaveCurrentLevel();
+      Access().Projects.SaveCurrentLevel();
       // Save the current project's settings
       Projects.SaveProject();
       DispatchSystemEvents::EngineExit();
