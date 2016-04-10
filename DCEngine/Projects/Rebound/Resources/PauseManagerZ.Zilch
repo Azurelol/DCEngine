@@ -1,0 +1,63 @@
+class PauseManagerZ : ZilchComponent
+{
+	//var EscapeDown : Boolean;
+	//var EscapeReleased : Boolean;
+	var Paused : Boolean;
+	var PauseSpace : Space;
+
+	[Property]
+	var PauseLevelName : String = "";
+
+    function Initialize()
+    {
+        //Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+        //Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDown);
+        Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyUp, this.OnKeyUp);
+
+        //this.EscapeDown = false;
+        //this.EscapeReleased = false;
+        this.Paused = false;
+    }
+
+    function OnKeyDown(event : KeyDown)
+    {
+    	Console.WriteLine(event.Key);
+    }
+
+    function OnKeyUp(event : KeyUp)
+    {
+    	if(event.Key == Keys.Escape && !this.Paused)
+    	{
+    		this.LoadPauseMenu();
+    	}
+    	else if(event.Key == Keys.Escape)
+    	{
+    		this.DestroyPauseMenu();
+    	}
+    }
+
+    function LoadPauseMenu()
+    {
+    	if(this.PauseLevelName == "")
+    	{
+    		return;
+    	}
+
+    	this.Paused = true;
+    	this.Space.TimeSpace.Paused = true;
+    	this.PauseSpace = this.GameSession.CreateSpace("PauseSpace", true);
+    	this.PauseSpace.LoadLevel(this.PauseLevelName);
+    }
+
+    function DestroyPauseMenu()
+    {
+    	if(this.PauseLevelName == "")
+    	{
+    		return;
+    	}
+
+    	this.PauseSpace.Destroy();
+    	this.Paused = false;
+    	this.Space.TimeSpace.Paused = false;
+    }
+}

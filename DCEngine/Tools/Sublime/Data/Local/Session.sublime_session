@@ -16,234 +16,50 @@
 				"selected_items":
 				[
 					[
-						"Res",
-						"ResolutionRefText"
-					],
-					[
-						"As",
-						"AspectRefText"
-					],
-					[
-						"CurA",
-						"CurAspect"
-					],
-					[
-						"A",
-						"A_1920x1080"
-					],
-					[
-						"Reso",
-						"Resolution"
-					],
-					[
-						"Cur",
-						"CurRes"
-					],
-					[
-						"Na",
-						"Native"
-					],
-					[
-						"Cu",
-						"CurAspect"
-					],
-					[
-						"C",
-						"C_x8"
-					],
-					[
-						"B",
-						"B_x4"
-					],
-					[
-						"AARe",
-						"AntiAliasingRefText"
-					],
-					[
-						"D",
-						"D_x16"
-					],
-					[
-						"Anti",
-						"AntiAlias"
-					],
-					[
-						"Enter",
-						"EnterHoveredState"
-					],
-					[
-						"Cl",
-						"Clicked"
-					],
-					[
-						"ResR",
-						"ResolutionRefText"
-					],
-					[
-						"new",
-						"newAA"
-					],
-					[
-						"Curr",
-						"CurrentResolution"
-					],
-					[
-						"Graph",
-						"GraphicsChange"
-					],
-					[
-						"Move",
-						"MoveSpeed"
-					],
-					[
-						"Pan",
-						"PanBy"
-					],
-					[
-						"OnBu",
-						"OnButtonClicked"
-					],
-					[
-						"OnButton",
-						"OnButtonHovered"
-					],
-					[
-						"OnB",
-						"OnButtonDefault"
-					],
-					[
-						"HtP",
-						"HtPPanTime"
-					],
-					[
-						"Trans",
-						"Transform"
-					],
-					[
-						"Tra",
-						"Translation"
-					],
-					[
-						"Tran",
-						"Transform"
+						"Pause",
+						"Paused"
 					],
 					[
 						"Pa",
-						"PanBy"
+						"PauseSpace"
 					],
 					[
-						"Target",
-						"TargetObj"
+						"Key",
+						"Keyboard"
 					],
 					[
-						"Tare",
-						"TargetObject"
-					],
-					[
-						"Check",
-						"CheckForGround"
-					],
-					[
-						"Collison",
-						"CollisionEnded"
-					],
-					[
-						"On",
-						"OnButtonClicked"
-					],
-					[
-						"Drag",
-						"DragTimer"
-					],
-					[
-						"Dra",
-						"DragTimer"
-					],
-					[
-						"Jum",
-						"JumpStrength"
-					],
-					[
-						"Ju",
-						"JumpInput"
-					],
-					[
-						"Jump",
-						"JumpInputDelay"
-					],
-					[
-						"Dais",
+						"Da",
 						"Daisy"
 					],
 					[
-						"Ac",
-						"Active"
+						"Esc",
+						"Escape"
 					],
 					[
-						"Act",
-						"ActiveColor"
+						"Ke",
+						"Key"
 					],
 					[
-						"In",
-						"InactiveColor"
+						"Es",
+						"EscapeReleased"
 					],
 					[
-						"Daisy",
+						"Esca",
+						"EscapeDown"
+					],
+					[
+						"Dais",
 						"DaisyEvent"
-					],
-					[
-						"Exp",
-						"ExpansionTime"
-					],
-					[
-						"Expa",
-						"ExpansionScale"
-					],
-					[
-						"Text",
-						"TextReference"
-					],
-					[
-						"Inac",
-						"Inactive"
-					],
-					[
-						"Cli",
-						"ClickedColor"
-					],
-					[
-						"Button",
-						"ButtonState"
-					],
-					[
-						"Bu",
-						"ButtonState"
 					]
 				]
 			},
 			"buffers":
 			[
 				{
-					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/OptionsManager.Zilch",
+					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PauseManagerZ.Zilch",
 					"settings":
 					{
-						"buffer_size": 13196,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GraphicsData.Zilch",
-					"settings":
-					{
-						"buffer_size": 3048,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
-					"settings":
-					{
-						"buffer_size": 5144,
+						"buffer_size": 1391,
 						"line_ending": "Windows"
 					}
 				}
@@ -255,16 +71,12 @@
 			"build_varint": "",
 			"command_palette":
 			{
-				"height": 81.0,
-				"last_filter": "c++",
+				"height": 0.0,
+				"last_filter": "",
 				"selected_items":
 				[
-					[
-						"c++",
-						"Set Syntax: C++"
-					]
 				],
-				"width": 392.0
+				"width": 0.0
 			},
 			"console":
 			{
@@ -284,47 +96,10 @@
 			},
 			"file_history":
 			[
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Collector.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogBackgroundBehavior.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/AntiEnergyField.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PlayerTemp.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/RotatingBarrier.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HealthControllerZ.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GraphicsData.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HazardAreaZilch.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogText.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/SimpleAnimator.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/EnergyShield.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/CameraControllerZilch.Zilch",
-				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
-				"/D/DCEngine/DCEngine/Projects/Rebound/Resources/Level2Generator.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PanButton.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/MenuPan.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Testing.Zilch",
-				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
-				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/FadeZilch.Zilch",
-				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/BasicController.Zilch",
-				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/SimpleAnimator.Zilch",
-				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestRayCasting.Zilch",
-				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/DebugMove.Zilch",
-				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/BasicController.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/SimpleInputManager.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/LevelTimeFade.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PowerField.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/MoveToLocationZilch.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PressurePlate.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Button.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TransistorLogic.Zilch",
-				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/HealthControler.Zilch"
 			],
 			"find":
 			{
-				"height": 23.0
+				"height": 0.0
 			},
 			"find_in_files":
 			{
@@ -338,13 +113,6 @@
 				"case_sensitive": false,
 				"find_history":
 				[
-					"Real2",
-					"MaxDelay",
-					"MinDelay",
-					"MaxFadeTime",
-					"MinFadeTime",
-					"CurrentlyFading",
-					"CheckForGround"
 				],
 				"highlight": true,
 				"in_selection": false,
@@ -367,96 +135,30 @@
 					[
 						{
 							"buffer": 0,
-							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/OptionsManager.Zilch",
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PauseManagerZ.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 13196,
+								"buffer_size": 1391,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-<<<<<<< HEAD
-										1081,
-										1081
-=======
-										6348,
-										6348
->>>>>>> cccb69d95cf448e282072b2f9ff69834b59bdda4
+										1382,
+										1382
 									]
 								],
 								"settings":
 								{
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
-<<<<<<< HEAD
-								"translation.x": -0.0,
-								"translation.y": 225.0,
-=======
 								"translation.x": 0.0,
-								"translation.y": 2700.0,
->>>>>>> cccb69d95cf448e282072b2f9ff69834b59bdda4
+								"translation.y": 360.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
-							"type": "text"
-						},
-						{
-							"buffer": 1,
-							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GraphicsData.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 3048,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										609,
-										609
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax"
-								},
-								"translation.x": 0.0,
-								"translation.y": 1260.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 1,
-							"type": "text"
-						},
-						{
-							"buffer": 2,
-							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 5144,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										4654,
-										4654
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax"
-								},
-								"translation.x": -0.0,
-								"translation.y": 2790.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 2,
 							"type": "text"
 						}
 					]
@@ -464,7 +166,7 @@
 			],
 			"incremental_find":
 			{
-				"height": 23.0
+				"height": 0.0
 			},
 			"input":
 			{
@@ -498,15 +200,11 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-<<<<<<< HEAD
-			"position": "0,0,1,-1,-1,-1,-1,1051,-1448,184,-148",
-=======
-			"position": "0,0,1,-1,-1,-1,-1,1038,623,171,1923",
->>>>>>> cccb69d95cf448e282072b2f9ff69834b59bdda4
+			"position": "0,0,1,-1,-1,-1,-1,986,457,92,1775",
 			"project": "",
 			"replace":
 			{
-				"height": 42.0
+				"height": 0.0
 			},
 			"save_all_on_build": true,
 			"select_file":

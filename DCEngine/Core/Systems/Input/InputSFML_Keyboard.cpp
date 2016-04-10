@@ -359,6 +359,7 @@ namespace DCEngine {
       case sf::Keyboard::Escape:
         //Daisy->getSystem<Window>()->WindowHandler->Terminate();
         KeyboardRef->KeyDown_Escape = false;
+		keyUp->Key = Keys::Escape;
         break;
       case sf::Keyboard::Space:
         keyUp->Key = Keys::Space;

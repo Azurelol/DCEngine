@@ -1,9 +1,10 @@
 <NotepadPlus>
     <Session activeView="0">
-        <mainView activeIndex="2">
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="408" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\john.myres\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\OptionsManager.Zilch" backupFilePath="" originalFileLastModifTimestamp="1460261361" />
+        <mainView activeIndex="3">
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="408" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\john.myres\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\OptionsManager.Zilch" backupFilePath="" originalFileLastModifTimestamp="1460263186" />
             <File firstVisibleLine="0" xOffset="0" scrollWidth="720" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\john.myres\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\GraphicsData.Zilch" backupFilePath="" originalFileLastModifTimestamp="1460261623" />
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="584" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\john.myres\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\UIButton.Zilch" backupFilePath="" originalFileLastModifTimestamp="1460256968" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="584" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\john.myres\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\UIButton.Zilch" backupFilePath="" originalFileLastModifTimestamp="1460262725" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="640" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\john.myres\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\PauseManagerZ.Zilch" backupFilePath="" originalFileLastModifTimestamp="1460326555" />
         </mainView>
         <subView activeIndex="0" />
     </Session>

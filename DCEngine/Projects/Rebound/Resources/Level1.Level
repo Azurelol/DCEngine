@@ -8867,69 +8867,6 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 248, 
-        "Name": "Transform", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "LocalTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "WorldTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "PauseManager": 
-          {
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
         "GameObjectID": 213, 
         "Name": "w23", 
         "Components": 
@@ -12035,6 +11972,10 @@
         "Name": "LevelSettings", 
         "Components": 
         {
+          "PauseManagerZ": 
+          {
+            "PauseLevelName": "PauseMenu"
+          }
         }, 
         "Children": 
         {
