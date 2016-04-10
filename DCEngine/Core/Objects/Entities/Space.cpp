@@ -32,9 +32,14 @@ namespace DCEngine {
   \brief  Constructor for the Space class.
   */
   /**************************************************************************/
-  Space::Space(std::string name, GameSession& gamesession) : Entity(name), GameSessionRef(&gamesession) {
-    if (TRACE_ON && TRACE_CONSTRUCTOR)
-      DCTrace << ObjectName << "::Space - Constructor \n";
+  Space::Space(std::string name, GameSession& gamesession) : Entity(name), 
+                          GameSessionRef(&gamesession)
+
+  {
+    // Sets the default archetype
+    setArchetype("Space");
+
+    if (TRACE_ON && TRACE_CONSTRUCTOR) DCTrace << ObjectName << "::Space - Constructor \n";
     type_ = EntityType::Space;
   }
   
@@ -61,19 +66,7 @@ namespace DCEngine {
     AddComponentByName(std::string("PhysicsSpace"), true);
     AddComponentByName(std::string("CameraViewport"), true);
     AddComponentByName(std::string("GraphicsSpace"), true);
-
-    //AddComponent<Components::SoundSpace>();
-    //AddComponent<Components::TimeSpace>();
-    //AddComponent<Components::PhysicsSpace>();
-    //AddComponent<Components::CameraViewport>();
-    //AddComponent<Components::GraphicsSpace>();
-
-    //AddComponent(ComponentPtr(new SoundSpace(*this)));
-    //AddComponent(ComponentPtr(new TimeSpace(*this)));
-    //AddComponent(ComponentPtr(new PhysicsSpace(*this)));
-    //AddComponent(ComponentPtr(new CameraViewport(*this)));
-    //AddComponent(ComponentPtr(new GraphicsSpace(*this)));
-
+    
     // Initialize Space-components
     for (auto &component : ComponentsContainer) {
       component->Initialize();
@@ -141,11 +134,12 @@ namespace DCEngine {
     builder.Key("Space");
     builder.Begin(Zilch::JsonType::Object);
     {
-      // Serialize the Space
+      // Serialize Space properties
       SerializeByType(builder, interface->GetState(), ZilchTypeId(Space), this);
       // Serialize the underlying Entity object, which includes its components.
       Entity::Serialize(builder);
     }
+    builder.End();
   }
 
   /**************************************************************************/
@@ -161,7 +155,7 @@ namespace DCEngine {
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
     // Deserialize the underlying Entity
     Entity::Deserialize(properties);
-    // Deserialize the GameObject properties
+    // Deserialize the Space properties
     DeserializeByType(properties, interface->GetState(), ZilchTypeId(Space), this);
   }
 
@@ -399,6 +393,10 @@ namespace DCEngine {
       return nullptr;
     }
     auto gameObject = Daisy->getSystem<Systems::Factory>()->CreateGameObject(archetype, *this, true);
+    if (!gameObject) {
+      DCTrace << ObjectName << "::Space::CreateObject - Could not create the GameObject! \n";
+      return nullptr;
+    }
     // Add it to the recently-created GameObjects container
     // RecentlyCreatedGameObjects.push_back(gameObject);
     //DCTrace << Name() << "::Space::CreateObject: Created '" << archetypeName << "' \n";

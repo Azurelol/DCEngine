@@ -21,9 +21,13 @@ namespace DCEngine {
 
       void Display();
       EditorInspector();
+      // Select
+      void SelectSpace();
+      void SelectGameSession();
 
     private:
-
+      
+      // Property Display
       bool DisplayProperties(ObjectPtr, Zilch::Handle = Zilch::Handle());
       void DisplayEntityProperties(EntityPtr);
       void DisplayResourceProperties(ResourcePtr);
@@ -34,9 +38,7 @@ namespace DCEngine {
       void PreviewSound(Zilch::Property* property, ObjectPtr object);
       // Components
       bool AddComponent(EntityPtr);
-
       bool CheckIfDoneModified(bool& modified);
-
       // Templates
       template <typename ResourceMap> bool InspectResource(std::string resourceType, ResourceMap* map, Zilch::Property * resource, ObjectPtr component, unsigned int propertyID);
       template <typename PropertyType> void Get(Zilch::ExecutableState* state, ObjectPtr object, Zilch::Handle handle, Zilch::Property* property, PropertyType value);

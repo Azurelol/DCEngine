@@ -39,7 +39,7 @@ class EnemySpawner : ZilchComponent
         // spawn shit
         this.CurrentTime = 0;
         
-        while(true)
+        while(this.Scrapper || this.Lancer || this.Shield)
         {
           var selection = randomGenerator.DieRoll(3);
           
@@ -47,6 +47,27 @@ class EnemySpawner : ZilchComponent
           {
             Console.WriteLine("Creating object");
             var obj = this.Space.CreateObject("Scrapper");
+			if(obj.Transform != null)
+			{
+				Console.WriteLine("1");
+			}
+			if(obj.RigidBody != null)
+			{
+				Console.WriteLine("2");
+			}
+			if(obj.BoxCollider != null)
+			{
+				Console.WriteLine("3");
+			}
+			if(obj.Sprite != null)
+			{
+				Console.WriteLine("4");
+			}
+			if(obj.Grunt != null)
+			{
+				Console.WriteLine("5");
+			}
+			
             
             obj.Transform.Translation = spawnPosition;
             

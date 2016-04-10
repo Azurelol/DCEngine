@@ -111,7 +111,6 @@ namespace DCEngine {
       // Projects
       std::string RecentProject;
       std::string ProjectsPath;
-      Time::Timer AutoSaveTimer;
       bool EditorEnabled = false;
       ProjectProperties* ProjectProperties;
       // Window
