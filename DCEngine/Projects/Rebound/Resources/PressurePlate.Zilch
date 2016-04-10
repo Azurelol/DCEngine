@@ -2,7 +2,7 @@ class PressurePlate : ZilchComponent
 {
     [Property]
     var Target : String = "";
-    
+    	
     function Initialize()
     {
         Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollisionStarted);
@@ -14,6 +14,7 @@ class PressurePlate : ZilchComponent
     {
         if(event.OtherObject.PlayerTemp != null)
         {
+			this.Space.SoundSpace.PlayCue("PressurePlateClick");
 			this.Toggle();
         }
     }
