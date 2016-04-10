@@ -58,7 +58,7 @@ namespace DCEngine {
       Daisy->Connect<Events::WindowFullScreenDisabled>(&Graphics::OnWindowFullScreenDisabledEvent, this);
       Daisy->Connect<Events::GraphicsCompileShaders>(&Graphics::OnGraphicsCompileShadersEvent, this);
       Daisy->Connect<Events::GraphicsToggleLightning>(&Graphics::OnGraphicsToggleLightningEvent, this);
-			Daisy->Connect<Events::WindowRecreate>(&Graphics::OnWindowRecreateEvent, this);
+      Daisy->Connect<Events::WindowRecreate>(&Graphics::OnWindowRecreateEvent, this);
     }
 
     /**************************************************************************/
@@ -435,11 +435,11 @@ namespace DCEngine {
         << " Height " << event->Dimensions.y << "\n";
     }
 
-		void Graphics::OnWindowRecreateEvent(Events::WindowRecreate * event)
-		{
-			GraphicsHandler->FreeFBO();
-			GraphicsHandler->Initialize();
-		}
+    void Graphics::OnWindowRecreateEvent(Events::WindowRecreate * event)
+    {
+      GraphicsHandler->FreeFBO();
+      GraphicsHandler->Initialize();
+    }
 
     /**************************************************************************/
     /*!
