@@ -11,6 +11,7 @@
 /******************************************************************************/
 #include "Grunt.h"
 #include "../../../CoreComponents.h"
+#include <random>
 
 namespace DCEngine {
   namespace Components {
@@ -29,14 +30,14 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Grunt, maxHealth);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, IsInvulnerable);
       DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(Archetype);
-      DCE_BINDING_DEFINE_PROPERTY(Grunt, Head);
-      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyHead, attributeArchetype);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, HeadArchetype);
+      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyHeadArchetype, attributeArchetype);
       //DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(Archetype);
-      DCE_BINDING_DEFINE_PROPERTY(Grunt, Body);
-      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyBody, attributeArchetype);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, BodyArchetype);
+      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyBodyArchetype, attributeArchetype);
      // DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(Archetype);
-      DCE_BINDING_DEFINE_PROPERTY(Grunt, Saw);
-      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertySaw, attributeArchetype);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, SawArchetype);
+      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertySawArchetype, attributeArchetype);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, IdleRange);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, PatrolDistance);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, IsPatrolRight);
@@ -79,29 +80,48 @@ namespace DCEngine {
       endPosition = startingPosition;
 
       //defaultColor = SpriteRef->Color;
-
+      // Make these static? Maybe?
+      std::default_random_engine generator;
+      std::uniform_real_distribution<float> distribution(1, 0);
+      float rand = distribution(generator);
       if (IsPatrolRight)
       {
         endPosition.x = startingPosition.x + PatrolDistance;
-        stateMachine->ChangeState(PatrolRight::Instance());
+        ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
+        Actions::Delay(seq, rand);
+        Actions::Call(seq, &Grunt::ChangeStateRight, this);
       }
       else
       {
         endPosition.x = startingPosition.x - PatrolDistance;
-        stateMachine->ChangeState(PatrolLeft::Instance());
+        ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
+        Actions::Delay(seq, rand);
+        Actions::Call(seq, &Grunt::ChangeStateLeft, this);
       }
 
       stateMachine->SetGlobalState(Global::Instance());
 
       player = SpaceRef->FindObjectByName(PlayerName);
 
-      //CreateSprites();
+      CreateSprites();
+    }
+
+    void Grunt::ChangeStateRight()
+    {
+      stateMachine->ChangeState(PatrolRight::Instance());
+    }
+
+    void Grunt::ChangeStateLeft()
+    {
+      stateMachine->ChangeState(PatrolLeft::Instance());
     }
 
     void Grunt::OnLogicUpdateEvent(Events::LogicUpdate * event)
     {
       stateMachine->Update();
       dt = event->Dt;
+      //UpdateSprites(event->TimePassed);
+      
     }
 
     void Grunt::OnCollisionStartedEvent(Events::CollisionStarted * event)
@@ -137,27 +157,40 @@ namespace DCEngine {
         return true;
     }
 
-    //void Grunt::CreateSprites()
-    //{
-    //  head = SpaceRef->CreateObject(HeadArchetype);
-    //  body = SpaceRef->CreateObject(BodyArchetype);
-    //  saw = SpaceRef->CreateObject(SawArchetype);
-    //  sprites.push_back(head);
-    //  sprites.push_back(body);
-    //  sprites.push_back(saw);
-    //
-    //  for (unsigned i = 0; i < sprites.size(); ++i)
-    //  {
-    //    sprites.at(i)->AttachTo(gameObj);
-    //    sprites.at(i)->getComponent<Transform>()->SetLocalTranslation(Vec3(0, 0, 0));
-    //  }
-    //}
+    void Grunt::CreateSprites()
+    {
+      head = SpaceRef->CreateObject(HeadArchetype);
+      body = SpaceRef->CreateObject(BodyArchetype);
+      saw = SpaceRef->CreateObject(SawArchetype);
+      sprites.push_back(head);
+      sprites.push_back(body);
+      sprites.push_back(saw);
+    
+      for (unsigned i = 0; i < sprites.size(); ++i)
+      {
+        sprites.at(i)->AttachTo(gameObj);
+        sprites.at(i)->getComponent<Transform>()->SetLocalTranslation(Vec3(0, 0, 0));
+      }
+    }
 
-    //void Grunt::UpdateSprites(float dt)
-    //{
+    void Grunt::UpdateSprites(float timePassed)
+    {
+      float distance = 1;
+      float x = sin(timePassed) * distance;
+      DCTrace << x << " Time Passed: " << timePassed << "\n";
+      for (unsigned i = 0; i < sprites.size(); ++i)
+      {
+        sprites.at(i)->getComponent<Transform>()->Translation.x += x;
+      }
+    }
 
-    //}
-
+    void Grunt::FlipSprites(bool flipX)
+    {
+      for (unsigned i = 0; i < sprites.size(); ++i)
+      {
+        sprites.at(i)->getComponent<Sprite>()->FlipX = flipX;
+      }
+    }
 
     // Direction should be 1 (right) or -1 (left). 
     void Grunt::Jump(int direction, float period, float strengthX, float strengthY)
@@ -241,7 +274,7 @@ namespace DCEngine {
       //if (owner->IsDebugColorActive)
         //owner->SpriteRef->Color = owner->PatrolColor;
 
-      //owner->SpriteRef->FlipX = true;
+      owner->FlipSprites(true);
       DCTrace << "Grunt PatrolRight Enter\n";
     }
 
@@ -292,7 +325,7 @@ namespace DCEngine {
       //if (owner->IsDebugColorActive)
         //owner->SpriteRef->Color = owner->PatrolColor;
 
-      //owner->SpriteRef->FlipX = false;
+      owner->FlipSprites(false);
       DCTrace << "Grunt PatrolLeft Enter\n";
     }
 
@@ -357,12 +390,12 @@ namespace DCEngine {
       Vec3 direction = playerPosition - ownerPosition;
       if (direction.x < 0)
       {
-        //owner->SpriteRef->FlipX = false;
+        owner->FlipSprites(false);
         owner->Jump(-1, owner->AttackJumpPeriod, owner->AttackJumpStrengthX, owner->AttackJumpStrengthY);
       }
       else
       {
-        //owner->SpriteRef->FlipX = true;
+        owner->FlipSprites(true);
         owner->Jump(1, owner->AttackJumpPeriod, owner->AttackJumpStrengthX, owner->AttackJumpStrengthY);
       }
 

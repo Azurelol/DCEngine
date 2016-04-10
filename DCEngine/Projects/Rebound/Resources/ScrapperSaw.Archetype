@@ -51,7 +51,7 @@
           }
         }, 
         "SpriteSource": "Char_Scrap_3", 
-        "FlipX": false, 
+        "FlipX": true, 
         "FlipY": false, 
         "AnimationActive": false, 
         "AnimationSpeed": 1.000000, 

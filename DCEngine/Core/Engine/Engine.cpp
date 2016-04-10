@@ -318,6 +318,7 @@ namespace DCEngine {
     auto logicUpdateEvent = new Events::LogicUpdate();
     auto frameUpdateEvent = new Events::FrameUpdate();
     logicUpdateEvent->Dt = dt;
+
     frameUpdateEvent->Dt = dt;
     // Dispatch the logic update event to the gamesession
     CurrentGameSession->Dispatch<Events::LogicUpdate>(logicUpdateEvent);

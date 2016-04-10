@@ -28,9 +28,9 @@ namespace DCEngine {
       RigidBody* RigidBodyRef;
       //Sprite* SpriteRef;
       String PlayerName = "Player";
-      ArchetypeHandle Head;
-      ArchetypeHandle Body;
-      ArchetypeHandle Saw;
+      ArchetypeHandle HeadArchetype;
+      ArchetypeHandle BodyArchetype;
+      ArchetypeHandle SawArchetype;
       float IdleRange;        // Past this range, the grunt will be idle, within the range, it will patrol
       float PatrolDistance;   // The distance from the starting position that the grunt will move before turning around
       bool IsPatrolRight;       // True = Grunt moves right first, false = moves left first
@@ -55,9 +55,9 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(int, startingHealth);
       DCE_DEFINE_PROPERTY(int, maxHealth);
       DCE_DEFINE_PROPERTY(bool, IsInvulnerable);
-      DCE_DEFINE_PROPERTY(ArchetypeHandle, Head);
-      DCE_DEFINE_PROPERTY(ArchetypeHandle, Body);
-      DCE_DEFINE_PROPERTY(ArchetypeHandle, Saw);
+      DCE_DEFINE_PROPERTY(ArchetypeHandle, HeadArchetype);
+      DCE_DEFINE_PROPERTY(ArchetypeHandle, BodyArchetype);
+      DCE_DEFINE_PROPERTY(ArchetypeHandle, SawArchetype);
       DCE_DEFINE_PROPERTY(float, IdleRange);
       DCE_DEFINE_PROPERTY(float, PatrolDistance);
       DCE_DEFINE_PROPERTY(bool, IsPatrolRight);
@@ -101,8 +101,11 @@ namespace DCEngine {
       float dt;
       Vec4 defaultColor;
       bool ModifyHealth(int amount);
-      //void CreateSprites();
-      //void UpdateSprites(float dt);
+      void CreateSprites();
+      void UpdateSprites(float timePassed);
+      void FlipSprites(bool flipx);
+      void ChangeStateRight();
+      void ChangeStateLeft();
 
       void Jump(int direction, float period, float strengthX, float strengthY);
 
