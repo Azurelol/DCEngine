@@ -15,6 +15,13 @@
 namespace DCEngine {
   namespace Events {
 
+    class SpaceInitialized : public Event {
+    public:
+      SpaceInitialized() : Event("SpaceInitialized") {}
+      String Name;
+      //ZilchDeclareDerivedType(SpaceInitialized, Event);
+    };
+
     class GameFocusIn : public Event {
     public:
       GameFocusIn() : Event("GameFocusIn") {}

@@ -114,7 +114,7 @@ namespace DCEngine {
         for (auto deleg : eventKey.second) {
           // Call the delegate's member function
           if (!deleg->Call(eventObj)) {
-            DCTrace << "Engine::Dispatch - Event failed!\n";
+            DCTrace << "Engine::Dispatch - Eveant failed!\n";
             // If the call failed because the object instance is
             // no longer available, remove this delegate
             // Erase by iterator!

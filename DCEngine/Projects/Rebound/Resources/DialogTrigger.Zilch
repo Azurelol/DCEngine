@@ -1,0 +1,229 @@
+enum Speaker { Asha, Dude}
+
+class DialogTrigger : ZilchComponent
+{
+	[Property]
+	var DialogTextObjectName : String = "";
+	
+	[Property]
+	var OnlyOnFirstCollision : Boolean = false;
+	
+	[Property]
+	var ActiveOnCollision : Boolean = true;
+	
+	[Property]
+	var Message1String : String = "";
+	[Property]
+	var Message1Speaker : Speaker = Speaker.Dude;
+	[Property]
+	var Message2String : String = "";
+	[Property]
+	var Message2Speaker : Speaker = Speaker.Dude;
+	[Property]
+	var Message3String : String = "";
+	[Property]
+	var Message3Speaker : Speaker = Speaker.Dude;
+	[Property]
+	var Message4String : String = "";
+	[Property]
+	var Message4Speaker : Speaker = Speaker.Dude;
+	[Property]
+	var Message5String : String = "";
+	[Property]
+	var Message5Speaker : Speaker = Speaker.Dude;
+	[Property]
+	var Message6String : String = "";
+	[Property]
+	var Message6Speaker : Speaker = Speaker.Dude;
+	[Property]
+	var Message7String : String = "";
+	[Property]
+	var Message7Speaker : Speaker = Speaker.Dude;
+	
+	var Message1 : MessageEvent = MessageEvent();
+	var Message2 : MessageEvent = MessageEvent();
+	var Message3 : MessageEvent = MessageEvent();
+	var Message4 : MessageEvent = MessageEvent();
+	var Message5 : MessageEvent = MessageEvent();
+	var Message6 : MessageEvent = MessageEvent();
+	var Message7 : MessageEvent = MessageEvent();
+	
+	
+	var Active : Boolean = false;
+	var MessageNumber : Integer = 1;
+	var FirstCollisionOccurred : Boolean = false;
+	
+    function Initialize()
+    {
+		if(this.Message1String != "")
+		{
+			this.Message1.Message = this.Message1String;
+			this.Message1.NewMessage = true;
+		}
+		if(this.Message2String != "")
+		{
+			this.Message2.Message = this.Message2String;
+			this.Message2.NewMessage = true;
+		}
+		if(this.Message3String != "")
+		{
+			this.Message3.Message = this.Message3String;
+			this.Message3.NewMessage = true;
+		}
+		if(this.Message4String != "")
+		{
+			this.Message4.Message = this.Message4String;
+			this.Message4.NewMessage = true;
+		}
+		if(this.Message5String != "")
+		{
+			this.Message5.Message = this.Message5String;
+			this.Message5.NewMessage = true;
+		}
+		if(this.Message6String != "")
+		{
+			this.Message6.Message = this.Message6String;
+			this.Message6.NewMessage = true;
+		}
+		if(this.Message7String != "")
+		{
+			this.Message7.Message = this.Message7String;
+			this.Message7.NewMessage = true;
+		}
+		
+        Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDown);
+        Daisy.Connect(this.Owner, DaisyEvent.ActivateDialog, this.OnActivateDialogEvent);
+		
+		if(this.ActiveOnCollision == true)
+			Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollision);
+    }
+
+	function SendWipeMessage()
+	{
+		var ourText = this.Space.FindObjectByName(this.DialogTextObjectName);
+		var curEvent = MessageEvent();
+		curEvent.NewMessage = true;
+		curEvent.Message = "";
+		ourText.Dispatch(DaisyEvent.MessageEvent, curEvent);
+	}
+	
+    function OnMouseDown(event : MouseDown)
+    {
+		if(event.ButtonPressed == MouseButton.Left)
+		{
+			if(this.Active == true && this.DialogTextObjectName != "" && 
+			(this.OnlyOnFirstCollision == false || this.FirstCollisionOccurred == false))
+			{
+				var ourText = this.Space.FindObjectByName(this.DialogTextObjectName);
+				if(ourText.DialogText.Finished == true)
+				{
+					var curEvent = this.Message1;
+					if(this.MessageNumber == 1)
+					{
+						ourText.DialogText.CurSpeaker = this.Message1Speaker;
+						if(this.Message1String == "")
+							this.SendWipeMessage();
+					}
+					if(this.MessageNumber == 2)
+					{
+						ourText.DialogText.CurSpeaker = this.Message2Speaker;
+						if(this.Message2String != "")
+							curEvent = this.Message2;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 3)
+					{
+						ourText.DialogText.CurSpeaker = this.Message3Speaker;
+						if(this.Message3String != "")
+							curEvent = this.Message3;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 4)
+					{
+						ourText.DialogText.CurSpeaker = this.Message4Speaker;
+						if(this.Message4String != "")
+							curEvent = this.Message4;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 5)
+					{
+						ourText.DialogText.CurSpeaker = this.Message5Speaker;
+						if(this.Message5String != "")
+							curEvent = this.Message5;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 6)
+					{
+						ourText.DialogText.CurSpeaker = this.Message6Speaker;
+						if(this.Message6String != "")
+							curEvent = this.Message6;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 7)
+					{
+						ourText.DialogText.CurSpeaker = this.Message7Speaker;
+						if(this.Message7String != "")
+							curEvent = this.Message7;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+					this.MessageNumber += 1;
+					ourText.Dispatch(DaisyEvent.MessageEvent, curEvent);
+				}
+				else
+				{
+					ourText.DialogText.FinishMessage();
+				}
+			}
+		}
+	}
+	
+	function OnActivateDialogEvent(event : ActivateDialog)
+	{
+		this.Active = true;
+	}
+
+    function OnCollision(event : CollisionStarted)
+    {
+		if(event.OtherObject.Name == "Player")
+		{
+			if(this.Active == false)
+			{
+				var curEvent = this.Message1;
+				var ourText = this.Space.FindObjectByName(this.DialogTextObjectName);
+				this.MessageNumber += 1;
+				ourText.Dispatch(DaisyEvent.MessageEvent, curEvent);
+				this.Active = true;
+			}
+		}
+    }
+	
+}

@@ -95,7 +95,7 @@ namespace DCEngine {
 			void RenderLights(Components::Light* light = 0);
 			void RenderScene(float exposure, bool lit);
       void DrawDebug();
-      
+
     private:
       GraphicsConfig& Settings;
       ShaderPtr FinalRenderShader, DebugShader, SpriteShader, SpriteTextShader, DebugDrawShader, ParticleSystemShader, ShadowingShader, LightingShader;
@@ -113,7 +113,6 @@ namespace DCEngine {
       GraphicsGL(GraphicsConfig& settings);
       void Initialize();
       void ViewportUpdate();
-      void ResizeViewport(glm::vec2 ratio);
       void Terminate();
       void StartFrame();
       void EndFrame();

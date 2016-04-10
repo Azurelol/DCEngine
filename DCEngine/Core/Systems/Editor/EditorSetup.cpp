@@ -26,6 +26,9 @@ namespace DCEngine {
       if (!Settings.GridActive)
         return;
 
+      if (!EditorCamera)
+        return;
+
       auto cameraPos = EditorCamera->getComponent<Components::Transform>()->getTranslation();
       // The editor grid will always be in front of the camera.
       Vec3 gridStartPos(cameraPos.x, cameraPos.y, 0);
@@ -90,8 +93,14 @@ namespace DCEngine {
     {
       // If the editor camera needs to be set
       if (set) {
+        // If there's a previous editor camera, do nothing
+        //if (EditorCamera)
+        //  return;
+
         //DCTrace << "Editor::SetEditorCamera - Setting the editor camera. \n";
-        auto editorCamera = Daisy->getSystem<Systems::Factory>()->CreateGameObject("EditorCamera", *CurrentSpace, false);
+        //auto editorCamera = Daisy->getSystem<Systems::Factory>()->CreateGameObject("EditorCamera", *CurrentSpace, false);
+        auto editorCamera = CurrentSpace->CreateObject();
+        editorCamera->setObjectName("EditorCamera");
         editorCamera->setLocked(true);
         editorCamera->AddComponentByName("Camera", true);
         editorCamera->AddComponentByName("EditorCameraController", true);
@@ -102,8 +111,7 @@ namespace DCEngine {
         editorCamera->getComponent<Components::Camera>()->setSize(70);
         editorCamera->getComponent<Components::Camera>()->setFarPlane(500);
         editorCamera->getComponent<Components::Camera>()->Projection = ProjectionMode::Perspective;
-        // Add the camera to the current space
-        CurrentSpace->AddObject(editorCamera);
+        // Set the pointer
         EditorCamera = editorCamera;
         // Set it as the default camera on the space
         auto cameraComp = editorCamera->getComponent<Components::Camera>();
@@ -120,11 +128,12 @@ namespace DCEngine {
         auto defaultcam = CurrentSpace->getComponent<Components::CameraViewport>()->FindDefaultCamera();
         // Set it as the default camera
         CurrentSpace->getComponent<Components::CameraViewport>()->setCamera(defaultcam);
+
         // Remove the editor camera from the space
         auto editorCamera = CurrentSpace->FindObjectByName("EditorCamera");
+        //if (editorCamera)
+        //  editorCamera->Destroy();
 
-        if (editorCamera)
-          editorCamera->Destroy();
         EditorCamera = nullptr;
       }
       Deselect();
@@ -140,8 +149,8 @@ namespace DCEngine {
       // Get the current project's name
       auto projectName = Settings.ProjectProperties->ProjectName;
       std::string levelName;
-      if (CurrentSpace->CurrentLevel())
-        levelName = CurrentSpace->CurrentLevel()->getObjectName();
+      if (CurrentSpace->getCurrentLevel())
+        levelName = CurrentSpace->getCurrentLevel()->getObjectName();
 
       DispatchSystemEvents::SetWindowCaption(projectName + " - Level: " + levelName + " - Daisy Chain Engine");
     }

@@ -32,8 +32,8 @@ namespace DCEngine {
       DCTrace << "Editor::LoadLevel - Loading " << level << "\n";
 
       // Save the currently-loaded level before loading a new one
-      if (CurrentSpace->CurrentLevel()) {
-        auto currentLevelName = CurrentSpace->CurrentLevel()->Name();
+      if (CurrentSpace->getCurrentLevel()) {
+        auto currentLevelName = CurrentSpace->getCurrentLevel()->Name();
         SaveLevel(currentLevelName);
       }
 
@@ -79,7 +79,7 @@ namespace DCEngine {
       // If the level was saved successfully
       if (levelResource) {
         // Set it as the current level on the space
-        CurrentSpace->CurrentLevel() = levelResource;
+        CurrentSpace->setCurrentLevel(levelResource);
         // Scan for resources again
         //Daisy->getSystem<Content>()->ScanResources();
         Daisy->getSystem<Content>()->ScanForLevels();

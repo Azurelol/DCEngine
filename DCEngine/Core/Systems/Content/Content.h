@@ -49,6 +49,8 @@ namespace DCEngine {
       friend class Factory;
       friend class Editor;
     public:    
+
+      ResourceQueue& LoadedGraphicalResources() { return this->LoadedGraphicalResourcesQueue; }
       void LoadProjectResources(); //!< Load resources from a project.
       
       // Individual getters
@@ -95,32 +97,26 @@ namespace DCEngine {
       void ScanForSoundCues(std::string soundCuePath);
       void ScanForFonts(std::string fontPath);
       void ScanAndGenerateResources();
-      // Get the current project's settings
-      ProjectDataPtr& ProjectSettings();
-
       // Maybe.. add the others too.
-      void AddSoundCue(std::string& soundCueName, SoundCuePtr soundcuePtr);      
-      
+      void AddSoundCue(std::string& soundCueName, SoundCuePtr soundcuePtr);            
       // Projects
       void LoadProject(const std::string& projectDataPath);
       void SaveProject(const std::string& projectPath);
+      ProjectDataPtr& ProjectSettings();
       ProjectProperties& getProjectInfo() { return *(this->ProjectInfo.get()); }
-    private:
-      
+      // DTOR
+      ~Content();
+
+    private:      
+      ContentConfig& Settings;
+      // Resource loading
+      std::thread LoadingThread;
+      std::mutex LoadingLock;
+      ResourceQueue LoadedGraphicalResourcesQueue;
+      bool IsProjectLoaded;
       // Data
-      std::string CoreAssetsPath;
       ProjectDataPtr ProjectInfo;
       std::unique_ptr<FileScanner> ProjectScanner;
-      // Default resources
-      std::string DefaultImage = "Wow";
-      std::string DefaultFont = "Verdana";
-      std::string DefaultCollisionTable = CollisionTable::Default();
-      std::string DefaultCollisionGroup = "DefaultCollisionGroup";
-      std::string DefaultPhysicsMaterial = "DefaultPhysicsMaterial";
-      std::string DefaultSpriteLayer = "DefaultSpriteLayer";
-      std::string DefaultSpriteLayerOrder = SpriteLayerOrder::Default();
-      std::string DefaultSound = "Beep";
-      std::string DefaultTexture = "SampleTexture";
       // Resource maps      
       std::map<std::string, ShaderPtr> MapShader;
       FontMap MapFont;
@@ -167,17 +163,16 @@ namespace DCEngine {
       void AddSpriteLayerOrder(const std::string& name, SpriteLayerOrderPtr ptr);
       void AddTexture(const std::string& name, TexturePtr ptr);
       // Core functions
-      Content(std::string& coreAssetsPath);
+      Content(ContentConfig& config);
       void Initialize();
       void Subscribe();
       void Update(float dt);
       void Terminate();
       // Loading functions
-      void LoadCoreAssets(); //!< Load default content files for the engine.   
-
-      void LoadProjectAssets(); //!< Load the assets used by the loaded project.      
       void GenerateDefaultResources();
-      void LoadAllResources();
+      void LoadCoreResources(); //!< Load default content files for the engine.   
+      void LoadAllResources(bool multiThreaded);
+      void LoadGraphicalResourcesMT();
       void LoadProjectData(const std::string&);
       // Events
       void OnContentFileMoved(Events::ContentFileMoved* event);

@@ -35,6 +35,7 @@ namespace DCEngine {
     private:
       bool InitializingProject;
       void InitializeProject();
+      void OnContentProjectLoadedEvent(Events::ContentProjectLoaded* event);
       void OnScriptingLibraryCompiled(Events::ScriptingLibraryCompiled* event);
       void OnScriptingLibraryCompilationFailure(Events::ScriptingLibraryCompilationFailure* event);
       bool WindowProjectsPropertiesEnabled;

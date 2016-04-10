@@ -34,17 +34,20 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::Initialize()
     {
-      //auto& a = Settings;
-
       if (TRACE_INITIALIZE)
         DCTrace << "Editor::Initialize \n";
+
+      // Subscribe to project loaded events
+      Daisy->Connect<Events::ContentProjectLoaded>(&Editor::OnContentProjectLoadedEvent, this);
       // Store a reference to the Reflection System
       ReflectionSystem = Daisy->getSystem<Reflection>();
       // Subscribe to events
       Subscribe();
       // Set the default space for the editor to work on
       CurrentSpace = Daisy->getGameSession()->getDefaultSpace();
-      DispatchSystemEvents::EditorInitialize(*this);      
+
+      DispatchSystemEvents::EditorInitialize(*this);
+   
     }
 
     /**************************************************************************/
@@ -59,6 +62,31 @@ namespace DCEngine {
       Daisy->Connect<Events::MouseUpdate>(Daisy->getMouse(), &Editor::OnMouseUpdateEvent, this);
       Daisy->Connect<Events::KeyDown>(Daisy->getKeyboard(), &Editor::OnKeyDownEvent, this);
       Daisy->Connect<Events::EditorEnabled>(&Editor::OnEditorEnabledEvent, this);
+      Daisy->Connect<Events::SpaceInitialized>(Daisy->getGameSession(), &Editor::OnSpaceInitializedEvent, this);
+    }
+
+    /**************************************************************************/
+    /*!
+    \brief  Event received when a space has been initialized
+    */
+    /**************************************************************************/
+    void Editor::OnSpaceInitializedEvent(Events::SpaceInitialized * event)
+    {
+      // Once the default space has been initialized, set the editor camera
+      if (event->Name == CurrentSpace->Name()) {
+        SetEditorCamera(true);
+      }
+    }
+
+
+    /**************************************************************************/
+    /*!
+    \brief  Event received when the current project has been loaded.
+    */
+    /**************************************************************************/
+    void Editor::OnContentProjectLoadedEvent(Events::ContentProjectLoaded * event)
+    {
+
     }
 
     /**************************************************************************/
@@ -88,8 +116,7 @@ namespace DCEngine {
      
       if (TRACE_UPDATE)
         DCTrace << "Editor::Update \n";
-      DisplayEditor(); 
-      DisplayTool();     
+      DisplayEditor();    
 
       
     }
@@ -137,7 +164,7 @@ namespace DCEngine {
     @brief  Toggles the editor on and off.
     */
     /**************************************************************************/
-    void Editor::ToggleEditor(bool toggle)
+    void Editor::ToggleEditor(bool toggle, bool reload)
     {
       // Editor ON
       if (toggle) {
@@ -148,14 +175,20 @@ namespace DCEngine {
         //DCTrace << "Editor::ToggleEditor - Dispatching 'EnginePaused' event \n";
         // Quit the Game
         DispatchGameEvents::GameEnded();
-        // Reload the level
-        ReloadLevel();
+
+        // Reload the level from the editor
+        if (reload) {
+          ReloadLevel();
+        }
+
         // Toggle the widgets
         Windows.LibraryEnabled = true;
         Windows.ObjectsEnabled = true;
         // Clear previous commands
         Settings.Commands.CommandsCurrent.clear();
         Settings.Commands.CommandsUndo.clear();
+        // Set the editor camera
+        // SetEditorCamera(true);
       }
       // Editor OFF
       else {
@@ -169,8 +202,11 @@ namespace DCEngine {
         // Set the editor camera
         SetEditorCamera(false);
         Deselect();
+
         // Ask the space to reload the level
-        CurrentSpace->ReloadLevel();
+        if (reload) {
+          CurrentSpace->ReloadLevel();
+        }
         
         
       }
@@ -247,6 +283,8 @@ namespace DCEngine {
       for (auto& module : ActiveModules)
         module->Display();
 
+      // Display the editor tools
+      DisplayTool();
       // Display all known editor windows
       DisplayMainMenuBar();
       WidgetLevel();

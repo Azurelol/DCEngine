@@ -121,6 +121,10 @@ namespace DCEngine {
         for (auto&& drawList : mDrawList)
           drawList.clear();
       }
+
+      // Load any graphical assets
+      LoadGraphicalResources();
+
     }
 
 
@@ -160,88 +164,55 @@ namespace DCEngine {
     \note
     */
     /**************************************************************************/
-    void Graphics::DrawSprite(Components::Sprite & sprite, Components::Camera& cam, float dt) {
-      
-      // For every Space with a 'GraphicsSpace' component...
-      for (Components::GraphicsSpace* gfxSpace : ActiveGraphicsSpaces) {
+    //void Graphics::DrawSprite(Components::Sprite & sprite, Components::Camera& cam, float dt) {
+    //  
+    //  // For every Space with a 'GraphicsSpace' component...
+    //  for (Components::GraphicsSpace* gfxSpace : ActiveGraphicsSpaces) {
 
-        // Get the default camera from the 'CameraViewport' component
-        Components::Camera* camera = gfxSpace->Owner()->getComponent<Components::CameraViewport>()->getCamera();
+    //    // Get the default camera from the 'CameraViewport' component
+    //    Components::Camera* camera = gfxSpace->Owner()->getComponent<Components::CameraViewport>()->getCamera();
 
-        // Do not update the space if no camera has been set
-        if (camera == nullptr)
-          continue;
+    //    // Do not update the space if no camera has been set
+    //    if (camera == nullptr)
+    //      continue;
 
-        std::vector<Components::Graphical*> graphicalComponents = gfxSpace->getGraphicsComponents();
-        for (auto graphicalComponent : graphicalComponents)
-          mDrawList[graphicalComponent->getDrawLayer()].push_back(graphicalComponent);
+    //    std::vector<Components::Graphical*> graphicalComponents = gfxSpace->getGraphicsComponents();
+    //    for (auto graphicalComponent : graphicalComponents)
+    //      mDrawList[graphicalComponent->getDrawLayer()].push_back(graphicalComponent);
 
-        std::vector<Components::Light*> lightComponents;
-        if (Settings.LightningEnabled)
-          lightComponents = gfxSpace->getLightComponents();
+    //    std::vector<Components::Light*> lightComponents;
+    //    if (Settings.LightningEnabled)
+    //      lightComponents = gfxSpace->getLightComponents();
 
-        lightComponents.erase(std::remove_if(lightComponents.begin(), lightComponents.end(), 
-          [] (Components::Light* light) { return !light->getVisible(); }), lightComponents.end());
+    //    lightComponents.erase(std::remove_if(lightComponents.begin(), lightComponents.end(), 
+    //      [] (Components::Light* light) { return !light->getVisible(); }), lightComponents.end());
 
-        UpdateObjects(dt);
+    //    UpdateObjects(dt);
 
-        GraphicsHandler->PreRender(camera);
+    //    GraphicsHandler->PreRender(camera);
 
-        if (!lightComponents.empty())
-        {
-          for (const auto& light : lightComponents)
-          {
-            if (light->getCastShadows())
-              GraphicsHandler->RenderShadows(camera, light);
-            GraphicsHandler->RenderLights(light);
-          }
-          GraphicsHandler->RenderScene(camera->getExposure(), true);
-        }
-        else
-        {
-          GraphicsHandler->RenderLights(0);
-          GraphicsHandler->RenderScene(camera->getExposure(), false);
-        }
+    //    if (!lightComponents.empty())
+    //    {
+    //      for (const auto& light : lightComponents)
+    //      {
+    //        if (light->getCastShadows())
+    //          GraphicsHandler->RenderShadows(camera, light);
+    //        GraphicsHandler->RenderLights(light);
+    //      }
+    //      GraphicsHandler->RenderScene(camera->getExposure(), true);
+    //    }
+    //    else
+    //    {
+    //      GraphicsHandler->RenderLights(0);
+    //      GraphicsHandler->RenderScene(camera->getExposure(), false);
+    //    }
 
-        DrawDebug(camera);
+    //    DrawDebug(camera);
 
-        for (auto&& drawList : mDrawList)
-          drawList.clear();
-        //if (!lightComponents.empty())
-        //{
-        //	glDrawBuffer(GL_NONE);
-        //	RenderZ0Scene(camera, 0);
-        //	for (const auto& light : lightComponents)
-        //	{
-        //		if (light->getCastShadows())
-        //		{
-        //			glDepthFunc(GL_LESS);
-        //			glDrawBuffer(GL_NONE);
-        //			glEnable(GL_STENCIL_TEST);
-        //
-        //			RenderShadows(camera, light);
-        //
-        //			glStencilFunc(GL_GEQUAL, 0x1, 0xFF);
-        //			glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
-        //		}
-        //		glDrawBuffer(GL_FRONT_AND_BACK);
-        //		glDepthFunc(GL_LEQUAL);
-        //
-        //		glEnable(GL_BLEND);
-        //		glBlendFunc(GL_ONE, GL_ONE);
-        //		RenderScene(camera, light);
-        //
-        //		glClear(GL_STENCIL_BUFFER_BIT);
-        //	}
-        //}
-        //else
-        //{
-        //	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-        //	RenderScene(camera);
-        //}
-        
-      }
-    }
+    //    for (auto&& drawList : mDrawList)
+    //      drawList.clear();
+    //  }
+    //}
 
     /**************************************************************************/
     /*!
@@ -251,17 +222,17 @@ namespace DCEngine {
     \note
     */
     /**************************************************************************/
-    void Graphics::DrawSpriteText(Components::SpriteText & st, Components::Camera & cam)
-    {
-      if (TRACE_UPDATE)
-        DCTrace << "Graphics::DrawSpriteText - Drawing " << st.Owner()->Name() << "\n";
-      //GraphicsHandler->DrawSpriteText(st, cam);
-    }
+    //void Graphics::DrawSpriteText(Components::SpriteText & st, Components::Camera & cam)
+    //{
+    //  if (TRACE_UPDATE)
+    //    DCTrace << "Graphics::DrawSpriteText - Drawing " << st.Owner()->Name() << "\n";
+    //  //GraphicsHandler->DrawSpriteText(st, cam);
+    //}
 
-    void Graphics::DrawParticles(Components::SpriteParticleSystem& particles, Components::Camera & cam, double dt)
-    {
-      GraphicsHandler->DrawParticles(particles, cam, dt);
-    }
+    //void Graphics::DrawParticles(Components::SpriteParticleSystem& particles, Components::Camera & cam, double dt)
+    //{
+    //  GraphicsHandler->DrawParticles(particles, cam, dt);
+    //}
 
     /**************************************************************************/
     /*!
@@ -270,9 +241,9 @@ namespace DCEngine {
     \note
     */
     /**************************************************************************/
-    void Graphics::DrawDebug(DebugDrawObject & debugDraw)
+    /*void Graphics::DrawDebug(DebugDrawObject & debugDraw)
     {
-    }
+    }*/
 
     /**************************************************************************/
     /*!
@@ -333,6 +304,41 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
+    \brief Loads all currently loaded graphical assets from the Content system
+           into the GPU.
+    */
+    /**************************************************************************/
+    void Graphics::LoadGraphicalResources()
+    {
+      auto& resources = Daisy->getSystem<Content>()->LoadedGraphicalResources();
+      std::lock_guard<std::mutex> lock(resources.AssetsLock);
+
+      // If there's no resourcesto load..
+      if (resources.Assets.empty())
+        return;
+
+      // Load the latest resource
+      auto& resource = resources.Assets.front();
+
+      // Update the statistics (A bit prematurely!)
+      resources.LastLoaded = resource->Name();
+      resources.NumLoaded++;
+
+      // SpriteSource
+      if (auto spriteSource = dynamic_cast<SpriteSource*>(resource)) {
+        spriteSource->GenerateTexture();
+      }
+      // Font
+      else if (auto font = dynamic_cast<Font*>(resource)) {
+        font->GenerateFont();
+      }
+
+      // Remove it from the queue
+      resources.Assets.pop();
+    }
+
+    /**************************************************************************/
+    /*!
     \brief Starts the current frame.
     */
     /**************************************************************************/
@@ -367,7 +373,7 @@ namespace DCEngine {
     void Graphics::RestoreState()
     {
       GraphicsHandler->RestoreState();
-      GraphicsHandler->ConfigureSpriteVAO();
+      //GraphicsHandler->ConfigureSpriteVAO();
     }
 
     /**************************************************************************/
@@ -388,6 +394,8 @@ namespace DCEngine {
     void Graphics::OnWindowFullScreenEnabledEvent(Events::WindowFullScreenEnabled * event)
     {
       std::string willNoticeMe = "Will I am enabled";
+			GraphicsHandler->FreeFBO();
+			GraphicsHandler->Initialize();
     }
 
     /**************************************************************************/
@@ -398,6 +406,8 @@ namespace DCEngine {
     void Graphics::OnWindowFullScreenDisabledEvent(Events::WindowFullScreenDisabled * event)
     {
       std::string willNoticeMe = "Will I am disabled";
+			GraphicsHandler->FreeFBO();
+			GraphicsHandler->Initialize();
     }
 
     /**************************************************************************/
@@ -407,14 +417,13 @@ namespace DCEngine {
     /**************************************************************************/
     void Graphics::OnWindowResizeEvent(Events::WindowResize * event)
     {
-      Settings.ViewportScale = event->Dimensions;
+      //Settings.ViewportScale = event->Dimensions;
 			Settings.ScreenWidth = event->Dimensions.x;
 			Settings.ScreenHeight = event->Dimensions.y;
 			GraphicsHandler->FreeFBO();
-			GraphicsHandler->ConfigureFBO();
-      DCTrace << "Graphics::OnWindowResizeEvent - Width: " << Settings.ViewportScale.x
-        << " Height " << Settings.ViewportScale.y << "\n";
-
+			GraphicsHandler->Initialize();
+      DCTrace << "Graphics::OnWindowResizeEvent - Width: " << event->Dimensions.x
+        << " Height " << event->Dimensions.y << "\n";
     }
 
     /**************************************************************************/

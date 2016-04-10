@@ -71,7 +71,8 @@ namespace DCEngine {
     /**************************************************************************/
     void Input::OnEnginePauseEvent(Events::EnginePause * event)
     {
-      DCTrace << "Input::OnEnginePausedEvent - Pause \n";
+      if (DCE_TRACE_PAUSE)
+        DCTrace << "Input::OnEnginePausedEvent - Pause \n";
       this->Paused = true;
       this->InputHandler->Paused = true;
     }
@@ -83,7 +84,8 @@ namespace DCEngine {
     /**************************************************************************/
     void Input::OnEngineResumeEvent(Events::EngineResume * event)
     {
-      DCTrace << "Input::OnEngineResumeEvent - Resume \n";
+      if (DCE_TRACE_PAUSE)
+        DCTrace << "Input::OnEngineResumeEvent - Resume \n";
       this->Paused = false;
       this->InputHandler->Paused = false;
     }

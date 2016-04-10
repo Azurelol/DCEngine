@@ -304,17 +304,21 @@ namespace DCEngine {
 
     void GraphicsGL::RestoreState()
     {
-      glUseProgram(GLState.lastProgram);
-      glBindTexture(GL_TEXTURE_2D, GLState.lastTexture);
-      glBindBuffer(GL_ARRAY_BUFFER, GLState.lastArrayBuffer);
-      glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, GLState.lastElementArrayBuffer);
-      glBindVertexArray(GLState.lastVertexArray);
-      glBlendEquationSeparate(GLState.lastBlendEquationRGB, GLState.lastBlendEquationAlpha);
-      glBlendFunc(GLState.lastBlendSrc, GLState.lastBlendDst);
-      if (GLState.lastEnableBlend) glEnable(GL_BLEND); else glDisable(GL_BLEND);
-      if (GLState.lastEnableCullFace) glEnable(GL_CULL_FACE); else glDisable(GL_CULL_FACE);
-      if (GLState.lastEnableDepthTest) glEnable(GL_DEPTH_TEST); else glDisable(GL_DEPTH_TEST);
-      if (GLState.lastEnableScissorTest) glEnable(GL_SCISSOR_TEST); else glDisable(GL_SCISSOR_TEST);
+      //glUseProgram(GLState.lastProgram);
+      //glBindTexture(GL_TEXTURE_2D, GLState.lastTexture);
+      //glBindBuffer(GL_ARRAY_BUFFER, GLState.lastArrayBuffer);
+      //glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, GLState.lastElementArrayBuffer);
+      //glBindVertexArray(GLState.lastVertexArray);
+      //glBlendEquationSeparate(GLState.lastBlendEquationRGB, GLState.lastBlendEquationAlpha);
+      //glBlendFunc(GLState.lastBlendSrc, GLState.lastBlendDst);
+      //if (GLState.lastEnableBlend) glEnable(GL_BLEND); else glDisable(GL_BLEND);
+      //if (GLState.lastEnableCullFace) glEnable(GL_CULL_FACE); else glDisable(GL_CULL_FACE);
+      //if (GLState.lastEnableDepthTest) glEnable(GL_DEPTH_TEST); else glDisable(GL_DEPTH_TEST);
+			GLState.lastEnableScissorTest = glIsEnabled(GL_SCISSOR_TEST);
+      if (GLState.lastEnableScissorTest)
+				glEnable(GL_SCISSOR_TEST);
+			else
+				glDisable(GL_SCISSOR_TEST);
     }
 
 

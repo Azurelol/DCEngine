@@ -92,13 +92,15 @@ namespace DCEngine {
 
     void Audio::OnEnginePauseEvent(Events::EnginePause * event)
     {
-      DCTrace << "Audio::OnEnginePauseEvent - Pause \n";
+      if (DCE_TRACE_PAUSE)
+        DCTrace << "Audio::OnEnginePauseEvent - Pause \n";
       Settings.Enabled = false;
     }
 
     void Audio::OnEngineResumeEvent(Events::EngineResume * event)
     {
-      DCTrace << "Audio::OnEngineResumeEvent - Pause \n";
+      if (DCE_TRACE_PAUSE)
+        DCTrace << "Audio::OnEngineResumeEvent - Pause \n";
       Settings.Enabled = true;
     }
 

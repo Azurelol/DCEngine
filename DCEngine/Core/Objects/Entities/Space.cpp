@@ -90,6 +90,10 @@ namespace DCEngine {
       gameObject->GamesessionRef = GameSessionRef;
       gameObject->Initialize();
     }
+    
+    // Announce that this Space has been initialized
+    DispatchGameEvents::SpaceInitialized(Name());
+
   }
 
   /**************************************************************************/
@@ -169,12 +173,16 @@ namespace DCEngine {
   /**************************************************************************/
   void Space::DestroyAll()
   {
-    if (DCE_TRACE_GAMEOBJECT_ADD)
-      DCTrace << ObjectName << "::DestroyAll - Removing all objects from the space.\n";
+   // if (DCE_TRACE_GAMEOBJECT_ADD)
+   //   DCTrace << ObjectName << "::DestroyAll - Removing all objects from the space.\n";
     // For every GameObject in the space
     for (auto object : GameObjectContainer) {
+      // Do not delete the Editor Camera!
+      //if (object->HasComponent("EditorCameraController"))
+      //  continue;
+
       // Mark the object for destruction on next frame
-      DCTrace << " - " << object->Name() << "\n";
+      //DCTrace << " - " << object->Name() << "\n";
       Daisy->getSystem<Systems::Factory>()->MarkGameObject(*object);
       //RemoveObject(*object);
     }
@@ -264,12 +272,12 @@ namespace DCEngine {
       DCTrace << ObjectName << " Space::LoadLevel - Loading " << level->Name() << " level.\n";
 
     // Set it as the current level
-    CurrentLevelRef = level;
+    setCurrentLevel(level);
 
     DestroyAll();
 
     // Load GameObjects into the space
-    for (auto gameObject : CurrentLevelRef->GameObjects) {
+    for (auto gameObject : getCurrentLevel()->GameObjects) {
       AddObject(gameObject);
     }
 
@@ -303,16 +311,14 @@ namespace DCEngine {
     // Clear the current objects from the space
     DestroyAll();
     // Set it as the current level
-    CurrentLevelRef = level;
+    setCurrentLevel(level);
     // Build all the GameObjects from the level
     Daisy->getSystem<Systems::Factory>()->BuildFromLevel(level, *this);
     // Set the default camera
     auto camera = getComponent<Components::CameraViewport>()->FindDefaultCamera();
     // If the editor is not enabled, initialize all their components too
     auto editorEnabled = Daisy->getSystem<Systems::Editor>()->IsEnabled();
-    DCTrace << "\n\n"
-            << "/------------------------------------------------/ \n";
-
+    DCTrace << "//----- LEVEL LOADED -----/ \n";
     if (!editorEnabled) 
     {
       // Initialize every object
@@ -322,18 +328,7 @@ namespace DCEngine {
       // Announce that all objects have been initialized
       DispatchGameEvents::AllObjectsInitialized(this);
     }
-
-  }
-
-  /**************************************************************************/
-  /*!
-  @brief  Returns the currently loaded level.
-  @return  A pointer to the level resource.
-  */
-  /**************************************************************************/
-  LevelPtr Space::CurrentLevel()
-  {
-    return CurrentLevelRef;
+    DCTrace << "//-----------------------/ \n";
   }
 
   /**************************************************************************/
@@ -362,8 +357,8 @@ namespace DCEngine {
     // DestroyAll();
     
     // Load the level again
-    if (CurrentLevelRef != nullptr)
-      LoadLevel(CurrentLevelRef);
+    if (getCurrentLevel() != nullptr)
+      LoadLevel(getCurrentLevel());
   }
   
   /**************************************************************************/
@@ -404,6 +399,10 @@ namespace DCEngine {
       return nullptr;
     }
     auto gameObject = Daisy->getSystem<Systems::Factory>()->CreateGameObject(archetype, *this, true);
+    if (!gameObject) {
+      DCTrace << ObjectName << "::Space::CreateObject - Could not create the GameObject! \n";
+      return nullptr;
+    }
     // Add it to the recently-created GameObjects container
     // RecentlyCreatedGameObjects.push_back(gameObject);
     //DCTrace << Name() << "::Space::CreateObject: Created '" << archetypeName << "' \n";

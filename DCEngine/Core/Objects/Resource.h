@@ -30,6 +30,7 @@ namespace DCEngine {
 
     // Properties
     DCE_DEFINE_PROPERTY(std::string, ResourcePath);
+    DCE_DEFINE_PROPERTY(bool, Hidden);
     // Methods
     Resource(std::string type, std::string name, std::string resourcePath);
     void Serialize(Zilch::JsonBuilder& builder);
@@ -44,6 +45,7 @@ namespace DCEngine {
     std::string ResourceType;
     std::string ResourcePath;    
     std::string SerializedData;
+    bool Hidden;
 
     //const std::string Extension;
     //virtual Resource* Find(std::string) = 0;

@@ -103,6 +103,13 @@ namespace DCEngine {
       delete event;
     }
 
+		void DispatchSystemEvents::WindowRecreate()
+		{
+			auto event = new Events::WindowRecreate;
+			Daisy->Dispatch<Events::WindowRecreate>(event);
+			delete event;
+		}
+
     void DispatchSystemEvents::WindowFullScreenToggle(bool toggled)
     {
       auto event = new Events::WindowFullScreenToggle();

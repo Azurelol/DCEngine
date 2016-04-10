@@ -21,7 +21,7 @@ namespace DCEngine {
     @brief  Constructor.
     */
     /**************************************************************************/
-    GUI::GUI(GUIConfig& config) : System(std::string("GUISystem"), EnumeratedSystem::GUI), Settings(config)
+    GUI::GUI(GUIConfig& config) : System(std::string("GUISystem"), EnumeratedSystem::GUI), Settings(config), FontTexture(0)
     {
       GUIHandler.reset(new ImGuiSFML());
     }
@@ -42,7 +42,7 @@ namespace DCEngine {
 
      // Set the current font
      SetFont(std::string("DroidSans.ttf"), 14);    
-     
+		 GUIHandler->StartFrame();
     }
 
     /**************************************************************************/
@@ -228,14 +228,18 @@ namespace DCEngine {
       unsigned char* pixels;
       int width, height;
       // Generate a font texture
-      GLuint FontTexture;
-      io.Fonts->GetTexDataAsRGBA32(&pixels, &width, &height);
-      glGenTextures(1, &FontTexture);
-      glBindTexture(GL_TEXTURE_2D, FontTexture);
-      glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-      glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-      glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
-      // Set the font
+      //GLuint FontTexture;
+			io.Fonts->GetTexDataAsRGBA32(&pixels, &width, &height);
+			if (!FontTexture)
+			{
+				
+				glGenTextures(1, &FontTexture);
+				glBindTexture(GL_TEXTURE_2D, FontTexture);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+				// Set the font
+			}
       io.Fonts->TexID = (void *)(intptr_t)FontTexture;
       // Clear the buffer stuff??
       io.Fonts->ClearInputData();
