@@ -73,6 +73,7 @@ namespace DCEngine {
       int UpdateAnimationSpeed(void);
       //reutrn 1 if it is the time to goto next frame, else 0
       bool CheckAnimationIntialized(void);
+			void ResetAnimationIndex(void);
       void SetColorUsing255(Vec3 newColor);
 
       //graphical inhereted
