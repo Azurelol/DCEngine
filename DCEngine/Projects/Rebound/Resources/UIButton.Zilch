@@ -56,13 +56,13 @@ class UIButton : ZilchComponent
 
     // State SoundCue resources
     [Property]
-    var SelectSound : String = "";
+    var SelectSound : String = "MenuSelect";
     
     [Property]
-    var CancelSound : String = "";
+    var CancelSound : String = "MenuCancel";
     
     [Property]
-    var HoverSound : String = "";
+    var HoverSound : String = "MenuHover";
 
     // Current Stae of the button
     var CurState : ButtonState = ButtonState.Default;
@@ -106,10 +106,6 @@ class UIButton : ZilchComponent
 	{
 		if(this.Active)
 		{
-			if (this.HoverSound != "")
-			{
-				this.Space.SoundSpace.PlayCue(this.HoverSound);
-			}
 		
 			this.EnterHoveredState();
 		}
@@ -127,12 +123,7 @@ class UIButton : ZilchComponent
 	function OnMouseDown(event : MouseDown)
 	{
 		if(this.CurState == ButtonState.Hovered && this.AllowClicks)
-		{
-			if (this.SelectSound != "")
-			{
-				this.Space.SoundSpace.PlayCue(this.SelectSound);
-			}
-		
+		{		
 			this.EnterClickedState();
 		}
 	}
@@ -151,6 +142,11 @@ class UIButton : ZilchComponent
 
 	function EnterDefaultState()
 	{	
+		if (this.CurState != ButtonState.Default)
+		{
+			this.Space.SoundSpace.PlayCue(this.CancelSound);
+		}
+	
 		this.Active = true;
 		this.CurState = ButtonState.Default;
 		this.Owner.Sprite.Color = this.DefaultColor;
@@ -176,6 +172,11 @@ class UIButton : ZilchComponent
 			this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 0.9);
 		}
 
+		if (this.HoverSound != "")
+		{
+			this.Space.SoundSpace.PlayCue(this.HoverSound);
+		}
+		
 		this.Expand();
 		this.ReportState();
 	}
@@ -190,6 +191,11 @@ class UIButton : ZilchComponent
 			this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 1.0);
 		}
 
+		if (this.SelectSound != "")
+		{
+			this.Space.SoundSpace.PlayCue(this.SelectSound);
+		}
+		
 		this.ReportState();
 	}
 
