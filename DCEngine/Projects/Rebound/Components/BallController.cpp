@@ -157,6 +157,7 @@ namespace DCEngine {
           }
 
           RigidBodyRef->ApplyForce(MouseVector * ChargeFactor * CurrentCharge);
+		  PlayerRef->getComponent<Components::PlayerController>()->FramesOfThrowAnimation = 10;
 
           Charging = false;
           CurrentCharge = 0;
