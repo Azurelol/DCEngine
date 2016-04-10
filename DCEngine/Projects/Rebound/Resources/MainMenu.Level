@@ -6947,7 +6947,7 @@
                     "w": 1.000000
                   }
                 }, 
-                "SpriteSource": "square", 
+                "SpriteSource": "Arrow", 
                 "FlipX": false, 
                 "FlipY": false, 
                 "AnimationActive": false, 
@@ -7075,8 +7075,8 @@
                     "w": 1.000000
                   }
                 }, 
-                "SpriteSource": "square", 
-                "FlipX": false, 
+                "SpriteSource": "Arrow", 
+                "FlipX": true, 
                 "FlipY": false, 
                 "AnimationActive": false, 
                 "AnimationSpeed": 1.000000, 
@@ -7166,7 +7166,7 @@
                 {
                   "Vec3": 
                   {
-                    "x": -47.882175, 
+                    "x": -46.882175, 
                     "y": -4.683331, 
                     "z": 0.000000
                   }
@@ -7266,7 +7266,7 @@
                     "w": 1.000000
                   }
                 }, 
-                "SpriteSource": "square", 
+                "SpriteSource": "Arrow", 
                 "FlipX": false, 
                 "FlipY": false, 
                 "AnimationActive": false, 
@@ -7394,8 +7394,8 @@
                     "w": 1.000000
                   }
                 }, 
-                "SpriteSource": "square", 
-                "FlipX": false, 
+                "SpriteSource": "Arrow", 
+                "FlipX": true, 
                 "FlipY": false, 
                 "AnimationActive": false, 
                 "AnimationSpeed": 1.000000, 
@@ -7585,7 +7585,7 @@
                     "w": 1.000000
                   }
                 }, 
-                "SpriteSource": "square", 
+                "SpriteSource": "Arrow", 
                 "FlipX": false, 
                 "FlipY": false, 
                 "AnimationActive": false, 
@@ -7713,8 +7713,8 @@
                     "w": 1.000000
                   }
                 }, 
-                "SpriteSource": "square", 
-                "FlipX": false, 
+                "SpriteSource": "Arrow", 
+                "FlipX": true, 
                 "FlipY": false, 
                 "AnimationActive": false, 
                 "AnimationSpeed": 1.000000, 

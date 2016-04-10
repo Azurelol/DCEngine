@@ -145,8 +145,6 @@ namespace DCEngine {
 
       switch (style) {
       case WindowMode::Default:
-        WindowInterface.Settings.ScreenWidth = widthRecord;
-        WindowInterface.Settings.ScreenHeight = heightRecord;
         WindowContext->create(sf::VideoMode(
 					WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
           WindowInterface.Caption, sf::Style::Titlebar | sf::Style::Close, ContextSettings);
@@ -154,8 +152,6 @@ namespace DCEngine {
         DispatchSystemEvents::WindowFullScreenDisabled();
         break;
       case WindowMode::Fullscreen:
-        widthRecord = WindowInterface.Settings.ScreenWidth;
-        heightRecord = WindowInterface.Settings.ScreenHeight;
         //WindowInterface.Settings.ScreenWidth = sf::VideoMode::getDesktopMode().width;
         //WindowInterface.Settings.ScreenHeight = sf::VideoMode::getDesktopMode().height;
         WindowContext->create(sf::VideoMode(
