@@ -96,6 +96,7 @@ namespace DCEngine {
 				WindowContext->setFramerateLimit(WindowInterface.Settings.Framerate);
 				//WindowContext->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
 			}
+			Daisy->getSystem<GUI>()->Initialize();
 		}
 
 		void WindowSFML::lostFocus(void)
