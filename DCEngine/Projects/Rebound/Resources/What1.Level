@@ -285,6 +285,13 @@
           "TestSoundInstance": 
           {
             "Music": "DesertLab"
+          }, 
+          "MusicBackground": 
+          {
+            "PlayOnStart": true, 
+            "StopOnTerminate": true, 
+            "Track": "DesertLab", 
+            "Volume": 1.000000
           }
         }, 
         "Children": 

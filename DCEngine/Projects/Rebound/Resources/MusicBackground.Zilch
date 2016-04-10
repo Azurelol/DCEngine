@@ -16,7 +16,9 @@ class MusicBackground : ZilchComponent
     	}
 		
 		this.ChangeVolume(this.Volume);
-    }
+		
+		this.Space.SoundSpace.Clear();
+	}
 
 	function Terminate()
 	{	
