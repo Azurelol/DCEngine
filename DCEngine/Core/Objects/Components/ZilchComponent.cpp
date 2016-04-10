@@ -149,7 +149,7 @@ namespace DCEngine {
   {
     auto boundType = BoundType();
     TerminateFunc = boundType->FindFunction("Terminate", Zilch::Array<Zilch::Type*>(), 
-                    ZilchTypeId(void), Zilch::FindMemberOptions::None);
+                    ZilchTypeId(void), Zilch::FindMemberOptions::DoNotIncludeBaseClasses);
 
     if (!TerminateFunc)
       return;

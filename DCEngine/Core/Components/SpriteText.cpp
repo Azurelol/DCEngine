@@ -162,6 +162,8 @@ namespace DCEngine {
       unsigned charCount = 0;
       std::string text = getText();
       StringWrap(text, getWordWrap());
+			GLuint attachments[3] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2 };
+			glDrawBuffers(3, attachments);
       for (c = text.begin(); c != text.end(); ++c)
       {
         if (*c == '\n')

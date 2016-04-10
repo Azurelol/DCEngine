@@ -378,16 +378,26 @@
 								"selection":
 								[
 									[
+<<<<<<< HEAD
+										1081,
+										1081
+=======
 										6348,
 										6348
+>>>>>>> cccb69d95cf448e282072b2f9ff69834b59bdda4
 									]
 								],
 								"settings":
 								{
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
+<<<<<<< HEAD
+								"translation.x": -0.0,
+								"translation.y": 225.0,
+=======
 								"translation.x": 0.0,
 								"translation.y": 2700.0,
+>>>>>>> cccb69d95cf448e282072b2f9ff69834b59bdda4
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -488,7 +498,11 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
+<<<<<<< HEAD
+			"position": "0,0,1,-1,-1,-1,-1,1051,-1448,184,-148",
+=======
 			"position": "0,0,1,-1,-1,-1,-1,1038,623,171,1923",
+>>>>>>> cccb69d95cf448e282072b2f9ff69834b59bdda4
 			"project": "",
 			"replace":
 			{
