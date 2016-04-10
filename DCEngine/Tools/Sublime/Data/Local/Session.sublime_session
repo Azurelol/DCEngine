@@ -289,8 +289,8 @@
 								"selection":
 								[
 									[
-										1203,
-										1203
+										1081,
+										1081
 									]
 								],
 								"settings":
@@ -298,7 +298,7 @@
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
 								"translation.x": -0.0,
-								"translation.y": 270.0,
+								"translation.y": 225.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -343,7 +343,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,1163,539,296,1839",
+			"position": "0,0,1,-1,-1,-1,-1,1051,-1448,184,-148",
 			"project": "",
 			"replace":
 			{
