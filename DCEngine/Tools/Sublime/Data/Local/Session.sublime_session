@@ -16,40 +16,64 @@
 				"selected_items":
 				[
 					[
-						"A",
-						"A_1024x576"
-					],
-					[
-						"C",
-						"C_1920x1200"
-					],
-					[
-						"B",
-						"B_1920x1440"
-					],
-					[
-						"D",
-						"D_1800x1440"
-					],
-					[
-						"Cur",
-						"CurAspect"
+						"Res",
+						"ResolutionRefText"
 					],
 					[
 						"As",
-						"AspectRatio"
+						"AspectRefText"
 					],
 					[
-						"Res",
-						"Resolution"
+						"CurA",
+						"CurAspect"
 					],
 					[
-						"Anti",
-						"AntiAliasingRefText"
+						"A",
+						"A_1920x1080"
 					],
 					[
 						"Reso",
-						"ResolutionRefText"
+						"Resolution"
+					],
+					[
+						"Cur",
+						"CurRes"
+					],
+					[
+						"Na",
+						"Native"
+					],
+					[
+						"Cu",
+						"CurAspect"
+					],
+					[
+						"C",
+						"C_x8"
+					],
+					[
+						"B",
+						"B_x4"
+					],
+					[
+						"AARe",
+						"AntiAliasingRefText"
+					],
+					[
+						"D",
+						"D_x16"
+					],
+					[
+						"Anti",
+						"AntiAlias"
+					],
+					[
+						"Enter",
+						"EnterHoveredState"
+					],
+					[
+						"Cl",
+						"Clicked"
 					],
 					[
 						"ResR",
@@ -106,10 +130,6 @@
 					[
 						"Pa",
 						"PanBy"
-					],
-					[
-						"Cl",
-						"ClickSoundName"
 					],
 					[
 						"Target",
@@ -180,10 +200,6 @@
 						"ExpansionScale"
 					],
 					[
-						"Enter",
-						"EnterDefaultState"
-					],
-					[
 						"Text",
 						"TextReference"
 					],
@@ -211,7 +227,7 @@
 					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/OptionsManager.Zilch",
 					"settings":
 					{
-						"buffer_size": 11478,
+						"buffer_size": 13144,
 						"line_ending": "Windows"
 					}
 				},
@@ -219,7 +235,7 @@
 					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GraphicsData.Zilch",
 					"settings":
 					{
-						"buffer_size": 2952,
+						"buffer_size": 3041,
 						"line_ending": "Windows"
 					}
 				}
@@ -260,16 +276,20 @@
 			},
 			"file_history":
 			[
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HealthControllerZ.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GraphicsData.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HazardAreaZilch.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogText.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/SimpleAnimator.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/EnergyShield.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/CameraControllerZilch.Zilch",
 				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/SimpleAnimator.Zilch",
 				"/D/DCEngine/DCEngine/Projects/Rebound/Resources/Level2Generator.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PanButton.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/MenuPan.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Testing.Zilch",
 				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
 				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/FadeZilch.Zilch",
@@ -330,7 +350,7 @@
 			"groups":
 			[
 				{
-					"selected": 0,
+					"selected": 1,
 					"sheets":
 					[
 						{
@@ -339,15 +359,15 @@
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 11478,
+								"buffer_size": 13144,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										10740,
-										10740
+										6194,
+										6194
 									]
 								],
 								"settings":
@@ -355,10 +375,10 @@
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
 								"translation.x": 0.0,
-								"translation.y": 5310.0,
+								"translation.y": 6255.0,
 								"zoom_level": 1.0
 							},
-							"stack_index": 0,
+							"stack_index": 1,
 							"type": "text"
 						},
 						{
@@ -367,26 +387,26 @@
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 2952,
+								"buffer_size": 3041,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										275,
-										275
+										2973,
+										2973
 									]
 								],
 								"settings":
 								{
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
-								"translation.x": -0.0,
-								"translation.y": 1845.0,
+								"translation.x": 0.0,
+								"translation.y": 0.0,
 								"zoom_level": 1.0
 							},
-							"stack_index": 1,
+							"stack_index": 0,
 							"type": "text"
 						}
 					]
@@ -428,7 +448,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-32000,-32000,-1,-1,958,518,91,1818",
+			"position": "0,0,1,-1,-1,-1,-1,935,342,68,1642",
 			"project": "",
 			"replace":
 			{
