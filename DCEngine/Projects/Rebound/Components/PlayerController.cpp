@@ -308,7 +308,7 @@ namespace DCEngine {
 					//SpriteComponent->AnimationActive = false;
 				}
 			}
-			if (FramesOfThrowAnimation > 0)
+			if (FramesOfThrowAnimation > 0 && SpriteComponent->SpriteSource != ThrowAnimation)
 			{
 				--FramesOfThrowAnimation;
 				SpriteComponent->SpriteSource = ThrowAnimation;
