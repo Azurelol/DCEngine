@@ -125,6 +125,8 @@ namespace DCEngine {
     /*===================*
     *     Components     *
     *===================*/
+    // GameSession
+    ZilchInitializeType(Components::DefaultGameSetup);
     // Space
     ZilchInitializeType(Components::PhysicsSpace);
     ZilchInitializeType(Components::GraphicsSpace);

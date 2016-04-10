@@ -157,13 +157,17 @@ namespace DCEngine {
         return;
       }
       
-      if (SelectedObject()->Name() == "EditorCamera") {        
-        DCTrace << "Editor::DeleteObject - Cannot delete the editor camera! Y-y-you trying to crash or sumthin?? \n";
-        return;        
-      }
+      //if (SelectedObject()->Name() == "EditorCamera" || ) {        
+      //  DCTrace << "Editor::DeleteObject - Cannot delete the editor camera! Y-y-you trying to crash or sumthin?? \n";
+      //  return;        
+      //}
 
       // Destroy the currently selected GameObjects
-      if (dynamic_cast<GameObjectPtr>(SelectedObject())) {
+      if (auto object = dynamic_cast<GameObjectPtr>(SelectedObject())) {
+
+        // If the object is not to be deleted..
+        if (object->getProtected())
+          return;
 
         // The list of objects to be deleted
         auto objectsToDelete = ObjectPtrsToGameObjectPtrs(SelectedObjects);

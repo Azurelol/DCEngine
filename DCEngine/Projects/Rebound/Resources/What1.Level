@@ -540,6 +540,48 @@
         "Children": 
         {
         }
+      }, 
+      "GameObject": 
+      {
+        "Locked": true, 
+        "GameObjectID": 16, 
+        "Name": "LevelSettings", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }
+        }, 
+        "Children": 
+        {
+        }
       }
     }
   }

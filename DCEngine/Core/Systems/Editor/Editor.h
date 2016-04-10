@@ -124,14 +124,9 @@ namespace DCEngine {
       void OpenProject();
       void OpenRecentProject();
       void LoadProject(std::string path);
-      void AutoSave();
-      void SaveCurrentLevel();
       void PlayGame();
       void StopGame();
       void ExportGame();
-      bool LoadLevel(std::string level);
-      bool SaveLevel(std::string level);
-      bool ReloadLevel();
       void Exit();
       // Select
       ObjectContainer SelectedObjects;
@@ -143,7 +138,6 @@ namespace DCEngine {
       void Select(ObjectPtr, bool inspect = true);
       void SelectionAddOrRemoveToMultiple(GameObjectPtr);
       void Deselect();
-      void SelectSpace();
       void CenterSelected();
       void SelectMultiple(Vec2&);
       bool IsSelected(GameObjectPtr);

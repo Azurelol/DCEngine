@@ -313,28 +313,13 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  @brief Serializes all of the GameObject's children.
-  @param builder A reference to the JSON builder.
-  @param children A reference to the container of all the children
-  @note  This will serialize the GameObject.
-  */
-  /**************************************************************************/
-  void GameObject::SerializeChildren(Zilch::JsonBuilder & builder, GameObjectVec & children)
-  {
-    //for (auto& child : children) {
-    //  child->Serialize(builder);
-    //}
-  }
-
-  /**************************************************************************/
-  /*!
   @brief Deserializes a GameObject.
   @param builder A pointer to the object containing the properties.
   @note  This will deserialize the GameObject's properties, then its components.
   */
   /**************************************************************************/
   void GameObject::Deserialize(Zilch::JsonValue * properties)
-  {    
+  {
     // Grab a reference to the Zilch Interface
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
     // Deserialize the underlying Entity
@@ -342,7 +327,7 @@ namespace DCEngine {
     // Deserialize the GameObject properties
     DeserializeByType(properties, interface->GetState(), ZilchTypeId(GameObject), this);
   }
-  
+    
   /**************************************************************************/
   /*!
   @brief  Marks the GameObject to be destroyed.

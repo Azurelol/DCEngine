@@ -261,6 +261,7 @@
     <ClCompile Include="Core\Binding\CoreBindingTypes.cpp" />
     <ClCompile Include="Core\Components\Collider.cpp" />
     <ClCompile Include="Core\Components\DebugActions.cpp" />
+    <ClCompile Include="Core\Components\DefaultGameSetup.cpp" />
     <ClCompile Include="Core\Components\EditorCameraController.cpp" />
     <ClCompile Include="Core\Components\Graphical.cpp" />
     <ClCompile Include="Core\Components\Light.cpp" />
@@ -471,6 +472,7 @@
     <ClInclude Include="Core\Binding\CoreBindingEnums.h" />
     <ClInclude Include="Core\Binding\CoreBindingEvents.h" />
     <ClInclude Include="Core\Binding\CoreBindingEventStrings.h" />
+    <ClInclude Include="Core\Components\DefaultGameSetup.h" />
     <ClInclude Include="Core\Components\LoadingScreen.h" />
     <ClInclude Include="Core\DaisyVector.h" />
     <ClInclude Include="Core\Engine\ActionProperty.h" />
