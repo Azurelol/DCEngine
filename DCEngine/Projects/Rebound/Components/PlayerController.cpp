@@ -187,6 +187,7 @@ namespace DCEngine {
 
 		void PlayerController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 		{
+			bool animationChanged = false;
 			if (PlayerControllerTraceOn)
 			{
 				PrintTranslation();
@@ -235,9 +236,7 @@ namespace DCEngine {
 			//DCTrace << "Grounded =" << Grounded << "\n";
 			if (!Grounded)
 			{
-				if(SpriteComponent->SpriteSource != FallAnimation)
-					SpriteComponent->SpriteSource = JumpAnimation;
-				//SpriteComponent->AnimationActive = false;
+				
 				//SpriteComponent->HaveAnimation = false;
 				//SpriteComponent->AnimationActive = false;
 				RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Vec3(0.96f, 0.99f, 1));
@@ -254,6 +253,9 @@ namespace DCEngine {
 					Actions::Call(seq, &PlayerController::Jump, this);
 					Jumping = true;
 					Grounded = false;
+					SpriteComponent->SpriteSource = JumpAnimation;
+					SpriteComponent->AnimationActive = true;
+					SpriteComponent->ResetAnimationIndex();
 				}
 			}
 			else
@@ -266,10 +268,11 @@ namespace DCEngine {
 					RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Vec3(1, AirBrakeScalar, 1));
 				}
 			}
-			if (RigidBodyRef->getVelocity().y <= 0 && SpriteComponent->SpriteSource == JumpAnimation)
+			if (RigidBodyRef->getVelocity().y < 0 && SpriteComponent->SpriteSource == JumpAnimation)
 			{
 				SpriteComponent->SpriteSource = FallAnimation;
-				//SpriteComponent->AnimationActive = true;
+				SpriteComponent->AnimationActive = false;
+				SpriteComponent->ResetAnimationIndex();
 			}
 			if (Daisy->getKeyboard()->KeyIsDown(Keys::A))
 			{
@@ -279,6 +282,8 @@ namespace DCEngine {
 				mat->setFriction(GroundFriction);
 				if (Grounded)
 				{
+					if (SpriteComponent->SpriteSource != RunAnimation)
+						SpriteComponent->ResetAnimationIndex();
 					SpriteComponent->SpriteSource = RunAnimation;
 					SpriteComponent->AnimationActive = true;
 					SoundFootstep();
@@ -292,8 +297,11 @@ namespace DCEngine {
 				mat->setFriction(GroundFriction);
 				if (Grounded)
 				{
+					if(SpriteComponent->SpriteSource != RunAnimation)
+						SpriteComponent->ResetAnimationIndex();
 					SpriteComponent->SpriteSource = RunAnimation;
 					SpriteComponent->AnimationActive = true;
+					
 					SoundFootstep();
 				}
 			}
