@@ -54,6 +54,10 @@ namespace DCEngine {
 			void SetResolution(unsigned x, unsigned y);
 			void SetAntiAliasingLevel(unsigned samples);
 			void ToggleFullscreen();
+			//Setting Gettors
+			unsigned GetScreenWidth() const;
+			unsigned GetScreenHeight() const;
+
 
     private:
 

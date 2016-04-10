@@ -116,6 +116,15 @@ namespace DCEngine {
     {
       Daisy->getSystem<Systems::Graphics>()->ToggleFullscreen();
     }
+		unsigned GraphicsSpace::GetScreenWidth()
+		{
+			return GraphicsSystem->GetScreenWidth();
+		}
+		unsigned GraphicsSpace::GetScreenHeight() const
+		{
+			return GraphicsSystem->GetScreenHeight();
+		}
+
     /**************************************************************************/
     /*!
     \brief Registers a SpriteText into the GraphicsSpace

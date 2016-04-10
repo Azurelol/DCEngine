@@ -41,5 +41,13 @@ namespace DCEngine
 				Settings.Fullscreen = true;
 			}
 		}
+		unsigned Graphics::GetScreenWidth() const
+		{
+			return Settings.ScreenWidth;
+		}
+		unsigned Graphics::GetScreenHeight() const
+		{
+			return Settings.ScreenHeight;
+		}
 	}
 }
