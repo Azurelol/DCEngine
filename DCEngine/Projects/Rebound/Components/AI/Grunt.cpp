@@ -28,6 +28,15 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Grunt, startingHealth);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, maxHealth);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, IsInvulnerable);
+      DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(Archetype);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, Head);
+      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyHead, attributeArchetype);
+      //DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(Archetype);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, Body);
+      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyBody, attributeArchetype);
+     // DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(Archetype);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, Saw);
+      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertySaw, attributeArchetype);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, IdleRange);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, PatrolDistance);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, IsPatrolRight);
@@ -45,7 +54,7 @@ namespace DCEngine {
     }
 
     // Dependancies
-    DCE_COMPONENT_DEFINE_DEPENDENCIES(Grunt, "Transform", "RigidBody", "Sprite");
+    DCE_COMPONENT_DEFINE_DEPENDENCIES(Grunt, "Transform", "RigidBody");
 #endif
 
     Grunt::~Grunt()
@@ -63,13 +72,13 @@ namespace DCEngine {
 
       TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
       RigidBodyRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::RigidBody>();
-      SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
+      //SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
 
       stateMachine = new StateMachine<Grunt>(this);
       startingPosition = TransformRef->Translation;
       endPosition = startingPosition;
 
-      defaultColor = SpriteRef->Color;
+      //defaultColor = SpriteRef->Color;
 
       if (IsPatrolRight)
       {
@@ -85,6 +94,8 @@ namespace DCEngine {
       stateMachine->SetGlobalState(Global::Instance());
 
       player = SpaceRef->FindObjectByName(PlayerName);
+
+      //CreateSprites();
     }
 
     void Grunt::OnLogicUpdateEvent(Events::LogicUpdate * event)
@@ -125,6 +136,27 @@ namespace DCEngine {
       else
         return true;
     }
+
+    //void Grunt::CreateSprites()
+    //{
+    //  head = SpaceRef->CreateObject(HeadArchetype);
+    //  body = SpaceRef->CreateObject(BodyArchetype);
+    //  saw = SpaceRef->CreateObject(SawArchetype);
+    //  sprites.push_back(head);
+    //  sprites.push_back(body);
+    //  sprites.push_back(saw);
+    //
+    //  for (unsigned i = 0; i < sprites.size(); ++i)
+    //  {
+    //    sprites.at(i)->AttachTo(gameObj);
+    //    sprites.at(i)->getComponent<Transform>()->SetLocalTranslation(Vec3(0, 0, 0));
+    //  }
+    //}
+
+    //void Grunt::UpdateSprites(float dt)
+    //{
+
+    //}
 
 
     // Direction should be 1 (right) or -1 (left). 
@@ -168,8 +200,8 @@ namespace DCEngine {
 #pragma region Idle State
     void Grunt::Idle::Enter(Grunt *owner)
     {
-      if(owner->IsDebugColorActive)
-        owner->SpriteRef->Color = owner->IdleColor;
+      //if(owner->IsDebugColorActive)
+        //owner->SpriteRef->Color = owner->IdleColor;
 
       DCTrace << "Grunt Idle Enter\n";
     }
@@ -190,8 +222,8 @@ namespace DCEngine {
 
     void Grunt::Idle::Exit(Grunt *owner)
     {
-      if (owner->IsDebugColorActive)
-        owner->SpriteRef->Color = owner->defaultColor;
+      //if (owner->IsDebugColorActive)
+        //owner->SpriteRef->Color = owner->defaultColor;
     }
 
     Grunt::Idle* Grunt::Idle::Instance()
@@ -206,10 +238,10 @@ namespace DCEngine {
     {
       owner->jumpTimer = 0;
 
-      if (owner->IsDebugColorActive)
-        owner->SpriteRef->Color = owner->PatrolColor;
+      //if (owner->IsDebugColorActive)
+        //owner->SpriteRef->Color = owner->PatrolColor;
 
-      owner->SpriteRef->FlipX = true;
+      //owner->SpriteRef->FlipX = true;
       DCTrace << "Grunt PatrolRight Enter\n";
     }
 
@@ -241,8 +273,8 @@ namespace DCEngine {
 
     void Grunt::PatrolRight::Exit(Grunt *owner)
     {
-      if (owner->IsDebugColorActive)
-        owner->SpriteRef->Color = owner->defaultColor;
+      //if (owner->IsDebugColorActive)
+        //owner->SpriteRef->Color = owner->defaultColor;
 
       owner->RigidBodyRef->setVelocity(Vec3());
     }
@@ -257,10 +289,10 @@ namespace DCEngine {
 #pragma region Left State
     void Grunt::PatrolLeft::Enter(Grunt *owner)
     {
-      if (owner->IsDebugColorActive)
-        owner->SpriteRef->Color = owner->PatrolColor;
+      //if (owner->IsDebugColorActive)
+        //owner->SpriteRef->Color = owner->PatrolColor;
 
-      owner->SpriteRef->FlipX = false;
+      //owner->SpriteRef->FlipX = false;
       DCTrace << "Grunt PatrolLeft Enter\n";
     }
 
@@ -292,8 +324,8 @@ namespace DCEngine {
 
     void Grunt::PatrolLeft::Exit(Grunt *owner)
     {
-      if (owner->IsDebugColorActive)
-        owner->SpriteRef->Color = owner->defaultColor;
+      //if (owner->IsDebugColorActive)
+        //owner->SpriteRef->Color = owner->defaultColor;
 
       owner->RigidBodyRef->setVelocity(Vec3());
     }
@@ -308,8 +340,8 @@ namespace DCEngine {
 #pragma region Attack State
     void Grunt::Attack::Enter(Grunt *owner)
     {
-      if (owner->IsDebugColorActive)
-        owner->SpriteRef->Color = owner->AttackColor;
+      //if (owner->IsDebugColorActive)
+        //owner->SpriteRef->Color = owner->AttackColor;
 
       DCTrace << "Grunt Attack Enter\n";
     }
@@ -325,12 +357,12 @@ namespace DCEngine {
       Vec3 direction = playerPosition - ownerPosition;
       if (direction.x < 0)
       {
-        owner->SpriteRef->FlipX = false;
+        //owner->SpriteRef->FlipX = false;
         owner->Jump(-1, owner->AttackJumpPeriod, owner->AttackJumpStrengthX, owner->AttackJumpStrengthY);
       }
       else
       {
-        owner->SpriteRef->FlipX = true;
+        //owner->SpriteRef->FlipX = true;
         owner->Jump(1, owner->AttackJumpPeriod, owner->AttackJumpStrengthX, owner->AttackJumpStrengthY);
       }
 
@@ -351,8 +383,8 @@ namespace DCEngine {
 
     void Grunt::Attack::Exit(Grunt *owner)
     {
-      if (owner->IsDebugColorActive)
-        owner->SpriteRef->Color = owner->defaultColor;
+      //if (owner->IsDebugColorActive)
+        //owner->SpriteRef->Color = owner->defaultColor;
     }
 
     Grunt::Attack* Grunt::Attack::Instance()

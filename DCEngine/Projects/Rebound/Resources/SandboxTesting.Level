@@ -18,8 +18,8 @@
             {
               "Vec3": 
               {
-                "x": -82.127022, 
-                "y": 6.135199, 
+                "x": -3.978872, 
+                "y": -2.161098, 
                 "z": 0.000000
               }
             }, 
@@ -264,8 +264,8 @@
             {
               "Vec3": 
               {
-                "x": 0.028580, 
-                "y": 0.000000, 
+                "x": -0.059314, 
+                "y": -4.535312, 
                 "z": 0.000000
               }
             }, 
@@ -757,7 +757,7 @@
       {
         "Locked": false, 
         "GameObjectID": 900, 
-        "Name": "Scrapper4", 
+        "Name": "Scrapper", 
         "Components": 
         {
           "Transform": 
@@ -766,8 +766,8 @@
             {
               "Vec3": 
               {
-                "x": 4.958648, 
-                "y": 1.871997, 
+                "x": 3.336134, 
+                "y": -0.408135, 
                 "z": 0.000000
               }
             }, 
@@ -790,25 +790,56 @@
               }
             }
           }, 
-          "Sprite": 
+          "Grunt": 
           {
-            "Visible": true, 
-            "Color": 
+            "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
+            "Head": "ScrapperHead", 
+            "Body": "ScrapperBody", 
+            "Saw": "ScrapperSaw", 
+            "IdleRange": 100.000000, 
+            "PatrolDistance": 20.000000, 
+            "IsPatrolRight": true, 
+            "IsAggressive": true, 
+            "JumpStrengthX": 5.000000, 
+            "JumpStrengthY": 25.000000, 
+            "JumpPeriod": 2.000000, 
+            "AttackJumpStrengthX": 10.000000, 
+            "AttackJumpStrengthY": 15.000000, 
+            "AttackJumpPeriod": 1.000000, 
+            "IdleColor": 
             {
               "Vec4": 
               {
-                "x": 1.000000, 
+                "x": 0.000000, 
                 "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "PatrolColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
                 "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "Char_Scrap", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "IsDebugColorActive": false
           }, 
           "BoxCollider": 
           {
@@ -858,184 +889,196 @@
             }, 
             "Mass": 10.000000, 
             "RotationLocked": true
-          }, 
-          "Grunt": 
-          {
-            "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
-            "IsInvulnerable": false, 
-            "IdleRange": 100.000000, 
-            "PatrolDistance": 20.000000, 
-            "IsPatrolRight": true, 
-            "IsAggressive": true, 
-            "JumpStrengthX": 5.000000, 
-            "JumpStrengthY": 25.000000, 
-            "JumpPeriod": 2.000000, 
-            "AttackJumpStrengthX": 10.000000, 
-            "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "IsDebugColorActive": false
           }
         }, 
         "Children": 
         {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 914, 
-        "Name": "Sentinel", 
-        "Components": 
-        {
-          "Transform": 
+          "GameObject": 
           {
-            "Translation": 
+            "Locked": false, 
+            "GameObjectID": 16, 
+            "Name": "ScrapperHead", 
+            "Components": 
             {
-              "Vec3": 
+              "Transform": 
               {
-                "x": -0.414411, 
-                "y": 2.629369, 
-                "z": 0.000000
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 3.304801, 
+                    "y": -0.421889, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.500000, 
+                    "y": 1.500000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "SpriteSource": "Char_Scrap_1", 
+                "FlipX": false, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
               }
             }, 
-            "Rotation": 
+            "Children": 
             {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 2.000000, 
-                "y": 2.000000, 
-                "z": 1.000000
-              }
             }
           }, 
-          "Sprite": 
+          "GameObject": 
           {
-            "Visible": true, 
-            "Color": 
+            "Locked": false, 
+            "GameObjectID": 17, 
+            "Name": "ScrapperBody", 
+            "Components": 
             {
-              "Vec4": 
+              "Transform": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 3.322380, 
+                    "y": -0.421889, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.500000, 
+                    "y": 1.500000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "SpriteSource": "Char_Scrap_2", 
+                "FlipX": false, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
               }
             }, 
-            "SpriteSource": "char_sent", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "Children": 
+            {
+            }
           }, 
-          "BoxCollider": 
+          "GameObject": 
           {
-            "CollisionGroup": "Enemy", 
-            "PhysicsMaterial": "", 
-            "Size": 
+            "Locked": false, 
+            "GameObjectID": 18, 
+            "Name": "ScrapperSaw", 
+            "Components": 
             {
-              "Vec3": 
+              "Transform": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 3.322380, 
+                    "y": -0.421889, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.500000, 
+                    "y": 1.500000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "SpriteSource": "Char_Scrap_3", 
+                "FlipX": false, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
               }
             }, 
-            "Offset": 
+            "Children": 
             {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Ghost": false, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
-          }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
-          "Sentinel": 
-          {
-            "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
-            "IsInvulnerable": false, 
-            "IdleRange": 100.000000, 
-            "MoveSpeed": 2.000000, 
-            "ShieldArchetype": "Sentinel Shield", 
-            "ShieldRadius": 1.000000, 
-            "ShieldBashDistance": 2.000000, 
-            "ShieldBashOutTime": 0.200000, 
-            "ShieldBashInTime": 0.100000, 
-            "ShieldBashCooldown": 1.000000
+            }
           }
-        }, 
-        "Children": 
-        {
         }
       }
     }

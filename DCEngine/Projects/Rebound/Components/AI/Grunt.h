@@ -26,8 +26,11 @@ namespace DCEngine {
       GameObject* gameObj;
       Transform* TransformRef;
       RigidBody* RigidBodyRef;
-      Sprite* SpriteRef;
+      //Sprite* SpriteRef;
       String PlayerName = "Player";
+      ArchetypeHandle Head;
+      ArchetypeHandle Body;
+      ArchetypeHandle Saw;
       float IdleRange;        // Past this range, the grunt will be idle, within the range, it will patrol
       float PatrolDistance;   // The distance from the starting position that the grunt will move before turning around
       bool IsPatrolRight;       // True = Grunt moves right first, false = moves left first
@@ -52,6 +55,9 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(int, startingHealth);
       DCE_DEFINE_PROPERTY(int, maxHealth);
       DCE_DEFINE_PROPERTY(bool, IsInvulnerable);
+      DCE_DEFINE_PROPERTY(ArchetypeHandle, Head);
+      DCE_DEFINE_PROPERTY(ArchetypeHandle, Body);
+      DCE_DEFINE_PROPERTY(ArchetypeHandle, Saw);
       DCE_DEFINE_PROPERTY(float, IdleRange);
       DCE_DEFINE_PROPERTY(float, PatrolDistance);
       DCE_DEFINE_PROPERTY(bool, IsPatrolRight);
@@ -81,6 +87,10 @@ namespace DCEngine {
     private:
       StateMachine<Grunt> *stateMachine;
       GameObject *player;
+      GameObjectPtr head;
+      GameObjectPtr body;
+      GameObjectPtr saw;
+      std::vector<GameObjectPtr> sprites;
       int health;
       int startingHealth;
       int maxHealth;
@@ -91,6 +101,8 @@ namespace DCEngine {
       float dt;
       Vec4 defaultColor;
       bool ModifyHealth(int amount);
+      //void CreateSprites();
+      //void UpdateSprites(float dt);
 
       void Jump(int direction, float period, float strengthX, float strengthY);
 
