@@ -93,7 +93,7 @@ namespace DCEngine {
     DCEngine::Profiler Profile;
     Systems::ConfigurationFiles Configurations;
     EngineConfigPtr EngineConfiguration;
-    GameSessionPtr CurrentGameSession; //!< The current GameSession object.
+    GameSessionStrongPtr CurrentGameSession; //!< The current GameSession object.
     KeyboardPtr KeyboardHandle;
     MousePtr MouseHandle;
     float DeltaTime; //!< Delta time. 

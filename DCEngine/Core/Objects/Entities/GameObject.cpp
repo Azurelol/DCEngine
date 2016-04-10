@@ -108,7 +108,7 @@ namespace DCEngine {
   GameObject::~GameObject()
   {
     //if (DCE_TRACE_GAMEOBJECT_DESTRUCTOR)
-    DCTrace << "GameObject::~GameObject: '" << Name() << "' \n";
+    //DCTrace << "GameObject::~GameObject: '" << Name() << "' \n";
 
     // If the GameObject is attached to a Parent, detach
     if (ParentRef)
@@ -149,40 +149,7 @@ namespace DCEngine {
   {
     return dynamic_cast<GameObjectPtr>(entity);
   }
-
-
-
-
-  /**************************************************************************/
-  /*!
-  @brief   Grab a reference to the container of all of the GameObject's
-           children that have the specified name.
-  @param   The name of the children.
-  @return  A reference to the container.
-  */
-  /**************************************************************************/
- //EntityVec GameObject::FindAllChildrenByName(std::string name)
- //{
- //  EntityVec childrenByName;
- //  for (auto child : ChildrenContainer) {
- //    if (child->Name() == name)
- //      childrenByName.push_back(child);
- //  }
- //  return childrenByName;
- //}
-
-  ///**************************************************************************/
-  ///*!
-  //@brief   Grab a reference to the container of all of the GameObject's 
-  //         children.
-  //@return  A reference to the container.
-  //*/
-  ///**************************************************************************/
-  //EntityVec& GameObject::Children()
-  //{
-  //  return ChildrenContainer;
-  //}
-
+  
   /**************************************************************************/
   /*!
   @brief  Attach a GameObject to a parent GameObject.

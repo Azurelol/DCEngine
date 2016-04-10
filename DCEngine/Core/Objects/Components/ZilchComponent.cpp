@@ -154,7 +154,7 @@ namespace DCEngine {
     if (!TerminateFunc)
       return;
 
-    DCTrace << Owner()->Name() << "::ZilchComponent::Terminate \n";
+    //DCTrace << Owner()->Name() << "::ZilchComponent::Terminate \n";
     // Invoke the Terminate Method
     Zilch::Call terminate(TerminateFunc, Systems::ZilchInterface::GetState());
     terminate.Set<Zilch::Handle>(Zilch::Call::This, Handle());
