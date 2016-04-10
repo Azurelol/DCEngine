@@ -16,48 +16,64 @@
 				"selected_items":
 				[
 					[
+						"Res",
+						"ResolutionRefText"
+					],
+					[
+						"As",
+						"AspectRefText"
+					],
+					[
+						"CurA",
+						"CurAspect"
+					],
+					[
+						"A",
+						"A_1920x1080"
+					],
+					[
+						"Reso",
+						"Resolution"
+					],
+					[
+						"Cur",
+						"CurRes"
+					],
+					[
+						"Na",
+						"Native"
+					],
+					[
+						"Cu",
+						"CurAspect"
+					],
+					[
+						"C",
+						"C_x8"
+					],
+					[
+						"B",
+						"B_x4"
+					],
+					[
+						"AARe",
+						"AntiAliasingRefText"
+					],
+					[
+						"D",
+						"D_x16"
+					],
+					[
+						"Anti",
+						"AntiAlias"
+					],
+					[
 						"Enter",
 						"EnterHoveredState"
 					],
 					[
 						"Cl",
 						"Clicked"
-					],
-					[
-						"Cur",
-						"CurState"
-					],
-					[
-						"A",
-						"A_1024x576"
-					],
-					[
-						"C",
-						"C_1920x1200"
-					],
-					[
-						"B",
-						"B_1920x1440"
-					],
-					[
-						"D",
-						"D_1800x1440"
-					],
-					[
-						"As",
-						"AspectRatio"
-					],
-					[
-						"Res",
-						"Resolution"
-					],
-					[
-						"Anti",
-						"AntiAliasingRefText"
-					],
-					[
-						"Reso",
-						"ResolutionRefText"
 					],
 					[
 						"ResR",
@@ -211,15 +227,7 @@
 					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/OptionsManager.Zilch",
 					"settings":
 					{
-						"buffer_size": 11531,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
-					"settings":
-					{
-						"buffer_size": 4965,
+						"buffer_size": 13182,
 						"line_ending": "Windows"
 					}
 				},
@@ -227,7 +235,7 @@
 					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GraphicsData.Zilch",
 					"settings":
 					{
-						"buffer_size": 2952,
+						"buffer_size": 3048,
 						"line_ending": "Windows"
 					}
 				}
@@ -268,6 +276,11 @@
 			},
 			"file_history":
 			[
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HealthControllerZ.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GraphicsData.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HazardAreaZilch.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogText.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/SimpleAnimator.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/EnergyShield.Zilch",
@@ -277,7 +290,6 @@
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PanButton.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/MenuPan.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Testing.Zilch",
 				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
 				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/FadeZilch.Zilch",
@@ -347,15 +359,15 @@
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 11531,
+								"buffer_size": 13182,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										7915,
-										7915
+										1035,
+										1035
 									]
 								],
 								"settings":
@@ -363,7 +375,7 @@
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
 								"translation.x": 0.0,
-								"translation.y": 4950.0,
+								"translation.y": 1305.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 1,
@@ -371,47 +383,19 @@
 						},
 						{
 							"buffer": 1,
-							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 4965,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										3913,
-										3913
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax"
-								},
-								"translation.x": 0.0,
-								"translation.y": 2160.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 0,
-							"type": "text"
-						},
-						{
-							"buffer": 2,
 							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GraphicsData.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 2952,
+								"buffer_size": 3048,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										275,
-										275
+										609,
+										609
 									]
 								],
 								"settings":
@@ -419,10 +403,10 @@
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
 								"translation.x": 0.0,
-								"translation.y": 1272.0,
+								"translation.y": 0.0,
 								"zoom_level": 1.0
 							},
-							"stack_index": 2,
+							"stack_index": 0,
 							"type": "text"
 						}
 					]
@@ -464,7 +448,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,935,387,68,1687",
+			"position": "0,0,1,-1,-1,-1,-1,962,449,95,1749",
 			"project": "",
 			"replace":
 			{

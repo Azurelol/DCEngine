@@ -78,6 +78,7 @@ namespace DCEngine {
       void OnWindowFullScreenEnabledEvent(Events::WindowFullScreenEnabled* event);
       void OnWindowFullScreenDisabledEvent(Events::WindowFullScreenDisabled* event);
       void OnWindowResizeEvent(Events::WindowResize* event);
+			void OnWindowRecreateEvent(Events::WindowRecreate* event);
       void OnGraphicsToggleLightningEvent(Events::GraphicsToggleLightning* event);
       // CTOR/ DTOR, Initialize
       Graphics(GraphicsConfig& settings);

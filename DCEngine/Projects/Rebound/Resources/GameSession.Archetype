@@ -1,3 +1,15 @@
 
 {
+  "GameSession": 
+  {
+    "Name": "Daisy Project", 
+    "Components": 
+    {
+      "DefaultGameSetup": 
+      {
+        "StartingSpace": "", 
+        "StartingLevel": ""
+      }
+    }
+  }
 }

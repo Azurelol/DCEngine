@@ -82,7 +82,7 @@ namespace DCEngine {
 
       // Revert the current GameSession to the Archetype
       if (Archetype::Find("GameSession")) {
-        Access().Archetypes.RevertToArchetype(gameSession);
+        //Access().Archetypes.RevertToArchetype(gameSession);
       }
       // Create the Archetype on the project
       else {
@@ -104,7 +104,7 @@ namespace DCEngine {
 
       // Revert the current GameSession to the Archetype
       if (Archetype::Find("Space")) {
-        Access().Archetypes.RevertToArchetype(space);
+        //Access().Archetypes.RevertToArchetype(space);
       }
       // Create the Archetype on the project
       else {
@@ -340,9 +340,9 @@ namespace DCEngine {
       // If the project is being initialized...
       if (InitializingProject) {
         // Load the default GameSession
-        //LoadDefaultGameSession();
-        //// Load the default Space
-        //LoadDefaultSpace();
+        LoadDefaultGameSession();
+        // Load the default Space
+        LoadDefaultSpace();
         // Load its default level 
         auto play = Access().Settings.ProjectProperties->Play;
         auto load = LoadLevel(Access().Settings.ProjectProperties->DefaultLevel);

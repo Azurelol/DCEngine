@@ -267,11 +267,10 @@ namespace DCEngine {
 					RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Vec3(1, AirBrakeScalar, 1));
 				}
 			}
-			if (RigidBodyRef->getVelocity().y < 0 && SpriteComponent->SpriteSource == JumpAnimation)
+			if (RigidBodyRef->getVelocity().y <= 0 && SpriteComponent->SpriteSource == JumpAnimation)
 			{
-
 				SpriteComponent->SpriteSource = FallAnimation;
-				SpriteComponent->AnimationActive = true;
+				//SpriteComponent->AnimationActive = true;
 			}
 			if (Daisy->getKeyboard()->KeyIsDown(Keys::A))
 			{

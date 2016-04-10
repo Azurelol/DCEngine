@@ -12,11 +12,17 @@
 
 #include "../../Resources/Archetype.h"
 #include "EditorModule.h"
+// Entities
+//#include "../../Objects/Entities/EntitiesInclude.h"
 
 namespace DCEngine {
 
   class Entity;
   class Space;
+  class GameSession;
+
+  using SpacePtr = Space*;
+  using GameSessionPtr = GameSession*;
 
   namespace Systems {
 
@@ -29,6 +35,8 @@ namespace DCEngine {
       void Preview();      
       void UploadArchetype(EntityPtr entity);      
       void RevertToArchetype(EntityPtr entity);
+      void RevertSpace(SpacePtr space);
+      void RevertGameSession(GameSessionPtr gameSession);
       EntityPtr Current();
 
 

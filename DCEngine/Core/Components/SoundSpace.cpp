@@ -76,7 +76,9 @@ namespace DCEngine {
     /**************************************************************************/
     void SoundSpace::Clear()
     {
+
       return;
+
       for (auto& instance : ActiveSoundInstances) {
         //SoundInstance::Dereference(instance)->Stop();
         instance.Delete();
@@ -84,7 +86,8 @@ namespace DCEngine {
       for (auto& instance : ActiveSoundInstancePtrs) {
         //if (instance)
         //  instance->Stop();
-        delete instance.get();
+        instance.reset();
+        //delete instance.get();
       }
       ActiveSoundInstances.clear();
       ActiveSoundInstancePtrs.clear();
