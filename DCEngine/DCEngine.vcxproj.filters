@@ -355,12 +355,12 @@
     <Filter Include="Core\Systems\Editor\Modules\Input">
       <UniqueIdentifier>{be8bcceb-00ab-4c97-bee5-04d679d25a9f}</UniqueIdentifier>
     </Filter>
-<<<<<<< HEAD
     <Filter Include="Core\Components\GameSession">
       <UniqueIdentifier>{87829586-f643-4a02-8214-4a65abe95cf8}</UniqueIdentifier>
     </Filter>
-=======
->>>>>>> a1b7b0ce7a8bb15046869ae1947361bccec3e514
+    <Filter Include="Configuration">
+      <UniqueIdentifier>{d338bcb0-30e7-42bb-b7cf-2bc7979165b5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -992,12 +992,9 @@
     </ClCompile>
     <ClCompile Include="Core\Systems\Graphics\GraphicsSettings.cpp">
       <Filter>Core\Systems\Graphics</Filter>
-<<<<<<< HEAD
     </ClCompile>
     <ClCompile Include="Core\Components\DefaultGameSetup.cpp">
       <Filter>Core\Components\GameSession</Filter>
-=======
->>>>>>> a1b7b0ce7a8bb15046869ae1947361bccec3e514
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1674,6 +1671,9 @@
     <ClInclude Include="Core\Components\LoadingScreen.h">
       <Filter>Core\Components\Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Components\DefaultGameSetup.h">
+      <Filter>Core\Components\GameSession</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
@@ -1744,6 +1744,24 @@
     </None>
     <None Include="Core\Assets\Shaders\FinalRenderShader.vs">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="ConfigurationAudio.cfg">
+      <Filter>Configuration</Filter>
+    </None>
+    <None Include="ConfigurationContent.cfg">
+      <Filter>Configuration</Filter>
+    </None>
+    <None Include="ConfigurationDebug.cfg">
+      <Filter>Configuration</Filter>
+    </None>
+    <None Include="ConfigurationEditor.cfg">
+      <Filter>Configuration</Filter>
+    </None>
+    <None Include="ConfigurationGraphics.cfg">
+      <Filter>Configuration</Filter>
+    </None>
+    <None Include="ConfigurationGUI.cfg">
+      <Filter>Configuration</Filter>
     </None>
   </ItemGroup>
 </Project>
