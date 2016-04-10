@@ -235,8 +235,8 @@ namespace DCEngine {
 			//DCTrace << "Grounded =" << Grounded << "\n";
 			if (!Grounded)
 			{
-
-				SpriteComponent->SpriteSource = JumpAnimation;
+				if(SpriteComponent->SpriteSource != FallAnimation)
+					SpriteComponent->SpriteSource = JumpAnimation;
 				//SpriteComponent->AnimationActive = false;
 				//SpriteComponent->HaveAnimation = false;
 				//SpriteComponent->AnimationActive = false;
