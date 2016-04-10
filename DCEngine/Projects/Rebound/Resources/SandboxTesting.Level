@@ -378,11 +378,11 @@
           }, 
           "Camera": 
           {
-            "FieldOfView": 156.316010, 
+            "FieldOfView": 100.800003, 
             "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
-            "Size": 50.000000, 
+            "Size": 70.000000, 
             "Projection": "Perspective"
           }, 
           "CameraControllerZilch": 
@@ -904,7 +904,8 @@
                 "z": 0.000000, 
                 "w": 1.000000
               }
-            }
+            }, 
+            "IsDebugColorActive": false
           }
         }, 
         "Children": 

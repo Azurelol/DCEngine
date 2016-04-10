@@ -41,6 +41,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Grunt, IdleColor);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, PatrolColor);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, AttackColor);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, IsDebugColorActive);
     }
 
     // Dependancies
@@ -167,7 +168,9 @@ namespace DCEngine {
 #pragma region Idle State
     void Grunt::Idle::Enter(Grunt *owner)
     {
-      owner->SpriteRef->Color = owner->IdleColor;
+      if(owner->IsDebugColorActive)
+        owner->SpriteRef->Color = owner->IdleColor;
+
       DCTrace << "Grunt Idle Enter\n";
     }
 
@@ -187,7 +190,8 @@ namespace DCEngine {
 
     void Grunt::Idle::Exit(Grunt *owner)
     {
-      owner->SpriteRef->Color = owner->defaultColor;
+      if (owner->IsDebugColorActive)
+        owner->SpriteRef->Color = owner->defaultColor;
     }
 
     Grunt::Idle* Grunt::Idle::Instance()
@@ -201,7 +205,10 @@ namespace DCEngine {
     void Grunt::PatrolRight::Enter(Grunt *owner)
     {
       owner->jumpTimer = 0;
-      owner->SpriteRef->Color = owner->PatrolColor;
+
+      if (owner->IsDebugColorActive)
+        owner->SpriteRef->Color = owner->PatrolColor;
+
       owner->SpriteRef->FlipX = true;
       DCTrace << "Grunt PatrolRight Enter\n";
     }
@@ -234,7 +241,9 @@ namespace DCEngine {
 
     void Grunt::PatrolRight::Exit(Grunt *owner)
     {
-      owner->SpriteRef->Color = owner->defaultColor;
+      if (owner->IsDebugColorActive)
+        owner->SpriteRef->Color = owner->defaultColor;
+
       owner->RigidBodyRef->setVelocity(Vec3());
     }
 
@@ -248,7 +257,9 @@ namespace DCEngine {
 #pragma region Left State
     void Grunt::PatrolLeft::Enter(Grunt *owner)
     {
-      owner->SpriteRef->Color = owner->PatrolColor;
+      if (owner->IsDebugColorActive)
+        owner->SpriteRef->Color = owner->PatrolColor;
+
       owner->SpriteRef->FlipX = false;
       DCTrace << "Grunt PatrolLeft Enter\n";
     }
@@ -281,7 +292,9 @@ namespace DCEngine {
 
     void Grunt::PatrolLeft::Exit(Grunt *owner)
     {
-      owner->SpriteRef->Color = owner->defaultColor;
+      if (owner->IsDebugColorActive)
+        owner->SpriteRef->Color = owner->defaultColor;
+
       owner->RigidBodyRef->setVelocity(Vec3());
     }
 
@@ -295,7 +308,9 @@ namespace DCEngine {
 #pragma region Attack State
     void Grunt::Attack::Enter(Grunt *owner)
     {
-      owner->SpriteRef->Color = owner->AttackColor;
+      if (owner->IsDebugColorActive)
+        owner->SpriteRef->Color = owner->AttackColor;
+
       DCTrace << "Grunt Attack Enter\n";
     }
 
@@ -336,7 +351,8 @@ namespace DCEngine {
 
     void Grunt::Attack::Exit(Grunt *owner)
     {
-      owner->SpriteRef->Color = owner->defaultColor;
+      if (owner->IsDebugColorActive)
+        owner->SpriteRef->Color = owner->defaultColor;
     }
 
     Grunt::Attack* Grunt::Attack::Instance()

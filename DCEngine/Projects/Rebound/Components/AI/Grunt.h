@@ -38,6 +38,7 @@ namespace DCEngine {
       float AttackJumpStrengthX;
       float AttackJumpStrengthY;
       float AttackJumpPeriod;
+      bool IsDebugColorActive;
       Vec4 IdleColor = Vec4(0, 1, 0, 1);
       Vec4 PatrolColor = Vec4(0, 0, 1, 1);
       Vec4 AttackColor = Vec4(1, 0, 0, 1);
@@ -64,6 +65,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Vec4, IdleColor);
       DCE_DEFINE_PROPERTY(Vec4, PatrolColor);
       DCE_DEFINE_PROPERTY(Vec4, AttackColor);
+      DCE_DEFINE_PROPERTY(bool, IsDebugColorActive);
 
       // Methods
       Grunt(Entity& owner) : Component(std::string("Grunt"), owner) {}
