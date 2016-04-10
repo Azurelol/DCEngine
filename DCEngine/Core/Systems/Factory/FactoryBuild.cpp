@@ -46,14 +46,12 @@ namespace DCEngine {
     EntityPtr Factory::BuildEntity(EntityPtr entity, SerializedMember* objectData)
     {
       // 1. Deserialize specific properties
-      if (auto gameObject = dynamic_cast<GameObjectPtr>(entity)) {
+      if (auto gameObject = dynamic_cast<GameObjectPtr>(entity))
         gameObject->Deserialize(objectData->Value);
-      }
       else if (auto space = dynamic_cast<SpacePtr>(entity))
         space->Deserialize(objectData->Value);
-
-      //auto archetype = objectData->Value->GetMember("Archetype")->AsString().c_str();
-      //entity->setArchetype(archetype);
+      else if (auto gameSession = dynamic_cast<GameSessionPtr>(entity))
+        gameSession->Deserialize(objectData->Value);
 
       // 2. For each of its components..
       auto components = objectData->Value->GetMember("Components")->OrderedMembers.all();
@@ -301,25 +299,32 @@ namespace DCEngine {
     /**************************************************************************/
     ArchetypePtr Factory::BuildArchetype(std::string archetype, EntityPtr entity)
     {
+      // Store the type of Archetype it is
+      EntityType type;
       // Create a builder object to build JSON
       Zilch::JsonBuilder archetypeBuilder;
       archetypeBuilder.Begin(Zilch::JsonType::Object);
       {
-        //archetypeBuilder.Key("GameObject");
-        //archetypeBuilder.Begin(Zilch::JsonType::Object);
-        //{
-        if (auto gameObject = dynamic_cast<GameObjectPtr>(entity))
+        if (auto gameObject = dynamic_cast<GameObjectPtr>(entity)) {
           gameObject->Serialize(archetypeBuilder);
-        else if (auto space = dynamic_cast<SpacePtr>(entity))
+          type = EntityType::GameObject;
+        }
+        else if (auto space = dynamic_cast<SpacePtr>(entity)) {
           space->Serialize(archetypeBuilder);
-        //}
-        //archetypeBuilder.End();
+          type = EntityType::Space;
+        }
+        else if (auto gameSession = dynamic_cast<GameSession*>(entity)) {
+          gameSession->Serialize(archetypeBuilder);
+          type = EntityType::GameSession;
+        }
       }
       archetypeBuilder.End();
 
-      //return std::string(archetypeBuilder.ToString().c_str());
-      return ArchetypePtr(new Archetype(archetype,
-        std::string(archetypeBuilder.ToString().c_str())));
+      // Create the archetype
+      ArchetypePtr newArchetype(new Archetype(archetype,std::string(archetypeBuilder.ToString().c_str())));
+      newArchetype->setType(type);
+
+      return newArchetype;
     }
 
   }

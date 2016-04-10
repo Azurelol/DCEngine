@@ -111,7 +111,6 @@ namespace DCEngine {
       // Projects
       std::string RecentProject;
       std::string ProjectsPath;
-      Time::Timer AutoSaveTimer;
       bool EditorEnabled = false;
       ProjectProperties* ProjectProperties;
       // Window
@@ -184,7 +183,6 @@ namespace DCEngine {
       int Samples;
       std::string Caption;
       Vec4 ClearColor = Vec4(0.0f, 0.5f, 1.0f, 1.0f);
-      float Exposure;
 
       void Serialize(Json::Value& root) {
         DCE_JSON_SERIALIZE(MaxDrawLayers);
@@ -193,7 +191,6 @@ namespace DCEngine {
         DCE_JSON_SERIALIZE(Framerate);
         DCE_JSON_SERIALIZE(Fullscreen);
         DCE_JSON_SERIALIZE(Caption);
-        DCE_JSON_SERIALIZE(Exposure);
         DCE_JSON_SERIALIZE(Samples);
         //root["MaxDrawLayers"] = MaxDrawLayers;
         root["ClearColorW"] = ClearColor.w;
@@ -209,7 +206,6 @@ namespace DCEngine {
         DCE_JSON_DESERIALIZE_INTRINSIC(Framerate).asInt();
         DCE_JSON_DESERIALIZE_INTRINSIC(Fullscreen).asBool();
         DCE_JSON_DESERIALIZE_INTRINSIC(Caption).asString();
-        DCE_JSON_DESERIALIZE_INTRINSIC(Exposure).asFloat();
         DCE_JSON_DESERIALIZE_INTRINSIC(Samples).asInt();
         ClearColor.x = root.get("ClearColorX", "").asFloat();
         ClearColor.y = root.get("ClearColorY", "").asFloat();

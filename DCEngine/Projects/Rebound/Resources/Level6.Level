@@ -19,7 +19,7 @@
               "Vec3": 
               {
                 "x": 0.046214, 
-                "y": 0.000000, 
+                "y": -2.000000, 
                 "z": 1.000000
               }
             }, 
@@ -44,17 +44,26 @@
           }, 
           "Camera": 
           {
-            "FieldOfView": 169.655014, 
+            "FieldOfView": 170.000000, 
             "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 90.000000, 
             "Projection": "Perspective"
           }, 
-          "CameraController": 
+          "CameraControllerZilch": 
           {
-            "TargetName": "Player", 
-            "InterpolationSpeed": 0.060000
+            "InterpolationSpeed": 0.060000, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "ScreenShakeMagnitude": 3.000000
           }
         }, 
         "Children": 
@@ -74,8 +83,8 @@
             {
               "Vec3": 
               {
-                "x": 13.000000, 
-                "y": -2.500000, 
+                "x": 12.250000, 
+                "y": -2.900000, 
                 "z": 0.000000
               }
             }, 
@@ -92,7 +101,7 @@
             {
               "Vec3": 
               {
-                "x": 30.000000, 
+                "x": 32.000000, 
                 "y": 1.000000, 
                 "z": 1.000000
               }
@@ -151,7 +160,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 84, 
         "Name": "Ground", 
         "Components": 
@@ -162,8 +171,8 @@
             {
               "Vec3": 
               {
-                "x": 11.000000, 
-                "y": 2.500000, 
+                "x": 10.500000, 
+                "y": 2.300000, 
                 "z": 0.000000
               }
             }, 
@@ -180,7 +189,7 @@
             {
               "Vec3": 
               {
-                "x": 26.000000, 
+                "x": 27.000000, 
                 "y": 1.000000, 
                 "z": 1.000000
               }
@@ -239,7 +248,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 85, 
         "Name": "Ground", 
         "Components": 
@@ -250,7 +259,7 @@
             {
               "Vec3": 
               {
-                "x": -2.500000, 
+                "x": -2.650000, 
                 "y": 0.000000, 
                 "z": 0.000000
               }
@@ -327,7 +336,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 86, 
         "Name": "Ground", 
         "Components": 
@@ -349,7 +358,7 @@
               {
                 "x": 0.000000, 
                 "y": 0.000000, 
-                "z": -30.000000
+                "z": -29.000000
               }
             }, 
             "Scale": 
@@ -415,7 +424,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 87, 
         "Name": "Ground", 
         "Components": 
@@ -503,7 +512,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 88, 
         "Name": "Ground", 
         "Components": 
@@ -591,7 +600,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 89, 
         "Name": "Ground", 
         "Components": 
@@ -602,7 +611,7 @@
             {
               "Vec3": 
               {
-                "x": 34.500000, 
+                "x": 34.728836, 
                 "y": 6.000000, 
                 "z": 0.000000
               }
@@ -620,7 +629,7 @@
             {
               "Vec3": 
               {
-                "x": 5.000000, 
+                "x": 4.600000, 
                 "y": 2.000000, 
                 "z": 1.000000
               }
@@ -679,7 +688,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 90, 
         "Name": "Ground", 
         "Components": 
@@ -690,8 +699,8 @@
             {
               "Vec3": 
               {
-                "x": 43.500000, 
-                "y": 13.000000, 
+                "x": 43.450001, 
+                "y": 12.990000, 
                 "z": 0.000000
               }
             }, 
@@ -709,7 +718,7 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 4.000000, 
+                "y": 3.850000, 
                 "z": 1.000000
               }
             }
@@ -767,7 +776,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 91, 
         "Name": "Ground", 
         "Components": 
@@ -779,7 +788,7 @@
               "Vec3": 
               {
                 "x": 38.000000, 
-                "y": 14.500000, 
+                "y": 14.400000, 
                 "z": 0.000000
               }
             }, 
@@ -855,7 +864,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 92, 
         "Name": "Ground", 
         "Components": 
@@ -943,7 +952,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 93, 
         "Name": "Ground", 
         "Components": 
@@ -955,7 +964,7 @@
               "Vec3": 
               {
                 "x": 34.500000, 
-                "y": -3.500000, 
+                "y": -3.750000, 
                 "z": 0.000000
               }
             }, 
@@ -1031,7 +1040,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 94, 
         "Name": "Ground", 
         "Components": 
@@ -1042,8 +1051,8 @@
             {
               "Vec3": 
               {
-                "x": 47.500000, 
-                "y": -2.500000, 
+                "x": 47.400002, 
+                "y": -2.800000, 
                 "z": 0.000000
               }
             }, 
@@ -1119,7 +1128,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 95, 
         "Name": "Ground", 
         "Components": 
@@ -1130,8 +1139,8 @@
             {
               "Vec3": 
               {
-                "x": 53.500000, 
-                "y": 8.500000, 
+                "x": 53.650002, 
+                "y": 8.022884, 
                 "z": 0.000000
               }
             }, 
@@ -1207,7 +1216,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 96, 
         "Name": "Ground", 
         "Components": 
@@ -1295,7 +1304,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 97, 
         "Name": "Ground", 
         "Components": 
@@ -1306,7 +1315,7 @@
             {
               "Vec3": 
               {
-                "x": 35.500000, 
+                "x": 35.599998, 
                 "y": 19.500000, 
                 "z": 0.000000
               }
@@ -1383,7 +1392,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 98, 
         "Name": "Ground", 
         "Components": 
@@ -1471,7 +1480,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 99, 
         "Name": "Ground", 
         "Components": 
@@ -1482,7 +1491,7 @@
             {
               "Vec3": 
               {
-                "x": 6.500000, 
+                "x": 6.400000, 
                 "y": 27.000000, 
                 "z": 0.000000
               }
@@ -1559,7 +1568,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 100, 
         "Name": "Ground", 
         "Components": 
@@ -1570,8 +1579,8 @@
             {
               "Vec3": 
               {
-                "x": 11.000000, 
-                "y": 24.957821, 
+                "x": 10.810294, 
+                "y": 25.147528, 
                 "z": 0.000000
               }
             }, 
@@ -1647,7 +1656,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 101, 
         "Name": "Ground", 
         "Components": 
@@ -1658,8 +1667,8 @@
             {
               "Vec3": 
               {
-                "x": 14.500000, 
-                "y": 23.500000, 
+                "x": 14.350000, 
+                "y": 23.700001, 
                 "z": 0.000000
               }
             }, 
@@ -1677,7 +1686,7 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 2.000000, 
+                "y": 2.300000, 
                 "z": 1.000000
               }
             }
@@ -1735,7 +1744,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 102, 
         "Name": "Ground", 
         "Components": 
@@ -1757,7 +1766,7 @@
               {
                 "x": 0.000000, 
                 "y": 0.000000, 
-                "z": 60.000000
+                "z": 59.500000
               }
             }, 
             "Scale": 
@@ -1823,7 +1832,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 103, 
         "Name": "Ground", 
         "Components": 
@@ -1834,8 +1843,8 @@
             {
               "Vec3": 
               {
-                "x": 13.000000, 
-                "y": 29.000000, 
+                "x": 12.857720, 
+                "y": 29.071140, 
                 "z": 0.000000
               }
             }, 
@@ -1853,7 +1862,7 @@
               "Vec3": 
               {
                 "x": 6.000000, 
-                "y": 2.000000, 
+                "y": 2.500000, 
                 "z": 1.000000
               }
             }
@@ -1911,7 +1920,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 104, 
         "Name": "Ground", 
         "Components": 
@@ -1923,7 +1932,7 @@
               "Vec3": 
               {
                 "x": 22.000000, 
-                "y": 44.500000, 
+                "y": 45.000000, 
                 "z": 0.000000
               }
             }, 
@@ -1999,7 +2008,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 105, 
         "Name": "Ground", 
         "Components": 
@@ -2011,7 +2020,7 @@
               "Vec3": 
               {
                 "x": 31.500000, 
-                "y": 47.000000, 
+                "y": 47.400002, 
                 "z": 0.000000
               }
             }, 
@@ -2087,7 +2096,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 106, 
         "Name": "Ground", 
         "Components": 
@@ -2099,7 +2108,7 @@
               "Vec3": 
               {
                 "x": 34.000000, 
-                "y": 33.000000, 
+                "y": 33.150002, 
                 "z": 0.000000
               }
             }, 
@@ -2116,8 +2125,8 @@
             {
               "Vec3": 
               {
-                "x": 20.000000, 
-                "y": 2.000000, 
+                "x": 20.400000, 
+                "y": 1.900000, 
                 "z": 1.000000
               }
             }
@@ -2175,7 +2184,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 107, 
         "Name": "Ground", 
         "Components": 
@@ -2204,8 +2213,8 @@
             {
               "Vec3": 
               {
-                "x": 6.000000, 
-                "y": 2.000000, 
+                "x": 5.700000, 
+                "y": 2.350000, 
                 "z": 1.000000
               }
             }
@@ -2263,7 +2272,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 108, 
         "Name": "Ground", 
         "Components": 
@@ -2275,7 +2284,7 @@
               "Vec3": 
               {
                 "x": 48.000000, 
-                "y": 49.556927, 
+                "y": 50.099998, 
                 "z": 0.000000
               }
             }, 
@@ -2351,7 +2360,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 109, 
         "Name": "Ground", 
         "Components": 
@@ -2362,8 +2371,8 @@
             {
               "Vec3": 
               {
-                "x": 48.979988, 
-                "y": 45.000000, 
+                "x": 49.000000, 
+                "y": 45.529999, 
                 "z": 0.000000
               }
             }, 
@@ -2439,7 +2448,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 110, 
         "Name": "Ground", 
         "Components": 
@@ -2461,14 +2470,14 @@
               {
                 "x": 0.000000, 
                 "y": 0.000000, 
-                "z": -60.000000
+                "z": -58.000000
               }
             }, 
             "Scale": 
             {
               "Vec3": 
               {
-                "x": 14.000000, 
+                "x": 16.000000, 
                 "y": 1.000000, 
                 "z": 1.000000
               }
@@ -2527,7 +2536,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 111, 
         "Name": "Ground", 
         "Components": 
@@ -2615,7 +2624,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 112, 
         "Name": "Ground", 
         "Components": 
@@ -2626,8 +2635,8 @@
             {
               "Vec3": 
               {
-                "x": 58.500000, 
-                "y": 24.500000, 
+                "x": 58.599998, 
+                "y": 24.600000, 
                 "z": 0.000000
               }
             }, 
@@ -2645,7 +2654,7 @@
               "Vec3": 
               {
                 "x": 9.000000, 
-                "y": 1.000000, 
+                "y": 0.900000, 
                 "z": 1.000000
               }
             }
@@ -2703,7 +2712,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 113, 
         "Name": "Ground", 
         "Components": 
@@ -2714,7 +2723,7 @@
             {
               "Vec3": 
               {
-                "x": 54.500000, 
+                "x": 54.549999, 
                 "y": 23.500000, 
                 "z": 0.000000
               }
@@ -2733,7 +2742,7 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 1.000000, 
+                "y": 1.450000, 
                 "z": 1.000000
               }
             }
@@ -2791,7 +2800,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 114, 
         "Name": "Ground", 
         "Components": 
@@ -2803,7 +2812,7 @@
               "Vec3": 
               {
                 "x": 49.500000, 
-                "y": 20.500000, 
+                "y": 20.450001, 
                 "z": 0.000000
               }
             }, 
@@ -2879,7 +2888,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 115, 
         "Name": "Ground", 
         "Components": 
@@ -2890,8 +2899,8 @@
             {
               "Vec3": 
               {
-                "x": 64.092224, 
-                "y": 41.370838, 
+                "x": 64.200294, 
+                "y": 41.688232, 
                 "z": 0.000000
               }
             }, 
@@ -2901,7 +2910,7 @@
               {
                 "x": 0.000000, 
                 "y": 0.000000, 
-                "z": -60.000000
+                "z": -58.000000
               }
             }, 
             "Scale": 
@@ -2967,7 +2976,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 116, 
         "Name": "Ground", 
         "Components": 
@@ -2978,8 +2987,8 @@
             {
               "Vec3": 
               {
-                "x": 67.192200, 
-                "y": 44.010094, 
+                "x": 67.310768, 
+                "y": 44.057518, 
                 "z": 0.000000
               }
             }, 
@@ -2989,14 +2998,14 @@
               {
                 "x": 0.000000, 
                 "y": 0.000000, 
-                "z": -60.000000
+                "z": -57.000000
               }
             }, 
             "Scale": 
             {
               "Vec3": 
               {
-                "x": 13.000000, 
+                "x": 14.000000, 
                 "y": 1.000000, 
                 "z": 1.000000
               }
@@ -3055,7 +3064,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 117, 
         "Name": "Ground", 
         "Components": 
@@ -3066,7 +3075,7 @@
             {
               "Vec3": 
               {
-                "x": 66.500000, 
+                "x": 66.779999, 
                 "y": 25.215170, 
                 "z": 0.000000
               }
@@ -3085,7 +3094,7 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 24.400000, 
+                "y": 25.000000, 
                 "z": 1.000000
               }
             }
@@ -3143,7 +3152,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 118, 
         "Name": "Ground", 
         "Components": 
@@ -3154,8 +3163,8 @@
             {
               "Vec3": 
               {
-                "x": 69.000000, 
-                "y": 13.500000, 
+                "x": 69.148758, 
+                "y": 13.202471, 
                 "z": 0.000000
               }
             }, 
@@ -3231,7 +3240,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 119, 
         "Name": "Ground", 
         "Components": 
@@ -3242,8 +3251,8 @@
             {
               "Vec3": 
               {
-                "x": 70.500000, 
-                "y": 37.000000, 
+                "x": 70.800003, 
+                "y": 37.200001, 
                 "z": 0.000000
               }
             }, 
@@ -3319,7 +3328,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 120, 
         "Name": "Ground", 
         "Components": 
@@ -3331,7 +3340,7 @@
               "Vec3": 
               {
                 "x": 72.500000, 
-                "y": 35.500000, 
+                "y": 35.700001, 
                 "z": 0.000000
               }
             }, 
@@ -3407,7 +3416,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 121, 
         "Name": "Ground", 
         "Components": 
@@ -3418,7 +3427,7 @@
             {
               "Vec3": 
               {
-                "x": 74.500000, 
+                "x": 74.599998, 
                 "y": 28.000000, 
                 "z": 0.000000
               }
@@ -3437,7 +3446,7 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 16.000000, 
+                "y": 16.100000, 
                 "z": 1.000000
               }
             }
@@ -3495,7 +3504,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 122, 
         "Name": "Ground", 
         "Components": 
@@ -3506,7 +3515,7 @@
             {
               "Vec3": 
               {
-                "x": 71.000000, 
+                "x": 71.233772, 
                 "y": 27.000000, 
                 "z": 0.000000
               }
@@ -3524,8 +3533,8 @@
             {
               "Vec3": 
               {
-                "x": 2.000000, 
-                "y": 14.000000, 
+                "x": 1.850000, 
+                "y": 14.240000, 
                 "z": 1.000000
               }
             }
@@ -3583,7 +3592,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 123, 
         "Name": "Ground", 
         "Components": 
@@ -3595,7 +3604,7 @@
               "Vec3": 
               {
                 "x": 77.000000, 
-                "y": 20.500000, 
+                "y": 20.450001, 
                 "z": 0.000000
               }
             }, 
@@ -3671,7 +3680,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 124, 
         "Name": "Ground", 
         "Components": 
@@ -3759,7 +3768,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 125, 
         "Name": "Ground", 
         "Components": 
@@ -3788,7 +3797,7 @@
             {
               "Vec3": 
               {
-                "x": 4.000000, 
+                "x": 5.000000, 
                 "y": 1.000000, 
                 "z": 1.000000
               }
@@ -3847,7 +3856,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 126, 
         "Name": "Ground", 
         "Components": 
@@ -3858,8 +3867,8 @@
             {
               "Vec3": 
               {
-                "x": 76.500000, 
-                "y": 15.000000, 
+                "x": 76.599998, 
+                "y": 14.950000, 
                 "z": 0.000000
               }
             }, 
@@ -3877,7 +3886,7 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 6.000000, 
+                "y": 6.150000, 
                 "z": 1.000000
               }
             }
@@ -3935,7 +3944,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 127, 
         "Name": "Ground", 
         "Components": 
@@ -3947,7 +3956,7 @@
               "Vec3": 
               {
                 "x": 79.500000, 
-                "y": 16.500000, 
+                "y": 16.431274, 
                 "z": 0.000000
               }
             }, 
@@ -4023,7 +4032,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 128, 
         "Name": "Ground", 
         "Components": 
@@ -4111,7 +4120,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 129, 
         "Name": "Ground", 
         "Components": 
@@ -4122,7 +4131,7 @@
             {
               "Vec3": 
               {
-                "x": 72.500000, 
+                "x": 72.699997, 
                 "y": 7.000000, 
                 "z": 0.000000
               }
@@ -4199,7 +4208,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 130, 
         "Name": "Ground", 
         "Components": 
@@ -4210,8 +4219,8 @@
             {
               "Vec3": 
               {
-                "x": 74.000000, 
-                "y": 8.500000, 
+                "x": 74.050003, 
+                "y": 8.400529, 
                 "z": 0.000000
               }
             }, 
@@ -4228,7 +4237,7 @@
             {
               "Vec3": 
               {
-                "x": 2.000000, 
+                "x": 2.500000, 
                 "y": 1.000000, 
                 "z": 1.000000
               }
@@ -4287,7 +4296,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 131, 
         "Name": "Ground", 
         "Components": 
@@ -4299,7 +4308,7 @@
               "Vec3": 
               {
                 "x": 94.000000, 
-                "y": 1.500000, 
+                "y": 1.150000, 
                 "z": 0.000000
               }
             }, 
@@ -4375,7 +4384,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 132, 
         "Name": "Ground", 
         "Components": 
@@ -4386,8 +4395,8 @@
             {
               "Vec3": 
               {
-                "x": 95.000000, 
-                "y": 12.500000, 
+                "x": 95.500000, 
+                "y": 12.400000, 
                 "z": 0.000000
               }
             }, 
@@ -4404,7 +4413,7 @@
             {
               "Vec3": 
               {
-                "x": 30.000000, 
+                "x": 31.000000, 
                 "y": 1.000000, 
                 "z": 1.000000
               }
@@ -4463,7 +4472,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 133, 
         "Name": "Ground", 
         "Components": 
@@ -4474,8 +4483,8 @@
             {
               "Vec3": 
               {
-                "x": 114.500000, 
-                "y": 8.500000, 
+                "x": 114.900002, 
+                "y": 8.300000, 
                 "z": 0.000000
               }
             }, 
@@ -4551,7 +4560,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 134, 
         "Name": "Ground", 
         "Components": 
@@ -4562,8 +4571,8 @@
             {
               "Vec3": 
               {
-                "x": 110.500000, 
-                "y": 15.000000, 
+                "x": 110.888336, 
+                "y": 15.150000, 
                 "z": 0.000000
               }
             }, 
@@ -4581,7 +4590,7 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 6.000000, 
+                "y": 6.500000, 
                 "z": 1.000000
               }
             }
@@ -4639,7 +4648,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 135, 
         "Name": "Ground", 
         "Components": 
@@ -4651,7 +4660,7 @@
               "Vec3": 
               {
                 "x": 114.000000, 
-                "y": 18.500000, 
+                "y": 18.600000, 
                 "z": 0.000000
               }
             }, 
@@ -4668,7 +4677,7 @@
             {
               "Vec3": 
               {
-                "x": 8.000000, 
+                "x": 9.000000, 
                 "y": 1.000000, 
                 "z": 1.000000
               }
@@ -4727,7 +4736,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 136, 
         "Name": "Ground", 
         "Components": 
@@ -4739,7 +4748,7 @@
               "Vec3": 
               {
                 "x": 121.000000, 
-                "y": 14.500000, 
+                "y": 14.300000, 
                 "z": 0.000000
               }
             }, 
@@ -4815,7 +4824,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 137, 
         "Name": "Ground", 
         "Components": 
@@ -4826,8 +4835,8 @@
             {
               "Vec3": 
               {
-                "x": 126.500000, 
-                "y": 16.500000, 
+                "x": 127.170105, 
+                "y": 16.269653, 
                 "z": 0.000000
               }
             }, 
@@ -4845,7 +4854,7 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 3.000000, 
+                "y": 4.000000, 
                 "z": 1.000000
               }
             }
@@ -4903,7 +4912,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 138, 
         "Name": "Ground", 
         "Components": 
@@ -4914,8 +4923,8 @@
             {
               "Vec3": 
               {
-                "x": 118.500000, 
-                "y": 23.000000, 
+                "x": 118.790001, 
+                "y": 23.100000, 
                 "z": 0.000000
               }
             }, 
@@ -4991,7 +5000,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 139, 
         "Name": "Ground", 
         "Components": 
@@ -5002,8 +5011,8 @@
             {
               "Vec3": 
               {
-                "x": 133.000000, 
-                "y": 19.000000, 
+                "x": 133.699997, 
+                "y": 18.879999, 
                 "z": 0.000000
               }
             }, 
@@ -5021,7 +5030,7 @@
               "Vec3": 
               {
                 "x": 22.000000, 
-                "y": 2.000000, 
+                "y": 1.940000, 
                 "z": 1.000000
               }
             }
@@ -5079,7 +5088,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 140, 
         "Name": "Ground", 
         "Components": 
@@ -5167,7 +5176,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 141, 
         "Name": "Ground", 
         "Components": 
@@ -5178,7 +5187,7 @@
             {
               "Vec3": 
               {
-                "x": 130.636337, 
+                "x": 130.624390, 
                 "y": 30.677565, 
                 "z": 0.000000
               }
@@ -5196,7 +5205,7 @@
             {
               "Vec3": 
               {
-                "x": 9.000000, 
+                "x": 9.200000, 
                 "y": 1.000000, 
                 "z": 1.000000
               }
@@ -5255,7 +5264,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 142, 
         "Name": "Ground", 
         "Components": 
@@ -5343,7 +5352,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 143, 
         "Name": "Ground", 
         "Components": 
@@ -5431,7 +5440,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 144, 
         "Name": "Ground", 
         "Components": 
@@ -5519,7 +5528,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 145, 
         "Name": "Ground", 
         "Components": 
@@ -5607,7 +5616,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 146, 
         "Name": "Ground", 
         "Components": 
@@ -5695,7 +5704,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 147, 
         "Name": "Ground", 
         "Components": 
@@ -5783,7 +5792,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 148, 
         "Name": "Ground", 
         "Components": 
@@ -5871,7 +5880,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 149, 
         "Name": "Ground", 
         "Components": 
@@ -5959,7 +5968,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 150, 
         "Name": "Ground", 
         "Components": 
@@ -5971,7 +5980,7 @@
               "Vec3": 
               {
                 "x": 205.500000, 
-                "y": 48.500000, 
+                "y": 48.900002, 
                 "z": 0.000000
               }
             }, 
@@ -6047,7 +6056,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 151, 
         "Name": "Ground", 
         "Components": 
@@ -6058,8 +6067,8 @@
             {
               "Vec3": 
               {
-                "x": 219.500000, 
-                "y": 46.500000, 
+                "x": 219.996735, 
+                "y": 46.944458, 
                 "z": 0.000000
               }
             }, 
@@ -6069,14 +6078,14 @@
               {
                 "x": 0.000000, 
                 "y": 0.000000, 
-                "z": -30.000000
+                "z": -34.000000
               }
             }, 
             "Scale": 
             {
               "Vec3": 
               {
-                "x": 8.000000, 
+                "x": 9.000000, 
                 "y": 1.000000, 
                 "z": 1.000000
               }
@@ -6135,7 +6144,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 152, 
         "Name": "Ground", 
         "Components": 
@@ -6146,7 +6155,7 @@
             {
               "Vec3": 
               {
-                "x": 222.500000, 
+                "x": 223.350006, 
                 "y": 36.000000, 
                 "z": 0.000000
               }
@@ -6223,7 +6232,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 153, 
         "Name": "Ground", 
         "Components": 
@@ -6234,8 +6243,8 @@
             {
               "Vec3": 
               {
-                "x": 220.407333, 
-                "y": 25.500000, 
+                "x": 220.851791, 
+                "y": 25.578432, 
                 "z": 0.000000
               }
             }, 
@@ -6245,14 +6254,14 @@
               {
                 "x": 0.000000, 
                 "y": 0.000000, 
-                "z": 30.000000
+                "z": 35.000000
               }
             }, 
             "Scale": 
             {
               "Vec3": 
               {
-                "x": 6.000000, 
+                "x": 6.500000, 
                 "y": 1.000000, 
                 "z": 1.000000
               }
@@ -6311,7 +6320,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 154, 
         "Name": "Ground", 
         "Components": 
@@ -6322,8 +6331,8 @@
             {
               "Vec3": 
               {
-                "x": 203.000000, 
-                "y": 24.500000, 
+                "x": 203.649994, 
+                "y": 24.600000, 
                 "z": 0.000000
               }
             }, 
@@ -6399,7 +6408,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 155, 
         "Name": "Ground", 
         "Components": 
@@ -6410,8 +6419,8 @@
             {
               "Vec3": 
               {
-                "x": 187.000000, 
-                "y": 23.500000, 
+                "x": 188.100006, 
+                "y": 23.600000, 
                 "z": 0.000000
               }
             }, 
@@ -6428,7 +6437,7 @@
             {
               "Vec3": 
               {
-                "x": 2.000000, 
+                "x": 3.000000, 
                 "y": 1.000000, 
                 "z": 1.000000
               }
@@ -6487,7 +6496,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 156, 
         "Name": "Ground", 
         "Components": 
@@ -6498,8 +6507,8 @@
             {
               "Vec3": 
               {
-                "x": 180.500000, 
-                "y": 22.500000, 
+                "x": 181.199997, 
+                "y": 22.559999, 
                 "z": 0.000000
               }
             }, 
@@ -6575,7 +6584,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 157, 
         "Name": "Ground", 
         "Components": 
@@ -6586,8 +6595,8 @@
             {
               "Vec3": 
               {
-                "x": 172.500000, 
-                "y": 21.500000, 
+                "x": 173.100006, 
+                "y": 21.650000, 
                 "z": 0.000000
               }
             }, 
@@ -6663,7 +6672,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 158, 
         "Name": "Ground", 
         "Components": 
@@ -6675,7 +6684,7 @@
               "Vec3": 
               {
                 "x": 162.000000, 
-                "y": 20.500000, 
+                "y": 20.600000, 
                 "z": 0.000000
               }
             }, 
@@ -6751,7 +6760,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 159, 
         "Name": "Ground", 
         "Components": 
@@ -6762,8 +6771,8 @@
             {
               "Vec3": 
               {
-                "x": 156.500000, 
-                "y": 21.500000, 
+                "x": 157.050171, 
+                "y": 21.600000, 
                 "z": 0.000000
               }
             }, 
@@ -6780,7 +6789,7 @@
             {
               "Vec3": 
               {
-                "x": 3.000000, 
+                "x": 3.100000, 
                 "y": 1.000000, 
                 "z": 1.000000
               }
@@ -6839,7 +6848,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 160, 
         "Name": "Ground", 
         "Components": 
@@ -6850,8 +6859,8 @@
             {
               "Vec3": 
               {
-                "x": 152.500000, 
-                "y": 19.500000, 
+                "x": 152.949997, 
+                "y": 19.400000, 
                 "z": 0.000000
               }
             }, 
@@ -6869,7 +6878,7 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 3.000000, 
+                "y": 3.500000, 
                 "z": 1.000000
               }
             }
@@ -6927,7 +6936,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 161, 
         "Name": "Ground", 
         "Components": 
@@ -6939,7 +6948,7 @@
               "Vec3": 
               {
                 "x": 148.000000, 
-                "y": 17.500000, 
+                "y": 17.400000, 
                 "z": 0.000000
               }
             }, 
@@ -7015,7 +7024,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 162, 
         "Name": "Ground", 
         "Components": 
@@ -7026,8 +7035,8 @@
             {
               "Vec3": 
               {
-                "x": 142.500000, 
-                "y": 20.500000, 
+                "x": 143.038406, 
+                "y": 20.450001, 
                 "z": 0.000000
               }
             }, 
@@ -7044,8 +7053,8 @@
             {
               "Vec3": 
               {
-                "x": 3.000000, 
-                "y": 1.000000, 
+                "x": 3.060000, 
+                "y": 1.200000, 
                 "z": 1.000000
               }
             }
@@ -7132,8 +7141,8 @@
             {
               "Vec3": 
               {
-                "x": 1.500000, 
-                "y": 1.500000, 
+                "x": 0.500000, 
+                "y": 0.500000, 
                 "z": 1.000000
               }
             }
@@ -7156,7 +7165,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -7314,7 +7323,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -7387,7 +7396,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 165, 
         "Name": "LockField", 
         "Components": 
@@ -7398,8 +7407,8 @@
             {
               "Vec3": 
               {
-                "x": 34.465923, 
-                "y": 4.435748, 
+                "x": 34.505493, 
+                "y": 4.495106, 
                 "z": 0.000000
               }
             }, 
@@ -7440,7 +7449,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -7479,7 +7488,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 166, 
         "Name": "LockField", 
         "Components": 
@@ -7532,7 +7541,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -7571,7 +7580,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 167, 
         "Name": "LockField", 
         "Components": 
@@ -7583,7 +7592,7 @@
               "Vec3": 
               {
                 "x": 47.000000, 
-                "y": 14.500000, 
+                "y": 14.290000, 
                 "z": 0.000000
               }
             }, 
@@ -7624,7 +7633,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -7663,7 +7672,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 168, 
         "Name": "BioField", 
         "Components": 
@@ -7716,7 +7725,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }
         }, 
         "Children": 
@@ -7754,8 +7763,8 @@
             {
               "Vec3": 
               {
-                "x": 1.500000, 
-                "y": 1.500000, 
+                "x": 0.750000, 
+                "y": 0.750000, 
                 "z": 1.000000
               }
             }
@@ -7778,7 +7787,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -7912,8 +7921,8 @@
             {
               "Vec3": 
               {
-                "x": 1.500000, 
-                "y": 1.500000, 
+                "x": 0.750000, 
+                "y": 0.750000, 
                 "z": 1.000000
               }
             }
@@ -7936,7 +7945,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -8070,8 +8079,8 @@
             {
               "Vec3": 
               {
-                "x": 1.500000, 
-                "y": 1.500000, 
+                "x": 0.750000, 
+                "y": 0.750000, 
                 "z": 1.000000
               }
             }
@@ -8094,7 +8103,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -8228,8 +8237,8 @@
             {
               "Vec3": 
               {
-                "x": 1.500000, 
-                "y": 1.500000, 
+                "x": 0.750000, 
+                "y": 0.750000, 
                 "z": 1.000000
               }
             }
@@ -8252,7 +8261,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -8386,8 +8395,8 @@
             {
               "Vec3": 
               {
-                "x": 1.500000, 
-                "y": 1.500000, 
+                "x": 0.750000, 
+                "y": 0.750000, 
                 "z": 1.000000
               }
             }
@@ -8410,7 +8419,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -8544,8 +8553,8 @@
             {
               "Vec3": 
               {
-                "x": 1.500000, 
-                "y": 1.500000, 
+                "x": 0.750000, 
+                "y": 0.750000, 
                 "z": 1.000000
               }
             }
@@ -8568,7 +8577,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -8673,7 +8682,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 175, 
         "Name": "LockField", 
         "Components": 
@@ -8726,7 +8735,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -8776,8 +8785,8 @@
             {
               "Vec3": 
               {
-                "x": 12.738161, 
-                "y": 30.721380, 
+                "x": 12.714448, 
+                "y": 30.958513, 
                 "z": 0.000000
               }
             }, 
@@ -8818,7 +8827,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -8891,7 +8900,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 177, 
         "Name": "LockField", 
         "Components": 
@@ -8944,7 +8953,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -8983,7 +8992,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 178, 
         "Name": "Lightfield", 
         "Components": 
@@ -8994,8 +9003,8 @@
             {
               "Vec3": 
               {
-                "x": 24.483561, 
-                "y": 35.533226, 
+                "x": 24.299999, 
+                "y": 35.599998, 
                 "z": 0.000000
               }
             }, 
@@ -9036,7 +9045,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }
         }, 
         "Children": 
@@ -9098,7 +9107,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "RigidBody": 
           {
@@ -9218,7 +9227,7 @@
                 "FlipY": false, 
                 "AnimationActive": false, 
                 "AnimationSpeed": 1.000000, 
-                "DrawLayer": 0
+                "DrawLayer": 5
               }, 
               "BoxCollider": 
               {
@@ -9259,7 +9268,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 180, 
         "Name": "Lightfield", 
         "Components": 
@@ -9270,8 +9279,8 @@
             {
               "Vec3": 
               {
-                "x": 43.578945, 
-                "y": 35.448357, 
+                "x": 43.700001, 
+                "y": 35.599998, 
                 "z": 0.000000
               }
             }, 
@@ -9312,7 +9321,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }
         }, 
         "Children": 
@@ -9321,7 +9330,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 181, 
         "Name": "LockField", 
         "Components": 
@@ -9374,7 +9383,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -9413,7 +9422,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 182, 
         "Name": "LockField", 
         "Components": 
@@ -9466,7 +9475,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -9558,7 +9567,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -9631,7 +9640,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 184, 
         "Name": "LockField", 
         "Components": 
@@ -9684,7 +9693,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -9723,7 +9732,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 185, 
         "Name": "LockField", 
         "Components": 
@@ -9734,8 +9743,8 @@
             {
               "Vec3": 
               {
-                "x": 70.951973, 
-                "y": 34.498024, 
+                "x": 70.824997, 
+                "y": 34.650002, 
                 "z": 0.000000
               }
             }, 
@@ -9776,7 +9785,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -9815,7 +9824,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 186, 
         "Name": "Acid", 
         "Components": 
@@ -9826,8 +9835,8 @@
             {
               "Vec3": 
               {
-                "x": 69.084869, 
-                "y": 14.944739, 
+                "x": 69.169876, 
+                "y": 14.647210, 
                 "z": 0.000000
               }
             }, 
@@ -9868,7 +9877,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -9926,7 +9935,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 187, 
         "Name": "LockField", 
         "Components": 
@@ -9938,7 +9947,7 @@
               "Vec3": 
               {
                 "x": 75.500000, 
-                "y": 11.400000, 
+                "y": 11.375000, 
                 "z": 0.000000
               }
             }, 
@@ -9979,7 +9988,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -10018,7 +10027,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 188, 
         "Name": "LockField", 
         "Components": 
@@ -10030,7 +10039,7 @@
               "Vec3": 
               {
                 "x": 84.500000, 
-                "y": 11.500000, 
+                "y": 11.375000, 
                 "z": 0.000000
               }
             }, 
@@ -10071,7 +10080,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -10110,7 +10119,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 189, 
         "Name": "LockField", 
         "Components": 
@@ -10122,7 +10131,7 @@
               "Vec3": 
               {
                 "x": 92.500000, 
-                "y": 11.500000, 
+                "y": 11.375000, 
                 "z": 0.000000
               }
             }, 
@@ -10163,7 +10172,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -10202,7 +10211,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 190, 
         "Name": "LockField", 
         "Components": 
@@ -10214,7 +10223,7 @@
               "Vec3": 
               {
                 "x": 99.500000, 
-                "y": 11.500000, 
+                "y": 11.375000, 
                 "z": 0.000000
               }
             }, 
@@ -10255,7 +10264,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -10294,7 +10303,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 191, 
         "Name": "LockField", 
         "Components": 
@@ -10306,7 +10315,7 @@
               "Vec3": 
               {
                 "x": 107.500000, 
-                "y": 11.500000, 
+                "y": 11.375000, 
                 "z": 0.000000
               }
             }, 
@@ -10347,7 +10356,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -10386,7 +10395,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 192, 
         "Name": "Acid", 
         "Components": 
@@ -10397,8 +10406,8 @@
             {
               "Vec3": 
               {
-                "x": 93.496384, 
-                "y": 3.046387, 
+                "x": 94.000000, 
+                "y": 2.630000, 
                 "z": 0.000000
               }
             }, 
@@ -10415,7 +10424,7 @@
             {
               "Vec3": 
               {
-                "x": 41.000000, 
+                "x": 42.000000, 
                 "y": 2.000000, 
                 "z": 1.000000
               }
@@ -10439,7 +10448,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -10497,7 +10506,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 193, 
         "Name": "LockField", 
         "Components": 
@@ -10509,7 +10518,7 @@
               "Vec3": 
               {
                 "x": 112.500000, 
-                "y": 17.500000, 
+                "y": 17.575001, 
                 "z": 0.000000
               }
             }, 
@@ -10550,7 +10559,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -10589,7 +10598,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 194, 
         "Name": "PowerField", 
         "Components": 
@@ -10642,7 +10651,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -10701,7 +10710,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 195, 
         "Name": "LockField", 
         "Components": 
@@ -10712,8 +10721,8 @@
             {
               "Vec3": 
               {
-                "x": 120.500000, 
-                "y": 23.000000, 
+                "x": 120.940865, 
+                "y": 22.779566, 
                 "z": 0.000000
               }
             }, 
@@ -10754,7 +10763,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -10793,7 +10802,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 196, 
         "Name": "Lightfield", 
         "Components": 
@@ -10846,7 +10855,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }
         }, 
         "Children": 
@@ -10855,7 +10864,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 197, 
         "Name": "Acid", 
         "Components": 
@@ -10866,8 +10875,8 @@
             {
               "Vec3": 
               {
-                "x": 148.035187, 
-                "y": 19.005594, 
+                "x": 148.475327, 
+                "y": 18.832678, 
                 "z": 0.000000
               }
             }, 
@@ -10908,7 +10917,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -11019,7 +11028,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "RigidBody": 
           {
@@ -11139,7 +11148,7 @@
                 "FlipY": false, 
                 "AnimationActive": false, 
                 "AnimationSpeed": 1.000000, 
-                "DrawLayer": 0
+                "DrawLayer": 5
               }, 
               "BoxCollider": 
               {
@@ -11181,8 +11190,8 @@
       "GameObject": 
       {
         "Locked": true, 
-        "GameObjectID": 199, 
-        "Name": "Background", 
+        "GameObjectID": 461, 
+        "Name": "MiddleGround", 
         "Components": 
         {
           "Transform": 
@@ -11191,9 +11200,9 @@
             {
               "Vec3": 
               {
-                "x": 116.422127, 
-                "y": 59.924068, 
-                "z": -0.100000
+                "x": 110.790001, 
+                "y": 25.296000, 
+                "z": 0.000000
               }
             }, 
             "Rotation": 
@@ -11209,8 +11218,8 @@
             {
               "Vec3": 
               {
-                "x": 300.000000, 
-                "y": 150.000000, 
+                "x": 235.000000, 
+                "y": 75.000000, 
                 "z": 1.000000
               }
             }
@@ -11228,45 +11237,12 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "Oldworld_Middleground_1", 
+            "SpriteSource": "lvl6Mid", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "Light": 
-          {
-            "Visible": true, 
-            "VisibilityCulling": false, 
-            "VisibilityEvents": false, 
-            "CastShadows": false, 
-            "Diffuse": false, 
-            "Type": "Ambient", 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Intensity": 0.200000, 
-            "Range": 0.000000, 
-            "Falloff": 0.000000, 
-            "DirectionVector": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": -1.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "InnerAngle": 0.000000, 
-            "OuterAngle": 0.600000
+            "DrawLayer": 3
           }
         }, 
         "Children": 
@@ -11275,8 +11251,8 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
-        "GameObjectID": 200, 
+        "Locked": false, 
+        "GameObjectID": 147, 
         "Name": "Player", 
         "Components": 
         {
@@ -11304,8 +11280,8 @@
             {
               "Vec3": 
               {
-                "x": 2.000000, 
-                "y": 2.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -11323,12 +11299,12 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "PlayerRun", 
+            "SpriteSource": "Char_Asha_Idle_Spritesheet", 
             "FlipX": false, 
             "FlipY": false, 
-            "AnimationActive": false, 
+            "AnimationActive": true, 
             "AnimationSpeed": 10.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "RigidBody": 
           {
@@ -11381,16 +11357,16 @@
           }, 
           "PlayerController": 
           {
-            "MoveSpeed": 0.700000, 
-            "VelocityXCap": 30.000000, 
+            "MoveSpeed": 0.350000, 
+            "VelocityXCap": 10.000000, 
             "JumpPower": 30.000000, 
             "JumpFrames": 1.000000, 
             "Health": 10.000000, 
             "AirBrakeScalar": 0.950000, 
             "TurnSpeedScalar": 5.000000, 
             "DoAutoPlay": true, 
-            "StandAnimation": "PlayerStand", 
-            "JumpAnimation": "PlayerFall", 
+            "StandAnimation": "Char_Asha_Idle_Spritesheet", 
+            "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
             "RunAnimation": "Char_Asha_Run_Spritesheet", 
             "FallAnimation": "Char_Asha_Fall_Spritesheet", 
             "AutoPlayTimer": 2.000000, 
@@ -11446,7 +11422,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 201, 
         "Name": "Ball", 
         "Components": 
@@ -11499,7 +11475,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -12605,8 +12581,8 @@
             {
               "Vec3": 
               {
-                "x": 203.882828, 
-                "y": 25.575939, 
+                "x": 203.752106, 
+                "y": 26.124971, 
                 "z": 0.000000
               }
             }, 
@@ -12647,7 +12623,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -12698,6 +12674,2610 @@
             }, 
             "Fading": false, 
             "Pulse": true
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": true, 
+        "GameObjectID": 256, 
+        "Name": "ForeGround", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 110.790009, 
+                "y": 25.296265, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 235.000000, 
+                "y": 75.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Env_lvl_6_Foreground", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": true, 
+        "GameObjectID": 1133, 
+        "Name": "BackGround", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 110.790001, 
+                "y": 25.000000, 
+                "z": -0.100000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 235.000000, 
+                "y": 75.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "background", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.825239, 
+                "y": 55.108959, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 200.000000, 
+                "y": 7.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 44.982445, 
+                "y": -15.206089, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": -0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 50.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.185753, 
+                "y": 49.353584, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 20.000000, 
+                "y": 7.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.094040, 
+                "y": 45.909290, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 60.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 20.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.789960, 
+                "y": 27.252701, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": -0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 20.000000, 
+                "y": 30.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 7.175313, 
+                "y": 10.724453, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": -0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 30.000000, 
+                "y": 15.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -13.806652, 
+                "y": 3.400560, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": -0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 20.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 239.343903, 
+                "y": 41.125881, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 30.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.841136, 
+                "y": -15.107117, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": -0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 50.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 93.082611, 
+                "y": -10.257508, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": -0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 50.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 63.391148, 
+                "y": 2.707763, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": -0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 16.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 60.323029, 
+                "y": 14.584347, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": -0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 9.000000, 
+                "y": 5.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 95.655876, 
+                "y": 34.081745, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": -0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 30.000000, 
+                "y": 38.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 78.326050, 
+                "y": 37.385635, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": -0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 5.000000, 
+                "y": 30.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 72.778015, 
+                "y": 47.546650, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 30.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 10.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 112.674026, 
+                "y": 30.154480, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 10.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 121.899979, 
+                "y": 40.190823, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 10.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 137.983063, 
+                "y": 44.242760, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 10.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 153.006409, 
+                "y": 48.419376, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 10.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 167.842743, 
+                "y": 52.408978, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 10.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 183.676483, 
+                "y": 56.523251, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 10.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 203.250473, 
+                "y": 60.886879, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 30.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 229.654846, 
+                "y": 44.650906, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 45.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 10.000000, 
+                "y": 5.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 232.736115, 
+                "y": 60.949215, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 30.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 239.406235, 
+                "y": 21.676573, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 30.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 219.208878, 
+                "y": 12.575294, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 30.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 205.681641, 
+                "y": 12.575294, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 30.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 191.842712, 
+                "y": 10.705170, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 30.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 177.193390, 
+                "y": 8.274006, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 30.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 159.925873, 
+                "y": 8.398680, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 10.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 148.705124, 
+                "y": 6.216866, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 40.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 137.422028, 
+                "y": 2.725964, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 40.000000, 
+                "y": 20.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 23.065031, 
+                "y": 11.872752, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 5.000000, 
+                "y": 13.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 223.689758, 
+                "y": 21.861223, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 45.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 10.000000, 
+                "y": 5.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 222.364182, 
+                "y": 50.259102, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": -45.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 10.000000, 
+                "y": 5.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 188.810074, 
+                "y": 53.125484, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 8.000000, 
+                "y": 10.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 188.810074, 
+                "y": 53.125484, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 8.000000, 
+                "y": 10.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 173.840485, 
+                "y": 49.474361, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 30.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 8.000000, 
+                "y": 10.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 158.962158, 
+                "y": 45.549408, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 30.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 8.000000, 
+                "y": 10.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 2546, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 143.444901, 
+                "y": 40.529114, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 30.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 8.000000, 
+                "y": 10.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.233000, 
+                "y": 0.233000, 
+                "z": 0.333000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
           }
         }, 
         "Children": 

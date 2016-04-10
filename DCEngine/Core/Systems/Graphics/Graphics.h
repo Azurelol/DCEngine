@@ -1,7 +1,7 @@
 /*****************************************************************************/
 /*!
 \file   Graphics.h
-\author Christian Sagel, Chen Shu
+\author Christian Sagel, Chen Shu, William Mao
 \par    email: c.sagel\@digipen.edu
 \date   9/12/2015
 \brief  The graphics system is the bridge between the rendering calls from the
@@ -18,6 +18,7 @@ receives rendering requests and draws on the window.
 #include "GraphicsGL.h"
 #include "../../Components/GraphicsSpace.h"
 #include "../../Components/SpriteParticleSystem.h"
+#include <ZILCH\Zilch.hpp>
 
 namespace DCEngine {
   class Engine;
@@ -49,6 +50,15 @@ namespace DCEngine {
       void DrawRectangle(const Vec3& pos, Real& width, Real& height, const Vec4& color, Components::Camera& cam, bool fill = false);
       void DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color, Components::Camera& cam);
 
+			//graphicsSettings
+			void SetResolution(unsigned x, unsigned y);
+			void SetAntiAliasingLevel(unsigned samples);
+			void ToggleFullscreen();
+			//Setting Gettors
+			unsigned GetScreenWidth() const;
+			unsigned GetScreenHeight() const;
+
+
     private:
 
       GraphicsConfig& Settings;		
@@ -68,6 +78,7 @@ namespace DCEngine {
       void OnWindowFullScreenEnabledEvent(Events::WindowFullScreenEnabled* event);
       void OnWindowFullScreenDisabledEvent(Events::WindowFullScreenDisabled* event);
       void OnWindowResizeEvent(Events::WindowResize* event);
+			void OnWindowRecreateEvent(Events::WindowRecreate* event);
       void OnGraphicsToggleLightningEvent(Events::GraphicsToggleLightning* event);
       // CTOR/ DTOR, Initialize
       Graphics(GraphicsConfig& settings);

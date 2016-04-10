@@ -43,13 +43,36 @@ namespace DCEngine {
   /*!
   @brief Selects an Archetype, instantiating it.
   @param archetype The name of the archetype.
+  @note Currently not working for Space/GameSession.
   */
   /**************************************************************************/
-    void EditorArchetypes::Select(ArchetypeHandle archetype)
+    void EditorArchetypes::Select(ArchetypeHandle archetypeName)
     {    
+
+      if (archetypeName == "Space" || archetypeName == "GameSession")
+        return;
+
+      // Find the archetype
+      auto archetype = Archetype::Find(archetypeName);
+      // Create a dummy object ??
       // Instantiate the archetype
       CurrentArchetype = ArchetypeSpace->CreateObject(archetype);
       Access().Select(CurrentArchetype);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Deselects the currently selected Archetype.
+    */
+    /**************************************************************************/
+    void EditorArchetypes::Deselect()
+    {
+      if (!CurrentArchetype)
+        return;
+
+      // Destroy the current archetype object
+      CurrentArchetype->Destroy();
+      CurrentArchetype = nullptr;
     }
 
     /**************************************************************************/
@@ -70,14 +93,17 @@ namespace DCEngine {
     @note This will overwrite any Archetypes named after it.
     */
     /**************************************************************************/
-    void EditorArchetypes::UploadArchetype(ArchetypeHandle archetype)
+    void EditorArchetypes::UploadArchetype(EntityPtr entity)
     {
+      // Get the entity's archetype
+      auto archetype = entity->getArchetype();
+
       // Get the current project's archetype path
       auto path = Access().Settings.ProjectProperties->ProjectPath + Access().Settings.ProjectProperties->ResourcePath
                    + archetype + Archetype::Extension();
 
       // Create the archetype
-      auto archetypePtr = Daisy->getSystem<Factory>()->BuildArchetype(path, dynamic_cast<GameObjectPtr>(Access().SelectedObject()));
+      auto archetypePtr = Daisy->getSystem<Factory>()->BuildArchetype(path, entity);
       // Save it
       archetypePtr->Save();
       // Scan for archetypes again
@@ -99,13 +125,21 @@ namespace DCEngine {
       Daisy->getSystem<Systems::Factory>()->RebuildFromArchetype(entity);
     }
 
+    void EditorArchetypes::RevertSpace(SpacePtr space)
+    {
+    }
+
+    void EditorArchetypes::RevertGameSession(GameSessionPtr gameSession)
+    {
+    }
+
     /**************************************************************************/
     /*!
     @brief Returns the currently selected archetype.
     @return A pointer to the archetype.
     */
     /**************************************************************************/
-    GameObject* EditorArchetypes::Current()
+    EntityPtr EditorArchetypes::Current()
     {
       return CurrentArchetype;
     }
@@ -120,20 +154,7 @@ namespace DCEngine {
       ArchetypeSpace = Daisy->getGameSession()->CreateSpace("ArchetypeSpace");
     }
 
-    /**************************************************************************/
-    /*!
-    @brief Deselects the currently selected Archetype.
-    */
-    /**************************************************************************/
-    void EditorArchetypes::Deselect()
-    {
-      if (!CurrentArchetype)
-        return;
 
-      // Destroy the current archetype object
-      CurrentArchetype->Destroy();
-      CurrentArchetype = nullptr;
-    }
 
     /**************************************************************************/
     /*!
@@ -142,14 +163,28 @@ namespace DCEngine {
     /**************************************************************************/
     void EditorArchetypes::UpdateArchetypeInstances(ArchetypeHandle archetypeName)
     {
-      // For every level in the project...
-      for (auto& gameObject : *Access().CurrentSpace->AllObjects()) {
-        // If the GameObject is of the same archetype and has not been modified
-        bool modified = gameObject->getModifiedFromArchetype();
-        if (gameObject->getArchetype() == archetypeName && !modified) {
-          RevertToArchetype(gameObject);
+      // If the current archetype is a GameObject
+      if (GameObject::IsA(CurrentArchetype)) {
+        // For every level in the project...
+        for (auto& gameObject : *Access().CurrentSpace->AllObjects()) {
+          // If the GameObject is of the same archetype and has not been modified
+          bool modified = gameObject->getModifiedFromArchetype();
+          if (gameObject->getArchetype() == archetypeName && !modified) {
+            RevertToArchetype(gameObject);
+          }
         }
       }
+
+      // If it's a Space
+      if (auto space = dynamic_cast<SpacePtr>(CurrentArchetype)) {
+        RevertToArchetype(space);
+      }
+
+      // If it's the GameSession
+      if (auto gameSession = dynamic_cast<GameSession*>(CurrentArchetype)) {
+        RevertToArchetype(gameSession);
+      }
+
     }
 
 

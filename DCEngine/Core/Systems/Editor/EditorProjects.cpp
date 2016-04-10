@@ -41,6 +41,9 @@ namespace DCEngine {
     /**************************************************************************/
     void EditorProjects::Initialize()
     {
+      // Create the autosave timer
+      AutoSaveTimer.reset(new Time::Timer(Access().Settings.AutoSaveTime, Time::Timer::Mode::Countdown, true));
+
       Daisy->Connect<Events::ScriptingLibraryCompiled>(&EditorProjects::OnScriptingLibraryCompiled, this);
       Daisy->Connect<Events::ScriptingLibraryCompilationFailure>(&EditorProjects::OnScriptingLibraryCompilationFailure, this);
       Daisy->Connect<Events::ContentProjectLoaded>(&EditorProjects::OnContentProjectLoadedEvent, this);
@@ -65,6 +68,50 @@ namespace DCEngine {
       }
 
       ImGui::End();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Attempts to load the default GameSession from archetype. If there is none,
+           it will create one on the project.
+    */
+    /**************************************************************************/
+    void EditorProjects::LoadDefaultGameSession()
+    {
+      auto gameSession = Access().CurrentSpace->getGameSession();
+
+      // Revert the current GameSession to the Archetype
+      if (Archetype::Find("GameSession")) {
+        //Access().Archetypes.RevertToArchetype(gameSession);
+      }
+      // Create the Archetype on the project
+      else {
+        DCTrace << "EditorProjects::LoadDefaultGameSession: Creating new 'GameSession' archetype for the project.. \n";
+        Access().Archetypes.UploadArchetype(gameSession);
+      }
+
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Attempts to load the default Space from archetype. If there is none,
+           it will create one on the project.
+    */
+    /**************************************************************************/
+    void EditorProjects::LoadDefaultSpace()
+    {
+      auto& space = Access().CurrentSpace;
+
+      // Revert the current GameSession to the Archetype
+      if (Archetype::Find("Space")) {
+        //Access().Archetypes.RevertToArchetype(space);
+      }
+      // Create the Archetype on the project
+      else {
+        DCTrace << "EditorProjects::LoadDefaultSpace: Creating new 'Space' archetype for the project.. \n";
+        Access().Archetypes.UploadArchetype(space);
+      }
+
     }
 
     /**************************************************************************/
@@ -141,6 +188,145 @@ namespace DCEngine {
       }
       DCTrace << "EditorProjects::SaveProject: Saved the current project! \n";
     }
+
+    /**************************************************************************/
+    /*!
+    @brief  Autosaves the current project.
+    */
+    /**************************************************************************/
+    void EditorProjects::AutoSave()
+    {
+      // The timer's update will return true every 60 seconds. When it does so,
+      // we will automatically save the current level.
+      if (AutoSaveTimer->Update()) {
+        DCTrace << "Editor::AutoSave - Autosaving... \n";
+        SaveCurrentLevel();
+        SaveLevelBackup();
+      }
+    }
+
+
+    /**************************************************************************/
+    /*!
+    @brief  Creates a backup of the current level.
+    */
+    /**************************************************************************/
+    void EditorProjects::SaveLevelBackup()
+    {
+
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Loads the level, deserializing a level file's binary data and
+            constructing gameobjects along with their components.
+    */
+    /**************************************************************************/
+    bool EditorProjects::LoadLevel(std::string level)
+    {
+      // Only attempt to load a level if the scripting library is currently working
+      if (!Ready) {
+        // Launch a popup!
+        return false;
+      }
+
+      DCTrace << "Editor::LoadLevel - Loading " << level << "\n";
+
+      // Save the currently-loaded level before loading a new one
+      if (Access().CurrentSpace->getCurrentLevel()) {
+        auto currentLevelName = Access().CurrentSpace->getCurrentLevel()->Name();
+        SaveLevel(currentLevelName);
+      }
+
+      // Query the Content system for the Level resource 
+      auto levelPtr = Daisy->getSystem<Systems::Content>()->getLevel(level);
+      Access().Deselect();
+
+      if (levelPtr == nullptr) {
+        DCTrace << "Editor::LoadLevel - Could not find " << level << "\n";
+        return false;
+      }
+
+      // Deselect
+      Access().Deselect();
+      // Load the level
+      Access().CurrentSpace->LoadLevel(level);
+      // If the level doesn't have a levelsettings object (legacy), add one!
+      if (!Access().CurrentSpace->FindObjectByName("LevelSettings")) {
+        Access().Creator.CreateLevelSettings();
+      }
+      
+      // Load the editor camera
+      Access().SetEditorCamera(true);
+      // Sets the current window's caption
+      Access().UpdateCaption();
+      // Set it as the default level
+      Access().Settings.ProjectProperties->DefaultLevel = level;
+      return true;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Saves the current level, serializing all of the active gameobjects
+    along with their components in the space.
+    @param  level The name of the level.
+    @todo   The level path is currently hardcoded. Change that.
+    */
+    /**************************************************************************/
+    bool EditorProjects::SaveLevel(std::string level)
+    {
+      DCTrace << "Editor::SaveLevel - Saving " << level << "\n";
+
+      // Get the current project's path
+      std::string LevelPath = Access().Settings.ProjectProperties->ProjectPath + Access().Settings.ProjectProperties->ResourcePath;
+      // ("Projects/Rebound/Resources/Levels/");
+      auto levelResource = Access().CurrentSpace->SaveLevel(LevelPath + level + Level::Extension());
+
+      // If the level was saved successfully
+      if (levelResource) {
+        // Set it as the current level on the space
+        Access().CurrentSpace->setCurrentLevel(levelResource);
+        // Scan for resources again
+        //Daisy->getSystem<Content>()->ScanResources();
+        Daisy->getSystem<Content>()->ScanForLevels();
+        // Update the caption
+        Access().UpdateCaption();
+
+        return true;
+      }
+      else
+        return false;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Reloads the currently loaded level.
+    */
+    /**************************************************************************/
+    bool EditorProjects::ReloadLevel()
+    {
+      // Reload the current level
+      Access().CurrentSpace->ReloadLevel();
+      // Reload the editor camera
+      Access().SetEditorCamera(true);
+      // Clear the currently selected object
+      Access().Deselect();
+      // Eh?
+      return true;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Saves the currently-loaded level.
+    */
+    /**************************************************************************/
+    void EditorProjects::SaveCurrentLevel()
+    {
+      if (Access().CurrentSpace->getCurrentLevel()) {
+        auto currentLevelName = Access().CurrentSpace->getCurrentLevel()->Name();
+        SaveLevel(currentLevelName);
+      }
+    }
     
     /**************************************************************************/
     /*!
@@ -153,9 +339,13 @@ namespace DCEngine {
 
       // If the project is being initialized...
       if (InitializingProject) {
+        // Load the default GameSession
+        LoadDefaultGameSession();
+        // Load the default Space
+        LoadDefaultSpace();
         // Load its default level 
         auto play = Access().Settings.ProjectProperties->Play;
-        auto load = Access().LoadLevel(Access().Settings.ProjectProperties->DefaultLevel);
+        auto load = LoadLevel(Access().Settings.ProjectProperties->DefaultLevel);
 
         // If the level loaded successfully
         if (load) {
@@ -195,9 +385,6 @@ namespace DCEngine {
       }
     }
 
-    void EditorProjects::Update()
-    {
-    }
   }
 }
 

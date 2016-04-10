@@ -17,6 +17,14 @@
 #include "Entities\GameSession.h"
 #include "../Engine/Engine.h" 
 
+ZilchDefineExternalType(DCEngine::EntityType, "EntityType", DCEngine::DCEngineCore, builder, type)
+{
+  ZilchBindEnum(builder, type, SpecialType::Enumeration);
+  ZilchBindEnumValue(builder, type, DCEngine::EntityType::GameObject, "GameObject");
+  ZilchBindEnumValue(builder, type, DCEngine::EntityType::Space, "Space");
+  ZilchBindEnumValue(builder, type, DCEngine::EntityType::GameSession, "GameSession");
+}
+
 namespace DCEngine {
   
   /*!************************************************************************\
@@ -74,7 +82,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   Entity::Entity(std::string name) : Object(name), IsInitialized(false), 
-                                     ModifiedFromArchetype(false),
+                                     ModifiedFromArchetype(false), Protected(false),
                                      ArchetypeName(""), Actions(*this), ParentRef(nullptr) {
   }
 
@@ -87,13 +95,9 @@ namespace DCEngine {
   {
     if (DCE_TRACE_GAMEOBJECT_DESTRUCTOR)
       DCTrace << Name() << "::~Entity - Destructor called! \n";
+
     // 1. Remove all components from the entity
-    // 1.A Factory-constructed components
-    ComponentsContainer.clear();
-    // 1.B Zilch-constructed components
-    for (auto componentHandle : ComponentHandlesContainer)
-      componentHandle.Delete();
-    ComponentHandlesContainer.clear();
+    RemoveAllComponents();
 
     // 2. Inform all observers of this entity's death
     InformObserversOfDeath();

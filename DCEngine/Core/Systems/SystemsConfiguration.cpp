@@ -224,8 +224,7 @@ namespace DCEngine {
 
     EditorConfig::EditorConfig(): Configuration("Editor"), 
       AutoSave(false), AutoSaveTime(60), GridActive(true), GridLength(1.0f), GridColor(0.3f, 0.3f, 0.3f, 0.2f),
-      LockedColor(1.0f, 0.0f, 0.0f, 1.0f), Snapping(true), SnapDistance(1.0f), SnapAngle(15.0f),
-      AutoSaveTimer(AutoSaveTime, Time::Timer::Mode::Countdown, true),
+      LockedColor(1.0f, 0.0f, 0.0f, 1.0f), Snapping(true), SnapDistance(1.0f), SnapAngle(15.0f),      
       CameraLastPos(0.0f, 0.0f, 40.0f), ExternalTextEditor("Notepad++"), TextEditorOpenExternally(false), 
       CompilationPopUps(false), CompileOnContextSwitch(false)
     {
@@ -233,7 +232,7 @@ namespace DCEngine {
 
     GraphicsConfig::GraphicsConfig() : Configuration("Graphics"),
       MaxDrawLayers(5), ScreenWidth(1440), ScreenHeight(900), Framerate(60), Fullscreen(false),
-      Caption("Daisy Chain Engine"), ClearColor(0.0f, 0.5f, 1.0f, 1.0f), Exposure(.5f), Samples(4)
+      Caption("Daisy Chain Engine"), ClearColor(0.0f, 0.5f, 1.0f, 1.0f), Samples(4)
     {
     }
 

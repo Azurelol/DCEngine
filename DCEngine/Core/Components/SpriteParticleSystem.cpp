@@ -260,7 +260,7 @@ namespace DCEngine {
     /**************************************************************************/
 		void SpriteParticleSystem::AddParticle(void)
 		{
-			unsigned emitCount = 1 + rand() % (mParticleEmitter->EmitVariance + 1);
+			unsigned emitCount = mParticleEmitter->EmitVariance;
 			for (unsigned i = 0; i < emitCount; ++i)
 			{
 				float lifetime = mParticleEmitter->Lifetime + mParticleEmitter->LifetimeVariance * (rand() % 100 - 50) / 100;

@@ -346,6 +346,15 @@
     <Filter Include="Core\Events\Content">
       <UniqueIdentifier>{66c77a11-d97e-474e-a470-d111d0fcf7d9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Engine\Types">
+      <UniqueIdentifier>{7759b5ba-90ac-45f7-8f58-f573259bfad1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Content\AssetLoader">
+      <UniqueIdentifier>{d6e5f5f9-c8eb-4e86-9c12-de77cbbaabd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Systems\Editor\Modules\Input">
+      <UniqueIdentifier>{be8bcceb-00ab-4c97-bee5-04d679d25a9f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Engine\Engine.cpp">
@@ -957,6 +966,27 @@
     <ClCompile Include="Projects\Rebound\Components\LancerShield.cpp">
       <Filter>Projects\Rebound\Components</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Objects\EntityRange.cpp">
+      <Filter>Core\Object\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Physics\CastResults.cpp">
+      <Filter>Core\Systems\Physics\PhysicsCasting</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Content\AssetLoader.cpp">
+      <Filter>Core\Systems\Content\AssetLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Content\ContentScan.cpp">
+      <Filter>Core\Systems\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine\EngineLoad.cpp">
+      <Filter>Core\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Components\LoadingScreen.cpp">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Systems\Graphics\GraphicsSettings.cpp">
+      <Filter>Core\Systems\Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Engine\Engine.h">
@@ -1003,9 +1033,6 @@
     </ClInclude>
     <ClInclude Include="Core\Systems\Audio\AudioFMOD.h">
       <Filter>Core\Systems\Audio\FMOD</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Engine\Types.h">
-      <Filter>Core\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Core\Objects\Component.h">
       <Filter>Core\Object\Component</Filter>
@@ -1409,9 +1436,6 @@
     <ClInclude Include="Core\Systems\Physics\Resolution.h">
       <Filter>Core\Systems\Physics\Resolution</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Systems\Physics\Raycasting.h">
-      <Filter>Core\Systems\Physics\PhysicsCasting</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Systems\Physics\Ray.h">
       <Filter>Core\Systems\Physics\PhysicsCasting</Filter>
     </ClInclude>
@@ -1620,6 +1644,24 @@
     <ClInclude Include="Core\Events\ContentEvents.h">
       <Filter>Core\Events\Content</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Engine\Types.h">
+      <Filter>Core\Engine\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Types\Containers.h">
+      <Filter>Core\Engine\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Types\Enumerations.h">
+      <Filter>Core\Engine\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Physics\PhysicsCasting.h">
+      <Filter>Core\Systems\Physics\PhysicsCasting</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Systems\Content\AssetLoader.h">
+      <Filter>Core\Systems\Content\AssetLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Components\LoadingScreen.h">
+      <Filter>Core\Components\Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
@@ -1685,7 +1727,11 @@
     <None Include="Core\Assets\Shaders\DebugShader.frag">
       <Filter>Core\Resources\Graphics\Shaders</Filter>
     </None>
-    <None Include="Core\Assets\Shaders\FinalRenderShader.frag" />
-    <None Include="Core\Assets\Shaders\FinalRenderShader.vs" />
+    <None Include="Core\Assets\Shaders\FinalRenderShader.frag">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
+    <None Include="Core\Assets\Shaders\FinalRenderShader.vs">
+      <Filter>Core\Resources\Graphics\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

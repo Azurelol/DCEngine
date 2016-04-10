@@ -1,7 +1,7 @@
 /******************************************************************************/
 /*!
 \file   GraphicsGL.cpp
-\author Christian Sagel
+\author Christian Sagel, William Mao
 \par    email: c.sagel\@digipen.edu
 \date   7/30/2015
 \brief  The

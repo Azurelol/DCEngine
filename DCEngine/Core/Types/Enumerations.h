@@ -50,6 +50,12 @@ namespace DCEngine {
     ZilchScript,
   };
 
+  enum class EntityType {
+    GameObject,
+    Space,
+    GameSession,
+  };
+
   enum class Ease {
     Linear,
     QuadIn,

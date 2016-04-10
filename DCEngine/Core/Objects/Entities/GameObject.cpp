@@ -108,7 +108,7 @@ namespace DCEngine {
   GameObject::~GameObject()
   {
     //if (DCE_TRACE_GAMEOBJECT_DESTRUCTOR)
-    DCTrace << "GameObject::~GameObject: '" << Name() << "' \n";
+    //DCTrace << "GameObject::~GameObject: '" << Name() << "' \n";
 
     // If the GameObject is attached to a Parent, detach
     if (ParentRef)
@@ -149,40 +149,7 @@ namespace DCEngine {
   {
     return dynamic_cast<GameObjectPtr>(entity);
   }
-
-
-
-
-  /**************************************************************************/
-  /*!
-  @brief   Grab a reference to the container of all of the GameObject's
-           children that have the specified name.
-  @param   The name of the children.
-  @return  A reference to the container.
-  */
-  /**************************************************************************/
- //EntityVec GameObject::FindAllChildrenByName(std::string name)
- //{
- //  EntityVec childrenByName;
- //  for (auto child : ChildrenContainer) {
- //    if (child->Name() == name)
- //      childrenByName.push_back(child);
- //  }
- //  return childrenByName;
- //}
-
-  ///**************************************************************************/
-  ///*!
-  //@brief   Grab a reference to the container of all of the GameObject's 
-  //         children.
-  //@return  A reference to the container.
-  //*/
-  ///**************************************************************************/
-  //EntityVec& GameObject::Children()
-  //{
-  //  return ChildrenContainer;
-  //}
-
+  
   /**************************************************************************/
   /*!
   @brief  Attach a GameObject to a parent GameObject.
@@ -313,28 +280,13 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
-  @brief Serializes all of the GameObject's children.
-  @param builder A reference to the JSON builder.
-  @param children A reference to the container of all the children
-  @note  This will serialize the GameObject.
-  */
-  /**************************************************************************/
-  void GameObject::SerializeChildren(Zilch::JsonBuilder & builder, GameObjectVec & children)
-  {
-    //for (auto& child : children) {
-    //  child->Serialize(builder);
-    //}
-  }
-
-  /**************************************************************************/
-  /*!
   @brief Deserializes a GameObject.
   @param builder A pointer to the object containing the properties.
   @note  This will deserialize the GameObject's properties, then its components.
   */
   /**************************************************************************/
   void GameObject::Deserialize(Zilch::JsonValue * properties)
-  {    
+  {
     // Grab a reference to the Zilch Interface
     auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
     // Deserialize the underlying Entity
@@ -342,7 +294,7 @@ namespace DCEngine {
     // Deserialize the GameObject properties
     DeserializeByType(properties, interface->GetState(), ZilchTypeId(GameObject), this);
   }
-  
+    
   /**************************************************************************/
   /*!
   @brief  Marks the GameObject to be destroyed.

@@ -261,6 +261,7 @@
     <ClCompile Include="Core\Binding\CoreBindingTypes.cpp" />
     <ClCompile Include="Core\Components\Collider.cpp" />
     <ClCompile Include="Core\Components\DebugActions.cpp" />
+    <ClCompile Include="Core\Components\DefaultGameSetup.cpp" />
     <ClCompile Include="Core\Components\EditorCameraController.cpp" />
     <ClCompile Include="Core\Components\Graphical.cpp" />
     <ClCompile Include="Core\Components\Light.cpp" />
@@ -409,6 +410,7 @@
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Draw.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsGL_Lightning.cpp" />
     <ClCompile Include="Core\Systems\Graphics\GraphicsRender.cpp" />
+    <ClCompile Include="Core\Systems\Graphics\GraphicsSettings.cpp" />
     <ClCompile Include="Core\Systems\GUI\GUI.cpp" />
     <ClCompile Include="Core\Systems\GUI\ImGuiSFML.cpp" />
     <ClCompile Include="Core\Systems\GUI\Windows.cpp" />
@@ -471,6 +473,7 @@
     <ClInclude Include="Core\Binding\CoreBindingEnums.h" />
     <ClInclude Include="Core\Binding\CoreBindingEvents.h" />
     <ClInclude Include="Core\Binding\CoreBindingEventStrings.h" />
+    <ClInclude Include="Core\Components\DefaultGameSetup.h" />
     <ClInclude Include="Core\Components\LoadingScreen.h" />
     <ClInclude Include="Core\DaisyVector.h" />
     <ClInclude Include="Core\Engine\ActionProperty.h" />
@@ -717,6 +720,12 @@
     <Text Include="Documentation\Style Guide.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ConfigurationAudio.cfg" />
+    <None Include="ConfigurationContent.cfg" />
+    <None Include="ConfigurationDebug.cfg" />
+    <None Include="ConfigurationEditor.cfg" />
+    <None Include="ConfigurationGraphics.cfg" />
+    <None Include="ConfigurationGUI.cfg" />
     <None Include="Core\Assets\Shaders\DebugShader.frag" />
     <None Include="Core\Assets\Shaders\DebugShader.vs" />
     <None Include="Core\Assets\Shaders\FinalRenderShader.frag" />

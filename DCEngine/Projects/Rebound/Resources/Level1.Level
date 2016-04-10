@@ -23,6 +23,24 @@
                 "z": 1.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -80,6 +98,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -14.000000, 
+                "y": 13.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -14.000000, 
+                "y": 13.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -176,6 +212,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 6.943368, 
+                "y": 14.960076, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 6.943368, 
+                "y": 14.960076, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -256,6 +310,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 37.514435, 
+                "y": 15.414884, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 37.514435, 
+                "y": 15.414884, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -352,6 +424,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.997116, 
+                "y": 6.337496, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.997116, 
+                "y": 6.337496, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -432,6 +522,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 38.627338, 
+                "y": 23.155519, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 38.627338, 
+                "y": 23.155519, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -528,6 +636,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 66.729874, 
+                "y": 22.051615, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 66.729874, 
+                "y": 22.051615, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -608,6 +734,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 88.541924, 
+                "y": 20.599426, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 88.541924, 
+                "y": 20.599426, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -704,6 +848,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 153.114838, 
+                "y": 45.277760, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 153.114838, 
+                "y": 45.277760, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -784,6 +946,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 43.502556, 
+                "y": 42.511490, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 43.502556, 
+                "y": 42.511490, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -880,6 +1060,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 120.010376, 
+                "y": 23.019560, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 120.010376, 
+                "y": 23.019560, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -960,6 +1158,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 120.358658, 
+                "y": 2.733584, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 120.358658, 
+                "y": 2.733584, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1056,6 +1272,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 91.346199, 
+                "y": -8.966796, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 91.346199, 
+                "y": -8.966796, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -1136,6 +1370,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 109.259331, 
+                "y": -9.019223, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 109.259331, 
+                "y": -9.019223, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1232,6 +1484,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 120.802307, 
+                "y": -8.931287, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 120.802307, 
+                "y": -8.931287, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -1312,6 +1582,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 132.437103, 
+                "y": -8.924657, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 132.437103, 
+                "y": -8.924657, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1408,6 +1696,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 146.520081, 
+                "y": -9.052215, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 146.520081, 
+                "y": -9.052215, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -1488,6 +1794,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 153.704742, 
+                "y": -6.550983, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 153.704742, 
+                "y": -6.550983, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1580,7 +1904,25 @@
               "Vec3": 
               {
                 "x": 148.723846, 
-                "y": 10.780749, 
+                "y": 11.367414, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 148.723846, 
+                "y": 11.367414, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 148.723846, 
+                "y": 11.367414, 
                 "z": 0.000000
               }
             }, 
@@ -1664,6 +2006,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 141.305573, 
+                "y": 31.548405, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 141.305573, 
+                "y": 31.548405, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1760,6 +2120,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 148.189835, 
+                "y": 34.099602, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 148.189835, 
+                "y": 34.099602, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -1843,8 +2221,26 @@
             {
               "Vec3": 
               {
-                "x": -9.174590, 
-                "y": 19.285355, 
+                "x": 82.962395, 
+                "y": 30.420143, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 82.962395, 
+                "y": 30.420143, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 82.962395, 
+                "y": 30.420143, 
                 "z": 0.000000
               }
             }, 
@@ -1885,7 +2281,7 @@
             "FlipY": false, 
             "AnimationActive": true, 
             "AnimationSpeed": 10.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "RigidBody": 
           {
@@ -1939,8 +2335,8 @@
           "PlayerController": 
           {
             "MoveSpeed": 0.350000, 
-            "VelocityXCap": 30.000000, 
-            "JumpPower": 30.000000, 
+            "VelocityXCap": 10.000000, 
+            "JumpPower": 27.000000, 
             "JumpFrames": 1.000000, 
             "Health": 10.000000, 
             "AirBrakeScalar": 0.950000, 
@@ -1950,7 +2346,9 @@
             "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
             "RunAnimation": "Char_Asha_Run_Spritesheet", 
             "FallAnimation": "Char_Asha_Fall_Spritesheet", 
+            "ThrowAnimation": "Char_Asha_Throw_Spritesheet", 
             "AutoPlayTimer": 2.000000, 
+            "LandingParticle": "LandingParticle", 
             "TeleportStartSound": "Teleport", 
             "TeleportArriveSound": "TeleportArrive", 
             "JumpSound": "Jump", 
@@ -2011,6 +2409,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 120.068130, 
+                "y": 21.036552, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 120.068130, 
+                "y": 21.036552, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2107,6 +2523,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 133.370697, 
+                "y": 27.716742, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 133.370697, 
+                "y": 27.716742, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -2191,7 +2625,25 @@
               "Vec3": 
               {
                 "x": 135.975815, 
-                "y": 5.171904, 
+                "y": 5.523479, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 135.975815, 
+                "y": 5.523479, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 135.975815, 
+                "y": 5.523479, 
                 "z": 0.000000
               }
             }, 
@@ -2209,7 +2661,7 @@
               "Vec3": 
               {
                 "x": 2.000000, 
-                "y": 2.000000, 
+                "y": 3.000000, 
                 "z": 1.000000
               }
             }
@@ -2275,6 +2727,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 163.966705, 
+                "y": 33.639439, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 163.966705, 
+                "y": 33.639439, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2371,6 +2841,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 175.628372, 
+                "y": 30.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 175.628372, 
+                "y": 30.000000, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -2451,6 +2939,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 181.644440, 
+                "y": 20.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 181.644440, 
+                "y": 20.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2547,6 +3053,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 334.593781, 
+                "y": -25.946983, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 334.593781, 
+                "y": -25.946983, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -2635,6 +3159,24 @@
                 "z": -0.100000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 174.422852, 
+                "y": 44.753136, 
+                "z": -0.100000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 174.422852, 
+                "y": 44.753136, 
+                "z": -0.100000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -2695,13 +3237,31 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 250, 
+        "GameObjectID": 279, 
         "Name": "Shield", 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 120.454185, 
+                "y": 12.080070, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 120.454185, 
+                "y": 12.080070, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2736,9 +3296,9 @@
             {
               "Vec4": 
               {
-                "x": 0.235000, 
-                "y": 0.470000, 
-                "z": 0.745000, 
+                "x": 0.200000, 
+                "y": 0.400000, 
+                "z": 0.700000, 
                 "w": 0.500000
               }
             }, 
@@ -2751,8 +3311,8 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Shield", 
-            "PhysicsMaterial": "", 
+            "CollisionGroup": "DefaultCollisionGroup", 
+            "PhysicsMaterial": "DefaultPhysicsMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -2771,9 +3331,34 @@
                 "z": 0.000000
               }
             }, 
-            "Ghost": false, 
+            "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }, 
+          "EnergyShield": 
+          {
+            "RepulseSpeed": 100, 
+            "Active": true, 
+            "ActiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.400000, 
+                "z": 0.700000, 
+                "w": 0.500000
+              }
+            }, 
+            "InactiveColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.200000, 
+                "z": 0.700000, 
+                "w": 0.010000
+              }
+            }
           }
         }, 
         "Children": 
@@ -2790,6 +3375,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 304.908813, 
+                "y": -20.340363, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 304.908813, 
+                "y": -20.340363, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2886,6 +3489,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 196.122086, 
+                "y": -34.796898, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 196.122086, 
+                "y": -34.796898, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -2966,6 +3587,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 200.280960, 
+                "y": -23.621872, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 200.280960, 
+                "y": -23.621872, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -3062,6 +3701,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 240.826111, 
+                "y": -14.898586, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 240.826111, 
+                "y": -14.898586, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -3142,6 +3799,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 120.097496, 
+                "y": -11.891641, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 120.097496, 
+                "y": -11.891641, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -3238,6 +3913,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 235.594666, 
+                "y": -34.831295, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 235.594666, 
+                "y": -34.831295, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -3318,6 +4011,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 262.913422, 
+                "y": -34.969154, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 262.913422, 
+                "y": -34.969154, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -3414,6 +4125,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 284.284515, 
+                "y": -7.719936, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 284.284515, 
+                "y": -7.719936, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -3494,6 +4223,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 272.873413, 
+                "y": -24.708426, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 272.873413, 
+                "y": -24.708426, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -3590,6 +4337,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 279.397766, 
+                "y": -32.971951, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 279.397766, 
+                "y": -32.971951, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -3678,6 +4443,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 283.399231, 
+                "y": -28.481598, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 283.399231, 
+                "y": -28.481598, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -3758,6 +4541,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 98.840897, 
+                "y": 10.044578, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 98.840897, 
+                "y": 10.044578, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -3873,6 +4674,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -30.000000, 
+                "y": 50.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -30.000000, 
+                "y": 50.000000, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -3948,6 +4767,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 242.741806, 
+                "y": -39.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 242.741806, 
+                "y": -39.000000, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -4015,6 +4852,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 235.420822, 
+                "y": -37.776867, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 235.420822, 
+                "y": -37.776867, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -4111,6 +4966,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 227.853546, 
+                "y": -39.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 227.853546, 
+                "y": -39.000000, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -4178,6 +5051,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 138.000000, 
+                "y": -13.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 138.000000, 
+                "y": -13.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -4261,6 +5152,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 126.500000, 
+                "y": -13.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 126.500000, 
+                "y": -13.000000, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -4328,6 +5237,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 115.000000, 
+                "y": -13.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 115.000000, 
+                "y": -13.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -4411,6 +5338,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 103.500000, 
+                "y": -13.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 103.500000, 
+                "y": -13.000000, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -4486,6 +5431,24 @@
                 "z": -1.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 88.500000, 
+                "y": 24.000000, 
+                "z": -1.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 88.500000, 
+                "y": 24.000000, 
+                "z": -1.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -4553,6 +5516,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 340.956604, 
+                "y": -19.609070, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 340.956604, 
+                "y": -19.609070, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -4649,6 +5630,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 339.956543, 
+                "y": -18.609077, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 339.956543, 
+                "y": -18.609077, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -4729,6 +5728,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 338.956543, 
+                "y": -17.609070, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 338.956543, 
+                "y": -17.609070, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -4825,6 +5842,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 336.979248, 
+                "y": -16.782433, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 336.979248, 
+                "y": -16.782433, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -4905,6 +5940,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 320.559692, 
+                "y": -5.222780, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 320.559692, 
+                "y": -5.222780, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5001,6 +6054,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 330.110077, 
+                "y": -16.649918, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 330.110077, 
+                "y": -16.649918, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -5081,6 +6152,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 328.110077, 
+                "y": -17.649918, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 328.110077, 
+                "y": -17.649918, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5177,6 +6266,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 327.110077, 
+                "y": -18.649925, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 327.110077, 
+                "y": -18.649925, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -5257,6 +6364,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 326.110107, 
+                "y": -19.649918, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 326.110107, 
+                "y": -19.649918, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5353,6 +6478,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 327.635712, 
+                "y": -20.816477, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 327.635712, 
+                "y": -20.816477, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -5433,6 +6576,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 342.955322, 
+                "y": -26.760368, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 342.955322, 
+                "y": -26.760368, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5529,6 +6690,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 339.092529, 
+                "y": -30.466272, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 339.092529, 
+                "y": -30.466272, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -5617,6 +6796,24 @@
                 "z": -0.100000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -53.763031, 
+                "y": 44.824577, 
+                "z": -0.100000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -53.763031, 
+                "y": 44.824577, 
+                "z": -0.100000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -5684,6 +6881,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 13.937392, 
+                "y": 10.417741, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 13.937392, 
+                "y": 10.417741, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5780,6 +6995,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 28.007517, 
+                "y": 11.799200, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 28.007517, 
+                "y": 11.799200, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -5863,8 +7096,26 @@
             {
               "Vec3": 
               {
-                "x": -6.198933, 
-                "y": 15.835693, 
+                "x": 81.938057, 
+                "y": 30.970482, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 81.938057, 
+                "y": 30.970482, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 81.938057, 
+                "y": 30.970482, 
                 "z": 0.000000
               }
             }, 
@@ -5905,7 +7156,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 4
           }, 
           "BoxCollider": 
           {
@@ -6065,7 +7316,7 @@
             }, 
             "Additive": true, 
             "Lock": false, 
-            "DrawLayer": 4
+            "DrawLayer": 5
           }, 
           "ParticleEmitter": 
           {
@@ -6073,7 +7324,7 @@
             "ResetCount": false, 
             "EmitCount": 0, 
             "EmitRate": 26, 
-            "EmitVariance": 0, 
+            "EmitVariance": 2, 
             "Size": 0.100000, 
             "SizeVariance": 0.100000, 
             "Lifetime": 0.400000, 
@@ -6095,7 +7346,7 @@
               {
                 "x": 1.500000, 
                 "y": 1.500000, 
-                "z": 0.000000
+                "z": 1.000000
               }
             }
           }, 
@@ -6138,6 +7389,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 19.901033, 
+                "y": 6.893045, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 19.901033, 
+                "y": 6.893045, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6234,6 +7503,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 48.748550, 
+                "y": 16.889111, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 48.748550, 
+                "y": 16.889111, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -6314,6 +7601,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 15.941115, 
+                "y": 9.373935, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 15.941115, 
+                "y": 9.373935, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6410,6 +7715,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 17.921076, 
+                "y": 7.920534, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 17.921076, 
+                "y": 7.920534, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -6490,6 +7813,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 96.777184, 
+                "y": 22.169403, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 96.777184, 
+                "y": 22.169403, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6586,6 +7927,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 120.282860, 
+                "y": 34.004467, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 120.282860, 
+                "y": 34.004467, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -6666,6 +8025,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 84.321404, 
+                "y": 4.117507, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 84.321404, 
+                "y": 4.117507, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6762,6 +8139,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 156.497437, 
+                "y": 12.489632, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 156.497437, 
+                "y": 12.489632, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -6842,6 +8237,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 171.429199, 
+                "y": -1.044373, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 171.429199, 
+                "y": -1.044373, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6938,6 +8351,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 186.141083, 
+                "y": 9.387827, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 186.141083, 
+                "y": 9.387827, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -7018,6 +8449,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 215.364044, 
+                "y": -20.618860, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 215.364044, 
+                "y": -20.618860, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -7114,6 +8563,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 269.273743, 
+                "y": -16.202286, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 269.273743, 
+                "y": -16.202286, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -7194,6 +8661,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 136.095963, 
+                "y": 16.344585, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 136.095963, 
+                "y": 16.344585, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -7290,6 +8775,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -29.993685, 
+                "y": 26.511389, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -29.993685, 
+                "y": 26.511389, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -7378,6 +8881,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -7415,6 +8936,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 342.468567, 
+                "y": -13.825388, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 342.468567, 
+                "y": -13.825388, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -7511,6 +9050,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 151.735947, 
+                "y": -7.541920, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 151.735947, 
+                "y": -7.541920, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -7599,6 +9156,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 330.619263, 
+                "y": -22.466503, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 330.619263, 
+                "y": -22.466503, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -7679,6 +9254,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 340.964661, 
+                "y": -31.323515, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 340.964661, 
+                "y": -31.323515, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -7799,6 +9392,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 88.535210, 
+                "y": 26.692747, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 88.535210, 
+                "y": 26.692747, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -7902,6 +9513,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 103.578583, 
+                "y": -9.442540, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 103.578583, 
+                "y": -9.442540, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -8021,6 +9650,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 126.609482, 
+                "y": -9.351246, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 126.609482, 
+                "y": -9.351246, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -8124,6 +9771,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 115.048080, 
+                "y": -9.405184, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 115.048080, 
+                "y": -9.405184, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -8243,6 +9908,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 138.197235, 
+                "y": -9.371734, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 138.197235, 
+                "y": -9.371734, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -8346,6 +10029,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 228.382126, 
+                "y": -35.265671, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 228.382126, 
+                "y": -35.265671, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -8465,6 +10166,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 242.779831, 
+                "y": -35.374565, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 242.779831, 
+                "y": -35.374565, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -8576,6 +10295,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 181.643997, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 181.643997, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -8664,6 +10401,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 181.643997, 
+                "y": -20.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 181.643997, 
+                "y": -20.000000, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -8744,6 +10499,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 262.391632, 
+                "y": -31.816240, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 262.391632, 
+                "y": -31.816240, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -8915,6 +10688,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -16.744476, 
+                "y": 11.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -16.744476, 
+                "y": 11.000000, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -8956,6 +10747,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 175.779007, 
+                "y": 10.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 175.779007, 
+                "y": 10.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -9052,6 +10861,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 175.779007, 
+                "y": -10.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 175.779007, 
+                "y": -10.000000, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -9132,6 +10959,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 147.846634, 
+                "y": 1.714506, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 147.846634, 
+                "y": 1.714506, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -9228,6 +11073,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 339.487396, 
+                "y": -21.266142, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 339.487396, 
+                "y": -21.266142, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -9316,6 +11179,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 68.589325, 
+                "y": 98.581924, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 68.589325, 
+                "y": 98.581924, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -9370,6 +11251,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 156.742783, 
+                "y": 3.456068, 
+                "z": -0.010000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 156.742783, 
+                "y": 3.456068, 
+                "z": -0.010000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -9440,6 +11339,24 @@
                 "z": -10.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -15.597633, 
+                "y": 4.938488, 
+                "z": -10.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -15.597633, 
+                "y": 4.938488, 
+                "z": -10.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -9502,6 +11419,24 @@
                 "z": -0.300000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 155.241577, 
+                "y": 4.688337, 
+                "z": -0.300000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 155.241577, 
+                "y": 4.688337, 
+                "z": -0.300000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -9548,7 +11483,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": false, 
+        "Locked": true, 
         "GameObjectID": 120, 
         "Name": "Background1", 
         "Components": 
@@ -9559,8 +11494,26 @@
             {
               "Vec3": 
               {
-                "x": 156.309021, 
-                "y": 6.113880, 
+                "x": 158.650406, 
+                "y": 13.764401, 
+                "z": -0.100000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 158.650406, 
+                "y": 13.764401, 
+                "z": -0.100000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 158.650406, 
+                "y": 13.764401, 
                 "z": -0.100000
               }
             }, 
@@ -9610,7 +11563,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 122, 
         "Name": "Foreground", 
         "Components": 
@@ -9621,9 +11574,27 @@
             {
               "Vec3": 
               {
-                "x": 157.242004, 
-                "y": 6.551495, 
-                "z": -0.000000
+                "x": 156.957947, 
+                "y": 6.470942, 
+                "z": -0.100000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 156.957947, 
+                "y": 6.470942, 
+                "z": -0.100000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 156.957947, 
+                "y": 6.470942, 
+                "z": -0.100000
               }
             }, 
             "Rotation": 
@@ -9639,8 +11610,8 @@
             {
               "Vec3": 
               {
-                "x": 379.000000, 
-                "y": 185.000000, 
+                "x": 380.000000, 
+                "y": 185.500000, 
                 "z": 1.000000
               }
             }
@@ -9683,8 +11654,26 @@
             {
               "Vec3": 
               {
-                "x": -2.865444, 
-                "y": 30.515827, 
+                "x": -5.788239, 
+                "y": 31.214035, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.788239, 
+                "y": 31.214035, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.788239, 
+                "y": 31.214035, 
                 "z": 0.000000
               }
             }, 
@@ -9739,6 +11728,330 @@
             }, 
             "InnerAngle": 0.600000, 
             "OuterAngle": 0.800000
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 146, 
+        "Name": "DialogText", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -13.014625, 
+                "y": 24.004524, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -13.014625, 
+                "y": 24.004524, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -13.014625, 
+                "y": 24.004524, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "SafetyMedium", 
+            "FontSize": 5, 
+            "Text": "123456789ABCDEFGHFFF F asdasd", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 20, 
+            "DrawLayer": 4
+          }, 
+          "DialogText": 
+          {
+            "SystemDelay": 0.000000, 
+            "MessageTime": 5.000000, 
+            "ScaleTimeWithSize": true, 
+            "TimePerChar": 0.500000, 
+            "Message": "what", 
+            "WordWrap": 30, 
+            "FadeEase": "Linear", 
+            "DeleteAfterTime": false, 
+            "TimeToDelete": 10.000000, 
+            "ArbitraryXShift": -4, 
+            "AshaVoiceColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "DudeVoiceColor": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 147, 
+        "Name": "Sprite", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -1.629375, 
+                "y": 14.748413, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -1.629375, 
+                "y": 14.748413, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -1.629375, 
+                "y": 14.748413, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Default", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }, 
+          "DialogTrigger": 
+          {
+            "DialogTextObjectName": "DialogText", 
+            "OnlyOnFirstCollision": false, 
+            "ActiveOnCollision": true, 
+            "Message1String": "123", 
+            "Message1Speaker": "Dude", 
+            "Message2String": "456", 
+            "Message2Speaker": "Asha", 
+            "Message3String": "1233", 
+            "Message3Speaker": "Dude", 
+            "Message4String": "12344", 
+            "Message4Speaker": "Asha", 
+            "Message5String": "12222", 
+            "Message5Speaker": "Dude", 
+            "Message6String": "123333", 
+            "Message6Speaker": "Dude", 
+            "Message7String": "233", 
+            "Message7Speaker": "Asha"
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 1817, 
+        "Name": "DialogBackground", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -9.158772, 
+                "y": 22.800550, 
+                "z": -0.001000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -9.158772, 
+                "y": 22.800550, 
+                "z": -0.001000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -9.158772, 
+                "y": 22.800550, 
+                "z": -0.001000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 8.000000, 
+                "y": 4.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.500000, 
+            "DrawLayer": 4
+          }, 
+          "DialogBackgroundBehavior": 
+          {
+            "UnitsAbovePlayer": 7
           }
         }, 
         "Children": 

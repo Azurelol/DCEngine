@@ -18,8 +18,8 @@
             {
               "Vec3": 
               {
-                "x": 105.704758, 
-                "y": 2.193380, 
+                "x": 124.442207, 
+                "y": 26.045986, 
                 "z": 0.000000
               }
             }, 
@@ -3774,7 +3774,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 306, 
+        "GameObjectID": 126, 
         "Name": "Camera", 
         "Components": 
         {
@@ -3810,17 +3810,26 @@
           }, 
           "Camera": 
           {
-            "FieldOfView": 169.043015, 
+            "FieldOfView": 170.000000, 
             "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
-            "Size": 90.000000, 
+            "Size": 70.000000, 
             "Projection": "Perspective"
           }, 
-          "CameraController": 
+          "CameraControllerZilch": 
           {
-            "TargetName": "Player", 
-            "InterpolationSpeed": 0.060000
+            "InterpolationSpeed": 0.060000, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 4.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "ScreenShakeMagnitude": 3.000000
           }
         }, 
         "Children": 
@@ -4102,118 +4111,6 @@
           }, 
           "BallTemp": 
           {
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 304, 
-        "Name": "LevelGoal", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 129.317902, 
-                "y": 25.902697, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 2.000000, 
-                "y": 2.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "VictorySymbol", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "BoxCollider": 
-          {
-            "CollisionGroup": "Default", 
-            "PhysicsMaterial": "", 
-            "Size": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Ghost": false, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
-          }, 
-          "LevelManager": 
-          {
-            "NextLevel": "Level6", 
-            "LoadingTime": 3.000000, 
-            "TimerStarted": false
-          }, 
-          "Fade": 
-          {
-            "Timer": 0.000000, 
-            "FadeTime": 0.500000, 
-            "FadeTimeGrowth": 0.750000, 
-            "TargetColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Fading": false, 
-            "Pulse": true
           }
         }, 
         "Children": 
@@ -8552,8 +8449,8 @@
             {
               "Vec3": 
               {
-                "x": 71.365578, 
-                "y": 14.666259, 
+                "x": 71.560989, 
+                "y": 14.731395, 
                 "z": -0.300000
               }
             }, 
@@ -8596,6 +8493,130 @@
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 206, 
+        "Name": "Generator", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 132.442932, 
+                "y": 25.319235, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Diffuse": false, 
+            "Type": "Point", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 1.000000, 
+            "Range": 0.000000, 
+            "Falloff": 0.516000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 0.600000, 
+            "OuterAngle": 0.800000
+          }, 
+          "Level2Generator": 
+          {
+            "FinalLightRange": 50.000000, 
+            "FinalLightIntensity": 1.000000, 
+            "FinalLightFalloff": 0.700000, 
+            "FinalScreenShakeIntensity": 4.200000, 
+            "LightIncreaseDuration": 3.000000, 
+            "TeleporterLocation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": true, 
+        "GameObjectID": 97, 
+        "Name": "LevelSettings", 
+        "Components": 
+        {
         }, 
         "Children": 
         {

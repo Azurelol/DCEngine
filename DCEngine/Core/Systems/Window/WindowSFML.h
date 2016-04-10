@@ -1,7 +1,7 @@
 /******************************************************************************/
 /*!
 \file   WindowGLFW.h
-\author Christian Sagel
+\author Christian Sagel, William Mao
 \par    email: c.sagel\@digipen.edu
 \date   8/1/2015
 \brief  The Window implementation through SFML.
@@ -20,6 +20,7 @@
 #include "..\..\..\Dependencies\include\GLEW\glew.h"
 // SFML
 #include "..\..\..\Dependencies\include\SFML\Window.hpp"
+#include "..\..\..\Dependencies\include\SFML\Graphics\Image.hpp"
 
 namespace DCEngine {
   namespace Systems {
@@ -54,8 +55,12 @@ namespace DCEngine {
       WindowMode Mode = WindowMode::Default;
       
       sf::Vector2i getWindowDimensions();
+			sf::Image image;
       void setFullScreen();
 			void resizeWindow(float x, float y);
+			void recreateWindow();
+			void lostFocus();
+			void gainedFocus();
       void setWindow(WindowMode style);
 
       void Initialize();
@@ -64,6 +69,9 @@ namespace DCEngine {
       void StartFrame();
       void EndFrame();
       
+			unsigned nativeWidth, nativeHeight;
+			bool returnToFullscreen;
+
       // Settings for the underlying OpenGL context
       sf::ContextSettings ContextSettings;
       const int _depthBits = 24; //!< Number of bits per pixel to use for the depth buffer.

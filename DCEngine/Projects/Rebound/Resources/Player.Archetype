@@ -13,8 +13,8 @@
         {
           "Vec3": 
           {
-            "x": -86.085693, 
-            "y": -41.104252, 
+            "x": 82.962395, 
+            "y": 30.420143, 
             "z": 0.000000
           }
         }, 
@@ -50,12 +50,12 @@
             "w": 1.000000
           }
         }, 
-        "SpriteSource": "PlayerStand", 
+        "SpriteSource": "Char_Asha_Idle_Spritesheet", 
         "FlipX": false, 
         "FlipY": false, 
-        "AnimationActive": false, 
+        "AnimationActive": true, 
         "AnimationSpeed": 10.000000, 
-        "DrawLayer": 0
+        "DrawLayer": 5
       }, 
       "RigidBody": 
       {
@@ -109,7 +109,7 @@
       "PlayerController": 
       {
         "MoveSpeed": 0.350000, 
-        "VelocityXCap": 30.000000, 
+        "VelocityXCap": 10.000000, 
         "JumpPower": 30.000000, 
         "JumpFrames": 1.000000, 
         "Health": 10.000000, 
@@ -119,6 +119,7 @@
         "StandAnimation": "Char_Asha_Idle_Spritesheet", 
         "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
         "RunAnimation": "Char_Asha_Run_Spritesheet", 
+        "FallAnimation": "Char_Asha_Fall_Spritesheet", 
         "AutoPlayTimer": 2.000000, 
         "TeleportStartSound": "Teleport", 
         "TeleportArriveSound": "TeleportArrive", 

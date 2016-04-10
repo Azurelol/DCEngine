@@ -48,7 +48,7 @@ namespace DCEngine {
       
     private:
       GraphicsConfig& Settings;
-      std::string Caption = "Daisy Chain Engine v.Segment Presentation";
+      std::string Caption = "Rebound";
       unsigned CurrentFramerate;
       
       Window(GraphicsConfig& config, const std::string& caption);
@@ -64,6 +64,9 @@ namespace DCEngine {
       /* Events */
       void OnWindowFullScreenToggleEvent(Events::WindowFullScreenToggle* event);
 			void OnWindowResizeEvent(Events::WindowResize* event);
+			void OnWindowRecreateEvent(Events::WindowRecreate* event);
+			void OnWindowLostFocus(Events::WindowLostFocus* event);
+			void OnWindowGainedFocus(Events::WindowGainedFocus* event);
       void OnEngineExitEvent(Events::EngineExit* event);
       void OnSetWindowCaptionEvent(Events::SetWindowCaption* event);
 

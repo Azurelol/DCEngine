@@ -16,23 +16,86 @@
 
 namespace DCEngine {
 
+  /*!************************************************************************\
+  @brief  GameSession Definition
+  \**************************************************************************/
+  ZilchDefineType(GameSession, "GameSession", DCEngineCore, builder, type) {
+    DCE_BINDING_SET_HANDLE_TYPE_POINTER;
+    // Constructor / Destructor
+    ZilchBindConstructor(builder, type, GameSession, "name", std::string);
+    ZilchBindDestructor(builder, type, GameSession);
+    ZilchBindMethod(builder, type, &GameSession::CreateSpace, ZilchNoOverload, "CreateSpace", "name, initialize");
+    ZilchBindMethod(builder, type, &GameSession::GetSpace, ZilchNoOverload, "FindSpaceByName", "name");
+    ZilchBindMethod(builder, type, &GameSession::getDefaultSpace, ZilchNoOverload, "GetDefaultSpace", ZilchNoNames);
+  }
+
   /**************************************************************************/
   /*!
   \brief GameSession constructor.
   */
   /**************************************************************************/
   GameSession::GameSession(std::string name) : Entity(name) {
-    if (TRACE_ON && TRACE_CONSTRUCTOR)
-      DCTrace << ObjectName << "::GameSession - Constructor\n";
+    // Sets the default archetype
+    setArchetype("GameSession");
+    if (TRACE_ON && TRACE_CONSTRUCTOR) DCTrace << ObjectName << "::GameSession - Constructor\n";
     type_ = EntityType::GameSession;
   }
 
+  /**************************************************************************/
+  /*!
+  \brief GameSession destructor.
+  */
+  /**************************************************************************/
   GameSession::~GameSession() {
   }
 
+  /**************************************************************************/
+  /*!
+  \brief Returns the current GameSession.
+  */
+  /**************************************************************************/
   GameSession*  GameSession::Get()
   {
     return Daisy->getGameSession();
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Serializes a GameSession.
+  @param builder A reference to the JSON builder.
+  @note  This will serialize the GameSession's properties, then its components.
+  */
+  /**************************************************************************/
+  void GameSession::Serialize(Zilch::JsonBuilder & builder)
+  {
+    // Grab a reference to the Zilch Interface
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
+    builder.Key("GameSession");
+    builder.Begin(Zilch::JsonType::Object);
+    {
+      // Serialize GameSession properties
+      SerializeByType(builder, interface->GetState(), ZilchTypeId(GameSession), this);
+      // Serialize the underlying Entity object, which includes its components.
+      Entity::Serialize(builder);
+    }
+    builder.End();
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Deserializes the GameSession.
+  @param properties A pointer to the object containing the properties.
+  @note  This will deserialize the GameSession's properties, then its components.
+  */
+  /**************************************************************************/
+  void GameSession::Deserialize(Zilch::JsonValue * properties)
+  {
+    // Grab a reference to the Zilch Interface
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
+    // Deserialize the underlying Entity
+    Entity::Deserialize(properties);
+    // Deserialize the GameSession properties
+    DeserializeByType(properties, interface->GetState(), ZilchTypeId(GameSession), this);
   }
 
   /**************************************************************************/
@@ -52,32 +115,21 @@ namespace DCEngine {
       space.second->Initialize();
     }
 
-
+    // Construct GameSession specific components
+    AddComponentByName("DefaultGameSetup", true);
+    
   }
 
   /**************************************************************************/
   /*!
-  \brief The GameSession's every space, and its systems are updated.
-  When a space is updated, it provides each of the systems added to it
-  with a vector of entities that meet the system's registration
-  requirements.
-  The space then tells each system to update.
-  \param The time that elapsed during the last frame update.
-
+  \brief Subscribes to Game-specific events.
   */
   /**************************************************************************/
-  void GameSession::Update(float dt) {
-    if (TRACE_UPDATE)
-      DCTrace << ObjectName << "::Update \n";
-
-    // DEPRECATED: Spaces are not updated by gamesession
-    // Update all active spaces
-    //for (auto space : ActiveSpaces)
-    //  UpdateSpace(space.second, dt);
-    
-    if (TRACE_UPDATE)
-      DCTrace << ObjectName << "::Update - All spaces updated. \n";
+  void GameSession::Subscribe()
+  {
+   // Daisy->Connect<Events::GameFocusIn>(*this, &GameSession::)
   }
+
 
   /**************************************************************************/
   /*!
@@ -162,10 +214,6 @@ namespace DCEngine {
     return DefaultSpace;
   }
 
-  void GameSession::TestGameSession()
-  {
-    DCTrace << "GameSession::TestGameSession \n";
-  }
 
   /**************************************************************************/
   /*!
@@ -176,6 +224,11 @@ namespace DCEngine {
     space->Update(dt);
   }
 
+  /**************************************************************************/
+  /*!
+  \brief Removes a space.
+  */
+  /**************************************************************************/
   void GameSession::RemoveSpace(SpacePtr space)
   {
     SpaceMap::iterator it = ActiveSpaces.find(space->getObjectName());
@@ -188,6 +241,5 @@ namespace DCEngine {
       DCTrace << "- " << space.second->getObjectName() << "\n";
     }
   }
-
 
 }
