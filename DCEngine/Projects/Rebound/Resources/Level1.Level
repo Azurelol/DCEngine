@@ -125,7 +125,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -1843,8 +1843,8 @@
             {
               "Vec3": 
               {
-                "x": -9.659790, 
-                "y": 16.262682, 
+                "x": -14.298389, 
+                "y": 15.395030, 
                 "z": 0.000000
               }
             }, 
@@ -5888,8 +5888,8 @@
             {
               "Vec3": 
               {
-                "x": -10.613693, 
-                "y": 16.813021, 
+                "x": -15.552632, 
+                "y": 15.411430, 
                 "z": 0.000000
               }
             }, 
@@ -9775,7 +9775,7 @@
       {
         "Locked": false, 
         "GameObjectID": 147, 
-        "Name": "Sprite", 
+        "Name": "DialogTrigger", 
         "Components": 
         {
           "Transform": 
@@ -9784,8 +9784,8 @@
             {
               "Vec3": 
               {
-                "x": -1.629375, 
-                "y": 14.748413, 
+                "x": -14.277066, 
+                "y": 14.848527, 
                 "z": 0.000000
               }
             }, 
@@ -9810,7 +9810,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -9830,7 +9830,7 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Default", 
+            "CollisionGroup": "DefaultCollisionGroup", 
             "PhysicsMaterial": "", 
             "Size": 
             {
@@ -9850,7 +9850,7 @@
                 "z": 0.000000
               }
             }, 
-            "Ghost": false, 
+            "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }, 
@@ -9860,19 +9860,19 @@
             "OnlyOnFirstCollision": false, 
             "ActiveOnCollision": true, 
             "ActiveOnlyOnce": true, 
-            "Message1String": "1Dude", 
-            "Message1Speaker": "Dude", 
-            "Message2String": "1Asha", 
+            "Message1String": "Asha, can you read me? Your signal is feint.", 
+            "Message1Speaker": "Cyrus", 
+            "Message2String": "Not exactly loud and clear, but yeah. I'm in, by the way.", 
             "Message2Speaker": "Asha", 
-            "Message3String": "2Dude", 
-            "Message3Speaker": "Dude", 
-            "Message4String": "2Asha", 
+            "Message3String": "Good. To be completely honest, I have no idea what you’ll find in there.", 
+            "Message3Speaker": "Cyrus", 
+            "Message4String": "Gotcha. Over and out.", 
             "Message4Speaker": "Asha", 
-            "Message5String": "3Dude", 
-            "Message5Speaker": "Dude", 
-            "Message6String": "4Dude", 
-            "Message6Speaker": "Dude", 
-            "Message7String": "3Asha", 
+            "Message5String": "", 
+            "Message5Speaker": "Cyrus", 
+            "Message6String": "", 
+            "Message6Speaker": "Cyrus", 
+            "Message7String": "", 
             "Message7Speaker": "Asha"
           }
         }, 
@@ -9911,7 +9911,7 @@
             {
               "Vec3": 
               {
-                "x": 8.000000, 
+                "x": 9.000000, 
                 "y": 4.000000, 
                 "z": 1.000000
               }
@@ -9930,7 +9930,7 @@
                 "w": 0.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "DialogBack", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -9939,7 +9939,7 @@
           }, 
           "DialogBackgroundBehavior": 
           {
-            "UnitsAbovePlayer": 7, 
+            "UnitsAbovePlayer": 6, 
             "UnitsInFrontOfPlayer": 3
           }
         }, 
@@ -10070,12 +10070,12 @@
               {
                 "SystemDelay": 0.000000, 
                 "FadeInTime": 1.000000, 
-                "FadeEase": "QuadIn", 
+                "FadeEase": "Linear", 
                 "MessageTime": 5.000000, 
                 "ScaleTimeWithSize": true, 
-                "TimePerChar": 0.100000, 
+                "TimePerChar": 0.050000, 
                 "Message": "WSDA", 
-                "WordWrap": 15, 
+                "WordWrap": 22, 
                 "TextEase": "Linear", 
                 "DeleteAfterTime": false, 
                 "TimeToDelete": 10.000000, 
@@ -10088,11 +10088,11 @@
                     "z": 0.000000
                   }
                 }, 
-                "DudeVoiceColor": 
+                "CyrusVoiceColor": 
                 {
                   "Vec3": 
                   {
-                    "x": 1.000000, 
+                    "x": 0.000000, 
                     "y": 0.000000, 
                     "z": 0.000000
                   }

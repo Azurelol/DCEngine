@@ -209,6 +209,18 @@
         "Children": 
         {
         }
+      }, 
+      "GameObject": 
+      {
+        "Locked": true, 
+        "GameObjectID": 5385, 
+        "Name": "LevelSettings", 
+        "Components": 
+        {
+        }, 
+        "Children": 
+        {
+        }
       }
     }
   }

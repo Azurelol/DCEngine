@@ -15,97 +15,97 @@ class MegaDialogTrigger : ZilchComponent
 	[Property]
 	var Message1String : String = "";
 	[Property]
-	var Message1Speaker : Speaker = Speaker.Dude;
+	var Message1Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message2String : String = "";
 	[Property]
-	var Message2Speaker : Speaker = Speaker.Dude;
+	var Message2Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message3String : String = "";
 	[Property]
-	var Message3Speaker : Speaker = Speaker.Dude;
+	var Message3Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message4String : String = "";
 	[Property]
-	var Message4Speaker : Speaker = Speaker.Dude;
+	var Message4Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message5String : String = "";
 	[Property]
-	var Message5Speaker : Speaker = Speaker.Dude;
+	var Message5Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message6String : String = "";
 	[Property]
-	var Message6Speaker : Speaker = Speaker.Dude;
+	var Message6Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message7String : String = "";
 	[Property]
-	var Message7Speaker : Speaker = Speaker.Dude;
+	var Message7Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message8String : String = "";
 	[Property]
-	var Message9Speaker : Speaker = Speaker.Dude;
+	var Message9Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message9String : String = "";
 	[Property]
-	var Message10Speaker : Speaker = Speaker.Dude;
+	var Message10Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message10String : String = "";
 	[Property]
-	var Message11Speaker : Speaker = Speaker.Dude;
+	var Message11Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message11String : String = "";
 	[Property]
-	var Message12Speaker : Speaker = Speaker.Dude;
+	var Message12Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message12String : String = "";
 	[Property]
-	var Message13Speaker : Speaker = Speaker.Dude;
+	var Message13Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message13String : String = "";
 	[Property]
-	var Message14Speaker : Speaker = Speaker.Dude;
+	var Message14Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message14String : String = "";
 	[Property]
-	var Message15Speaker : Speaker = Speaker.Dude;
+	var Message15Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message15String : String = "";
 	[Property]
-	var Message16Speaker : Speaker = Speaker.Dude;
+	var Message16Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message16String : String = "";
 	[Property]
-	var Message17Speaker : Speaker = Speaker.Dude;
+	var Message17Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message17String : String = "";
 	[Property]
-	var Message18Speaker : Speaker = Speaker.Dude;
+	var Message18Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message18String : String = "";
 	[Property]
-	var Message8Speaker : Speaker = Speaker.Dude;
+	var Message8Speaker : Speaker = Speaker.Cyrus;
 	[Property]
-	var Message19Speaker : Speaker = Speaker.Dude;
+	var Message19Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message19String : String = "";
 	[Property]
-	var Message20Speaker : Speaker = Speaker.Dude;
+	var Message20Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message20String : String = "";
 	[Property]
-	var Message21Speaker : Speaker = Speaker.Dude;
+	var Message21Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message21String : String = "";
 	[Property]
-	var Message22Speaker : Speaker = Speaker.Dude;
+	var Message22Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message22String : String = "";
 	[Property]
-	var Message23Speaker : Speaker = Speaker.Dude;
+	var Message23Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message23String : String = "";
 	[Property]
-	var Message24Speaker : Speaker = Speaker.Dude;
+	var Message24Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message24String : String = "";
 	
@@ -354,7 +354,6 @@ class MegaDialogTrigger : ZilchComponent
 					}
 					else if(this.MessageNumber == 7)
 					{
-						if
 						ourText.DialogText.CurSpeaker = this.Message7Speaker;
 						if(this.Message7String != "")
 							curEvent = this.Message7;

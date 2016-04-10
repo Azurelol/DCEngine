@@ -208,8 +208,8 @@ namespace DCEngine {
           ParentToPlayer();
         }
       }
-      
-      if(event->OtherObject->getComponent<Components::Transform>()->getScale().y > 3 || event->OtherObject->getComponent<Components::Transform>()->getScale().x > 3)  //this is a bad check for terrain, fix later
+      std::string terrain = std::string("Terrain");
+      if(event->OtherObject->getComponent<Components::BoxCollider>() && event->OtherObject->getComponent<Components::BoxCollider>()->getCollisionGroup() == terrain)  //this is a bad check for terrain, fix later
       {
         hitTerrain = true;
         auto particle = SpaceRef->CreateObject("BounceParticle");
@@ -219,8 +219,9 @@ namespace DCEngine {
         }
       }
 
+      std::string DialogTrigger = std::string("DialogTrigger");
       // If collides with any type of enemy
-      if ( (hitPlayer == false) && (hitTerrain == false) )
+      if (event->OtherObject->Name() != DialogTrigger && (hitPlayer == false) && (hitTerrain == false) )
       {
         SoundCollide();
       }
