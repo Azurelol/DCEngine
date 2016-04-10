@@ -27,6 +27,8 @@ class EnergyShield : ZilchComponent
 			var contactNormal = event.Normal;
 
 			event.OtherObject.RigidBody.ApplyLinearVelocity(-contactNormal * this.RepulseSpeed);
+			
+			this.Space.SoundSpace.PlayCue("HitBioField");
 		}
 	}
 	
