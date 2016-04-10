@@ -30,8 +30,9 @@ namespace DCEngine {
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpAnimation);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, RunAnimation);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, FallAnimation);
+			DCE_BINDING_DEFINE_PROPERTY(PlayerController, ThrowAnimation);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, AutoPlayTimer);
-
+			DCE_BINDING_DEFINE_PROPERTY(PlayerController, LandingParticle);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, TeleportStartSound);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, TeleportArriveSound);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpSound);
@@ -155,7 +156,7 @@ namespace DCEngine {
 				//Grounded = true;
 				// play landing sound.
 				SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(LandSound);
-				auto particle = SpaceRef->CreateObject("LandingParticle");
+				auto particle = SpaceRef->CreateObject(LandingParticle);
 				if (particle)
 				{
 					particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation - Vec3(0, TransformRef->getScale().y / 2, 0));
@@ -314,6 +315,11 @@ namespace DCEngine {
 					SpriteComponent->SpriteSource = StandAnimation;
 					//SpriteComponent->AnimationActive = false;
 				}
+			}
+			if (FramesOfThrowAnimation > 0)
+			{
+				--FramesOfThrowAnimation;
+				SpriteComponent->SpriteSource = ThrowAnimation;
 			}
 		}
 

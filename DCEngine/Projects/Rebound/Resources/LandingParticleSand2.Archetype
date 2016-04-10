@@ -4,7 +4,7 @@
   {
     "Locked": false, 
     "GameObjectID": 11, 
-    "Name": "LandingParticleUrban", 
+    "Name": "LandingParticleSand2", 
     "Components": 
     {
       "Transform": 
@@ -13,8 +13,8 @@
         {
           "Vec3": 
           {
-            "x": 9.000000, 
-            "y": 12.000000, 
+            "x": 12.000000, 
+            "y": -3.000000, 
             "z": 0.000000
           }
         }, 
@@ -44,9 +44,9 @@
         {
           "Vec4": 
           {
-            "x": 0.100000, 
-            "y": 0.100000, 
-            "z": 0.150000, 
+            "x": 0.600000, 
+            "y": 0.400000, 
+            "z": 0.225000, 
             "w": 1.000000
           }
         }, 
@@ -64,7 +64,7 @@
         }, 
         "Additive": false, 
         "Lock": false, 
-        "DrawLayer": 4
+        "DrawLayer": 5
       }, 
       "ParticleEmitter": 
       {
@@ -73,8 +73,8 @@
         "EmitCount": 10, 
         "EmitRate": 5000, 
         "EmitVariance": 0, 
-        "Size": 0.750000, 
-        "SizeVariance": 0.300000, 
+        "Size": 2.000000, 
+        "SizeVariance": 1.000000, 
         "Lifetime": 1.000000, 
         "LifetimeVariance": 1.000000, 
         "Spin": 100.000000, 
@@ -92,7 +92,7 @@
         {
           "Vec3": 
           {
-            "x": 3.000000, 
+            "x": 7.000000, 
             "y": 0.000000, 
             "z": 0.000000
           }
@@ -119,7 +119,7 @@
           }
         }, 
         "Torque": 0.000000, 
-        "Growth": -1.000000, 
+        "Growth": -5.000000, 
         "Dampening": 3.000000
       }
     }, 

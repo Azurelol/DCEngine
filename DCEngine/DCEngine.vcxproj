@@ -720,6 +720,12 @@
     <Text Include="Documentation\Style Guide.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ConfigurationAudio.cfg" />
+    <None Include="ConfigurationContent.cfg" />
+    <None Include="ConfigurationDebug.cfg" />
+    <None Include="ConfigurationEditor.cfg" />
+    <None Include="ConfigurationGraphics.cfg" />
+    <None Include="ConfigurationGUI.cfg" />
     <None Include="Core\Assets\Shaders\DebugShader.frag" />
     <None Include="Core\Assets\Shaders\DebugShader.vs" />
     <None Include="Core\Assets\Shaders\FinalRenderShader.frag" />
