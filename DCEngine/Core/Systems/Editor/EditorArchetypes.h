@@ -29,6 +29,8 @@ namespace DCEngine {
       void Preview();      
       void UploadArchetype(EntityPtr entity);      
       void RevertToArchetype(EntityPtr entity);
+      void RevertSpace(SpacePtr space);
+      void RevertGameSession(GameSessionPtr gameSession);
       EntityPtr Current();
 
 

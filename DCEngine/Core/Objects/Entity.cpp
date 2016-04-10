@@ -17,6 +17,14 @@
 #include "Entities\GameSession.h"
 #include "../Engine/Engine.h" 
 
+ZilchDefineExternalType(DCEngine::EntityType, "EntityType", DCEngine::DCEngineCore, builder, type)
+{
+  ZilchBindEnum(builder, type, SpecialType::Enumeration);
+  ZilchBindEnumValue(builder, type, DCEngine::EntityType::GameObject, "GameObject");
+  ZilchBindEnumValue(builder, type, DCEngine::EntityType::Space, "Space");
+  ZilchBindEnumValue(builder, type, DCEngine::EntityType::GameSession, "GameSession");
+}
+
 namespace DCEngine {
   
   /*!************************************************************************\

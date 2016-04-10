@@ -356,7 +356,7 @@
       <UniqueIdentifier>{be8bcceb-00ab-4c97-bee5-04d679d25a9f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Components\GameSession">
-      <UniqueIdentifier>{f0ae6049-7242-4b19-adf7-ca19aa845bdd}</UniqueIdentifier>
+      <UniqueIdentifier>{87829586-f643-4a02-8214-4a65abe95cf8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -987,13 +987,11 @@
     <ClCompile Include="Core\Components\LoadingScreen.cpp">
       <Filter>Core\Components\Graphics</Filter>
     </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="Core\Components\DefaultGameSetup.cpp">
-      <Filter>Core\Components\GameSession</Filter>
-=======
     <ClCompile Include="Core\Systems\Graphics\GraphicsSettings.cpp">
       <Filter>Core\Systems\Graphics</Filter>
->>>>>>> 2f2fd9743c8a8540f33f1c8041b3c84027f78601
+    </ClCompile>
+    <ClCompile Include="Core\Components\DefaultGameSetup.cpp">
+      <Filter>Core\Components\GameSession</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

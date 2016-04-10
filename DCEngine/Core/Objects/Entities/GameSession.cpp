@@ -61,6 +61,45 @@ namespace DCEngine {
 
   /**************************************************************************/
   /*!
+  @brief Serializes a GameSession.
+  @param builder A reference to the JSON builder.
+  @note  This will serialize the GameSession's properties, then its components.
+  */
+  /**************************************************************************/
+  void GameSession::Serialize(Zilch::JsonBuilder & builder)
+  {
+    // Grab a reference to the Zilch Interface
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
+    builder.Key("GameSession");
+    builder.Begin(Zilch::JsonType::Object);
+    {
+      // Serialize GameSession properties
+      SerializeByType(builder, interface->GetState(), ZilchTypeId(GameSession), this);
+      // Serialize the underlying Entity object, which includes its components.
+      Entity::Serialize(builder);
+    }
+    builder.End();
+  }
+
+  /**************************************************************************/
+  /*!
+  @brief Deserializes the GameSession.
+  @param properties A pointer to the object containing the properties.
+  @note  This will deserialize the GameSession's properties, then its components.
+  */
+  /**************************************************************************/
+  void GameSession::Deserialize(Zilch::JsonValue * properties)
+  {
+    // Grab a reference to the Zilch Interface
+    auto interface = Daisy->getSystem<Systems::Reflection>()->Handler();
+    // Deserialize the underlying Entity
+    Entity::Deserialize(properties);
+    // Deserialize the GameSession properties
+    DeserializeByType(properties, interface->GetState(), ZilchTypeId(GameSession), this);
+  }
+
+  /**************************************************************************/
+  /*!
   \brief Initializes the GameSession.
   1. Systems are added to a container in the GameSession.
   2. Creates the default space.
@@ -91,29 +130,6 @@ namespace DCEngine {
    // Daisy->Connect<Events::GameFocusIn>(*this, &GameSession::)
   }
 
-  /**************************************************************************/
-  /*!
-  \brief The GameSession's every space, and its systems are updated.
-  When a space is updated, it provides each of the systems added to it
-  with a vector of entities that meet the system's registration
-  requirements.
-  The space then tells each system to update.
-  \param The time that elapsed during the last frame update.
-
-  */
-  /**************************************************************************/
-  void GameSession::Update(float dt) {
-    if (TRACE_UPDATE)
-      DCTrace << ObjectName << "::Update \n";
-
-    // DEPRECATED: Spaces are not updated by gamesession
-    // Update all active spaces
-    //for (auto space : ActiveSpaces)
-    //  UpdateSpace(space.second, dt);
-    
-    if (TRACE_UPDATE)
-      DCTrace << ObjectName << "::Update - All spaces updated. \n";
-  }
 
   /**************************************************************************/
   /*!

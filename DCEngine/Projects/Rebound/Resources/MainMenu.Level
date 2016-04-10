@@ -6890,6 +6890,18 @@
             }
           }
         }
+      }, 
+      "GameObject": 
+      {
+        "Locked": true, 
+        "GameObjectID": 112, 
+        "Name": "LevelSettings", 
+        "Components": 
+        {
+        }, 
+        "Children": 
+        {
+        }
       }
     }
   }
