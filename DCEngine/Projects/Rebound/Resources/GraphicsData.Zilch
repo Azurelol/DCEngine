@@ -1,0 +1,136 @@
+class GraphicsData : ZilchComponent
+{
+	var NativeResolution : Real2;
+	var CurrentResolution : Resolution;
+	var CurrentAA : AntiAlias;
+
+    function Initialize()
+    {
+        Daisy.Connect(this.Owner, DaisyEvent.GraphicsChange, this.OnGraphicsChange);
+
+        // Get Native?
+    }
+
+    function OnGraphicsChange(event : GraphicsChange)
+    {
+    	if(event.NewRes != Resolution.Unchanged && event.NewRes != this.CurrentResolution)
+    	{
+    		this.CurrentResolution = event.NewRes;
+    		this.ApplyResolution(event.NewRes);
+    	}
+
+    	if(event.NewAA != AntiAlias.Unchanged && event.NewAA != this.CurrentAA)
+    	{
+    		this.CurrentAA = event.NewAA;
+    		this.ApplyAntiAlias(event.NewAA);
+    	}
+    }
+
+    function ApplyAntiAlias(newAA : AntiAlias)
+    {
+    	var aaSample : Integer = 0;
+
+    	if(newAA == AntiAlias.A_x0)
+    	{
+    		aaSample = 0;
+    	}
+    	else if(newAA == AntiAlias.B_x4)
+    	{
+    		aaSample = 4;
+    	}
+    	else if(newAA == AntiAlias.C_x8)
+    	{
+    		aaSample = 8;
+    	}
+    	else if(newAA == AntiAlias.D_x16)
+    	{
+    		aaSample = 16;
+    	}
+
+    	//this.Space.GraphicsSpace.SetAntiAliasingLevel(aaSample);
+    }
+
+    function ApplyResolution(newRes : Resolution)
+    {
+    	var resWidth : Integer = 0;
+    	var resHeight : Integer = 0;
+
+    	if(newRes == Resolution.A_1920x1080)
+    	{
+    		resWidth = 1920;
+    		resHeight = 1080;
+    	}
+    	else if(newRes == Resolution.A_1600x900)
+    	{
+    		resWidth = 1600;
+    		resHeight = 900;
+    	}
+    	else if(newRes == Resolution.A_1280x720)
+    	{
+    		resWidth = 1280;
+    		resHeight = 720;
+    	}
+    	else if(newRes == Resolution.A_1024x576)
+    	{
+    		resWidth = 1024;
+    		resHeight = 576;
+    	}
+    	else if(newRes == Resolution.B_1920x1440)
+    	{
+    		resWidth = 1920;
+    		resHeight = 1440;
+    	}
+    	else if(newRes == Resolution.B_1400x1080)
+    	{
+    		resWidth = 1400;
+    		resHeight = 1080;
+    	}
+    	else if(newRes == Resolution.B_1280x960)
+    	{
+    		resWidth = 1280;
+    		resHeight = 960;
+    	}
+    	else if(newRes == Resolution.B_1024x768)
+    	{
+    		resWidth = 1024;
+    		resHeight = 768;
+    	}
+    	else if(newRes == Resolution.C_1920x1200)
+    	{
+    		resWidth = 1920;
+    		resHeight = 1200;
+    	}
+    	else if(newRes == Resolution.C_1680x1050)
+    	{
+    		resWidth = 1680;
+    		resHeight = 1050;
+    	}
+    	else if(newRes == Resolution.C_1440x900)
+    	{
+    		resWidth = 1440;
+    		resHeight = 900;
+    	}
+    	else if(newRes == Resolution.C_1280x800)
+    	{
+    		resWidth = 1280;
+    		resHeight = 800;
+    	}
+    	else if(newRes == Resolution.D_1800x1440)
+    	{
+    		resWidth = 1800;
+    		resHeight = 1440;
+    	}
+    	else if(newRes == Resolution.D_1600x1280)
+    	{
+    		resWidth = 1600;
+    		resHeight = 1280;
+    	}
+    	else if(newRes == Resolution.D_1280x1024)
+    	{
+    		resWidth = 1280;
+    		resHeight = 1024;
+    	}
+
+    	//this.Space.GraphicsSpace.SetResolution(resWidth, resHeight);
+    }
+}

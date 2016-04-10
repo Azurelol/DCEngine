@@ -1,3 +1,10 @@
+class GraphicsChange : ZilchEvent
+{
+	var NewRes : Resolution = Resolution.Unchanged;
+	var NewAA : AntiAlias = AntiAlias.Unchanged;
+	sends GraphicsChange : GraphicsChange;
+}
+
 class OptionsManager : ZilchComponent
 {
     [Property]
@@ -10,21 +17,25 @@ class OptionsManager : ZilchComponent
 
 	var ButtonList : Array[Entity] = null;
 
-    var RefText : Entity = null;
+    var AspectRefText : Entity = null;
+    var ResolutionRefText : Entity = null;
+    var AntiAliasingRefText : Entity = null;
 
     [Property]
-    var RefTextName : String = "";
-	
-	var HoveredReceived : Integer;
-	var DefaultReceived : Integer;
+    var AspRefTextName : String = "";
+    [Property]
+    var ResRefTextName : String = "";
+    [Property]
+    var AARefTextName : String = "";
+
+	var CurAspect : AspectRatio;
+	var CurRes : Resolution;
+	var CurAA : AntiAlias;
 
     function Initialize()
     {
         Daisy.Connect(this.Owner, DaisyEvent.UIButtonEvent, this.OnUIButtonEvent);
         Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
-		
-		this.HoveredReceived = 0;
-		this.DefaultReceived = 0;
 
         this.ButtonList = new Array[Entity]();
         
@@ -39,9 +50,17 @@ class OptionsManager : ZilchComponent
             childList.MoveNext();
         }
 
-        if(this.RefTextName != "")
+        if(this.AspRefTextName != "")
         {
-            this.RefText = this.Space.FindObjectByName(this.RefTextName);
+            this.AspectRefText = this.Space.FindObjectByName(this.AspRefTextName);
+        }
+        if(this.ResRefTextName != "")
+        {
+            this.ResolutionRefText = this.Space.FindObjectByName(this.ResRefTextName);
+        }
+        if(this.AARefTextName != "")
+        {
+            this.AntiAliasingRefText = this.Space.FindObjectByName(this.AARefTextName);
         }
     }
 
@@ -71,20 +90,104 @@ class OptionsManager : ZilchComponent
 
     function OnLogicUpdate(event : LogicUpdate)
     {
-        if(this.RefText == null || this.RefText.SpriteText == null)
+        if(this.AspectRefText == null || this.AspectRefText.SpriteText == null ||
+        	this.ResolutionRefText == null || this.ResolutionRefText.SpriteText == null ||
+        	this.AntiAliasingRefText == null || this.AntiAliasingRefText.SpriteText == null)
         {
             return;
         }
-		
-		if(this.DefaultReceived - this.HoveredReceived > 4)
-		{
-			this.RefText.SpriteText.Text = "";
-		}
+
+        this.SetAspectText();
+        this.SetResolutiontext();
+    }
+
+    function SetAspectText()
+    {
+    	if(this.CurAspect == AspectRatio.A_16x9)
+        {
+        	this.AspectRefText.SpriteText.Text = "16x9";
+        }
+        else if(this.CurAspect == AspectRatio.B_4x3)
+        {
+        	this.AspectRefText.SpriteText.Text = "4x3";
+        }
+        else if(this.CurAspect == AspectRatio.C_16x10)
+        {
+        	this.AspectRefText.SpriteText.Text = "16x10";
+        }
+        else if(this.CurAspect == AspectRatio.D_5x4)
+        {
+        	this.AspectRefText.SpriteText.Text = "5x4";
+        }
+    }
+
+    function SetResolutiontext()
+    {
+    	if(this.CurRes == Resolution.A_1920x1080)
+        {
+        	this.ResolutionRefText.SpriteText.Text = "1920x1080";
+        }
+        else if(this.CurRes == Resolution.A_1600x900)
+        {
+        	this.ResolutionRefText.SpriteText.Text = "1600x900";
+        }
+        else if(this.CurRes == Resolution.A_1280x720)
+        {
+        	this.ResolutionRefText.SpriteText.Text = "1280x720";
+        }
+        else if(this.CurRes == Resolution.A_1024x576)
+        {
+        	this.ResolutionRefText.SpriteText.Text = "1024x576";
+        }
+        else if(this.CurRes == Resolution.B_1920x1440)
+        {
+        	this.ResolutionRefText.SpriteText.Text = "1920x1440";
+        }
+        else if(this.CurRes == Resolution.B_1400x1080)
+        {
+        	this.ResolutionRefText.SpriteText.Text = "1400x1080";
+        }
+        else if(this.CurRes == Resolution.B_1280x960)
+        {
+        	this.ResolutionRefText.SpriteText.Text = "1280x960";
+        }
+        else if(this.CurRes == Resolution.B_1024x768)
+        {
+        	this.ResolutionRefText.SpriteText.Text = "1024x768";
+        }
+        else if(this.CurRes == Resolution.C_1920x1200)
+        {
+        	this.ResolutionRefText.SpriteText.Text = "1920x1200";
+        }
+        else if(this.CurRes == Resolution.C_1680x1050)
+        {
+        	this.ResolutionRefText.SpriteText.Text = "1680x1050";
+        }
+        else if(this.CurRes == Resolution.C_1440x900)
+        {
+        	this.ResolutionRefText.SpriteText.Text = "1440x900";
+        }
+        else if(this.CurRes == Resolution.C_1280x800)
+        {
+        	this.ResolutionRefText.SpriteText.Text = "1280x800";
+        }
+        else if(this.CurRes == Resolution.D_1800x1440)
+        {
+        	this.ResolutionRefText.SpriteText.Text = "1800x1440";
+        }
+        else if(this.CurRes == Resolution.D_1600x1280)
+        {
+        	this.ResolutionRefText.SpriteText.Text = "1600x1280";
+        }
+        else if(this.CurRes == Resolution.D_1280x1024)
+        {
+        	this.ResolutionRefText.SpriteText.Text = "1280x1024";
+        }
     }
 
     function OnButtonDefault(button : Entity)
     {
-		this.DefaultReceived += 1;
+		
     }
 
     function OnButtonHovered(button : Entity)
@@ -94,32 +197,29 @@ class OptionsManager : ZilchComponent
     		this.HoverSoundInstance = this.Space.SoundSpace.PlayCue(this.HoverSoundName);
     	}
 
-        if(this.RefText == null || this.RefText.SpriteText == null)
-        {
-            return;
-        }
-
     	if(button.Name == "FullScreenB")
         {
-            this.RefText.SpriteText.Text = "";
+            //this.RefText.SpriteText.Text = "";
         }
-        else if(button.Name == "HowToPlayButton")
+        else if(button.Name == "NextRatio")
         {
-            this.RefText.SpriteText.Text = "";
+            //this.RefText.SpriteText.Text = "";
         }
-        else if(button.Name == "OptionsButton")
+        else if(button.Name == "PrevRatio")
         {
-            this.RefText.SpriteText.Text = "";
+            //this.RefText.SpriteText.Text = "";
         }
-        else if(button.Name == "CreditsButton")
+        else if(button.Name == "NextRes")
         {
-            this.RefText.SpriteText.Text = "Learn about the team";
+            //this.RefText.SpriteText.Text = "Learn about the team";
         }
-        else if(button.Name == "QuitGameButton")
+        else if(button.Name == "PrevRes")
         {
-            this.RefText.SpriteText.Text = "    Leave the game";
+            //this.RefText.SpriteText.Text = "    Leave the game";
         }
-		this.HoveredReceived += 1;
+        else if(button.Name == "Apply")
+        {
+        }
     }
 
     function OnButtonClicked(button : Entity)
@@ -130,24 +230,171 @@ class OptionsManager : ZilchComponent
     	}
 
     	if(button.Name == "FullScreenB")
-    	{
-    		//Graphics.ToggleFullscreen();
-    	}
-    	else if(button.Name == "")
-    	{
-            
-    	}
-    	else if(button.Name == "")
-    	{
-    		
-    	}
-    	else if(button.Name == "")
-    	{
-    		
-    	}
-    	else if(button.Name == "")
-    	{
-    		
-    	}
+        {
+            //this.Space.GraphicsSpace.ToggleFullscreen();
+        }
+        else if(button.Name == "NextRatio")
+        {
+        	if(this.CurAspect == AspectRatio.A_16x9)
+        	{
+        		this.CurAspect = AspectRatio.B_4x3;
+            	this.CurRes = Resolution.B_1920x1440;
+        	}
+        	else if(this.CurAspect == AspectRatio.B_4x3)
+        	{
+        		this.CurAspect = AspectRatio.C_16x10;
+            	this.CurRes = Resolution.C_1920x1200;
+        	}
+        	else if(this.CurAspect == AspectRatio.C_16x10)
+        	{
+        		this.CurAspect = AspectRatio.D_5x4;
+            	this.CurRes = Resolution.D_1800x1440;
+        	}
+            else if(this.CurAspect == AspectRatio.D_5x4)
+            {
+            	this.CurAspect = AspectRatio.A_16x9;
+            	this.CurRes = Resolution.A_1920x1080;
+            }
+        }
+        else if(button.Name == "PrevRatio")
+        {
+            if(this.CurAspect == AspectRatio.A_16x9)
+        	{
+        		this.CurAspect = AspectRatio.D_5x4;
+            	this.CurRes = Resolution.D_1800x1440;
+        	}
+        	else if(this.CurAspect == AspectRatio.B_4x3)
+        	{
+        		this.CurAspect = AspectRatio.A_16x9;
+            	this.CurRes = Resolution.A_1920x1080;
+        	}
+        	else if(this.CurAspect == AspectRatio.C_16x10)
+        	{
+        		this.CurAspect = AspectRatio.B_4x3;
+            	this.CurRes = Resolution.B_1920x1440;
+        	}
+            else if(this.CurAspect == AspectRatio.D_5x4)
+            {
+            	this.CurAspect = AspectRatio.C_16x10;
+            	this.CurRes = Resolution.C_1920x1200;
+            }
+        }
+        else if(button.Name == "NextRes")
+        {
+            if(this.CurAspect == AspectRatio.A_16x9)
+            {
+            	if(this.CurRes == Resolution.A_1024x576)
+            	{
+            		this.CurRes = Resolution.A_1920x1080;
+            	}
+            	else
+            	{
+            		this.CurRes += 1;
+            	}
+            }
+            else if(this.CurAspect == AspectRatio.B_4x3)
+            {
+            	if(this.CurRes == Resolution.B_1024x768)
+            	{
+            		this.CurRes = Resolution.B_1920x1440;
+            	}
+            	else
+            	{
+            		this.CurRes += 1;
+            	}
+            }
+            else if(this.CurAspect == AspectRatio.C_16x10)
+            {
+            	if(this.CurRes == Resolution.C_1440x900)
+            	{
+            		this.CurRes = Resolution.C_1920x1200;
+            	}
+            	else
+            	{
+            		this.CurRes += 1;
+            	}
+            }
+            else if(this.CurAspect == AspectRatio.D_5x4)
+            {
+            	if(this.CurRes == Resolution.D_1280x1024)
+            	{
+            		this.CurRes = Resolution.D_1800x1440;
+            	}
+            	else
+            	{
+            		this.CurRes += 1;
+            	}
+            }
+        }
+        else if(button.Name == "PrevRes")
+        {
+            if(this.CurAspect == AspectRatio.A_16x9)
+            {
+            	if(this.CurRes == Resolution.A_1920x1080)
+            	{
+            		this.CurRes = Resolution.A_1024x576;
+            	}
+            	else
+            	{
+            		this.CurRes -= 1;
+            	}
+            }
+            else if(this.CurAspect == AspectRatio.B_4x3)
+            {
+            	if(this.CurRes == Resolution.B_1920x1440)
+            	{
+            		this.CurRes = Resolution.B_1024x768;
+            	}
+            	else
+            	{
+            		this.CurRes -= 1;
+            	}
+            }
+            else if(this.CurAspect == AspectRatio.C_16x10)
+            {
+            	if(this.CurRes == Resolution.C_1920x1200)
+            	{
+            		this.CurRes = Resolution.C_1440x900;
+            	}
+            	else
+            	{
+            		this.CurRes -= 1;
+            	}
+            }
+            else if(this.CurAspect == AspectRatio.D_5x4)
+            {
+            	if(this.CurRes == Resolution.D_1800x1440)
+            	{
+            		this.CurRes = Resolution.D_1280x1024;
+            	}
+            	else
+            	{
+            		this.CurRes -= 1;
+            	}
+            }
+        }
+        else if(button.Name == "Apply")
+        {
+        	this.SendOutChanges();
+        }
+    }
+
+    function SendOutChanges()
+    {
+    	var changes = GraphicsChange();
+    	changes.NewRes = this.CurRes;
+    	changes.NewAA = this.CurAA;
+
+    	this.Owner.Dispatch(DaisyEvent.GraphicsChange, changes);
     }
 }
+
+enum AspectRatio {A_16x9, B_4x3, C_16x10, D_5x4}
+
+enum Resolution {A_1920x1080, A_1600x900, A_1280x720, A_1024x576, 
+				 B_1920x1440, B_1400x1080, B_1280x960, B_1024x768,
+				 C_1920x1200, C_1680x1050, C_1440x900, C_1280x800,
+				 D_1800x1440, D_1600x1280, D_1280x1024,
+				 Unchanged}
+
+enum AntiAlias {A_x0, B_x4, C_x8, D_x16, Unchanged}
