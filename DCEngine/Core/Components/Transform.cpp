@@ -27,6 +27,8 @@ namespace DCEngine {
       DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(Transform);
       // Properties
       DCE_BINDING_DEFINE_PROPERTY(Transform, Translation);
+      DCE_BINDING_DEFINE_PROPERTY(Transform, LocalTranslation);
+      DCE_BINDING_DEFINE_PROPERTY(Transform, WorldTranslation);
       DCE_BINDING_DEFINE_PROPERTY(Transform, Rotation);
       DCE_BINDING_DEFINE_PROPERTY(Transform, Scale);
     }
@@ -198,6 +200,52 @@ namespace DCEngine {
       point += rotation;
 
       return point;
+    }
+
+    const Vec3 & Transform::getLocalTranslation() const
+    {
+      auto parentref = dynamic_cast<GameObject*>(this->ObjectOwner)->Parent();
+
+      if (parentref)
+      {
+        return Translation - parentref->getComponent<Components::Transform>()->getTranslation();
+      }
+
+      return Translation;
+    }
+    
+    void Transform::setLocalTranslation(const Vec3 & val)
+    {
+      auto parentref = dynamic_cast<GameObject*>(this->ObjectOwner)->Parent();
+
+      if (parentref)
+      {
+
+        Translation = parentref->getComponent<Components::Transform>()->getTranslation() + val;
+        return;
+      }
+
+      Translation = val;
+    }
+
+    const Vec3 & Transform::getTranslation() const
+    {
+      return Translation;
+    }
+
+    void Transform::setTranslation(const Vec3 & val)
+    {
+      Translation = val;
+    }
+
+    const Vec3 & Transform::getWorldTranslation() const
+    {
+      return Translation;
+    }
+
+    void Transform::setWorldTranslation(const Vec3 & val)
+    {
+      Translation = val;
     }
     /*
     const Vec3 &Transform::getRotation(void)

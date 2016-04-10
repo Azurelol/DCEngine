@@ -7,23 +7,27 @@ class GraphicsData : ZilchComponent
     function Initialize()
     {
         Daisy.Connect(this.Owner, DaisyEvent.GraphicsChange, this.OnGraphicsChange);
+        this.CurrentAA = AntiAlias.B_x4;
+        this.CurrentResolution = Resolution.Native;
 
         // Get Native?
     }
 
     function OnGraphicsChange(event : GraphicsChange)
     {
-    	if(event.NewRes != Resolution.Unchanged && event.NewRes != this.CurrentResolution)
-    	{
-    		this.CurrentResolution = event.NewRes;
-    		this.ApplyResolution(event.NewRes);
-    	}
 
     	if(event.NewAA != AntiAlias.Unchanged && event.NewAA != this.CurrentAA)
     	{
     		this.CurrentAA = event.NewAA;
     		this.ApplyAntiAlias(event.NewAA);
     	}
+    	
+    	if(event.NewRes != Resolution.Unchanged && event.NewRes != this.CurrentResolution)
+    	{
+    		this.CurrentResolution = event.NewRes;
+    		this.ApplyResolution(event.NewRes);
+    	}
+
     }
 
     function ApplyAntiAlias(newAA : AntiAlias)
@@ -47,7 +51,7 @@ class GraphicsData : ZilchComponent
     		aaSample = 16;
     	}
 
-    	//this.Space.GraphicsSpace.SetAntiAliasingLevel(aaSample);
+    	this.Space.GraphicsSpace.SetAntiAliasingLevel(aaSample);
     }
 
     function ApplyResolution(newRes : Resolution)
@@ -131,6 +135,6 @@ class GraphicsData : ZilchComponent
     		resHeight = 1024;
     	}
 
-    	//this.Space.GraphicsSpace.SetResolution(resWidth, resHeight);
+    	this.Space.GraphicsSpace.SetResolution(resWidth, resHeight);
     }
 }

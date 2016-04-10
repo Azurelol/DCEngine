@@ -88,18 +88,30 @@ namespace DCEngine {
 			else
 				glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
 
+			std::vector<bool> cullList;
 			for (const auto& drawList : *mDrawList)
 				for (const auto& obj : drawList)
 					if (dynamic_cast<Components::Sprite*>(obj))
-						if (obj->Owner()->getComponent<Components::Transform>()->Translation.z == 0)
+					{
+						Components::Transform* objTfm = obj->Owner()->getComponent<Components::Transform>();
+						if (objTfm->Translation.z == 0)
 						{
-							obj->SetUniforms(ShadowingShader, camera, light);
-							obj->Draw();
+							Components::Transform* lTfm = light->Owner()->getComponent<Components::Transform>();
+							float length = glm::length(objTfm->Translation - lTfm->Translation);
+							float objRadius = MAX(objTfm->Scale.x, objTfm->Scale.y);
+							if (length > objRadius + light->getRange())
+							{
+								obj->SetUniforms(ShadowingShader, camera, light);
+								obj->Draw();
+							}
+							else
+								cullList.push_back(true);
 						}
+					}
 
 			// Restore local stuff
 			glDepthMask(GL_TRUE);
-			glDrawBuffer(GL_BACK);
+			//glDrawBuffer(GL_BACK);
 			glEnable(GL_CULL_FACE);
 			glDisable(GL_DEPTH_CLAMP);
 		}

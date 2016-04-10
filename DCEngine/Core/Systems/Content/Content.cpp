@@ -22,7 +22,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     Content::Content(ContentConfig& config) : System(std::string("ContentSystem"), EnumeratedSystem::Content),
-      Settings(config), IsProjectLoaded(false) {
+      Settings(config) {
       ProjectInfo.reset(new ProjectProperties());
     }
 
@@ -175,13 +175,6 @@ namespace DCEngine {
           LoadingThread.join();
 
         LoadingThread = std::thread(&Content::LoadGraphicalResourcesMT, this);
-
-        //if (LoadingThread.joinable()) {        
-        //  LoadingThread.join();
-        //  DispatchSystemEvents::ContentProjectLoaded();
-        //}
-
-        // Now that the graphical resources are done loading, the project is ready to be launched
       }
       // Else if doing sequentially on main thread
       else {
@@ -215,8 +208,8 @@ namespace DCEngine {
     {
 
       // Update the queue before using it
-      LoadedGraphicalResourcesQueue.NumLoaded = 0;
-      LoadedGraphicalResourcesQueue.NumTotal = MapSpriteSource.size() + MapFont.size();
+      GraphicalResourcesQueue.NumLoaded = 0;
+      GraphicalResourcesQueue.NumTotal = MapSpriteSource.size() + MapFont.size();
 
       // Load every SpriteSource's image from file
       for (auto& spriteSource : MapSpriteSource) {
@@ -224,8 +217,8 @@ namespace DCEngine {
         spriteSource.second->LoadImageFromFile();
         
         // Add it to the queue of assets ready to be loaded by the graphics system
-        std::lock_guard<std::mutex> lock(LoadedGraphicalResourcesQueue.AssetsLock);
-        LoadedGraphicalResourcesQueue.Assets.push(spriteSource.second.get());
+        std::lock_guard<std::mutex> lock(GraphicalResourcesQueue.AssetsLock);
+        GraphicalResourcesQueue.Assets.push(spriteSource.second.get());
       }
 
       // Load every Font
@@ -234,12 +227,12 @@ namespace DCEngine {
         font.second->LoadFontFromFile();
 
         // Add it to the queue of assets ready to be loaded by the graphics system
-        std::lock_guard<std::mutex> lock(LoadedGraphicalResourcesQueue.AssetsLock);
-        LoadedGraphicalResourcesQueue.Assets.push(font.second.get());
+        std::lock_guard<std::mutex> lock(GraphicalResourcesQueue.AssetsLock);
+        GraphicalResourcesQueue.Assets.push(font.second.get());
       }
 
-      std::lock_guard<std::mutex> lock(LoadingLock);
-      IsProjectLoaded = true;
+      //std::lock_guard<std::mutex> lock(GraphicalResourcesQueue.LockFinished);
+      //GraphicalResourcesQueue.Finished = true;
 
       //DispatchSystemEvents::ContentProjectLoaded();
 
@@ -254,7 +247,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Content::LoadProject(const std::string& projectDataPath)
     {
-      IsProjectLoaded = false;
+      GraphicalResourcesQueue.Finished = false;
 
       // Deserialize the project data
       ProjectInfo.reset(new ProjectProperties);
@@ -317,10 +310,10 @@ namespace DCEngine {
       SystemTimer profile(this->Name());
 
       // Check for loader threads being completed
-      if (IsProjectLoaded) {
+      if (GraphicalResourcesQueue.Finished) {
         DispatchSystemEvents::ContentProjectLoaded();
-        std::lock_guard<std::mutex> lock(LoadingLock);
-        IsProjectLoaded = false;
+        std::lock_guard<std::mutex> lock(GraphicalResourcesQueue.LockFinished);
+        GraphicalResourcesQueue.Finished = false;
       }
     }
 

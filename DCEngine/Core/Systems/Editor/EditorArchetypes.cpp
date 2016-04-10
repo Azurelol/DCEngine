@@ -43,12 +43,18 @@ namespace DCEngine {
   /*!
   @brief Selects an Archetype, instantiating it.
   @param archetype The name of the archetype.
+  @note Currently not working for Space/GameSession.
   */
   /**************************************************************************/
-    void EditorArchetypes::Select(ArchetypeHandle archetype)
+    void EditorArchetypes::Select(ArchetypeHandle archetypeName)
     {    
-      // Create a dummy object
 
+      if (archetypeName == "Space" || archetypeName == "GameSession")
+        return;
+
+      // Find the archetype
+      auto archetype = Archetype::Find(archetypeName);
+      // Create a dummy object ??
       // Instantiate the archetype
       CurrentArchetype = ArchetypeSpace->CreateObject(archetype);
       Access().Select(CurrentArchetype);
@@ -97,7 +103,7 @@ namespace DCEngine {
                    + archetype + Archetype::Extension();
 
       // Create the archetype
-      auto archetypePtr = Daisy->getSystem<Factory>()->BuildArchetype(path, dynamic_cast<GameObjectPtr>(entity));
+      auto archetypePtr = Daisy->getSystem<Factory>()->BuildArchetype(path, entity);
       // Save it
       archetypePtr->Save();
       // Scan for archetypes again
@@ -117,6 +123,14 @@ namespace DCEngine {
       // Request the factory system to rebuild the object's components
       // from its archetype.
       Daisy->getSystem<Systems::Factory>()->RebuildFromArchetype(entity);
+    }
+
+    void EditorArchetypes::RevertSpace(SpacePtr space)
+    {
+    }
+
+    void EditorArchetypes::RevertGameSession(GameSessionPtr gameSession)
+    {
     }
 
     /**************************************************************************/

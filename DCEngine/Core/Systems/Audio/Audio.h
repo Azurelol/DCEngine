@@ -47,7 +47,7 @@ namespace DCEngine {
       void StopSound(const std::string& soundCueName);
       void Register(Components::SoundSpace& soundSpace);
       void Generate();
-
+      void Pulse();
       ~Audio(); // @todo plz no
 
     private:

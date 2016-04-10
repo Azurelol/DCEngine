@@ -2,8 +2,9 @@
 {
   "GameObject": 
   {
+    "Locked": false, 
+    "GameObjectID": 1727, 
     "Name": "EnemyExplosionParticle", 
-    "Archetype": "EnemyExplosionParticle", 
     "Components": 
     {
       "Transform": 
@@ -13,7 +14,7 @@
           "Vec3": 
           {
             "x": 0.000000, 
-            "y": 0.000000, 
+            "y": 9.000000, 
             "z": 0.000000
           }
         }, 
@@ -61,7 +62,9 @@
             "z": 4.000000
           }
         }, 
-        "Additive": true
+        "Additive": true, 
+        "Lock": false, 
+        "DrawLayer": 4
       }, 
       "ParticleEmitter": 
       {
@@ -70,8 +73,8 @@
         "EmitCount": 15, 
         "EmitRate": 1000, 
         "EmitVariance": 0, 
-        "Size": 0.400000, 
-        "SizeVariance": 0.000000, 
+        "Size": 0.700000, 
+        "SizeVariance": 0.200000, 
         "Lifetime": 0.500000, 
         "LifetimeVariance": 0.000000, 
         "Spin": 500.000000, 
@@ -89,8 +92,8 @@
         {
           "Vec3": 
           {
-            "x": 3.000000, 
-            "y": 3.000000, 
+            "x": 5.000000, 
+            "y": 5.000000, 
             "z": 0.000000
           }
         }
@@ -172,6 +175,9 @@
           }
         }
       }
+    }, 
+    "Children": 
+    {
     }
   }
 }

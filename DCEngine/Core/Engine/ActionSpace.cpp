@@ -75,15 +75,25 @@ namespace DCEngine {
   /**************************************************************************/
   void ActionSpace::Update(float dt)
   {
-    for (auto& action : AllActions) {
 
+    for (size_t i = 0; i < AllActions.size(); ++i) {
       // If it's paused, do not update its actions
-      if (action->IsPaused())
+      if (AllActions[i]->IsPaused())
         continue;
 
       // Update the action
-      action->Update(dt);
+      AllActions[i]->Update(dt);
     }
+
+    //for (auto& action : AllActions) {
+
+    //  // If it's paused, do not update its actions
+    //  if (action->IsPaused())
+    //    continue;
+
+    //  // Update the action
+    //  action->Update(dt);
+    //}
 
 
     // Propagate updates directly to all actions.
