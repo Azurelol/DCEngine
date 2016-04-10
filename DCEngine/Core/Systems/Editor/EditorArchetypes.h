@@ -12,11 +12,17 @@
 
 #include "../../Resources/Archetype.h"
 #include "EditorModule.h"
+// Entities
+//#include "../../Objects/Entities/EntitiesInclude.h"
 
 namespace DCEngine {
 
-  class GameObject;
+  class Entity;
   class Space;
+  class GameSession;
+
+  using SpacePtr = Space*;
+  using GameSessionPtr = GameSession*;
 
   namespace Systems {
 
@@ -27,9 +33,12 @@ namespace DCEngine {
       ~EditorArchetypes();
       void Select(ArchetypeHandle archetype);
       void Preview();      
-      void UploadArchetype(ArchetypeHandle archetype);      
+      void UploadArchetype(EntityPtr entity);      
       void RevertToArchetype(EntityPtr entity);
-      GameObject* Current();
+      void RevertSpace(SpacePtr space);
+      void RevertGameSession(GameSessionPtr gameSession);
+      EntityPtr Current();
+
 
     private:
       void Display() {}
@@ -41,7 +50,7 @@ namespace DCEngine {
       void OnEditorSelectObjectEvent(Events::EditorSelectObject* event);
       void OnEditorDeselectObjectEvent(Events::EditorDeselectObject* event);
 
-      GameObject* CurrentArchetype;      
+      EntityPtr CurrentArchetype;
       Space* ArchetypeSpace;
 
 

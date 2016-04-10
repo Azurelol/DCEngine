@@ -24,6 +24,8 @@ namespace DCEngine {
       GameObjectPtr CreateLight();
       GameObjectPtr CreateCamera();
       GameObjectPtr CreateFromArchetype(const std::string& archetypeName);
+      GameObjectPtr CreateEditorCamera();
+      GameObjectPtr CreateLevelSettings();
       void RebuildAllObjectsOnSpace();
 
     private:

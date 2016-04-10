@@ -34,6 +34,9 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(GraphicsSpace, SpriteLayerOrder);
       DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertySpriteLayerOrder, attributeSpriteLayerOrder);
       DCE_BINDING_DEFINE_PROPERTY(GraphicsSpace, Active);
+      ZilchBindMethod(builder, type, &GraphicsSpace::SetResolution, ZilchNoOverload, "SetResolution", "x, y");
+      ZilchBindMethod(builder, type, &GraphicsSpace::SetAntiAliasingLevel, ZilchNoOverload, "SetAntiAliasingLevel", "samples");
+      ZilchBindMethod(builder, type, &GraphicsSpace::ToggleFullscreen, ZilchNoOverload, "ToggleFullscreen", ZilchNoNames);
       //ZilchBindProperty(builder, type, &RigidBody::getDynamicState, &RigidBody::setDynamicState, "DynamicState");
     }
     #endif
@@ -99,6 +102,27 @@ namespace DCEngine {
     LightComponentContainer GraphicsSpace::getLightComponents(void)
     {
       return LightComponents;
+    }
+
+    void GraphicsSpace::SetResolution(unsigned x, unsigned y)
+    {
+      Daisy->getSystem<Systems::Graphics>()->SetResolution(x, y);
+    }
+    void GraphicsSpace::SetAntiAliasingLevel(unsigned samples)
+    {
+      Daisy->getSystem<Systems::Graphics>()->SetAntiAliasingLevel(samples);
+    }
+    void GraphicsSpace::ToggleFullscreen()
+    {
+      Daisy->getSystem<Systems::Graphics>()->ToggleFullscreen();
+    }
+    unsigned GraphicsSpace::GetScreenWidth()
+    {
+      return GraphicsSystem->GetScreenWidth();
+    }
+    unsigned GraphicsSpace::GetScreenHeight() const
+    {
+      return GraphicsSystem->GetScreenHeight();
     }
 
     /**************************************************************************/
@@ -179,9 +203,12 @@ namespace DCEngine {
     /**************************************************************************/
     void GraphicsSpace::DrawCircle(const Vec3& pos, Real radius, const Vec4& color, bool fill) const
     {
-      auto cam = CameraViewportComponent->getCamera();
-      if (!cam)
+      if (!CameraViewportComponent)
         return;
+
+      auto cam = CameraViewportComponent->getCamera();
+      if (!cam) return;
+
       Daisy->getSystem<Systems::Graphics>()->DrawCircle(pos, radius, color, *cam, fill);
     }
 
@@ -197,9 +224,12 @@ namespace DCEngine {
     /**************************************************************************/
     void GraphicsSpace::DrawRectangle(const Vec3& pos, Real width, Real height, const Vec4& color, bool fill) const
     {
-      auto cam = CameraViewportComponent->getCamera();
-      if (!cam)
+      if (!CameraViewportComponent)
         return;
+
+      auto cam = CameraViewportComponent->getCamera();
+      if (!cam) return;
+
       Daisy->getSystem<Systems::Graphics>()->DrawRectangle(pos, width, height, color, *cam, fill);
     }
 
@@ -213,9 +243,12 @@ namespace DCEngine {
     /**************************************************************************/
     void GraphicsSpace::DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color) const
     {
-      auto cam = CameraViewportComponent->getCamera();
-      if (!cam)
+      if (!CameraViewportComponent)
         return;
+
+      auto cam = CameraViewportComponent->getCamera();
+      if (!cam) return;
+
       Daisy->getSystem<Systems::Graphics>()->DrawLineSegment(startPos, endPos, color, *cam);
     }
 

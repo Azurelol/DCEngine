@@ -1,7 +1,7 @@
 /*****************************************************************************/
 /*!
 \file   Graphics.h
-\author Christian Sagel, Chen Shu
+\author Christian Sagel, Chen Shu, William Mao
 \par    email: c.sagel\@digipen.edu
 \date   9/12/2015
 \brief  The graphics system is the bridge between the rendering calls from the
@@ -32,7 +32,6 @@ namespace DCEngine {
     class WindowSFML;
 
     class Graphics : public System {
-      ZilchDeclareBaseType(Graphics, Zilch::TypeCopyMode::ReferenceType);
       friend class Engine;
       friend class WindowSFML;
       friend class GraphicsGL;
@@ -55,6 +54,10 @@ namespace DCEngine {
 			void SetResolution(unsigned x, unsigned y);
 			void SetAntiAliasingLevel(unsigned samples);
 			void ToggleFullscreen();
+			//Setting Gettors
+			unsigned GetScreenWidth() const;
+			unsigned GetScreenHeight() const;
+
 
     private:
 
@@ -75,6 +78,7 @@ namespace DCEngine {
       void OnWindowFullScreenEnabledEvent(Events::WindowFullScreenEnabled* event);
       void OnWindowFullScreenDisabledEvent(Events::WindowFullScreenDisabled* event);
       void OnWindowResizeEvent(Events::WindowResize* event);
+			void OnWindowRecreateEvent(Events::WindowRecreate* event);
       void OnGraphicsToggleLightningEvent(Events::GraphicsToggleLightning* event);
       // CTOR/ DTOR, Initialize
       Graphics(GraphicsConfig& settings);

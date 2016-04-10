@@ -130,10 +130,10 @@ namespace DCEngine {
 
       // KEYS: alt+tab, ctrl+alt+delete
       case sf::Event::LostFocus:
-        if (Daisy->getSystem<Window>()->WindowHandler->Mode == WindowMode::Fullscreen)
-        {
-          ShowWindow(WindowContext->getSystemHandle(), SW_MINIMIZE);
-        }
+        //if (Daisy->getSystem<Window>()->WindowHandler->Mode == WindowMode::Fullscreen)
+        //{
+        //  ShowWindow(WindowContext->getSystemHandle(), SW_MINIMIZE);
+        //}
         // @todo plz fix me
         KeyboardRef->KeyDown_S = false;
         KeyboardRef->KeyDown_W = false;
@@ -142,13 +142,14 @@ namespace DCEngine {
         KeyboardRef->KeyDown_D = false;
         KeyboardRef->KeyDown_Space = false;
 
+				DispatchSystemEvents::EnginePause();
         DispatchSystemEvents::WindowLostFocus();
         break;
 
       // Gained focus
       case sf::Event::GainedFocus:
         
-        ShowWindow(WindowContext->getSystemHandle(), SW_RESTORE);
+        //ShowWindow(WindowContext->getSystemHandle(), SW_RESTORE);
         DispatchSystemEvents::WindowGainedFocus();
         break;
 

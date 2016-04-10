@@ -44,11 +44,13 @@ namespace DCEngine {
       Real TurnSpeedScalar = 5.0f; //how much faster you accelerate when attemping to accelerate opposite your current velocity
       Real VelocityXCap = 30.0f;
       Real GroundFriction = 0.2f;
+	  Real FramesOfThrowAnimation = 0;
       String StandAnimation = "Char_Asha_Idle_Spritesheet";
       String JumpAnimation = "Char_Asha_Jump_Spritesheet";
       String RunAnimation = "Char_Asha_Run_Spritesheet";
 	  String FallAnimation = "Char_Asha_Fall_Spritesheet";
-	  
+	  String ThrowAnimation = "Char_Asha_Throw_Spritesheet";
+	  String LandingParticle = "LandingParticle";
       String TeleportStartSound = "Teleport";
       String TeleportArriveSound = "TeleportArrive";
       String FootstepSound = "Step";
@@ -74,6 +76,8 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(String, JumpAnimation);
       DCE_DEFINE_PROPERTY(String, RunAnimation);
 	  DCE_DEFINE_PROPERTY(String, FallAnimation);
+	  DCE_DEFINE_PROPERTY(String, ThrowAnimation);
+	  DCE_DEFINE_PROPERTY(String, LandingParticle);
       DCE_DEFINE_PROPERTY(String, TeleportStartSound);
       DCE_DEFINE_PROPERTY(String, TeleportArriveSound);
       DCE_DEFINE_PROPERTY(String, JumpSound);

@@ -88,18 +88,17 @@ namespace DCEngine {
     //EngineConfigPtr& Configuration() { return EngineConfiguration; }
 
   private:
-
+        
+    bool Active; //!< Whether the engine is active or not.      
+    float DeltaTime; //!< Delta time. 
     bool Paused;
     DCEngine::Profiler Profile;
     Systems::ConfigurationFiles Configurations;
+    EngineStatistics Statistics;
     EngineConfigPtr EngineConfiguration;
-    GameSessionPtr CurrentGameSession; //!< The current GameSession object.
+    GameSessionStrongPtr CurrentGameSession; //!< The current GameSession object.
     KeyboardPtr KeyboardHandle;
     MousePtr MouseHandle;
-    float DeltaTime; //!< Delta time. 
-    float Framerate = 60.0f; //!< The target frame rate.
-    float Runtime; //!< How long the engine has been running.
-    bool Active; //!< Whether the engine is active or not.      
     std::string _projectName = "Daisy Project"; //!< The current project.
     std::string _defaultSpace = "Daisy World";
     SystemVec Systems; //!< Container for the engine's systems.   

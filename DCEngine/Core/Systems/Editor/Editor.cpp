@@ -178,7 +178,7 @@ namespace DCEngine {
 
         // Reload the level from the editor
         if (reload) {
-          ReloadLevel();
+          Projects.ReloadLevel();
         }
 
         // Toggle the widgets
@@ -299,7 +299,7 @@ namespace DCEngine {
       WindowCommands();
       
       // Autosave
-      AutoSave();
+      Access().Projects.AutoSave();
     }
 
     /**************************************************************************/
