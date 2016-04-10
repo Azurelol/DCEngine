@@ -16,20 +16,44 @@
 
 namespace DCEngine {
 
+  /*!************************************************************************\
+  @brief  GameSession Definition
+  \**************************************************************************/
+  ZilchDefineType(GameSession, "GameSession", DCEngineCore, builder, type) {
+    DCE_BINDING_SET_HANDLE_TYPE_POINTER;
+    // Constructor / Destructor
+    ZilchBindConstructor(builder, type, GameSession, "name", std::string);
+    ZilchBindDestructor(builder, type, GameSession);
+    ZilchBindMethod(builder, type, &GameSession::CreateSpace, ZilchNoOverload, "CreateSpace", "name, initialize");
+    ZilchBindMethod(builder, type, &GameSession::GetSpace, ZilchNoOverload, "FindSpaceByName", "name");
+    ZilchBindMethod(builder, type, &GameSession::getDefaultSpace, ZilchNoOverload, "GetDefaultSpace", ZilchNoNames);
+  }
+
   /**************************************************************************/
   /*!
   \brief GameSession constructor.
   */
   /**************************************************************************/
   GameSession::GameSession(std::string name) : Entity(name) {
-    if (TRACE_ON && TRACE_CONSTRUCTOR)
-      DCTrace << ObjectName << "::GameSession - Constructor\n";
+    // Sets the default archetype
+    setArchetype("GameSession");
+    if (TRACE_ON && TRACE_CONSTRUCTOR) DCTrace << ObjectName << "::GameSession - Constructor\n";
     type_ = EntityType::GameSession;
   }
 
+  /**************************************************************************/
+  /*!
+  \brief GameSession destructor.
+  */
+  /**************************************************************************/
   GameSession::~GameSession() {
   }
 
+  /**************************************************************************/
+  /*!
+  \brief Returns the current GameSession.
+  */
+  /**************************************************************************/
   GameSession*  GameSession::Get()
   {
     return Daisy->getGameSession();
@@ -52,7 +76,19 @@ namespace DCEngine {
       space.second->Initialize();
     }
 
+    // Construct GameSession specific components
+    AddComponentByName("DefaultGameSetup", true);
+    
+  }
 
+  /**************************************************************************/
+  /*!
+  \brief Subscribes to Game-specific events.
+  */
+  /**************************************************************************/
+  void GameSession::Subscribe()
+  {
+   // Daisy->Connect<Events::GameFocusIn>(*this, &GameSession::)
   }
 
   /**************************************************************************/
@@ -162,10 +198,6 @@ namespace DCEngine {
     return DefaultSpace;
   }
 
-  void GameSession::TestGameSession()
-  {
-    DCTrace << "GameSession::TestGameSession \n";
-  }
 
   /**************************************************************************/
   /*!
@@ -176,6 +208,11 @@ namespace DCEngine {
     space->Update(dt);
   }
 
+  /**************************************************************************/
+  /*!
+  \brief Removes a space.
+  */
+  /**************************************************************************/
   void GameSession::RemoveSpace(SpacePtr space)
   {
     SpaceMap::iterator it = ActiveSpaces.find(space->getObjectName());
@@ -188,6 +225,5 @@ namespace DCEngine {
       DCTrace << "- " << space.second->getObjectName() << "\n";
     }
   }
-
 
 }

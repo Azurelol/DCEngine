@@ -104,7 +104,6 @@ class SimpleAnimator : ZilchComponent
 
     function AnimateByStep()
     {
-    	Console.WriteLine("Animating at `this.AnimStep`");
     	if(this.AnimStep == 0)
     	{
     		this.FadeIn();

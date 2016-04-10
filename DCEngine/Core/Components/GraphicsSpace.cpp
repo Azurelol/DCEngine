@@ -34,7 +34,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(GraphicsSpace, SpriteLayerOrder);
       DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertySpriteLayerOrder, attributeSpriteLayerOrder);
       DCE_BINDING_DEFINE_PROPERTY(GraphicsSpace, Active);
-      ZilchBindMethod(builder, type, &GraphicsSpace::SetResolution, ZilchNoOverload, "SetResolution", "resolution");
+      ZilchBindMethod(builder, type, &GraphicsSpace::SetResolution, ZilchNoOverload, "SetResolution", "x, y");
       ZilchBindMethod(builder, type, &GraphicsSpace::SetAntiAliasingLevel, ZilchNoOverload, "SetAntiAliasingLevel", "samples");
       ZilchBindMethod(builder, type, &GraphicsSpace::ToggleFullscreen, ZilchNoOverload, "ToggleFullscreen", ZilchNoNames);
       //ZilchBindProperty(builder, type, &RigidBody::getDynamicState, &RigidBody::setDynamicState, "DynamicState");
@@ -116,6 +116,15 @@ namespace DCEngine {
     {
       Daisy->getSystem<Systems::Graphics>()->ToggleFullscreen();
     }
+		unsigned GraphicsSpace::GetScreenWidth()
+		{
+			return GraphicsSystem->GetScreenWidth();
+		}
+		unsigned GraphicsSpace::GetScreenHeight() const
+		{
+			return GraphicsSystem->GetScreenHeight();
+		}
+
     /**************************************************************************/
     /*!
     \brief Registers a SpriteText into the GraphicsSpace

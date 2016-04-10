@@ -1,7 +1,7 @@
 /*****************************************************************************/
 /*!
 \file   Graphics.h
-\author Christian Sagel, Chen Shu
+\author Christian Sagel, Chen Shu, William Mao
 \par    email: c.sagel\@digipen.edu
 \date   9/12/2015
 \brief  The graphics system is the bridge between the rendering calls from the
@@ -54,6 +54,10 @@ namespace DCEngine {
 			void SetResolution(unsigned x, unsigned y);
 			void SetAntiAliasingLevel(unsigned samples);
 			void ToggleFullscreen();
+			//Setting Gettors
+			unsigned GetScreenWidth() const;
+			unsigned GetScreenHeight() const;
+
 
     private:
 

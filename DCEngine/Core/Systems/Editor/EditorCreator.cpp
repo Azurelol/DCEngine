@@ -93,6 +93,27 @@ namespace DCEngine {
       return gameObject;
     }
 
+    GameObjectPtr EditorCreator::CreateEditorCamera()
+    {
+      return GameObjectPtr();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Creates the default LevelSettings object.
+    @return A pointer to the GameObject.
+    */
+    /**************************************************************************/
+    GameObjectPtr EditorCreator::CreateLevelSettings()
+    {
+      std::vector<std::string> components;
+      auto levelSettings = Create("LevelSettings", components);
+      levelSettings->RemoveComponentByName("Transform");
+      levelSettings->setLocked(true);
+      levelSettings->setProtected(true);
+      return levelSettings;
+    }
+
     /**************************************************************************/
     /*!
     @brief Creates a GameObject on the editor's currently selected space.

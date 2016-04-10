@@ -128,6 +128,7 @@ namespace DCEngine {
         keyDown->Key = Keys::F8;
         break;
       case sf::Keyboard::F9:
+				DispatchSystemEvents::WindowResize(Vec2(800, 600));
         keyDown->Key = Keys::F9;
         break;
       case sf::Keyboard::F10: // RESERVED: Toggle Fullscreen
@@ -565,7 +566,6 @@ namespace DCEngine {
       auto fsevent = new Events::WindowFullScreenToggle();
       Daisy->Dispatch<Events::WindowFullScreenToggle>(fsevent);
       delete fsevent;
-
     }
 
     /**************************************************************************/
