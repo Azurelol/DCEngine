@@ -69,6 +69,7 @@ class UIButton : ZilchComponent
 		Daisy.Connect(this.Owner, DaisyEvent.ToggleEvent, this.OnToggleEvent);
 		Daisy.Connect(this.Space, DaisyEvent.CameraInMotion, this.OnCameraInMotion);
 		Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDown);
+		Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseUp, this.OnMouseUp);
 
 		this.AllowClicks = true;
 
@@ -114,6 +115,15 @@ class UIButton : ZilchComponent
 		if(this.CurState == ButtonState.Hovered && this.AllowClicks)
 		{
 			this.EnterClickedState();
+		}
+	}
+
+	function OnMouseUp(event : MouseUp)
+	{
+		if(this.CurState == ButtonState.Clicked)
+		{
+			this.ReportState();
+			this.EnterHoveredState();
 		}
 	}
 
@@ -170,7 +180,7 @@ class UIButton : ZilchComponent
 			this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 1.0);
 		}
 
-		this.ReportState();
+		//this.ReportState();
 	}
 
 	function EnterInactiveState()
