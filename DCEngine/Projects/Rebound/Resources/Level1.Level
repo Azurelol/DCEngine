@@ -1950,7 +1950,9 @@
             "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
             "RunAnimation": "Char_Asha_Run_Spritesheet", 
             "FallAnimation": "Char_Asha_Fall_Spritesheet", 
+            "ThrowAnimation": "Char_Asha_Throw_Spritesheet", 
             "AutoPlayTimer": 2.000000, 
+            "LandingParticle": "LandingParticle", 
             "TeleportStartSound": "Teleport", 
             "TeleportArriveSound": "TeleportArrive", 
             "JumpSound": "Jump", 
@@ -5930,7 +5932,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 4
           }, 
           "BoxCollider": 
           {
@@ -6090,7 +6092,7 @@
             }, 
             "Additive": true, 
             "Lock": false, 
-            "DrawLayer": 4
+            "DrawLayer": 5
           }, 
           "ParticleEmitter": 
           {
@@ -6098,7 +6100,7 @@
             "ResetCount": false, 
             "EmitCount": 0, 
             "EmitRate": 26, 
-            "EmitVariance": 0, 
+            "EmitVariance": 2, 
             "Size": 0.100000, 
             "SizeVariance": 0.100000, 
             "Lifetime": 0.400000, 
@@ -6120,7 +6122,7 @@
               {
                 "x": 1.500000, 
                 "y": 1.500000, 
-                "z": 0.000000
+                "z": 1.000000
               }
             }
           }, 
