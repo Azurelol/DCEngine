@@ -1,7 +1,7 @@
 /******************************************************************************/
 /*!
 @file   Sprite.h
-@author Chen Shu, Christian Sagel
+@author Chen Shu, Christian Sagel, William Mao
 @par    email: c.sagel\@digipen.edu
 @date   9/19/2015
 @brief  The Sprite component allows the graphical representation of this object

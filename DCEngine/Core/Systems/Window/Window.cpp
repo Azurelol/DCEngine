@@ -57,6 +57,8 @@ namespace DCEngine {
       Daisy->Connect<Events::SetWindowCaption>(&Window::OnSetWindowCaptionEvent, this);
 			Daisy->Connect<Events::WindowResize>(&Window::OnWindowResizeEvent, this);
 			Daisy->Connect<Events::WindowRecreate>(&Window::OnWindowRecreateEvent, this);
+			Daisy->Connect<Events::WindowLostFocus>(&Window::OnWindowLostFocus, this);
+			Daisy->Connect<Events::WindowGainedFocus>(&Window::OnWindowGainedFocus, this);
     }
 
     /**************************************************************************/
@@ -80,6 +82,17 @@ namespace DCEngine {
 		{
 			DCTrace << "Window::OnWindowResizeEvent - \n";
 			WindowHandler->recreateWindow();
+		}
+		void Window::OnWindowLostFocus(Events::WindowLostFocus * event)
+		{
+			DCTrace << "Window::OnWindowLostEvent - \n";
+			WindowHandler->lostFocus();
+		}
+
+		void Window::OnWindowGainedFocus(Events::WindowGainedFocus * event)
+		{
+			DCTrace << "Window::OnWindowGainedEvent - \n";
+			WindowHandler->gainedFocus();
 		}
 
     void Window::OnEngineExitEvent(Events::EngineExit * event)
