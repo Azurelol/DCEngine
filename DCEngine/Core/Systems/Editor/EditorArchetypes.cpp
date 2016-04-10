@@ -125,6 +125,14 @@ namespace DCEngine {
       Daisy->getSystem<Systems::Factory>()->RebuildFromArchetype(entity);
     }
 
+    void EditorArchetypes::RevertSpace(SpacePtr space)
+    {
+    }
+
+    void EditorArchetypes::RevertGameSession(GameSessionPtr gameSession)
+    {
+    }
+
     /**************************************************************************/
     /*!
     @brief Returns the currently selected archetype.

@@ -31,12 +31,16 @@ namespace DCEngine {
     struct ResourceQueue {
       std::queue<ResourcePtr> Assets;
       std::mutex AssetsLock;
+      // Progress
       unsigned NumLoaded;
       unsigned NumTotal;
       std::string LastLoaded;
+      bool Finished;
+      std::mutex LockFinished;
+      // Methods
       void Lock() { AssetsLock.lock(); }
       void Unlock() { AssetsLock.unlock(); }
-      ResourceQueue() : NumLoaded(0), NumTotal(0) {}
+      ResourceQueue() : NumLoaded(0), NumTotal(0), Finished(false) {}
     };
 
     using ResourceHandle = std::string;
