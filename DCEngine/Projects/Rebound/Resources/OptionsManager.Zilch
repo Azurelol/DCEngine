@@ -37,6 +37,8 @@ class OptionsManager : ZilchComponent
         Daisy.Connect(this.Owner, DaisyEvent.UIButtonEvent, this.OnUIButtonEvent);
         Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
 
+        this.CurAA = AntiAlias.B_x4;
+
         this.ButtonList = new Array[Entity]();
         
         var childList = this.Owner.Children.All;
