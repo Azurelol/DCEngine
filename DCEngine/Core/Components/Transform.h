@@ -32,7 +32,15 @@ namespace DCEngine {
       Vec3 Translation = Vec3(0.0f, 0.0f, 0.0f);
       Vec3 Rotation = Vec3(0.0f, 0.0f, 0.0f);
       Vec3 Scale = Vec3(1.0f, 1.0f, 1.0f);
-      DCE_DEFINE_PROPERTY(Vec3, Translation);
+      //DCE_DEFINE_PROPERTY(Vec3, Translation);
+
+
+      const Vec3 & getLocalTranslation() const;
+      void setLocalTranslation(const Vec3 & val);
+      const Vec3 & getTranslation() const;
+      void setTranslation(const Vec3 & val);
+      const Vec3 & getWorldTranslation() const;
+      void setWorldTranslation(const Vec3 & val);
       void SetLocalTranslation(const Vec3 & pos);
       DCE_DEFINE_PROPERTY(Vec3, Rotation);
       DCE_DEFINE_PROPERTY(Vec3, Scale);
