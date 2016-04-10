@@ -37,5 +37,10 @@ namespace DCEngine {
       else
         return true;
     }
+		void Sprite::ResetAnimationIndex(void)
+		{
+			CurrentColumn = 0;
+			CurrentRow = 0;
+		}
   }
 }

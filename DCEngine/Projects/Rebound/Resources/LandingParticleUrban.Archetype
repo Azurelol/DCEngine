@@ -63,7 +63,8 @@
           }
         }, 
         "Additive": false, 
-        "Lock": false
+        "Lock": false, 
+        "DrawLayer": 4
       }, 
       "ParticleEmitter": 
       {
