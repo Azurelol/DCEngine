@@ -316,10 +316,11 @@ namespace DCEngine {
 
     // Construct the update event and assign it the engine's dt
     auto logicUpdateEvent = new Events::LogicUpdate();
-    auto frameUpdateEvent = new Events::FrameUpdate();
     logicUpdateEvent->Dt = dt;
-
+    logicUpdateEvent->RealTimePassed = Statistics.RunTime;
+    auto frameUpdateEvent = new Events::FrameUpdate();
     frameUpdateEvent->Dt = dt;
+    frameUpdateEvent->RealTimePassed = Statistics.RunTime;
     // Dispatch the logic update event to the gamesession
     CurrentGameSession->Dispatch<Events::LogicUpdate>(logicUpdateEvent);
     CurrentGameSession->Dispatch<Events::FrameUpdate>(frameUpdateEvent);
@@ -327,11 +328,17 @@ namespace DCEngine {
     // Dispatch update events to all active spaces
     for (auto space : CurrentGameSession->ActiveSpaces) {
       space.second->Update(dt);
+      auto timeSpace = space.second->getComponent<Components::TimeSpace>();
+
       // Always dispatch the 'FrameUpdate' event
+      frameUpdateEvent->TimePassed = Statistics.RunTime * timeSpace->getTimeScale();
       space.second->Dispatch<Events::FrameUpdate>(frameUpdateEvent);
+      
       // Do not dispatch the 'LogicUpdate' event if the space is paused or the engine is paused
-      if (space.second->getComponent<Components::TimeSpace>()->getPaused() || Paused)
+      if (timeSpace->getPaused() || Paused)
         continue;
+
+      logicUpdateEvent->TimePassed = Statistics.RunTime * timeSpace->getTimeScale();;
       space.second->Dispatch<Events::LogicUpdate>(logicUpdateEvent);
     }      
     // Delete the event
@@ -451,6 +458,7 @@ namespace DCEngine {
     DeltaTime = 1.0f / EngineConfiguration->Framerate;
 
     while (Active) {
+      Statistics.RunTime += DeltaTime;
       Time::ScopeTimer frameTimer(&DeltaTime);
       Update(DeltaTime);
     }

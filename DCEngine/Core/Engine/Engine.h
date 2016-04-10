@@ -55,8 +55,6 @@ namespace DCEngine {
     void Loop();
     void Terminate();
     auto Stop() { Active = false; }
-    //void LoadProject(std::string& filename);
-    //void StartProject();    
     float Dt() { return DeltaTime; }
 
     Keyboard* getKeyboard() { return KeyboardHandle.get(); }
@@ -71,42 +69,35 @@ namespace DCEngine {
     template <typename Publisher, typename Observer>
     void Disconnect(Publisher* publisher, Observer* observer);
     // Events
-    //void ZilchConnect(Zilch::Call& call, Zilch::ExceptionReport& report);  
     void ConnectTo(const std::string& eventName, Entity* publisher, EventDelegate* deleg, Component* inst);
     void ZilchDisconnect(Zilch::Call& call, Zilch::ExceptionReport& report);
     // System Events
     template<typename EventClass, typename SystemClass, typename MemberFunction>
     void Connect(MemberFunction fn, SystemClass* sys);
     template <typename EventClass> void Dispatch(Event* eventObj);
-    
-    //template<typename EventClass>
-    //void ZilchConnect(Entity* publisher, Zilch::Function* fn, ZilchComponent* inst);
 
     template<typename T> std::shared_ptr<T> getSystem();
     Profiler& Profiler() { return this->Profile; }
     Systems::ConfigurationFiles& Configuration() { return this->Configurations; }
-    //EngineConfigPtr& Configuration() { return EngineConfiguration; }
 
   private:
-
+        
+    bool Active;  
+    float DeltaTime;
     bool Paused;
     DCEngine::Profiler Profile;
     Systems::ConfigurationFiles Configurations;
+    EngineStatistics Statistics;
     EngineConfigPtr EngineConfiguration;
-    GameSessionPtr CurrentGameSession; //!< The current GameSession object.
+    GameSessionStrongPtr CurrentGameSession;
     KeyboardPtr KeyboardHandle;
     MousePtr MouseHandle;
-    float DeltaTime; //!< Delta time. 
-    float Framerate = 60.0f; //!< The target frame rate.
-    float Runtime; //!< How long the engine has been running.
-    bool Active; //!< Whether the engine is active or not.      
-    std::string _projectName = "Daisy Project"; //!< The current project.
+    std::string _projectName = "Daisy Project"; 
     std::string _defaultSpace = "Daisy World";
-    SystemVec Systems; //!< Container for the engine's systems.   
-    SpaceMap Spaces; //!< A map of spaces created by the engine.
+    SystemVec Systems;   
+    SpaceMap Spaces; 
     ActionSpace ActionSpace; 
     std::map<std::type_index, std::list<DCEngine::EventDelegate*>> ObserverRegistry;
-
     // Loading actions
     void DisplayLoadingScreen(bool enable);
     void ConstructSystems();

@@ -85,6 +85,7 @@ namespace DCEngine {
 #endif
 
     private:
+      
       StateMachine<Grunt> *stateMachine;
       GameObject *player;
       GameObjectPtr head;

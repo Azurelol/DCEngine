@@ -58,6 +58,7 @@ namespace DCEngine {
       Daisy->Connect<Events::WindowFullScreenDisabled>(&Graphics::OnWindowFullScreenDisabledEvent, this);
       Daisy->Connect<Events::GraphicsCompileShaders>(&Graphics::OnGraphicsCompileShadersEvent, this);
       Daisy->Connect<Events::GraphicsToggleLightning>(&Graphics::OnGraphicsToggleLightningEvent, this);
+      Daisy->Connect<Events::WindowRecreate>(&Graphics::OnWindowRecreateEvent, this);
     }
 
     /**************************************************************************/
@@ -73,7 +74,7 @@ namespace DCEngine {
         DCTrace << "Graphics::Update \n";
           
       // Start the profiler
-      SystemTimer profile(this->Name());
+      SystemTimer pwrofile(this->Name());
 
       // For every Space with a 'GraphicsSpace' component...
       for (Components::GraphicsSpace* gfxSpace : ActiveGraphicsSpaces) {
@@ -313,7 +314,7 @@ namespace DCEngine {
       auto& resources = Daisy->getSystem<Content>()->LoadedGraphicalResources();
       std::lock_guard<std::mutex> lock(resources.AssetsLock);
 
-      // If there's no resourcesto load..
+      // If there's no resources to load..
       if (resources.Assets.empty())
         return;
 
@@ -335,6 +336,14 @@ namespace DCEngine {
 
       // Remove it from the queue
       resources.Assets.pop();
+
+      // If the queue is now empty..
+      if (resources.NumLoaded == resources.NumTotal) {
+        std::lock_guard<std::mutex> lock(resources.LockFinished);
+        resources.Finished = true;
+      }
+
+
     }
 
     /**************************************************************************/
@@ -394,8 +403,8 @@ namespace DCEngine {
     void Graphics::OnWindowFullScreenEnabledEvent(Events::WindowFullScreenEnabled * event)
     {
       std::string willNoticeMe = "Will I am enabled";
-			GraphicsHandler->FreeFBO();
-			GraphicsHandler->Initialize();
+      GraphicsHandler->FreeFBO();
+      GraphicsHandler->Initialize();
     }
 
     /**************************************************************************/
@@ -406,8 +415,8 @@ namespace DCEngine {
     void Graphics::OnWindowFullScreenDisabledEvent(Events::WindowFullScreenDisabled * event)
     {
       std::string willNoticeMe = "Will I am disabled";
-			GraphicsHandler->FreeFBO();
-			GraphicsHandler->Initialize();
+      GraphicsHandler->FreeFBO();
+      GraphicsHandler->Initialize();
     }
 
     /**************************************************************************/
@@ -418,12 +427,18 @@ namespace DCEngine {
     void Graphics::OnWindowResizeEvent(Events::WindowResize * event)
     {
       //Settings.ViewportScale = event->Dimensions;
-			Settings.ScreenWidth = event->Dimensions.x;
-			Settings.ScreenHeight = event->Dimensions.y;
-			GraphicsHandler->FreeFBO();
-			GraphicsHandler->Initialize();
+      Settings.ScreenWidth = event->Dimensions.x;
+      Settings.ScreenHeight = event->Dimensions.y;
+      GraphicsHandler->FreeFBO();
+      GraphicsHandler->Initialize();
       DCTrace << "Graphics::OnWindowResizeEvent - Width: " << event->Dimensions.x
         << " Height " << event->Dimensions.y << "\n";
+    }
+
+    void Graphics::OnWindowRecreateEvent(Events::WindowRecreate * event)
+    {
+      GraphicsHandler->FreeFBO();
+      GraphicsHandler->Initialize();
     }
 
     /**************************************************************************/

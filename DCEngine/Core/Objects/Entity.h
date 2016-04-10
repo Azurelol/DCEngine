@@ -23,6 +23,7 @@
 #include "..\Systems\Serialization\Serialization.h"
 #include "../Engine/Types.h"
 #include "../Engine/Action.h"
+
 // Macros
 #define DCE_ENTITY_GET_COMPONENT(ComponentName)                    \
   Components::ComponentName* get##ComponentName() {                            \
@@ -31,13 +32,10 @@
 #define DCE_BINDING_ENTITY_COMPONENT_AS_PROPERTY(ComponentName)    \
 ZilchBindProperty(builder, type, &Entity::get##ComponentName, ZilchNoSetter, "" #ComponentName)
 
-namespace DCEngine {
+// Enumerations
+ZilchDeclareExternalBaseType(DCEngine::EntityType, Zilch::TypeCopyMode::Enum::ValueType);
 
-  enum class EntityType {
-    GameObject,
-    Space,
-    GameSession,
-  };
+namespace DCEngine {
 
   class Engine; // The engine has complete access to entities.
   class Space;
