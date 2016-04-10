@@ -72,6 +72,7 @@ namespace DCEngine {
 					WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
 					WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
 				WindowContext->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
+				WindowContext->setFramerateLimit(WindowInterface.Settings.Framerate);
 				Daisy->getSystem<GUI>()->Initialize();
 			}
 		}
@@ -84,6 +85,7 @@ namespace DCEngine {
 				WindowContext->create(sf::VideoMode(
 					WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
 					WindowInterface.Caption, sf::Style::Titlebar | sf::Style::Close, ContextSettings);
+				WindowContext->setFramerateLimit(WindowInterface.Settings.Framerate);
 				WindowContext->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
 			}
 			else
@@ -91,8 +93,10 @@ namespace DCEngine {
 				WindowContext->create(sf::VideoMode(
 					WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
 					WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
+				WindowContext->setFramerateLimit(WindowInterface.Settings.Framerate);
 				//WindowContext->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
 			}
+			Daisy->getSystem<GUI>()->Initialize();
 		}
 
 		void WindowSFML::lostFocus(void)

@@ -266,11 +266,10 @@ namespace DCEngine {
 					RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Vec3(1, AirBrakeScalar, 1));
 				}
 			}
-			if (RigidBodyRef->getVelocity().y < 0 && SpriteComponent->SpriteSource == JumpAnimation)
+			if (RigidBodyRef->getVelocity().y <= 0 && SpriteComponent->SpriteSource == JumpAnimation)
 			{
-
 				SpriteComponent->SpriteSource = FallAnimation;
-				SpriteComponent->AnimationActive = true;
+				//SpriteComponent->AnimationActive = true;
 			}
 			if (Daisy->getKeyboard()->KeyIsDown(Keys::A))
 			{
@@ -492,7 +491,7 @@ namespace DCEngine {
 			//DCTrace << "raydist1 = " << result.Distance << "\n";
 			auto graphicsSpace = this->SpaceRef->getComponent<Components::GraphicsSpace>();
 			graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
-			if (result.Distance < 0.2)
+			if (result.Distance < 0.1)
 			{
 				return true;
 			}
@@ -500,7 +499,7 @@ namespace DCEngine {
 			result = physicsSpace->CastRay(ray, filter);
 			//DCTrace << "raydist2 = " << result.Distance << "\n";
 			graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
-			if (result.Distance < 0.2)
+			if (result.Distance < 0.1)
 			{
 				return true;
 			}
@@ -508,7 +507,7 @@ namespace DCEngine {
 			result = physicsSpace->CastRay(ray, filter);
 			//DCTrace << "raydist3 = " << result.Distance << "\n";
 			graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
-			if (result.Distance < 0.2)
+			if (result.Distance < 0.1)
 			{
 				return true;
 			}
