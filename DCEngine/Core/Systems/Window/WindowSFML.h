@@ -1,7 +1,7 @@
 /******************************************************************************/
 /*!
 \file   WindowGLFW.h
-\author Christian Sagel
+\author Christian Sagel, William Mao
 \par    email: c.sagel\@digipen.edu
 \date   8/1/2015
 \brief  The Window implementation through SFML.

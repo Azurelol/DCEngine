@@ -1,7 +1,7 @@
 /*****************************************************************************/
 /*!
 \file   Graphics.cpp
-\author Chen Shu, Christian Sagel
+\author Chen Shu, Christian Sagel, William Mao
 \par    email: c.sagel\@digipen.edu
 \date   9/16/2015
 \brief  Graphics system of DCEngine.

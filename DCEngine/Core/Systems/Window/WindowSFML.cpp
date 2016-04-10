@@ -1,7 +1,7 @@
 /******************************************************************************/
 /*!
 @file   WindowsSFML.cpp
-@author Chen Shu, Christian Sagel
+@author Chen Shu, Christian Sagel, William Mao
 @par    email: c.sagel\@digipen.edu
 @date   11/12/2015
 @brief  Handling the window created by SFML functions.
