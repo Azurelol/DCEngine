@@ -112,7 +112,7 @@ class OptionsManager : ZilchComponent
         }
         else if(this.CurAspect == AspectRatio.B_4x3)
         {
-        	this.AspectRefText.SpriteText.Text = "4x3";
+        	this.AspectRefText.SpriteText.Text = " 4x3";
         }
         else if(this.CurAspect == AspectRatio.C_16x10)
         {
@@ -120,7 +120,7 @@ class OptionsManager : ZilchComponent
         }
         else if(this.CurAspect == AspectRatio.D_5x4)
         {
-        	this.AspectRefText.SpriteText.Text = "5x4";
+        	this.AspectRefText.SpriteText.Text = " 5x4";
         }
         else if(this.CurAspect == AspectRatio.Native)
         {
@@ -192,7 +192,7 @@ class OptionsManager : ZilchComponent
         }
         else if(this.CurRes == Resolution.Native)
         {
-        	this.ResolutionRefText.SpriteText.Text = "Native";
+        	this.ResolutionRefText.SpriteText.Text = "       Native";
         }
     }
 
@@ -204,15 +204,15 @@ class OptionsManager : ZilchComponent
     	}
     	else if(this.CurAA == AntiAlias.B_x4)
     	{
-    		this.AntiAliasingRefText.SpriteText.Text = "x4";
+    		this.AntiAliasingRefText.SpriteText.Text = "  x4";
     	}
     	else if(this.CurAA == AntiAlias.C_x8)
     	{
-    		this.AntiAliasingRefText.SpriteText.Text = "x8";
+    		this.AntiAliasingRefText.SpriteText.Text = "  x8";
     	}
     	else if(this.CurAA == AntiAlias.D_x16)
     	{
-    		this.AntiAliasingRefText.SpriteText.Text = "x16";
+    		this.AntiAliasingRefText.SpriteText.Text = " x16";
     	}
     }
 

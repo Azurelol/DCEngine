@@ -210,6 +210,11 @@ class UIButton : ZilchComponent
 
 	function Expand()
 	{
+		if(this.Owner.Transform.Scale.X >= this.NormalScale.X * this.ExpansionScale ||
+		   this.Owner.Transform.Scale.Y >= this.NormalScale.Y * this.ExpansionScale)
+		{
+			return;
+		}
 		var exSeq = Actions.Sequence(this.Owner.Actions);
 
 		Actions.Property(exSeq, @this.Owner.Transform.Scale, this.Owner.Transform.Scale * this.ExpansionScale, this.ExpansionTime, Ease.QuadOut);
