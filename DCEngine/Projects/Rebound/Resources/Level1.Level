@@ -11813,6 +11813,7 @@
           "DialogText": 
           {
             "SystemDelay": 0.000000, 
+            "FadeInTime": 3.000000, 
             "MessageTime": 5.000000, 
             "ScaleTimeWithSize": true, 
             "TimePerChar": 0.500000, 
@@ -11821,7 +11822,6 @@
             "FadeEase": "Linear", 
             "DeleteAfterTime": false, 
             "TimeToDelete": 10.000000, 
-            "ArbitraryXShift": -4, 
             "AshaVoiceColor": 
             {
               "Vec4": 
@@ -12051,8 +12051,21 @@
           }, 
           "DialogBackgroundBehavior": 
           {
-            "UnitsAbovePlayer": 7
+            "UnitsAbovePlayer": 7, 
+            "UnitsInFrontOfPlayer": 2
           }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": true, 
+        "GameObjectID": 137, 
+        "Name": "LevelSettings", 
+        "Components": 
+        {
         }, 
         "Children": 
         {

@@ -28,10 +28,13 @@ namespace DCEngine {
 
         ZilchDeclareDerivedType(SoundSpace, Component);
 
-        DCE_DEFINE_PROPERTY(Real, Volume);
-        DCE_DEFINE_PROPERTY(Real, Pitch);
-        DCE_DEFINE_PROPERTY(Boolean, Pause);
-
+        // Properties   
+        void setVolume(const Real& volume); DCE_DEFINE_GETTER(Real, Volume);
+        void setPause(const Boolean& pause); DCE_DEFINE_GETTER(Boolean, Pause);
+        void setPitch(const Real& pitch);  DCE_DEFINE_GETTER(Real, Pitch);
+        void InterpolateVolume(Real newVolume, Real time);
+        void InterpolatePitch(Real newPitch, Real time);
+        // PlayCue
         void PlayCueAt(std::string soundCueName);
         SoundInstanceWeakPtr PlayCue(std::string soundCueName);
         SoundInstanceWeakPtr PlayCue(SoundCuePtr soundCue);
@@ -47,8 +50,15 @@ namespace DCEngine {
         Real Pitch;
         std::vector<SoundInstanceHandle> ActiveSoundInstances;
         std::vector<SoundInstancePtr> ActiveSoundInstancePtrs;
-        void OnLogicUpdate(Events::LogicUpdate* event);        
+        // Events
+        void OnGameFocusInEvent(Events::GameFocusIn* event);
+        void OnGameFocusOutEvent(Events::GameFocusOut* event);
+        void OnLogicUpdateEvent(Events::LogicUpdate* event);        
         void Clear();
+        // Methods
+        void PauseAll();
+        void ResumeAll();
+        void StopAll();
 
       };
     }
