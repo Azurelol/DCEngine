@@ -36,13 +36,17 @@ namespace DCEngine {
     /**************************************************************************/
     GameObject * Editor::FindObjectFromSpace(Vec2 pos)
     {
+      // We will be using the camera to find objects..
+      auto camera = CurrentSpace->getComponent<Components::CameraViewport>()->getCamera();
+      if (!camera)
+        return nullptr;
+
       // 1. Find all objects on the current mouse position
       auto objsAtPos = Daisy->getSystem<Physics>()->FindAllObjectsAtPosition(Vec3(pos, 0), *CurrentSpace);
       if (objsAtPos.empty())
         return nullptr;
-
       // 2.1 Find the camera's position in space.
-      auto camPos = CurrentSpace->getComponent<Components::CameraViewport>()->getCamera()->TransformComponent->Translation;
+      auto camPos = camera->TransformComponent->Translation;
       // 2.2 Find the camera's forward direction vector.
       auto camDir = Vec3(0, 0, -1);
       // 3. Sort them in the order of the ones closest to the front of the camera.

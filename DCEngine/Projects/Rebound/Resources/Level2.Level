@@ -4758,6 +4758,7 @@
                 "w": 1.000000
               }
             }, 
+            "ForcedFreeze": false, 
             "FreezeEnabled": true, 
             "MaxAttractSpeed": 10.000000, 
             "MaxAttractForce": 50.000000, 
