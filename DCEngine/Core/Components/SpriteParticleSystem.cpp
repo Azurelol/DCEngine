@@ -225,7 +225,9 @@ namespace DCEngine {
 		void SpriteParticleSystem::Draw(void)
 		{
 			//mShader->Use();
+			glEnable(GL_DEPTH_TEST);
 			glDepthMask(GL_FALSE);
+			glDepthFunc(GL_LEQUAL);
 			glEnable(GL_BLEND);
 			std::vector<glm::vec2> offset(GetPositionData());
 			std::vector<glm::vec4> color(GetColorData());
@@ -235,6 +237,7 @@ namespace DCEngine {
 				glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			if (Visible)
 			{
+				glDrawBuffer(GL_COLOR_ATTACHMENT2);
 				glBindBuffer(GL_ARRAY_BUFFER, mColorInstanceVBO);
 				glBufferSubData(GL_ARRAY_BUFFER, 0,
 					sizeof(glm::vec4) * GetParticleCount(), color.data());
@@ -249,6 +252,7 @@ namespace DCEngine {
 			}
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			glDepthMask(GL_TRUE);
+			glDepthFunc(GL_LESS);
 			transformData.clear();
 		}
 

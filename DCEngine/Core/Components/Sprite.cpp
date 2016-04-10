@@ -298,6 +298,9 @@ namespace DCEngine {
       if (!Visible)
         return;
 
+			GLuint attachments[3] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2 };
+			glDrawBuffers(3, attachments);
+
       glBindVertexArray(mVAO);
       if(silhouette)
         glDrawArrays(GL_LINE_LOOP, 0, 4);
