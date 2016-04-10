@@ -4,7 +4,7 @@
   {
     "Locked": false, 
     "GameObjectID": 900, 
-    "Name": "Scrapper4", 
+    "Name": "Scrapper", 
     "Components": 
     {
       "Transform": 
@@ -13,8 +13,8 @@
         {
           "Vec3": 
           {
-            "x": -10.105388, 
-            "y": -47.143784, 
+            "x": 3.322380, 
+            "y": -0.421889, 
             "z": 0.000000
           }
         }, 
@@ -37,25 +37,56 @@
           }
         }
       }, 
-      "Sprite": 
+      "Grunt": 
       {
-        "Visible": true, 
-        "Color": 
+        "PlayerName": "Player", 
+        "StartingHealth": 1, 
+        "MaxHealth": 1, 
+        "IsInvulnerable": false, 
+        "Head": "ScrapperHead", 
+        "Body": "ScrapperBody", 
+        "Saw": "ScrapperSaw", 
+        "IdleRange": 100.000000, 
+        "PatrolDistance": 20.000000, 
+        "IsPatrolRight": true, 
+        "IsAggressive": true, 
+        "JumpStrengthX": 5.000000, 
+        "JumpStrengthY": 25.000000, 
+        "JumpPeriod": 2.000000, 
+        "AttackJumpStrengthX": 10.000000, 
+        "AttackJumpStrengthY": 15.000000, 
+        "AttackJumpPeriod": 1.000000, 
+        "IdleColor": 
         {
           "Vec4": 
           {
-            "x": 1.000000, 
+            "x": 0.000000, 
             "y": 1.000000, 
+            "z": 0.000000, 
+            "w": 1.000000
+          }
+        }, 
+        "PatrolColor": 
+        {
+          "Vec4": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
             "z": 1.000000, 
             "w": 1.000000
           }
         }, 
-        "SpriteSource": "Char_Scrap", 
-        "FlipX": false, 
-        "FlipY": false, 
-        "AnimationActive": false, 
-        "AnimationSpeed": 1.000000, 
-        "DrawLayer": 0
+        "AttackColor": 
+        {
+          "Vec4": 
+          {
+            "x": 1.000000, 
+            "y": 0.000000, 
+            "z": 0.000000, 
+            "w": 1.000000
+          }
+        }, 
+        "IsDebugColorActive": false
       }, 
       "BoxCollider": 
       {
@@ -105,57 +136,204 @@
         }, 
         "Mass": 10.000000, 
         "RotationLocked": true
-      }, 
-      "Grunt": 
-      {
-        "PlayerName": "Player", 
-        "StartingHealth": 1, 
-        "MaxHealth": 1, 
-        "IsInvulnerable": false, 
-        "IdleRange": 100.000000, 
-        "PatrolDistance": 20.000000, 
-        "IsPatrolRight": true, 
-        "IsAggressive": true, 
-        "JumpStrengthX": 5.000000, 
-        "JumpStrengthY": 25.000000, 
-        "JumpPeriod": 2.000000, 
-        "AttackJumpStrengthX": 10.000000, 
-        "AttackJumpStrengthY": 15.000000, 
-        "AttackJumpPeriod": 1.000000, 
-        "IdleColor": 
-        {
-          "Vec4": 
-          {
-            "x": 0.000000, 
-            "y": 1.000000, 
-            "z": 0.000000, 
-            "w": 1.000000
-          }
-        }, 
-        "PatrolColor": 
-        {
-          "Vec4": 
-          {
-            "x": 0.000000, 
-            "y": 0.000000, 
-            "z": 1.000000, 
-            "w": 1.000000
-          }
-        }, 
-        "AttackColor": 
-        {
-          "Vec4": 
-          {
-            "x": 1.000000, 
-            "y": 0.000000, 
-            "z": 0.000000, 
-            "w": 1.000000
-          }
-        }
       }
     }, 
     "Children": 
     {
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 16, 
+        "Name": "ScrapperHead", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 3.304801, 
+                "y": -0.421889, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.500000, 
+                "y": 1.500000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Char_Scrap_1", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }, 
+          "Animator": 
+          {
+            "Distance": 1.000000, 
+            "MoveTime": 0.500000, 
+            "Ease": "Linear", 
+            "LoopDelayTime": 1.000000, 
+            "IsHorizontal": false
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 17, 
+        "Name": "ScrapperBody", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 3.322380, 
+                "y": -0.421889, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.500000, 
+                "y": 1.500000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Char_Scrap_2", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 18, 
+        "Name": "ScrapperSaw", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 3.322380, 
+                "y": -0.421889, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.500000, 
+                "y": 1.500000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Char_Scrap_3", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }
     }
   }
 }
