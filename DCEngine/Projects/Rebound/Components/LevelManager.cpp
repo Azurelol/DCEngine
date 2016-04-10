@@ -35,7 +35,7 @@ namespace DCEngine {
       Connect(SpaceRef, Events::LogicUpdate, LevelManager::OnLogicUpdateEvent);
       Connect(gameObj, Events::MouseClickedOn, LevelManager::OnMouseClickedOnEvent);
       Connect(Daisy->getKeyboard(), Events::KeyDown, LevelManager::OnKeyDownEvent);
-	  TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
+    TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
       //FadeRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::Fade>();
     }
 
@@ -59,12 +59,12 @@ namespace DCEngine {
     {
       if (event->OtherObject->getComponent<Components::PlayerController>())
       {
-		auto particle = SpaceRef->CreateObject("TeleportationParticle");
-		auto otherTransform = event->OtherObject->getComponent<Components::Transform>();
-		if (particle)
-		{
-			particle->getComponent<Components::Transform>()->setTranslation(otherTransform->Translation - Vec3(0, otherTransform->getScale().y / 2, 0));
-		}
+    auto particle = SpaceRef->CreateObject("TeleportationParticle");
+    auto otherTransform = event->OtherObject->getComponent<Components::Transform>();
+    if (particle)
+    {
+      particle->getComponent<Components::Transform>()->setTranslation(otherTransform->Translation - Vec3(0, otherTransform->getScale().y / 2, 0));
+    }
         TimerStarted = true;
         SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("Rumble");
         //FadeRef->setFading(true);

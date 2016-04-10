@@ -81,7 +81,6 @@ namespace DCEngine {
     DCE_DEFINE_PROPERTY(bool, Locked);
     DCE_DEFINE_PROPERTY(unsigned int, GameObjectID);
     void Serialize(Zilch::JsonBuilder& builder);
-    void SerializeChildren(Zilch::JsonBuilder& builder, GameObjectVec& children);
     void Deserialize(Zilch::JsonValue* properties);
     // Stream
     friend std::ostream& operator<<(std::ostream&, GameObject const&);

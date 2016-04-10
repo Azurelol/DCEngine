@@ -1,7 +1,7 @@
 /******************************************************************************/
 /*!
 @file   WindowsSFML.cpp
-@author Chen Shu, Christian Sagel
+@author Chen Shu, Christian Sagel, William Mao
 @par    email: c.sagel\@digipen.edu
 @date   11/12/2015
 @brief  Handling the window created by SFML functions.
@@ -70,6 +70,7 @@ namespace DCEngine {
 				WindowContext->create(sf::VideoMode(
 					WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
 					WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
+				WindowContext->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
 				Daisy->getSystem<GUI>()->Initialize();
 			}
 		}
@@ -80,6 +81,7 @@ namespace DCEngine {
 			WindowContext->create(sf::VideoMode(
 				WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
 				WindowInterface.Caption, sf::Style::Titlebar | sf::Style::Close, ContextSettings);
+			WindowContext->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
 		}
 
     /**************************************************************************/
@@ -106,6 +108,7 @@ namespace DCEngine {
         WindowContext->create(sf::VideoMode(
 					WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
           WindowInterface.Caption, sf::Style::Titlebar | sf::Style::Close, ContextSettings);
+				WindowContext->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
         DispatchSystemEvents::WindowFullScreenDisabled();
         break;
       case WindowMode::Fullscreen:
@@ -116,6 +119,7 @@ namespace DCEngine {
         WindowContext->create(sf::VideoMode(
 					WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
           WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
+				WindowContext->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
         DispatchSystemEvents::WindowFullScreenEnabled();
         break;
       }
@@ -142,7 +146,7 @@ namespace DCEngine {
       ContextSettings.antialiasingLevel = WindowInterface.Settings.Samples;
       ContextSettings.majorVersion = _majorVersion;
       ContextSettings.minorVersion = _minorVersion;
-
+			image.loadFromFile("Projects/Rebound/Assets/Images/MoonwardLogo.png");
       // If it starts as fullscreen
       if (WindowInterface.Settings.Fullscreen) {
         WindowContext.reset(new sf::Window(sf::VideoMode(sf::VideoMode::getDesktopMode().width,
@@ -161,7 +165,7 @@ namespace DCEngine {
         Mode = WindowMode::Default;
         DispatchSystemEvents::WindowFullScreenDisabled();
       }
-
+			WindowContext->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
       WindowContext->setFramerateLimit(WindowInterface.Settings.Framerate);
 
       // Configures the window context, then creates it
