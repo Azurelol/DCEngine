@@ -10,6 +10,7 @@
         "Locked": false, 
         "GameObjectID": 216, 
         "Name": "Player", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -204,6 +205,7 @@
         "Locked": false, 
         "GameObjectID": 217, 
         "Name": "Ground1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -310,6 +312,7 @@
         "Locked": false, 
         "GameObjectID": 218, 
         "Name": "Ground2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -416,6 +419,7 @@
         "Locked": false, 
         "GameObjectID": 219, 
         "Name": "Ground3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -522,6 +526,7 @@
         "Locked": false, 
         "GameObjectID": 220, 
         "Name": "Ground4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -628,6 +633,7 @@
         "Locked": false, 
         "GameObjectID": 221, 
         "Name": "Ground5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -734,6 +740,7 @@
         "Locked": false, 
         "GameObjectID": 222, 
         "Name": "Ground6", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -840,6 +847,7 @@
         "Locked": false, 
         "GameObjectID": 223, 
         "Name": "Ground7", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -946,6 +954,7 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield10", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1077,6 +1086,7 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield6", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1208,6 +1218,7 @@
         "Locked": false, 
         "GameObjectID": 226, 
         "Name": "Ground11", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1314,6 +1325,7 @@
         "Locked": false, 
         "GameObjectID": 227, 
         "Name": "Ground12", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1420,6 +1432,7 @@
         "Locked": false, 
         "GameObjectID": 228, 
         "Name": "Ground13", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1526,6 +1539,7 @@
         "Locked": false, 
         "GameObjectID": 229, 
         "Name": "Ground14", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1632,6 +1646,7 @@
         "Locked": false, 
         "GameObjectID": 293, 
         "Name": "PressurePlate2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1742,6 +1757,7 @@
         "Locked": false, 
         "GameObjectID": 312, 
         "Name": "StreetLight", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1835,6 +1851,7 @@
         "Locked": false, 
         "GameObjectID": 311, 
         "Name": "Light", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1928,6 +1945,7 @@
         "Locked": false, 
         "GameObjectID": 293, 
         "Name": "PressurePlate1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2038,6 +2056,7 @@
         "Locked": false, 
         "GameObjectID": 310, 
         "Name": "GlobalLight", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2131,6 +2150,7 @@
         "Locked": false, 
         "GameObjectID": 288, 
         "Name": "PowerField1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2261,6 +2281,7 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Button2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2391,6 +2412,7 @@
         "Locked": false, 
         "GameObjectID": 307, 
         "Name": "PauseManager", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2454,6 +2476,7 @@
         "Locked": false, 
         "GameObjectID": 288, 
         "Name": "PowerField1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2584,6 +2607,7 @@
         "Locked": false, 
         "GameObjectID": 241, 
         "Name": "Ceiling1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2690,6 +2714,7 @@
         "Locked": false, 
         "GameObjectID": 242, 
         "Name": "Ceiling2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2796,6 +2821,7 @@
         "Locked": false, 
         "GameObjectID": 243, 
         "Name": "Ceiling3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2902,6 +2928,7 @@
         "Locked": false, 
         "GameObjectID": 244, 
         "Name": "Ceiling4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3008,6 +3035,7 @@
         "Locked": false, 
         "GameObjectID": 245, 
         "Name": "Ceiling5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3114,6 +3142,7 @@
         "Locked": false, 
         "GameObjectID": 246, 
         "Name": "Ceiling6", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3220,6 +3249,7 @@
         "Locked": false, 
         "GameObjectID": 247, 
         "Name": "Ceiling7", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3326,6 +3356,7 @@
         "Locked": false, 
         "GameObjectID": 248, 
         "Name": "Ceiling8", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3432,6 +3463,7 @@
         "Locked": false, 
         "GameObjectID": 249, 
         "Name": "Ceiling9", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3538,6 +3570,7 @@
         "Locked": false, 
         "GameObjectID": 250, 
         "Name": "Ceiling10", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3644,6 +3677,7 @@
         "Locked": false, 
         "GameObjectID": 251, 
         "Name": "Ceiling11", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3750,6 +3784,7 @@
         "Locked": false, 
         "GameObjectID": 288, 
         "Name": "PowerField3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3880,6 +3915,7 @@
         "Locked": false, 
         "GameObjectID": 253, 
         "Name": "Wall1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3986,6 +4022,7 @@
         "Locked": false, 
         "GameObjectID": 254, 
         "Name": "Wall2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4092,6 +4129,7 @@
         "Locked": false, 
         "GameObjectID": 255, 
         "Name": "Wall3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4198,6 +4236,7 @@
         "Locked": false, 
         "GameObjectID": 256, 
         "Name": "Wall4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4304,6 +4343,7 @@
         "Locked": false, 
         "GameObjectID": 257, 
         "Name": "Wall5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4410,6 +4450,7 @@
         "Locked": false, 
         "GameObjectID": 258, 
         "Name": "Wall6", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4516,6 +4557,7 @@
         "Locked": false, 
         "GameObjectID": 126, 
         "Name": "Camera", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4599,6 +4641,7 @@
         "Locked": false, 
         "GameObjectID": 305, 
         "Name": "Ball", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4899,6 +4942,7 @@
         "Locked": false, 
         "GameObjectID": 257, 
         "Name": "Wall5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5005,6 +5049,7 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield8", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5136,6 +5181,7 @@
         "Locked": false, 
         "GameObjectID": 288, 
         "Name": "PowerField5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5266,6 +5312,7 @@
         "Locked": false, 
         "GameObjectID": 265, 
         "Name": "Door1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5390,6 +5437,7 @@
         "Locked": false, 
         "GameObjectID": 266, 
         "Name": "Door2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5514,6 +5562,7 @@
         "Locked": false, 
         "GameObjectID": 265, 
         "Name": "Door4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5638,6 +5687,7 @@
         "Locked": false, 
         "GameObjectID": 298, 
         "Name": "BioField4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5768,6 +5818,7 @@
         "Locked": false, 
         "GameObjectID": 298, 
         "Name": "BioField3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5898,6 +5949,7 @@
         "Locked": false, 
         "GameObjectID": 288, 
         "Name": "PowerField4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6028,6 +6080,7 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Button3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6158,6 +6211,7 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Button4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6288,6 +6342,7 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Button5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6418,6 +6473,7 @@
         "Locked": false, 
         "GameObjectID": 275, 
         "Name": "Button5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6498,6 +6554,7 @@
         "Locked": false, 
         "GameObjectID": 223, 
         "Name": "Ground7", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6604,6 +6661,7 @@
         "Locked": false, 
         "GameObjectID": 298, 
         "Name": "AntiEnergy1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6734,6 +6792,7 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Button8", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6864,6 +6923,7 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6995,6 +7055,7 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7126,6 +7187,7 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7257,6 +7319,7 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7388,6 +7451,7 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7519,6 +7583,7 @@
         "Locked": false, 
         "GameObjectID": 227, 
         "Name": "Ground12", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7625,6 +7690,7 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield7", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7756,6 +7822,7 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield9", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7887,6 +7954,7 @@
         "Locked": false, 
         "GameObjectID": 227, 
         "Name": "Ground12", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7993,6 +8061,7 @@
         "Locked": false, 
         "GameObjectID": 227, 
         "Name": "Ground12", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8099,6 +8168,7 @@
         "Locked": false, 
         "GameObjectID": 227, 
         "Name": "Ground12", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8205,6 +8275,7 @@
         "Locked": false, 
         "GameObjectID": 257, 
         "Name": "Wall5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8311,6 +8382,7 @@
         "Locked": false, 
         "GameObjectID": 298, 
         "Name": "BioField4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8441,6 +8513,7 @@
         "Locked": false, 
         "GameObjectID": 226, 
         "Name": "Ground11", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8547,6 +8620,7 @@
         "Locked": false, 
         "GameObjectID": 293, 
         "Name": "PressurePlate2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8657,6 +8731,7 @@
         "Locked": false, 
         "GameObjectID": 257, 
         "Name": "Wall5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8763,6 +8838,7 @@
         "Locked": false, 
         "GameObjectID": 265, 
         "Name": "Door3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8887,6 +8963,7 @@
         "Locked": false, 
         "GameObjectID": 257, 
         "Name": "Wall5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8993,6 +9070,7 @@
         "Locked": false, 
         "GameObjectID": 257, 
         "Name": "Wall5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9099,6 +9177,7 @@
         "Locked": false, 
         "GameObjectID": 251, 
         "Name": "Ceiling11", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9205,6 +9284,7 @@
         "Locked": false, 
         "GameObjectID": 275, 
         "Name": "Button5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9285,6 +9365,7 @@
         "Locked": false, 
         "GameObjectID": 106, 
         "Name": "Gate1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9353,6 +9434,7 @@
         "Locked": false, 
         "GameObjectID": 106, 
         "Name": "Transistor1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9420,6 +9502,7 @@
         "Locked": false, 
         "GameObjectID": 228, 
         "Name": "GroundExtra1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9526,6 +9609,7 @@
         "Locked": false, 
         "GameObjectID": 228, 
         "Name": "GroundExtra2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9632,6 +9716,7 @@
         "Locked": false, 
         "GameObjectID": 228, 
         "Name": "GroundExtra3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9738,6 +9823,7 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Button1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9868,6 +9954,7 @@
         "Locked": true, 
         "GameObjectID": 274, 
         "Name": "Foreground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9948,6 +10035,7 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Midground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -10028,6 +10116,7 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Background", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -10108,6 +10197,7 @@
         "Locked": false, 
         "GameObjectID": 206, 
         "Name": "Generator", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -10238,6 +10328,7 @@
         "Locked": true, 
         "GameObjectID": 97, 
         "Name": "LevelSettings", 
+        "Protected": false, 
         "Components": 
         {
         }, 

@@ -42,6 +42,10 @@ namespace DCEngine {
       friend class EditorInspector;
       friend class EditorTextEditor;
       friend class EditorObjects;
+      friend class EditorLauncher;
+
+    private:
+      bool Enabled;
 
     public:
 
@@ -50,11 +54,10 @@ namespace DCEngine {
       ObjectContainer& AllSelectedObjects();
       void Add(EditorModulePtr module);
       void Add(CommandPtr command);
-      bool IsEnabled();
       void ToggleEditor();
-      void ToggleEditor(bool toggle, bool reload = true);
       SpacePtr CurrentSpace;
       static Editor& Access();
+      DCE_DEFINE_PROPERTY(bool, Enabled);
 
     private:
 
@@ -85,6 +88,7 @@ namespace DCEngine {
       // Settings
       EditorConfig& Settings;
       // Modules
+      EditorLauncher Launcher;
       EditorSelector Selector;
       EditorCreator Creator;
       EditorResources Resources;
@@ -102,9 +106,7 @@ namespace DCEngine {
       // Objects
       SystemPtr ReflectionSystem;
       GameObjectPtr EditorCamera = nullptr;
-      //GameObjectPtr TransformTool = nullptr;      
       // Editor
-      void setEnabled(bool);
       void DisplayEditor();
       // Windows
       void DisplayMainMenuBar();
@@ -162,7 +164,6 @@ namespace DCEngine {
       void WindowSpriteLayerOrderEditor();
       ResourcePtr SelectedCollisionTable;
       SpriteLayerOrderPtr SelectedSpriteLayerOrder;
-
       // Object Selection
       void WindowCommands();
       void Undo();
@@ -176,8 +177,6 @@ namespace DCEngine {
       void MoveToViewportCenter(GameObject* gameobject);
       // Window, Input
       void ApplyEditorWindowLayout();
-      //void CreateEditorCamera
-      void SetEditorCamera(bool);
       void Hotkeys(Events::KeyDown* event);
       void UpdateCaption();
       void PanCamera(Vec2&);

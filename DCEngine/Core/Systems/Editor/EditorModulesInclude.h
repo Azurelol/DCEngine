@@ -20,3 +20,4 @@
 #include "EditorInspector.h"
 #include "EditorPreferences.h"
 #include "EditorObjects.h"
+#include "EditorLauncher.h"
