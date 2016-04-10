@@ -59,6 +59,8 @@ namespace DCEngine {
       void setFullScreen();
 			void resizeWindow(float x, float y);
 			void recreateWindow();
+			void lostFocus();
+			void gainedFocus();
       void setWindow(WindowMode style);
 
       void Initialize();
@@ -67,6 +69,9 @@ namespace DCEngine {
       void StartFrame();
       void EndFrame();
       
+			unsigned nativeWidth, nativeHeight;
+			bool returnToFullscreen;
+
       // Settings for the underlying OpenGL context
       sf::ContextSettings ContextSettings;
       const int _depthBits = 24; //!< Number of bits per pixel to use for the depth buffer.

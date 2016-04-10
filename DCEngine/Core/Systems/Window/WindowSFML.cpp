@@ -27,7 +27,8 @@ namespace DCEngine {
     \brief  Constructor for the WindowSFML class.
     */
     /**************************************************************************/
-    WindowSFML::WindowSFML(Window& windowInterface) : WindowInterface(windowInterface) {
+    WindowSFML::WindowSFML(Window& windowInterface) : WindowInterface(windowInterface), 
+		returnToFullscreen(false) {
     }
 
     WindowSFML::~WindowSFML() {
@@ -78,10 +79,51 @@ namespace DCEngine {
 		void WindowSFML::recreateWindow(void)
 		{
 			ContextSettings.antialiasingLevel = WindowInterface.Settings.Samples;
-			WindowContext->create(sf::VideoMode(
-				WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
-				WindowInterface.Caption, sf::Style::Titlebar | sf::Style::Close, ContextSettings);
-			WindowContext->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
+			if (Mode != WindowMode::Fullscreen)
+			{
+				WindowContext->create(sf::VideoMode(
+					WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
+					WindowInterface.Caption, sf::Style::Titlebar | sf::Style::Close, ContextSettings);
+				WindowContext->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
+			}
+			else
+			{
+				WindowContext->create(sf::VideoMode(
+					WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
+					WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
+				//WindowContext->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
+			}
+		}
+
+		void WindowSFML::lostFocus(void)
+		{
+			if (!returnToFullscreen)
+			{
+				if (Mode == WindowMode::Fullscreen)
+				{
+					widthRecord = WindowInterface.Settings.ScreenWidth;
+					heightRecord = WindowInterface.Settings.ScreenHeight;
+					WindowContext->create(sf::VideoMode( nativeWidth, nativeHeight),
+						WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
+					WindowContext->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
+					ShowWindow(WindowContext->getSystemHandle(), SW_MINIMIZE);
+					returnToFullscreen = true;
+				}
+			}
+		}
+
+		void WindowSFML::gainedFocus(void)
+		{
+			if (returnToFullscreen)
+			{
+				WindowInterface.Settings.ScreenWidth = widthRecord;
+				WindowInterface.Settings.ScreenHeight = heightRecord;
+				resizeWindow(WindowInterface.Settings.ScreenWidth,
+					WindowInterface.Settings.ScreenHeight);
+				Daisy->getSystem<Graphics>()->Initialize();
+				returnToFullscreen = false;
+			}
+			//WindowContext->setVisible(true);
 		}
 
     /**************************************************************************/
@@ -146,16 +188,17 @@ namespace DCEngine {
       ContextSettings.antialiasingLevel = WindowInterface.Settings.Samples;
       ContextSettings.majorVersion = _majorVersion;
       ContextSettings.minorVersion = _minorVersion;
+			nativeWidth = sf::VideoMode::getDesktopMode().width;
+			nativeHeight = sf::VideoMode::getDesktopMode().height;
 			image.loadFromFile("Projects/Rebound/Assets/Images/MoonwardLogo.png");
       // If it starts as fullscreen
       if (WindowInterface.Settings.Fullscreen) {
-        WindowContext.reset(new sf::Window(sf::VideoMode(sf::VideoMode::getDesktopMode().width,
-          sf::VideoMode::getDesktopMode().height),
+        WindowContext.reset(new sf::Window(sf::VideoMode(nativeWidth, nativeHeight),
           WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings));
         Mode = WindowMode::Fullscreen;
         DispatchSystemEvents::WindowFullScreenEnabled();
-				WindowInterface.Settings.ScreenWidth = sf::VideoMode::getDesktopMode().width;
-				WindowInterface.Settings.ScreenHeight = sf::VideoMode::getDesktopMode().height;
+				WindowInterface.Settings.ScreenWidth = nativeWidth;
+				WindowInterface.Settings.ScreenHeight = nativeHeight;
       }
       // Or if it starts as windowed
       else {
