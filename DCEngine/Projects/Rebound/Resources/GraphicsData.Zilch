@@ -7,6 +7,8 @@ class GraphicsData : ZilchComponent
     function Initialize()
     {
         Daisy.Connect(this.Owner, DaisyEvent.GraphicsChange, this.OnGraphicsChange);
+        this.CurrentAA = AntiAlias.B_x4;
+        this.CurrentResolution = Resolution.Native;
 
         // Get Native?
     }
@@ -47,7 +49,7 @@ class GraphicsData : ZilchComponent
     		aaSample = 16;
     	}
 
-    	//this.Space.GraphicsSpace.SetAntiAliasingLevel(aaSample);
+    	this.Space.GraphicsSpace.SetAntiAliasingLevel(aaSample);
     }
 
     function ApplyResolution(newRes : Resolution)
@@ -131,6 +133,6 @@ class GraphicsData : ZilchComponent
     		resHeight = 1024;
     	}
 
-    	//this.Space.GraphicsSpace.SetResolution(resWidth, resHeight);
+    	this.Space.GraphicsSpace.SetResolution(resWidth, resHeight);
     }
 }

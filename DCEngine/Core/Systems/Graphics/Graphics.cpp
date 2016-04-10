@@ -58,6 +58,7 @@ namespace DCEngine {
       Daisy->Connect<Events::WindowFullScreenDisabled>(&Graphics::OnWindowFullScreenDisabledEvent, this);
       Daisy->Connect<Events::GraphicsCompileShaders>(&Graphics::OnGraphicsCompileShadersEvent, this);
       Daisy->Connect<Events::GraphicsToggleLightning>(&Graphics::OnGraphicsToggleLightningEvent, this);
+			Daisy->Connect<Events::WindowRecreate>(&Graphics::OnWindowRecreateEvent, this);
     }
 
     /**************************************************************************/
@@ -73,7 +74,7 @@ namespace DCEngine {
         DCTrace << "Graphics::Update \n";
           
       // Start the profiler
-      SystemTimer profile(this->Name());
+      SystemTimer pwrofile(this->Name());
 
       // For every Space with a 'GraphicsSpace' component...
       for (Components::GraphicsSpace* gfxSpace : ActiveGraphicsSpaces) {
@@ -433,6 +434,12 @@ namespace DCEngine {
       DCTrace << "Graphics::OnWindowResizeEvent - Width: " << event->Dimensions.x
         << " Height " << event->Dimensions.y << "\n";
     }
+
+		void Graphics::OnWindowRecreateEvent(Events::WindowRecreate * event)
+		{
+			GraphicsHandler->FreeFBO();
+			GraphicsHandler->Initialize();
+		}
 
     /**************************************************************************/
     /*!
