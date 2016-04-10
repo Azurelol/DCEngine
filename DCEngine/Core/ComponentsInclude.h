@@ -11,6 +11,8 @@
 /******************************************************************************/
 #pragma once
 
+// GameSession-specific
+#include "Components\DefaultGameSetup.h"
 // Space-specific components
 #include "Components\PhysicsSpace.h"
 #include "Components\GraphicsSpace.h"

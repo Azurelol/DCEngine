@@ -241,18 +241,7 @@ namespace DCEngine {
       DispatchSystemEvents::EditorDeselectObject();
     
     }
-
-    /**************************************************************************/
-    /*!
-    @brief  Selects the Space object for property inspection.
-    */
-    /**************************************************************************/
-    void Editor::SelectSpace()
-    {
-      Select(CurrentSpace);
-      Inspector.Toggle(true);
-    }
-
+    
     /**************************************************************************/
     /*!
     @brief  Center the editor camera on the selected object.

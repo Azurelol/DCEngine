@@ -25,21 +25,34 @@ namespace DCEngine {
       void LoadProject(const std::string& path);
       void OpenRecentProject();
       void SaveProject();
-      bool Ready;
+      void AutoSave();
+      void SaveLevelBackup();
+      // Levels
+      bool LoadLevel(std::string level);
+      bool SaveLevel(std::string level);
+      bool ReloadLevel();
+      void SaveCurrentLevel();
+      
 
+      bool Ready;
       EditorProjects();
       ~EditorProjects();
 
     protected:      
 
     private:
+      std::unique_ptr<Time::Timer> AutoSaveTimer;
+      bool WindowProjectsPropertiesEnabled;
+      // Load
+      void LoadDefaultGameSession();
+      void LoadDefaultSpace();
+      // Initialize
       bool InitializingProject;
       void InitializeProject();
+      // Events
       void OnContentProjectLoadedEvent(Events::ContentProjectLoaded* event);
       void OnScriptingLibraryCompiled(Events::ScriptingLibraryCompiled* event);
       void OnScriptingLibraryCompilationFailure(Events::ScriptingLibraryCompilationFailure* event);
-      bool WindowProjectsPropertiesEnabled;
-      void Update();
 
     };
 

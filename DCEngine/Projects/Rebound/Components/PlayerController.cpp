@@ -472,42 +472,42 @@ namespace DCEngine {
 
 		}
 
-	  Boolean PlayerController::CheckForGround()
-	  {
-		  DCEngine::CastFilter filter;
-		  filter.CollisionGroups.push_back(CollisionGroup::Find("Terrain"));
-		  filter.CollisionGroups.push_back(CollisionGroup::Find("Ball"));
-		  filter.Include = true;
-		  auto physicsSpace = this->SpaceRef->getComponent<Components::PhysicsSpace>();
-		  DCEngine::Ray ray;
-		  ray.Direction = Vec3(0, -1, 0);
-		  ray.Origin = TransformRef->Translation + Vec3(TransformRef->Scale.x / 2.1, -TransformRef->Scale.y / 2.01, 0);
-		  auto result = physicsSpace->CastRay(ray, filter);
-		  //DCTrace << "raydist1 = " << result.Distance << "\n";
-		  auto graphicsSpace = this->SpaceRef->getComponent<Components::GraphicsSpace>();
-		  graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0,-1,0), Vec4(1, 0, 0, 1));
-		  if (result.Distance < 0.02)
-		  {
-			  return true;
-		  }
-		  ray.Origin = TransformRef->Translation + Vec3(0, -TransformRef->Scale.y / 2.01, 0);
-		  result = physicsSpace->CastRay(ray, filter);
-		  //DCTrace << "raydist2 = " << result.Distance << "\n";
-		  graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
-		  if (result.Distance < 0.02)
-		  {
-			  return true;
-		  }
-		  ray.Origin = TransformRef->Translation + Vec3(-TransformRef->Scale.x / 2.1, -TransformRef->Scale.y / 2.01, 0);
-		  result = physicsSpace->CastRay(ray, filter);
-		  //DCTrace << "raydist3 = " << result.Distance << "\n";
-		  graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
-		  if (result.Distance < 0.02)
-		  {
-			  return true;
-		  }
-		  return false;
-	  }
+		Boolean PlayerController::CheckForGround()
+		{
+			DCEngine::CastFilter filter;
+			filter.CollisionGroups.push_back(CollisionGroup::Find("Terrain"));
+			filter.CollisionGroups.push_back(CollisionGroup::Find("Ball"));
+			filter.Include = true;
+			auto physicsSpace = this->SpaceRef->getComponent<Components::PhysicsSpace>();
+			DCEngine::Ray ray;
+			ray.Direction = Vec3(0, -1, 0);
+			ray.Origin = TransformRef->Translation + Vec3(TransformRef->Scale.x / 2.1, -TransformRef->Scale.y / 2.01, 0);
+			auto result = physicsSpace->CastRay(ray, filter);
+			//DCTrace << "raydist1 = " << result.Distance << "\n";
+			auto graphicsSpace = this->SpaceRef->getComponent<Components::GraphicsSpace>();
+			graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
+			if (result.Distance < 0.02)
+			{
+				return true;
+			}
+			ray.Origin = TransformRef->Translation + Vec3(0, -TransformRef->Scale.y / 2.01, 0);
+			result = physicsSpace->CastRay(ray, filter);
+			//DCTrace << "raydist2 = " << result.Distance << "\n";
+			graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
+			if (result.Distance < 0.02)
+			{
+				return true;
+			}
+			ray.Origin = TransformRef->Translation + Vec3(-TransformRef->Scale.x / 2.1, -TransformRef->Scale.y / 2.01, 0);
+			result = physicsSpace->CastRay(ray, filter);
+			//DCTrace << "raydist3 = " << result.Distance << "\n";
+			graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
+			if (result.Distance < 0.02)
+			{
+				return true;
+			}
+			return false;
+		}
 
     void PlayerController::PlaydFootstep(void)
     {

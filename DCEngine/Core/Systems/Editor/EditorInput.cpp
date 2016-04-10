@@ -165,12 +165,19 @@ namespace DCEngine {
           Duplicate();
         break;
 
+      case Keys::G:
+        if (Daisy->getKeyboard()->KeyIsDown(Keys::LShift))
+          Inspector.SelectGameSession();
+        if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl)) {
+        }
+        break;
+
       case Keys::S:
         if (Daisy->getKeyboard()->KeyIsDown(Keys::LShift))
-          SelectSpace();
+          Inspector.SelectSpace();
         if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl)) {
           Projects.SaveProject();
-          SaveCurrentLevel();
+          Access().Projects.SaveCurrentLevel();
           DispatchSystemEvents::EditorSave();
         }
         break;

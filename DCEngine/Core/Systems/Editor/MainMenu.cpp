@@ -90,8 +90,8 @@ namespace DCEngine {
           ImGui::Separator();
           if (ImGui::MenuItem("Group Selected", false)) {};
           ImGui::Separator();
-          if (ImGui::MenuItem("Select Space", "Shift+S")) SelectSpace();
-          if (ImGui::MenuItem("Select Game", "Shift+G")) {};
+          if (ImGui::MenuItem("Select Space", "Shift+S")) Inspector.SelectSpace();
+          if (ImGui::MenuItem("Select Game", "Shift+G")) Inspector.SelectGameSession(); 
           ImGui::EndMenu();
         }
 
@@ -109,7 +109,7 @@ namespace DCEngine {
           if (ImGui::MenuItem("Save Level"))
             Windows.SaveLevelEnabled = !Windows.SaveLevelEnabled;
           if (ImGui::MenuItem("Reload Level"))
-            ReloadLevel();
+            Projects.ReloadLevel();
           ImGui::EndMenu();
         }
 

@@ -550,9 +550,15 @@
       }, 
       "GameObject": 
       {
+<<<<<<< HEAD
+        "Locked": true, 
+        "GameObjectID": 16, 
+        "Name": "LevelSettings", 
+=======
         "Locked": false, 
         "GameObjectID": 16, 
         "Name": "SoDoge", 
+>>>>>>> 2f2fd9743c8a8540f33f1c8041b3c84027f78601
         "Components": 
         {
           "Transform": 
@@ -561,8 +567,13 @@
             {
               "Vec3": 
               {
+<<<<<<< HEAD
+                "x": 0.000000, 
+                "y": 0.000000, 
+=======
                 "x": -30.447845, 
                 "y": -13.730039, 
+>>>>>>> 2f2fd9743c8a8540f33f1c8041b3c84027f78601
                 "z": 0.000000
               }
             }, 
@@ -584,6 +595,8 @@
                 "z": 1.000000
               }
             }
+<<<<<<< HEAD
+=======
           }, 
           "SpriteText": 
           {
@@ -605,6 +618,7 @@
             "Smoothing": true, 
             "WordWrap": 0, 
             "DrawLayer": 0
+>>>>>>> 2f2fd9743c8a8540f33f1c8041b3c84027f78601
           }
         }, 
         "Children": 
