@@ -4,7 +4,10 @@ class DialogText : ZilchComponent
     var SystemDelay : Real = 0.0;
 	
     [Property]
-    var FadeInTime : Real = 3.0;
+    var FadeInTime : Real = 2.0;
+	
+	[Property]
+    var FadeEase : Ease = Ease.Linear;
 	
     [Property]
     var MessageTime : Real = 5.0;
@@ -22,7 +25,7 @@ class DialogText : ZilchComponent
 	var WordWrap : Integer = 15;
 	
 	[Property]
-    var FadeEase : Ease = Ease.Linear;
+    var TextEase : Ease = Ease.Linear;
 	
 	[Property]
 	var DeleteAfterTime : Boolean = true;
@@ -34,15 +37,16 @@ class DialogText : ZilchComponent
 	//var ArbitraryXShift : Integer = -5;
 	
 	[Property]
-	var AshaVoiceColor : Real4 = Real4(0,1,0,1);
+	var AshaVoiceColor : Real3 = Real3(0,1,0);
 	[Property]
-	var DudeVoiceColor : Real4 = Real4(1,0,0,1);
+	var CyrusVoiceColor : Real3 = Real3(1,0,0);
 	
 	var XShiftPerChar : Real;
 	var CurTime : Real = 0.0;
-	var Finished : Boolean = false;
+	var Finished : Boolean = true;
 	var ThePlace : Integer = 0;
-	var CurSpeaker : Speaker = Speaker.Dude;
+	var CurSpeaker : Speaker = Speaker.Cyrus;
+	var Instance : SoundInstance;
 	
     function Initialize()
     {
@@ -50,14 +54,14 @@ class DialogText : ZilchComponent
 		if(this.CurSpeaker == Speaker.Asha)
 		{
 			dialogSpeaker.SpriteText.Text = "Asha";
-			dialogSpeaker.SpriteText.Color = this.AshaVoiceColor;
-			this.Owner.SpriteText.Color = this.AshaVoiceColor;
+			dialogSpeaker.SpriteText.Color = Real4(this.AshaVoiceColor, dialogSpeaker.SpriteText.Color.W);
+			this.Owner.SpriteText.Color = Real4(this.AshaVoiceColor, this.Owner.SpriteText.Color.W);
 		}
-		else if(this.CurSpeaker == Speaker.Dude)
+		else if(this.CurSpeaker == Speaker.Cyrus)
 		{
-			dialogSpeaker.SpriteText.Text = "Dude";
-			dialogSpeaker.SpriteText.Color = this.DudeVoiceColor;
-			this.Owner.SpriteText.Color = this.DudeVoiceColor;
+			dialogSpeaker.SpriteText.Text = "Cyrus";
+			dialogSpeaker.SpriteText.Color = Real4(this.CyrusVoiceColor, dialogSpeaker.SpriteText.Color.W);
+			this.Owner.SpriteText.Color = Real4(this.CyrusVoiceColor, this.Owner.SpriteText.Color.W);
 		}
 		this.XShiftPerChar = 4.0/10;
 		this.Owner.SpriteText.Text = "";
@@ -72,33 +76,43 @@ class DialogText : ZilchComponent
     {
 		var dialogBackground = this.Space.FindObjectByName("DialogBackground");
 		var xShift : Real = 0;
-		//if(this.WordWrap > this.Message.Count)
-		//{
-		//	xShift = this.XShiftPerChar*this.WordWrap;
-		//}
-		//else
-		//{
-		//	xShift = this.XShiftPerChar*this.Message.Count;
-		//}
-		//this.Owner.Transform.Translation = Real3(dialogBackground.Transform.Translation.X - xShift,
-		//										 dialogBackground.Transform.Translation.Y,
-		//										 this.Owner.Transform.Translation.Z);
-		//.Transform.Translation.Y = player.Owner.Transform.Y;
+		
+
+		var dialogSpeaker = this.Space.FindObjectByName("DialogSpeaker");
+		var background = this.Space.FindObjectByName("DialogBackground");
+		if(this.Owner.SpriteText.Visible == true && background.Sprite.Color.W == 1)
+		{
+			dialogSpeaker.SpriteText.Color = Real4(dialogSpeaker.SpriteText.Color.XYZ, 1);
+			this.Owner.SpriteText.Color = Real4(this.Owner.SpriteText.Color.XYZ, 1);
+		}
+		
 		if(this.ThePlace == this.Message.Count)
 			this.Finished = true;
+			
 		this.CurTime += event.Dt;
+		
 		if(this.CurTime > this.TimeToDelete && this.DeleteAfterTime == true)
 		{
 			this.WipeMessage();
 			this.CurTime = 0;
 		}
-		//if(this.Finished == true)
-		//{
-		//	this.Owner.SpriteText.Text = this.Message;
-		//}
-		//else
-			this.Owner.SpriteText.Text = this.Message.SubString(0, this.ThePlace);
+		if(this.ThePlace == 1)
+		{
+			
+			this.PlaySound();
+		}
+		this.Owner.SpriteText.Text = this.Message.SubString(0, this.ThePlace);
     }
+	
+	function PlaySound()
+	{
+		//Console.WriteLine("DialogSound");
+		//if(this.CurSpeaker == Speaker.Asha)
+		//	this.Instance = this.Space.SoundSpace.PlayCue("InterfaceRepy");
+		//else
+		//	this.Instance = this.Space.SoundSpace.PlayCue("InterfaceNotify");
+    	//if (this.Instance != null) Console.WriteLine("`this.Owner.Name` is playing `this.Instance.Name`");
+	}
 	
 	function FinishMessage()
 	{
@@ -108,6 +122,7 @@ class DialogText : ZilchComponent
 	
 	function OnMessageEvent(event : MessageEvent)
 	{
+						Console.WriteLine("OnMessageEvent");
 		if(event.NewProperties == true)
 		{
 			if(this.SystemDelay != -1)
@@ -133,57 +148,90 @@ class DialogText : ZilchComponent
 		{
 			this.SetMessage(event.Message);
 		}
-		this.WipeMessage();
+		var dialogSpeaker = this.Space.FindObjectByName("DialogSpeaker");
+		if(this.CurSpeaker == Speaker.Asha)
+		{
+			dialogSpeaker.SpriteText.Text = "Asha";
+			dialogSpeaker.SpriteText.Color = Real4(this.AshaVoiceColor, 0);
+			this.Owner.SpriteText.Color = Real4(this.AshaVoiceColor, 0);
+		}
+		else if(this.CurSpeaker == Speaker.Cyrus)
+		{
+			dialogSpeaker.SpriteText.Text = "Cyrus";
+			dialogSpeaker.SpriteText.Color = Real4(this.CyrusVoiceColor, 0);
+			this.Owner.SpriteText.Color = Real4(this.CyrusVoiceColor, 0);
+		}
+		//this.WipeMessage();
 		this.SayMessage();
 	}
 	
 	function SetMessage(message : String)
 	{
 		this.Finished = false;
+		Console.WriteLine(message);
 		this.Message = message;
 		this.ThePlace = 0;
 	}
 	
 	function SayMessage()
 	{
+		this.Owner.SpriteText.Visible = true;
         var masterSeq = Actions.Sequence(this.Owner.Actions);
         var masterGrp = Actions.Group(this.Owner.Actions);
+		//this.Owner.SpriteText.Color = Real4(this.Owner.SpriteText.Color.XYZ, 1);
 		
+		
+		
+		Console.WriteLine("SayMessage");
 		var background = this.Space.FindObjectByName("DialogBackground");
-		
-		Actions.Property(masterSeq, @background.Sprite.Color.W, 1, this.FadeInTime, this.FadeEase);
-		//Actions.Delay(masterSeq, this.FadeInTime);
-		
+		if(background.Sprite.Color.W == 0)
+		{
+			var speaker = this.Space.FindObjectByName("DialogSpeaker");
+			var ball = this.Space.FindObjectByName("Ball");
+			ball.BallController.ToggleForceFreeze();
+			Actions.Property(masterSeq, @background.Sprite.Color, Real4(background.Sprite.Color.XYZ, 1), this.FadeInTime, this.TextEase);
+			Actions.Property(masterSeq, @speaker.SpriteText.Color, Real4(speaker.SpriteText.Color.XYZ, 1), this.FadeInTime, this.TextEase);
+		}
         Actions.Delay(masterSeq, this.SystemDelay);
         Actions.Delay(masterGrp, this.SystemDelay);
 		
 		if(this.ScaleTimeWithSize == true)
 		{
-			Actions.Property(masterSeq, @this.ThePlace, this.Message.Count, this.TimePerChar*this.Message.Count, this.FadeEase);
+			Actions.Property(masterSeq, @this.ThePlace, this.Message.Count, this.TimePerChar*this.Message.Count, this.TextEase);
 		}
 		else
 		{
-			Actions.Property(masterSeq, @this.ThePlace, this.Message.Count, this.MessageTime, this.FadeEase);
+			Actions.Property(masterSeq, @this.ThePlace, this.Message.Count, this.MessageTime, this.TextEase);
 		}
 		
 	}
 	
 	function WipeMessage()
 	{
+		Console.WriteLine("WHAT THE FUCK");
 		this.Owner.SpriteText.Text = "";
+		this.Owner.SpriteText.Visible = false;
 		this.ThePlace = 0;
 		var dialogSpeaker = this.Space.FindObjectByName("DialogSpeaker");
+		var background = this.Space.FindObjectByName("DialogBackground");
+		var ball = this.Space.FindObjectByName("Ball");
+		
+        var masterSeq = Actions.Sequence(this.Owner.Actions);
+        var masterGrp = Actions.Group(this.Owner.Actions);
+		Actions.Property(masterSeq, @background.Sprite.Color, Real4(background.Sprite.Color.XYZ, 0), this.FadeInTime, this.TextEase);
+		ball.BallController.ToggleForceFreeze();
+		
 		if(this.CurSpeaker == Speaker.Asha)
 		{
 			dialogSpeaker.SpriteText.Text = "Asha";
-			dialogSpeaker.SpriteText.Color = this.AshaVoiceColor;
-			this.Owner.SpriteText.Color = this.AshaVoiceColor;
+			dialogSpeaker.SpriteText.Color = Real4(this.AshaVoiceColor, 0);
+			this.Owner.SpriteText.Color = Real4(this.AshaVoiceColor, 0);
 		}
-		else if(this.CurSpeaker == Speaker.Dude)
+		else if(this.CurSpeaker == Speaker.Cyrus)
 		{
-			dialogSpeaker.SpriteText.Text = "Dude";
-			dialogSpeaker.SpriteText.Color = this.DudeVoiceColor;
-			this.Owner.SpriteText.Color = this.DudeVoiceColor;
+			dialogSpeaker.SpriteText.Text = "Cyrus";
+			dialogSpeaker.SpriteText.Color = Real4(this.CyrusVoiceColor, 0);
+			this.Owner.SpriteText.Color = Real4(this.CyrusVoiceColor, 0);
 		}
 	}
 }

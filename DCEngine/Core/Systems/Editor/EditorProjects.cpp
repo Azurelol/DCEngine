@@ -155,7 +155,7 @@ namespace DCEngine {
       // Destroy the current editor camera
       Access().SetEditorCamera(false);
       // Turn on the editor
-      Access().Settings.EditorEnabled = true;
+      //Access().Settings.EditorEnabled = true;
       // Save a pointer to the project data
       Access().Settings.ProjectProperties = &Daisy->getSystem<Content>()->getProjectInfo();
       // Update the window caption to display the current project
@@ -362,7 +362,7 @@ namespace DCEngine {
 
         // No default level set, turn on the editor!
         else
-          Access().ToggleEditor(true, false);
+          Access().ToggleEditor(true, true);
 
         InitializingProject = false;
       }

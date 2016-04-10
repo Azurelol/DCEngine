@@ -64,6 +64,13 @@ namespace DCEngine {
       AudioHandler->GenerateResources();
     }
 
+    void Audio::Pulse()
+    {
+      std::this_thread::sleep_for(std::chrono::milliseconds(100));
+      AudioHandler->System.Studio->update();
+      AudioHandler->System.LowLevel->update();
+    }
+
     /**************************************************************************/
     /*!
     @brief  Registers a space into the Audio system.

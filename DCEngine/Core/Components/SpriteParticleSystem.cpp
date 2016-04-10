@@ -225,7 +225,9 @@ namespace DCEngine {
 		void SpriteParticleSystem::Draw(void)
 		{
 			//mShader->Use();
+			glEnable(GL_DEPTH_TEST);
 			glDepthMask(GL_FALSE);
+			glDepthFunc(GL_LEQUAL);
 			glEnable(GL_BLEND);
 			std::vector<glm::vec2> offset(GetPositionData());
 			std::vector<glm::vec4> color(GetColorData());
@@ -235,6 +237,7 @@ namespace DCEngine {
 				glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			if (Visible)
 			{
+				glDrawBuffer(GL_COLOR_ATTACHMENT2);
 				glBindBuffer(GL_ARRAY_BUFFER, mColorInstanceVBO);
 				glBufferSubData(GL_ARRAY_BUFFER, 0,
 					sizeof(glm::vec4) * GetParticleCount(), color.data());
@@ -249,6 +252,7 @@ namespace DCEngine {
 			}
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			glDepthMask(GL_TRUE);
+			glDepthFunc(GL_LESS);
 			transformData.clear();
 		}
 
@@ -260,7 +264,7 @@ namespace DCEngine {
     /**************************************************************************/
 		void SpriteParticleSystem::AddParticle(void)
 		{
-			unsigned emitCount = 1 + rand() % (mParticleEmitter->EmitVariance + 1);
+			unsigned emitCount = mParticleEmitter->EmitVariance;
 			for (unsigned i = 0; i < emitCount; ++i)
 			{
 				float lifetime = mParticleEmitter->Lifetime + mParticleEmitter->LifetimeVariance * (rand() % 100 - 50) / 100;
