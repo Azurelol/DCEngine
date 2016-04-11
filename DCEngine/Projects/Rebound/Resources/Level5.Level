@@ -1878,11 +1878,18 @@
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
             "ShieldArchetype": "Sentinel Shield", 
+            "HeadArchetype": "", 
+            "ShoulderArchetype": "", 
+            "BodyArchetype": "", 
             "ShieldRadius": 1.000000, 
             "ShieldBashDistance": 2.000000, 
             "ShieldBashOutTime": 0.200000, 
             "ShieldBashInTime": 0.100000, 
-            "ShieldBashCooldown": 1.000000
+            "ShieldBashCooldown": 1.000000, 
+            "AnimationSpeedHead": 0.000000, 
+            "AnimationDistanceHead": 0.000000, 
+            "AnimationSpeedShoulder": 0.000000, 
+            "AnimationDistanceShoulder": 0.000000
           }
         }, 
         "Children": 
@@ -2143,7 +2150,11 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000
+            "AttackJumpPeriod": 1.000000, 
+            "AnimationSpeedHead": 0.000000, 
+            "AnimationDistanceHead": 0.000000, 
+            "AnimationSpeedSaw": 0.000000, 
+            "AnimationDistanceSaw": 0.000000
           }
         }, 
         "Children": 
@@ -2293,7 +2304,11 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000
+            "AttackJumpPeriod": 1.000000, 
+            "AnimationSpeedHead": 0.000000, 
+            "AnimationDistanceHead": 0.000000, 
+            "AnimationSpeedSaw": 0.000000, 
+            "AnimationDistanceSaw": 0.000000
           }
         }, 
         "Children": 
@@ -2443,7 +2458,11 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000
+            "AttackJumpPeriod": 1.000000, 
+            "AnimationSpeedHead": 0.000000, 
+            "AnimationDistanceHead": 0.000000, 
+            "AnimationSpeedSaw": 0.000000, 
+            "AnimationDistanceSaw": 0.000000
           }
         }, 
         "Children": 
@@ -4273,10 +4292,20 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "ShoulderArchetype": "", 
+            "BodyArchetype": "", 
+            "SpearArchetype": "", 
             "IdleRange": 1000.000000, 
             "ChargeForce": 100.000000, 
             "ShieldVelocityDifferenceThreshold": 1.000000, 
-            "ShieldActivationSpeed": 5.000000
+            "ShieldActivationSpeed": 5.000000, 
+            "AnimationSpeedHead": 0.000000, 
+            "AnimationDistanceHead": 0.000000, 
+            "AnimationSpeedShoulder": 0.000000, 
+            "AnimationDistanceShoulder": 0.000000, 
+            "AnimationSpeedSpear": 0.000000, 
+            "AnimationDistanceSpear": 0.000000
           }
         }, 
         "Children": 
@@ -4525,10 +4554,20 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "ShoulderArchetype": "", 
+            "BodyArchetype": "", 
+            "SpearArchetype": "", 
             "IdleRange": 1000.000000, 
             "ChargeForce": 100.000000, 
             "ShieldVelocityDifferenceThreshold": 1.000000, 
-            "ShieldActivationSpeed": 5.000000
+            "ShieldActivationSpeed": 5.000000, 
+            "AnimationSpeedHead": 0.000000, 
+            "AnimationDistanceHead": 0.000000, 
+            "AnimationSpeedShoulder": 0.000000, 
+            "AnimationDistanceShoulder": 0.000000, 
+            "AnimationSpeedSpear": 0.000000, 
+            "AnimationDistanceSpear": 0.000000
           }
         }, 
         "Children": 
@@ -5212,11 +5251,18 @@
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
             "ShieldArchetype": "Sentinel Shield", 
+            "HeadArchetype": "", 
+            "ShoulderArchetype": "", 
+            "BodyArchetype": "", 
             "ShieldRadius": 1.000000, 
             "ShieldBashDistance": 2.000000, 
             "ShieldBashOutTime": 0.200000, 
             "ShieldBashInTime": 0.100000, 
-            "ShieldBashCooldown": 1.000000
+            "ShieldBashCooldown": 1.000000, 
+            "AnimationSpeedHead": 0.000000, 
+            "AnimationDistanceHead": 0.000000, 
+            "AnimationSpeedShoulder": 0.000000, 
+            "AnimationDistanceShoulder": 0.000000
           }
         }, 
         "Children": 
@@ -5357,11 +5403,18 @@
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
             "ShieldArchetype": "Sentinel Shield", 
+            "HeadArchetype": "", 
+            "ShoulderArchetype": "", 
+            "BodyArchetype": "", 
             "ShieldRadius": 1.000000, 
             "ShieldBashDistance": 2.000000, 
             "ShieldBashOutTime": 0.200000, 
             "ShieldBashInTime": 0.100000, 
-            "ShieldBashCooldown": 1.000000
+            "ShieldBashCooldown": 1.000000, 
+            "AnimationSpeedHead": 0.000000, 
+            "AnimationDistanceHead": 0.000000, 
+            "AnimationSpeedShoulder": 0.000000, 
+            "AnimationDistanceShoulder": 0.000000
           }
         }, 
         "Children": 
@@ -5511,7 +5564,11 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000
+            "AttackJumpPeriod": 1.000000, 
+            "AnimationSpeedHead": 0.000000, 
+            "AnimationDistanceHead": 0.000000, 
+            "AnimationSpeedSaw": 0.000000, 
+            "AnimationDistanceSaw": 0.000000
           }
         }, 
         "Children": 
@@ -5661,7 +5718,11 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000
+            "AttackJumpPeriod": 1.000000, 
+            "AnimationSpeedHead": 0.000000, 
+            "AnimationDistanceHead": 0.000000, 
+            "AnimationSpeedSaw": 0.000000, 
+            "AnimationDistanceSaw": 0.000000
           }
         }, 
         "Children": 
@@ -5811,7 +5872,11 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000
+            "AttackJumpPeriod": 1.000000, 
+            "AnimationSpeedHead": 0.000000, 
+            "AnimationDistanceHead": 0.000000, 
+            "AnimationSpeedSaw": 0.000000, 
+            "AnimationDistanceSaw": 0.000000
           }
         }, 
         "Children": 
@@ -5961,7 +6026,11 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000
+            "AttackJumpPeriod": 1.000000, 
+            "AnimationSpeedHead": 0.000000, 
+            "AnimationDistanceHead": 0.000000, 
+            "AnimationSpeedSaw": 0.000000, 
+            "AnimationDistanceSaw": 0.000000
           }
         }, 
         "Children": 
@@ -6111,7 +6180,11 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000
+            "AttackJumpPeriod": 1.000000, 
+            "AnimationSpeedHead": 0.000000, 
+            "AnimationDistanceHead": 0.000000, 
+            "AnimationSpeedSaw": 0.000000, 
+            "AnimationDistanceSaw": 0.000000
           }
         }, 
         "Children": 
@@ -6261,7 +6334,11 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000
+            "AttackJumpPeriod": 1.000000, 
+            "AnimationSpeedHead": 0.000000, 
+            "AnimationDistanceHead": 0.000000, 
+            "AnimationSpeedSaw": 0.000000, 
+            "AnimationDistanceSaw": 0.000000
           }
         }, 
         "Children": 
