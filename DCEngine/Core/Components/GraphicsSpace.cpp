@@ -15,6 +15,7 @@ engine's underlying graphics system.
 #include "GraphicsSpace.h"
 #include "EngineReference.h"
 #include "../Systems/Graphics/Graphics.h" // Access to the graphics system
+#include "..\Engine\Engine.h"
 
 namespace DCEngine {
 
@@ -116,7 +117,7 @@ namespace DCEngine {
     {
       Daisy->getSystem<Systems::Graphics>()->ToggleFullscreen();
     }
-    unsigned GraphicsSpace::GetScreenWidth()
+    unsigned GraphicsSpace::GetScreenWidth() const
     {
       return GraphicsSystem->GetScreenWidth();
     }
@@ -124,6 +125,11 @@ namespace DCEngine {
     {
       return GraphicsSystem->GetScreenHeight();
     }
+
+		void GraphicsSpace::SetNative()
+		{
+			DCEngine::Systems::DispatchSystemEvents::WindowResizeToNative();
+		}
 
     /**************************************************************************/
     /*!

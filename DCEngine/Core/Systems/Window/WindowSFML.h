@@ -56,6 +56,7 @@ namespace DCEngine {
       
       sf::Vector2i getWindowDimensions();
 			sf::Image image;
+			void toggleFullScreen();
       void setFullScreen();
 			void resizeWindow(float x, float y);
 			void recreateWindow();
