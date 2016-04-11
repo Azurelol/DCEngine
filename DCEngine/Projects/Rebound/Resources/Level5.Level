@@ -10,6 +10,7 @@
         "Locked": false, 
         "GameObjectID": 126, 
         "Name": "Camera", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -93,6 +94,7 @@
         "Locked": false, 
         "GameObjectID": 451, 
         "Name": "MainStreet", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -199,6 +201,7 @@
         "Locked": false, 
         "GameObjectID": 442, 
         "Name": "Light", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -292,6 +295,7 @@
         "Locked": false, 
         "GameObjectID": 147, 
         "Name": "Player", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -483,6 +487,7 @@
         "Locked": false, 
         "GameObjectID": 444, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -589,6 +594,7 @@
         "Locked": true, 
         "GameObjectID": 87, 
         "Name": "Background2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -669,6 +675,7 @@
         "Locked": false, 
         "GameObjectID": 447, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -775,6 +782,7 @@
         "Locked": false, 
         "GameObjectID": 451, 
         "Name": "MainStreet", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -881,6 +889,7 @@
         "Locked": false, 
         "GameObjectID": 452, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -987,6 +996,7 @@
         "Locked": false, 
         "GameObjectID": 453, 
         "Name": "Small Building", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1093,6 +1103,7 @@
         "Locked": false, 
         "GameObjectID": 454, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1199,6 +1210,7 @@
         "Locked": false, 
         "GameObjectID": 455, 
         "Name": "Transporter Track", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1305,6 +1317,7 @@
         "Locked": false, 
         "GameObjectID": 456, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1411,6 +1424,7 @@
         "Locked": false, 
         "GameObjectID": 457, 
         "Name": "Shield Generator", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1517,6 +1531,7 @@
         "Locked": false, 
         "GameObjectID": 458, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1623,6 +1638,7 @@
         "Locked": false, 
         "GameObjectID": 459, 
         "Name": "LockField", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1733,6 +1749,7 @@
         "Locked": false, 
         "GameObjectID": 914, 
         "Name": "Sentinel", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1877,6 +1894,7 @@
         "Locked": false, 
         "GameObjectID": 461, 
         "Name": "LockField", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1987,6 +2005,7 @@
         "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2136,6 +2155,7 @@
         "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2285,6 +2305,7 @@
         "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2434,6 +2455,7 @@
         "Locked": false, 
         "GameObjectID": 465, 
         "Name": "LockField", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2544,6 +2566,7 @@
         "Locked": false, 
         "GameObjectID": 466, 
         "Name": "LockField", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2654,6 +2677,7 @@
         "Locked": false, 
         "GameObjectID": 459, 
         "Name": "LockField", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2764,6 +2788,7 @@
         "Locked": false, 
         "GameObjectID": 459, 
         "Name": "LockField", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2874,6 +2899,7 @@
         "Locked": false, 
         "GameObjectID": 446, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2980,6 +3006,7 @@
         "Locked": false, 
         "GameObjectID": 446, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3086,6 +3113,7 @@
         "Locked": true, 
         "GameObjectID": 87, 
         "Name": "Background5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3166,6 +3194,7 @@
         "Locked": false, 
         "GameObjectID": 446, 
         "Name": "InvisibleWall", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3272,6 +3301,7 @@
         "Locked": false, 
         "GameObjectID": 446, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3378,6 +3408,7 @@
         "Locked": false, 
         "GameObjectID": 5343, 
         "Name": "Ball", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3684,6 +3715,7 @@
         "Locked": false, 
         "GameObjectID": 450, 
         "Name": "Alley", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3790,6 +3822,7 @@
         "Locked": false, 
         "GameObjectID": 451, 
         "Name": "MainStreet", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3896,6 +3929,7 @@
         "Locked": false, 
         "GameObjectID": 451, 
         "Name": "MainStreet", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4002,6 +4036,7 @@
         "Locked": false, 
         "GameObjectID": 459, 
         "Name": "LockField", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4112,6 +4147,7 @@
         "Locked": false, 
         "GameObjectID": 915, 
         "Name": "Lancer", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4250,6 +4286,7 @@
             "Locked": false, 
             "GameObjectID": 45, 
             "Name": "LancerShield", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -4362,6 +4399,7 @@
         "Locked": false, 
         "GameObjectID": 915, 
         "Name": "Lancer", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4500,6 +4538,7 @@
             "Locked": false, 
             "GameObjectID": 45, 
             "Name": "LancerShield", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -4612,6 +4651,7 @@
         "Locked": false, 
         "GameObjectID": 459, 
         "Name": "LockField", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4722,6 +4762,7 @@
         "Locked": false, 
         "GameObjectID": 446, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4828,6 +4869,7 @@
         "Locked": false, 
         "GameObjectID": 446, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4934,6 +4976,7 @@
         "Locked": false, 
         "GameObjectID": 451, 
         "Name": "MainStreet", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5040,6 +5083,7 @@
         "Locked": false, 
         "GameObjectID": 914, 
         "Name": "Sentinel", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5184,6 +5228,7 @@
         "Locked": false, 
         "GameObjectID": 914, 
         "Name": "Sentinel", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5328,6 +5373,7 @@
         "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5477,6 +5523,7 @@
         "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5626,6 +5673,7 @@
         "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5775,6 +5823,7 @@
         "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5924,6 +5973,7 @@
         "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6073,6 +6123,7 @@
         "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6222,6 +6273,7 @@
         "Locked": true, 
         "GameObjectID": 87, 
         "Name": "Background4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6302,6 +6354,7 @@
         "Locked": false, 
         "GameObjectID": 451, 
         "Name": "MainStreet", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6408,6 +6461,7 @@
         "Locked": false, 
         "GameObjectID": 451, 
         "Name": "MainStreet", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6514,6 +6568,7 @@
         "Locked": false, 
         "GameObjectID": 459, 
         "Name": "LockField", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6624,6 +6679,7 @@
         "Locked": true, 
         "GameObjectID": 441, 
         "Name": "WhiteboardBackground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6704,6 +6760,7 @@
         "Locked": false, 
         "GameObjectID": 291, 
         "Name": "BounceParticle", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6858,6 +6915,7 @@
         "Locked": true, 
         "GameObjectID": 284, 
         "Name": "Foreground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6938,6 +6996,7 @@
         "Locked": true, 
         "GameObjectID": 87, 
         "Name": "Background1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7018,6 +7077,7 @@
         "Locked": true, 
         "GameObjectID": 286, 
         "Name": "Midground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7098,6 +7158,7 @@
         "Locked": false, 
         "GameObjectID": 287, 
         "Name": "Sprite", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7178,6 +7239,7 @@
         "Locked": false, 
         "GameObjectID": 451, 
         "Name": "MainStreet", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7284,6 +7346,7 @@
         "Locked": false, 
         "GameObjectID": 451, 
         "Name": "MainStreet", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7390,6 +7453,7 @@
         "Locked": false, 
         "GameObjectID": 446, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7496,6 +7560,7 @@
         "Locked": false, 
         "GameObjectID": 451, 
         "Name": "MainStreet", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7602,6 +7667,7 @@
         "Locked": false, 
         "GameObjectID": 451, 
         "Name": "MainStreet", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7708,6 +7774,7 @@
         "Locked": false, 
         "GameObjectID": 451, 
         "Name": "MainStreet", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7814,6 +7881,7 @@
         "Locked": false, 
         "GameObjectID": 459, 
         "Name": "LockField", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7924,6 +7992,7 @@
         "Locked": false, 
         "GameObjectID": 276, 
         "Name": "Light", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8017,6 +8086,7 @@
         "Locked": false, 
         "GameObjectID": 451, 
         "Name": "MainStreet", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8123,6 +8193,7 @@
         "Locked": false, 
         "GameObjectID": 319, 
         "Name": "LevelGoal", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8253,6 +8324,7 @@
         "Locked": false, 
         "GameObjectID": 451, 
         "Name": "MainStreet", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8359,6 +8431,7 @@
         "Locked": false, 
         "GameObjectID": 446, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8465,6 +8538,7 @@
         "Locked": false, 
         "GameObjectID": 446, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8571,6 +8645,7 @@
         "Locked": false, 
         "GameObjectID": 446, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8677,6 +8752,7 @@
         "Locked": false, 
         "GameObjectID": 446, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8783,6 +8859,7 @@
         "Locked": false, 
         "GameObjectID": 446, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8889,6 +8966,7 @@
         "Locked": false, 
         "GameObjectID": 446, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8995,6 +9073,7 @@
         "Locked": false, 
         "GameObjectID": 332, 
         "Name": "LandingParticle", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9149,6 +9228,7 @@
         "Locked": false, 
         "GameObjectID": 11, 
         "Name": "LandingParticleSand", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9303,6 +9383,7 @@
         "Locked": false, 
         "GameObjectID": 11, 
         "Name": "LandingParticleUrban", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9457,6 +9538,7 @@
         "Locked": true, 
         "GameObjectID": 473, 
         "Name": "LevelSettings", 
+        "Protected": false, 
         "Components": 
         {
         }, 
@@ -9469,6 +9551,7 @@
         "Locked": false, 
         "GameObjectID": 1727, 
         "Name": "EnemyExplosionParticle", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9676,6 +9759,7 @@
         "Locked": false, 
         "GameObjectID": 446, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
