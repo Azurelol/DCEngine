@@ -7096,8 +7096,8 @@
             {
               "Vec3": 
               {
-                "x": 73.719170, 
-                "y": 29.327047, 
+                "x": 74.438141, 
+                "y": 31.984627, 
                 "z": 0.000000
               }
             }, 
@@ -7105,8 +7105,8 @@
             {
               "Vec3": 
               {
-                "x": 73.719170, 
-                "y": 29.327047, 
+                "x": 74.438141, 
+                "y": 31.984627, 
                 "z": 0.000000
               }
             }, 
@@ -7114,8 +7114,8 @@
             {
               "Vec3": 
               {
-                "x": 73.719170, 
-                "y": 29.327047, 
+                "x": 74.438141, 
+                "y": 31.984627, 
                 "z": 0.000000
               }
             }, 
@@ -7324,14 +7324,14 @@
             "Active": true, 
             "ResetCount": false, 
             "EmitCount": 0, 
-            "EmitRate": 26, 
-            "EmitVariance": 2, 
-            "Size": 0.100000, 
-            "SizeVariance": 0.100000, 
-            "Lifetime": 0.400000, 
-            "LifetimeVariance": 0.000000, 
+            "EmitRate": 27, 
+            "EmitVariance": 18, 
+            "Size": 0.600000, 
+            "SizeVariance": 2.600000, 
+            "Lifetime": 1.900000, 
+            "LifetimeVariance": 2.500000, 
             "Spin": 100.000000, 
-            "SpinVariance": 100.000000, 
+            "SpinVariance": 98.000000, 
             "StartVelocity": 
             {
               "Vec3": 
@@ -7349,7 +7349,16 @@
                 "y": 5.000000, 
                 "z": 0.000000
               }
-            }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 10.000000, 
+                "y": 10.000000
+              }
+            }, 
+            "EmissionCircle": true
           }, 
           "LinearParticleAnimator": 
           {
