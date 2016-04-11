@@ -55,7 +55,7 @@ namespace DCEngine {
     }
 
     // Dependancies
-    DCE_COMPONENT_DEFINE_DEPENDENCIES(Grunt, "Transform", "RigidBody");
+    DCE_COMPONENT_DEFINE_DEPENDENCIES(Grunt, "Transform", "RigidBody", "Sprite");
 #endif
 
     Grunt::~Grunt()
@@ -73,7 +73,7 @@ namespace DCEngine {
 
       TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>();
       RigidBodyRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::RigidBody>();
-      //SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
+      SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
 
       stateMachine = new StateMachine<Grunt>(this);
       startingPosition = TransformRef->Translation;
@@ -105,6 +105,8 @@ namespace DCEngine {
 
       player = SpaceRef->FindObjectByName(PlayerName);
 
+      if(SpriteRef)
+        SpriteRef->Visible = false;
       CreateSprites();
     }
 

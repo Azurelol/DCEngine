@@ -27,7 +27,7 @@ namespace DCEngine {
       GameObject* gameObj;
       Transform* TransformRef;
       RigidBody* RigidBodyRef;
-      //Sprite* SpriteRef;
+      Sprite* SpriteRef;
       String PlayerName = "Player";
       ArchetypeHandle HeadArchetype;
       ArchetypeHandle BodyArchetype;
