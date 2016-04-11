@@ -7324,10 +7324,10 @@
             "Active": true, 
             "ResetCount": false, 
             "EmitCount": 0, 
-            "EmitRate": 27, 
-            "EmitVariance": 18, 
-            "Size": 0.600000, 
-            "SizeVariance": 2.600000, 
+            "EmitRate": 20, 
+            "EmitVariance": 1, 
+            "Size": 0.400000, 
+            "SizeVariance": 0.100000, 
             "Lifetime": 1.900000, 
             "LifetimeVariance": 2.500000, 
             "Spin": 100.000000, 
@@ -7336,8 +7336,8 @@
             {
               "Vec3": 
               {
-                "x": 1.500000, 
-                "y": 1.500000, 
+                "x": 0.000000, 
+                "y": 0.000000, 
                 "z": 0.000000
               }
             }, 
@@ -7345,8 +7345,8 @@
             {
               "Vec3": 
               {
-                "x": 5.000000, 
-                "y": 5.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 0.000000
               }
             }, 
@@ -7354,8 +7354,8 @@
             {
               "Vec2": 
               {
-                "x": 10.000000, 
-                "y": 10.000000
+                "x": 0.300000, 
+                "y": 0.300000
               }
             }, 
             "EmissionCircle": true
@@ -9388,7 +9388,7 @@
       {
         "Locked": false, 
         "GameObjectID": 214, 
-        "Name": "Acid1", 
+        "Name": "Acid", 
         "Components": 
         {
           "Transform": 
@@ -9457,7 +9457,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 4
           }, 
           "BoxCollider": 
           {
@@ -9507,6 +9507,157 @@
             }, 
             "Fading": true, 
             "Pulse": true
+          }, 
+          "SpriteParticleSystem": 
+          {
+            "Visible": true, 
+            "Tint": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Texture": "Bubble", 
+            "VelocityScale": 1.000000, 
+            "LengthScale": 1.000000, 
+            "SystemSize": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 4.000000, 
+                "z": 4.000000
+              }
+            }, 
+            "Additive": true, 
+            "Lock": false, 
+            "DrawLayer": 3
+          }, 
+          "ParticleEmitter": 
+          {
+            "Active": true, 
+            "ResetCount": false, 
+            "EmitCount": 0, 
+            "EmitRate": 15, 
+            "EmitVariance": 1, 
+            "Size": 0.300000, 
+            "SizeVariance": 0.400000, 
+            "Lifetime": 1.000000, 
+            "LifetimeVariance": 2.500000, 
+            "Spin": 0.000000, 
+            "SpinVariance": 0.000000, 
+            "StartVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 2.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 5.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
+          }, 
+          "LinearParticleAnimator": 
+          {
+            "Force": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomForce": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Torque": 0.000000, 
+            "Growth": 0.000000, 
+            "Dampening": 0.000000
+          }, 
+          "SetParticleEmissionToMatchScale": 
+          {
+            "EmitOnEdges": false
+          }, 
+          "ParticleColorAnimator": 
+          {
+            "Color0": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color1": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color2": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color3": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color4": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }
           }
         }, 
         "Children": 
@@ -9516,7 +9667,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 215, 
+        "GameObjectID": 214, 
         "Name": "Acid2", 
         "Components": 
         {
@@ -9586,7 +9737,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 4
           }, 
           "BoxCollider": 
           {
@@ -9636,6 +9787,157 @@
             }, 
             "Fading": true, 
             "Pulse": true
+          }, 
+          "SpriteParticleSystem": 
+          {
+            "Visible": true, 
+            "Tint": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Texture": "Bubble", 
+            "VelocityScale": 1.000000, 
+            "LengthScale": 1.000000, 
+            "SystemSize": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 4.000000, 
+                "z": 4.000000
+              }
+            }, 
+            "Additive": true, 
+            "Lock": false, 
+            "DrawLayer": 3
+          }, 
+          "ParticleEmitter": 
+          {
+            "Active": true, 
+            "ResetCount": false, 
+            "EmitCount": 0, 
+            "EmitRate": 15, 
+            "EmitVariance": 1, 
+            "Size": 0.300000, 
+            "SizeVariance": 0.400000, 
+            "Lifetime": 1.000000, 
+            "LifetimeVariance": 2.500000, 
+            "Spin": 0.000000, 
+            "SpinVariance": 0.000000, 
+            "StartVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 2.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 5.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
+          }, 
+          "LinearParticleAnimator": 
+          {
+            "Force": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomForce": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Torque": 0.000000, 
+            "Growth": 0.000000, 
+            "Dampening": 0.000000
+          }, 
+          "SetParticleEmissionToMatchScale": 
+          {
+            "EmitOnEdges": false
+          }, 
+          "ParticleColorAnimator": 
+          {
+            "Color0": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color1": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color2": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color3": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color4": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }
           }
         }, 
         "Children": 
@@ -9645,7 +9947,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 216, 
+        "GameObjectID": 214, 
         "Name": "Acid3", 
         "Components": 
         {
@@ -9715,7 +10017,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 4
           }, 
           "BoxCollider": 
           {
@@ -9765,6 +10067,157 @@
             }, 
             "Fading": true, 
             "Pulse": true
+          }, 
+          "SpriteParticleSystem": 
+          {
+            "Visible": true, 
+            "Tint": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Texture": "Bubble", 
+            "VelocityScale": 1.000000, 
+            "LengthScale": 1.000000, 
+            "SystemSize": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 4.000000, 
+                "z": 4.000000
+              }
+            }, 
+            "Additive": true, 
+            "Lock": false, 
+            "DrawLayer": 3
+          }, 
+          "ParticleEmitter": 
+          {
+            "Active": true, 
+            "ResetCount": false, 
+            "EmitCount": 0, 
+            "EmitRate": 15, 
+            "EmitVariance": 1, 
+            "Size": 0.300000, 
+            "SizeVariance": 0.400000, 
+            "Lifetime": 1.000000, 
+            "LifetimeVariance": 2.500000, 
+            "Spin": 0.000000, 
+            "SpinVariance": 0.000000, 
+            "StartVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 2.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 5.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
+          }, 
+          "LinearParticleAnimator": 
+          {
+            "Force": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomForce": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Torque": 0.000000, 
+            "Growth": 0.000000, 
+            "Dampening": 0.000000
+          }, 
+          "SetParticleEmissionToMatchScale": 
+          {
+            "EmitOnEdges": false
+          }, 
+          "ParticleColorAnimator": 
+          {
+            "Color0": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color1": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color2": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color3": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color4": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }
           }
         }, 
         "Children": 
@@ -9774,7 +10227,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 217, 
+        "GameObjectID": 214, 
         "Name": "Acid4", 
         "Components": 
         {
@@ -9844,7 +10297,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 4
           }, 
           "BoxCollider": 
           {
@@ -9894,6 +10347,157 @@
             }, 
             "Fading": true, 
             "Pulse": true
+          }, 
+          "SpriteParticleSystem": 
+          {
+            "Visible": true, 
+            "Tint": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Texture": "Bubble", 
+            "VelocityScale": 1.000000, 
+            "LengthScale": 1.000000, 
+            "SystemSize": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 4.000000, 
+                "z": 4.000000
+              }
+            }, 
+            "Additive": true, 
+            "Lock": false, 
+            "DrawLayer": 3
+          }, 
+          "ParticleEmitter": 
+          {
+            "Active": true, 
+            "ResetCount": false, 
+            "EmitCount": 0, 
+            "EmitRate": 15, 
+            "EmitVariance": 1, 
+            "Size": 0.300000, 
+            "SizeVariance": 0.400000, 
+            "Lifetime": 1.000000, 
+            "LifetimeVariance": 2.500000, 
+            "Spin": 0.000000, 
+            "SpinVariance": 0.000000, 
+            "StartVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 2.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 5.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
+          }, 
+          "LinearParticleAnimator": 
+          {
+            "Force": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomForce": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Torque": 0.000000, 
+            "Growth": 0.000000, 
+            "Dampening": 0.000000
+          }, 
+          "SetParticleEmissionToMatchScale": 
+          {
+            "EmitOnEdges": false
+          }, 
+          "ParticleColorAnimator": 
+          {
+            "Color0": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color1": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color2": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color3": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color4": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }
           }
         }, 
         "Children": 
@@ -9903,7 +10507,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 218, 
+        "GameObjectID": 214, 
         "Name": "Acid5", 
         "Components": 
         {
@@ -9973,7 +10577,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 4
           }, 
           "BoxCollider": 
           {
@@ -10023,6 +10627,157 @@
             }, 
             "Fading": true, 
             "Pulse": true
+          }, 
+          "SpriteParticleSystem": 
+          {
+            "Visible": true, 
+            "Tint": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Texture": "Bubble", 
+            "VelocityScale": 1.000000, 
+            "LengthScale": 1.000000, 
+            "SystemSize": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 4.000000, 
+                "z": 4.000000
+              }
+            }, 
+            "Additive": true, 
+            "Lock": false, 
+            "DrawLayer": 3
+          }, 
+          "ParticleEmitter": 
+          {
+            "Active": true, 
+            "ResetCount": false, 
+            "EmitCount": 0, 
+            "EmitRate": 15, 
+            "EmitVariance": 1, 
+            "Size": 0.300000, 
+            "SizeVariance": 0.400000, 
+            "Lifetime": 1.000000, 
+            "LifetimeVariance": 2.500000, 
+            "Spin": 0.000000, 
+            "SpinVariance": 0.000000, 
+            "StartVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 2.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 5.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
+          }, 
+          "LinearParticleAnimator": 
+          {
+            "Force": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomForce": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Torque": 0.000000, 
+            "Growth": 0.000000, 
+            "Dampening": 0.000000
+          }, 
+          "SetParticleEmissionToMatchScale": 
+          {
+            "EmitOnEdges": false
+          }, 
+          "ParticleColorAnimator": 
+          {
+            "Color0": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color1": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color2": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color3": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color4": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }
           }
         }, 
         "Children": 
@@ -10032,7 +10787,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 219, 
+        "GameObjectID": 214, 
         "Name": "Acid6", 
         "Components": 
         {
@@ -10102,7 +10857,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 4
           }, 
           "BoxCollider": 
           {
@@ -10152,6 +10907,157 @@
             }, 
             "Fading": true, 
             "Pulse": true
+          }, 
+          "SpriteParticleSystem": 
+          {
+            "Visible": true, 
+            "Tint": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Texture": "Bubble", 
+            "VelocityScale": 1.000000, 
+            "LengthScale": 1.000000, 
+            "SystemSize": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 4.000000, 
+                "z": 4.000000
+              }
+            }, 
+            "Additive": true, 
+            "Lock": false, 
+            "DrawLayer": 3
+          }, 
+          "ParticleEmitter": 
+          {
+            "Active": true, 
+            "ResetCount": false, 
+            "EmitCount": 0, 
+            "EmitRate": 15, 
+            "EmitVariance": 1, 
+            "Size": 0.300000, 
+            "SizeVariance": 0.400000, 
+            "Lifetime": 1.000000, 
+            "LifetimeVariance": 2.500000, 
+            "Spin": 0.000000, 
+            "SpinVariance": 0.000000, 
+            "StartVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 2.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 5.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
+          }, 
+          "LinearParticleAnimator": 
+          {
+            "Force": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomForce": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Torque": 0.000000, 
+            "Growth": 0.000000, 
+            "Dampening": 0.000000
+          }, 
+          "SetParticleEmissionToMatchScale": 
+          {
+            "EmitOnEdges": false
+          }, 
+          "ParticleColorAnimator": 
+          {
+            "Color0": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color1": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color2": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color3": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color4": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }
           }
         }, 
         "Children": 
@@ -10161,7 +11067,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 220, 
+        "GameObjectID": 214, 
         "Name": "Acid7", 
         "Components": 
         {
@@ -10231,7 +11137,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 4
           }, 
           "BoxCollider": 
           {
@@ -10281,6 +11187,157 @@
             }, 
             "Fading": true, 
             "Pulse": true
+          }, 
+          "SpriteParticleSystem": 
+          {
+            "Visible": true, 
+            "Tint": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Texture": "Bubble", 
+            "VelocityScale": 1.000000, 
+            "LengthScale": 1.000000, 
+            "SystemSize": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 4.000000, 
+                "z": 4.000000
+              }
+            }, 
+            "Additive": true, 
+            "Lock": false, 
+            "DrawLayer": 3
+          }, 
+          "ParticleEmitter": 
+          {
+            "Active": true, 
+            "ResetCount": false, 
+            "EmitCount": 0, 
+            "EmitRate": 15, 
+            "EmitVariance": 1, 
+            "Size": 0.300000, 
+            "SizeVariance": 0.400000, 
+            "Lifetime": 1.000000, 
+            "LifetimeVariance": 2.500000, 
+            "Spin": 0.000000, 
+            "SpinVariance": 0.000000, 
+            "StartVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 2.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 5.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
+          }, 
+          "LinearParticleAnimator": 
+          {
+            "Force": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomForce": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Torque": 0.000000, 
+            "Growth": 0.000000, 
+            "Dampening": 0.000000
+          }, 
+          "SetParticleEmissionToMatchScale": 
+          {
+            "EmitOnEdges": false
+          }, 
+          "ParticleColorAnimator": 
+          {
+            "Color0": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color1": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color2": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color3": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color4": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }
           }
         }, 
         "Children": 
@@ -10629,6 +11686,9 @@
             "StartingHealth": 0, 
             "MaxHealth": 0, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
@@ -10638,37 +11698,7 @@
             "JumpPeriod": 0.500000, 
             "AttackJumpStrengthX": 20.100040, 
             "AttackJumpStrengthY": 12.000010, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }, 
           "HealthController": 
           {
@@ -11584,7 +12614,7 @@
             {
               "Vec3": 
               {
-                "x": 156.957947, 
+                "x": 157.038940, 
                 "y": 6.470942, 
                 "z": -0.100000
               }
@@ -11593,7 +12623,7 @@
             {
               "Vec3": 
               {
-                "x": 156.957947, 
+                "x": 157.038940, 
                 "y": 6.470942, 
                 "z": -0.100000
               }
@@ -11602,7 +12632,7 @@
             {
               "Vec3": 
               {
-                "x": 156.957947, 
+                "x": 157.038940, 
                 "y": 6.470942, 
                 "z": -0.100000
               }
