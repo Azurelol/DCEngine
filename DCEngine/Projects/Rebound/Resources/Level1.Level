@@ -2243,8 +2243,8 @@
             {
               "Vec3": 
               {
-                "x": 88.181816, 
-                "y": -3.819228, 
+                "x": -15.528700, 
+                "y": 16.893703, 
                 "z": 0.000000
               }
             }, 
@@ -2252,8 +2252,8 @@
             {
               "Vec3": 
               {
-                "x": 88.181816, 
-                "y": -3.819228, 
+                "x": -15.528700, 
+                "y": 16.893703, 
                 "z": 0.000000
               }
             }, 
@@ -2261,8 +2261,8 @@
             {
               "Vec3": 
               {
-                "x": 88.181816, 
-                "y": -3.819228, 
+                "x": -15.528700, 
+                "y": 16.893703, 
                 "z": 0.000000
               }
             }, 
@@ -2303,7 +2303,7 @@
             "FlipY": false, 
             "AnimationActive": true, 
             "AnimationSpeed": 10.000000, 
-            "DrawLayer": 5
+            "DrawLayer": 4
           }, 
           "RigidBody": 
           {
@@ -12563,7 +12563,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 1
+            "DrawLayer": 0
           }
         }, 
         "Children": 
@@ -12644,7 +12644,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 2
+            "DrawLayer": 1
           }
         }, 
         "Children": 
@@ -12725,7 +12725,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 5
+            "DrawLayer": 4
           }
         }, 
         "Children": 
@@ -12902,6 +12902,38 @@
             "Smoothing": true, 
             "WordWrap": 20, 
             "DrawLayer": 4
+          }, 
+          "DialogText": 
+          {
+            "SystemDelay": 0.000000, 
+            "FadeInTime": 2.000000, 
+            "FadeEase": "Linear", 
+            "MessageTime": 5.000000, 
+            "ScaleTimeWithSize": true, 
+            "TimePerChar": 0.500000, 
+            "Message": "what", 
+            "WordWrap": 15, 
+            "TextEase": "Linear", 
+            "DeleteAfterTime": true, 
+            "TimeToDelete": 10.000000, 
+            "AshaVoiceColor": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "CyrusVoiceColor": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }
           }
         }, 
         "Children": 
@@ -12922,8 +12954,8 @@
             {
               "Vec3": 
               {
-                "x": -1.629375, 
-                "y": 14.748413, 
+                "x": -4.695355, 
+                "y": 14.998697, 
                 "z": 0.000000
               }
             }, 
@@ -12931,8 +12963,8 @@
             {
               "Vec3": 
               {
-                "x": -1.629375, 
-                "y": 14.748413, 
+                "x": -4.695355, 
+                "y": 14.998697, 
                 "z": 0.000000
               }
             }, 
@@ -12940,8 +12972,8 @@
             {
               "Vec3": 
               {
-                "x": -1.629375, 
-                "y": 14.748413, 
+                "x": -4.695355, 
+                "y": 14.998697, 
                 "z": 0.000000
               }
             }, 
@@ -13052,7 +13084,7 @@
               {
                 "x": -9.158772, 
                 "y": 22.800550, 
-                "z": -0.001000
+                "z": 0.001000
               }
             }, 
             "LocalTranslation": 
@@ -13061,7 +13093,7 @@
               {
                 "x": -9.158772, 
                 "y": 22.800550, 
-                "z": -0.001000
+                "z": 0.001000
               }
             }, 
             "WorldTranslation": 
@@ -13070,7 +13102,7 @@
               {
                 "x": -9.158772, 
                 "y": 22.800550, 
-                "z": -0.001000
+                "z": 0.001000
               }
             }, 
             "Rotation": 
@@ -13102,10 +13134,10 @@
                 "x": 1.000000, 
                 "y": 1.000000, 
                 "z": 1.000000, 
-                "w": 1.000000
+                "w": 0.800000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "DialogBack", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -13114,8 +13146,8 @@
           }, 
           "DialogBackgroundBehavior": 
           {
-            "UnitsAbovePlayer": 7, 
-            "UnitsInFrontOfPlayer": 2
+            "UnitsAbovePlayer": 3, 
+            "UnitsInFrontOfPlayer": 5
           }
         }, 
         "Children": 
