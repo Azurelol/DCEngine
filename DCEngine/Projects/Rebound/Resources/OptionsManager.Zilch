@@ -5,6 +5,12 @@ class GraphicsChange : ZilchEvent
 	sends GraphicsChange : GraphicsChange;
 }
 
+class AudioChange : ZilchEvent
+{
+    var NewAudioState : AudioState = AudioState.Unchanged;
+    sends AudioChange : AudioChange;
+}
+
 class OptionsManager : ZilchComponent
 {
     [Property]
@@ -20,6 +26,7 @@ class OptionsManager : ZilchComponent
     var AspectRefText : Entity = null;
     var ResolutionRefText : Entity = null;
     var AntiAliasingRefText : Entity = null;
+    var AudioRefText : Entity = null;
 
     [Property]
     var AspRefTextName : String = "";
@@ -27,10 +34,13 @@ class OptionsManager : ZilchComponent
     var ResRefTextName : String = "";
     [Property]
     var AARefTextName : String = "";
+    [Property]
+    var AudioRefTextName : String = "";
 
 	var CurAspect : AspectRatio;
 	var CurRes : Resolution;
 	var CurAA : AntiAlias;
+    var CurAudio : AudioState;
 
     function Initialize()
     {
@@ -63,6 +73,10 @@ class OptionsManager : ZilchComponent
         if(this.AARefTextName != "")
         {
             this.AntiAliasingRefText = this.Space.FindObjectByName(this.AARefTextName);
+        }
+        if(this.AudioRefTextName != "")
+        {
+            this.AudioRefText = this.Space.FindObjectByName(this.AudioRefTextName);
         }
     }
 
@@ -102,6 +116,7 @@ class OptionsManager : ZilchComponent
         this.SetAspectText();
         this.SetResolutiontext();
         this.SetAAText();
+        this.SetAudioText();
     }
 
     function SetAspectText()
@@ -216,6 +231,22 @@ class OptionsManager : ZilchComponent
     	}
     }
 
+    function SetAudioText()
+    {
+        if(this.CurAudio == AudioState.No_Mute)
+        {
+            this.AudioRefText.SpriteText.Text = "Don't Mute Anything";
+        }
+        else if(this.CurAudio == AudioState.Mute_Music)
+        {
+            this.AudioRefText.SpriteText.Text = "    Mute Music";
+        }
+        else if(this.CurAudio == AudioState.Mute_All)
+        {
+            this.AudioRefText.SpriteText.Text = " Mute All Sounds";
+        }
+    }
+
     function OnButtonDefault(button : Entity)
     {
 		
@@ -247,6 +278,14 @@ class OptionsManager : ZilchComponent
         else if(button.Name == "PrevRes")
         {
             //this.RefText.SpriteText.Text = "    Leave the game";
+        }
+        else if(button.Name == "NextAudio")
+        {
+
+        }
+        else if(button.Name == "PrevAudio")
+        {
+
         }
         else if(button.Name == "Apply")
         {
@@ -437,6 +476,28 @@ class OptionsManager : ZilchComponent
         		this.CurAA -= 1;
         	}
         }
+        else if(button.Name == "NextAudio")
+        {
+            if(this.CurAudio == AudioState.Mute_All)
+            {
+                this.CurAudio = AudioState.No_Mute;
+            }
+            else
+            {
+                this.CurAudio += 1;
+            }
+        }
+        else if(button.Name == "PrevAudio")
+        {
+            if(this.CurAudio == AudioState.No_Mute)
+            {
+                this.CurAudio = AudioState.Mute_All;
+            }
+            else
+            {
+                this.CurAudio -= 1;
+            }
+        }
         else if(button.Name == "Apply")
         {
         	this.SendOutChanges();
@@ -463,3 +524,5 @@ enum Resolution {Native,
 				 Unchanged}
 
 enum AntiAlias {A_x0, B_x4, C_x8, D_x16, Unchanged}
+
+enum AudioState {No_Mute, Mute_Music, Mute_All, Unchanged}
