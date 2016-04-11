@@ -10,6 +10,7 @@
         "Locked": false, 
         "GameObjectID": 4, 
         "Name": "Camera", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -84,6 +85,7 @@
         "Locked": false, 
         "GameObjectID": 5, 
         "Name": "Light", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -177,6 +179,7 @@
         "Locked": false, 
         "GameObjectID": 6, 
         "Name": "Player", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -368,6 +371,7 @@
         "Locked": false, 
         "GameObjectID": 7, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -474,6 +478,7 @@
         "Locked": false, 
         "GameObjectID": 8, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -580,6 +585,7 @@
         "Locked": false, 
         "GameObjectID": 9, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -686,6 +692,7 @@
         "Locked": false, 
         "GameObjectID": 10, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -792,6 +799,7 @@
         "Locked": false, 
         "GameObjectID": 11, 
         "Name": "Ball", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1053,7 +1061,16 @@
                 "y": 1.500000, 
                 "z": 0.000000
               }
-            }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
           }, 
           "LinearParticleAnimator": 
           {
@@ -1089,6 +1106,7 @@
         "Locked": false, 
         "GameObjectID": 12, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1195,6 +1213,7 @@
         "Locked": false, 
         "GameObjectID": 13, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1301,6 +1320,7 @@
         "Locked": false, 
         "GameObjectID": 14, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1407,6 +1427,7 @@
         "Locked": false, 
         "GameObjectID": 15, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1513,6 +1534,7 @@
         "Locked": false, 
         "GameObjectID": 16, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1619,6 +1641,7 @@
         "Locked": false, 
         "GameObjectID": 17, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1725,6 +1748,7 @@
         "Locked": false, 
         "GameObjectID": 18, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1831,6 +1855,7 @@
         "Locked": false, 
         "GameObjectID": 19, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1937,6 +1962,7 @@
         "Locked": false, 
         "GameObjectID": 20, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2043,6 +2069,7 @@
         "Locked": false, 
         "GameObjectID": 21, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2149,6 +2176,7 @@
         "Locked": false, 
         "GameObjectID": 22, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2255,6 +2283,7 @@
         "Locked": false, 
         "GameObjectID": 23, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2361,6 +2390,7 @@
         "Locked": false, 
         "GameObjectID": 24, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2467,6 +2497,7 @@
         "Locked": false, 
         "GameObjectID": 25, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2573,6 +2604,7 @@
         "Locked": false, 
         "GameObjectID": 26, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2679,6 +2711,7 @@
         "Locked": false, 
         "GameObjectID": 27, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2785,6 +2818,7 @@
         "Locked": false, 
         "GameObjectID": 28, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2891,6 +2925,7 @@
         "Locked": false, 
         "GameObjectID": 29, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2997,6 +3032,7 @@
         "Locked": false, 
         "GameObjectID": 30, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3103,6 +3139,7 @@
         "Locked": false, 
         "GameObjectID": 31, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3209,6 +3246,7 @@
         "Locked": false, 
         "GameObjectID": 32, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3315,6 +3353,7 @@
         "Locked": false, 
         "GameObjectID": 33, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3421,6 +3460,7 @@
         "Locked": false, 
         "GameObjectID": 34, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3527,6 +3567,7 @@
         "Locked": false, 
         "GameObjectID": 35, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3633,6 +3674,7 @@
         "Locked": false, 
         "GameObjectID": 36, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3739,6 +3781,7 @@
         "Locked": false, 
         "GameObjectID": 37, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3845,6 +3888,7 @@
         "Locked": false, 
         "GameObjectID": 38, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3951,6 +3995,7 @@
         "Locked": false, 
         "GameObjectID": 39, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4057,6 +4102,7 @@
         "Locked": false, 
         "GameObjectID": 40, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4163,6 +4209,7 @@
         "Locked": false, 
         "GameObjectID": 41, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4269,6 +4316,7 @@
         "Locked": false, 
         "GameObjectID": 42, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4375,6 +4423,7 @@
         "Locked": false, 
         "GameObjectID": 43, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4481,6 +4530,7 @@
         "Locked": false, 
         "GameObjectID": 44, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4587,6 +4637,7 @@
         "Locked": false, 
         "GameObjectID": 45, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4693,6 +4744,7 @@
         "Locked": false, 
         "GameObjectID": 46, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4799,6 +4851,7 @@
         "Locked": false, 
         "GameObjectID": 47, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4905,6 +4958,7 @@
         "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5030,6 +5084,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -5039,37 +5096,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -5081,6 +5108,7 @@
         "Locked": false, 
         "GameObjectID": 49, 
         "Name": "Acid", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5210,6 +5238,7 @@
         "Locked": false, 
         "GameObjectID": 50, 
         "Name": "Acid", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5339,6 +5368,7 @@
         "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5464,6 +5494,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -5473,37 +5506,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -5515,6 +5518,7 @@
         "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5640,6 +5644,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -5649,37 +5656,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -5691,6 +5668,7 @@
         "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5816,6 +5794,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -5825,37 +5806,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -5867,6 +5818,7 @@
         "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5992,6 +5944,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -6001,37 +5956,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -6043,6 +5968,7 @@
         "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6168,6 +6094,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -6177,37 +6106,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -6219,6 +6118,7 @@
         "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6344,6 +6244,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -6353,37 +6256,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -6395,6 +6268,7 @@
         "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6520,6 +6394,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -6529,37 +6406,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -6571,6 +6418,7 @@
         "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6696,6 +6544,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -6705,37 +6556,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -6747,6 +6568,7 @@
         "Locked": false, 
         "GameObjectID": 59, 
         "Name": "LevelGoal", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6877,6 +6699,7 @@
         "Locked": false, 
         "GameObjectID": 60, 
         "Name": "Ground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6983,6 +6806,7 @@
         "Locked": false, 
         "GameObjectID": 61, 
         "Name": "Light", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7076,6 +6900,7 @@
         "Locked": false, 
         "GameObjectID": 68, 
         "Name": "Background", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7156,6 +6981,7 @@
         "Locked": false, 
         "GameObjectID": 75, 
         "Name": "Light", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7249,6 +7075,7 @@
         "Locked": false, 
         "GameObjectID": 5, 
         "Name": "Light", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7342,6 +7169,7 @@
         "Locked": false, 
         "GameObjectID": 68, 
         "Name": "Background2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7422,6 +7250,7 @@
         "Locked": false, 
         "GameObjectID": 901, 
         "Name": "Background3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7502,6 +7331,7 @@
         "Locked": false, 
         "GameObjectID": 1846, 
         "Name": "Middleground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7582,6 +7412,7 @@
         "Locked": false, 
         "GameObjectID": 2118, 
         "Name": "ForeGround1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7662,6 +7493,7 @@
         "Locked": false, 
         "GameObjectID": 3041, 
         "Name": "ForeGround2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7742,6 +7574,7 @@
         "Locked": false, 
         "GameObjectID": 3042, 
         "Name": "ForeGround3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7822,6 +7655,7 @@
         "Locked": true, 
         "GameObjectID": 168, 
         "Name": "LevelSettings", 
+        "Protected": false, 
         "Components": 
         {
         }, 

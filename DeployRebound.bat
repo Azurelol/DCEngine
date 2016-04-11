@@ -23,7 +23,7 @@ xcopy DCEngine\Dependencies\lib\MSVC\x64\Release\sfml-window-2.dll Deploy
 
 xcopy DCEngine\*.cfg Deploy
 cd DCEngine
-msbuild /p:Configuration=Production
+msbuild DCEngine.sln /p:Configuration=Production
 cd..
 @echo Copying executable over...
 xcopy DCEngine\x64\Production\DCEngine.exe Deploy

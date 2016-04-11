@@ -67,6 +67,7 @@ namespace DCEngine {
 			void OnWindowRecreateEvent(Events::WindowRecreate* event);
 			void OnWindowLostFocus(Events::WindowLostFocus* event);
 			void OnWindowGainedFocus(Events::WindowGainedFocus* event);
+			void OnWindowResizeToNative(Events::WindowResizeToNative* event);
       void OnEngineExitEvent(Events::EngineExit* event);
       void OnSetWindowCaptionEvent(Events::SetWindowCaption* event);
 
