@@ -2303,7 +2303,7 @@
             "FlipY": false, 
             "AnimationActive": true, 
             "AnimationSpeed": 10.000000, 
-            "DrawLayer": 5
+            "DrawLayer": 4
           }, 
           "RigidBody": 
           {
