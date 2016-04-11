@@ -133,6 +133,7 @@ namespace DCEngine {
         resizeWindow(WindowInterface.Settings.ScreenWidth,
           WindowInterface.Settings.ScreenHeight);
         Daisy->getSystem<Graphics>()->Initialize();
+				Daisy->getSystem<GUI>()->Initialize();
         returnToFullscreen = false;
       }
       //WindowContext->setVisible(true);

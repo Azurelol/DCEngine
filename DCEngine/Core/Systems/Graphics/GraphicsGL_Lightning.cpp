@@ -97,9 +97,10 @@ namespace DCEngine {
 						if (objTfm->Translation.z == 0)
 						{
 							Components::Transform* lTfm = light->Owner()->getComponent<Components::Transform>();
-							float length = glm::length(objTfm->Translation - lTfm->Translation);
-							float objRadius = MAX(objTfm->Scale.x, objTfm->Scale.y);
-							if (length > objRadius + light->getRange())
+							Vec3 vector = Vec3(objTfm->Translation - lTfm->Translation);
+							float lengthSquared = vector.x * vector.x + vector.y * vector.y + vector.z * vector.z;
+							float objRadius = objTfm->Scale.x + objTfm->Scale.y;
+							if (lengthSquared > (objRadius + light->getRange()) * (objRadius + light->getRange()))
 							{
 								obj->SetUniforms(ShadowingShader, camera, light);
 								obj->Draw();
