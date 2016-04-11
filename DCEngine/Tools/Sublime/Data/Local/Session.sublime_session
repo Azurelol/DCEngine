@@ -16,42 +16,162 @@
 				"selected_items":
 				[
 					[
-						"Lo",
-						"LoadLevel"
+						"Cur",
+						"CurRes"
+					],
+					[
+						"A",
+						"A_1920x1080"
+					],
+					[
+						"In",
+						"InFullscreen"
+					],
+					[
+						"C",
+						"CurAspect"
+					],
+					[
+						"I",
+						"InFullscreen"
+					],
+					[
+						"in",
+						"InFullscreen"
+					],
+					[
+						"Da",
+						"DaisyEvent"
+					],
+					[
+						"NewA",
+						"NewAudioState"
+					],
+					[
+						"Audio",
+						"AudioChange"
+					],
+					[
+						"Full",
+						"FullScreenChange"
+					],
+					[
+						"Zilch",
+						"ZilchEvent"
+					],
+					[
+						"No",
+						"No_Mute"
+					],
+					[
+						"N",
+						"No_Mute"
+					],
+					[
+						"SetA",
+						"SetAudioText"
+					],
+					[
+						"Mute",
+						"Mute_All"
+					],
+					[
+						"M",
+						"Mute_Music"
+					],
+					[
+						"Mu",
+						"No_Mute"
+					],
+					[
+						"Main",
+						"MainGameSpace"
+					],
+					[
+						"Enab",
+						"EnableOrDisableEvent"
+					],
+					[
+						"Daisy",
+						"DaisyEvent"
+					],
+					[
+						"Enter",
+						"EnterInactiveState"
+					],
+					[
+						"Ena",
+						"EnableOrDisableButton"
+					],
+					[
+						"Click",
+						"ClickedSprite"
+					],
+					[
+						"Defa",
+						"DefaultSprite"
+					],
+					[
+						"Man",
+						"MainGameSpace"
+					],
+					[
+						"Pause",
+						"PauseEvent"
+					],
+					[
+						"Des",
+						"DestroyPauseMenu"
+					],
+					[
+						"Load",
+						"LoadPauseMenu"
+					],
+					[
+						"Pa",
+						"PauseState"
+					],
+					[
+						"Pu",
+						"PauseEvent"
+					],
+					[
+						"Sub",
+						"SubSpriteRef"
+					],
+					[
+						"Key",
+						"Keyboard"
+					],
+					[
+						"Esc",
+						"Escape"
+					],
+					[
+						"Ke",
+						"Key"
+					],
+					[
+						"Es",
+						"EscapeReleased"
+					],
+					[
+						"Esca",
+						"EscapeDown"
+					],
+					[
+						"Dais",
+						"DaisyEvent"
 					]
 				]
 			},
 			"buffers":
 			[
 				{
-					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/FadeZilch.Zilch",
+					"file": "/C/Users/John/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GravityManager.Zilch",
 					"settings":
 					{
-						"buffer_size": 2325,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/LevelTransition.Zilch",
-					"settings":
-					{
-						"buffer_size": 546,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/OptionsManager.Zilch",
-					"settings":
-					{
-						"buffer_size": 15513,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
-					"settings":
-					{
-						"buffer_size": 6185,
+						"buffer_size": 222,
 						"line_ending": "Windows"
 					}
 				}
@@ -88,7 +208,12 @@
 			},
 			"file_history":
 			[
-				"/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/LevelTimeFade.Zilch"
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/OptionsManager.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/AudioData.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GraphicsData.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PauseManagerZ.Zilch"
 			],
 			"find":
 			{
@@ -123,16 +248,16 @@
 			"groups":
 			[
 				{
-					"selected": 3,
+					"selected": 0,
 					"sheets":
 					[
 						{
 							"buffer": 0,
-							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/FadeZilch.Zilch",
+							"file": "/C/Users/John/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GravityManager.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 2325,
+								"buffer_size": 222,
 								"regions":
 								{
 								},
@@ -145,96 +270,10 @@
 								],
 								"settings":
 								{
-									"syntax": "Packages/C#/C#.sublime-syntax"
-								},
-								"translation.x": 0.0,
-								"translation.y": 504.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 3,
-							"type": "text"
-						},
-						{
-							"buffer": 1,
-							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/LevelTransition.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 546,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										476,
-										476
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax"
+									"syntax": "Packages/Text/Plain text.tmLanguage"
 								},
 								"translation.x": 0.0,
 								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 2,
-							"type": "text"
-						},
-						{
-							"buffer": 2,
-							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/OptionsManager.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 15513,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										0,
-										0
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax",
-									"tab_size": 4,
-									"translate_tabs_to_spaces": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 1,
-							"type": "text"
-						},
-						{
-							"buffer": 3,
-							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 6185,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										5860,
-										5860
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax"
-								},
-								"translation.x": 0.0,
-								"translation.y": 2766.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -279,7 +318,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,900,693,219,1586",
+			"position": "0,0,1,-1,-1,-1,-1,852,489,172,1767",
 			"project": "",
 			"replace":
 			{
