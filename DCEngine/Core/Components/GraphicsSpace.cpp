@@ -126,7 +126,6 @@ namespace DCEngine {
     {
       return GraphicsSystem->GetScreenHeight();
     }
-
 		void GraphicsSpace::SetNative()
 		{
 			DCEngine::Systems::DispatchSystemEvents::WindowResizeToNative();
