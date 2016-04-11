@@ -48,6 +48,10 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Grunt, AttackJumpStrengthX);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, AttackJumpStrengthY);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, AttackJumpPeriod);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, AnimationSpeedHead);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, AnimationDistanceHead);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, AnimationSpeedSaw);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, AnimationDistanceSaw);
       //DCE_BINDING_DEFINE_PROPERTY(Grunt, IdleColor);
       //DCE_BINDING_DEFINE_PROPERTY(Grunt, PatrolColor);
       //DCE_BINDING_DEFINE_PROPERTY(Grunt, AttackColor);
@@ -101,12 +105,15 @@ namespace DCEngine {
         Actions::Call(seq, &Grunt::ChangeStateLeft, this);
       }
 
+
       stateMachine->SetGlobalState(Global::Instance());
 
       player = SpaceRef->FindObjectByName(PlayerName);
 
       if(SpriteRef)
         SpriteRef->Visible = false;
+      
+      randomPhase = distribution(generator);
       CreateSprites();
     }
 
@@ -124,7 +131,7 @@ namespace DCEngine {
     {
       stateMachine->Update();
       dt = event->Dt;
-      //UpdateSprites(event->TimePassed);
+      UpdateSprites(event->TimePassed);
       
     }
 
@@ -179,13 +186,14 @@ namespace DCEngine {
 
     void Grunt::UpdateSprites(float timePassed)
     {
-      float distance = 1;
-      float x = sin(timePassed) * distance;
-      DCTrace << x << " Time Passed: " << timePassed << "\n";
-      for (unsigned i = 0; i < sprites.size(); ++i)
-      {
-        sprites.at(i)->getComponent<Transform>()->Translation.x += x;
-      }
+
+      float y = sin((timePassed * AnimationSpeedHead) + randomPhase) * AnimationDistanceHead;
+      //DCTrace << y << " Time Passed: " << timePassed << "\n";
+
+      head->getComponent<Transform>()->Translation.y += y;
+      
+      float x = sin((timePassed * AnimationSpeedSaw) + randomPhase) * AnimationDistanceSaw;
+      saw->getComponent<Transform>()->Translation.x += x;
     }
 
     void Grunt::FlipSprites(bool flipX)

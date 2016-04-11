@@ -42,6 +42,10 @@ namespace DCEngine {
       float AttackJumpStrengthX;
       float AttackJumpStrengthY;
       float AttackJumpPeriod;
+      float AnimationSpeedHead;
+      float AnimationDistanceHead;
+      float AnimationSpeedSaw;
+      float AnimationDistanceSaw;
       //bool IsDebugColorActive;
       //Vec4 IdleColor = Vec4(0, 1, 0, 1);
       //Vec4 PatrolColor = Vec4(0, 0, 1, 1);
@@ -69,6 +73,10 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(float, AttackJumpStrengthX);
       DCE_DEFINE_PROPERTY(float, AttackJumpStrengthY);
       DCE_DEFINE_PROPERTY(float, AttackJumpPeriod);
+      DCE_DEFINE_PROPERTY(float, AnimationSpeedHead);
+      DCE_DEFINE_PROPERTY(float, AnimationDistanceHead);
+      DCE_DEFINE_PROPERTY(float, AnimationSpeedSaw);
+      DCE_DEFINE_PROPERTY(float, AnimationDistanceSaw);
       //DCE_DEFINE_PROPERTY(Vec4, IdleColor);
       //DCE_DEFINE_PROPERTY(Vec4, PatrolColor);
       //DCE_DEFINE_PROPERTY(Vec4, AttackColor);
@@ -101,6 +109,7 @@ namespace DCEngine {
       float jumpTimer = 0;
       float dt;
       Vec4 defaultColor;
+      float randomPhase;
       bool ModifyHealth(int amount);
       void CreateSprites();
       void UpdateSprites(float timePassed);
