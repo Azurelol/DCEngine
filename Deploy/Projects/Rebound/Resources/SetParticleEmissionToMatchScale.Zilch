@@ -1,0 +1,22 @@
+class SetParticleEmissionToMatchScale : ZilchComponent
+{
+	[Property]
+	var EmitOnEdges : Boolean = false;
+
+
+    function Initialize()
+    {
+        //Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+		var emitterSize = this.Owner.Transform.Scale.XY / 2;
+		if(this.EmitOnEdges == false)
+		{
+			var maxParticleSize = (this.Owner.ParticleEmitter.Size + this.Owner.ParticleEmitter.SizeVariance) / 2;
+			emitterSize -= Real2(maxParticleSize, maxParticleSize);
+		}
+		this.Owner.ParticleEmitter.EmissionArea = emitterSize;
+	}
+
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+    }
+}
