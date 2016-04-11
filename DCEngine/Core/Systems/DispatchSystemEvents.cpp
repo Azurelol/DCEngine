@@ -146,6 +146,13 @@ namespace DCEngine {
       delete event;
     }
 
+		void DispatchSystemEvents::WindowResizeToNative()
+		{
+			auto event = new Events::WindowResizeToNative();
+			Daisy->Dispatch<Events::WindowResizeToNative>(event);
+			delete event;
+		}
+
     void DispatchSystemEvents::GraphicsCompileShaders()
     {
       auto event = new Events::GraphicsCompileShaders();

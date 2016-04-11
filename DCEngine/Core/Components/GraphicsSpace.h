@@ -15,21 +15,23 @@ engine's underlying graphics system.
 #include "ComponentReference.h"
 #include "../Objects/Entities/GameObject.h"
 #include "../Objects/DebugDraw.h"
+#include "../Systems/Graphics/GraphicsGL.h"
 
-#include "../Components/Sprite.h"
-#include "../Components/SpriteText.h"
-#include "../Components/SpriteParticleSystem.h"
+//#include "../Components/Sprite.h"
+//#include "../Components/SpriteText.h"
+//#include "../Components/SpriteParticleSystem.h"
 
 namespace DCEngine {
 
 	namespace Systems {
 		class Graphics;
+		class GraphicsGL::GraphicsBuffers;
 	}
   namespace Components {
 
     class Camera;
     class CameraViewport;
-
+		
 		class Light;
 
     // Containers
@@ -86,12 +88,15 @@ namespace DCEngine {
       void SetResolution(unsigned x, unsigned y);
       void SetAntiAliasingLevel(unsigned samples);
       void ToggleFullscreen();
-			unsigned GetScreenWidth();
+			unsigned GetScreenWidth() const;
 			unsigned GetScreenHeight() const;
+			void SetNative();
+
 
       void OnLogicUpdate(Events::LogicUpdate* updateEvent);
 		private:
       Systems::Graphics* GraphicsSystem;
+			Systems::GraphicsGL::GraphicsBuffers buffers;
       CameraViewport* CameraViewportComponent;
       GameObjectRawVec models_;  //!< Container of models that need to be rendered
       //SpriteContainer SpriteContainer; //!< Container of sprites that need to be drawn    

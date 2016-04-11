@@ -5,6 +5,11 @@ class GraphicsChange : ZilchEvent
 	sends GraphicsChange : GraphicsChange;
 }
 
+class FullScreenChange : ZilchEvent
+{
+    sends FullScreenChange : FullScreenChange;
+}
+
 class AudioChange : ZilchEvent
 {
     var NewAudioState : AudioState = AudioState.Unchanged;
@@ -42,6 +47,8 @@ class OptionsManager : ZilchComponent
 	var CurAA : AntiAlias;
     var CurAudio : AudioState;
 
+    var InFullscreen : Boolean;
+
     function Initialize()
     {
         Daisy.Connect(this.Owner, DaisyEvent.UIButtonEvent, this.OnUIButtonEvent);
@@ -78,6 +85,8 @@ class OptionsManager : ZilchComponent
         {
             this.AudioRefText = this.Space.FindObjectByName(this.AudioRefTextName);
         }
+
+        this.InFullscreen = true;
     }
 
     function OnUIButtonEvent(event : UIButtonEvent)
@@ -298,11 +307,13 @@ class OptionsManager : ZilchComponent
     	{
     		this.ClickSoundInstance = this.Space.SoundSpace.PlayCue(this.ClickSoundName);
     	}
-
     	if(button.Name == "FullScreenB")
         {
-        	Console.WriteLine("Switching to fullscreen");
-            this.Space.GraphicsSpace.ToggleFullscreen();
+
+            this.InFullscreen = !this.InFullscreen;
+            this.Owner.Dispatch(DaisyEvent.FullScreenChange, FullScreenChange());
+            this.CurAspect = AspectRatio.Native;
+            this.CurRes = Resolution.Native;
         }
         else if(button.Name == "NextRatio")
         {
@@ -511,6 +522,11 @@ class OptionsManager : ZilchComponent
     	changes.NewAA = this.CurAA;
 
     	this.Owner.Dispatch(DaisyEvent.GraphicsChange, changes);
+
+        var aChanges = AudioChange();
+        aChanges.NewAudioState = this.CurAudio;
+
+        this.Owner.Dispatch(DaisyEvent.AudioChange, aChanges);
     }
 }
 

@@ -60,7 +60,7 @@ namespace DCEngine {
       }
       // If there is not, enable the editor right away!
       else {
-        if (Enabled) {
+        if (Active) {
           Launcher.Launch();
           Projects.ReloadLevel();
         }
@@ -93,8 +93,12 @@ namespace DCEngine {
       DCTrace << "Editor::PlayGame - Playing: /"
               << Settings.ProjectProperties->ProjectName << "'\n";
       
+      // If the Editor is not enabled, do nothing
+      if (!Settings.Enabled)
+        return;
+
       // If on editor mode, save the currently-loaded level before exiting the editor
-      if (Enabled)      
+      if (Active)      
         Access().Projects.SaveCurrentLevel();
 
       // Turn the editor on/off

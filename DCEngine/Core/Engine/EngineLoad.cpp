@@ -102,16 +102,15 @@ namespace DCEngine {
     KeyboardHandle.reset(new Keyboard());
     MouseHandle.reset(new Mouse());
     // Systems are added to to the engine's systems container, and configurations passed on.
-    Configurations.Content.DefaultAssetPath = EngineConfiguration->AssetPath; // temp
+    //Configurations.Content.DefaultAssetPath = EngineConfiguration->AssetPath; // temp
     Systems.push_back(SystemPtr(new Systems::Content(Configurations.Content)));
     Systems.push_back(SystemPtr(new Systems::Reflection));
     Systems.push_back(SystemPtr(new Systems::Factory));
     Systems.push_back(SystemPtr(new Systems::Window(Configurations.Graphics, EngineConfiguration->Caption)));
     Systems.push_back(SystemPtr(new Systems::Input));
     // Editor configuration @todo change me next!
-    Configurations.Editor.Enabled = EngineConfiguration->EditorEnabled;
-    Configurations.Editor.ProjectsPath = EngineConfiguration->ProjectsPath;
-    Configurations.Editor.RecentProject = EngineConfiguration->RecentProject;
+    //Configurations.Editor.ProjectsPath = EngineConfiguration->ProjectsPath;
+    //Configurations.Editor.RecentProject = EngineConfiguration->RecentProject;
     // Add the systems to the engine's systems container
     Systems.push_back(SystemPtr(new Systems::Editor(Configurations.Editor)));
     Systems.push_back(SystemPtr(new Systems::Physics));
