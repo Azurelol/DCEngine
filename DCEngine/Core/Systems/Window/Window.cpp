@@ -59,6 +59,7 @@ namespace DCEngine {
 			Daisy->Connect<Events::WindowRecreate>(&Window::OnWindowRecreateEvent, this);
 			Daisy->Connect<Events::WindowLostFocus>(&Window::OnWindowLostFocus, this);
 			Daisy->Connect<Events::WindowGainedFocus>(&Window::OnWindowGainedFocus, this);
+			Daisy->Connect<Events::WindowResizeToNative>(&Window::OnWindowResizeToNative, this);
     }
 
     /**************************************************************************/
@@ -69,7 +70,7 @@ namespace DCEngine {
     void Window::OnWindowFullScreenToggleEvent(Events::WindowFullScreenToggle * event)
     {
       DCTrace << "Window::OnWindowFullScreenToggleEvent - \n";
-      setFullscreen();
+			WindowHandler->toggleFullScreen();
     }
 
 		void Window::OnWindowResizeEvent(Events::WindowResize * event)
@@ -93,6 +94,12 @@ namespace DCEngine {
 		{
 			DCTrace << "Window::OnWindowGainedEvent - \n";
 			WindowHandler->gainedFocus();
+		}
+
+		void Window::OnWindowResizeToNative(Events::WindowResizeToNative * event)
+		{
+			DCTrace << "Window::OnWindowGainedEvent - \n";
+			WindowHandler->setFullScreen();
 		}
 
     void Window::OnEngineExitEvent(Events::EngineExit * event)
