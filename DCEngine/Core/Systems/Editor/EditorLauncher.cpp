@@ -53,6 +53,10 @@ namespace DCEngine {
       // Clear previous commands
       Access().Settings.Commands.CommandsCurrent.clear();
       Access().Settings.Commands.CommandsUndo.clear();
+      // Add the Editor camera
+      // CreateEditorCamera();
+
+      Access().Deselect();
     }
 
     /**************************************************************************/
@@ -69,7 +73,8 @@ namespace DCEngine {
       // Send the game start event
       DispatchGameEvents::GameStarted();
       // Set the editor camera
-      RemoveEditorCamera();
+      // RemoveEditorCamera();
+
       Access().Deselect();
     }
 
@@ -96,6 +101,9 @@ namespace DCEngine {
     /**************************************************************************/
     void EditorLauncher::CreateEditorCamera()
     {
+      //if (Access().EditorCamera)
+      //  return;
+
       auto editorCamera = Access().CurrentSpace->CreateObject();
       editorCamera->setObjectName("EditorCamera");
       editorCamera->setLocked(true);
@@ -122,14 +130,19 @@ namespace DCEngine {
     /**************************************************************************/
     void EditorLauncher::RemoveEditorCamera()
     {
+      auto editorCam = Access().EditorCamera;
+      //if (!editorCam) {
+      //  //throw DCException("Tried to remove the Editor Camera when there wasn't one!");
+      //}
+
       // Save the last position of the editor's camera
-      Access().Settings.CameraLastPos = Access().EditorCamera->getComponent<Components::Transform>()->getTranslation();
+      Access().Settings.CameraLastPos = editorCam->getComponent<Components::Transform>()->getTranslation();
       // Look for a camera on the space to be default
       auto defaultcam = Access().CurrentSpace->getComponent<Components::CameraViewport>()->FindDefaultCamera();
       // Set it as the default camera
       Access().CurrentSpace->getComponent<Components::CameraViewport>()->setCamera(defaultcam);
       // Remove the editor camera from the space
-      auto editorCamera = Access().CurrentSpace->FindObjectByName("EditorCamera");
+      // auto editorCamera = Access().CurrentSpace->FindObjectByName("EditorCamera");
       Access().EditorCamera = nullptr;
     }
 

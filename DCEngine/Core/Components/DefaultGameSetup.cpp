@@ -65,6 +65,7 @@ namespace DCEngine {
 
     void DefaultGameSetup::OnGameRequestQuitEvent(Events::GameRequestQuit * event)
     {
+      Systems::DispatchSystemEvents::EngineExit();
     }
 
     void DefaultGameSetup::OnGameStartedEvent(Events::GameStarted * event)

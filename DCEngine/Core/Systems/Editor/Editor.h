@@ -57,7 +57,9 @@ namespace DCEngine {
       void ToggleEditor();
       SpacePtr CurrentSpace;
       static Editor& Access();
-      DCE_DEFINE_PROPERTY(bool, Enabled);
+      void setEnabled(const bool& enable) { 
+        Enabled = enable; 
+      } DCE_DEFINE_GETTER(bool, Enabled);
 
     private:
 

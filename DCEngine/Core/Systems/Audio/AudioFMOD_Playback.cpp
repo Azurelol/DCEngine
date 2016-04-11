@@ -31,10 +31,11 @@ namespace DCEngine {
       else {
         handle->setMode(FMOD_LOOP_OFF);
       }
-      // Configure it
+      // Have it release when its done playing
+      handle->release();
       auto check = ErrorCheck(System.LowLevel->playSound(handle, NULL, 0, channel));
       (*channel)->setVolume(settings.Volume);
-      (*channel)->setPitch(settings.Pitch);
+      (*channel)->setPitch(settings.Pitch);      
       return check;
     }
 
