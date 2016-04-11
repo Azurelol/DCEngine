@@ -3,8 +3,8 @@
   "GameObject": 
   {
     "Locked": false, 
-    "GameObjectID": 18, 
-    "Name": "ScrapperSaw", 
+    "GameObjectID": 46, 
+    "Name": "SentinelBody", 
     "Protected": false, 
     "Components": 
     {
@@ -50,8 +50,8 @@
         {
           "Vec3": 
           {
-            "x": 1.500000, 
-            "y": 1.500000, 
+            "x": 2.000000, 
+            "y": 2.000000, 
             "z": 1.000000
           }
         }
@@ -69,12 +69,12 @@
             "w": 1.000000
           }
         }, 
-        "SpriteSource": "Char_Scrap_3", 
-        "FlipX": true, 
+        "SpriteSource": "char_sent_1", 
+        "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 
         "AnimationSpeed": 1.000000, 
-        "DrawLayer": 1
+        "DrawLayer": 0
       }
     }, 
     "Children": 

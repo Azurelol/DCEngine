@@ -5,6 +5,7 @@
     "Locked": false, 
     "GameObjectID": 900, 
     "Name": "Scrapper", 
+    "Protected": false, 
     "Components": 
     {
       "Transform": 
@@ -13,8 +14,8 @@
         {
           "Vec3": 
           {
-            "x": -7.901652, 
-            "y": -0.170614, 
+            "x": -4.895833, 
+            "y": -0.625000, 
             "z": 0.000000
           }
         }, 
@@ -22,8 +23,8 @@
         {
           "Vec3": 
           {
-            "x": -7.901652, 
-            "y": -0.170614, 
+            "x": -4.895833, 
+            "y": -0.625000, 
             "z": 0.000000
           }
         }, 
@@ -31,8 +32,8 @@
         {
           "Vec3": 
           {
-            "x": -7.901652, 
-            "y": -0.170614, 
+            "x": -4.895833, 
+            "y": -0.625000, 
             "z": 0.000000
           }
         }, 
@@ -73,7 +74,11 @@
         "JumpPeriod": 2.000000, 
         "AttackJumpStrengthX": 10.000000, 
         "AttackJumpStrengthY": 15.000000, 
-        "AttackJumpPeriod": 1.000000
+        "AttackJumpPeriod": 1.000000, 
+        "AnimationSpeedHead": 10.000000, 
+        "AnimationDistanceHead": 0.010000, 
+        "AnimationSpeedSaw": 10.000000, 
+        "AnimationDistanceSaw": 0.010000
       }, 
       "BoxCollider": 
       {

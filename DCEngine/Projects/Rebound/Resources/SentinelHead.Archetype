@@ -3,8 +3,8 @@
   "GameObject": 
   {
     "Locked": false, 
-    "GameObjectID": 18, 
-    "Name": "ScrapperSaw", 
+    "GameObjectID": 48, 
+    "Name": "SentinelHead", 
     "Protected": false, 
     "Components": 
     {
@@ -50,8 +50,8 @@
         {
           "Vec3": 
           {
-            "x": 1.500000, 
-            "y": 1.500000, 
+            "x": 2.000000, 
+            "y": 2.000000, 
             "z": 1.000000
           }
         }
@@ -69,8 +69,8 @@
             "w": 1.000000
           }
         }, 
-        "SpriteSource": "Char_Scrap_3", 
-        "FlipX": true, 
+        "SpriteSource": "char_sent_3", 
+        "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 
         "AnimationSpeed": 1.000000, 

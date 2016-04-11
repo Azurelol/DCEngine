@@ -3,8 +3,8 @@
   "GameObject": 
   {
     "Locked": false, 
-    "GameObjectID": 18, 
-    "Name": "ScrapperSaw", 
+    "GameObjectID": 52, 
+    "Name": "LancerShoulder", 
     "Protected": false, 
     "Components": 
     {
@@ -50,8 +50,8 @@
         {
           "Vec3": 
           {
-            "x": 1.500000, 
-            "y": 1.500000, 
+            "x": 4.000000, 
+            "y": 4.000000, 
             "z": 1.000000
           }
         }
@@ -69,12 +69,12 @@
             "w": 1.000000
           }
         }, 
-        "SpriteSource": "Char_Scrap_3", 
-        "FlipX": true, 
+        "SpriteSource": "Char_Lanc_3", 
+        "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 
         "AnimationSpeed": 1.000000, 
-        "DrawLayer": 1
+        "DrawLayer": 2
       }
     }, 
     "Children": 
