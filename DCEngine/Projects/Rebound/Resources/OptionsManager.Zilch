@@ -47,7 +47,7 @@ class OptionsManager : ZilchComponent
 	var CurAA : AntiAlias;
     var CurAudio : AudioState;
 
-    var InFullscreen : Booleanl
+    var InFullscreen : Boolean;
 
     function Initialize()
     {
@@ -313,7 +313,7 @@ class OptionsManager : ZilchComponent
             {
                 this.InFullscreen = false;
                 this.CurAspect = AspectRatio.A_16x9;
-                this.CurRes = Resolution.Native.A_1920x1080;
+                this.CurRes = Resolution.A_1920x1080;
             }
             else
             {

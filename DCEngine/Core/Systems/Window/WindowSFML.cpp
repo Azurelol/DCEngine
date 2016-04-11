@@ -198,7 +198,7 @@ namespace DCEngine {
       ContextSettings.minorVersion = _minorVersion;
       nativeWidth = sf::VideoMode::getDesktopMode().width;
       nativeHeight = sf::VideoMode::getDesktopMode().height;
-      image.loadFromFile("Projects/Rebound/Assets/Images/MoonwardLogo.png");
+      image.loadFromFile("Projects/Rebound/Assets/Images/ReboundIcon.png");
       // If it starts as fullscreen
       if (WindowInterface.Settings.Fullscreen) {
         WindowContext.reset(new sf::Window(sf::VideoMode(nativeWidth, nativeHeight),
