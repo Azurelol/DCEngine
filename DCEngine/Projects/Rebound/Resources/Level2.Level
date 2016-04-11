@@ -4903,7 +4903,16 @@
                 "y": 1.500000, 
                 "z": 0.000000
               }
-            }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
           }, 
           "LinearParticleAnimator": 
           {
@@ -4940,6 +4949,7 @@
             "Locked": false, 
             "GameObjectID": 98, 
             "Name": "TestParticle", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -5049,7 +5059,16 @@
                     "y": 0.125000, 
                     "z": 0.000000
                   }
-                }
+                }, 
+                "EmissionArea": 
+                {
+                  "Vec2": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000
+                  }
+                }, 
+                "EmissionCircle": false
               }, 
               "LinearParticleAnimator": 
               {

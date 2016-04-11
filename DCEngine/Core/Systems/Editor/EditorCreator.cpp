@@ -123,6 +123,7 @@ namespace DCEngine {
     /**************************************************************************/
     GameObjectPtr EditorCreator::Create(std::string name, std::vector<std::string>& components)
     {
+
       // Create the object
       auto object = Access().CurrentSpace->CreateObject();
       object->setObjectName(name);

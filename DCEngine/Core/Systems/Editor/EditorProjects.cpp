@@ -249,13 +249,14 @@ namespace DCEngine {
       Access().Deselect();
       // Load the level
       Access().CurrentSpace->LoadLevel(level);
+      // Load the editor camera
+      Access().Launcher.SetEditorCamera(true);
+
       // If the level doesn't have a levelsettings object (legacy), add one!
       if (!Access().CurrentSpace->FindObjectByName("LevelSettings")) {
         Access().Creator.CreateLevelSettings();
       }
       
-      // Load the editor camera
-      Access().Launcher.SetEditorCamera(true);
       // Sets the current window's caption
       Access().UpdateCaption();
       // Set it as the default level
@@ -333,10 +334,12 @@ namespace DCEngine {
     /**************************************************************************/
     void EditorProjects::OnScriptingLibraryCompiled(Events::ScriptingLibraryCompiled * event)
     {
-      Ready = true;
+      Ready = true;      
 
       // If the project is being initialized...
       if (InitializingProject) {
+        // Enable the editor again
+        Access().setEnabled(true);
         // Load the default GameSession
         LoadDefaultGameSession();
         // Load the default Space

@@ -54,7 +54,7 @@ namespace DCEngine {
       Access().Settings.Commands.CommandsCurrent.clear();
       Access().Settings.Commands.CommandsUndo.clear();
       // Add the Editor camera
-      CreateEditorCamera();
+      // CreateEditorCamera();
 
       Access().Deselect();
     }
@@ -73,7 +73,7 @@ namespace DCEngine {
       // Send the game start event
       DispatchGameEvents::GameStarted();
       // Set the editor camera
-      RemoveEditorCamera();
+      // RemoveEditorCamera();
 
       Access().Deselect();
     }
@@ -101,6 +101,9 @@ namespace DCEngine {
     /**************************************************************************/
     void EditorLauncher::CreateEditorCamera()
     {
+      //if (Access().EditorCamera)
+      //  return;
+
       auto editorCamera = Access().CurrentSpace->CreateObject();
       editorCamera->setObjectName("EditorCamera");
       editorCamera->setLocked(true);
@@ -128,9 +131,9 @@ namespace DCEngine {
     void EditorLauncher::RemoveEditorCamera()
     {
       auto editorCam = Access().EditorCamera;
-      if (!editorCam) {
-        //throw DCException("Tried to remove the Editor Camera when there wasn't one!");
-      }
+      //if (!editorCam) {
+      //  //throw DCException("Tried to remove the Editor Camera when there wasn't one!");
+      //}
 
       // Save the last position of the editor's camera
       Access().Settings.CameraLastPos = editorCam->getComponent<Components::Transform>()->getTranslation();
