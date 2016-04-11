@@ -230,7 +230,6 @@ namespace DCEngine {
       }
 
       DCTrace << "Editor::LoadLevel - Loading " << level << "\n";
-
       // Save the currently-loaded level before loading a new one
       if (Access().CurrentSpace->getCurrentLevel()) {
         auto currentLevelName = Access().CurrentSpace->getCurrentLevel()->Name();
