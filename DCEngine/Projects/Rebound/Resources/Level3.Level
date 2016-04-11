@@ -420,6 +420,82 @@
                 "y": 1.000000, 
                 "z": 1.000000
               }
+<<<<<<< HEAD
+=======
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 8, 
+        "Name": "Ground", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -132.000000, 
+                "y": 7.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -132.000000, 
+                "y": 7.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -132.000000, 
+                "y": 7.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 4.000000, 
+                "z": 1.000000
+              }
+>>>>>>> origin/master
             }
           }, 
           "Sprite": 
@@ -4849,8 +4925,13 @@
       "GameObject": 
       {
         "Locked": false, 
+<<<<<<< HEAD
         "GameObjectID": 49, 
         "Name": "Acid", 
+=======
+        "GameObjectID": 900, 
+        "Name": "Scrapper4", 
+>>>>>>> origin/master
         "Protected": false, 
         "Components": 
         {
@@ -4963,6 +5044,7 @@
               "Vec4": 
               {
                 "x": 0.000000, 
+<<<<<<< HEAD
                 "y": 0.700000, 
                 "z": 0.200000, 
                 "w": 1.000000
@@ -4970,6 +5052,43 @@
             }, 
             "Fading": true, 
             "Pulse": true
+=======
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "AngularVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Mass": 10.000000, 
+            "RotationLocked": true
+          }, 
+          "Grunt": 
+          {
+            "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
+            "IdleRange": 100.000000, 
+            "PatrolDistance": 20.000000, 
+            "IsPatrolRight": true, 
+            "IsAggressive": true, 
+            "JumpStrengthX": 5.000000, 
+            "JumpStrengthY": 25.000000, 
+            "JumpPeriod": 2.000000, 
+            "AttackJumpStrengthX": 10.000000, 
+            "AttackJumpStrengthY": 15.000000, 
+            "AttackJumpPeriod": 1.000000
+>>>>>>> origin/master
           }
         }, 
         "Children": 
@@ -5109,8 +5228,13 @@
       "GameObject": 
       {
         "Locked": false, 
+<<<<<<< HEAD
         "GameObjectID": 900, 
         "Name": "Scrapper4", 
+=======
+        "GameObjectID": 50, 
+        "Name": "Acid", 
+>>>>>>> origin/master
         "Protected": false, 
         "Components": 
         {
@@ -6273,6 +6397,202 @@
             {
               "Vec3": 
               {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Mass": 10.000000, 
+            "RotationLocked": true
+          }, 
+          "Grunt": 
+          {
+            "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
+            "IdleRange": 100.000000, 
+            "PatrolDistance": 20.000000, 
+            "IsPatrolRight": true, 
+            "IsAggressive": true, 
+            "JumpStrengthX": 5.000000, 
+            "JumpStrengthY": 25.000000, 
+            "JumpPeriod": 2.000000, 
+            "AttackJumpStrengthX": 10.000000, 
+            "AttackJumpStrengthY": 15.000000, 
+            "AttackJumpPeriod": 1.000000
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+<<<<<<< HEAD
+        "GameObjectID": 59, 
+        "Name": "LevelGoal", 
+=======
+        "GameObjectID": 900, 
+        "Name": "Scrapper4", 
+>>>>>>> origin/master
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 67.837547, 
+                "y": 14.885649, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 67.837547, 
+                "y": 14.885649, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 67.837547, 
+                "y": 14.885649, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "VictorySymbol", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Default", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }, 
+          "LevelManager": 
+          {
+            "NextLevel": "Level4", 
+            "LoadingTime": 3.000000, 
+            "TimerStarted": false
+          }, 
+          "Fade": 
+          {
+            "Timer": 0.000000, 
+            "FadeTime": 0.500000, 
+            "FadeTimeGrowth": 0.750000, 
+            "TargetColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Fading": false, 
+            "Pulse": true
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 60, 
+        "Name": "Ground", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 80.944588, 
+                "y": -35.304558, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+<<<<<<< HEAD
+                "x": 80.944588, 
+                "y": -35.304558, 
+=======
                 "x": 0.000000, 
                 "y": 0.000000, 
                 "z": 0.000000
@@ -6451,8 +6771,8 @@
             {
               "Vec3": 
               {
-                "x": 80.944588, 
-                "y": -35.304558, 
+                "x": 6.820000, 
+                "y": 3.760000, 
                 "z": 0.000000
               }
             }, 
@@ -6460,8 +6780,9 @@
             {
               "Vec3": 
               {
-                "x": 80.944588, 
-                "y": -35.304558, 
+                "x": 6.820000, 
+                "y": 3.760000, 
+>>>>>>> origin/master
                 "z": 0.000000
               }
             }, 
@@ -7399,6 +7720,7 @@
         "GameObjectID": 168, 
         "Name": "LevelSettings", 
         "Protected": false, 
+<<<<<<< HEAD
         "Components": 
         {
         }, 
@@ -7412,6 +7734,8 @@
         "GameObjectID": 7, 
         "Name": "Ground", 
         "Protected": false, 
+=======
+>>>>>>> origin/master
         "Components": 
         {
           "Transform": 

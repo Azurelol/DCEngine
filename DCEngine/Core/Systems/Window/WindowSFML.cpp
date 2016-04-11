@@ -46,7 +46,7 @@ namespace DCEngine {
     @param  The mode of the window. FullScreen or Windowed.
     */
     /**************************************************************************/
-    void WindowSFML::setFullScreen()
+    void WindowSFML::toggleFullScreen()
     {
       if (Mode != WindowMode::Fullscreen) {
         setWindow(WindowMode::Fullscreen);
@@ -58,7 +58,15 @@ namespace DCEngine {
       }
     }
 
-    void WindowSFML::resizeWindow(float x, float y)
+		void WindowSFML::setFullScreen()
+		{
+			WindowInterface.Settings.ScreenWidth = nativeWidth;
+			WindowInterface.Settings.ScreenHeight = nativeHeight;
+			setWindow(WindowMode::Fullscreen);
+			Mode = WindowMode::Fullscreen;
+		}
+
+		void WindowSFML::resizeWindow(float x, float y)
     {
       WindowInterface.Settings.ScreenWidth = x;
       WindowInterface.Settings.ScreenHeight = y;
@@ -71,7 +79,7 @@ namespace DCEngine {
         WindowContext->create(sf::VideoMode(
           WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
           WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
-        WindowContext->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
+        //WindowContext->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
         WindowContext->setFramerateLimit(WindowInterface.Settings.Framerate);
         Daisy->getSystem<GUI>()->Initialize();
       }
@@ -125,6 +133,7 @@ namespace DCEngine {
         resizeWindow(WindowInterface.Settings.ScreenWidth,
           WindowInterface.Settings.ScreenHeight);
         Daisy->getSystem<Graphics>()->Initialize();
+				Daisy->getSystem<GUI>()->Initialize();
         returnToFullscreen = false;
       }
       //WindowContext->setVisible(true);
@@ -190,7 +199,7 @@ namespace DCEngine {
       ContextSettings.minorVersion = _minorVersion;
       nativeWidth = sf::VideoMode::getDesktopMode().width;
       nativeHeight = sf::VideoMode::getDesktopMode().height;
-      image.loadFromFile("Projects/Rebound/Assets/Images/MoonwardLogo.png");
+      image.loadFromFile("Projects/Rebound/Assets/Images/ReboundIcon.png");
       // If it starts as fullscreen
       if (WindowInterface.Settings.Fullscreen) {
         WindowContext.reset(new sf::Window(sf::VideoMode(nativeWidth, nativeHeight),

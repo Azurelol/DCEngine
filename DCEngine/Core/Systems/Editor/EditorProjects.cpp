@@ -136,7 +136,7 @@ namespace DCEngine {
     void EditorProjects::LoadProject(const std::string& path)
     {
       // Disable the editor while loading a project
-      Access().setEnabled(false);
+      Access().setActive(false);
       // Load the project's data into the Content system. This will
       // automatically load its resources/assets for use.
       Daisy->getSystem<Content>()->LoadProject(path);
@@ -338,14 +338,17 @@ namespace DCEngine {
 
       // If the project is being initialized...
       if (InitializingProject) {
-        // Enable the editor again
-        Access().setEnabled(true);
+
+        auto startInPlayMode = Access().Settings.ProjectProperties->Play;
+        // If not starting in playmode, set the editor to active
+        if (!startInPlayMode) 
+          Access().setActive(true);
+        
         // Load the default GameSession
         LoadDefaultGameSession();
         // Load the default Space
         LoadDefaultSpace();
         // Load its default level 
-        auto startInPlayMode = Access().Settings.ProjectProperties->Play;
         auto levelLoaded = LoadLevel(Access().Settings.ProjectProperties->DefaultLevel);
 
         // A.) If the level loaded successfully
@@ -356,7 +359,6 @@ namespace DCEngine {
           }
           // Otherwise, load the editor right away
           else {
-            DCTrace << "Editor::LoadProject - Default level found editor turned on \n";
             Access().Launcher.Launch();
           }
         }

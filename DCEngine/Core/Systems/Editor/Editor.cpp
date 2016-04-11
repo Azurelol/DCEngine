@@ -26,7 +26,7 @@ namespace DCEngine {
                                                           Settings(settings)
     {      
       // Whether the Editor should be enabled right away.
-      Enabled = Settings.Enabled;
+      Active = Settings.Enabled;
     }
 
     /**************************************************************************/
@@ -59,10 +59,13 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::Subscribe()
     {
-      Daisy->Connect<Events::MouseDown>(Daisy->getMouse(), &Editor::OnMouseDownEvent, this);
-      Daisy->Connect<Events::MouseUp>(Daisy->getMouse(), &Editor::OnMouseUpEvent, this);
-      Daisy->Connect<Events::MouseUpdate>(Daisy->getMouse(), &Editor::OnMouseUpdateEvent, this);
-      Daisy->Connect<Events::KeyDown>(Daisy->getKeyboard(), &Editor::OnKeyDownEvent, this);
+      if (Settings.Enabled) {
+        Daisy->Connect<Events::MouseDown>(Daisy->getMouse(), &Editor::OnMouseDownEvent, this);
+        Daisy->Connect<Events::MouseUp>(Daisy->getMouse(), &Editor::OnMouseUpEvent, this);
+        Daisy->Connect<Events::MouseUpdate>(Daisy->getMouse(), &Editor::OnMouseUpdateEvent, this);
+        Daisy->Connect<Events::KeyDown>(Daisy->getKeyboard(), &Editor::OnKeyDownEvent, this);
+      }
+
       Daisy->Connect<Events::EditorEnabled>(&Editor::OnEditorEnabledEvent, this);
       Daisy->Connect<Events::SpaceInitialized>(Daisy->getGameSession(), &Editor::OnSpaceInitializedEvent, this);
     }
@@ -133,10 +136,10 @@ namespace DCEngine {
       DCTrace << "Editor::ToggleEditor \n";
       
       // Toggle
-      Enabled = !Enabled;
+      Active = !Active;
 
       // If enabling the editor...
-      if (Enabled) {
+      if (Active) {
         Launcher.Launch();
         Projects.ReloadLevel();
       }
@@ -209,7 +212,7 @@ namespace DCEngine {
       Diagnostics.Display();
       WindowConsole();
 
-      if (!Enabled)
+      if (!Active)
         return;
 
       WindowSplashScreen();

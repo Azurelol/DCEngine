@@ -1,0 +1,130 @@
+
+{
+  "GameObject": 
+  {
+    "Locked": false, 
+    "GameObjectID": 11, 
+    "Name": "LandingParticleUrban", 
+    "Components": 
+    {
+      "Transform": 
+      {
+        "Translation": 
+        {
+          "Vec3": 
+          {
+            "x": 9.000000, 
+            "y": 12.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Rotation": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Scale": 
+        {
+          "Vec3": 
+          {
+            "x": 1.000000, 
+            "y": 1.000000, 
+            "z": 1.000000
+          }
+        }
+      }, 
+      "SpriteParticleSystem": 
+      {
+        "Visible": true, 
+        "Tint": 
+        {
+          "Vec4": 
+          {
+            "x": 0.100000, 
+            "y": 0.100000, 
+            "z": 0.150000, 
+            "w": 1.000000
+          }
+        }, 
+        "Texture": "WhiteCloud", 
+        "VelocityScale": 1.000000, 
+        "LengthScale": 1.000000, 
+        "SystemSize": 
+        {
+          "Vec3": 
+          {
+            "x": 4.000000, 
+            "y": 4.000000, 
+            "z": 4.000000
+          }
+        }, 
+        "Additive": false, 
+        "Lock": false, 
+        "DrawLayer": 4
+      }, 
+      "ParticleEmitter": 
+      {
+        "Active": true, 
+        "ResetCount": false, 
+        "EmitCount": 10, 
+        "EmitRate": 5000, 
+        "EmitVariance": 0, 
+        "Size": 0.750000, 
+        "SizeVariance": 0.300000, 
+        "Lifetime": 1.000000, 
+        "LifetimeVariance": 1.000000, 
+        "Spin": 100.000000, 
+        "SpinVariance": 1004.000000, 
+        "StartVelocity": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "RandomVelocity": 
+        {
+          "Vec3": 
+          {
+            "x": 3.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }
+      }, 
+      "LinearParticleAnimator": 
+      {
+        "Force": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 5.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "RandomForce": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Torque": 0.000000, 
+        "Growth": -1.000000, 
+        "Dampening": 3.000000
+      }
+    }, 
+    "Children": 
+    {
+    }
+  }
+}

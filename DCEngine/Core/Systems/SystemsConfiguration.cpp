@@ -223,16 +223,17 @@ namespace DCEngine {
 
 
     EditorConfig::EditorConfig(): Configuration("Editor"), 
-      AutoSave(false), AutoSaveTime(60), GridActive(true), GridLength(1.0f), GridColor(0.3f, 0.3f, 0.3f, 0.2f),
+      Enabled(true), AutoSave(false), AutoSaveTime(60), GridActive(true), GridLength(1.0f), GridColor(0.3f, 0.3f, 0.3f, 0.2f),
       LockedColor(1.0f, 0.0f, 0.0f, 1.0f), Snapping(true), SnapDistance(1.0f), SnapAngle(15.0f),      
       CameraLastPos(0.0f, 0.0f, 40.0f), ExternalTextEditor("Notepad++"), TextEditorOpenExternally(false), 
-      CompilationPopUps(false), CompileOnContextSwitch(false)
+      CompilationPopUps(false), CompileOnContextSwitch(false), AssetsPath("Core/Assets/"), ProjectsPath("Projects/"),
+      RecentProject("Rebound/Rebound")
     {
     }
 
     GraphicsConfig::GraphicsConfig() : Configuration("Graphics"),
-      MaxDrawLayers(5), ScreenWidth(1440), ScreenHeight(900), Framerate(60), Fullscreen(false),
-      Caption("Daisy Chain Engine"), ClearColor(0.0f, 0.5f, 1.0f, 1.0f), Samples(4)
+      MaxDrawLayers(10), ScreenWidth(1440), ScreenHeight(900), Framerate(60), Fullscreen(false),
+      Caption("Daisy Chain Engine"), ClearColor(0.0f, 0.5f, 1.0f, 1.0f), Samples(4), DisplayFPS(true)
     {
     }
 
@@ -244,7 +245,7 @@ namespace DCEngine {
     {
     }
 
-    ContentConfig::ContentConfig() : Configuration("Content"), MultiThreaded(true),
+    ContentConfig::ContentConfig() : Configuration("Content"), DefaultAssetPath("Core/Assets/"), MultiThreaded(true),
       DefaultImage("Wow"), DefaultFont("Verdana"), DefaultCollisionTable(CollisionTable::Default()),
       DefaultCollisionGroup("DefaultCollisionGroup"), DefaultPhysicsMaterial("DefaultPhysicsMaterial"),
       DefaultSpriteLayer("DefaultSpriteLayer"), DefaultSpriteLayerOrder(SpriteLayerOrder::Default()),

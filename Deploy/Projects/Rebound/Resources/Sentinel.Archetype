@@ -1,0 +1,129 @@
+
+{
+  "GameObject": 
+  {
+    "Locked": false, 
+    "GameObjectID": 914, 
+    "Name": "Sentinel", 
+    "Components": 
+    {
+      "Transform": 
+      {
+        "Translation": 
+        {
+          "Vec3": 
+          {
+            "x": -44.337986, 
+            "y": 2.283299, 
+            "z": 0.000000
+          }
+        }, 
+        "Rotation": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Scale": 
+        {
+          "Vec3": 
+          {
+            "x": 2.000000, 
+            "y": 2.000000, 
+            "z": 1.000000
+          }
+        }
+      }, 
+      "Sprite": 
+      {
+        "Visible": true, 
+        "Color": 
+        {
+          "Vec4": 
+          {
+            "x": 1.000000, 
+            "y": 1.000000, 
+            "z": 1.000000, 
+            "w": 1.000000
+          }
+        }, 
+        "SpriteSource": "char_sent", 
+        "FlipX": false, 
+        "FlipY": false, 
+        "AnimationActive": false, 
+        "AnimationSpeed": 1.000000, 
+        "DrawLayer": 0
+      }, 
+      "BoxCollider": 
+      {
+        "CollisionGroup": "Enemy", 
+        "PhysicsMaterial": "", 
+        "Size": 
+        {
+          "Vec3": 
+          {
+            "x": 1.000000, 
+            "y": 1.000000, 
+            "z": 1.000000
+          }
+        }, 
+        "Offset": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Ghost": false, 
+        "SendsEvents": true, 
+        "IsDrawingCollider": false
+      }, 
+      "RigidBody": 
+      {
+        "Velocity": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "AngularVelocity": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Mass": 10.000000, 
+        "RotationLocked": true
+      }, 
+      "Sentinel": 
+      {
+        "PlayerName": "Player", 
+        "StartingHealth": 1, 
+        "MaxHealth": 1, 
+        "IsInvulnerable": false, 
+        "IdleRange": 100.000000, 
+        "MoveSpeed": 2.000000, 
+        "ShieldArchetype": "Sentinel Shield", 
+        "ShieldRadius": 1.000000, 
+        "ShieldBashDistance": 2.000000, 
+        "ShieldBashOutTime": 0.200000, 
+        "ShieldBashInTime": 0.100000, 
+        "ShieldBashCooldown": 1.000000
+      }
+    }, 
+    "Children": 
+    {
+    }
+  }
+}

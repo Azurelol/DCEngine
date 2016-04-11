@@ -455,7 +455,7 @@ namespace DCEngine {
   */
   /**************************************************************************/
   void Engine::Loop() {
-    DeltaTime = 1.0f / EngineConfiguration->Framerate;
+    DeltaTime = 1.0f / Configurations.Graphics.Framerate;
 
     while (Active) {
       Statistics.RunTime += DeltaTime;

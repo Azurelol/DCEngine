@@ -45,7 +45,7 @@ namespace DCEngine {
       friend class EditorLauncher;
 
     private:
-      bool Enabled;
+      bool Active;
 
     public:
 
@@ -57,9 +57,9 @@ namespace DCEngine {
       void ToggleEditor();
       SpacePtr CurrentSpace;
       static Editor& Access();
-      void setEnabled(const bool& enable) { 
-        Enabled = enable; 
-      } DCE_DEFINE_GETTER(bool, Enabled);
+      void setActive(const bool& enable) { 
+        Active = enable;
+      } DCE_DEFINE_GETTER(bool, Active);
 
     private:
 

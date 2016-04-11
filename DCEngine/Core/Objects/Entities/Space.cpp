@@ -311,9 +311,10 @@ namespace DCEngine {
     // Set the default camera
     auto camera = getComponent<Components::CameraViewport>()->FindDefaultCamera();
     // If the editor is not enabled, initialize all their components too
-    auto editorEnabled = Daisy->getSystem<Systems::Editor>()->getEnabled();
+    auto editorActive = Daisy->getSystem<Systems::Editor>()->getActive();
+    //auto editorEnabled = Daisy->Configuration().Editor.Enabled;
     DCTrace << "//----- LEVEL LOADED -----/ \n";
-    if (!editorEnabled) 
+    if (!editorActive)
     {
       // Initialize every object
       for (auto& gameObject : GameObjectContainer) {        

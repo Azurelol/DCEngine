@@ -1,16 +1,14 @@
 class GraphicsData : ZilchComponent
 {
-	var NativeResolution : Real2;
 	var CurrentResolution : Resolution;
 	var CurrentAA : AntiAlias;
 
     function Initialize()
     {
         Daisy.Connect(this.Owner, DaisyEvent.GraphicsChange, this.OnGraphicsChange);
+        Daisy.Connect(this.Owner, DaisyEvent.FullScreenChange, this.OnFullScreenChange);
         this.CurrentAA = AntiAlias.B_x4;
         this.CurrentResolution = Resolution.Native;
-
-        // Get Native?
     }
 
     function OnGraphicsChange(event : GraphicsChange)
@@ -28,6 +26,20 @@ class GraphicsData : ZilchComponent
     		this.ApplyResolution(event.NewRes);
     	}
 
+    }
+
+    function OnFullScreenChange(event : FullScreenChange)
+    {
+    	if(this.CurrentResolution == Resolution.Native)
+    	{
+    		this.CurrentResolution = Resolution.Native;
+    		this.Space.GraphicsSpace.ToggleFullscreen();
+    	}
+    	else
+    	{
+    		this.CurrentResolution = Resolution.Native;
+    		this.Space.GraphicsSpace.SetNative();
+    	}
     }
 
     function ApplyAntiAlias(newAA : AntiAlias)
@@ -59,7 +71,11 @@ class GraphicsData : ZilchComponent
     	var resWidth : Integer = 0;
     	var resHeight : Integer = 0;
 
-    	if(newRes == Resolution.A_1920x1080)
+    	if(newRes == Resolution.Native)
+    	{
+    		this.Space.GraphicsSpace.SetNative();
+    	}
+    	else if(newRes == Resolution.A_1920x1080)
     	{
     		resWidth = 1920;
     		resHeight = 1080;

@@ -219,7 +219,7 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief  Resumes all SoundInstances.
+    @brief  Resumes all SoundInstances.`
     */
     /**************************************************************************/
     void SoundSpace::ResumeAll()

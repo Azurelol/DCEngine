@@ -15,6 +15,7 @@ engine's underlying graphics system.
 #include "GraphicsSpace.h"
 #include "EngineReference.h"
 #include "../Systems/Graphics/Graphics.h" // Access to the graphics system
+#include "..\Engine\Engine.h"
 
 namespace DCEngine {
 
@@ -37,6 +38,7 @@ namespace DCEngine {
       ZilchBindMethod(builder, type, &GraphicsSpace::SetResolution, ZilchNoOverload, "SetResolution", "x, y");
       ZilchBindMethod(builder, type, &GraphicsSpace::SetAntiAliasingLevel, ZilchNoOverload, "SetAntiAliasingLevel", "samples");
       ZilchBindMethod(builder, type, &GraphicsSpace::ToggleFullscreen, ZilchNoOverload, "ToggleFullscreen", ZilchNoNames);
+      ZilchBindMethod(builder, type, &GraphicsSpace::SetNative, ZilchNoOverload, "SetNative", ZilchNoNames);
       //ZilchBindProperty(builder, type, &RigidBody::getDynamicState, &RigidBody::setDynamicState, "DynamicState");
     }
     #endif
@@ -116,7 +118,7 @@ namespace DCEngine {
     {
       Daisy->getSystem<Systems::Graphics>()->ToggleFullscreen();
     }
-    unsigned GraphicsSpace::GetScreenWidth()
+    unsigned GraphicsSpace::GetScreenWidth() const
     {
       return GraphicsSystem->GetScreenWidth();
     }
@@ -124,6 +126,10 @@ namespace DCEngine {
     {
       return GraphicsSystem->GetScreenHeight();
     }
+		void GraphicsSpace::SetNative()
+		{
+			DCEngine::Systems::DispatchSystemEvents::WindowResizeToNative();
+		}
 
     /**************************************************************************/
     /*!
