@@ -63,7 +63,7 @@
           }, 
           "Camera": 
           {
-            "FieldOfView": 170.000000, 
+            "FieldOfView": 160.000000, 
             "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
@@ -15486,8 +15486,8 @@
             {
               "Vec3": 
               {
-                "x": 58.983128, 
-                "y": 47.579166, 
+                "x": 0.417446, 
+                "y": -0.774069, 
                 "z": 0.000000
               }
             }, 
@@ -15495,8 +15495,8 @@
             {
               "Vec3": 
               {
-                "x": 58.983128, 
-                "y": 47.579166, 
+                "x": 0.417446, 
+                "y": -0.774069, 
                 "z": 0.000000
               }
             }, 
@@ -15504,8 +15504,8 @@
             {
               "Vec3": 
               {
-                "x": 58.983128, 
-                "y": 47.579166, 
+                "x": 0.417446, 
+                "y": -0.774069, 
                 "z": 0.000000
               }
             }, 
@@ -15522,8 +15522,8 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
+                "x": 0.700000, 
+                "y": 0.700000, 
                 "z": 1.000000
               }
             }
@@ -15599,9 +15599,9 @@
           }, 
           "PlayerController": 
           {
-            "MoveSpeed": 0.350000, 
-            "VelocityXCap": 10.000000, 
-            "JumpPower": 30.000000, 
+            "MoveSpeed": 0.200000, 
+            "VelocityXCap": 4.000000, 
+            "JumpPower": 10.000000, 
             "JumpFrames": 1.000000, 
             "Health": 10.000000, 
             "AirBrakeScalar": 0.950000, 
@@ -15876,10 +15876,20 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "ShoulderArchetype": "", 
+            "BodyArchetype": "", 
+            "SpearArchetype": "", 
             "IdleRange": 1000.000000, 
             "ChargeForce": 100.000000, 
             "ShieldVelocityDifferenceThreshold": 1.000000, 
-            "ShieldActivationSpeed": 5.000000
+            "ShieldActivationSpeed": 5.000000, 
+            "AnimationSpeedHead": 0.000000, 
+            "AnimationDistanceHead": 0.000000, 
+            "AnimationSpeedShoulder": 0.000000, 
+            "AnimationDistanceShoulder": 0.000000, 
+            "AnimationSpeedSpear": 0.000000, 
+            "AnimationDistanceSpear": 0.000000
           }
         }, 
         "Children": 
@@ -16453,11 +16463,18 @@
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
             "ShieldArchetype": "Sentinel Shield", 
+            "HeadArchetype": "", 
+            "ShoulderArchetype": "", 
+            "BodyArchetype": "", 
             "ShieldRadius": 1.000000, 
             "ShieldBashDistance": 2.000000, 
             "ShieldBashOutTime": 0.200000, 
             "ShieldBashInTime": 0.100000, 
-            "ShieldBashCooldown": 1.000000
+            "ShieldBashCooldown": 1.000000, 
+            "AnimationSpeedHead": 0.000000, 
+            "AnimationDistanceHead": 0.000000, 
+            "AnimationSpeedShoulder": 0.000000, 
+            "AnimationDistanceShoulder": 0.000000
           }
         }, 
         "Children": 
@@ -17029,10 +17046,20 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "ShoulderArchetype": "", 
+            "BodyArchetype": "", 
+            "SpearArchetype": "", 
             "IdleRange": 1000.000000, 
             "ChargeForce": 100.000000, 
             "ShieldVelocityDifferenceThreshold": 1.000000, 
-            "ShieldActivationSpeed": 5.000000
+            "ShieldActivationSpeed": 5.000000, 
+            "AnimationSpeedHead": 0.000000, 
+            "AnimationDistanceHead": 0.000000, 
+            "AnimationSpeedShoulder": 0.000000, 
+            "AnimationDistanceShoulder": 0.000000, 
+            "AnimationSpeedSpear": 0.000000, 
+            "AnimationDistanceSpear": 0.000000
           }
         }, 
         "Children": 
@@ -17587,11 +17614,18 @@
             "IdleRange": 100.000000, 
             "MoveSpeed": 2.000000, 
             "ShieldArchetype": "Sentinel Shield", 
+            "HeadArchetype": "", 
+            "ShoulderArchetype": "", 
+            "BodyArchetype": "", 
             "ShieldRadius": 1.000000, 
             "ShieldBashDistance": 2.000000, 
             "ShieldBashOutTime": 0.200000, 
             "ShieldBashInTime": 0.100000, 
-            "ShieldBashCooldown": 1.000000
+            "ShieldBashCooldown": 1.000000, 
+            "AnimationSpeedHead": 0.000000, 
+            "AnimationDistanceHead": 0.000000, 
+            "AnimationSpeedShoulder": 0.000000, 
+            "AnimationDistanceShoulder": 0.000000
           }
         }, 
         "Children": 
