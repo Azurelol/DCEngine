@@ -125,6 +125,7 @@ namespace DCEngine {
         keyDown->Key = Keys::F7;
         break;
       case sf::Keyboard::F8:
+				ToggleFullscreen();
         keyDown->Key = Keys::F8;
         break;
       case sf::Keyboard::F9:
@@ -132,7 +133,7 @@ namespace DCEngine {
         keyDown->Key = Keys::F9;
         break;
       case sf::Keyboard::F10: // RESERVED: Toggle Fullscreen
-        ToggleFullscreen();
+				DispatchSystemEvents::WindowResizeToNative();
         keyDown->Key = Keys::F10;
         break;
 
@@ -359,6 +360,7 @@ namespace DCEngine {
       case sf::Keyboard::Escape:
         //Daisy->getSystem<Window>()->WindowHandler->Terminate();
         KeyboardRef->KeyDown_Escape = false;
+		keyUp->Key = Keys::Escape;
         break;
       case sf::Keyboard::Space:
         keyUp->Key = Keys::Space;

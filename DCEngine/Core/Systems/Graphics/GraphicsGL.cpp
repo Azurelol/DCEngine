@@ -73,7 +73,6 @@ namespace DCEngine {
 		/**************************************************************************/
 		void GraphicsGL::StartFrame() {
 			glEnable(GL_DEPTH_TEST);
-			//glDepthFunc(GL_LEQUAL);
 			ViewportUpdate();
 			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 			glStencilMask(~0);
@@ -84,7 +83,7 @@ namespace DCEngine {
 			glDrawBuffers(4, attachments);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 			glBindFramebuffer(GL_FRAMEBUFFER, multisampleFBO);
-			glDrawBuffers(4, attachments);
+			glDrawBuffer(GL_COLOR_ATTACHMENT0);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 		}
 

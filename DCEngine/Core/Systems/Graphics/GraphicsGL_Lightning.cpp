@@ -220,15 +220,12 @@ namespace DCEngine {
 				0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
 				0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
 				GL_COLOR_BUFFER_BIT, GL_NEAREST);
-
-
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
-			glDrawBuffer(GL_BACK);
-			glDisable(GL_BLEND);
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			FinalRenderShader->Use();
 			FinalRenderShader->SetInteger("useLight", lit);
 			FinalRenderShader->SetFloat("Exposure", exposure);
-
 			FinalRenderShader->SetInteger("LightedFrag", 0);
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, FinalColor);
@@ -241,9 +238,28 @@ namespace DCEngine {
 			glEnd();
 		}
 
+		void GraphicsGL::FinalRender()
+		{
+
+		}
+
     void GraphicsGL::DrawDebug()
     {
     }
+
+		void GraphicsGL::ClearFrameBufferObjects()
+		{
+			glBindFramebuffer(GL_FRAMEBUFFER, FBO);
+			GLuint attachments[4] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1,
+				GL_COLOR_ATTACHMENT2, GL_COLOR_ATTACHMENT3 };
+			glDrawBuffers(4, attachments);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+			glBindFramebuffer(GL_FRAMEBUFFER, multisampleFBO);
+			glDrawBuffer(GL_COLOR_ATTACHMENT0);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+			glDrawBuffer(GL_BACK);
+		}
 
   }
 }

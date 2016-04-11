@@ -1,5 +1,12 @@
 <NotepadPlus>
     <Session activeView="0">
+<<<<<<< HEAD
+        <mainView activeIndex="3">
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="408" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\john.myres\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\OptionsManager.Zilch" backupFilePath="" originalFileLastModifTimestamp="1460263186" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="720" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\john.myres\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\GraphicsData.Zilch" backupFilePath="" originalFileLastModifTimestamp="1460261623" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="584" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\john.myres\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\UIButton.Zilch" backupFilePath="" originalFileLastModifTimestamp="1460262725" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="640" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\john.myres\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\PauseManagerZ.Zilch" backupFilePath="" originalFileLastModifTimestamp="1460326555" />
+=======
         <mainView activeIndex="14">
             <File firstVisibleLine="71" xOffset="0" scrollWidth="1216" startPos="2292" endPos="2292" selMode="0" lang="Normal Text" encoding="-1" filename="D:\DCEngine\DCEngine\Projects\Rebound\Resources\PlayerController.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459810856" />
             <File firstVisibleLine="0" xOffset="0" scrollWidth="1096" startPos="430" endPos="430" selMode="0" lang="Normal Text" encoding="-1" filename="D:\DCEngine\DCEngine\Projects\Rebound\Resources\CameraControllerZilch.Zilch" backupFilePath="" originalFileLastModifTimestamp="1460164049" />
@@ -18,6 +25,7 @@
             <File firstVisibleLine="0" xOffset="0" scrollWidth="312" startPos="196" endPos="196" selMode="0" lang="JSON" encoding="-1" filename="D:\DCEngine\DCEngine\ConfigurationGraphics.cfg" backupFilePath="" originalFileLastModifTimestamp="1460332203" />
             <File firstVisibleLine="0" xOffset="0" scrollWidth="736" startPos="52" endPos="52" selMode="0" lang="Normal Text" encoding="-1" filename="D:\DCEngine\DCEngine\Projects\Rebound\Resources\AntiEnergyField.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459639723" />
             <File firstVisibleLine="0" xOffset="0" scrollWidth="880" startPos="101" endPos="101" selMode="0" lang="Normal Text" encoding="-1" filename="D:\DCEngine\DCEngine\Projects\Rebound\Resources\SetParticleEmissionToMatchScale.Zilch" backupFilePath="D:\DCEngine\DCEngine\Tools\Notepad++\backup\SetParticleEmissionToMatchScale.Zilch@2016-04-10_183752" originalFileLastModifTimestamp="1460338661" />
+>>>>>>> fb4a50122a0b7b7d31cbaa9632537e770efa192e
         </mainView>
         <subView activeIndex="0" />
     </Session>

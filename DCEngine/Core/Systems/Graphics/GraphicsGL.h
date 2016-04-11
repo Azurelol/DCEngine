@@ -95,6 +95,16 @@ namespace DCEngine {
 			void RenderLights(Components::Light* light = 0);
 			void RenderScene(float exposure, bool lit);
       void DrawDebug();
+			void FinalRender();
+			void ClearFrameBufferObjects();
+			
+			class GraphicsBuffers
+			{
+			public:
+				
+			private:
+				GLuint multisampleFBO, FBO, PosTexture, NormalTexture, ColorTexture, FinalColor;
+			};
 
     private:
       GraphicsConfig& Settings;

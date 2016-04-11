@@ -63,10 +63,11 @@ namespace DCEngine {
 
       /* Events */
       void OnWindowFullScreenToggleEvent(Events::WindowFullScreenToggle* event);
-      void OnWindowResizeEvent(Events::WindowResize* event);
-      void OnWindowRecreateEvent(Events::WindowRecreate* event);
-      void OnWindowLostFocus(Events::WindowLostFocus* event);
-      void OnWindowGainedFocus(Events::WindowGainedFocus* event);
+			void OnWindowResizeEvent(Events::WindowResize* event);
+			void OnWindowRecreateEvent(Events::WindowRecreate* event);
+			void OnWindowLostFocus(Events::WindowLostFocus* event);
+			void OnWindowGainedFocus(Events::WindowGainedFocus* event);
+			void OnWindowResizeToNative(Events::WindowResizeToNative* event);
       void OnEngineExitEvent(Events::EngineExit* event);
       void OnSetWindowCaptionEvent(Events::SetWindowCaption* event);
 

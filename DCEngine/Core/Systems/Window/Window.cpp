@@ -55,10 +55,11 @@ namespace DCEngine {
       Daisy->Connect<Events::WindowFullScreenToggle>(&Window::OnWindowFullScreenToggleEvent, this);
       Daisy->Connect<Events::EngineExit>(&Window::OnEngineExitEvent, this);
       Daisy->Connect<Events::SetWindowCaption>(&Window::OnSetWindowCaptionEvent, this);
-      Daisy->Connect<Events::WindowResize>(&Window::OnWindowResizeEvent, this);
-      Daisy->Connect<Events::WindowRecreate>(&Window::OnWindowRecreateEvent, this);
-      Daisy->Connect<Events::WindowLostFocus>(&Window::OnWindowLostFocus, this);
-      Daisy->Connect<Events::WindowGainedFocus>(&Window::OnWindowGainedFocus, this);
+			Daisy->Connect<Events::WindowResize>(&Window::OnWindowResizeEvent, this);
+			Daisy->Connect<Events::WindowRecreate>(&Window::OnWindowRecreateEvent, this);
+			Daisy->Connect<Events::WindowLostFocus>(&Window::OnWindowLostFocus, this);
+			Daisy->Connect<Events::WindowGainedFocus>(&Window::OnWindowGainedFocus, this);
+			Daisy->Connect<Events::WindowResizeToNative>(&Window::OnWindowResizeToNative, this);
     }
 
     /**************************************************************************/
@@ -69,31 +70,37 @@ namespace DCEngine {
     void Window::OnWindowFullScreenToggleEvent(Events::WindowFullScreenToggle * event)
     {
       DCTrace << "Window::OnWindowFullScreenToggleEvent - \n";
-      setFullscreen();
+			WindowHandler->toggleFullScreen();
     }
 
-    void Window::OnWindowResizeEvent(Events::WindowResize * event)
-    {
-      DCTrace << "Window::OnWindowResizeEvent - \n";
-      WindowHandler->resizeWindow(event->Dimensions.x, event->Dimensions.y);
-    }
+		void Window::OnWindowResizeEvent(Events::WindowResize * event)
+		{
+			DCTrace << "Window::OnWindowResizeEvent - \n";
+			WindowHandler->resizeWindow(event->Dimensions.x, event->Dimensions.y);
+		}
 
-    void Window::OnWindowRecreateEvent(Events::WindowRecreate * event)
-    {
-      DCTrace << "Window::OnWindowResizeEvent - \n";
-      WindowHandler->recreateWindow();
-    }
-    void Window::OnWindowLostFocus(Events::WindowLostFocus * event)
-    {
-      DCTrace << "Window::OnWindowLostEvent - \n";
-      WindowHandler->lostFocus();
-    }
+		void Window::OnWindowRecreateEvent(Events::WindowRecreate * event)
+		{
+			DCTrace << "Window::OnWindowResizeEvent - \n";
+			WindowHandler->recreateWindow();
+		}
+		void Window::OnWindowLostFocus(Events::WindowLostFocus * event)
+		{
+			DCTrace << "Window::OnWindowLostEvent - \n";
+			WindowHandler->lostFocus();
+		}
 
-    void Window::OnWindowGainedFocus(Events::WindowGainedFocus * event)
-    {
-      DCTrace << "Window::OnWindowGainedEvent - \n";
-      WindowHandler->gainedFocus();
-    }
+		void Window::OnWindowGainedFocus(Events::WindowGainedFocus * event)
+		{
+			DCTrace << "Window::OnWindowGainedEvent - \n";
+			WindowHandler->gainedFocus();
+		}
+
+		void Window::OnWindowResizeToNative(Events::WindowResizeToNative * event)
+		{
+			DCTrace << "Window::OnWindowGainedEvent - \n";
+			WindowHandler->setFullScreen();
+		}
 
     void Window::OnEngineExitEvent(Events::EngineExit * event)
     {
@@ -123,8 +130,7 @@ namespace DCEngine {
       // Update the current width's, heig
       Settings.ScreenWidth = WindowHandler->getWindowDimensions().x;
       Settings.ScreenHeight = WindowHandler->getWindowDimensions().y;
-      if (Settings.DisplayFPS)
-        CalculateFPS(dt);
+      CalculateFPS(dt);
       WindowHandler->Update(dt);
     }
 
