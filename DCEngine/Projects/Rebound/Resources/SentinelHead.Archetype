@@ -3,8 +3,8 @@
   "GameObject": 
   {
     "Locked": false, 
-    "GameObjectID": 67, 
-    "Name": "Sentinel Shield", 
+    "GameObjectID": 48, 
+    "Name": "SentinelHead", 
     "Protected": false, 
     "Components": 
     {
@@ -69,64 +69,12 @@
             "w": 1.000000
           }
         }, 
-        "SpriteSource": "char_sent_4", 
+        "SpriteSource": "char_sent_3", 
         "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 
         "AnimationSpeed": 1.000000, 
         "DrawLayer": 3
-      }, 
-      "BoxCollider": 
-      {
-        "CollisionGroup": "SentinelShield", 
-        "PhysicsMaterial": "SentinelShield", 
-        "Size": 
-        {
-          "Vec3": 
-          {
-            "x": 0.500000, 
-            "y": 1.000000, 
-            "z": 1.000000
-          }
-        }, 
-        "Offset": 
-        {
-          "Vec3": 
-          {
-            "x": 0.000000, 
-            "y": 0.000000, 
-            "z": 0.000000
-          }
-        }, 
-        "Ghost": false, 
-        "SendsEvents": true, 
-        "IsDrawingCollider": false
-      }, 
-      "RigidBody": 
-      {
-        "Velocity": 
-        {
-          "Vec3": 
-          {
-            "x": 0.000000, 
-            "y": 0.000000, 
-            "z": 0.000000
-          }
-        }, 
-        "AngularVelocity": 
-        {
-          "Vec3": 
-          {
-            "x": 0.000000, 
-            "y": 0.000000, 
-            "z": 0.000000
-          }
-        }, 
-        "Mass": 10.000000, 
-        "RotationLocked": true
-      }, 
-      "Orientation": 
-      {
       }
     }, 
     "Children": 
