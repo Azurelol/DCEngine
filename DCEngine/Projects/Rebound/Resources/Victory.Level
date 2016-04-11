@@ -10,6 +10,7 @@
         "Locked": false, 
         "GameObjectID": 320, 
         "Name": "Camera", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -84,6 +85,7 @@
         "Locked": false, 
         "GameObjectID": 321, 
         "Name": "Background", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -164,6 +166,7 @@
         "Locked": false, 
         "GameObjectID": 322, 
         "Name": "PlayerController", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -317,6 +320,7 @@
         "Locked": false, 
         "GameObjectID": 323, 
         "Name": "MusicManager", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -384,6 +388,7 @@
         "Locked": false, 
         "GameObjectID": 324, 
         "Name": "GoBackButton", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -476,6 +481,7 @@
         "Locked": true, 
         "GameObjectID": 140, 
         "Name": "LevelSettings", 
+        "Protected": false, 
         "Components": 
         {
         }, 

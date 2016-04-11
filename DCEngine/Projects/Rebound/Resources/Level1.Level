@@ -10863,6 +10863,9 @@
             "StartingHealth": 0, 
             "MaxHealth": 0, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 20.000038, 
             "PatrolDistance": 8.000000, 
             "IsPatrolRight": false, 
@@ -10872,37 +10875,7 @@
             "JumpPeriod": 0.500000, 
             "AttackJumpStrengthX": 20.100040, 
             "AttackJumpStrengthY": 12.000010, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }, 
           "HealthController": 
           {

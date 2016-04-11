@@ -1,0 +1,21 @@
+class HealthRegen : ZilchComponent
+{
+    [Property]
+    var RegenRate : Real = 0;
+    var CurrentTime : Real = 0;
+    function Initialize()
+    {
+        Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+      this.CurrentTime += event.Dt;
+      
+      if(this.CurrentTime >= 1)
+      {
+        this.Owner.HealthControllerZ.ModifyHealth(this.RegenRate);
+      }
+      
+    }
+}

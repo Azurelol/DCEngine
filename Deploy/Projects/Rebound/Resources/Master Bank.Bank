@@ -1,0 +1,11 @@
+
+{
+  "Bank": 
+  {
+    "Name": "Master Bank", 
+    "Properties": 
+    {
+      "AssetPath": "Projects\\Rebound\\Assets\\Sounds\\FMOD\\Master Bank.bank"
+    }
+  }
+}
