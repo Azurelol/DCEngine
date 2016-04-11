@@ -156,10 +156,13 @@ namespace DCEngine {
 				//Grounded = true;
 				// play landing sound.
 				SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(LandSound);
-				auto particle = SpaceRef->CreateObject(LandingParticle);
-				if (particle)
+				if (event->OtherObject->getComponent<Components::Collider>() && event->OtherObject->getComponent<Components::Collider>()->getCollisionGroup() == "Terrain")
 				{
-					particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation - Vec3(0, TransformRef->getScale().y / 2, 0));
+					auto particle = SpaceRef->CreateObject(LandingParticle);
+					if (particle)
+					{
+						particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation - Vec3(0, TransformRef->getScale().y / 2, 0));
+					}
 				}
 			}
 			if (event->OtherObject->getComponent<Components::LevelManager>())
@@ -510,7 +513,7 @@ namespace DCEngine {
 			//DCTrace << "raydist1 = " << result.Distance << "\n";
 			auto graphicsSpace = this->SpaceRef->getComponent<Components::GraphicsSpace>();
 			graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
-			if (result.Distance < 0.1)
+			if (result.Distance < 0.07)
 			{
 				return true;
 			}
@@ -518,7 +521,7 @@ namespace DCEngine {
 			result = physicsSpace->CastRay(ray, filter);
 			//DCTrace << "raydist2 = " << result.Distance << "\n";
 			graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
-			if (result.Distance < 0.1)
+			if (result.Distance < 0.07)
 			{
 				return true;
 			}
@@ -526,7 +529,7 @@ namespace DCEngine {
 			result = physicsSpace->CastRay(ray, filter);
 			//DCTrace << "raydist3 = " << result.Distance << "\n";
 			graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
-			if (result.Distance < 0.1)
+			if (result.Distance < 0.07)
 			{
 				return true;
 			}

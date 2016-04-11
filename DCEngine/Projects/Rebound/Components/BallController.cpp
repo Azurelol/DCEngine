@@ -201,11 +201,15 @@ namespace DCEngine {
 
       RigidBodyRef->setGravityRatio(NormalGravity);
       if (event->OtherObject->getComponent<Components::PlayerController>())
-      {
+	  {
         hitPlayer = true;
         CollidingWithPlayer = true;
-        if (CollisionTableRef->GetResolve("Ball", "Player") == CollisionFlag::SkipResolution && gameObj->Parent() == nullptr)
+        if (CollisionTableRef->GetResolve("Ball", "Player") == CollisionFlag::SkipResolution && (gameObj->Parent() == nullptr || gameObj->Parent()->getComponent<Components::LockField>()))
         {
+			if(gameObj->Parent() && gameObj->Parent()->getComponent<Components::LockField>() != nullptr)
+			{
+				gameObj->Parent()->getComponent<Components::LockField>()->UnlockBall(gameObj);
+			}
           ParentToPlayer();
         }
       }
