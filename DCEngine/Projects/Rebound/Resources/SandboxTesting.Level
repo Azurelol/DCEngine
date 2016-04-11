@@ -5080,8 +5080,8 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 914, 
-        "Name": "Sentinel", 
+        "GameObjectID": 915, 
+        "Name": "Lancer", 
         "Protected": false, 
         "Components": 
         {
@@ -5091,8 +5091,8 @@
             {
               "Vec3": 
               {
-                "x": 3.871397, 
-                "y": -0.302979, 
+                "x": 13.000000, 
+                "y": -2.000000, 
                 "z": 0.000000
               }
             }, 
@@ -5100,8 +5100,8 @@
             {
               "Vec3": 
               {
-                "x": 3.871397, 
-                "y": -0.302979, 
+                "x": 13.000000, 
+                "y": -2.000000, 
                 "z": 0.000000
               }
             }, 
@@ -5109,8 +5109,8 @@
             {
               "Vec3": 
               {
-                "x": 3.871397, 
-                "y": -0.302979, 
+                "x": 13.000000, 
+                "y": -2.000000, 
                 "z": 0.000000
               }
             }, 
@@ -5127,8 +5127,8 @@
             {
               "Vec3": 
               {
-                "x": 2.000000, 
-                "y": 2.000000, 
+                "x": 4.000000, 
+                "y": 4.000000, 
                 "z": 1.000000
               }
             }
@@ -5146,12 +5146,35 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "char_sent", 
+            "SpriteSource": "Char_Lanc", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
+          }, 
+          "RigidBody": 
+          {
+            "Velocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "AngularVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Mass": 10.000000, 
+            "RotationLocked": true
           }, 
           "BoxCollider": 
           {
@@ -5179,54 +5202,141 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
-          "Sentinel": 
+          "Lancer": 
           {
             "PlayerName": "Player", 
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
-            "IdleRange": 100.000000, 
-            "MoveSpeed": 2.000000, 
-            "ShieldArchetype": "Sentinel Shield", 
-            "HeadArchetype": "SentinelHead", 
-            "ShoulderArchetype": "SentinelShoulders", 
-            "BodyArchetype": "SentinelBody", 
-            "ShieldRadius": 1.000000, 
-            "ShieldBashDistance": 2.000000, 
-            "ShieldBashOutTime": 0.200000, 
-            "ShieldBashInTime": 0.100000, 
-            "ShieldBashCooldown": 1.000000, 
+            "HeadArchetype": "LancerHead", 
+            "ShoulderArchetype": "LancerShoulder", 
+            "BodyArchetype": "LancerBody", 
+            "SpearArchetype": "LancerSpear", 
+            "IdleRange": 1000.000000, 
+            "ChargeForce": 100.000000, 
+            "ShieldVelocityDifferenceThreshold": 1.000000, 
+            "ShieldActivationSpeed": 5.000000, 
             "AnimationSpeedHead": 10.000000, 
             "AnimationDistanceHead": 0.010000, 
             "AnimationSpeedShoulder": 10.000000, 
-            "AnimationDistanceShoulder": 0.010000
+            "AnimationDistanceShoulder": 0.010000, 
+            "AnimationSpeedSpear": 10.000000, 
+            "AnimationDistanceSpear": 0.010000
           }
         }, 
         "Children": 
         {
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 45, 
+            "Name": "LancerShield", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 13.000000, 
+                    "y": -2.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 13.000000, 
+                    "y": -2.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 16.000000, 
+                    "y": 10.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 0.295000
+                  }
+                }, 
+                "SpriteSource": "Char_Lanc_Shield_2", 
+                "FlipX": false, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 0
+              }, 
+              "BoxCollider": 
+              {
+                "CollisionGroup": "LancerShield", 
+                "PhysicsMaterial": "", 
+                "Size": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }, 
+                "Offset": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Ghost": true, 
+                "SendsEvents": true, 
+                "IsDrawingCollider": false
+              }, 
+              "LancerShield": 
+              {
+                "ShieldReflectionForce": 100000.000000
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }
         }
       }
     }

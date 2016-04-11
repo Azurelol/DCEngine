@@ -3,8 +3,8 @@
   "GameObject": 
   {
     "Locked": false, 
-    "GameObjectID": 45, 
-    "Name": "LancerShield", 
+    "GameObjectID": 51, 
+    "Name": "LancerHead", 
     "Protected": false, 
     "Components": 
     {
@@ -14,8 +14,8 @@
         {
           "Vec3": 
           {
-            "x": 7.000000, 
-            "y": -2.000000, 
+            "x": 0.000000, 
+            "y": 0.000000, 
             "z": 0.000000
           }
         }, 
@@ -32,8 +32,8 @@
         {
           "Vec3": 
           {
-            "x": 7.000000, 
-            "y": -2.000000, 
+            "x": 0.000000, 
+            "y": 0.000000, 
             "z": 0.000000
           }
         }, 
@@ -50,8 +50,8 @@
         {
           "Vec3": 
           {
-            "x": 16.000000, 
-            "y": 10.000000, 
+            "x": 4.000000, 
+            "y": 4.000000, 
             "z": 1.000000
           }
         }
@@ -63,48 +63,18 @@
         {
           "Vec4": 
           {
-            "x": 0.000000, 
+            "x": 1.000000, 
             "y": 1.000000, 
             "z": 1.000000, 
-            "w": 0.295000
+            "w": 1.000000
           }
         }, 
-        "SpriteSource": "Char_Lanc_Shield_2", 
+        "SpriteSource": "Char_Lanc_2", 
         "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 
         "AnimationSpeed": 1.000000, 
-        "DrawLayer": 0
-      }, 
-      "BoxCollider": 
-      {
-        "CollisionGroup": "LancerShield", 
-        "PhysicsMaterial": "", 
-        "Size": 
-        {
-          "Vec3": 
-          {
-            "x": 1.000000, 
-            "y": 1.000000, 
-            "z": 1.000000
-          }
-        }, 
-        "Offset": 
-        {
-          "Vec3": 
-          {
-            "x": 0.000000, 
-            "y": 0.000000, 
-            "z": 0.000000
-          }
-        }, 
-        "Ghost": true, 
-        "SendsEvents": true, 
-        "IsDrawingCollider": false
-      }, 
-      "LancerShield": 
-      {
-        "ShieldReflectionForce": 100000.000000
+        "DrawLayer": 1
       }
     }, 
     "Children": 
