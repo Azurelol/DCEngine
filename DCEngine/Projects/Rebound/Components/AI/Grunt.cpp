@@ -321,7 +321,7 @@ namespace DCEngine {
       //if (owner->IsDebugColorActive)
         //owner->SpriteRef->Color = owner->defaultColor;
 
-      owner->RigidBodyRef->setVelocity(Vec3());
+      //owner->RigidBodyRef->setVelocity(Vec3());
     }
 
     Grunt::PatrolRight* Grunt::PatrolRight::Instance()
@@ -372,7 +372,7 @@ namespace DCEngine {
       //if (owner->IsDebugColorActive)
         //owner->SpriteRef->Color = owner->defaultColor;
 
-      owner->RigidBodyRef->setVelocity(Vec3());
+      //owner->RigidBodyRef->setVelocity(Vec3());
     }
 
     Grunt::PatrolLeft* Grunt::PatrolLeft::Instance()

@@ -3,8 +3,8 @@
   "GameObject": 
   {
     "Locked": false, 
-    "GameObjectID": 46, 
-    "Name": "SentinelBody", 
+    "GameObjectID": 47, 
+    "Name": "SentinelShoulders", 
     "Protected": false, 
     "Components": 
     {
@@ -69,12 +69,12 @@
             "w": 1.000000
           }
         }, 
-        "SpriteSource": "char_sent_1", 
+        "SpriteSource": "char_sent_2", 
         "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 
         "AnimationSpeed": 1.000000, 
-        "DrawLayer": 0
+        "DrawLayer": 1
       }
     }, 
     "Children": 
