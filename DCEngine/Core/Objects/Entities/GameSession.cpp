@@ -27,6 +27,7 @@ namespace DCEngine {
     ZilchBindMethod(builder, type, &GameSession::CreateSpace, ZilchNoOverload, "CreateSpace", "name, initialize");
     ZilchBindMethod(builder, type, &GameSession::GetSpace, ZilchNoOverload, "FindSpaceByName", "name");
     ZilchBindMethod(builder, type, &GameSession::getDefaultSpace, ZilchNoOverload, "GetDefaultSpace", ZilchNoNames);
+    ZilchBindMethod(builder, type, &GameSession::Quit, ZilchNoOverload, "Quit", ZilchNoNames);
   }
 
   /**************************************************************************/

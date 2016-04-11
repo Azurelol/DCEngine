@@ -156,12 +156,6 @@
             "Active": true, 
             "CaptureMouse": true, 
             "Noise": false
-          }, 
-          "LevelManager": 
-          {
-            "NextLevel": "MainMenu", 
-            "LoadingTime": 8.000000, 
-            "TimerStarted": true
           }
         }, 
         "Children": 
@@ -611,6 +605,12 @@
         "Protected": true, 
         "Components": 
         {
+          "LevelTransition": 
+          {
+            "Enabled": true, 
+            "NextLevel": "MainMenu", 
+            "Delay": 8.000000
+          }
         }, 
         "Children": 
         {

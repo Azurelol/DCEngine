@@ -7213,13 +7213,13 @@
             {
               "Vec4": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
+                "x": 0.200000, 
+                "y": 0.800000, 
                 "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "Circle", 
+            "SpriteSource": "Energy_sphere", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -7451,6 +7451,9 @@
             "Torque": 0.000000, 
             "Growth": 0.000000, 
             "Dampening": 10.000000
+          }, 
+          "BallTemp": 
+          {
           }
         }, 
         "Children": 
@@ -8949,70 +8952,6 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 248, 
-        "Name": "Transform", 
-        "Protected": false, 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "LocalTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "WorldTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "PauseManager": 
-          {
           }
         }, 
         "Children": 
@@ -12724,7 +12663,7 @@
               {
                 "x": 157.038940, 
                 "y": 6.470942, 
-                "z": -0.100000
+                "z": 0.000000
               }
             }, 
             "LocalTranslation": 
@@ -12733,7 +12672,7 @@
               {
                 "x": 157.038940, 
                 "y": 6.470942, 
-                "z": -0.100000
+                "z": 0.000000
               }
             }, 
             "WorldTranslation": 
@@ -12742,7 +12681,7 @@
               {
                 "x": 157.038940, 
                 "y": 6.470942, 
-                "z": -0.100000
+                "z": 0.000000
               }
             }, 
             "Rotation": 
@@ -12782,7 +12721,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 2
+            "DrawLayer": 4
           }
         }, 
         "Children": 
@@ -13187,6 +13126,10 @@
         "Protected": false, 
         "Components": 
         {
+          "PauseManagerZ": 
+          {
+            "PauseLevelName": "PauseMenu"
+          }
         }, 
         "Children": 
         {

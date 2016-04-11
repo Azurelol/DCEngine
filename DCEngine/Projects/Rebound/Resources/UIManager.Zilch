@@ -220,7 +220,7 @@ class UIManager : ZilchComponent
     	}
         else if(button.Name == "ConfirmQuitButton")
         {
-            //this.GameSession.Quit();
+            this.GameSession.Quit();
         }
         else if(button.Name == "RetractQuitButton")
         {
