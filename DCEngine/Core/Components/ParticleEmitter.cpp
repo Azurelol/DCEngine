@@ -48,6 +48,8 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(ParticleEmitter, SpinVariance);
       DCE_BINDING_DEFINE_PROPERTY(ParticleEmitter, StartVelocity);
       DCE_BINDING_DEFINE_PROPERTY(ParticleEmitter, RandomVelocity);
+			DCE_BINDING_DEFINE_PROPERTY(ParticleEmitter, EmissionArea);
+			DCE_BINDING_DEFINE_PROPERTY(ParticleEmitter, EmissionCircle);
     }
     #endif
 
@@ -56,7 +58,8 @@ namespace DCEngine {
     \**************************************************************************/
     ParticleEmitter::ParticleEmitter(Entity & owner) : Graphical("ParticleEmitter", owner),
 			Active(true), EmitRate(10), EmitVariance(1), Size(1), SizeVariance(1), Lifetime(1),
-			LifetimeVariance(1), Spin(100), SpinVariance(100), StartVelocity(Vec3(0,0,0)), RandomVelocity(Vec3(5,5,0))
+			LifetimeVariance(1), Spin(100), SpinVariance(100), StartVelocity(Vec3(0,0,0)), RandomVelocity(Vec3(5,5,0)),
+			EmissionArea(0,0), EmissionCircle(false)
     {
 			Initialize();
     }
