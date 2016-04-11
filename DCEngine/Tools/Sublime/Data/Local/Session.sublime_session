@@ -168,10 +168,17 @@
 			"buffers":
 			[
 				{
+<<<<<<< HEAD
+					"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
+					"settings":
+					{
+						"buffer_size": 2498,
+=======
 					"file": "/C/Users/John/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GravityManager.Zilch",
 					"settings":
 					{
 						"buffer_size": 222,
+>>>>>>> 4fc1eeb20fc44abfaf47ca27baf67077ce5537fb
 						"line_ending": "Windows"
 					}
 				}
@@ -210,14 +217,19 @@
 			[
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/OptionsManager.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/AudioData.Zilch",
+<<<<<<< HEAD
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GraphicsData.Zilch",
+=======
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GraphicsData.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
+>>>>>>> 4fc1eeb20fc44abfaf47ca27baf67077ce5537fb
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PauseManagerZ.Zilch"
 			],
 			"find":
 			{
-				"height": 0.0
+				"height": 23.0
 			},
 			"find_in_files":
 			{
@@ -231,6 +243,7 @@
 				"case_sensitive": false,
 				"find_history":
 				[
+					"Handle"
 				],
 				"highlight": true,
 				"in_selection": false,
@@ -253,27 +266,42 @@
 					[
 						{
 							"buffer": 0,
+<<<<<<< HEAD
+							"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 2498,
+=======
 							"file": "/C/Users/John/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GravityManager.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
 								"buffer_size": 222,
+>>>>>>> 4fc1eeb20fc44abfaf47ca27baf67077ce5537fb
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										0,
-										0
+										1273,
+										1273
 									]
 								],
 								"settings":
 								{
+<<<<<<< HEAD
+									"syntax": "Packages/C#/C#.sublime-syntax"
+								},
+								"translation.x": 0.0,
+								"translation.y": 495.0,
+=======
 									"syntax": "Packages/Text/Plain text.tmLanguage"
 								},
 								"translation.x": 0.0,
 								"translation.y": 0.0,
+>>>>>>> 4fc1eeb20fc44abfaf47ca27baf67077ce5537fb
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -284,7 +312,7 @@
 			],
 			"incremental_find":
 			{
-				"height": 0.0
+				"height": 23.0
 			},
 			"input":
 			{
@@ -318,11 +346,15 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
+<<<<<<< HEAD
+			"position": "0,0,1,-32000,-32000,-1,-1,1081,-1749,86,-378",
+=======
 			"position": "0,0,1,-1,-1,-1,-1,852,489,172,1767",
+>>>>>>> 4fc1eeb20fc44abfaf47ca27baf67077ce5537fb
 			"project": "",
 			"replace":
 			{
-				"height": 0.0
+				"height": 42.0
 			},
 			"save_all_on_build": true,
 			"select_file":

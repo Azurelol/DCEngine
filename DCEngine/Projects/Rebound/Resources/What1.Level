@@ -157,7 +157,9 @@
           }, 
           "TestSoundInstance": 
           {
-            "Music": "DesertLab"
+            "Music": "DesertLab", 
+            "Type": "VCA", 
+            "TypeHandle": "MUS"
           }
         }, 
         "Children": 

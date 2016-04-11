@@ -72,6 +72,8 @@ namespace DCEngine {
     *===================*/
     ZilchInitializeType(SpriteSource);
     ZilchInitializeType(Bank);
+    ZilchInitializeType(VCA);
+    ZilchInitializeType(Bus);
     ZilchInitializeType(SoundCue);
     ZilchInitializeType(SoundInstance);
     ZilchInitializeType(CollisionGroup);

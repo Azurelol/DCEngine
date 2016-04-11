@@ -33,7 +33,6 @@ namespace DCEngine {
     using SpriteLayerMap = std::map<std::string, SpriteLayerPtr>;
     using SpriteLayerOrderMap = std::map<std::string, SpriteLayerOrderPtr>;
     using SoundCueMap = std::map<std::string, SoundCuePtr>;
-    using BankMap = std::map<std::string, BankPtr>;
     using ShaderMap = std::map<std::string, ShaderPtr>;
     using FontMap = std::map<std::string, FontPtr>;
     using ArchetypeMap = std::map<std::string, ArchetypePtr>;
