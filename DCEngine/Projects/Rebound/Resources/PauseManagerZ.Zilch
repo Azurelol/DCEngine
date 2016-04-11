@@ -1,7 +1,17 @@
+class ReportSpace : ZilchEvent
+{
+	var MainSpace : Space = null;
+	sends ReportSpace : ReportSpace;
+}
+
+class PauseEvent : ZilchEvent
+{
+	var PauseState : Boolean = false;
+	sends PauseEvent : PauseEvent;
+}
+
 class PauseManagerZ : ZilchComponent
 {
-	//var EscapeDown : Boolean;
-	//var EscapeReleased : Boolean;
 	var Paused : Boolean;
 	var PauseSpace : Space;
 
@@ -10,29 +20,35 @@ class PauseManagerZ : ZilchComponent
 
     function Initialize()
     {
-        //Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
-        //Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDown);
         Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyUp, this.OnKeyUp);
+        Daisy.Connect(this.Space, DaisyEvent.PauseEvent, this.OnPauseEvent);
 
-        //this.EscapeDown = false;
-        //this.EscapeReleased = false;
         this.Paused = false;
     }
 
-    function OnKeyDown(event : KeyDown)
+    function OnPauseEvent(event : PauseEvent)
     {
-    	Console.WriteLine(event.Key);
+    	if(event.PauseState == true)
+    	{
+    		this.LoadPauseMenu();
+    	}
+    	else
+    	{
+    		this.DestroyPauseMenu();
+    	}
     }
 
     function OnKeyUp(event : KeyUp)
     {
     	if(event.Key == Keys.Escape && !this.Paused)
     	{
-    		this.LoadPauseMenu();
+    		var pEvent = PauseEvent();
+    		pEvent.PauseState = true;
+    		this.Space.Dispatch(DaisyEvent.PauseEvent, pEvent);
     	}
     	else if(event.Key == Keys.Escape)
     	{
-    		this.DestroyPauseMenu();
+    		this.Space.Dispatch(DaisyEvent.PauseEvent, PauseEvent());
     	}
     }
 
@@ -47,6 +63,10 @@ class PauseManagerZ : ZilchComponent
     	this.Space.TimeSpace.Paused = true;
     	this.PauseSpace = this.GameSession.CreateSpace("PauseSpace", true);
     	this.PauseSpace.LoadLevel(this.PauseLevelName);
+
+    	var spReport = ReportSpace();
+    	spReport.MainSpace = this.Space;
+    	this.PauseSpace.Dispatch(DaisyEvent.ReportSpace, spReport);
     }
 
     function DestroyPauseMenu()

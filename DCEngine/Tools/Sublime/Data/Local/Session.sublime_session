@@ -16,12 +16,60 @@
 				"selected_items":
 				[
 					[
+						"Main",
+						"MainGameSpace"
+					],
+					[
+						"Enab",
+						"EnableOrDisableEvent"
+					],
+					[
+						"Daisy",
+						"DaisyEvent"
+					],
+					[
+						"Enter",
+						"EnterInactiveState"
+					],
+					[
+						"Ena",
+						"EnableOrDisableButton"
+					],
+					[
+						"Click",
+						"ClickedSprite"
+					],
+					[
+						"Defa",
+						"DefaultSprite"
+					],
+					[
+						"Man",
+						"MainGameSpace"
+					],
+					[
 						"Pause",
-						"Paused"
+						"PauseEvent"
+					],
+					[
+						"Des",
+						"DestroyPauseMenu"
+					],
+					[
+						"Load",
+						"LoadPauseMenu"
 					],
 					[
 						"Pa",
-						"PauseSpace"
+						"PauseState"
+					],
+					[
+						"Pu",
+						"PauseEvent"
+					],
+					[
+						"Sub",
+						"SubSpriteRef"
 					],
 					[
 						"Key",
@@ -59,7 +107,23 @@
 					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PauseManagerZ.Zilch",
 					"settings":
 					{
-						"buffer_size": 1391,
+						"buffer_size": 1746,
+						"line_ending": "Windows"
+					}
+				},
+				{
+					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
+					"settings":
+					{
+						"buffer_size": 6187,
+						"line_ending": "Windows"
+					}
+				},
+				{
+					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
+					"settings":
+					{
+						"buffer_size": 6485,
 						"line_ending": "Windows"
 					}
 				}
@@ -130,7 +194,7 @@
 			"groups":
 			[
 				{
-					"selected": 0,
+					"selected": 2,
 					"sheets":
 					[
 						{
@@ -139,15 +203,15 @@
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 1391,
+								"buffer_size": 1746,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										1382,
-										1382
+										1084,
+										1084
 									]
 								],
 								"settings":
@@ -155,7 +219,65 @@
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
 								"translation.x": 0.0,
-								"translation.y": 360.0,
+								"translation.y": 675.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 2,
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 6187,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										6133,
+										6133
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C#/C#.sublime-syntax",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 2835.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 1,
+							"type": "text"
+						},
+						{
+							"buffer": 2,
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 6485,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										2532,
+										2532
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C#/C#.sublime-syntax"
+								},
+								"translation.x": 0.0,
+								"translation.y": 2475.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -200,7 +322,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,986,457,92,1775",
+			"position": "0,0,1,-1,-1,-1,-1,1008,529,114,1847",
 			"project": "",
 			"replace":
 			{

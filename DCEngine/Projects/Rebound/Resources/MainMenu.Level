@@ -605,6 +605,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -640,6 +641,7 @@
                   }
                 }, 
                 "TextReferenceName": "NGText", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -670,7 +672,7 @@
                       {
                         "x": 2.584223, 
                         "y": -4.764062, 
-                        "z": 0.000000
+                        "z": 0.010000
                       }
                     }, 
                     "LocalTranslation": 
@@ -679,7 +681,7 @@
                       {
                         "x": -1.415777, 
                         "y": -0.466440, 
-                        "z": 0.000000
+                        "z": 0.010000
                       }
                     }, 
                     "WorldTranslation": 
@@ -688,7 +690,7 @@
                       {
                         "x": 2.584223, 
                         "y": -4.764062, 
-                        "z": 0.000000
+                        "z": 0.010000
                       }
                     }, 
                     "Rotation": 
@@ -720,7 +722,7 @@
                         "x": 1.000000, 
                         "y": 1.000000, 
                         "z": 1.000000, 
-                        "w": 1.000000
+                        "w": 0.750000
                       }
                     }, 
                     "Font": "SafetyMedium", 
@@ -832,6 +834,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -867,6 +870,7 @@
                   }
                 }, 
                 "TextReferenceName": "HTPText", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -897,7 +901,7 @@
                       {
                         "x": 7.842339, 
                         "y": -9.984624, 
-                        "z": 0.000000
+                        "z": 0.010000
                       }
                     }, 
                     "LocalTranslation": 
@@ -906,7 +910,7 @@
                       {
                         "x": -1.807662, 
                         "y": -0.039624, 
-                        "z": 0.000000
+                        "z": 0.010000
                       }
                     }, 
                     "WorldTranslation": 
@@ -915,7 +919,7 @@
                       {
                         "x": 7.842339, 
                         "y": -9.984624, 
-                        "z": 0.000000
+                        "z": 0.010000
                       }
                     }, 
                     "Rotation": 
@@ -947,7 +951,7 @@
                         "x": 1.000000, 
                         "y": 1.000000, 
                         "z": 1.000000, 
-                        "w": 1.000000
+                        "w": 0.750000
                       }
                     }, 
                     "Font": "SafetyMedium", 
@@ -1059,6 +1063,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -1094,6 +1099,7 @@
                   }
                 }, 
                 "TextReferenceName": "OText", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -1124,7 +1130,7 @@
                       {
                         "x": -2.081160, 
                         "y": -10.060570, 
-                        "z": 0.001000
+                        "z": 0.010000
                       }
                     }, 
                     "LocalTranslation": 
@@ -1133,7 +1139,7 @@
                       {
                         "x": -0.431160, 
                         "y": -0.115570, 
-                        "z": 0.001000
+                        "z": 0.010000
                       }
                     }, 
                     "WorldTranslation": 
@@ -1142,7 +1148,7 @@
                       {
                         "x": -2.081160, 
                         "y": -10.060570, 
-                        "z": 0.001000
+                        "z": 0.010000
                       }
                     }, 
                     "Rotation": 
@@ -1174,7 +1180,7 @@
                         "x": 1.000000, 
                         "y": 1.000000, 
                         "z": 1.000000, 
-                        "w": 1.000000
+                        "w": 0.750000
                       }
                     }, 
                     "Font": "SafetyMedium", 
@@ -1255,8 +1261,8 @@
                   "Vec4": 
                   {
                     "x": 0.200000, 
-                    "y": 0.300000, 
-                    "z": 0.400000, 
+                    "y": 0.200000, 
+                    "z": 0.200000, 
                     "w": 1.000000
                   }
                 }, 
@@ -1286,6 +1292,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -1321,6 +1328,7 @@
                   }
                 }, 
                 "TextReferenceName": "CText", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -1351,7 +1359,7 @@
                       {
                         "x": 2.928176, 
                         "y": -15.328714, 
-                        "z": 0.001000
+                        "z": 0.010000
                       }
                     }, 
                     "LocalTranslation": 
@@ -1360,7 +1368,7 @@
                       {
                         "x": -1.071824, 
                         "y": 0.271288, 
-                        "z": 0.001000
+                        "z": 0.010000
                       }
                     }, 
                     "WorldTranslation": 
@@ -1369,7 +1377,7 @@
                       {
                         "x": 2.928176, 
                         "y": -15.328714, 
-                        "z": 0.001000
+                        "z": 0.010000
                       }
                     }, 
                     "Rotation": 
@@ -1401,7 +1409,7 @@
                         "x": 1.000000, 
                         "y": 1.000000, 
                         "z": 1.000000, 
-                        "w": 1.000000
+                        "w": 0.750000
                       }
                     }, 
                     "Font": "SafetyMedium", 
@@ -1513,6 +1521,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -1548,6 +1557,7 @@
                   }
                 }, 
                 "TextReferenceName": "QGText", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -1578,7 +1588,7 @@
                       {
                         "x": -13.609931, 
                         "y": -19.754208, 
-                        "z": 0.001000
+                        "z": 0.010000
                       }
                     }, 
                     "LocalTranslation": 
@@ -1587,7 +1597,7 @@
                       {
                         "x": -1.773648, 
                         "y": -0.210037, 
-                        "z": 0.001000
+                        "z": 0.010000
                       }
                     }, 
                     "WorldTranslation": 
@@ -1596,7 +1606,7 @@
                       {
                         "x": -13.609931, 
                         "y": -19.754208, 
-                        "z": 0.001000
+                        "z": 0.010000
                       }
                     }, 
                     "Rotation": 
@@ -1628,7 +1638,7 @@
                         "x": 1.000000, 
                         "y": 1.000000, 
                         "z": 1.000000, 
-                        "w": 1.000000
+                        "w": 0.750000
                       }
                     }, 
                     "Font": "SafetyMedium", 
@@ -1876,7 +1886,7 @@
                 }, 
                 "Font": "Electrolize-Regular", 
                 "FontSize": 4, 
-                "Text": "View and change the game's settings", 
+                "Text": "     Play Rebound", 
                 "PixelsPerUnit": 64, 
                 "Smoothing": true, 
                 "WordWrap": 20, 
@@ -2171,6 +2181,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -2206,6 +2217,7 @@
                   }
                 }, 
                 "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -2473,6 +2485,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -2508,6 +2521,7 @@
                   }
                 }, 
                 "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -2775,6 +2789,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -2810,6 +2825,7 @@
                   }
                 }, 
                 "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -2990,7 +3006,7 @@
           {
             "AnimateOnInitialize": false, 
             "SystemDelay": 0.000000, 
-            "LoopSystem": true, 
+            "LoopSystem": false, 
             "UseFadeIn": false, 
             "UseFadeOut": false, 
             "FadeSpeed": 0.000000, 
@@ -3173,7 +3189,7 @@
           {
             "AnimateOnInitialize": false, 
             "SystemDelay": 0.000000, 
-            "LoopSystem": true, 
+            "LoopSystem": false, 
             "UseFadeIn": false, 
             "UseFadeOut": false, 
             "FadeSpeed": 0.000000, 
@@ -8513,6 +8529,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -8548,6 +8565,7 @@
                   }
                 }, 
                 "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -8708,9 +8726,9 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
+                    "x": 0.800000, 
+                    "y": 0.800000, 
+                    "z": 0.800000, 
                     "w": 1.000000
                   }
                 }, 
@@ -8740,6 +8758,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -8775,6 +8794,7 @@
                   }
                 }, 
                 "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -8854,9 +8874,9 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
+                    "x": 0.800000, 
+                    "y": 0.800000, 
+                    "z": 0.800000, 
                     "w": 1.000000
                   }
                 }, 
@@ -8886,6 +8906,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -8921,6 +8942,7 @@
                   }
                 }, 
                 "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -9081,9 +9103,9 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
+                    "x": 0.800000, 
+                    "y": 0.800000, 
+                    "z": 0.800000, 
                     "w": 1.000000
                   }
                 }, 
@@ -9113,6 +9135,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -9148,6 +9171,7 @@
                   }
                 }, 
                 "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -9227,9 +9251,9 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
+                    "x": 0.800000, 
+                    "y": 0.800000, 
+                    "z": 0.800000, 
                     "w": 1.000000
                   }
                 }, 
@@ -9259,6 +9283,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -9294,6 +9319,7 @@
                   }
                 }, 
                 "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -9454,9 +9480,9 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
+                    "x": 0.800000, 
+                    "y": 0.800000, 
+                    "z": 0.800000, 
                     "w": 1.000000
                   }
                 }, 
@@ -9486,6 +9512,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -9521,6 +9548,7 @@
                   }
                 }, 
                 "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -9600,9 +9628,9 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
+                    "x": 0.800000, 
+                    "y": 0.800000, 
+                    "z": 0.800000, 
                     "w": 1.000000
                   }
                 }, 
@@ -9632,6 +9660,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -9667,6 +9696,7 @@
                   }
                 }, 
                 "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -9859,6 +9889,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -9894,6 +9925,7 @@
                   }
                 }, 
                 "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -9998,18 +10030,6 @@
       {
         "Locked": true, 
         "GameObjectID": 196, 
-        "Name": "LevelSettings", 
-        "Components": 
-        {
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": true, 
-        "GameObjectID": 112, 
         "Name": "LevelSettings", 
         "Components": 
         {
@@ -10168,7 +10188,7 @@
               }
             }, 
             "Font": "SafetyMedium", 
-            "FontSize": 7, 
+            "FontSize": 6, 
             "Text": "Anti-Aliasing", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -11384,9 +11404,171 @@
             }, 
             "Font": "Electrolize-Regular", 
             "FontSize": 4, 
-            "Text": "FMOD Copyright goes here!", 
+            "Text": "Audio Engine supplied by FMOD by Firelight Technologies.", 
             "PixelsPerUnit": 64, 
             "Smoothing": false, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "ChenRole", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -10.029888, 
+                "y": -62.067074, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -10.029888, 
+                "y": -62.067074, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -10.029888, 
+                "y": -62.067074, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.800000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 5, 
+            "Text": "For our graphics foundation", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "Chen", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -8.241886, 
+                "y": -61.376022, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -8.241886, 
+                "y": -61.376022, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -8.241886, 
+                "y": -61.376022, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 8, 
+            "Text": "Chen Shu", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
             "WordWrap": 0, 
             "DrawLayer": 4
           }

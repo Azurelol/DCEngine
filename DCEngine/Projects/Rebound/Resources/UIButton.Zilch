@@ -10,6 +10,12 @@ class UIButtonEvent : ZilchEvent
 	sends UIButtonEvent : UIButtonEvent;
 }
 
+class EnableOrDisableButton : ZilchEvent
+{
+	var Enable : Boolean = true;
+	sends EnableOrDisableButton : EnableOrDisableButton;
+}
+
 class UIButton : ZilchComponent
 {
 	
@@ -20,6 +26,9 @@ class UIButton : ZilchComponent
     // State colors
     [Property]
     var DefaultColor : Real4 = Real4(1,1,1,1);
+
+    [Property]
+    var DefaultSprite : String = "";
 	
 	[Property]
 	var DefaultZ : Real = 0.0;
@@ -75,6 +84,7 @@ class UIButton : ZilchComponent
 		Daisy.Connect(this.Space, DaisyEvent.CameraInMotion, this.OnCameraInMotion);
 		Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDown);
 		Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseUp, this.OnMouseUp);
+		Daisy.Connect(this.Space, DaisyEvent.EnableOrDisableButton, this.OnEnableOrDisableButton);
 
 		this.AllowClicks = true;
 
@@ -96,6 +106,19 @@ class UIButton : ZilchComponent
 		{
 			this.EnterInactiveState();
 		}
+    }
+
+    function OnEnableOrDisableButton(event : EnableOrDisableButton)
+    {
+    	if(event.Enable)
+    	{
+    		this.EnterDefaultState();
+    		
+    	}
+    	else
+    	{
+    		this.EnterInactiveState();
+    	}
     }
 
     function OnCameraInMotion(event : CameraInMotion)
@@ -153,6 +176,12 @@ class UIButton : ZilchComponent
 	{
 		this.Active = true;
 		this.CurState = ButtonState.Default;
+
+		if(this.DefaultSprite != "")
+		{
+			this.Owner.Sprite.SpriteSource = this.DefaultSprite;
+		}
+
 		this.Owner.Sprite.Color = this.DefaultColor;
 		this.Owner.Transform.Translation = Real3(this.Owner.Transform.Translation.XY, this.DefaultZ);
 
@@ -172,6 +201,12 @@ class UIButton : ZilchComponent
 	function EnterHoveredState()
 	{
 		this.CurState = ButtonState.Hovered;
+
+		if(this.DefaultSprite != "")
+		{
+			this.Owner.Sprite.SpriteSource = this.DefaultSprite;
+		}
+
 		this.Owner.Sprite.Color = this.HoveredColor;
 		this.Owner.Transform.Translation = Real3(this.Owner.Transform.Translation.XY, this.HoveredZ);
 
@@ -191,6 +226,12 @@ class UIButton : ZilchComponent
 	function EnterClickedState()
 	{
 		this.CurState = ButtonState.Clicked;
+
+		if(this.ClickedSprite != "")
+		{
+			this.Owner.Sprite.SpriteSource = this.ClickedSprite;
+		}
+
 		this.Owner.Sprite.Color = this.ClickedColor;
 
 		if(this.TextReference != null)
