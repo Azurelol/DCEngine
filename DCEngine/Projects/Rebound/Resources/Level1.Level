@@ -12934,19 +12934,19 @@
             "OnlyOnFirstCollision": false, 
             "ActiveOnCollision": true, 
             "ActiveOnlyOnce": true, 
-            "Message1String": "123", 
+            "Message1String": "Asha, can you read me? Your signal is feint.", 
             "Message1Speaker": "Cyrus", 
-            "Message2String": "456", 
+            "Message2String": "Not exactly loud and clear, but yeah. I'm in, by the way.", 
             "Message2Speaker": "Asha", 
-            "Message3String": "1233", 
+            "Message3String": "Good. To be completely honest, I have no idea what you’ll find in there.", 
             "Message3Speaker": "Cyrus", 
-            "Message4String": "12344", 
+            "Message4String": "Gotcha. Over and out.", 
             "Message4Speaker": "Asha", 
-            "Message5String": "12222", 
+            "Message5String": "", 
             "Message5Speaker": "Cyrus", 
-            "Message6String": "123333", 
+            "Message6String": "", 
             "Message6Speaker": "Cyrus", 
-            "Message7String": "233", 
+            "Message7String": "", 
             "Message7Speaker": "Asha"
           }
         }, 
@@ -12970,7 +12970,7 @@
               {
                 "x": -9.158772, 
                 "y": 22.800550, 
-                "z": -0.001000
+                "z": 0.001000
               }
             }, 
             "LocalTranslation": 
@@ -12979,7 +12979,7 @@
               {
                 "x": -9.158772, 
                 "y": 22.800550, 
-                "z": -0.001000
+                "z": 0.001000
               }
             }, 
             "WorldTranslation": 
@@ -12988,7 +12988,7 @@
               {
                 "x": -9.158772, 
                 "y": 22.800550, 
-                "z": -0.001000
+                "z": 0.001000
               }
             }, 
             "Rotation": 
@@ -13028,7 +13028,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.500000, 
-            "DrawLayer": 4
+            "DrawLayer": 5
           }, 
           "DialogBackgroundBehavior": 
           {
@@ -13054,7 +13054,7 @@
                   {
                     "x": -13.250000, 
                     "y": 23.850000, 
-                    "z": 0.000000
+                    "z": 0.001000
                   }
                 }, 
                 "LocalTranslation": 
@@ -13063,7 +13063,7 @@
                   {
                     "x": -4.091228, 
                     "y": 1.049450, 
-                    "z": 0.001000
+                    "z": 0.000000
                   }
                 }, 
                 "WorldTranslation": 
@@ -13072,7 +13072,7 @@
                   {
                     "x": -13.250000, 
                     "y": 23.850000, 
-                    "z": 0.000000
+                    "z": 0.001000
                   }
                 }, 
                 "Rotation": 
@@ -13124,7 +13124,7 @@
                 "ScaleTimeWithSize": true, 
                 "TimePerChar": 0.100000, 
                 "Message": "NoMessageEvent", 
-                "WordWrap": 20, 
+                "WordWrap": 25, 
                 "TextEase": "Linear", 
                 "DeleteAfterTime": false, 
                 "TimeToDelete": 10.000000, 
@@ -13168,7 +13168,7 @@
                   {
                     "x": -13.250000, 
                     "y": 24.500000, 
-                    "z": 0.000000
+                    "z": 0.001000
                   }
                 }, 
                 "LocalTranslation": 
@@ -13177,7 +13177,7 @@
                   {
                     "x": -4.091228, 
                     "y": 1.699450, 
-                    "z": 0.001000
+                    "z": 0.000000
                   }
                 }, 
                 "WorldTranslation": 
@@ -13186,7 +13186,7 @@
                   {
                     "x": -13.250000, 
                     "y": 24.500000, 
-                    "z": 0.000000
+                    "z": 0.001000
                   }
                 }, 
                 "Rotation": 
