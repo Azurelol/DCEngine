@@ -46,30 +46,37 @@ namespace DCEngine {
 
 		void LockField::OnCollisionStartedEvent(Events::CollisionStarted * event)
 		{
-			if (event->OtherObject->getComponent<Components::BallController>())
+			if (event->OtherObject->getComponent<Components::BallController>() != nullptr)
 			{
 				if (event->OtherObject->Parent() != nullptr)
 				{
 					return;
 				}
 				BallRef = event->OtherObject;
-				BallRef->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation);
-				BallRef->getComponent<Components::BallController>()->Locked = true;
-				SpriteRef->SpriteSource = "tile_collector_on";
-				BallRef->getComponent<Components::RigidBody>()->setDynamicState(DynamicStateType::Static);
+				LockBall(BallRef);
 			}
 
-			if (event->OtherObject->getComponent<Components::PlayerController>() && BallRef)
+			if (event->OtherObject->getComponent<Components::PlayerController>() != nullptr && BallRef)
 			{
-				BallRef->getComponent<Components::RigidBody>()->setDynamicState(DynamicStateType::Dynamic);
-				BallRef->getComponent<Components::BallController>()->Locked = false;
-				SpriteRef->SpriteSource = "tile_collector_off";
-				if (event->OtherObject->Parent() != nullptr)
-				{
-					BallRef->getComponent<Components::BallController>()->ParentToPlayer();
-				}
+				UnlockBall(BallRef);
 				BallRef = NULL;
 			}
+		}
+
+		void LockField::LockBall(GameObject* ball)
+		{
+			ball->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation);
+			ball->getComponent<Components::BallController>()->Locked = true;
+			SpriteRef->SpriteSource = "tile_collector_on";
+			ball->getComponent<Components::RigidBody>()->setDynamicState(DynamicStateType::Static);
+		}
+
+		void LockField::UnlockBall(GameObject* ball)
+		{
+			ball->getComponent<Components::RigidBody>()->setDynamicState(DynamicStateType::Dynamic);
+			ball->getComponent<Components::BallController>()->Locked = false;
+			SpriteRef->SpriteSource = "tile_collector_off";
+			ball->getComponent<Components::BallController>()->ParentToPlayer();
 		}
 
 		void LockField::OnCollisionEndedEvent(Events::CollisionEnded * event)
