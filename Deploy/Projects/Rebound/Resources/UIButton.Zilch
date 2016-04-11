@@ -1,0 +1,232 @@
+// Used to notify the UIManager component of state changes on its buttons
+class UIButtonEvent : ZilchEvent
+{
+    // Button that underwent a state change
+    var Button : Entity = null;
+    
+    // The current state of the button
+    var State : ButtonState = ButtonState.Default;
+	
+	sends UIButtonEvent : UIButtonEvent;
+}
+
+class UIButton : ZilchComponent
+{
+	
+    // Should theis component be active?
+    [Property]
+    var Active : Boolean = true;
+    
+    // State colors
+    [Property]
+    var DefaultColor : Real4 = Real4(1,1,1,1);
+	
+	[Property]
+	var DefaultZ : Real = 0.0;
+    
+    [Property]
+    var HoveredColor : Real4 = Real4(1,1,1,1);
+	
+	[Property]
+	var HoveredZ : Real = 0.0;
+    
+    [Property]
+    var ClickedColor : Real4 = Real4(1,1,1,1);
+
+    [Property]
+    var ClickedSprite : String = "";
+
+    [Property]
+    var CooldownPeriod : Real = 1.0;
+    
+    [Property]
+    var InactiveColor : Real4 = Real4(1,1,1,1);
+    
+	[Property]
+    var TextReferenceName : String = "";
+
+    [Property]
+    var NormalScale : Real3 = Real3(8.0, 1.5, 1.0);
+
+    [Property]
+    var ExpansionScale : Real = 1.0;
+
+    [Property]
+    var ExpansionTime : Real;
+    
+    // Current State of the button
+    var CurState : ButtonState = ButtonState.Default;
+
+    var TextReference : Entity = null;
+
+    var AllowClicks : Boolean;
+    
+	
+    function Initialize()
+	{
+        Daisy.Connect(this.Owner, DaisyEvent.MouseEnter, this.OnMouseEnter);
+		Daisy.Connect(this.Owner, DaisyEvent.MouseExit, this.OnMouseExit);
+		Daisy.Connect(this.Owner, DaisyEvent.ToggleEvent, this.OnToggleEvent);
+		Daisy.Connect(this.Space, DaisyEvent.CameraInMotion, this.OnCameraInMotion);
+		Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDown);
+		Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseUp, this.OnMouseUp);
+
+		this.AllowClicks = true;
+
+		if(this.TextReferenceName != "")
+		{
+			this.TextReference = this.Space.FindObjectByName(this.TextReferenceName);
+		}
+
+		if(this.Active)
+		{
+			this.EnterDefaultState();
+		}
+		else
+		{
+			this.EnterInactiveState();
+		}
+    }
+
+    function OnCameraInMotion(event : CameraInMotion)
+    {
+    	this.AllowClicks = !event.CamMoving;
+    }
+	
+	function OnMouseEnter(event : MouseEnter)
+	{
+		if(this.Active)
+		{
+			this.EnterHoveredState();
+		}
+		
+	}
+	
+	function OnMouseExit(event : MouseExit)
+	{
+		if(this.Active)
+		{
+			this.EnterDefaultState();
+		}
+	}
+
+	function OnMouseDown(event : MouseDown)
+	{
+		if(this.CurState == ButtonState.Hovered && this.AllowClicks)
+		{
+			this.EnterClickedState();
+		}
+	}
+
+	function OnMouseUp(event : MouseUp)
+	{
+		if(this.CurState == ButtonState.Clicked)
+		{
+			this.ReportState();
+			this.EnterHoveredState();
+		}
+	}
+
+	function OnToggleEvent(event : ToggleEvent)
+	{
+		if(this.CurState == ButtonState.Inactive)
+		{
+			this.EnterDefaultState();
+		}
+		else
+		{
+			this.EnterInactiveState();
+		}
+	}
+
+	function EnterDefaultState()
+	{
+		this.Active = true;
+		this.CurState = ButtonState.Default;
+		this.Owner.Sprite.Color = this.DefaultColor;
+		this.Owner.Transform.Translation = Real3(this.Owner.Transform.Translation.XY, this.DefaultZ);
+
+		if(this.TextReference != null)
+		{
+			this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 0.75);
+		}
+
+		this.Shrink();
+		this.ReportState();
+	}
+
+	function EnterHoveredState()
+	{
+		this.CurState = ButtonState.Hovered;
+		this.Owner.Sprite.Color = this.HoveredColor;
+		this.Owner.Transform.Translation = Real3(this.Owner.Transform.Translation.XY, this.HoveredZ);
+
+		if(this.TextReference != null)
+		{
+			this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 0.9);
+		}
+
+		this.Expand();
+		this.ReportState();
+	}
+
+	function EnterClickedState()
+	{
+		this.CurState = ButtonState.Clicked;
+		this.Owner.Sprite.Color = this.ClickedColor;
+
+		if(this.TextReference != null)
+		{
+			this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 1.0);
+		}
+
+		//this.ReportState();
+	}
+
+	function EnterInactiveState()
+	{
+		this.Active = false;
+		this.CurState = ButtonState.Inactive;
+		this.Owner.Sprite.Color = this.InactiveColor;
+
+		if(this.TextReference != null)
+		{
+			this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 0.25);
+		}
+
+		this.ReportState();
+	}
+
+	function ReportState()
+	{
+		var buttonEvent = UIButtonEvent();
+		buttonEvent.Button = this.Owner;
+		buttonEvent.State = this.CurState;
+		if(this.Owner.Parent != null)
+		{
+			this.Owner.Parent.Dispatch(DaisyEvent.UIButtonEvent, buttonEvent);
+		}
+	}
+
+	function Expand()
+	{
+		if(this.Owner.Transform.Scale.X >= this.NormalScale.X * this.ExpansionScale ||
+		   this.Owner.Transform.Scale.Y >= this.NormalScale.Y * this.ExpansionScale)
+		{
+			return;
+		}
+		var exSeq = Actions.Sequence(this.Owner.Actions);
+
+		Actions.Property(exSeq, @this.Owner.Transform.Scale, this.Owner.Transform.Scale * this.ExpansionScale, this.ExpansionTime, Ease.QuadOut);
+	}
+
+	function Shrink()
+	{
+		var shrSeq = Actions.Sequence(this.Owner.Actions);
+
+		Actions.Property(shrSeq, @this.Owner.Transform.Scale, this.NormalScale, this.ExpansionTime, Ease.QuadOut);
+	}
+    
+}
+
+enum ButtonState {Default, Hovered, Clicked, Inactive}

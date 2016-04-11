@@ -1,0 +1,29 @@
+class TestRayCasting : ZilchComponent
+{
+    function Initialize()
+    {
+        Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent);
+    }
+
+    function OnKeyDownEvent(event : KeyDown) {
+
+    	if (event.Key == Keys.C) {
+    		this.CastRay();
+    	}
+
+    }
+    function CastRay() {
+    	var ray = Ray();
+    	var filter = CastFilter();
+    	filter.CollisionGroup = CollisionGroup.Find("Terrain");    	
+    	var count = 3;
+    	var results = this.Space.PhysicsSpace.CastRay(ray, count, filter);
+    	foreach(var result in results) {
+    	}
+
+    }
+
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+    }
+}

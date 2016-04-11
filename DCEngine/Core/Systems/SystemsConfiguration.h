@@ -111,7 +111,7 @@ namespace DCEngine {
       // Projects
       std::string RecentProject;
       std::string ProjectsPath;
-      bool EditorEnabled = false;
+      bool Enabled = false;
       ProjectProperties* ProjectProperties;
       // Window
       Vec2 ViewportResize;

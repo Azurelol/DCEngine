@@ -169,10 +169,12 @@ namespace DCEngine {
     {
       Volume = newVolume;
       for (auto& instance : ActiveSoundInstances) {
-        SoundInstance::Dereference(instance)->InterpolateVolume(newVolume, time);
+        if (!instance.IsNull())
+          SoundInstance::Dereference(instance)->InterpolateVolume(newVolume, time); 
       }
       for (auto& instance : ActiveSoundInstancePtrs) {
-        instance->InterpolateVolume(newVolume, time);
+        if (instance)
+          instance->InterpolateVolume(newVolume, time);
       }
     }
 
@@ -188,10 +190,12 @@ namespace DCEngine {
     {
       Pitch = newPitch;
       for (auto& instance : ActiveSoundInstances) {
-        SoundInstance::Dereference(instance)->InterpolatePitch(newPitch, time);
+        if (!instance.IsNull())
+          SoundInstance::Dereference(instance)->InterpolatePitch(newPitch, time);
       }
       for (auto& instance : ActiveSoundInstancePtrs) {
-        instance->InterpolatePitch(newPitch, time);
+        if (instance)
+          instance->InterpolatePitch(newPitch, time);
       }
     }
 
@@ -203,10 +207,12 @@ namespace DCEngine {
     void SoundSpace::PauseAll()
     {
       for (auto& instance : ActiveSoundInstances) {
-        SoundInstance::Dereference(instance)->Pause();
+        if (!instance.IsNull())
+          SoundInstance::Dereference(instance)->Pause();
       }
       for (auto& instance : ActiveSoundInstancePtrs) {
-        instance->Pause();
+        if (instance)
+          instance->Pause();
       }
       Pause = true;
     }
@@ -219,10 +225,12 @@ namespace DCEngine {
     void SoundSpace::ResumeAll()
     {
       for (auto& instance : ActiveSoundInstances) {
-        SoundInstance::Dereference(instance)->Resume();
+        if (!instance.IsNull())
+          SoundInstance::Dereference(instance)->Resume();
       }
       for (auto& instance : ActiveSoundInstancePtrs) {
-        instance->Resume();
+        if (instance)
+          instance->Resume();
       }
       Pause = false;
     }
@@ -235,10 +243,12 @@ namespace DCEngine {
     void SoundSpace::StopAll()
     {
       for (auto& instance : ActiveSoundInstances) {
-        SoundInstance::Dereference(instance)->Stop();
+        if (!instance.IsNull())
+          SoundInstance::Dereference(instance)->Stop();
       }
       for (auto& instance : ActiveSoundInstancePtrs) {
-        instance->Stop();
+        if (instance)
+          instance->Stop();
       }
     }
 

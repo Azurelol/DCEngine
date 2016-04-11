@@ -71,7 +71,7 @@ namespace DCEngine {
     void Editor::ApplyEditorWindowLayout()
     {
       auto viewportResize = new Events::WindowResize();
-      if (Settings.EditorEnabled) {
+      if (Enabled) {
         viewportResize->Dimensions.x = 1;
         viewportResize->Dimensions.y = 1;
       }
@@ -81,63 +81,6 @@ namespace DCEngine {
       }
       Daisy->Dispatch<Events::WindowResize>(viewportResize);
       delete viewportResize;
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief Constructs and sets the space's default camera to be the Editor's
-    @todo  L57: Currently not deleting the editor camera when switching. It breaks!
-    */
-    /**************************************************************************/
-    void Editor::SetEditorCamera(bool set)
-    {
-      // If the editor camera needs to be set
-      if (set) {
-        // If there's a previous editor camera, do nothing
-        //if (EditorCamera)
-        //  return;
-
-        //DCTrace << "Editor::SetEditorCamera - Setting the editor camera. \n";
-        //auto editorCamera = Daisy->getSystem<Systems::Factory>()->CreateGameObject("EditorCamera", *CurrentSpace, false);
-        auto editorCamera = CurrentSpace->CreateObject();
-        editorCamera->setObjectName("EditorCamera");
-        editorCamera->setLocked(true);
-        editorCamera->setProtected(true);
-        editorCamera->AddComponentByName("Camera", true);
-        editorCamera->AddComponentByName("EditorCameraController", true);
-        // Whether the editor's transform tool is a component
-        if (Settings.TransformTool_IsComponent)
-          editorCamera->AddComponent<Components::TransformTool>(true);
-        editorCamera->getComponent<Components::Transform>()->Translation = Vec3(0.0f, 0.0f, 40.0f);
-        editorCamera->getComponent<Components::Camera>()->setSize(70);
-        editorCamera->getComponent<Components::Camera>()->setFarPlane(500);
-        editorCamera->getComponent<Components::Camera>()->Projection = ProjectionMode::Perspective;
-        // Set the pointer
-        EditorCamera = editorCamera;
-        // Set it as the default camera on the space
-        auto cameraComp = editorCamera->getComponent<Components::Camera>();
-        CurrentSpace->getComponent<Components::CameraViewport>()->setCamera(cameraComp);
-        // Set it to last position
-        EditorCamera->getComponent<Components::Transform>()->setTranslation(Settings.CameraLastPos);
-      }
-      // If the editor camera needs to be removed
-      else {
-        //DCTrace << "Editor::SetEditorCamera - Removing the editor camera. \n";
-        // Save the last position of the editor's camera
-        Settings.CameraLastPos = EditorCamera->getComponent<Components::Transform>()->getTranslation();
-        // Look for a camera on the space to be default
-        auto defaultcam = CurrentSpace->getComponent<Components::CameraViewport>()->FindDefaultCamera();
-        // Set it as the default camera
-        CurrentSpace->getComponent<Components::CameraViewport>()->setCamera(defaultcam);
-
-        // Remove the editor camera from the space
-        auto editorCamera = CurrentSpace->FindObjectByName("EditorCamera");
-        //if (editorCamera)
-        //  editorCamera->Destroy();
-
-        EditorCamera = nullptr;
-      }
-      Deselect();
     }
 
     /**************************************************************************/

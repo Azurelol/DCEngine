@@ -12,8 +12,8 @@
 
 // Headers
 #include "../Objects/Module.h"
-#include "../Objects\Entity.h"
-#include "../Debug\Debug.h"
+#include "../Objects/Entity.h"
+#include "../Debug/Debug.h"
 // Helpers
 #include "DispatchSystemEvents.h"
 #include "SystemsConfiguration.h"

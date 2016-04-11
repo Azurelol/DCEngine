@@ -10,6 +10,7 @@
         "Locked": true, 
         "GameObjectID": 99, 
         "Name": "LevelSettings", 
+        "Protected": false, 
         "Components": 
         {
         }, 
@@ -22,6 +23,7 @@
         "Locked": false, 
         "GameObjectID": 9, 
         "Name": "Sprite", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -102,6 +104,7 @@
         "Locked": false, 
         "GameObjectID": 109, 
         "Name": "Music", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 

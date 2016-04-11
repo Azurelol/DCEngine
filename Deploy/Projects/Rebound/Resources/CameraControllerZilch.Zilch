@@ -1,0 +1,65 @@
+class CameraControllerZilch : ZilchComponent
+{
+    sends PlayerBroadcastEvent : PlayerBroadcastEvent;
+    var RandomGenerator : Random;
+    
+    [Property]
+    var InterpolationSpeed : Real = 0.06;
+    [Property]
+    var Offset : Real3 = Real3(0,6,0);
+    var Player : Entity = null;
+    var ScreenShakeTimer : Real = 0;
+
+    [Property]
+    var ScreenShakeMagnitude : Real = 3;
+    
+    function Initialize()
+    {
+        Daisy.Connect(this.Space, DaisyEvent.ScreenShakeEvent, this.OnScreenShakeEvent);
+        Daisy.Connect(this.Space, DaisyEvent.ChangeCameraOffsetEvent, this.OnChangeCameraOffsetEvent);
+        Daisy.Connect(this.Space, DaisyEvent.PlayerBroadcastEvent, this.OnPlayerBroadcastEvent);
+		Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdateEvent);
+        this.RandomGenerator = new Random();
+		this.Player = this.Space.FindObjectByName("Player");
+    }
+
+    function OnLogicUpdateEvent(event : LogicUpdate)
+    {
+        if(this.Player == null)
+        {
+          //Console.WriteLine("CAMERA CANNOT FIND PLAYER");
+        }
+		else
+		{
+		  //Console.WriteLine("CAMERA FOUND PLAYER");
+		}
+        this.ScreenShakeTimer -= event.Dt;
+        if(this.ScreenShakeTimer > 0)
+        {
+            this.Owner.Transform.Translation += Real3(this.RandomGenerator.Range(-this.ScreenShakeMagnitude, this.ScreenShakeMagnitude), 
+                                                      this.RandomGenerator.Range(-this.ScreenShakeMagnitude, this.ScreenShakeMagnitude),
+                                                                                 0);
+        }
+        var targetPos = this.Player.Transform.Translation - this.Owner.Transform.Translation;
+		targetPos += Real3(this.Player.RigidBody.Velocity.X / 3, 0, 0);
+		targetPos = Real3(targetPos.XY, 0);
+        targetPos += this.Offset;
+        this.Owner.Transform.Translation += targetPos * this.InterpolationSpeed;
+    }
+    
+    function OnScreenShakeEvent(event : ScreenShakeEvent)
+    {
+        this.ScreenShakeTimer = event.Duration;
+        this.ScreenShakeMagnitude = event.Magnitude;
+    }
+
+    function OnPlayerBroadcastEvent(event : PlayerBroadcastEvent)
+    {
+        this.Player = event.Player;
+    }
+    
+    function OnChangeCameraOffsetEvent(event : ChangeCameraOffsetEvent)
+    {
+        this.Offset = event.Offset;
+    }
+}

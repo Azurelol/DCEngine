@@ -1,0 +1,11 @@
+class BallTemp : ZilchComponent
+{
+    function Initialize()
+    {
+        //DaisyConnect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+    }
+}

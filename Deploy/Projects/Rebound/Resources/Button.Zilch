@@ -1,0 +1,49 @@
+class Button : ZilchComponent
+{
+	[Property]
+	var ActiveColor : Real4 = Real4();
+
+	[Property]
+	var InactiveColor : Real4 = Real4();
+
+    [Property]
+    var TargetName : String = "";
+
+    var Active : Boolean;
+
+    function Initialize()
+    {
+        Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollisionStarted);
+
+        this.Active = false;
+
+        this.Owner.Sprite.Color = this.InactiveColor;
+    }
+	
+	function OnCollisionStarted(event : CollisionStarted)
+    {
+		if (event.OtherObject.BallTemp != null && this.TargetName != "")
+		{
+			if(this.Active)
+			{
+				this.Owner.Sprite.Color = this.InactiveColor;
+			}
+			else 
+			{
+				this.Owner.Sprite.Color = this.ActiveColor;
+			}
+
+			this.Active = !this.Active;
+			
+        var tevent = ToggleEvent();
+        tevent.Source = this.Owner;
+		
+			var target = this.Space.FindObjectByName(this.TargetName);
+			if (target != null) 
+				{
+					target.Dispatch(DaisyEvent.ToggleEvent, tevent);
+				}
+          //this.Space.FindObjectByName(this.TargetName).Dispatch(DaisyEvent.ToggleEvent, tevent);
+		}
+    }
+}
