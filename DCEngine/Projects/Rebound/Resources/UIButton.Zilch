@@ -46,6 +46,9 @@ class UIButton : ZilchComponent
     var TextReferenceName : String = "";
 
     [Property]
+    var SubSpriteRefName : String = "";
+
+    [Property]
     var NormalScale : Real3 = Real3(8.0, 1.5, 1.0);
 
     [Property]
@@ -58,6 +61,8 @@ class UIButton : ZilchComponent
     var CurState : ButtonState = ButtonState.Default;
 
     var TextReference : Entity = null;
+
+    var SubSpriteRef : Entity = null;
 
     var AllowClicks : Boolean;
     
@@ -76,6 +81,11 @@ class UIButton : ZilchComponent
 		if(this.TextReferenceName != "")
 		{
 			this.TextReference = this.Space.FindObjectByName(this.TextReferenceName);
+		}
+
+		if(this.SubSpriteRefName != "")
+		{
+			this.SubSpriteRef = this.Space.FindObjectByName(this.SubSpriteRefName);
 		}
 
 		if(this.Active)
@@ -150,6 +160,10 @@ class UIButton : ZilchComponent
 		{
 			this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 0.75);
 		}
+		if(this.SubSpriteRef != null)
+		{
+			this.SubSpriteRef.Sprite.Color = Real4(this.SubSpriteRef.Sprite.Color.XYZ, 0.75);
+		}
 
 		this.Shrink();
 		this.ReportState();
@@ -165,6 +179,10 @@ class UIButton : ZilchComponent
 		{
 			this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 0.9);
 		}
+		if(this.SubSpriteRef != null)
+		{
+			this.SubSpriteRef.Sprite.Color = Real4(this.SubSpriteRef.Sprite.Color.XYZ, 0.9);
+		}
 
 		this.Expand();
 		this.ReportState();
@@ -179,8 +197,10 @@ class UIButton : ZilchComponent
 		{
 			this.TextReference.SpriteText.Color = Real4(this.TextReference.SpriteText.Color.XYZ, 1.0);
 		}
-
-		//this.ReportState();
+		if(this.SubSpriteRef != null)
+		{
+			this.SubSpriteRef.Sprite.Color = Real4(this.SubSpriteRef.Sprite.Color.XYZ, 1.0);
+		}
 	}
 
 	function EnterInactiveState()
