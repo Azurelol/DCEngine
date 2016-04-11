@@ -11,6 +11,7 @@
 #include "ZilchInterfaceUtilities.h"
 
 #include "../../Engine/Engine.h"
+#include "../../Debug/Debug.h"
 
 namespace DCEngine {
   namespace Systems {
@@ -30,6 +31,10 @@ namespace DCEngine {
       auto& userData = call.GetFunction()->ComplexUserData.ReadObject<ComponentData>(0);
       // Grabs a pointer to the 'Entity' class
       Entity* owner = reinterpret_cast<Entity*>(call.GetHandle(Zilch::Call::This).Dereference());
+      if (owner == 0)
+      {
+        DCException("Component not found on Object");
+      }
       // Return a pointer to the component
       return owner->getComponent(userData.Type);
     }

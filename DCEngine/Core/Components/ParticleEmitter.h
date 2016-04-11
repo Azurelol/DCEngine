@@ -32,6 +32,8 @@ namespace DCEngine {
       Real SpinVariance; // How much speed per rad can the particle vary
       Vec3 StartVelocity; // Velocity of each particle at start
       Vec3 RandomVelocity; // Random velocity per particle
+			Vec2 EmissionArea;
+			Boolean EmissionCircle;
       DCE_DEFINE_PROPERTY(Boolean, Active);
 			DCE_DEFINE_PROPERTY(Boolean, ResetCount);
       DCE_DEFINE_PROPERTY(Integer, EmitCount);
@@ -45,6 +47,8 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Real, SpinVariance);
       DCE_DEFINE_PROPERTY(Vec3, StartVelocity);
       DCE_DEFINE_PROPERTY(Vec3, RandomVelocity);
+			DCE_DEFINE_PROPERTY(Vec2, EmissionArea);
+			DCE_DEFINE_PROPERTY(Boolean, EmissionCircle);
 
 
       ZilchDeclareDerivedType(ParticleEmitter, Graphical);

@@ -23,6 +23,24 @@
                 "z": 1.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -88,6 +106,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -41.770409, 
+                "y": -24.923590, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -41.770409, 
+                "y": -24.923590, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -114,13 +150,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -168,6 +204,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -28.521795, 
+                "y": 13.379469, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -28.521795, 
+                "y": 13.379469, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -243,6 +297,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -67.189919, 
+                "y": -30.895201, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -67.189919, 
+                "y": -30.895201, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -353,6 +425,7 @@
             "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
             "RunAnimation": "Char_Asha_Run_Spritesheet", 
             "FallAnimation": "Char_Asha_Fall_Spritesheet", 
+            "ThrowAnimation": "Char_Asha_Throw_Spritesheet", 
             "AutoPlayTimer": 2.000000, 
             "LandingParticle": "LandingParticleUrban", 
             "TeleportStartSound": "Teleport", 
@@ -415,6 +488,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -219.599350, 
+                "y": -101.532448, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -219.599350, 
+                "y": -101.532448, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -511,6 +602,24 @@
                 "z": -5.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -100.000000, 
+                "y": -27.000000, 
+                "z": -5.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -100.000000, 
+                "y": -27.000000, 
+                "z": -5.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -565,6 +674,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -217.009186, 
+                "y": -117.002319, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -217.009186, 
+                "y": -117.002319, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -661,6 +788,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -8.299570, 
+                "y": 14.720527, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -8.299570, 
+                "y": 14.720527, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -741,6 +886,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 74.130951, 
+                "y": -20.240055, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 74.130951, 
+                "y": -20.240055, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -837,6 +1000,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 112.258957, 
+                "y": 34.189522, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 112.258957, 
+                "y": 34.189522, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -917,6 +1098,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 150.237595, 
+                "y": 61.194855, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 150.237595, 
+                "y": 61.194855, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1013,6 +1212,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 206.955826, 
+                "y": 88.149345, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 206.955826, 
+                "y": 88.149345, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -1093,6 +1310,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 263.819153, 
+                "y": 128.943130, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 263.819153, 
+                "y": 128.943130, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1189,6 +1424,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 301.784393, 
+                "y": 169.673370, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 301.784393, 
+                "y": 169.673370, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -1269,6 +1522,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 338.749878, 
+                "y": 225.148651, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 338.749878, 
+                "y": 225.148651, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1365,6 +1636,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -129.123260, 
+                "y": -66.650513, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -129.123260, 
+                "y": -66.650513, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -1449,6 +1738,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -145.345184, 
+                "y": -72.688866, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -145.345184, 
+                "y": -72.688866, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1583,6 +1890,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 60.585648, 
+                "y": -62.468822, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 60.585648, 
+                "y": -62.468822, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -1667,6 +1992,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 178.735153, 
+                "y": 91.190559, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 178.735153, 
+                "y": 91.190559, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1769,6 +2112,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -1778,37 +2124,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -1825,6 +2141,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 190.963882, 
+                "y": 91.138077, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 190.963882, 
+                "y": 91.138077, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1927,6 +2261,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -1936,37 +2273,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -1983,6 +2290,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 170.442719, 
+                "y": 91.243042, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 170.442719, 
+                "y": 91.243042, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2085,6 +2410,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -2094,37 +2422,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -2141,6 +2439,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 328.162506, 
+                "y": 185.577301, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 328.162506, 
+                "y": 185.577301, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2241,6 +2557,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 327.762054, 
+                "y": 177.768402, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 327.762054, 
+                "y": 177.768402, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -2325,6 +2659,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -189.605270, 
+                "y": -82.033333, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -189.605270, 
+                "y": -82.033333, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2425,6 +2777,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -42.868912, 
+                "y": -9.194677, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -42.868912, 
+                "y": -9.194677, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -2509,6 +2879,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -189.387283, 
+                "y": -101.588974, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -189.387283, 
+                "y": -101.588974, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2605,6 +2993,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -210.159546, 
+                "y": -112.699249, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -210.159546, 
+                "y": -112.699249, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -2632,12 +3038,12 @@
               "Vec4": 
               {
                 "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -2685,6 +3091,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -100.000000, 
+                "y": -27.000000, 
+                "z": -8.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -100.000000, 
+                "y": -27.000000, 
+                "z": -8.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2741,7 +3165,7 @@
       {
         "Locked": false, 
         "GameObjectID": 446, 
-        "Name": "Ground", 
+        "Name": "InvisibleWall", 
         "Components": 
         {
           "Transform": 
@@ -2750,8 +3174,26 @@
             {
               "Vec3": 
               {
-                "x": -209.169876, 
-                "y": -100.905434, 
+                "x": -219.561127, 
+                "y": -76.185204, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -219.561127, 
+                "y": -76.185204, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -219.561127, 
+                "y": -76.185204, 
                 "z": 0.000000
               }
             }, 
@@ -2769,14 +3211,14 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 1.000000, 
+                "y": 50.000000, 
                 "z": 1.000000
               }
             }
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -2843,6 +3285,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -144.474106, 
+                "y": -55.955009, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -144.474106, 
+                "y": -55.955009, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -2869,13 +3329,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -2923,6 +3383,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -213.762878, 
+                "y": -114.443298, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -213.762878, 
+                "y": -114.443298, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -3059,6 +3537,7 @@
                 "w": 1.000000
               }
             }, 
+            "ForcedFreeze": false, 
             "FreezeEnabled": true, 
             "MaxAttractSpeed": 10.000000, 
             "MaxAttractForce": 50.000000, 
@@ -3160,7 +3639,16 @@
                 "y": 1.500000, 
                 "z": 0.000000
               }
-            }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
           }, 
           "LinearParticleAnimator": 
           {
@@ -3201,6 +3689,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -133.498535, 
+                "y": -86.604851, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -133.498535, 
+                "y": -86.604851, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -3297,6 +3803,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -110.129883, 
+                "y": -64.043900, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -110.129883, 
+                "y": -64.043900, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -3385,6 +3909,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -26.425781, 
+                "y": 6.828205, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -26.425781, 
+                "y": 6.828205, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -3411,13 +3953,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -3465,6 +4007,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -48.277161, 
+                "y": 6.916460, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -48.277161, 
+                "y": 6.916460, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -3557,6 +4117,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -136.130081, 
+                "y": -76.526489, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -136.130081, 
+                "y": -76.526489, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -3685,6 +4263,24 @@
                     "z": 0.000000
                   }
                 }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -4.912048, 
+                    "y": 76.674370, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -141.042130, 
+                    "y": 0.147878, 
+                    "z": 0.000000
+                  }
+                }, 
                 "Rotation": 
                 {
                   "Vec3": 
@@ -3771,6 +4367,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -127.486656, 
+                "y": -75.722237, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -127.486656, 
+                "y": -75.722237, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -3899,6 +4513,24 @@
                     "z": 0.000000
                   }
                 }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -9.982475, 
+                    "y": 86.589111, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -137.469131, 
+                    "y": 10.866873, 
+                    "z": 0.000000
+                  }
+                }, 
                 "Rotation": 
                 {
                   "Vec3": 
@@ -3985,6 +4617,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -165.648712, 
+                "y": -75.942604, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -165.648712, 
+                "y": -75.942604, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -4085,6 +4735,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -202.736877, 
+                "y": -104.946671, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -202.736877, 
+                "y": -104.946671, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -4111,13 +4779,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -4173,6 +4841,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -202.654388, 
+                "y": -109.812653, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -202.654388, 
+                "y": -109.812653, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -4199,13 +4885,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -4253,6 +4939,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -90.773537, 
+                "y": -44.452484, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -90.773537, 
+                "y": -44.452484, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -4341,6 +5045,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -145.345184, 
+                "y": -72.688866, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -145.345184, 
+                "y": -72.688866, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -4467,6 +5189,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -145.345184, 
+                "y": -72.688866, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -145.345184, 
+                "y": -72.688866, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -4601,6 +5341,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -71.124634, 
+                "y": -34.783146, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -71.124634, 
+                "y": -34.783146, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -4695,6 +5453,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -4704,37 +5465,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -4751,6 +5482,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -58.097794, 
+                "y": -34.726040, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -58.097794, 
+                "y": -34.726040, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -4853,6 +5602,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -4862,37 +5614,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -4909,6 +5631,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -62.665268, 
+                "y": -34.726040, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -62.665268, 
+                "y": -34.726040, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5011,6 +5751,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -5020,37 +5763,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -5067,6 +5780,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -52.353859, 
+                "y": -34.864452, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -52.353859, 
+                "y": -34.864452, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5169,6 +5900,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -5178,37 +5912,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -5225,6 +5929,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -37.091507, 
+                "y": -34.442402, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -37.091507, 
+                "y": -34.442402, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5327,6 +6049,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -5336,37 +6061,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -5383,6 +6078,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -43.112259, 
+                "y": -35.065235, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -43.112259, 
+                "y": -35.065235, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5485,6 +6198,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -5494,37 +6210,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -5541,6 +6227,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -100.000000, 
+                "y": -27.000000, 
+                "z": -6.500000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -100.000000, 
+                "y": -27.000000, 
+                "z": -6.500000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5603,6 +6307,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -48.035164, 
+                "y": -36.320786, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -48.035164, 
+                "y": -36.320786, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5699,6 +6421,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -33.265240, 
+                "y": -24.948627, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -33.265240, 
+                "y": -24.948627, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -5725,13 +6465,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -5779,6 +6519,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -122.658073, 
+                "y": -71.601784, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -122.658073, 
+                "y": -71.601784, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5879,6 +6637,24 @@
                 "z": -1.001000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -90.182343, 
+                "y": -48.768578, 
+                "z": -1.001000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -90.182343, 
+                "y": -48.768578, 
+                "z": -1.001000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -5933,6 +6709,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -77.757782, 
+                "y": 15.009344, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -77.757782, 
+                "y": 15.009344, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6019,7 +6813,16 @@
                 "y": 5.000000, 
                 "z": 0.000000
               }
-            }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
           }, 
           "LinearParticleAnimator": 
           {
@@ -6060,6 +6863,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -100.573318, 
+                "y": -27.449528, 
+                "z": -0.010000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -100.573318, 
+                "y": -27.449528, 
+                "z": -0.010000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6130,6 +6951,24 @@
                 "z": -3.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -100.000000, 
+                "y": -28.000000, 
+                "z": -3.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -100.000000, 
+                "y": -28.000000, 
+                "z": -3.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -6184,6 +7023,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -100.000000, 
+                "y": -56.000000, 
+                "z": -1.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -100.000000, 
+                "y": -56.000000, 
+                "z": -1.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6254,6 +7111,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -162.000000, 
+                "y": -48.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -162.000000, 
+                "y": -48.000000, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -6308,6 +7183,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -126.768433, 
+                "y": -81.439720, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -126.768433, 
+                "y": -81.439720, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6404,6 +7297,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -143.749985, 
+                "y": -83.929672, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -143.749985, 
+                "y": -83.929672, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -6492,6 +7403,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -75.581665, 
+                "y": -40.565823, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -75.581665, 
+                "y": -40.565823, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -6518,13 +7447,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -6572,6 +7501,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -74.579742, 
+                "y": -44.382545, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -74.579742, 
+                "y": -44.382545, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6668,6 +7615,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -27.242357, 
+                "y": -9.141951, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -27.242357, 
+                "y": -9.141951, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -6694,13 +7659,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -6748,6 +7713,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -29.652578, 
+                "y": -31.813532, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -29.652578, 
+                "y": -31.813532, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6836,6 +7819,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -37.806683, 
+                "y": -24.881737, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -37.806683, 
+                "y": -24.881737, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6936,6 +7937,24 @@
                 "z": 8.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -178.787079, 
+                "y": -40.817440, 
+                "z": 8.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -178.787079, 
+                "y": -40.817440, 
+                "z": 8.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -7003,6 +8022,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -19.009710, 
+                "y": -14.962449, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -19.009710, 
+                "y": -14.962449, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -7091,6 +8128,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -10.499689, 
+                "y": 8.898042, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -10.499689, 
+                "y": 8.898042, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -7211,6 +8266,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -8.620523, 
+                "y": -0.043278, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -8.620523, 
+                "y": -0.043278, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -7299,6 +8372,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -202.984314, 
+                "y": -95.544609, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -202.984314, 
+                "y": -95.544609, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -7325,13 +8416,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -7387,6 +8478,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -119.758904, 
+                "y": -66.852402, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -119.758904, 
+                "y": -66.852402, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -7413,13 +8522,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -7475,6 +8584,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -139.983871, 
+                "y": -61.415020, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -139.983871, 
+                "y": -61.415020, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -7501,13 +8628,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -7555,6 +8682,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -209.021240, 
+                "y": -86.843422, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -209.021240, 
+                "y": -86.843422, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -7647,7 +8792,25 @@
               "Vec3": 
               {
                 "x": -144.503540, 
-                "y": -42.617371, 
+                "y": -42.506165, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -144.503540, 
+                "y": -42.506165, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -144.503540, 
+                "y": -42.506165, 
                 "z": 0.000000
               }
             }, 
@@ -7677,13 +8840,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -7739,6 +8902,24 @@
                 "z": 0.000000
               }
             }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -140.018585, 
+                "y": -50.496628, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -140.018585, 
+                "y": -50.496628, 
+                "z": 0.000000
+              }
+            }, 
             "Rotation": 
             {
               "Vec3": 
@@ -7765,13 +8946,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -7819,6 +9000,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -7905,7 +9104,16 @@
                 "y": 0.000000, 
                 "z": 0.000000
               }
-            }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
           }, 
           "LinearParticleAnimator": 
           {
@@ -7946,6 +9154,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -3.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -3.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -8032,7 +9258,16 @@
                 "y": 0.000000, 
                 "z": 0.000000
               }
-            }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
           }, 
           "LinearParticleAnimator": 
           {
@@ -8073,6 +9308,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 3.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 3.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -8159,7 +9412,16 @@
                 "y": 0.000000, 
                 "z": 0.000000
               }
-            }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
           }, 
           "LinearParticleAnimator": 
           {
@@ -8212,6 +9474,24 @@
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 9.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 9.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -8298,7 +9578,16 @@
                 "y": 5.000000, 
                 "z": 0.000000
               }
-            }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
           }, 
           "LinearParticleAnimator": 
           {
@@ -8376,6 +9665,112 @@
                 "w": 0.500000
               }
             }
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 446, 
+        "Name": "Ground", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -209.169876, 
+                "y": -100.905434, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -209.169876, 
+                "y": -100.905434, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -209.169876, 
+                "y": -100.905434, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "tile_basic_both", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
           }
         }, 
         "Children": 

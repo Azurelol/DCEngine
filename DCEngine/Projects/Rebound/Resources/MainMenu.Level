@@ -10,11 +10,30 @@
         "Locked": false, 
         "GameObjectID": 140, 
         "Name": "MusicManager", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -10.554329, 
+                "y": 12.659333, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -10.554329, 
+                "y": 12.659333, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -59,11 +78,30 @@
         "Locked": false, 
         "GameObjectID": 141, 
         "Name": "ConfirmButton", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -10.807415, 
+                "y": 15.908262, 
+                "z": 0.100000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -10.807415, 
+                "y": 15.908262, 
+                "z": 0.100000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -127,11 +165,30 @@
         "Locked": false, 
         "GameObjectID": 143, 
         "Name": "Camera", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 3.933108, 
+                "y": -7.956016, 
+                "z": 1.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 3.933108, 
+                "y": -7.956016, 
+                "z": 1.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -180,11 +237,30 @@
             "Locked": false, 
             "GameObjectID": 568, 
             "Name": "Shroud", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 4.000000, 
+                    "y": -8.000000, 
+                    "z": 0.900000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.066892, 
+                    "y": -0.043984, 
+                    "z": -0.100000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -244,11 +320,30 @@
         "Locked": false, 
         "GameObjectID": 144, 
         "Name": "CancelButton", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -9.864220, 
+                "y": 1.030679, 
+                "z": 0.100000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -9.864220, 
+                "y": 1.030679, 
+                "z": 0.100000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -312,11 +407,30 @@
         "Locked": true, 
         "GameObjectID": 28, 
         "Name": "MenuManager", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.499448, 
+                "y": 1.898058, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.499448, 
+                "y": 1.898058, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -381,7 +495,7 @@
               "Vec2": 
               {
                 "x": 5.000000, 
-                "y": -33.000000
+                "y": -41.000000
               }
             }, 
             "CrPanTime": 1.000000, 
@@ -408,11 +522,30 @@
             "Locked": false, 
             "GameObjectID": 142, 
             "Name": "NewGameButton", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 4.000000, 
+                    "y": -4.297622, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -0.499448, 
+                    "y": -6.195680, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -479,6 +612,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -514,6 +648,7 @@
                   }
                 }, 
                 "TextReferenceName": "NGText", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -534,6 +669,7 @@
                 "Locked": false, 
                 "GameObjectID": 476, 
                 "Name": "NGText", 
+                "Protected": false, 
                 "Components": 
                 {
                   "Transform": 
@@ -544,7 +680,25 @@
                       {
                         "x": 2.584223, 
                         "y": -4.764062, 
-                        "z": 0.000000
+                        "z": 0.010000
+                      }
+                    }, 
+                    "LocalTranslation": 
+                    {
+                      "Vec3": 
+                      {
+                        "x": -1.415777, 
+                        "y": -0.466440, 
+                        "z": 0.010000
+                      }
+                    }, 
+                    "WorldTranslation": 
+                    {
+                      "Vec3": 
+                      {
+                        "x": 2.584223, 
+                        "y": -4.764062, 
+                        "z": 0.010000
                       }
                     }, 
                     "Rotation": 
@@ -576,7 +730,7 @@
                         "x": 1.000000, 
                         "y": 1.000000, 
                         "z": 1.000000, 
-                        "w": 1.000000
+                        "w": 0.750000
                       }
                     }, 
                     "Font": "SafetyMedium", 
@@ -599,11 +753,30 @@
             "Locked": false, 
             "GameObjectID": 149, 
             "Name": "HowToPlayButton", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 9.650002, 
+                    "y": -9.945000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 5.150554, 
+                    "y": -11.843058, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -670,6 +843,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -705,6 +879,7 @@
                   }
                 }, 
                 "TextReferenceName": "HTPText", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -725,6 +900,7 @@
                 "Locked": false, 
                 "GameObjectID": 476, 
                 "Name": "HTPText", 
+                "Protected": false, 
                 "Components": 
                 {
                   "Transform": 
@@ -735,7 +911,25 @@
                       {
                         "x": 7.842339, 
                         "y": -9.984624, 
-                        "z": 0.000000
+                        "z": 0.010000
+                      }
+                    }, 
+                    "LocalTranslation": 
+                    {
+                      "Vec3": 
+                      {
+                        "x": -1.807662, 
+                        "y": -0.039624, 
+                        "z": 0.010000
+                      }
+                    }, 
+                    "WorldTranslation": 
+                    {
+                      "Vec3": 
+                      {
+                        "x": 7.842339, 
+                        "y": -9.984624, 
+                        "z": 0.010000
                       }
                     }, 
                     "Rotation": 
@@ -767,7 +961,7 @@
                         "x": 1.000000, 
                         "y": 1.000000, 
                         "z": 1.000000, 
-                        "w": 1.000000
+                        "w": 0.750000
                       }
                     }, 
                     "Font": "SafetyMedium", 
@@ -790,11 +984,30 @@
             "Locked": false, 
             "GameObjectID": 151, 
             "Name": "OptionsButton", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -1.650000, 
+                    "y": -9.945000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -6.149448, 
+                    "y": -11.843058, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -861,6 +1074,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -896,6 +1110,7 @@
                   }
                 }, 
                 "TextReferenceName": "OText", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -916,6 +1131,7 @@
                 "Locked": false, 
                 "GameObjectID": 476, 
                 "Name": "OText", 
+                "Protected": false, 
                 "Components": 
                 {
                   "Transform": 
@@ -926,7 +1142,25 @@
                       {
                         "x": -2.081160, 
                         "y": -10.060570, 
-                        "z": 0.001000
+                        "z": 0.010000
+                      }
+                    }, 
+                    "LocalTranslation": 
+                    {
+                      "Vec3": 
+                      {
+                        "x": -0.431160, 
+                        "y": -0.115570, 
+                        "z": 0.010000
+                      }
+                    }, 
+                    "WorldTranslation": 
+                    {
+                      "Vec3": 
+                      {
+                        "x": -2.081160, 
+                        "y": -10.060570, 
+                        "z": 0.010000
                       }
                     }, 
                     "Rotation": 
@@ -958,7 +1192,7 @@
                         "x": 1.000000, 
                         "y": 1.000000, 
                         "z": 1.000000, 
-                        "w": 1.000000
+                        "w": 0.750000
                       }
                     }, 
                     "Font": "SafetyMedium", 
@@ -981,11 +1215,30 @@
             "Locked": false, 
             "GameObjectID": 138, 
             "Name": "CreditsButton", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 4.000000, 
+                    "y": -15.600002, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -0.499448, 
+                    "y": -17.498060, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -1021,8 +1274,8 @@
                   "Vec4": 
                   {
                     "x": 0.200000, 
-                    "y": 0.300000, 
-                    "z": 0.400000, 
+                    "y": 0.200000, 
+                    "z": 0.200000, 
                     "w": 1.000000
                   }
                 }, 
@@ -1052,6 +1305,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -1087,6 +1341,7 @@
                   }
                 }, 
                 "TextReferenceName": "CText", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -1107,6 +1362,7 @@
                 "Locked": false, 
                 "GameObjectID": 476, 
                 "Name": "CText", 
+                "Protected": false, 
                 "Components": 
                 {
                   "Transform": 
@@ -1117,7 +1373,25 @@
                       {
                         "x": 2.928176, 
                         "y": -15.328714, 
-                        "z": 0.001000
+                        "z": 0.010000
+                      }
+                    }, 
+                    "LocalTranslation": 
+                    {
+                      "Vec3": 
+                      {
+                        "x": -1.071824, 
+                        "y": 0.271288, 
+                        "z": 0.010000
+                      }
+                    }, 
+                    "WorldTranslation": 
+                    {
+                      "Vec3": 
+                      {
+                        "x": 2.928176, 
+                        "y": -15.328714, 
+                        "z": 0.010000
                       }
                     }, 
                     "Rotation": 
@@ -1149,7 +1423,7 @@
                         "x": 1.000000, 
                         "y": 1.000000, 
                         "z": 1.000000, 
-                        "w": 1.000000
+                        "w": 0.750000
                       }
                     }, 
                     "Font": "SafetyMedium", 
@@ -1172,11 +1446,30 @@
             "Locked": false, 
             "GameObjectID": 142, 
             "Name": "QuitGameButton", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -11.836283, 
+                    "y": -19.544170, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -16.335732, 
+                    "y": -21.442228, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -1243,6 +1536,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -1278,6 +1572,7 @@
                   }
                 }, 
                 "TextReferenceName": "QGText", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -1298,6 +1593,7 @@
                 "Locked": false, 
                 "GameObjectID": 476, 
                 "Name": "QGText", 
+                "Protected": false, 
                 "Components": 
                 {
                   "Transform": 
@@ -1308,7 +1604,25 @@
                       {
                         "x": -13.609931, 
                         "y": -19.754208, 
-                        "z": 0.001000
+                        "z": 0.010000
+                      }
+                    }, 
+                    "LocalTranslation": 
+                    {
+                      "Vec3": 
+                      {
+                        "x": -1.773648, 
+                        "y": -0.210037, 
+                        "z": 0.010000
+                      }
+                    }, 
+                    "WorldTranslation": 
+                    {
+                      "Vec3": 
+                      {
+                        "x": -13.609931, 
+                        "y": -19.754208, 
+                        "z": 0.010000
                       }
                     }, 
                     "Rotation": 
@@ -1340,7 +1654,7 @@
                         "x": 1.000000, 
                         "y": 1.000000, 
                         "z": 1.000000, 
-                        "w": 1.000000
+                        "w": 0.750000
                       }
                     }, 
                     "Font": "SafetyMedium", 
@@ -1365,11 +1679,30 @@
         "Locked": true, 
         "GameObjectID": 590, 
         "Name": "Background", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 5.710083, 
+                "y": -27.604733, 
+                "z": -0.500000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 5.710083, 
+                "y": -27.604733, 
+                "z": -0.500000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1427,11 +1760,30 @@
         "Locked": true, 
         "GameObjectID": 82, 
         "Name": "CenterData", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": -9.945000, 
+                "z": 0.020000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": -9.945000, 
+                "z": 0.020000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1487,11 +1839,30 @@
             "Locked": false, 
             "GameObjectID": 334, 
             "Name": "HighlightText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.881822, 
+                    "y": -9.730527, 
+                    "z": 0.020000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -2.118178, 
+                    "y": 0.214473, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -1534,7 +1905,7 @@
                 }, 
                 "Font": "Electrolize-Regular", 
                 "FontSize": 4, 
-                "Text": "View and change the game's settings", 
+                "Text": "Change the game's             settings", 
                 "PixelsPerUnit": 64, 
                 "Smoothing": true, 
                 "WordWrap": 20, 
@@ -1552,11 +1923,30 @@
         "Locked": false, 
         "GameObjectID": 470, 
         "Name": "Title", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.504822, 
+                "y": 1.898643, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.504822, 
+                "y": 1.898643, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1649,11 +2039,30 @@
         "Locked": false, 
         "GameObjectID": 98, 
         "Name": "HtPElements", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 28.634663, 
+                "y": -12.981725, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 28.634663, 
+                "y": -12.981725, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1704,11 +2113,30 @@
             "Locked": false, 
             "GameObjectID": 142, 
             "Name": "HtPBack", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 34.623543, 
+                    "y": -18.065575, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 5.988880, 
+                    "y": -5.083850, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -1775,6 +2203,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -1810,6 +2239,7 @@
                   }
                 }, 
                 "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -1830,11 +2260,30 @@
                 "Locked": false, 
                 "GameObjectID": 476, 
                 "Name": "BackText", 
+                "Protected": false, 
                 "Components": 
                 {
                   "Transform": 
                   {
                     "Translation": 
+                    {
+                      "Vec3": 
+                      {
+                        "x": 33.708508, 
+                        "y": -18.187782, 
+                        "z": 0.001000
+                      }
+                    }, 
+                    "LocalTranslation": 
+                    {
+                      "Vec3": 
+                      {
+                        "x": -0.915035, 
+                        "y": -0.122208, 
+                        "z": 0.001000
+                      }
+                    }, 
+                    "WorldTranslation": 
                     {
                       "Vec3": 
                       {
@@ -1897,11 +2346,30 @@
         "Locked": false, 
         "GameObjectID": 98, 
         "Name": "CrElements", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 3.379325, 
+                "y": -23.205086, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 3.379325, 
+                "y": -23.205086, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1936,7 +2404,7 @@
               "Vec2": 
               {
                 "x": -5.000000, 
-                "y": 33.000000
+                "y": 41.000000
               }
             }, 
             "PanTime": 1.000000, 
@@ -1952,6 +2420,7 @@
             "Locked": false, 
             "GameObjectID": 142, 
             "Name": "CrBack", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -1961,7 +2430,25 @@
                   "Vec3": 
                   {
                     "x": 3.525211, 
-                    "y": -28.065575, 
+                    "y": -36.065575, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.145886, 
+                    "y": -12.860489, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 3.525211, 
+                    "y": -36.065575, 
                     "z": 0.000000
                   }
                 }, 
@@ -2023,6 +2510,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -2058,6 +2546,7 @@
                   }
                 }, 
                 "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -2078,6 +2567,7 @@
                 "Locked": false, 
                 "GameObjectID": 476, 
                 "Name": "BackText", 
+                "Protected": false, 
                 "Components": 
                 {
                   "Transform": 
@@ -2087,7 +2577,25 @@
                       "Vec3": 
                       {
                         "x": 2.604645, 
-                        "y": -28.255428, 
+                        "y": -36.255428, 
+                        "z": 0.001000
+                      }
+                    }, 
+                    "LocalTranslation": 
+                    {
+                      "Vec3": 
+                      {
+                        "x": -0.920566, 
+                        "y": -0.189854, 
+                        "z": 0.001000
+                      }
+                    }, 
+                    "WorldTranslation": 
+                    {
+                      "Vec3": 
+                      {
+                        "x": 2.604645, 
+                        "y": -36.255428, 
                         "z": 0.001000
                       }
                     }, 
@@ -2145,11 +2653,30 @@
         "Locked": false, 
         "GameObjectID": 98, 
         "Name": "OpElements", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -24.326546, 
+                "y": -14.378494, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -24.326546, 
+                "y": -14.378494, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2200,11 +2727,30 @@
             "Locked": false, 
             "GameObjectID": 142, 
             "Name": "OpBack", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -24.180660, 
+                    "y": -19.238983, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.145885, 
+                    "y": -4.860489, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -2271,6 +2817,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -2306,6 +2853,7 @@
                   }
                 }, 
                 "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -2326,11 +2874,30 @@
                 "Locked": false, 
                 "GameObjectID": 476, 
                 "Name": "BackText", 
+                "Protected": false, 
                 "Components": 
                 {
                   "Transform": 
                   {
                     "Translation": 
+                    {
+                      "Vec3": 
+                      {
+                        "x": -25.119764, 
+                        "y": -19.450058, 
+                        "z": 0.001000
+                      }
+                    }, 
+                    "LocalTranslation": 
+                    {
+                      "Vec3": 
+                      {
+                        "x": -0.939104, 
+                        "y": -0.211075, 
+                        "z": 0.001000
+                      }
+                    }, 
+                    "WorldTranslation": 
                     {
                       "Vec3": 
                       {
@@ -2393,11 +2960,30 @@
         "Locked": false, 
         "GameObjectID": 432, 
         "Name": "HtPTitle", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 41.117523, 
+                "y": 3.315218, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 41.117523, 
+                "y": 3.315218, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2450,7 +3036,7 @@
           {
             "AnimateOnInitialize": false, 
             "SystemDelay": 0.000000, 
-            "LoopSystem": true, 
+            "LoopSystem": false, 
             "UseFadeIn": false, 
             "UseFadeOut": false, 
             "FadeSpeed": 0.000000, 
@@ -2475,11 +3061,30 @@
             "Locked": false, 
             "GameObjectID": 434, 
             "Name": "SpriteText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 41.030418, 
+                    "y": 3.366156, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -0.087105, 
+                    "y": 0.050938, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -2540,6 +3145,7 @@
         "Locked": false, 
         "GameObjectID": 432, 
         "Name": "CrTitle", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2549,7 +3155,25 @@
               "Vec3": 
               {
                 "x": -10.738459, 
-                "y": -30.064434, 
+                "y": -37.064434, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -10.738459, 
+                "y": -37.064434, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -10.738459, 
+                "y": -37.064434, 
                 "z": 0.000000
               }
             }, 
@@ -2597,7 +3221,7 @@
           {
             "AnimateOnInitialize": false, 
             "SystemDelay": 0.000000, 
-            "LoopSystem": true, 
+            "LoopSystem": false, 
             "UseFadeIn": false, 
             "UseFadeOut": false, 
             "FadeSpeed": 0.000000, 
@@ -2622,6 +3246,7 @@
             "Locked": false, 
             "GameObjectID": 434, 
             "Name": "SpriteText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -2631,7 +3256,25 @@
                   "Vec3": 
                   {
                     "x": -10.825562, 
-                    "y": -30.013496, 
+                    "y": -37.013496, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -0.087103, 
+                    "y": 0.050938, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -10.825562, 
+                    "y": -37.013496, 
                     "z": 0.000000
                   }
                 }, 
@@ -2687,11 +3330,30 @@
         "Locked": false, 
         "GameObjectID": 432, 
         "Name": "OpTitle", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -44.387169, 
+                "y": 2.929446, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -44.387169, 
+                "y": 2.929446, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2749,12 +3411,12 @@
             "UseFadeOut": false, 
             "FadeSpeed": 0.000000, 
             "FadeEase": "Linear", 
-            "MoveIterations": 0, 
+            "MoveIterations": 1, 
             "MoveX": 0.000000, 
             "MoveY": 0.200000, 
             "MoveDelay": 0.000000, 
-            "MoveSpeed": 0.000000, 
-            "MoveEase": "Linear", 
+            "MoveSpeed": 1.000000, 
+            "MoveEase": "QuadOut", 
             "ScaleIterations": 0, 
             "ScaleRatio": 1.000000, 
             "ScaleDelay": 0.000000, 
@@ -2769,11 +3431,30 @@
             "Locked": false, 
             "GameObjectID": 434, 
             "Name": "SpriteText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -44.474274, 
+                    "y": 2.980384, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -0.087105, 
+                    "y": 0.050938, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -2834,6 +3515,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Chikara", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2843,7 +3525,25 @@
               "Vec3": 
               {
                 "x": 4.722650, 
-                "y": -38.000000, 
+                "y": -48.599998, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -48.599998, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -48.599998, 
                 "z": 0.000000
               }
             }, 
@@ -2880,7 +3580,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 9, 
+            "FontSize": 8, 
             "Text": "Chikara Honda", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -2897,6 +3597,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Jason", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2906,7 +3607,25 @@
               "Vec3": 
               {
                 "x": 4.722650, 
-                "y": -39.799999, 
+                "y": -50.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -50.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -50.000000, 
                 "z": 0.000000
               }
             }, 
@@ -2943,7 +3662,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 9, 
+            "FontSize": 8, 
             "Text": "Jason Jorgenson", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -2960,6 +3679,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Will", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2969,7 +3689,25 @@
               "Vec3": 
               {
                 "x": 4.722650, 
-                "y": -41.599998, 
+                "y": -51.400002, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -51.400002, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -51.400002, 
                 "z": 0.000000
               }
             }, 
@@ -3006,7 +3744,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 9, 
+            "FontSize": 8, 
             "Text": "Will Mao", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3023,6 +3761,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "John", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3032,7 +3771,25 @@
               "Vec3": 
               {
                 "x": 4.722650, 
-                "y": -43.400002, 
+                "y": -52.799999, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -52.799999, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -52.799999, 
                 "z": 0.000000
               }
             }, 
@@ -3069,7 +3826,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 9, 
+            "FontSize": 8, 
             "Text": "John Myres", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3086,6 +3843,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Gabe", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3095,7 +3853,25 @@
               "Vec3": 
               {
                 "x": 4.722650, 
-                "y": -45.200001, 
+                "y": -54.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -54.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -54.200001, 
                 "z": 0.000000
               }
             }, 
@@ -3132,7 +3908,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 9, 
+            "FontSize": 8, 
             "Text": "Gabe Neumann", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3149,6 +3925,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Mike", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3158,7 +3935,25 @@
               "Vec3": 
               {
                 "x": 4.722651, 
-                "y": -47.000000, 
+                "y": -55.599998, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722651, 
+                "y": -55.599998, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722651, 
+                "y": -55.599998, 
                 "z": 0.000000
               }
             }, 
@@ -3195,7 +3990,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 9, 
+            "FontSize": 8, 
             "Text": "Michael Pitaniello", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3212,6 +4007,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Abby", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3221,7 +4017,25 @@
               "Vec3": 
               {
                 "x": 4.722650, 
-                "y": -48.799999, 
+                "y": -57.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -57.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -57.000000, 
                 "z": 0.000000
               }
             }, 
@@ -3258,7 +4072,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 9, 
+            "FontSize": 8, 
             "Text": "Abby Snider", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3275,6 +4089,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Christian", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3284,7 +4099,25 @@
               "Vec3": 
               {
                 "x": 4.722650, 
-                "y": -50.599998, 
+                "y": -58.400002, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -58.400002, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -58.400002, 
                 "z": 0.000000
               }
             }, 
@@ -3321,7 +4154,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 9, 
+            "FontSize": 8, 
             "Text": "Christian Sagel", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3338,6 +4171,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Blaine", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3347,7 +4181,25 @@
               "Vec3": 
               {
                 "x": 4.722650, 
-                "y": -52.400002, 
+                "y": -59.799999, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -59.799999, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -59.799999, 
                 "z": 0.000000
               }
             }, 
@@ -3384,7 +4236,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 9, 
+            "FontSize": 8, 
             "Text": "Blaine Reiner", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3401,6 +4253,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Connor", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3410,7 +4263,25 @@
               "Vec3": 
               {
                 "x": 4.722650, 
-                "y": -54.200001, 
+                "y": -61.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -61.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -61.200001, 
                 "z": 0.000000
               }
             }, 
@@ -3447,7 +4318,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 9, 
+            "FontSize": 8, 
             "Text": "Connor Tilley", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3464,6 +4335,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "ChikaraRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3472,8 +4344,26 @@
             {
               "Vec3": 
               {
-                "x": 19.722651, 
-                "y": -38.000000, 
+                "x": 20.722651, 
+                "y": -48.599998, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -48.599998, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -48.599998, 
                 "z": 0.000000
               }
             }, 
@@ -3510,7 +4400,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 9, 
+            "FontSize": 8, 
             "Text": "Character Artist", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3527,6 +4417,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "JasonRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3535,8 +4426,26 @@
             {
               "Vec3": 
               {
-                "x": 19.722651, 
-                "y": -39.799999, 
+                "x": 20.722651, 
+                "y": -50.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -50.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -50.000000, 
                 "z": 0.000000
               }
             }, 
@@ -3573,7 +4482,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 9, 
+            "FontSize": 8, 
             "Text": "AI Programmer", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3590,6 +4499,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "WillRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3598,8 +4508,26 @@
             {
               "Vec3": 
               {
-                "x": 19.722651, 
-                "y": -41.599998, 
+                "x": 20.722651, 
+                "y": -51.400002, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -51.400002, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -51.400002, 
                 "z": 0.000000
               }
             }, 
@@ -3636,7 +4564,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 9, 
+            "FontSize": 8, 
             "Text": "Graphics Programmer", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3653,6 +4581,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "JohnRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3661,8 +4590,26 @@
             {
               "Vec3": 
               {
-                "x": 19.722651, 
-                "y": -43.400002, 
+                "x": 20.722651, 
+                "y": -52.799999, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -52.799999, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -52.799999, 
                 "z": 0.000000
               }
             }, 
@@ -3699,7 +4646,7 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 9, 
+            "FontSize": 8, 
             "Text": "Producer & Designer", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -3716,6 +4663,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "GabeRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3724,322 +4672,25 @@
             {
               "Vec3": 
               {
-                "x": 19.722651, 
-                "y": -45.200001, 
+                "x": 20.722651, 
+                "y": -54.200001, 
                 "z": 0.000000
               }
             }, 
-            "Rotation": 
+            "LocalTranslation": 
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 20.722651, 
+                "y": -54.200001, 
                 "z": 0.000000
               }
             }, 
-            "Scale": 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "SpriteText": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Font": "Electrolize-Regular", 
-            "FontSize": 9, 
-            "Text": "Tools Programmer", 
-            "PixelsPerUnit": 64, 
-            "Smoothing": true, 
-            "WordWrap": 0, 
-            "DrawLayer": 4
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 72, 
-        "Name": "MikeRole", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 19.722651, 
-                "y": -47.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "SpriteText": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 0.200000, 
-                "y": 0.800000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Font": "Electrolize-Regular", 
-            "FontSize": 9, 
-            "Text": "Sound Designer", 
-            "PixelsPerUnit": 64, 
-            "Smoothing": true, 
-            "WordWrap": 0, 
-            "DrawLayer": 4
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 72, 
-        "Name": "AbbyRole", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 19.722651, 
-                "y": -48.799999, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "SpriteText": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Font": "Electrolize-Regular", 
-            "FontSize": 9, 
-            "Text": "Environment Artist", 
-            "PixelsPerUnit": 64, 
-            "Smoothing": true, 
-            "WordWrap": 0, 
-            "DrawLayer": 4
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 72, 
-        "Name": "ChristianRole", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 19.722651, 
-                "y": -50.599998, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "SpriteText": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 0.200000, 
-                "y": 0.800000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Font": "Electrolize-Regular", 
-            "FontSize": 9, 
-            "Text": "Technical Director", 
-            "PixelsPerUnit": 64, 
-            "Smoothing": true, 
-            "WordWrap": 0, 
-            "DrawLayer": 4
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 72, 
-        "Name": "BlaineRole", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 19.722651, 
-                "y": -52.400002, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "SpriteText": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Font": "Electrolize-Regular", 
-            "FontSize": 9, 
-            "Text": "Physics Programmer", 
-            "PixelsPerUnit": 64, 
-            "Smoothing": true, 
-            "WordWrap": 0, 
-            "DrawLayer": 4
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 72, 
-        "Name": "ConnorRole", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 19.722651, 
+                "x": 20.722651, 
                 "y": -54.200001, 
                 "z": 0.000000
               }
@@ -4070,6 +4721,88 @@
             {
               "Vec4": 
               {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 8, 
+            "Text": "Tools Programmer", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "MikeRole", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -55.599998, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -55.599998, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -55.599998, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
                 "x": 0.200000, 
                 "y": 0.800000, 
                 "z": 1.000000, 
@@ -4077,7 +4810,335 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 9, 
+            "FontSize": 8, 
+            "Text": "Sound Designer", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "AbbyRole", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -57.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -57.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -57.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 8, 
+            "Text": "Environment Artist", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "ChristianRole", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -58.400002, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -58.400002, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -58.400002, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.800000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 8, 
+            "Text": "Technical Director", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "BlaineRole", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -59.799999, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -59.799999, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -59.799999, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 8, 
+            "Text": "Physics Programmer", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "ConnorRole", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -61.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -61.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -61.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.800000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 8, 
             "Text": "Gameplay Programmer", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -4094,6 +5155,7 @@
         "Locked": false, 
         "GameObjectID": 2076, 
         "Name": "MoonwardLogo", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4103,7 +5165,25 @@
               "Vec3": 
               {
                 "x": -4.838921, 
-                "y": -39.656284, 
+                "y": -43.656284, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -4.838921, 
+                "y": -43.656284, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -4.838921, 
+                "y": -43.656284, 
                 "z": 0.000000
               }
             }, 
@@ -4177,6 +5257,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Thanks", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4185,8 +5266,26 @@
             {
               "Vec3": 
               {
-                "x": -11.277349, 
-                "y": -48.200001, 
+                "x": -11.446539, 
+                "y": -51.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -11.446539, 
+                "y": -51.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -11.446539, 
+                "y": -51.200001, 
                 "z": 0.000000
               }
             }, 
@@ -4240,6 +5339,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Allan", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4248,133 +5348,25 @@
             {
               "Vec3": 
               {
-                "x": -8.277349, 
-                "y": -50.200001, 
+                "x": -13.854376, 
+                "y": -53.200001, 
                 "z": 0.000000
               }
             }, 
-            "Rotation": 
+            "LocalTranslation": 
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": -13.854376, 
+                "y": -53.200001, 
                 "z": 0.000000
               }
             }, 
-            "Scale": 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "SpriteText": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Font": "Electrolize-Regular", 
-            "FontSize": 9, 
-            "Text": "Allan Deutsch", 
-            "PixelsPerUnit": 64, 
-            "Smoothing": true, 
-            "WordWrap": 0, 
-            "DrawLayer": 4
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 72, 
-        "Name": "AllanRole", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": -7.920871, 
-                "y": -50.891052, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "SpriteText": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 0.200000, 
-                "y": 0.800000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Font": "Electrolize-Regular", 
-            "FontSize": 6, 
-            "Text": "For his mentorship", 
-            "PixelsPerUnit": 64, 
-            "Smoothing": true, 
-            "WordWrap": 0, 
-            "DrawLayer": 4
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 72, 
-        "Name": " Mariah", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": -8.467471, 
+                "x": -13.854376, 
                 "y": -53.200001, 
                 "z": 0.000000
               }
@@ -4412,8 +5404,8 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 9, 
-            "Text": "Mariah Millard", 
+            "FontSize": 8, 
+            "Text": "Allan Deutsch", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
             "WordWrap": 0, 
@@ -4428,7 +5420,8 @@
       {
         "Locked": false, 
         "GameObjectID": 72, 
-        "Name": "MariahRole", 
+        "Name": "AllanRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4437,7 +5430,25 @@
             {
               "Vec3": 
               {
-                "x": -7.920871, 
+                "x": -13.497896, 
+                "y": -53.891052, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -13.497896, 
+                "y": -53.891052, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -13.497896, 
                 "y": -53.891052, 
                 "z": 0.000000
               }
@@ -4475,7 +5486,171 @@
               }
             }, 
             "Font": "Electrolize-Regular", 
-            "FontSize": 6, 
+            "FontSize": 5, 
+            "Text": "For his mentorship", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": " Mariah", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -14.044497, 
+                "y": -56.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -14.044497, 
+                "y": -56.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -14.044497, 
+                "y": -56.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 8, 
+            "Text": "Mariah Millard", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "MariahRole", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -13.497896, 
+                "y": -56.891052, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -13.497896, 
+                "y": -56.891052, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -13.497896, 
+                "y": -56.891052, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.800000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 5, 
             "Text": "For her logo design", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
@@ -4492,6 +5667,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "CopyrightText", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4500,8 +5676,26 @@
             {
               "Vec3": 
               {
-                "x": 12.722651, 
-                "y": -28.000000, 
+                "x": 16.722651, 
+                "y": -36.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 16.722651, 
+                "y": -36.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 16.722651, 
+                "y": -36.000000, 
                 "z": 0.000000
               }
             }, 
@@ -4555,11 +5749,30 @@
         "Locked": false, 
         "GameObjectID": 126, 
         "Name": "KeyUp", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 32.143272, 
+                "y": -6.392238, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 32.143272, 
+                "y": -6.392238, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -4636,11 +5849,30 @@
             "Locked": false, 
             "GameObjectID": 254, 
             "Name": "SpriteText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 31.635441, 
+                    "y": -6.742676, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -0.507832, 
+                    "y": -0.350438, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -4699,11 +5931,30 @@
             "Locked": false, 
             "GameObjectID": 388, 
             "Name": "UpText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 42.262772, 
+                    "y": -6.878340, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 10.119499, 
+                    "y": -0.486102, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -4762,11 +6013,30 @@
             "Locked": false, 
             "GameObjectID": 254, 
             "Name": "SpriteText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 36.429871, 
+                    "y": -6.631984, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 4.286598, 
+                    "y": -0.239746, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -4825,11 +6095,30 @@
             "Locked": false, 
             "GameObjectID": 1399, 
             "Name": "Sprite", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 38.244442, 
+                    "y": -6.413962, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 6.101170, 
+                    "y": -0.021724, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -4889,11 +6178,30 @@
         "Locked": false, 
         "GameObjectID": 126, 
         "Name": "KeyRight", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 38.649284, 
+                "y": -11.014119, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 38.649284, 
+                "y": -11.014119, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -4970,11 +6278,30 @@
             "Locked": false, 
             "GameObjectID": 254, 
             "Name": "SpriteText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 38.311497, 
+                    "y": -11.322047, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -0.337788, 
+                    "y": -0.307928, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -5033,11 +6360,30 @@
             "Locked": false, 
             "GameObjectID": 388, 
             "Name": "RightText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 40.398033, 
+                    "y": -11.587987, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.748749, 
+                    "y": -0.573868, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -5098,11 +6444,30 @@
         "Locked": false, 
         "GameObjectID": 126, 
         "Name": "KeyLeft", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 32.649284, 
+                "y": -11.014119, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 32.649284, 
+                "y": -11.014119, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5179,11 +6544,30 @@
             "Locked": false, 
             "GameObjectID": 254, 
             "Name": "SpriteText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 32.262104, 
+                    "y": -11.322047, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -0.387180, 
+                    "y": -0.307928, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -5242,11 +6626,30 @@
             "Locked": false, 
             "GameObjectID": 388, 
             "Name": "LeftText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 27.949852, 
+                    "y": -11.597667, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -4.699432, 
+                    "y": -0.583548, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -5307,11 +6710,30 @@
         "Locked": false, 
         "GameObjectID": 1101, 
         "Name": "OrText", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 33.602955, 
+                "y": -6.671386, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 33.602955, 
+                "y": -6.671386, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5370,11 +6792,30 @@
         "Locked": false, 
         "GameObjectID": 150, 
         "Name": "Mouse1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 62.848328, 
+                "y": -6.837908, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 62.848328, 
+                "y": -6.837908, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5432,11 +6873,30 @@
         "Locked": false, 
         "GameObjectID": 152, 
         "Name": "LMouse1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 46.078476, 
+                "y": -16.769711, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 46.078476, 
+                "y": -16.769711, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5495,11 +6955,30 @@
         "Locked": false, 
         "GameObjectID": 152, 
         "Name": "LMouse2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 53.153393, 
+                "y": -5.744085, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 53.153393, 
+                "y": -5.744085, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5558,11 +7037,30 @@
         "Locked": false, 
         "GameObjectID": 152, 
         "Name": "LMouse3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 51.900642, 
+                "y": -7.574791, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 51.900642, 
+                "y": -7.574791, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5621,11 +7119,30 @@
         "Locked": false, 
         "GameObjectID": 150, 
         "Name": "Mouse2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 51.710098, 
+                "y": -17.355160, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 51.710098, 
+                "y": -17.355160, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5683,11 +7200,30 @@
         "Locked": false, 
         "GameObjectID": 945, 
         "Name": "Sprite", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 51.709549, 
+                "y": -17.392773, 
+                "z": -0.010000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 51.709549, 
+                "y": -17.392773, 
+                "z": -0.010000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5745,11 +7281,30 @@
         "Locked": false, 
         "GameObjectID": 945, 
         "Name": "Sprite", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 58.020931, 
+                "y": -6.815785, 
+                "z": -0.010000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 58.020931, 
+                "y": -6.815785, 
+                "z": -0.010000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5807,11 +7362,30 @@
         "Locked": false, 
         "GameObjectID": 152, 
         "Name": "WithBall", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 53.960743, 
+                "y": -2.603456, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 53.960743, 
+                "y": -2.603456, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5870,11 +7444,30 @@
         "Locked": false, 
         "GameObjectID": 152, 
         "Name": "BallFree", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 47.678776, 
+                "y": -13.180444, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 47.678776, 
+                "y": -13.180444, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5933,11 +7526,30 @@
         "Locked": false, 
         "GameObjectID": 152, 
         "Name": "RMouse1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 54.120609, 
+                "y": -16.769711, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 54.120609, 
+                "y": -16.769711, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5996,11 +7608,30 @@
         "Locked": false, 
         "GameObjectID": 126, 
         "Name": "KeyFreeze", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 61.175117, 
+                "y": -15.672766, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 61.175117, 
+                "y": -15.672766, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6077,11 +7708,30 @@
             "Locked": false, 
             "GameObjectID": 254, 
             "Name": "SpriteText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 60.837326, 
+                    "y": -15.980695, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -0.337791, 
+                    "y": -0.307929, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -6140,11 +7790,30 @@
             "Locked": false, 
             "GameObjectID": 388, 
             "Name": "RightText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 62.923851, 
+                    "y": -16.246628, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.748734, 
+                    "y": -0.573862, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -6205,11 +7874,30 @@
         "Locked": false, 
         "GameObjectID": 126, 
         "Name": "KeyDissipate", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 61.175117, 
+                "y": -18.672764, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 61.175117, 
+                "y": -18.672764, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6286,11 +7974,30 @@
             "Locked": false, 
             "GameObjectID": 254, 
             "Name": "SpriteText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 60.837326, 
+                    "y": -18.980694, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -0.337791, 
+                    "y": -0.307930, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -6349,11 +8056,30 @@
             "Locked": false, 
             "GameObjectID": 388, 
             "Name": "RightText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
               {
                 "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 62.923851, 
+                    "y": -19.246632, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.748734, 
+                    "y": -0.573868, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
                 {
                   "Vec3": 
                   {
@@ -6414,11 +8140,30 @@
         "Locked": false, 
         "GameObjectID": 1101, 
         "Name": "MoveText", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 32.060089, 
+                "y": -3.467950, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 32.060089, 
+                "y": -3.467950, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6477,6 +8222,7 @@
         "Locked": false, 
         "GameObjectID": 184, 
         "Name": "Copyright", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6485,8 +8231,26 @@
             {
               "Vec3": 
               {
-                "x": 15.275105, 
-                "y": -27.848192, 
+                "x": 19.275105, 
+                "y": -35.848190, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 19.275105, 
+                "y": -35.848190, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 19.275105, 
+                "y": -35.848190, 
                 "z": 0.000000
               }
             }, 
@@ -6539,11 +8303,30 @@
         "Locked": true, 
         "GameObjectID": 590, 
         "Name": "Background", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 15.140377, 
+                "y": -43.659241, 
+                "z": -0.510000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 15.140377, 
+                "y": -43.659241, 
+                "z": -0.510000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6601,11 +8384,30 @@
         "Locked": true, 
         "GameObjectID": 590, 
         "Name": "Background", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 15.140377, 
+                "y": -60.659241, 
+                "z": -0.510000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 15.140377, 
+                "y": -60.659241, 
+                "z": -0.510000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6663,6 +8465,7 @@
         "Locked": false, 
         "GameObjectID": 98, 
         "Name": "OptionsManager", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6671,7 +8474,25 @@
             {
               "Vec3": 
               {
-                "x": -38.123249, 
+                "x": -35.123249, 
+                "y": -5.154541, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -35.123249, 
+                "y": -5.154541, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -35.123249, 
                 "y": -5.154541, 
                 "z": 0.000000
               }
@@ -6701,9 +8522,13 @@
             "ClickSoundName": "", 
             "AspRefTextName": "AspectText", 
             "ResRefTextName": "ResText", 
-            "AARefTextName": "AAText"
+            "AARefTextName": "AAText", 
+            "AudioRefTextName": "AudioText"
           }, 
           "GraphicsData": 
+          {
+          }, 
+          "AudioData": 
           {
           }
         }, 
@@ -6714,6 +8539,7 @@
             "Locked": false, 
             "GameObjectID": 142, 
             "Name": "FullScreenB", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -6722,8 +8548,26 @@
                 {
                   "Vec3": 
                   {
-                    "x": -37.977364, 
-                    "y": -10.015031, 
+                    "x": -31.547668, 
+                    "y": -2.458982, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 3.575581, 
+                    "y": 2.695559, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -31.547668, 
+                    "y": -2.458982, 
                     "z": 0.000000
                   }
                 }, 
@@ -6785,6 +8629,7 @@
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
@@ -6820,6 +8665,7 @@
                   }
                 }, 
                 "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -6840,6 +8686,7 @@
                 "Locked": false, 
                 "GameObjectID": 476, 
                 "Name": "FullScTxt", 
+                "Protected": false, 
                 "Components": 
                 {
                   "Transform": 
@@ -6848,8 +8695,26 @@
                     {
                       "Vec3": 
                       {
-                        "x": -39.953613, 
-                        "y": -10.103055, 
+                        "x": -33.523918, 
+                        "y": -2.547007, 
+                        "z": 0.001000
+                      }
+                    }, 
+                    "LocalTranslation": 
+                    {
+                      "Vec3": 
+                      {
+                        "x": -1.976250, 
+                        "y": -0.088025, 
+                        "z": 0.001000
+                      }
+                    }, 
+                    "WorldTranslation": 
+                    {
+                      "Vec3": 
+                      {
+                        "x": -33.523918, 
+                        "y": -2.547007, 
                         "z": 0.001000
                       }
                     }, 
@@ -6905,6 +8770,7 @@
             "Locked": false, 
             "GameObjectID": 789, 
             "Name": "NextRatio", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -6913,7 +8779,25 @@
                 {
                   "Vec3": 
                   {
-                    "x": -42.405563, 
+                    "x": -49.531212, 
+                    "y": -4.420001, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -14.407963, 
+                    "y": 0.734540, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -49.531212, 
                     "y": -4.420001, 
                     "z": 0.000000
                   }
@@ -6944,9 +8828,9 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
+                    "x": 0.800000, 
+                    "y": 0.800000, 
+                    "z": 0.800000, 
                     "w": 1.000000
                   }
                 }, 
@@ -6970,19 +8854,20 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
+                    "x": 0.800000, 
+                    "y": 0.800000, 
+                    "z": 0.800000, 
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
                   "Vec4": 
                   {
-                    "x": 0.000000, 
-                    "y": 1.000000, 
+                    "x": 0.200000, 
+                    "y": 0.800000, 
                     "z": 1.000000, 
                     "w": 1.000000
                   }
@@ -6992,8 +8877,8 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 0.000000, 
+                    "x": 0.200000, 
+                    "y": 1.000000, 
                     "z": 1.000000, 
                     "w": 1.000000
                   }
@@ -7011,6 +8896,7 @@
                   }
                 }, 
                 "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -7020,8 +8906,8 @@
                     "z": 1.000000
                   }
                 }, 
-                "ExpansionScale": 1.000000, 
-                "ExpansionTime": 0.000000
+                "ExpansionScale": 1.050000, 
+                "ExpansionTime": 0.200000
               }
             }, 
             "Children": 
@@ -7033,6 +8919,7 @@
             "Locked": false, 
             "GameObjectID": 789, 
             "Name": "PrevRatio", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -7041,7 +8928,25 @@
                 {
                   "Vec3": 
                   {
-                    "x": -49.405563, 
+                    "x": -57.405563, 
+                    "y": -4.420001, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -22.282314, 
+                    "y": 0.734540, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -57.405563, 
                     "y": -4.420001, 
                     "z": 0.000000
                   }
@@ -7072,9 +8977,9 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
+                    "x": 0.800000, 
+                    "y": 0.800000, 
+                    "z": 0.800000, 
                     "w": 1.000000
                   }
                 }, 
@@ -7098,19 +9003,20 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
+                    "x": 0.800000, 
+                    "y": 0.800000, 
+                    "z": 0.800000, 
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
                   "Vec4": 
                   {
-                    "x": 0.000000, 
-                    "y": 1.000000, 
+                    "x": 0.200000, 
+                    "y": 0.800000, 
                     "z": 1.000000, 
                     "w": 1.000000
                   }
@@ -7120,8 +9026,8 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 0.000000, 
+                    "x": 0.200000, 
+                    "y": 1.000000, 
                     "z": 1.000000, 
                     "w": 1.000000
                   }
@@ -7139,6 +9045,7 @@
                   }
                 }, 
                 "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -7148,8 +9055,8 @@
                     "z": 1.000000
                   }
                 }, 
-                "ExpansionScale": 1.000000, 
-                "ExpansionTime": 0.000000
+                "ExpansionScale": 1.050000, 
+                "ExpansionTime": 0.200000
               }
             }, 
             "Children": 
@@ -7161,6 +9068,7 @@
             "Locked": false, 
             "GameObjectID": 1786, 
             "Name": "AspectText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -7169,8 +9077,26 @@
                 {
                   "Vec3": 
                   {
-                    "x": -46.882175, 
-                    "y": -4.683331, 
+                    "x": -54.532791, 
+                    "y": -4.708461, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -19.409542, 
+                    "y": 0.446080, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -54.532791, 
+                    "y": -4.708461, 
                     "z": 0.000000
                   }
                 }, 
@@ -7206,7 +9132,7 @@
                     "w": 1.000000
                   }
                 }, 
-                "Font": "", 
+                "Font": "Electrolize-Regular", 
                 "FontSize": 7, 
                 "Text": "text", 
                 "PixelsPerUnit": 64, 
@@ -7224,6 +9150,7 @@
             "Locked": false, 
             "GameObjectID": 789, 
             "Name": "NextRes", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -7232,7 +9159,25 @@
                 {
                   "Vec3": 
                   {
-                    "x": -42.405563, 
+                    "x": -49.531212, 
+                    "y": -6.420001, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -14.407963, 
+                    "y": -1.265460, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -49.531212, 
                     "y": -6.420001, 
                     "z": 0.000000
                   }
@@ -7263,9 +9208,9 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
+                    "x": 0.800000, 
+                    "y": 0.800000, 
+                    "z": 0.800000, 
                     "w": 1.000000
                   }
                 }, 
@@ -7289,19 +9234,20 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
+                    "x": 0.800000, 
+                    "y": 0.800000, 
+                    "z": 0.800000, 
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
                   "Vec4": 
                   {
-                    "x": 0.000000, 
-                    "y": 1.000000, 
+                    "x": 0.200000, 
+                    "y": 0.800000, 
                     "z": 1.000000, 
                     "w": 1.000000
                   }
@@ -7311,8 +9257,8 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 0.000000, 
+                    "x": 0.200000, 
+                    "y": 1.000000, 
                     "z": 1.000000, 
                     "w": 1.000000
                   }
@@ -7330,6 +9276,7 @@
                   }
                 }, 
                 "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -7339,8 +9286,8 @@
                     "z": 1.000000
                   }
                 }, 
-                "ExpansionScale": 1.000000, 
-                "ExpansionTime": 0.000000
+                "ExpansionScale": 1.050000, 
+                "ExpansionTime": 0.200000
               }
             }, 
             "Children": 
@@ -7352,6 +9299,7 @@
             "Locked": false, 
             "GameObjectID": 789, 
             "Name": "PrevRes", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -7360,7 +9308,25 @@
                 {
                   "Vec3": 
                   {
-                    "x": -49.405563, 
+                    "x": -57.405563, 
+                    "y": -6.420001, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -22.282314, 
+                    "y": -1.265460, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -57.405563, 
                     "y": -6.420001, 
                     "z": 0.000000
                   }
@@ -7391,9 +9357,9 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
+                    "x": 0.800000, 
+                    "y": 0.800000, 
+                    "z": 0.800000, 
                     "w": 1.000000
                   }
                 }, 
@@ -7417,19 +9383,20 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
+                    "x": 0.800000, 
+                    "y": 0.800000, 
+                    "z": 0.800000, 
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
                   "Vec4": 
                   {
-                    "x": 0.000000, 
-                    "y": 1.000000, 
+                    "x": 0.200000, 
+                    "y": 0.800000, 
                     "z": 1.000000, 
                     "w": 1.000000
                   }
@@ -7439,8 +9406,8 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 0.000000, 
+                    "x": 0.200000, 
+                    "y": 1.000000, 
                     "z": 1.000000, 
                     "w": 1.000000
                   }
@@ -7458,6 +9425,7 @@
                   }
                 }, 
                 "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -7467,8 +9435,8 @@
                     "z": 1.000000
                   }
                 }, 
-                "ExpansionScale": 1.000000, 
-                "ExpansionTime": 0.000000
+                "ExpansionScale": 1.050000, 
+                "ExpansionTime": 0.200000
               }
             }, 
             "Children": 
@@ -7480,6 +9448,7 @@
             "Locked": false, 
             "GameObjectID": 1786, 
             "Name": "ResText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -7488,7 +9457,25 @@
                 {
                   "Vec3": 
                   {
-                    "x": -47.882175, 
+                    "x": -55.882175, 
+                    "y": -6.683331, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -20.758926, 
+                    "y": -1.528790, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -55.882175, 
                     "y": -6.683331, 
                     "z": 0.000000
                   }
@@ -7525,7 +9512,7 @@
                     "w": 1.000000
                   }
                 }, 
-                "Font": "", 
+                "Font": "Electrolize-Regular", 
                 "FontSize": 7, 
                 "Text": "text", 
                 "PixelsPerUnit": 64, 
@@ -7543,6 +9530,7 @@
             "Locked": false, 
             "GameObjectID": 789, 
             "Name": "NextAA", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -7551,8 +9539,26 @@
                 {
                   "Vec3": 
                   {
-                    "x": -42.405563, 
-                    "y": -8.420001, 
+                    "x": -38.405563, 
+                    "y": -4.420001, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -3.282314, 
+                    "y": 0.734540, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -38.405563, 
+                    "y": -4.420001, 
                     "z": 0.000000
                   }
                 }, 
@@ -7582,9 +9588,9 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
+                    "x": 0.800000, 
+                    "y": 0.800000, 
+                    "z": 0.800000, 
                     "w": 1.000000
                   }
                 }, 
@@ -7608,19 +9614,20 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
+                    "x": 0.800000, 
+                    "y": 0.800000, 
+                    "z": 0.800000, 
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
                   "Vec4": 
                   {
-                    "x": 0.000000, 
-                    "y": 1.000000, 
+                    "x": 0.200000, 
+                    "y": 0.800000, 
                     "z": 1.000000, 
                     "w": 1.000000
                   }
@@ -7630,8 +9637,8 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 0.000000, 
+                    "x": 0.200000, 
+                    "y": 1.000000, 
                     "z": 1.000000, 
                     "w": 1.000000
                   }
@@ -7649,6 +9656,7 @@
                   }
                 }, 
                 "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -7658,8 +9666,8 @@
                     "z": 1.000000
                   }
                 }, 
-                "ExpansionScale": 1.000000, 
-                "ExpansionTime": 0.000000
+                "ExpansionScale": 1.050000, 
+                "ExpansionTime": 0.200000
               }
             }, 
             "Children": 
@@ -7671,6 +9679,7 @@
             "Locked": false, 
             "GameObjectID": 789, 
             "Name": "PrevAA", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -7679,8 +9688,26 @@
                 {
                   "Vec3": 
                   {
-                    "x": -49.405563, 
-                    "y": -8.420001, 
+                    "x": -45.405563, 
+                    "y": -4.420001, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -10.282314, 
+                    "y": 0.734540, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -45.405563, 
+                    "y": -4.420001, 
                     "z": 0.000000
                   }
                 }, 
@@ -7710,9 +9737,9 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
+                    "x": 0.800000, 
+                    "y": 0.800000, 
+                    "z": 0.800000, 
                     "w": 1.000000
                   }
                 }, 
@@ -7736,19 +9763,20 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
+                    "x": 0.800000, 
+                    "y": 0.800000, 
+                    "z": 0.800000, 
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
                   "Vec4": 
                   {
-                    "x": 0.000000, 
-                    "y": 1.000000, 
+                    "x": 0.200000, 
+                    "y": 0.800000, 
                     "z": 1.000000, 
                     "w": 1.000000
                   }
@@ -7758,8 +9786,8 @@
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
-                    "y": 0.000000, 
+                    "x": 0.200000, 
+                    "y": 1.000000, 
                     "z": 1.000000, 
                     "w": 1.000000
                   }
@@ -7777,6 +9805,7 @@
                   }
                 }, 
                 "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
@@ -7786,8 +9815,8 @@
                     "z": 1.000000
                   }
                 }, 
-                "ExpansionScale": 1.000000, 
-                "ExpansionTime": 0.000000
+                "ExpansionScale": 1.050000, 
+                "ExpansionTime": 0.200000
               }
             }, 
             "Children": 
@@ -7799,6 +9828,7 @@
             "Locked": false, 
             "GameObjectID": 1786, 
             "Name": "AAText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -7807,8 +9837,26 @@
                 {
                   "Vec3": 
                   {
-                    "x": -46.882175, 
-                    "y": -8.683331, 
+                    "x": -42.882175, 
+                    "y": -4.683331, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -7.758926, 
+                    "y": 0.471210, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -42.882175, 
+                    "y": -4.683331, 
                     "z": 0.000000
                   }
                 }, 
@@ -7844,7 +9892,7 @@
                     "w": 1.000000
                   }
                 }, 
-                "Font": "", 
+                "Font": "Electrolize-Regular", 
                 "FontSize": 7, 
                 "Text": "text", 
                 "PixelsPerUnit": 64, 
@@ -7862,6 +9910,7 @@
             "Locked": false, 
             "GameObjectID": 142, 
             "Name": "Apply", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -7870,8 +9919,26 @@
                 {
                   "Vec3": 
                   {
-                    "x": -34.977364, 
-                    "y": -19.015030, 
+                    "x": -34.997169, 
+                    "y": -19.193270, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.126080, 
+                    "y": -14.038729, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -34.997169, 
+                    "y": -19.193270, 
                     "z": 0.000000
                   }
                 }, 
@@ -7888,7 +9955,7 @@
                 {
                   "Vec3": 
                   {
-                    "x": 6.000000, 
+                    "x": 5.000000, 
                     "y": 1.800000, 
                     "z": 1.000000
                   }
@@ -7902,8 +9969,8 @@
                   "Vec4": 
                   {
                     "x": 0.200000, 
-                    "y": 0.200000, 
-                    "z": 0.200000, 
+                    "y": 0.300000, 
+                    "z": 0.500000, 
                     "w": 1.000000
                   }
                 }, 
@@ -7928,19 +9995,20 @@
                   "Vec4": 
                   {
                     "x": 0.200000, 
-                    "y": 0.200000, 
-                    "z": 0.200000, 
+                    "y": 0.300000, 
+                    "z": 0.500000, 
                     "w": 1.000000
                   }
                 }, 
+                "DefaultSprite": "", 
                 "DefaultZ": 0.000000, 
                 "HoveredColor": 
                 {
                   "Vec4": 
                   {
                     "x": 0.200000, 
-                    "y": 0.300000, 
-                    "z": 0.400000, 
+                    "y": 0.800000, 
+                    "z": 1.000000, 
                     "w": 1.000000
                   }
                 }, 
@@ -7949,9 +10017,9 @@
                 {
                   "Vec4": 
                   {
-                    "x": 0.400000, 
-                    "y": 0.200000, 
-                    "z": 0.200000, 
+                    "x": 0.200000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
                     "w": 1.000000
                   }
                 }, 
@@ -7968,11 +10036,12 @@
                   }
                 }, 
                 "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
                 "NormalScale": 
                 {
                   "Vec3": 
                   {
-                    "x": 6.000000, 
+                    "x": 5.000000, 
                     "y": 1.800000, 
                     "z": 0.000000
                   }
@@ -7988,6 +10057,7 @@
                 "Locked": false, 
                 "GameObjectID": 476, 
                 "Name": "ApplyTxt", 
+                "Protected": false, 
                 "Components": 
                 {
                   "Transform": 
@@ -7996,8 +10066,26 @@
                     {
                       "Vec3": 
                       {
-                        "x": -36.953613, 
-                        "y": -19.103054, 
+                        "x": -35.942436, 
+                        "y": -19.306440, 
+                        "z": 0.001000
+                      }
+                    }, 
+                    "LocalTranslation": 
+                    {
+                      "Vec3": 
+                      {
+                        "x": -0.945267, 
+                        "y": -0.113171, 
+                        "z": 0.001000
+                      }
+                    }, 
+                    "WorldTranslation": 
+                    {
+                      "Vec3": 
+                      {
+                        "x": -35.942436, 
+                        "y": -19.306440, 
                         "z": 0.001000
                       }
                     }, 
@@ -8034,8 +10122,8 @@
                       }
                     }, 
                     "Font": "SafetyMedium", 
-                    "FontSize": 4, 
-                    "Text": "Toggle Fullscreen", 
+                    "FontSize": 5, 
+                    "Text": "Apply", 
                     "PixelsPerUnit": 64, 
                     "Smoothing": true, 
                     "WordWrap": 0, 
@@ -8047,6 +10135,386 @@
                 }
               }
             }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 789, 
+            "Name": "NextAudio", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -43.531212, 
+                    "y": -12.420001, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -8.407963, 
+                    "y": -7.265460, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -43.531212, 
+                    "y": -12.420001, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.800000, 
+                    "y": 0.800000, 
+                    "z": 0.800000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "SpriteSource": "Arrow", 
+                "FlipX": false, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
+              }, 
+              "Reactive": 
+              {
+                "Active": false, 
+                "CaptureMouse": false, 
+                "Noise": false
+              }, 
+              "UIButton": 
+              {
+                "Active": true, 
+                "DefaultColor": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.800000, 
+                    "y": 0.800000, 
+                    "z": 0.800000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "DefaultSprite": "", 
+                "DefaultZ": 0.000000, 
+                "HoveredColor": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.200000, 
+                    "y": 0.800000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "HoveredZ": 0.000000, 
+                "ClickedColor": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.200000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "ClickedSprite": "", 
+                "CooldownPeriod": 1.000000, 
+                "InactiveColor": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
+                "NormalScale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }, 
+                "ExpansionScale": 1.050000, 
+                "ExpansionTime": 0.200000
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 789, 
+            "Name": "PrevAudio", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -52.405563, 
+                    "y": -12.420001, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -17.282314, 
+                    "y": -7.265460, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -52.405563, 
+                    "y": -12.420001, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.800000, 
+                    "y": 0.800000, 
+                    "z": 0.800000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "SpriteSource": "Arrow", 
+                "FlipX": true, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
+              }, 
+              "Reactive": 
+              {
+                "Active": false, 
+                "CaptureMouse": false, 
+                "Noise": false
+              }, 
+              "UIButton": 
+              {
+                "Active": true, 
+                "DefaultColor": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.800000, 
+                    "y": 0.800000, 
+                    "z": 0.800000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "DefaultSprite": "", 
+                "DefaultZ": 0.000000, 
+                "HoveredColor": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.200000, 
+                    "y": 0.800000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "HoveredZ": 0.000000, 
+                "ClickedColor": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.200000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "ClickedSprite": "", 
+                "CooldownPeriod": 1.000000, 
+                "InactiveColor": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "TextReferenceName": "", 
+                "SubSpriteRefName": "", 
+                "NormalScale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }, 
+                "ExpansionScale": 1.050000, 
+                "ExpansionTime": 0.200000
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 1786, 
+            "Name": "AudioText", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -50.882175, 
+                    "y": -12.683331, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -15.758926, 
+                    "y": -7.528790, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -50.882175, 
+                    "y": -12.683331, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "SpriteText": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "Font": "Electrolize-Regular", 
+                "FontSize": 6, 
+                "Text": "text", 
+                "PixelsPerUnit": 64, 
+                "Smoothing": true, 
+                "WordWrap": 0, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
           }
         }
       }, 
@@ -8055,6 +10523,7 @@
         "Locked": true, 
         "GameObjectID": 196, 
         "Name": "LevelSettings", 
+        "Protected": false, 
         "Components": 
         {
         }, 
@@ -8064,11 +10533,1639 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
-        "GameObjectID": 112, 
-        "Name": "LevelSettings", 
+        "Locked": false, 
+        "GameObjectID": 1786, 
+        "Name": "AspectTitle", 
+        "Protected": false, 
         "Components": 
         {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -55.717266, 
+                "y": -1.824448, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -55.717266, 
+                "y": -1.824448, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -55.717266, 
+                "y": -1.824448, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.800000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "SafetyMedium", 
+            "FontSize": 7, 
+            "Text": "Resolution", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 1786, 
+        "Name": "AATitle", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -44.543495, 
+                "y": -2.050236, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -44.543495, 
+                "y": -2.050236, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -44.543495, 
+                "y": -2.050236, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.800000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "SafetyMedium", 
+            "FontSize": 6, 
+            "Text": "Anti-Aliasing", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "Claude", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -41.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -41.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -41.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 8, 
+            "Text": "Claude Comair", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "ClaudeRole", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -41.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -41.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -41.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 8, 
+            "Text": "President", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "Ellen", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -43.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -43.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -43.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.800000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 8, 
+            "Text": "Ellen Beeman", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "IRole", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -43.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -43.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 20.722651, 
+                "y": -43.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.800000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 8, 
+            "Text": "Instructors", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "Ben", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -44.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -44.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -44.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 8, 
+            "Text": "Benjamin Ellinger", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "Rachel", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -45.400002, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -45.400002, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.722650, 
+                "y": -45.400002, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.800000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 8, 
+            "Text": "Rachel Rutherford", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "Trevor", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.854373, 
+                "y": -53.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.854373, 
+                "y": -53.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.854373, 
+                "y": -53.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 8, 
+            "Text": "Trevor Sundberg", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "AllanRole", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.667085, 
+                "y": -53.891052, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.667085, 
+                "y": -53.891052, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.667085, 
+                "y": -53.891052, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.800000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 4, 
+            "Text": "For giving us the Zilch language", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "Josh", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.311337, 
+                "y": -56.143604, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.311337, 
+                "y": -56.143604, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.311337, 
+                "y": -56.143604, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 8, 
+            "Text": "Joshua Fisher", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "JoshRole", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.385100, 
+                "y": -56.834656, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.385100, 
+                "y": -56.834656, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.385100, 
+                "y": -56.834656, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.800000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 4, 
+            "Text": "For helping us integrate Zilch", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "Johannes", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -14.241886, 
+                "y": -59.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -14.241886, 
+                "y": -59.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -14.241886, 
+                "y": -59.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 8, 
+            "Text": "Johannes Peter", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "JohannesRole", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -14.231056, 
+                "y": -59.891052, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -14.231056, 
+                "y": -59.891052, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -14.231056, 
+                "y": -59.891052, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.800000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 5, 
+            "Text": "For technical assistance", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "Johannes", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.157289, 
+                "y": -59.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.157289, 
+                "y": -59.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.157289, 
+                "y": -59.200001, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 8, 
+            "Text": "Team SMBIT", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "JohannesRole", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.174656, 
+                "y": -59.891052, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.174656, 
+                "y": -59.891052, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -5.174656, 
+                "y": -59.891052, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.800000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 5, 
+            "Text": "For excellent tutoring", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "FMODCopyrightText", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 16.722651, 
+                "y": -37.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 16.722651, 
+                "y": -37.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 16.722651, 
+                "y": -37.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 4, 
+            "Text": "Audio Engine supplied by FMOD by Firelight Technologies.", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": false, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "ChenRole", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -10.029888, 
+                "y": -62.067074, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -10.029888, 
+                "y": -62.067074, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -10.029888, 
+                "y": -62.067074, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.800000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 5, 
+            "Text": "For our graphics foundation", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 72, 
+        "Name": "Chen", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -8.241886, 
+                "y": -61.376022, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -8.241886, 
+                "y": -61.376022, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -8.241886, 
+                "y": -61.376022, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 8, 
+            "Text": "Chen Shu", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 1786, 
+        "Name": "Audio", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -49.717266, 
+                "y": -9.824448, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -49.717266, 
+                "y": -9.824448, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -49.717266, 
+                "y": -9.824448, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.200000, 
+                "y": 0.800000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "SafetyMedium", 
+            "FontSize": 7, 
+            "Text": "Audio", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 0, 
+            "DrawLayer": 4
+          }
         }, 
         "Children": 
         {

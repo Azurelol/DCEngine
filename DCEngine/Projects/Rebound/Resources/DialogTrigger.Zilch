@@ -1,4 +1,4 @@
-enum Speaker { Asha, Dude}
+enum Speaker { Asha, Cyrus}
 
 class DialogTrigger : ZilchComponent
 {
@@ -12,33 +12,36 @@ class DialogTrigger : ZilchComponent
 	var ActiveOnCollision : Boolean = true;
 	
 	[Property]
+	var ActiveOnlyOnce : Boolean = true;
+	
+	[Property]
 	var Message1String : String = "";
 	[Property]
-	var Message1Speaker : Speaker = Speaker.Dude;
+	var Message1Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message2String : String = "";
 	[Property]
-	var Message2Speaker : Speaker = Speaker.Dude;
+	var Message2Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message3String : String = "";
 	[Property]
-	var Message3Speaker : Speaker = Speaker.Dude;
+	var Message3Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message4String : String = "";
 	[Property]
-	var Message4Speaker : Speaker = Speaker.Dude;
+	var Message4Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message5String : String = "";
 	[Property]
-	var Message5Speaker : Speaker = Speaker.Dude;
+	var Message5Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message6String : String = "";
 	[Property]
-	var Message6Speaker : Speaker = Speaker.Dude;
+	var Message6Speaker : Speaker = Speaker.Cyrus;
 	[Property]
 	var Message7String : String = "";
 	[Property]
-	var Message7Speaker : Speaker = Speaker.Dude;
+	var Message7Speaker : Speaker = Speaker.Cyrus;
 	
 	var Message1 : MessageEvent = MessageEvent();
 	var Message2 : MessageEvent = MessageEvent();
@@ -50,6 +53,7 @@ class DialogTrigger : ZilchComponent
 	
 	
 	var Active : Boolean = false;
+	var NoMoreActivating : Boolean = false;
 	var MessageNumber : Integer = 1;
 	var FirstCollisionOccurred : Boolean = false;
 	
@@ -100,11 +104,13 @@ class DialogTrigger : ZilchComponent
 
 	function SendWipeMessage()
 	{
+		if(this.ActiveOnlyOnce)
+		{
+			this.NoMoreActivating = true;
+		}
+		this.Active = false;
 		var ourText = this.Space.FindObjectByName(this.DialogTextObjectName);
-		var curEvent = MessageEvent();
-		curEvent.NewMessage = true;
-		curEvent.Message = "";
-		ourText.Dispatch(DaisyEvent.MessageEvent, curEvent);
+		ourText.DialogText.WipeMessage();
 	}
 	
     function OnMouseDown(event : MouseDown)
@@ -115,11 +121,14 @@ class DialogTrigger : ZilchComponent
 			(this.OnlyOnFirstCollision == false || this.FirstCollisionOccurred == false))
 			{
 				var ourText = this.Space.FindObjectByName(this.DialogTextObjectName);
+				Console.WriteLine(ourText.DialogText.Finished);
 				if(ourText.DialogText.Finished == true)
 				{
+					Console.WriteLine(this.Active);
 					var curEvent = this.Message1;
 					if(this.MessageNumber == 1)
 					{
+						Console.WriteLine("???");
 						ourText.DialogText.CurSpeaker = this.Message1Speaker;
 						if(this.Message1String == "")
 							this.SendWipeMessage();
@@ -208,14 +217,15 @@ class DialogTrigger : ZilchComponent
 	
 	function OnActivateDialogEvent(event : ActivateDialog)
 	{
-		this.Active = true;
+		if(this.NoMoreActivating == false)
+			this.Active = true;
 	}
 
     function OnCollision(event : CollisionStarted)
     {
 		if(event.OtherObject.Name == "Player")
 		{
-			if(this.Active == false)
+			if(this.Active == false && this.NoMoreActivating == false)
 			{
 				var curEvent = this.Message1;
 				var ourText = this.Space.FindObjectByName(this.DialogTextObjectName);

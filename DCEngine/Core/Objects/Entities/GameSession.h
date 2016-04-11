@@ -51,6 +51,7 @@ namespace DCEngine {
     SpacePtr GetSpace(std::string name);
     SpaceMap& AllSpaces();
     Space* getDefaultSpace();
+    void Quit();
 
   private:
 

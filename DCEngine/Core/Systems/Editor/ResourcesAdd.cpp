@@ -147,11 +147,10 @@ namespace DCEngine {
       Creator.CreateLevelSettings();
       // Add a default camera
       Creator.CreateCamera();
-      //CurrentSpace->CreateObject("Camera");      
       // Save the level
       Projects.SaveLevel(name);
       // Add the editor camera right away
-      SetEditorCamera(true);
+      Launcher.CreateEditorCamera();
       return true;
     }
 

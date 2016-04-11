@@ -13,7 +13,7 @@
 #pragma once
 
 #include "MacrosEvents.h"
-#include "MacrosBinding.h"
+#include "MacrosBinding.h""
 
 namespace DCEngine {
 
@@ -43,6 +43,16 @@ namespace DCEngine {
   const propertyType& get##propertyName() const {                                 \
     return propertyName;                                                          \
   }                                                                               \
+  void set##propertyName(propertyType const& value) {                             \
+    propertyName = value;                                                         \
+  }
+
+  #define DCE_DEFINE_GETTER(propertyType, propertyName)                           \
+  const propertyType& get##propertyName() const {                                 \
+    return propertyName;                                                          \
+  }
+
+  #define DCE_DEFINE_SETTER(propertyType, propertyName)                           \
   void set##propertyName(propertyType const& value) {                             \
     propertyName = value;                                                         \
   }

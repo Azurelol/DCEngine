@@ -36,6 +36,8 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(SoundSpace, Volume);
       DCE_BINDING_DEFINE_PROPERTY(SoundSpace, Pitch);
       DCE_BINDING_DEFINE_PROPERTY(SoundSpace, Pause);
+      ZilchBindMethod(builder, type, &SoundSpace::InterpolateVolume, ZilchNoOverload, "InterpolateVolume", "newVolume, time");
+      ZilchBindMethod(builder, type, &SoundSpace::InterpolatePitch, ZilchNoOverload, "InterpolatePitch", "newPitch, time");
     }
     #endif
 
@@ -50,35 +52,11 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief  Initializes the 'SoundSpace' component.
-    */
-    /**************************************************************************/
-    void SoundSpace::Initialize() {
-      Connect(SpaceRef, Events::LogicUpdate, SoundSpace::OnLogicUpdate);
-
-      // Register this space to the sound system
-      Daisy->getSystem<Systems::Audio>()->Register(*this);
-    }
-
-    /**************************************************************************/
-    /*!
-    @brief  Receives a LogicUpdate event.
-    @param  event The update event.
-    */
-    /**************************************************************************/
-    void SoundSpace::OnLogicUpdate(Events::LogicUpdate* event) {
-    }
-
-    /**************************************************************************/
-    /*!
     @brief  Destroys all active sound instances played through this SoundSpace.
     */
     /**************************************************************************/
     void SoundSpace::Clear()
     {
-
-      return;
-
       for (auto& instance : ActiveSoundInstances) {
         //SoundInstance::Dereference(instance)->Stop();
         instance.Delete();
@@ -91,7 +69,189 @@ namespace DCEngine {
       }
       ActiveSoundInstances.clear();
       ActiveSoundInstancePtrs.clear();
+
+      Daisy->getSystem<Systems::Audio>()->Pulse();
     }
+
+    /**************************************************************************/
+    /*!
+    @brief  Initializes the 'SoundSpace' component.
+    */
+    /**************************************************************************/
+    void SoundSpace::Initialize() {
+      Daisy->Connect<Events::LogicUpdate>(SpaceRef, &SoundSpace::OnLogicUpdateEvent, this);
+      Daisy->Connect<Events::GameFocusOut>(GameSessionRef, &SoundSpace::OnGameFocusOutEvent, this);
+      Daisy->Connect<Events::GameFocusIn>(GameSessionRef, &SoundSpace::OnGameFocusInEvent, this);
+      
+
+      // Register this space to the sound system
+      Daisy->getSystem<Systems::Audio>()->Register(*this);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Received when the Game gains focus.
+    */
+    /**************************************************************************/
+    void SoundSpace::OnGameFocusInEvent(Events::GameFocusIn * event)
+    {
+      ResumeAll();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Received when the Game loses focus.
+    */
+    /**************************************************************************/
+    void SoundSpace::OnGameFocusOutEvent(Events::GameFocusOut * event)
+    {
+      PauseAll();
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Receives a LogicUpdate event.
+    @param  event The update event.
+    */
+    /**************************************************************************/
+    void SoundSpace::OnLogicUpdateEvent(Events::LogicUpdate* event) {
+
+      // Poll all sound instances to know if they have stopped playing
+      
+
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief Sets the volume of all SoundInstances on the space.
+    @param volume The new volume
+    */
+    /**************************************************************************/
+    void SoundSpace::setVolume(const Real & volume)
+    {
+      InterpolateVolume(volume, 0);
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Pauses or unpauses all of active SoundInstances.
+    @param  pause Whether to pause the sounds or not.
+    */
+    /**************************************************************************/
+    void SoundSpace::setPause(const Boolean& pause)
+    {
+      if (pause)
+        PauseAll();
+      else
+        ResumeAll();      
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Sets the global pitch for all sounds in the space.
+    */
+    /**************************************************************************/
+    void SoundSpace::setPitch(const Real& pitch)
+    {
+      InterpolatePitch(pitch, 0);
+    }
+
+
+    /**************************************************************************/
+    /*!
+    @brief A function that interpolates the volume of a SoundInstance to a new
+    value over a certain amount of time.
+    @param newVolume The new volume one wishes to interpolate to.
+    @param time The seconds over which the new volume will be interpolated.
+    */
+    /**************************************************************************/
+    void SoundSpace::InterpolateVolume(Real newVolume, Real time)
+    {
+      Volume = newVolume;
+      for (auto& instance : ActiveSoundInstances) {
+        if (!instance.IsNull())
+          SoundInstance::Dereference(instance)->InterpolateVolume(newVolume, time); 
+      }
+      for (auto& instance : ActiveSoundInstancePtrs) {
+        if (instance)
+          instance->InterpolateVolume(newVolume, time);
+      }
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief A function that interpolates the pitch of a SoundInstance to a new
+    value over a certain amount of time.
+    @param newPitch The new pitch one wishes to interpolate to.
+    @param time The seconds over which the new volume will be interpolated.
+    */
+    /**************************************************************************/
+    void SoundSpace::InterpolatePitch(Real newPitch, Real time)
+    {
+      Pitch = newPitch;
+      for (auto& instance : ActiveSoundInstances) {
+        if (!instance.IsNull())
+          SoundInstance::Dereference(instance)->InterpolatePitch(newPitch, time);
+      }
+      for (auto& instance : ActiveSoundInstancePtrs) {
+        if (instance)
+          instance->InterpolatePitch(newPitch, time);
+      }
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Pauses all SoundInstances from playing.
+    */
+    /**************************************************************************/
+    void SoundSpace::PauseAll()
+    {
+      for (auto& instance : ActiveSoundInstances) {
+        if (!instance.IsNull())
+          SoundInstance::Dereference(instance)->Pause();
+      }
+      for (auto& instance : ActiveSoundInstancePtrs) {
+        if (instance)
+          instance->Pause();
+      }
+      Pause = true;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Resumes all SoundInstances.
+    */
+    /**************************************************************************/
+    void SoundSpace::ResumeAll()
+    {
+      for (auto& instance : ActiveSoundInstances) {
+        if (!instance.IsNull())
+          SoundInstance::Dereference(instance)->Resume();
+      }
+      for (auto& instance : ActiveSoundInstancePtrs) {
+        if (instance)
+          instance->Resume();
+      }
+      Pause = false;
+    }
+
+    /**************************************************************************/
+    /*!
+    @brief  Stops all SoundInstances from playing.
+    */
+    /**************************************************************************/
+    void SoundSpace::StopAll()
+    {
+      for (auto& instance : ActiveSoundInstances) {
+        if (!instance.IsNull())
+          SoundInstance::Dereference(instance)->Stop();
+      }
+      for (auto& instance : ActiveSoundInstancePtrs) {
+        if (instance)
+          instance->Stop();
+      }
+    }
+
 
     /**************************************************************************/
     /*!

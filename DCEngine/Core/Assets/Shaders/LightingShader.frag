@@ -50,7 +50,7 @@ float GenerateFalloffFactor(float distance, float range, float falloff)
 {
 	if(distance <= range)
 		if(falloff > 0.0)
-			return (1.0 - distance/range) / (falloff * falloff);
+			return (1.0 - distance/range) / (exp(falloff) - 1);
 		else
 			return 1.0;
 	else return 0.0;

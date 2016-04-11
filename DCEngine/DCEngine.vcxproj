@@ -219,7 +219,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
@@ -244,7 +244,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
@@ -371,6 +371,7 @@
     <ClCompile Include="Core\Systems\Editor\EditorInspectorPreview.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorInspectorProperties.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorInspectorResources.cpp" />
+    <ClCompile Include="Core\Systems\Editor\EditorLauncher.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorModule.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorObjects.cpp" />
     <ClCompile Include="Core\Systems\Editor\EditorPreferences.cpp" />
@@ -524,6 +525,7 @@
     <ClInclude Include="Core\Systems\Editor\EditorCreator.h" />
     <ClInclude Include="Core\Systems\Editor\EditorDiagnostics.h" />
     <ClInclude Include="Core\Systems\Editor\EditorInspector.hpp" />
+    <ClInclude Include="Core\Systems\Editor\EditorLauncher.h" />
     <ClInclude Include="Core\Systems\Editor\EditorModule.h" />
     <ClInclude Include="Core\Systems\Editor\EditorModulesInclude.h" />
     <ClInclude Include="Core\Systems\Editor\EditorObjects.h" />

@@ -10,11 +10,30 @@
         "Locked": false, 
         "GameObjectID": 320, 
         "Name": "Camera", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -66,11 +85,30 @@
         "Locked": false, 
         "GameObjectID": 321, 
         "Name": "Background", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -1.500000, 
+                "y": 0.000000, 
+                "z": -0.100000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -1.500000, 
+                "y": 0.000000, 
+                "z": -0.100000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -128,11 +166,30 @@
         "Locked": false, 
         "GameObjectID": 322, 
         "Name": "PlayerController", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": -1083.242920, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": -1083.242920, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -243,7 +300,9 @@
             "JumpAnimation": "PlayerFall", 
             "RunAnimation": "Char_Asha_Run_Spritesheet", 
             "FallAnimation": "Char_Asha_Fall_Spritesheet", 
+            "ThrowAnimation": "Char_Asha_Throw_Spritesheet", 
             "AutoPlayTimer": 2.000000, 
+            "LandingParticle": "LandingParticle", 
             "TeleportStartSound": "Teleport", 
             "TeleportArriveSound": "TeleportArrive", 
             "JumpSound": "Jump", 
@@ -261,11 +320,30 @@
         "Locked": false, 
         "GameObjectID": 323, 
         "Name": "MusicManager", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 11.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 11.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -310,11 +388,30 @@
         "Locked": false, 
         "GameObjectID": 324, 
         "Name": "GoBackButton", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": -10.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": -10.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -374,6 +471,19 @@
             "LoadingTime": 1.000000, 
             "TimerStarted": false
           }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": true, 
+        "GameObjectID": 140, 
+        "Name": "LevelSettings", 
+        "Protected": false, 
+        "Components": 
+        {
         }, 
         "Children": 
         {
