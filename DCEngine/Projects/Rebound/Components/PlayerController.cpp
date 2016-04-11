@@ -383,7 +383,8 @@ namespace DCEngine {
 			SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("Death");
 			if (cameraRef)
 			{
-				cameraRef->getComponent<Components::CameraController>()->DoScreenShake = true;
+				//cameraRef->getComponent<Components::CameraControllerZilch>()->DoScreenShake = true;
+				//dispatch event
 			}
 			// play teleport start.
 			SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(TeleportStartSound);
@@ -493,6 +494,10 @@ namespace DCEngine {
 
 		Boolean PlayerController::CheckForGround()
 		{
+			if (glm::abs(RigidBodyRef->getVelocity().y) > 4)
+			{
+				return false;
+			}
 			DCEngine::CastFilter filter;
 			filter.CollisionGroups.push_back(CollisionGroup::Find("Terrain"));
 			filter.CollisionGroups.push_back(CollisionGroup::Find("Ball"));

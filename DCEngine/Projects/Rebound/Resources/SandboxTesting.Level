@@ -1567,7 +1567,9 @@
             "Locked": false, 
             "GameObjectID": 99, 
             "Name": "TestParticle", 
+<<<<<<< HEAD
             "Protected": false, 
+=======
             "Components": 
             {
               "Transform": 
@@ -1576,8 +1578,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -93.674179, 
-                    "y": -3.785312, 
+                    "x": -100.000000, 
+                    "y": 10.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -1594,8 +1596,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -93.674179, 
-                    "y": -3.785312, 
+                    "x": -100.000000, 
+                    "y": 10.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -1635,6 +1637,172 @@
                 "VelocityScale": 1.000000, 
                 "LengthScale": 1.000000, 
                 "SystemSize": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 4.000000, 
+                    "y": 4.000000, 
+                    "z": 4.000000
+                  }
+                }, 
+                "Additive": true, 
+                "Lock": false, 
+                "DrawLayer": 4
+              }, 
+              "ParticleEmitter": 
+              {
+                "Active": true, 
+                "ResetCount": false, 
+                "EmitCount": 0, 
+                "EmitRate": 20, 
+                "EmitVariance": 0, 
+                "Size": 0.200000, 
+                "SizeVariance": 0.100000, 
+                "Lifetime": 4.000000, 
+                "LifetimeVariance": 0.000000, 
+                "Spin": 100.000000, 
+                "SpinVariance": 100.000000, 
+                "StartVelocity": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "RandomVelocity": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.125000, 
+                    "y": 0.125000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "EmissionArea": 
+                {
+                  "Vec2": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000
+                  }
+                }, 
+                "EmissionCircle": false
+              }, 
+              "LinearParticleAnimator": 
+              {
+                "Force": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "RandomForce": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Torque": 0.000000, 
+                "Growth": -0.050000, 
+                "Dampening": 0.000000
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 25, 
+            "Name": "TestParticle", 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": -93.674179, 
+                    "y": -3.785312, 
+=======
+                    "x": -100.000000, 
+                    "y": 10.000000, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": -93.674179, 
+                    "y": -3.785312, 
+=======
+                    "x": -100.000000, 
+                    "y": 10.000000, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "SpriteParticleSystem": 
+              {
+                "Visible": true, 
+                "Tint": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "Texture": "Laser", 
+                "VelocityScale": 1.000000, 
+                "LengthScale": 1.000000, 
+                "SystemSize": 
+<<<<<<< HEAD
                 {
                   "Vec3": 
                   {
@@ -1734,9 +1902,34 @@
                     "x": -93.674179, 
                     "y": -3.785312, 
                     "z": 0.000000
+=======
+                {
+                  "Vec3": 
+                  {
+                    "x": 4.000000, 
+                    "y": 4.000000, 
+                    "z": 4.000000
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                   }
                 }, 
-                "LocalTranslation": 
+                "Additive": true, 
+                "Lock": false, 
+                "DrawLayer": 4
+              }, 
+              "ParticleEmitter": 
+              {
+                "Active": true, 
+                "ResetCount": false, 
+                "EmitCount": 0, 
+                "EmitRate": 20, 
+                "EmitVariance": 0, 
+                "Size": 0.200000, 
+                "SizeVariance": 0.100000, 
+                "Lifetime": 4.000000, 
+                "LifetimeVariance": 0.000000, 
+                "Spin": 100.000000, 
+                "SpinVariance": 100.000000, 
+                "StartVelocity": 
                 {
                   "Vec3": 
                   {
@@ -1745,28 +1938,37 @@
                     "z": 0.000000
                   }
                 }, 
-                "WorldTranslation": 
+                "RandomVelocity": 
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": -93.674179, 
                     "y": -3.785312, 
+=======
+                    "x": 0.125000, 
+                    "y": 0.125000, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
-                "Rotation": 
+                "EmissionArea": 
                 {
-                  "Vec3": 
+                  "Vec2": 
                   {
                     "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
+                    "y": 0.000000
                   }
                 }, 
-                "Scale": 
+                "EmissionCircle": false
+              }, 
+              "LinearParticleAnimator": 
+              {
+                "Force": 
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 1.000000, 
                     "y": 1.000000, 
                     "z": 1.000000
@@ -1777,10 +1979,19 @@
               {
                 "Visible": true, 
                 "Tint": 
+=======
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "RandomForce": 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                 {
-                  "Vec4": 
+                  "Vec3": 
                   {
                     "x": 0.000000, 
+<<<<<<< HEAD
                     "y": 1.000000, 
                     "z": 1.000000, 
                     "w": 1.000000
@@ -1863,6 +2074,12 @@
                     "z": 0.000000
                   }
                 }, 
+=======
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                 "Torque": 0.000000, 
                 "Growth": -0.050000, 
                 "Dampening": 0.000000
@@ -1875,9 +2092,14 @@
           "GameObject": 
           {
             "Locked": false, 
+<<<<<<< HEAD
             "GameObjectID": 557, 
             "Name": "TestParticle", 
             "Protected": false, 
+=======
+            "GameObjectID": 26, 
+            "Name": "TestParticle", 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
             "Components": 
             {
               "Transform": 
@@ -1886,8 +2108,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": -93.674179, 
                     "y": -3.785312, 
+=======
+                    "x": -100.000000, 
+                    "y": 10.000000, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -1904,8 +2131,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": -93.674179, 
                     "y": -3.785312, 
+=======
+                    "x": -100.000000, 
+                    "y": 10.000000, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -1945,6 +2177,7 @@
                 "VelocityScale": 1.000000, 
                 "LengthScale": 1.000000, 
                 "SystemSize": 
+<<<<<<< HEAD
                 {
                   "Vec3": 
                   {
@@ -2264,9 +2497,34 @@
                     "x": 25.963190, 
                     "y": -2.894294, 
                     "z": 0.000000
+=======
+                {
+                  "Vec3": 
+                  {
+                    "x": 4.000000, 
+                    "y": 4.000000, 
+                    "z": 4.000000
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                   }
                 }, 
-                "LocalTranslation": 
+                "Additive": true, 
+                "Lock": false, 
+                "DrawLayer": 4
+              }, 
+              "ParticleEmitter": 
+              {
+                "Active": true, 
+                "ResetCount": false, 
+                "EmitCount": 0, 
+                "EmitRate": 20, 
+                "EmitVariance": 0, 
+                "Size": 0.200000, 
+                "SizeVariance": 0.100000, 
+                "Lifetime": 4.000000, 
+                "LifetimeVariance": 0.000000, 
+                "Spin": 100.000000, 
+                "SpinVariance": 100.000000, 
+                "StartVelocity": 
                 {
                   "Vec3": 
                   {
@@ -2275,16 +2533,33 @@
                     "z": 0.000000
                   }
                 }, 
-                "WorldTranslation": 
+                "RandomVelocity": 
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 25.963190, 
                     "y": -2.894294, 
+=======
+                    "x": 0.125000, 
+                    "y": 0.125000, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
-                "Rotation": 
+                "EmissionArea": 
+                {
+                  "Vec2": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000
+                  }
+                }, 
+                "EmissionCircle": false
+              }, 
+              "LinearParticleAnimator": 
+              {
+                "Force": 
                 {
                   "Vec3": 
                   {
@@ -2293,35 +2568,18 @@
                     "z": 0.000000
                   }
                 }, 
-                "Scale": 
+                "RandomForce": 
                 {
                   "Vec3": 
                   {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
                   }
                 }, 
-                "SpriteSource": "Char_Scrap_1", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
+                "Torque": 0.000000, 
+                "Growth": -0.050000, 
+                "Dampening": 0.000000
               }
             }, 
             "Children": 
@@ -2331,9 +2589,14 @@
           "GameObject": 
           {
             "Locked": false, 
+<<<<<<< HEAD
             "GameObjectID": 17, 
             "Name": "ScrapperBody", 
             "Protected": false, 
+=======
+            "GameObjectID": 27, 
+            "Name": "TestParticle", 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
             "Components": 
             {
               "Transform": 
@@ -2342,8 +2605,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 25.963190, 
                     "y": -2.894294, 
+=======
+                    "x": -100.000000, 
+                    "y": 10.000000, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -2360,8 +2628,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 25.963190, 
                     "y": -2.894294, 
+=======
+                    "x": -100.000000, 
+                    "y": 10.000000, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -2378,25 +2651,26 @@
                 {
                   "Vec3": 
                   {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
+                    "x": 1.000000, 
+                    "y": 1.000000, 
                     "z": 1.000000
                   }
                 }
               }, 
-              "Sprite": 
+              "SpriteParticleSystem": 
               {
                 "Visible": true, 
-                "Color": 
+                "Tint": 
                 {
                   "Vec4": 
                   {
-                    "x": 1.000000, 
+                    "x": 0.000000, 
                     "y": 1.000000, 
                     "z": 1.000000, 
                     "w": 1.000000
                   }
                 }, 
+<<<<<<< HEAD
                 "SpriteSource": "Char_Scrap_2", 
                 "FlipX": true, 
                 "FlipY": false, 
@@ -2426,6 +2700,126 @@
                     "x": 25.963190, 
                     "y": -2.894294, 
                     "z": 0.000000
+=======
+                "Texture": "Laser", 
+                "VelocityScale": 1.000000, 
+                "LengthScale": 1.000000, 
+                "SystemSize": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 4.000000, 
+                    "y": 4.000000, 
+                    "z": 4.000000
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                  }
+                }, 
+                "Additive": true, 
+                "Lock": false, 
+                "DrawLayer": 4
+              }, 
+              "ParticleEmitter": 
+              {
+                "Active": true, 
+                "ResetCount": false, 
+                "EmitCount": 0, 
+                "EmitRate": 20, 
+                "EmitVariance": 0, 
+                "Size": 0.200000, 
+                "SizeVariance": 0.100000, 
+                "Lifetime": 4.000000, 
+                "LifetimeVariance": 0.000000, 
+                "Spin": 100.000000, 
+                "SpinVariance": 100.000000, 
+                "StartVelocity": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "RandomVelocity": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 25.963190, 
+                    "y": -2.894294, 
+=======
+                    "x": 0.125000, 
+                    "y": 0.125000, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "EmissionArea": 
+                {
+                  "Vec2": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000
+                  }
+                }, 
+                "EmissionCircle": false
+              }, 
+              "LinearParticleAnimator": 
+              {
+                "Force": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "RandomForce": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Torque": 0.000000, 
+                "Growth": -0.050000, 
+                "Dampening": 0.000000
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+<<<<<<< HEAD
+            "GameObjectID": 16, 
+            "Name": "ScrapperHead", 
+            "Protected": false, 
+=======
+            "GameObjectID": 43, 
+            "Name": "TestParticle", 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 25.963190, 
+                    "y": -2.894294, 
+=======
+                    "x": -100.000000, 
+                    "y": 10.000000, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
                   }
                 }, 
                 "LocalTranslation": 
@@ -2441,8 +2835,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 25.963190, 
                     "y": -2.894294, 
+=======
+                    "x": -100.000000, 
+                    "y": 10.000000, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -2459,12 +2858,526 @@
                 {
                   "Vec3": 
                   {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
+                    "x": 1.000000, 
+                    "y": 1.000000, 
                     "z": 1.000000
                   }
                 }
               }, 
+              "SpriteParticleSystem": 
+              {
+                "Visible": true, 
+                "Tint": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "Texture": "Laser", 
+                "VelocityScale": 1.000000, 
+                "LengthScale": 1.000000, 
+                "SystemSize": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 4.000000, 
+                    "y": 4.000000, 
+                    "z": 4.000000
+                  }
+                }, 
+                "Additive": true, 
+                "Lock": false, 
+                "DrawLayer": 4
+<<<<<<< HEAD
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 17, 
+            "Name": "ScrapperBody", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+=======
+              }, 
+              "ParticleEmitter": 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+              {
+                "Active": true, 
+                "ResetCount": false, 
+                "EmitCount": 0, 
+                "EmitRate": 20, 
+                "EmitVariance": 0, 
+                "Size": 0.200000, 
+                "SizeVariance": 0.100000, 
+                "Lifetime": 4.000000, 
+                "LifetimeVariance": 0.000000, 
+                "Spin": 100.000000, 
+                "SpinVariance": 100.000000, 
+                "StartVelocity": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 25.963190, 
+                    "y": -2.894294, 
+=======
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "RandomVelocity": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.125000, 
+                    "y": 0.125000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "EmissionArea": 
+                {
+                  "Vec2": 
+                  {
+<<<<<<< HEAD
+                    "x": 25.963190, 
+                    "y": -2.894294, 
+                    "z": 0.000000
+=======
+                    "x": 0.000000, 
+                    "y": 0.000000
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                  }
+                }, 
+                "EmissionCircle": false
+              }, 
+              "LinearParticleAnimator": 
+              {
+                "Force": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "RandomForce": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Torque": 0.000000, 
+                "Growth": -0.050000, 
+                "Dampening": 0.000000
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+<<<<<<< HEAD
+            "GameObjectID": 18, 
+            "Name": "ScrapperSaw", 
+            "Protected": false, 
+=======
+            "GameObjectID": 29, 
+            "Name": "TestParticle", 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 25.963190, 
+                    "y": -2.894294, 
+=======
+                    "x": -100.000000, 
+                    "y": 10.000000, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 25.963190, 
+                    "y": -2.894294, 
+=======
+                    "x": -100.000000, 
+                    "y": 10.000000, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "SpriteParticleSystem": 
+              {
+                "Visible": true, 
+                "Tint": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+<<<<<<< HEAD
+                "SpriteSource": "Char_Scrap_3", 
+                "FlipX": true, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 16, 
+            "Name": "ScrapperHead", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 25.963190, 
+                    "y": -2.894294, 
+                    "z": 0.000000
+=======
+                "Texture": "Laser", 
+                "VelocityScale": 1.000000, 
+                "LengthScale": 1.000000, 
+                "SystemSize": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 4.000000, 
+                    "y": 4.000000, 
+                    "z": 4.000000
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                  }
+                }, 
+                "Additive": true, 
+                "Lock": false, 
+                "DrawLayer": 4
+              }, 
+              "ParticleEmitter": 
+              {
+                "Active": true, 
+                "ResetCount": false, 
+                "EmitCount": 0, 
+                "EmitRate": 20, 
+                "EmitVariance": 0, 
+                "Size": 0.200000, 
+                "SizeVariance": 0.100000, 
+                "Lifetime": 4.000000, 
+                "LifetimeVariance": 0.000000, 
+                "Spin": 100.000000, 
+                "SpinVariance": 100.000000, 
+                "StartVelocity": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "RandomVelocity": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 25.963190, 
+                    "y": -2.894294, 
+=======
+                    "x": 0.125000, 
+                    "y": 0.125000, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "EmissionArea": 
+                {
+                  "Vec2": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000
+                  }
+                }, 
+                "EmissionCircle": false
+              }, 
+              "LinearParticleAnimator": 
+              {
+                "Force": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "RandomForce": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Torque": 0.000000, 
+                "Growth": -0.050000, 
+                "Dampening": 0.000000
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+<<<<<<< HEAD
+            "GameObjectID": 17, 
+            "Name": "ScrapperBody", 
+            "Protected": false, 
+=======
+            "GameObjectID": 46, 
+            "Name": "TestParticle", 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 25.963190, 
+                    "y": -2.894294, 
+=======
+                    "x": -100.000000, 
+                    "y": 10.000000, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 25.963190, 
+                    "y": -2.894294, 
+=======
+                    "x": -100.000000, 
+                    "y": 10.000000, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "SpriteParticleSystem": 
+              {
+                "Visible": true, 
+                "Tint": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+<<<<<<< HEAD
+                "SpriteSource": "Char_Scrap_2", 
+                "FlipX": true, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 18, 
+            "Name": "ScrapperSaw", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 25.963190, 
+                    "y": -2.894294, 
+                    "z": 0.000000
+=======
+                "Texture": "Laser", 
+                "VelocityScale": 1.000000, 
+                "LengthScale": 1.000000, 
+                "SystemSize": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 4.000000, 
+                    "y": 4.000000, 
+                    "z": 4.000000
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                  }
+                }, 
+                "Additive": true, 
+                "Lock": false, 
+                "DrawLayer": 4
+              }, 
+              "ParticleEmitter": 
+              {
+                "Active": true, 
+                "ResetCount": false, 
+                "EmitCount": 0, 
+                "EmitRate": 20, 
+                "EmitVariance": 0, 
+                "Size": 0.200000, 
+                "SizeVariance": 0.100000, 
+                "Lifetime": 4.000000, 
+                "LifetimeVariance": 0.000000, 
+                "Spin": 100.000000, 
+                "SpinVariance": 100.000000, 
+                "StartVelocity": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "RandomVelocity": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 25.963190, 
+                    "y": -2.894294, 
+=======
+                    "x": 0.125000, 
+                    "y": 0.125000, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "EmissionArea": 
+                {
+                  "Vec2": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000
+                  }
+                }, 
+                "EmissionCircle": false
+              }, 
+<<<<<<< HEAD
               "Sprite": 
               {
                 "Visible": true, 
@@ -2510,6 +3423,11 @@
                   }
                 }, 
                 "LocalTranslation": 
+=======
+              "LinearParticleAnimator": 
+              {
+                "Force": 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                 {
                   "Vec3": 
                   {
@@ -2518,6 +3436,7 @@
                     "z": 0.000000
                   }
                 }, 
+<<<<<<< HEAD
                 "WorldTranslation": 
                 {
                   "Vec3": 
@@ -2528,6 +3447,9 @@
                   }
                 }, 
                 "Rotation": 
+=======
+                "RandomForce": 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                 {
                   "Vec3": 
                   {
@@ -2536,51 +3458,39 @@
                     "z": 0.000000
                   }
                 }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_1", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
+                "Torque": 0.000000, 
+                "Growth": -0.050000, 
+                "Dampening": 0.000000
               }
             }, 
             "Children": 
             {
             }
-          }, 
-          "GameObject": 
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 172, 
+        "Name": "Spawner", 
+        "Components": 
+        {
+          "Transform": 
           {
+<<<<<<< HEAD
             "Locked": false, 
             "GameObjectID": 17, 
             "Name": "ScrapperBody", 
             "Protected": false, 
             "Components": 
+=======
+            "Translation": 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
             {
-              "Transform": 
+              "Vec3": 
               {
+<<<<<<< HEAD
                 "Translation": 
                 {
                   "Vec3": 
@@ -2628,526 +3538,66 @@
                 }
               }, 
               "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_2", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
+=======
+                "x": -108.938919, 
+                "y": 6.791775, 
+                "z": 0.000000
               }
             }, 
-            "Children": 
+            "LocalTranslation": 
             {
+              "Vec3": 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+              {
+                "x": -108.938919, 
+                "y": 6.791775, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -108.938919, 
+                "y": 6.791775, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
             }
           }, 
-          "GameObject": 
+          "Sprite": 
           {
+<<<<<<< HEAD
             "Locked": false, 
             "GameObjectID": 18, 
             "Name": "ScrapperSaw", 
             "Protected": false, 
             "Components": 
+=======
+            "Visible": false, 
+            "Color": 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
             {
-              "Transform": 
+              "Vec4": 
               {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 25.963190, 
-                    "y": -2.894294, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 25.963190, 
-                    "y": -2.894294, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_3", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 16, 
-            "Name": "ScrapperHead", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 25.963190, 
-                    "y": -2.894294, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 25.963190, 
-                    "y": -2.894294, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_1", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 17, 
-            "Name": "ScrapperBody", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 25.963190, 
-                    "y": -2.894294, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 25.963190, 
-                    "y": -2.894294, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_2", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 18, 
-            "Name": "ScrapperSaw", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 25.963190, 
-                    "y": -2.894294, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 25.963190, 
-                    "y": -2.894294, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_3", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 16, 
-            "Name": "ScrapperHead", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 25.963190, 
-                    "y": -2.894294, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 25.963190, 
-                    "y": -2.894294, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_1", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 17, 
-            "Name": "ScrapperBody", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 25.963190, 
-                    "y": -2.894294, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 25.963190, 
-                    "y": -2.894294, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_2", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 18, 
-            "Name": "ScrapperSaw", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
+<<<<<<< HEAD
                 "Translation": 
                 {
                   "Vec3": 
@@ -4201,6 +4651,30 @@
         "Protected": false, 
         "Components": 
         {
+=======
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }, 
+          "EnemySpawner": 
+          {
+            "Scrapper": false, 
+            "Lancer": false, 
+            "Shield": false, 
+            "SpawnMinDist": 0.500000, 
+            "SpawnMaxDist": 1.000000, 
+            "SpawnTime": 1.000000
+          }
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
         }, 
         "Children": 
         {
@@ -4211,7 +4685,10 @@
         "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper", 
+<<<<<<< HEAD
         "Protected": false, 
+=======
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
         "Components": 
         {
           "Transform": 
@@ -4220,8 +4697,13 @@
             {
               "Vec3": 
               {
+<<<<<<< HEAD
                 "x": 23.325085, 
                 "y": -3.285312, 
+=======
+                "x": -7.901652, 
+                "y": -0.170614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                 "z": 0.000000
               }
             }, 
@@ -4229,8 +4711,13 @@
             {
               "Vec3": 
               {
+<<<<<<< HEAD
                 "x": 23.325085, 
                 "y": -3.285312, 
+=======
+                "x": -7.901652, 
+                "y": -0.170614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                 "z": 0.000000
               }
             }, 
@@ -4238,8 +4725,13 @@
             {
               "Vec3": 
               {
+<<<<<<< HEAD
                 "x": 23.325085, 
                 "y": -3.285312, 
+=======
+                "x": -7.901652, 
+                "y": -0.170614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                 "z": 0.000000
               }
             }, 
@@ -4289,6 +4781,7 @@
             "Size": 
             {
               "Vec3": 
+<<<<<<< HEAD
               {
                 "x": 1.000000, 
                 "y": 1.000000, 
@@ -5705,14 +6198,30 @@
                 "AnimationActive": false, 
                 "AnimationSpeed": 1.000000, 
                 "DrawLayer": 4
+=======
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
               }
             }, 
-            "Children": 
+            "Offset": 
             {
-            }
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
           }, 
-          "GameObject": 
+          "RigidBody": 
           {
+<<<<<<< HEAD
             "Locked": false, 
             "GameObjectID": 18, 
             "Name": "ScrapperSaw", 
@@ -5786,12 +6295,52 @@
                 "AnimationActive": false, 
                 "AnimationSpeed": 1.000000, 
                 "DrawLayer": 4
+=======
+            "Velocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
               }
             }, 
-            "Children": 
+            "AngularVelocity": 
             {
-            }
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Mass": 10.000000, 
+            "RotationLocked": true
           }, 
+          "Sprite": 
+          {
+            "Visible": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Char_Scrap", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
           "GameObject": 
           {
             "Locked": false, 
@@ -5806,8 +6355,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 23.511683, 
                     "y": -3.036332, 
+=======
+                    "x": -7.901652, 
+                    "y": -0.170614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -5824,8 +6378,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 23.511683, 
                     "y": -3.036332, 
+=======
+                    "x": -7.901652, 
+                    "y": -0.170614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -5887,8 +6446,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 23.511683, 
                     "y": -3.036332, 
+=======
+                    "x": -7.901652, 
+                    "y": -0.170614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -5905,8 +6469,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 23.511683, 
                     "y": -3.036332, 
+=======
+                    "x": -7.901652, 
+                    "y": -0.170614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -5968,8 +6537,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 23.511683, 
                     "y": -3.036332, 
+=======
+                    "x": -7.901652, 
+                    "y": -0.170614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -5986,8 +6560,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 23.511683, 
                     "y": -3.036332, 
+=======
+                    "x": -7.901652, 
+                    "y": -0.170614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -6049,8 +6628,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 23.418463, 
                     "y": -2.993449, 
+=======
+                    "x": -7.901652, 
+                    "y": -0.170614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -6067,8 +6651,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 23.418463, 
                     "y": -2.993449, 
+=======
+                    "x": -7.901652, 
+                    "y": -0.170614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -6130,8 +6719,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 23.418463, 
                     "y": -2.993449, 
+=======
+                    "x": -7.901652, 
+                    "y": -0.170614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -6148,8 +6742,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 23.418463, 
                     "y": -2.993449, 
+=======
+                    "x": -7.901652, 
+                    "y": -0.170614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -6211,8 +6810,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 23.418463, 
                     "y": -2.993449, 
+=======
+                    "x": -7.901652, 
+                    "y": -0.170614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -6229,8 +6833,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 23.418463, 
                     "y": -2.993449, 
+=======
+                    "x": -7.901652, 
+                    "y": -0.170614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -6285,7 +6894,12 @@
         "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper", 
+<<<<<<< HEAD
         "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+=======
         "Components": 
         {
           "Transform": 
@@ -6294,6 +6908,148 @@
             {
               "Vec3": 
               {
+                "x": -4.776652, 
+                "y": -0.378947, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -4.776652, 
+                "y": -0.378947, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -4.776652, 
+                "y": -0.378947, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.500000, 
+                "y": 1.500000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Grunt": 
+          {
+            "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
+            "HeadArchetype": "ScrapperHead", 
+            "BodyArchetype": "ScrapperBody", 
+            "SawArchetype": "ScrapperSaw", 
+            "IdleRange": 100.000000, 
+            "PatrolDistance": 20.000000, 
+            "IsPatrolRight": true, 
+            "IsAggressive": true, 
+            "JumpStrengthX": 5.000000, 
+            "JumpStrengthY": 25.000000, 
+            "JumpPeriod": 2.000000, 
+            "AttackJumpStrengthX": 10.000000, 
+            "AttackJumpStrengthY": 15.000000, 
+            "AttackJumpPeriod": 1.000000
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Enemy", 
+            "PhysicsMaterial": "DefaultPhysicsMaterial", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }, 
+          "RigidBody": 
+          {
+            "Velocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "AngularVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Mass": 10.000000, 
+            "RotationLocked": true
+          }, 
+          "Sprite": 
+          {
+            "Visible": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Char_Scrap", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+          "GameObject": 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+<<<<<<< HEAD
                 "x": 17.383068, 
                 "y": 1.142009, 
                 "z": 0.000000
@@ -6302,6 +7058,55 @@
             "LocalTranslation": 
             {
               "Vec3": 
+=======
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -4.776652, 
+                    "y": -0.378947, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -4.776652, 
+                    "y": -0.378947, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.500000, 
+                    "y": 1.500000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
               {
                 "x": 17.383068, 
                 "y": 1.142009, 
@@ -6422,8 +7227,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 17.466564, 
                     "y": 1.874772, 
+=======
+                    "x": -4.776652, 
+                    "y": -0.378947, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -6440,8 +7250,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 17.466564, 
                     "y": 1.874772, 
+=======
+                    "x": -4.776652, 
+                    "y": -0.378947, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -6503,8 +7318,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 17.466564, 
                     "y": 1.874772, 
+=======
+                    "x": -4.776652, 
+                    "y": -0.378947, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -6521,8 +7341,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 17.466564, 
                     "y": 1.874772, 
+=======
+                    "x": -4.776652, 
+                    "y": -0.378947, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -6580,6 +7405,1757 @@
             {
               "Transform": 
               {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": -4.776652, 
+                    "y": -0.378947, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": -4.776652, 
+                    "y": -0.378947, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.500000, 
+                    "y": 1.500000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "SpriteSource": "Char_Scrap_3", 
+                "FlipX": true, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 16, 
+            "Name": "ScrapperHead", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": -4.776652, 
+                    "y": -0.378947, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": -4.776652, 
+                    "y": -0.378947, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.500000, 
+                    "y": 1.500000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "SpriteSource": "Char_Scrap_1", 
+                "FlipX": true, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 17, 
+            "Name": "ScrapperBody", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": -4.776652, 
+                    "y": -0.378947, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": -4.776652, 
+                    "y": -0.378947, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.500000, 
+                    "y": 1.500000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "SpriteSource": "Char_Scrap_2", 
+                "FlipX": true, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 900, 
+        "Name": "Scrapper", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -1.443318, 
+                "y": -0.795614, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -1.443318, 
+                "y": -0.795614, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -1.443318, 
+                "y": -0.795614, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.500000, 
+                "y": 1.500000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Grunt": 
+          {
+            "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
+            "HeadArchetype": "ScrapperHead", 
+            "BodyArchetype": "ScrapperBody", 
+            "SawArchetype": "ScrapperSaw", 
+            "IdleRange": 100.000000, 
+            "PatrolDistance": 20.000000, 
+            "IsPatrolRight": true, 
+            "IsAggressive": true, 
+            "JumpStrengthX": 5.000000, 
+            "JumpStrengthY": 25.000000, 
+            "JumpPeriod": 2.000000, 
+            "AttackJumpStrengthX": 10.000000, 
+            "AttackJumpStrengthY": 15.000000, 
+            "AttackJumpPeriod": 1.000000
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Enemy", 
+            "PhysicsMaterial": "DefaultPhysicsMaterial", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }, 
+          "RigidBody": 
+          {
+            "Velocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "AngularVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Mass": 10.000000, 
+            "RotationLocked": true
+          }, 
+          "Sprite": 
+          {
+            "Visible": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Char_Scrap", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 18, 
+            "Name": "ScrapperSaw", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": -1.443318, 
+                    "y": -0.795614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": -1.443318, 
+                    "y": -0.795614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.500000, 
+                    "y": 1.500000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "SpriteSource": "Char_Scrap_3", 
+                "FlipX": true, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 16, 
+            "Name": "ScrapperHead", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": -1.443318, 
+                    "y": -0.795614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": -1.443318, 
+                    "y": -0.795614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.500000, 
+                    "y": 1.500000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "SpriteSource": "Char_Scrap_1", 
+                "FlipX": true, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 17, 
+            "Name": "ScrapperBody", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": -1.443318, 
+                    "y": -0.795614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": -1.443318, 
+                    "y": -0.795614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.500000, 
+                    "y": 1.500000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "SpriteSource": "Char_Scrap_2", 
+                "FlipX": true, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 18, 
+            "Name": "ScrapperSaw", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": -1.443318, 
+                    "y": -0.795614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": -1.443318, 
+                    "y": -0.795614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.500000, 
+                    "y": 1.500000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "SpriteSource": "Char_Scrap_3", 
+                "FlipX": true, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 16, 
+            "Name": "ScrapperHead", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": -1.443318, 
+                    "y": -0.795614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": -1.443318, 
+                    "y": -0.795614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.500000, 
+                    "y": 1.500000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "SpriteSource": "Char_Scrap_1", 
+                "FlipX": true, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 17, 
+            "Name": "ScrapperBody", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": -1.443318, 
+                    "y": -0.795614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": -1.443318, 
+                    "y": -0.795614, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.500000, 
+                    "y": 1.500000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "SpriteSource": "Char_Scrap_2", 
+                "FlipX": true, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+<<<<<<< HEAD
+          }, 
+=======
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 900, 
+        "Name": "Scrapper", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 3.140015, 
+                "y": -1.003947, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 3.140015, 
+                "y": -1.003947, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 3.140015, 
+                "y": -1.003947, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.500000, 
+                "y": 1.500000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Grunt": 
+          {
+            "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
+            "HeadArchetype": "ScrapperHead", 
+            "BodyArchetype": "ScrapperBody", 
+            "SawArchetype": "ScrapperSaw", 
+            "IdleRange": 100.000000, 
+            "PatrolDistance": 20.000000, 
+            "IsPatrolRight": true, 
+            "IsAggressive": true, 
+            "JumpStrengthX": 5.000000, 
+            "JumpStrengthY": 25.000000, 
+            "JumpPeriod": 2.000000, 
+            "AttackJumpStrengthX": 10.000000, 
+            "AttackJumpStrengthY": 15.000000, 
+            "AttackJumpPeriod": 1.000000
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Enemy", 
+            "PhysicsMaterial": "DefaultPhysicsMaterial", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }, 
+          "RigidBody": 
+          {
+            "Velocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "AngularVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Mass": 10.000000, 
+            "RotationLocked": true
+          }, 
+          "Sprite": 
+          {
+            "Visible": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Char_Scrap", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 18, 
+            "Name": "ScrapperSaw", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": 3.140015, 
+                    "y": -1.003947, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": 3.140015, 
+                    "y": -1.003947, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.500000, 
+                    "y": 1.500000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "SpriteSource": "Char_Scrap_3", 
+                "FlipX": true, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 16, 
+            "Name": "ScrapperHead", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": 3.140015, 
+                    "y": -1.003947, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": 3.140015, 
+                    "y": -1.003947, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.500000, 
+                    "y": 1.500000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "SpriteSource": "Char_Scrap_1", 
+                "FlipX": true, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 17, 
+            "Name": "ScrapperBody", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": 3.140015, 
+                    "y": -1.003947, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": 3.140015, 
+                    "y": -1.003947, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.500000, 
+                    "y": 1.500000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "SpriteSource": "Char_Scrap_2", 
+                "FlipX": true, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 18, 
+            "Name": "ScrapperSaw", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": 3.140015, 
+                    "y": -1.003947, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": 3.140015, 
+                    "y": -1.003947, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.500000, 
+                    "y": 1.500000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "SpriteSource": "Char_Scrap_3", 
+                "FlipX": true, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 16, 
+            "Name": "ScrapperHead", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": 3.140015, 
+                    "y": -1.003947, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": 3.140015, 
+                    "y": -1.003947, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.500000, 
+                    "y": 1.500000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "SpriteSource": "Char_Scrap_1", 
+                "FlipX": true, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 17, 
+            "Name": "ScrapperBody", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": 3.140015, 
+                    "y": -1.003947, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 17.466564, 
+                    "y": 1.874772, 
+=======
+                    "x": 3.140015, 
+                    "y": -1.003947, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.500000, 
+                    "y": 1.500000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "SpriteSource": "Char_Scrap_2", 
+                "FlipX": true, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 900, 
+        "Name": "Scrapper", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 7.619182, 
+                "y": -0.899781, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 7.619182, 
+                "y": -0.899781, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 7.619182, 
+                "y": -0.899781, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.500000, 
+                "y": 1.500000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Grunt": 
+          {
+<<<<<<< HEAD
+            "Locked": false, 
+            "GameObjectID": 18, 
+            "Name": "ScrapperSaw", 
+            "Protected": false, 
+            "Components": 
+=======
+            "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
+            "HeadArchetype": "ScrapperHead", 
+            "BodyArchetype": "ScrapperBody", 
+            "SawArchetype": "ScrapperSaw", 
+            "IdleRange": 100.000000, 
+            "PatrolDistance": 20.000000, 
+            "IsPatrolRight": true, 
+            "IsAggressive": true, 
+            "JumpStrengthX": 5.000000, 
+            "JumpStrengthY": 25.000000, 
+            "JumpPeriod": 2.000000, 
+            "AttackJumpStrengthX": 10.000000, 
+            "AttackJumpStrengthY": 15.000000, 
+            "AttackJumpPeriod": 1.000000
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Enemy", 
+            "PhysicsMaterial": "DefaultPhysicsMaterial", 
+            "Size": 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+            {
+              "Vec3": 
+              {
+<<<<<<< HEAD
                 "Translation": 
                 {
                   "Vec3": 
@@ -6645,18 +9221,81 @@
                 "AnimationActive": false, 
                 "AnimationSpeed": 1.000000, 
                 "DrawLayer": 4
+=======
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
               }
             }, 
-            "Children": 
+            "Offset": 
             {
-            }
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
           }, 
+          "RigidBody": 
+          {
+            "Velocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "AngularVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Mass": 10.000000, 
+            "RotationLocked": true
+          }, 
+          "Sprite": 
+          {
+            "Visible": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+              }
+            }, 
+            "SpriteSource": "Char_Scrap", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
           "GameObject": 
           {
             "Locked": false, 
             "GameObjectID": 16, 
             "Name": "ScrapperHead", 
+<<<<<<< HEAD
             "Protected": false, 
+=======
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
             "Components": 
             {
               "Transform": 
@@ -6665,8 +9304,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 17.466564, 
                     "y": 1.874772, 
+=======
+                    "x": 7.619182, 
+                    "y": -0.899781, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -6683,8 +9327,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 17.466564, 
                     "y": 1.874772, 
+=======
+                    "x": 7.619182, 
+                    "y": -0.899781, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -6721,1222 +9370,11 @@
                   }
                 }, 
                 "SpriteSource": "Char_Scrap_1", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 17, 
-            "Name": "ScrapperBody", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_2", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 18, 
-            "Name": "ScrapperSaw", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_3", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 16, 
-            "Name": "ScrapperHead", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_1", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 17, 
-            "Name": "ScrapperBody", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_2", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 18, 
-            "Name": "ScrapperSaw", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_3", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 16, 
-            "Name": "ScrapperHead", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_1", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 17, 
-            "Name": "ScrapperBody", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_2", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 18, 
-            "Name": "ScrapperSaw", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_3", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 16, 
-            "Name": "ScrapperHead", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_1", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 17, 
-            "Name": "ScrapperBody", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_2", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 18, 
-            "Name": "ScrapperSaw", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_3", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 16, 
-            "Name": "ScrapperHead", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_1", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 17, 
-            "Name": "ScrapperBody", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_2", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 18, 
-            "Name": "ScrapperSaw", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_3", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 16, 
-            "Name": "ScrapperHead", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 17.466564, 
-                    "y": 1.874772, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_1", 
+<<<<<<< HEAD
                 "FlipX": false, 
+=======
+                "FlipX": true, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                 "FlipY": false, 
                 "AnimationActive": false, 
                 "AnimationSpeed": 1.000000, 
@@ -7952,7 +9390,10 @@
             "Locked": false, 
             "GameObjectID": 17, 
             "Name": "ScrapperBody", 
+<<<<<<< HEAD
             "Protected": false, 
+=======
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
             "Components": 
             {
               "Transform": 
@@ -7961,8 +9402,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 17.466564, 
                     "y": 1.874772, 
+=======
+                    "x": 7.619182, 
+                    "y": -0.899781, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -7979,8 +9425,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 17.466564, 
                     "y": 1.874772, 
+=======
+                    "x": 7.619182, 
+                    "y": -0.899781, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -8017,7 +9468,11 @@
                   }
                 }, 
                 "SpriteSource": "Char_Scrap_2", 
+<<<<<<< HEAD
                 "FlipX": false, 
+=======
+                "FlipX": true, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                 "FlipY": false, 
                 "AnimationActive": false, 
                 "AnimationSpeed": 1.000000, 
@@ -8033,7 +9488,10 @@
             "Locked": false, 
             "GameObjectID": 18, 
             "Name": "ScrapperSaw", 
+<<<<<<< HEAD
             "Protected": false, 
+=======
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
             "Components": 
             {
               "Transform": 
@@ -8042,8 +9500,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 17.466564, 
                     "y": 1.874772, 
+=======
+                    "x": 7.619182, 
+                    "y": -0.899781, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -8060,8 +9523,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 17.466564, 
                     "y": 1.874772, 
+=======
+                    "x": 7.619182, 
+                    "y": -0.899781, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -8098,7 +9566,11 @@
                   }
                 }, 
                 "SpriteSource": "Char_Scrap_3", 
+<<<<<<< HEAD
                 "FlipX": false, 
+=======
+                "FlipX": true, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                 "FlipY": false, 
                 "AnimationActive": false, 
                 "AnimationSpeed": 1.000000, 
@@ -8114,7 +9586,10 @@
             "Locked": false, 
             "GameObjectID": 16, 
             "Name": "ScrapperHead", 
+<<<<<<< HEAD
             "Protected": false, 
+=======
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
             "Components": 
             {
               "Transform": 
@@ -8123,8 +9598,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 17.466568, 
                     "y": 1.508242, 
+=======
+                    "x": 7.619182, 
+                    "y": -0.899781, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -8141,8 +9621,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 17.466568, 
                     "y": 1.508242, 
+=======
+                    "x": 7.619182, 
+                    "y": -0.899781, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -8195,7 +9680,10 @@
             "Locked": false, 
             "GameObjectID": 17, 
             "Name": "ScrapperBody", 
+<<<<<<< HEAD
             "Protected": false, 
+=======
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
             "Components": 
             {
               "Transform": 
@@ -8204,8 +9692,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 17.466568, 
                     "y": 1.508242, 
+=======
+                    "x": 7.619182, 
+                    "y": -0.899781, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -8222,6 +9715,7 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 17.466568, 
                     "y": 1.508242, 
                     "z": 0.000000
@@ -8305,6 +9799,10 @@
                   {
                     "x": 17.466568, 
                     "y": 1.508242, 
+=======
+                    "x": 7.619182, 
+                    "y": -0.899781, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -8340,7 +9838,7 @@
                     "w": 1.000000
                   }
                 }, 
-                "SpriteSource": "Char_Scrap_3", 
+                "SpriteSource": "Char_Scrap_2", 
                 "FlipX": true, 
                 "FlipY": false, 
                 "AnimationActive": false, 
@@ -8485,171 +9983,14 @@
           "GameObject": 
           {
             "Locked": false, 
+<<<<<<< HEAD
             "GameObjectID": 16, 
             "Name": "ScrapperHead", 
             "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 34.636967, 
-                    "y": 1.773419, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 34.636967, 
-                    "y": 1.773419, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_1", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 17, 
-            "Name": "ScrapperBody", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 34.636967, 
-                    "y": 1.773419, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 34.636967, 
-                    "y": 1.773419, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.500000, 
-                    "y": 1.500000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 1.000000
-                  }
-                }, 
-                "SpriteSource": "Char_Scrap_2", 
-                "FlipX": true, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 4
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }, 
-          "GameObject": 
-          {
-            "Locked": false, 
+=======
             "GameObjectID": 18, 
             "Name": "ScrapperSaw", 
-            "Protected": false, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
             "Components": 
             {
               "Transform": 
@@ -8658,8 +9999,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 34.636967, 
                     "y": 1.773419, 
+=======
+                    "x": 7.619182, 
+                    "y": -0.899781, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -8676,8 +10022,13 @@
                 {
                   "Vec3": 
                   {
+<<<<<<< HEAD
                     "x": 34.636967, 
                     "y": 1.773419, 
+=======
+                    "x": 7.619182, 
+                    "y": -0.899781, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
                     "z": 0.000000
                   }
                 }, 
@@ -8719,6 +10070,340 @@
                 "AnimationActive": false, 
                 "AnimationSpeed": 1.000000, 
                 "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": true, 
+        "GameObjectID": 17, 
+        "Name": "LevelSettings", 
+        "Components": 
+        {
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 914, 
+        "Name": "Sentinel", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -22.291664, 
+                "y": -1.562500, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -22.291664, 
+                "y": -1.562500, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -22.291664, 
+                "y": -1.562500, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "char_sent", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Enemy", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }, 
+          "RigidBody": 
+          {
+            "Velocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "AngularVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Mass": 10.000000, 
+            "RotationLocked": true
+          }, 
+          "Sentinel": 
+          {
+            "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
+            "IdleRange": 100.000000, 
+            "MoveSpeed": 2.000000, 
+            "ShieldArchetype": "Sentinel Shield", 
+            "ShieldRadius": 1.000000, 
+            "ShieldBashDistance": 2.000000, 
+            "ShieldBashOutTime": 0.200000, 
+            "ShieldBashInTime": 0.100000, 
+            "ShieldBashCooldown": 1.000000
+          }
+        }, 
+        "Children": 
+        {
+          "GameObject": 
+          {
+            "Locked": false, 
+<<<<<<< HEAD
+            "GameObjectID": 17, 
+            "Name": "ScrapperBody", 
+            "Protected": false, 
+=======
+            "GameObjectID": 67, 
+            "Name": "Sentinel Shield", 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 34.636967, 
+                    "y": 1.773419, 
+=======
+                    "x": -20.291664, 
+                    "y": -1.562500, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 2.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 34.636967, 
+                    "y": 1.773419, 
+=======
+                    "x": -20.291664, 
+                    "y": -1.562500, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 2.000000, 
+                    "y": 2.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "Sprite": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "SpriteSource": "char_sent_4", 
+                "FlipX": false, 
+                "FlipY": false, 
+                "AnimationActive": false, 
+                "AnimationSpeed": 1.000000, 
+<<<<<<< HEAD
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 18, 
+            "Name": "ScrapperSaw", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+=======
+                "DrawLayer": 1
+              }, 
+              "BoxCollider": 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+              {
+                "CollisionGroup": "SentinelShield", 
+                "PhysicsMaterial": "SentinelShield", 
+                "Size": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 34.636967, 
+                    "y": 1.773419, 
+                    "z": 0.000000
+=======
+                    "x": 0.500000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                  }
+                }, 
+                "Offset": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Ghost": false, 
+                "SendsEvents": true, 
+                "IsDrawingCollider": false
+              }, 
+              "RigidBody": 
+              {
+                "Velocity": 
+                {
+                  "Vec3": 
+                  {
+<<<<<<< HEAD
+                    "x": 34.636967, 
+                    "y": 1.773419, 
+=======
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+>>>>>>> d61ca68514968588ed89ff40d7e91cd5b60521e6
+                    "z": 0.000000
+                  }
+                }, 
+                "AngularVelocity": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Mass": 10.000000, 
+                "RotationLocked": true
+              }, 
+              "Orientation": 
+              {
               }
             }, 
             "Children": 
