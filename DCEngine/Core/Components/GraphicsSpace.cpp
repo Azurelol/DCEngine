@@ -38,6 +38,7 @@ namespace DCEngine {
       ZilchBindMethod(builder, type, &GraphicsSpace::SetResolution, ZilchNoOverload, "SetResolution", "x, y");
       ZilchBindMethod(builder, type, &GraphicsSpace::SetAntiAliasingLevel, ZilchNoOverload, "SetAntiAliasingLevel", "samples");
       ZilchBindMethod(builder, type, &GraphicsSpace::ToggleFullscreen, ZilchNoOverload, "ToggleFullscreen", ZilchNoNames);
+      ZilchBindMethod(builder, type, &GraphicsSpace::SetNative, ZilchNoOverload, "SetNative", ZilchNoNames);
       //ZilchBindProperty(builder, type, &RigidBody::getDynamicState, &RigidBody::setDynamicState, "DynamicState");
     }
     #endif
