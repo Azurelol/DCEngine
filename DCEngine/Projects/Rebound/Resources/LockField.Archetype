@@ -2,8 +2,9 @@
 {
   "GameObject": 
   {
+    "Locked": false, 
+    "GameObjectID": 459, 
     "Name": "LockField", 
-    "Archetype": "LockField", 
     "Components": 
     {
       "Transform": 
@@ -12,8 +13,26 @@
         {
           "Vec3": 
           {
-            "x": 26.000000, 
-            "y": 11.000000, 
+            "x": -48.277161, 
+            "y": 6.916460, 
+            "z": 0.000000
+          }
+        }, 
+        "LocalTranslation": 
+        {
+          "Vec3": 
+          {
+            "x": -48.277161, 
+            "y": 6.916460, 
+            "z": 0.000000
+          }
+        }, 
+        "WorldTranslation": 
+        {
+          "Vec3": 
+          {
+            "x": -48.277161, 
+            "y": 6.916460, 
             "z": 0.000000
           }
         }, 
@@ -58,8 +77,8 @@
       }, 
       "BoxCollider": 
       {
-        "PhysicsMaterial": "", 
         "CollisionGroup": "Default", 
+        "PhysicsMaterial": "", 
         "Size": 
         {
           "Vec3": 
@@ -86,6 +105,9 @@
       {
         "Timer": 0.000000
       }
+    }, 
+    "Children": 
+    {
     }
   }
 }

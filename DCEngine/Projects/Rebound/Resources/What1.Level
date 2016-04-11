@@ -10,6 +10,7 @@
         "Locked": true, 
         "GameObjectID": 99, 
         "Name": "LevelSettings", 
+        "Protected": false, 
         "Components": 
         {
         }, 
@@ -22,6 +23,7 @@
         "Locked": false, 
         "GameObjectID": 9, 
         "Name": "Sprite", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -102,6 +104,7 @@
         "Locked": false, 
         "GameObjectID": 109, 
         "Name": "Music", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -155,6 +158,76 @@
           "TestSoundInstance": 
           {
             "Music": "DesertLab"
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 174, 
+        "Name": "Camera", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Camera": 
+          {
+            "FieldOfView": 90.000000, 
+            "Exposure": 0.500000, 
+            "NearPlane": 0.100000, 
+            "FarPlane": 100.000000, 
+            "Size": 90.000000, 
+            "Projection": "Perspective"
           }
         }, 
         "Children": 

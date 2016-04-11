@@ -267,18 +267,28 @@ namespace DCEngine {
 			unsigned emitCount = mParticleEmitter->EmitVariance;
 			for (unsigned i = 0; i < emitCount; ++i)
 			{
-				float lifetime = mParticleEmitter->Lifetime + mParticleEmitter->LifetimeVariance * (rand() % 100 - 50) / 100;
+				float lifetime = mParticleEmitter->Lifetime + mParticleEmitter->LifetimeVariance * (rand() % 100 - 50) / 50;
 				Vec2 velocity = Vec2(mParticleEmitter->StartVelocity.x + mParticleEmitter->RandomVelocity.x * (rand() % 100 - 50) / 50,
 					mParticleEmitter->StartVelocity.y + mParticleEmitter->RandomVelocity.y * (rand() % 100 - 50) / 50);
-				float size = mParticleEmitter->Size + mParticleEmitter->SizeVariance * (rand() % 100 - 50) / 100;
-				float spin = mParticleEmitter->Spin + mParticleEmitter->SpinVariance * (rand() % 100 - 50) / 100;
+				float size = mParticleEmitter->Size + mParticleEmitter->SizeVariance * (rand() % 100 - 50) / 50;
+				float spin = mParticleEmitter->Spin + mParticleEmitter->SpinVariance * (rand() % 100 - 50) / 50;
 				Vec2 force = Vec2(0, 0);
-				Vec2 position = Vec2(0, 0);
+				Vec2 position = Vec2(0,0);
+				if (mParticleEmitter->EmissionCircle)
+				{
+					float angle = float(rand() % 180) / 3.1415926535;
+					float magnitude = float(rand() % 100 - 50) / 50;
+					position = Vec2(std::cos(angle) * mParticleEmitter->EmissionArea.x * magnitude,
+						std::sin(angle) * mParticleEmitter->EmissionArea.y * magnitude);
+				}
+				else
+					position = Vec2(mParticleEmitter->EmissionArea.x * (rand() % 100 - 50) / 50,
+						mParticleEmitter->EmissionArea.y * (rand() % 100 - 50) / 50);
 				if (mLinearAnimator)
 					force = Vec2(mLinearAnimator->Force.x + mLinearAnimator->RandomForce.x * (rand() % 100 - 50) / 50,
 						mLinearAnimator->Force.y + mLinearAnimator->RandomForce.y * (rand() % 100 - 50) / 50);
 				if (!Lock)
-					position = Vec2(TransformComponent->Translation.x, TransformComponent->Translation.y);
+					position += Vec2(TransformComponent->Translation.x, TransformComponent->Translation.y);
 				mParticleList.push_back(Particle(
 					lifetime, position, velocity, force, size, spin, Tint, mColorAnimator, mLinearAnimator));
 			}

@@ -19,12 +19,14 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    \brief  Constructor.
+    \brief  Editor Constructor.
     */
     /**************************************************************************/
     Editor::Editor(EditorConfig& settings) : System(std::string("EditorSystem"), EnumeratedSystem::Editor), 
                                                           Settings(settings)
     {      
+      // Whether the Editor should be enabled right away.
+      Enabled = Settings.Enabled;
     }
 
     /**************************************************************************/
@@ -74,7 +76,7 @@ namespace DCEngine {
     {
       // Once the default space has been initialized, set the editor camera
       if (event->Name == CurrentSpace->Name()) {
-        SetEditorCamera(true);
+        Launcher.SetEditorCamera(true);
       }
     }
 
@@ -123,95 +125,36 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief  Sets the current status of the editor.
-    */
-    /**************************************************************************/
-    void Editor::setEnabled(bool set)
-    {
-      Settings.EditorEnabled = set;
-      DCTrace << "Editor::setEnabled : " << std::boolalpha << Settings.EditorEnabled << "\n";
-    }
-
-
-    /**************************************************************************/
-    /*!
-    @brief  Returns the current state of the editor.
-    */
-    /**************************************************************************/
-    bool Editor::IsEnabled()
-    {
-      return Settings.EditorEnabled;
-    }
-
-    /**************************************************************************/
-    /*!
     \brief  Toggled the Editor on and off.
     */
     /**************************************************************************/
     void Editor::ToggleEditor()
     {
-      DCTrace << "*!* Editor::ToggleEditor \n";
-      // Resize the viewport to accomodate the editor
-      //ApplyEditorWindowLayout();
+      DCTrace << "Editor::ToggleEditor \n";
       
-      // Toggle on the editor
-      setEnabled(!Settings.EditorEnabled);
-      ToggleEditor(Settings.EditorEnabled);      
-    }
+      // Toggle
+      Enabled = !Enabled;
 
+      // If enabling the editor...
+      if (Enabled) {
+        Launcher.Launch();
+        Projects.ReloadLevel();
+      }
+      // If closing it...
+      else {
+        Launcher.Close();    
+        CurrentSpace->ReloadLevel();
+      }
+
+      Deselect();
+    }
+    
     /**************************************************************************/
     /*!
-    @brief  Toggles the editor on and off.
+    @brief Static interface for the Editor.
+    @return A reference to the Editor system.
     */
     /**************************************************************************/
-    void Editor::ToggleEditor(bool toggle, bool reload)
-    {
-      // Editor ON
-      if (toggle) {
-        DCTrace << "/------ EDITOR MODE -------/ \n";
-        setEnabled(true);
-        // Pause the engine (Physics, Input, Events)
-        DispatchSystemEvents::EnginePause();
-        //DCTrace << "Editor::ToggleEditor - Dispatching 'EnginePaused' event \n";
-        // Quit the Game
-        DispatchGameEvents::GameEnded();
-
-        // Reload the level from the editor
-        if (reload) {
-          Projects.ReloadLevel();
-        }
-
-        // Toggle the widgets
-        Windows.LibraryEnabled = true;
-        Windows.ObjectsEnabled = true;
-        // Clear previous commands
-        Settings.Commands.CommandsCurrent.clear();
-        Settings.Commands.CommandsUndo.clear();
-        // Set the editor camera
-        // SetEditorCamera(true);
-      }
-      // Editor OFF
-      else {
-        DCTrace << "/------ PLAY MODE -------/ \n";
-        setEnabled(false);
-        // Unpause the engine (Physics, Input, Events)
-        DispatchSystemEvents::EngineResume();
-        // Send the game start event
-        DispatchGameEvents::GameStarted();
-        //DCTrace << "Editor::ToggleEditor - Dispatching 'EngineResume' event \n";
-        // Set the editor camera
-        SetEditorCamera(false);
-        Deselect();
-
-        // Ask the space to reload the level
-        if (reload) {
-          CurrentSpace->ReloadLevel();
-        }
-        
-        
-      }
-    }
-
     Editor & Editor::Access()
     {
       return *Daisy->getSystem<Systems::Editor>();
@@ -242,9 +185,6 @@ namespace DCEngine {
         break;
 
       }
-
-      //ActiveTool.reset();
-      //ActiveTool = tool;
     }
 
     /**************************************************************************/
@@ -269,7 +209,7 @@ namespace DCEngine {
       Diagnostics.Display();
       WindowConsole();
 
-      if (!Settings.EditorEnabled)
+      if (!Enabled)
         return;
 
       WindowSplashScreen();
@@ -339,22 +279,6 @@ namespace DCEngine {
       auto imageSizeScalar = 2;
       auto textureSize = ImVec2(static_cast<float>(texture.Width * imageSizeScalar),
                                 static_cast<float>(texture.Height * imageSizeScalar));
-
-      // Open the PopUp
-      //ImGui::SetNextWindowSize(ImVec2(150, 150), ImGuiSetCond_FirstUseEver);
-      //ImGui::OpenPopup("Welcome!");
-
-      //if (ImGui::BeginPopupModal("Welcome")) {
-      //  ImGui::Text("Hi");
-      //  // Display splash image
-      //  ImGui::Image((void*)(texture.TextureID), ImVec2(texture.Width, texture.Height),
-      //    ImVec2(0, 1), ImVec2(1, 0), ImColor(255, 255, 255, 255), ImColor(255, 255, 255, 128));
-      //  if (ImGui::IsMouseClicked(0)) {
-      //    ImGui::CloseCurrentPopup();
-      //  }
-
-      //  ImGui::EndPopup();
-      //}
 
       auto windowDim = Daisy->getSystem<Window>()->getWindowDimensions();
       auto splashPos = ImVec2((windowDim.x / 2) - textureSize.x / 2, (windowDim.y / 2) - textureSize.y / 2);

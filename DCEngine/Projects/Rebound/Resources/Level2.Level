@@ -10,6 +10,7 @@
         "Locked": false, 
         "GameObjectID": 216, 
         "Name": "Player", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -18,8 +19,8 @@
             {
               "Vec3": 
               {
-                "x": 124.442207, 
-                "y": 26.045986, 
+                "x": 8.049225, 
+                "y": 3.215595, 
                 "z": 0.000000
               }
             }, 
@@ -27,8 +28,8 @@
             {
               "Vec3": 
               {
-                "x": 124.442207, 
-                "y": 26.045986, 
+                "x": 8.049225, 
+                "y": 3.215595, 
                 "z": 0.000000
               }
             }, 
@@ -36,8 +37,8 @@
             {
               "Vec3": 
               {
-                "x": 124.442207, 
-                "y": 26.045986, 
+                "x": 8.049225, 
+                "y": 3.215595, 
                 "z": 0.000000
               }
             }, 
@@ -204,6 +205,7 @@
         "Locked": false, 
         "GameObjectID": 217, 
         "Name": "Ground1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -310,6 +312,7 @@
         "Locked": false, 
         "GameObjectID": 218, 
         "Name": "Ground2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -416,6 +419,7 @@
         "Locked": false, 
         "GameObjectID": 219, 
         "Name": "Ground3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -522,6 +526,7 @@
         "Locked": false, 
         "GameObjectID": 220, 
         "Name": "Ground4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -628,6 +633,7 @@
         "Locked": false, 
         "GameObjectID": 221, 
         "Name": "Ground5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -734,6 +740,7 @@
         "Locked": false, 
         "GameObjectID": 222, 
         "Name": "Ground6", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -840,6 +847,7 @@
         "Locked": false, 
         "GameObjectID": 223, 
         "Name": "Ground7", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -946,6 +954,7 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield10", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1077,6 +1086,7 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield6", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1208,6 +1218,7 @@
         "Locked": false, 
         "GameObjectID": 226, 
         "Name": "Ground11", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1314,6 +1325,7 @@
         "Locked": false, 
         "GameObjectID": 227, 
         "Name": "Ground12", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1420,6 +1432,7 @@
         "Locked": false, 
         "GameObjectID": 228, 
         "Name": "Ground13", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1526,6 +1539,7 @@
         "Locked": false, 
         "GameObjectID": 229, 
         "Name": "Ground14", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1632,6 +1646,7 @@
         "Locked": false, 
         "GameObjectID": 293, 
         "Name": "PressurePlate2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1742,6 +1757,7 @@
         "Locked": false, 
         "GameObjectID": 312, 
         "Name": "StreetLight", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1835,6 +1851,7 @@
         "Locked": false, 
         "GameObjectID": 311, 
         "Name": "Light", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1928,6 +1945,7 @@
         "Locked": false, 
         "GameObjectID": 293, 
         "Name": "PressurePlate1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2038,6 +2056,7 @@
         "Locked": false, 
         "GameObjectID": 310, 
         "Name": "GlobalLight", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2131,6 +2150,7 @@
         "Locked": false, 
         "GameObjectID": 288, 
         "Name": "PowerField1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2261,6 +2281,7 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Button2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2324,7 +2345,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_button_off", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -2389,8 +2410,73 @@
       "GameObject": 
       {
         "Locked": false, 
+        "GameObjectID": 307, 
+        "Name": "PauseManager", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -8.800000, 
+                "y": 16.177778, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -8.800000, 
+                "y": 16.177778, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -8.800000, 
+                "y": 16.177778, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "PauseManager": 
+          {
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
         "GameObjectID": 288, 
         "Name": "PowerField1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2521,6 +2607,7 @@
         "Locked": false, 
         "GameObjectID": 241, 
         "Name": "Ceiling1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2627,6 +2714,7 @@
         "Locked": false, 
         "GameObjectID": 242, 
         "Name": "Ceiling2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2733,6 +2821,7 @@
         "Locked": false, 
         "GameObjectID": 243, 
         "Name": "Ceiling3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2839,6 +2928,7 @@
         "Locked": false, 
         "GameObjectID": 244, 
         "Name": "Ceiling4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2945,6 +3035,7 @@
         "Locked": false, 
         "GameObjectID": 245, 
         "Name": "Ceiling5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3051,6 +3142,7 @@
         "Locked": false, 
         "GameObjectID": 246, 
         "Name": "Ceiling6", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3157,6 +3249,7 @@
         "Locked": false, 
         "GameObjectID": 247, 
         "Name": "Ceiling7", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3263,6 +3356,7 @@
         "Locked": false, 
         "GameObjectID": 248, 
         "Name": "Ceiling8", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3369,6 +3463,7 @@
         "Locked": false, 
         "GameObjectID": 249, 
         "Name": "Ceiling9", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3475,6 +3570,7 @@
         "Locked": false, 
         "GameObjectID": 250, 
         "Name": "Ceiling10", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3581,6 +3677,7 @@
         "Locked": false, 
         "GameObjectID": 251, 
         "Name": "Ceiling11", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3687,6 +3784,7 @@
         "Locked": false, 
         "GameObjectID": 288, 
         "Name": "PowerField3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3817,6 +3915,7 @@
         "Locked": false, 
         "GameObjectID": 253, 
         "Name": "Wall1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3923,6 +4022,7 @@
         "Locked": false, 
         "GameObjectID": 254, 
         "Name": "Wall2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4029,6 +4129,7 @@
         "Locked": false, 
         "GameObjectID": 255, 
         "Name": "Wall3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4135,6 +4236,7 @@
         "Locked": false, 
         "GameObjectID": 256, 
         "Name": "Wall4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4241,6 +4343,7 @@
         "Locked": false, 
         "GameObjectID": 257, 
         "Name": "Wall5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4347,6 +4450,7 @@
         "Locked": false, 
         "GameObjectID": 258, 
         "Name": "Wall6", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4453,6 +4557,7 @@
         "Locked": false, 
         "GameObjectID": 126, 
         "Name": "Camera", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4536,6 +4641,7 @@
         "Locked": false, 
         "GameObjectID": 305, 
         "Name": "Ball", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4797,7 +4903,16 @@
                 "y": 1.500000, 
                 "z": 0.000000
               }
-            }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
           }, 
           "LinearParticleAnimator": 
           {
@@ -4829,6 +4944,161 @@
         }, 
         "Children": 
         {
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 98, 
+            "Name": "TestParticle", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 137.553101, 
+                    "y": 24.591127, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 137.553101, 
+                    "y": 24.591127, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "SpriteParticleSystem": 
+              {
+                "Visible": true, 
+                "Tint": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "Texture": "Laser", 
+                "VelocityScale": 1.000000, 
+                "LengthScale": 1.000000, 
+                "SystemSize": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 4.000000, 
+                    "y": 4.000000, 
+                    "z": 4.000000
+                  }
+                }, 
+                "Additive": true, 
+                "Lock": false, 
+                "DrawLayer": 4
+              }, 
+              "ParticleEmitter": 
+              {
+                "Active": true, 
+                "ResetCount": false, 
+                "EmitCount": 0, 
+                "EmitRate": 20, 
+                "EmitVariance": 0, 
+                "Size": 0.200000, 
+                "SizeVariance": 0.100000, 
+                "Lifetime": 4.000000, 
+                "LifetimeVariance": 0.000000, 
+                "Spin": 100.000000, 
+                "SpinVariance": 100.000000, 
+                "StartVelocity": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "RandomVelocity": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.125000, 
+                    "y": 0.125000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "EmissionArea": 
+                {
+                  "Vec2": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000
+                  }
+                }, 
+                "EmissionCircle": false
+              }, 
+              "LinearParticleAnimator": 
+              {
+                "Force": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "RandomForce": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Torque": 0.000000, 
+                "Growth": -0.050000, 
+                "Dampening": 0.000000
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }
         }
       }, 
       "GameObject": 
@@ -4836,6 +5106,7 @@
         "Locked": false, 
         "GameObjectID": 257, 
         "Name": "Wall5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4942,6 +5213,7 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield8", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5073,6 +5345,7 @@
         "Locked": false, 
         "GameObjectID": 288, 
         "Name": "PowerField5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5203,6 +5476,7 @@
         "Locked": false, 
         "GameObjectID": 265, 
         "Name": "Door1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5307,8 +5581,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 5.000000, 
+                "x": 19.008417, 
+                "y": -2.499679, 
                 "z": 0.000000
               }
             }, 
@@ -5327,6 +5601,7 @@
         "Locked": false, 
         "GameObjectID": 266, 
         "Name": "Door2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5431,8 +5706,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 5.000000, 
+                "x": 54.538704, 
+                "y": -3.394842, 
                 "z": 0.000000
               }
             }, 
@@ -5451,6 +5726,7 @@
         "Locked": false, 
         "GameObjectID": 265, 
         "Name": "Door4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5555,8 +5831,8 @@
             {
               "Vec3": 
               {
-                "x": 4.000000, 
-                "y": 0.000000, 
+                "x": 148.569565, 
+                "y": 33.048630, 
                 "z": 0.000000
               }
             }, 
@@ -5575,6 +5851,7 @@
         "Locked": false, 
         "GameObjectID": 298, 
         "Name": "BioField4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5705,6 +5982,7 @@
         "Locked": false, 
         "GameObjectID": 298, 
         "Name": "BioField3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5835,6 +6113,7 @@
         "Locked": false, 
         "GameObjectID": 288, 
         "Name": "PowerField4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5965,6 +6244,7 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Button3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6028,7 +6308,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_button_off", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -6095,6 +6375,7 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Button4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6158,7 +6439,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_button_off", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -6225,6 +6506,7 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Button5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6288,7 +6570,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_button_off", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -6355,6 +6637,7 @@
         "Locked": false, 
         "GameObjectID": 275, 
         "Name": "Button5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6364,7 +6647,7 @@
               "Vec3": 
               {
                 "x": 148.320557, 
-                "y": 31.039030, 
+                "y": 30.958385, 
                 "z": 0.000000
               }
             }, 
@@ -6373,7 +6656,7 @@
               "Vec3": 
               {
                 "x": 148.320557, 
-                "y": 31.039030, 
+                "y": 30.958385, 
                 "z": 0.000000
               }
             }, 
@@ -6382,7 +6665,7 @@
               "Vec3": 
               {
                 "x": 148.320557, 
-                "y": 31.039030, 
+                "y": 30.958385, 
                 "z": 0.000000
               }
             }, 
@@ -6435,6 +6718,7 @@
         "Locked": false, 
         "GameObjectID": 223, 
         "Name": "Ground7", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6541,6 +6825,7 @@
         "Locked": false, 
         "GameObjectID": 298, 
         "Name": "AntiEnergy1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6671,6 +6956,7 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Button8", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6734,7 +7020,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_button_off", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -6801,6 +7087,7 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6932,6 +7219,7 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7063,6 +7351,7 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7194,6 +7483,7 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7325,6 +7615,7 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7456,6 +7747,7 @@
         "Locked": false, 
         "GameObjectID": 227, 
         "Name": "Ground12", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7562,6 +7854,7 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield7", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7693,6 +7986,7 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield9", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7824,6 +8118,7 @@
         "Locked": false, 
         "GameObjectID": 227, 
         "Name": "Ground12", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7930,6 +8225,7 @@
         "Locked": false, 
         "GameObjectID": 227, 
         "Name": "Ground12", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8036,6 +8332,7 @@
         "Locked": false, 
         "GameObjectID": 227, 
         "Name": "Ground12", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8142,6 +8439,7 @@
         "Locked": false, 
         "GameObjectID": 257, 
         "Name": "Wall5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8248,6 +8546,7 @@
         "Locked": false, 
         "GameObjectID": 298, 
         "Name": "BioField4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8378,6 +8677,7 @@
         "Locked": false, 
         "GameObjectID": 226, 
         "Name": "Ground11", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8484,6 +8784,7 @@
         "Locked": false, 
         "GameObjectID": 293, 
         "Name": "PressurePlate2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8594,6 +8895,7 @@
         "Locked": false, 
         "GameObjectID": 257, 
         "Name": "Wall5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8700,6 +9002,7 @@
         "Locked": false, 
         "GameObjectID": 265, 
         "Name": "Door3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8804,8 +9107,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 5.250000, 
+                "x": 112.283127, 
+                "y": -2.680249, 
                 "z": 0.000000
               }
             }, 
@@ -8824,6 +9127,7 @@
         "Locked": false, 
         "GameObjectID": 257, 
         "Name": "Wall5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8930,6 +9234,7 @@
         "Locked": false, 
         "GameObjectID": 257, 
         "Name": "Wall5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9036,6 +9341,7 @@
         "Locked": false, 
         "GameObjectID": 251, 
         "Name": "Ceiling11", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9142,6 +9448,7 @@
         "Locked": false, 
         "GameObjectID": 275, 
         "Name": "Button5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9222,6 +9529,7 @@
         "Locked": false, 
         "GameObjectID": 106, 
         "Name": "Gate1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9290,6 +9598,7 @@
         "Locked": false, 
         "GameObjectID": 106, 
         "Name": "Transistor1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9357,6 +9666,7 @@
         "Locked": false, 
         "GameObjectID": 228, 
         "Name": "GroundExtra1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9463,6 +9773,7 @@
         "Locked": false, 
         "GameObjectID": 228, 
         "Name": "GroundExtra2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9569,6 +9880,7 @@
         "Locked": false, 
         "GameObjectID": 228, 
         "Name": "GroundExtra3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9675,6 +9987,7 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Button1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9738,7 +10051,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_button_off", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -9805,6 +10118,7 @@
         "Locked": true, 
         "GameObjectID": 274, 
         "Name": "Foreground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9885,6 +10199,7 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Midground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -9965,6 +10280,7 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Background", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -10045,6 +10361,7 @@
         "Locked": false, 
         "GameObjectID": 206, 
         "Name": "Generator", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -10175,6 +10492,7 @@
         "Locked": true, 
         "GameObjectID": 97, 
         "Name": "LevelSettings", 
+        "Protected": false, 
         "Components": 
         {
         }, 

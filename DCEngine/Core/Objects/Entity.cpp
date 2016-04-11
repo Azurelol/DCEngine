@@ -35,30 +35,28 @@ namespace DCEngine {
     // Constructor / Destructor
     ZilchBindConstructor(builder, type, Entity, "name", std::string);
     ZilchBindDestructor(builder, type, Entity);
+    // Properties
+    DCE_BINDING_DEFINE_ATTRIBUTE(Hidden); DCE_BINDING_DEFINE_ATTRIBUTE(Skip);
+    DCE_BINDING_DEFINE_PROPERTY(Entity, ModifiedFromArchetype);
+    ZilchBindProperty(builder, type, &Entity::getArchetype, &Entity::setArchetype, "Archetype");
+    DCE_BINDING_DEFINE_PROPERTY(Entity, Protected);
+    DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyModifiedFromArchetype, attributeHidden);
+    DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyModifiedFromArchetype, attributeSkip);
     // Methods
     Zilch::ParameterArray dispatchParams;
     dispatchParams.push_back(ZilchTypeId(Zilch::String));
     dispatchParams.push_back(ZilchTypeId(Event));
-    ZilchBindMethod(builder, type, &Entity::Dispatch, (void(Entity::*)(std::string, Event*)), "Dispatch", "eventID, event");
-    // Properties
+    ZilchBindMethod(builder, type, &Entity::Dispatch, (void(Entity::*)(std::string, Event*)), "Dispatch", "eventID, event");    
     ZilchBindProperty(builder, type, &Entity::Parent, ZilchNoSetter, "Parent", ZilchNoNames);
     ZilchBindMethod(builder, type, &Entity::FindChildByName, ZilchNoOverload, "FindChildByName", "name");
-    //ZilchBindMethod(builder, type, &Entity::FindAllChildrenByName, ZilchNoOverload, "FindAllChildrenByName", "name");
     ZilchBindProperty(builder, type, &Entity::ChildrenByRange, ZilchNoSetter, "Children");
     ZilchBindMethod(builder, type, &Entity::AttachTo, ZilchNoOverload, "AttachTo", "parent");
     ZilchBindMethod(builder, type, &Entity::AttachToRelative, ZilchNoOverload, "AttachToRelative", "parent");
     ZilchBindMethod(builder, type, &Entity::Detach, ZilchNoOverload, "Detach", ZilchNoNames);
     ZilchBindMethod(builder, type, &Entity::DetachRelative, ZilchNoOverload, "DetachRelative", ZilchNoNames);
     ZilchBindMethod(builder, type, &Entity::Destroy, ZilchNoOverload, "Destroy", ZilchNoNames);
-    // Actions
     DCE_BINDING_DEFINE_PROPERTY_NOSETTER(Entity, Actions);
-    // Archetypes
-    ZilchBindProperty(builder, type, &Entity::getArchetype, &Entity::setArchetype, "Archetype");
-    DCE_BINDING_DEFINE_ATTRIBUTE(Hidden);
-    DCE_BINDING_DEFINE_ATTRIBUTE(Skip);
-    DCE_BINDING_DEFINE_PROPERTY(Entity, ModifiedFromArchetype);
-    DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyModifiedFromArchetype, attributeHidden);
-    DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyModifiedFromArchetype, attributeSkip);
+
     // Engine-component properties
     //DCE_BINDING_ENTITY_COMPONENT_AS_PROPERTY(Transform);
     //ZilchBindProperty(builder, type, &Entity::getComponent<Components::Transform>, ZilchNoSetter, "Transform");

@@ -150,13 +150,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -2112,6 +2112,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -2121,37 +2124,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -2288,6 +2261,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -2297,37 +2273,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -2464,6 +2410,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -2473,37 +2422,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -3119,12 +3038,12 @@
               "Vec4": 
               {
                 "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -3246,7 +3165,7 @@
       {
         "Locked": false, 
         "GameObjectID": 446, 
-        "Name": "Ground", 
+        "Name": "InvisibleWall", 
         "Components": 
         {
           "Transform": 
@@ -3255,8 +3174,8 @@
             {
               "Vec3": 
               {
-                "x": -209.169876, 
-                "y": -100.905434, 
+                "x": -219.561127, 
+                "y": -76.185204, 
                 "z": 0.000000
               }
             }, 
@@ -3264,8 +3183,8 @@
             {
               "Vec3": 
               {
-                "x": -209.169876, 
-                "y": -100.905434, 
+                "x": -219.561127, 
+                "y": -76.185204, 
                 "z": 0.000000
               }
             }, 
@@ -3273,8 +3192,8 @@
             {
               "Vec3": 
               {
-                "x": -209.169876, 
-                "y": -100.905434, 
+                "x": -219.561127, 
+                "y": -76.185204, 
                 "z": 0.000000
               }
             }, 
@@ -3292,14 +3211,14 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 1.000000, 
+                "y": 50.000000, 
                 "z": 1.000000
               }
             }
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -3410,13 +3329,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -3720,7 +3639,16 @@
                 "y": 1.500000, 
                 "z": 0.000000
               }
-            }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
           }, 
           "LinearParticleAnimator": 
           {
@@ -4025,13 +3953,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -4339,8 +4267,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
+                    "x": -4.912048, 
+                    "y": 76.674370, 
                     "z": 0.000000
                   }
                 }, 
@@ -4589,8 +4517,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
+                    "x": -9.982475, 
+                    "y": 86.589111, 
                     "z": 0.000000
                   }
                 }, 
@@ -4851,13 +4779,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -4957,13 +4885,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -5525,6 +5453,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -5534,37 +5465,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -5701,6 +5602,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -5710,37 +5614,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -5877,6 +5751,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -5886,37 +5763,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -6053,6 +5900,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -6062,37 +5912,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -6229,6 +6049,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -6238,37 +6061,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -6405,6 +6198,9 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "HeadArchetype": "", 
+            "BodyArchetype": "", 
+            "SawArchetype": "", 
             "IdleRange": 100.000000, 
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
@@ -6414,37 +6210,7 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "IdleColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "PatrolColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }
+            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -6699,13 +6465,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -7047,7 +6813,16 @@
                 "y": 5.000000, 
                 "z": 0.000000
               }
-            }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
           }, 
           "LinearParticleAnimator": 
           {
@@ -7672,13 +7447,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -7884,13 +7659,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -8641,13 +8416,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -8747,13 +8522,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -8853,13 +8628,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -9017,7 +8792,7 @@
               "Vec3": 
               {
                 "x": -144.503540, 
-                "y": -42.617371, 
+                "y": -42.506165, 
                 "z": 0.000000
               }
             }, 
@@ -9026,7 +8801,7 @@
               "Vec3": 
               {
                 "x": -144.503540, 
-                "y": -42.617371, 
+                "y": -42.506165, 
                 "z": 0.000000
               }
             }, 
@@ -9035,7 +8810,7 @@
               "Vec3": 
               {
                 "x": -144.503540, 
-                "y": -42.617371, 
+                "y": -42.506165, 
                 "z": 0.000000
               }
             }, 
@@ -9065,13 +8840,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -9171,13 +8946,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -9329,7 +9104,16 @@
                 "y": 0.000000, 
                 "z": 0.000000
               }
-            }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
           }, 
           "LinearParticleAnimator": 
           {
@@ -9474,7 +9258,16 @@
                 "y": 0.000000, 
                 "z": 0.000000
               }
-            }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
           }, 
           "LinearParticleAnimator": 
           {
@@ -9619,7 +9412,16 @@
                 "y": 0.000000, 
                 "z": 0.000000
               }
-            }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
           }, 
           "LinearParticleAnimator": 
           {
@@ -9776,7 +9578,16 @@
                 "y": 5.000000, 
                 "z": 0.000000
               }
-            }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
           }, 
           "LinearParticleAnimator": 
           {
@@ -9854,6 +9665,112 @@
                 "w": 0.500000
               }
             }
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 446, 
+        "Name": "Ground", 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -209.169876, 
+                "y": -100.905434, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -209.169876, 
+                "y": -100.905434, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -209.169876, 
+                "y": -100.905434, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "tile_basic_both", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
           }
         }, 
         "Children": 

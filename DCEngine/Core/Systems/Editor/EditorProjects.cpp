@@ -136,8 +136,7 @@ namespace DCEngine {
     void EditorProjects::LoadProject(const std::string& path)
     {
       // Disable the editor while loading a project
-      Access().Settings.EditorEnabled = false;
-
+      Access().setEnabled(false);
       // Load the project's data into the Content system. This will
       // automatically load its resources/assets for use.
       Daisy->getSystem<Content>()->LoadProject(path);
@@ -153,7 +152,7 @@ namespace DCEngine {
     void EditorProjects::OnContentProjectLoadedEvent(Events::ContentProjectLoaded * event)
     {
       // Destroy the current editor camera
-      Access().SetEditorCamera(false);
+      Access().Launcher.SetEditorCamera(false);
       // Turn on the editor
       //Access().Settings.EditorEnabled = true;
       // Save a pointer to the project data
@@ -231,7 +230,6 @@ namespace DCEngine {
       }
 
       DCTrace << "Editor::LoadLevel - Loading " << level << "\n";
-
       // Save the currently-loaded level before loading a new one
       if (Access().CurrentSpace->getCurrentLevel()) {
         auto currentLevelName = Access().CurrentSpace->getCurrentLevel()->Name();
@@ -251,13 +249,14 @@ namespace DCEngine {
       Access().Deselect();
       // Load the level
       Access().CurrentSpace->LoadLevel(level);
+      // Load the editor camera
+      Access().Launcher.SetEditorCamera(true);
+
       // If the level doesn't have a levelsettings object (legacy), add one!
       if (!Access().CurrentSpace->FindObjectByName("LevelSettings")) {
         Access().Creator.CreateLevelSettings();
       }
       
-      // Load the editor camera
-      Access().SetEditorCamera(true);
       // Sets the current window's caption
       Access().UpdateCaption();
       // Set it as the default level
@@ -308,7 +307,7 @@ namespace DCEngine {
       // Reload the current level
       Access().CurrentSpace->ReloadLevel();
       // Reload the editor camera
-      Access().SetEditorCamera(true);
+      Access().Launcher.SetEditorCamera(true);
       // Clear the currently selected object
       Access().Deselect();
       // Eh?
@@ -335,34 +334,38 @@ namespace DCEngine {
     /**************************************************************************/
     void EditorProjects::OnScriptingLibraryCompiled(Events::ScriptingLibraryCompiled * event)
     {
-      Ready = true;
+      Ready = true;      
 
       // If the project is being initialized...
       if (InitializingProject) {
+        // Enable the editor again
+        Access().setEnabled(true);
         // Load the default GameSession
         LoadDefaultGameSession();
         // Load the default Space
         LoadDefaultSpace();
         // Load its default level 
-        auto play = Access().Settings.ProjectProperties->Play;
-        auto load = LoadLevel(Access().Settings.ProjectProperties->DefaultLevel);
+        auto startInPlayMode = Access().Settings.ProjectProperties->Play;
+        auto levelLoaded = LoadLevel(Access().Settings.ProjectProperties->DefaultLevel);
 
-        // If the level loaded successfully
-        if (load) {
-          // If set to play mode, disable the editor
-          if (play)
-            Access().ToggleEditor(false, false);
+        // A.) If the level loaded successfully
+        if (levelLoaded) {
+          // If set to start in PlayMode mode, disable the editor
+          if (startInPlayMode) {
+            Access().Launcher.Close();
+          }
           // Otherwise, load the editor right away
           else {
             DCTrace << "Editor::LoadProject - Default level found editor turned on \n";
-            Access().ToggleEditor(true, false);
+            Access().Launcher.Launch();
           }
-
         }
 
-        // No default level set, turn on the editor!
-        else
-          Access().ToggleEditor(true, true);
+        // B.) If no level was loaded..
+        else {
+          Access().Launcher.Launch();
+          Access().CurrentSpace->DestroyAll();
+        }
 
         InitializingProject = false;
       }
@@ -380,7 +383,9 @@ namespace DCEngine {
       // If the project is being initialized...
       if (InitializingProject) {
         DCTrace << "Editor::LoadProject - Default level found editor turned on \n";
-        Access().ToggleEditor(true);
+        Access().Launcher.Launch();
+        this->ReloadLevel();
+        //Access().ToggleEditor(true);
         InitializingProject = false;
       }
     }
