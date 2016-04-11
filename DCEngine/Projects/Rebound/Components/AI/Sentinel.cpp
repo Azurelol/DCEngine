@@ -120,7 +120,7 @@ namespace DCEngine {
 
     void Sentinel::CreateShield()
     {
-      shield = SpaceRef->CreateObject("Sentinel Shield");
+      shield = SpaceRef->CreateObject(ShieldArchetype);
       shield->AttachTo(gameObj);
       shield->getComponent<Transform>()->SetLocalTranslation(shieldLocalTranslation);
       shield->getComponent<Orientation>()->WorldForward = Vec3(1, 0, 0);

@@ -13,6 +13,7 @@
 #include "../ReboundComponent.h"
 #include "../../../../Core/Systems/StateMachine/StateMachine.h"
 #include "../../ReboundEvents.h"
+#include <random>
 
 namespace DCEngine {
   namespace Components {
@@ -26,8 +27,11 @@ namespace DCEngine {
       GameObject* gameObj;
       Transform* TransformRef;
       RigidBody* RigidBodyRef;
-      Sprite* SpriteRef;
+      //Sprite* SpriteRef;
       String PlayerName = "Player";
+      ArchetypeHandle HeadArchetype;
+      ArchetypeHandle BodyArchetype;
+      ArchetypeHandle SawArchetype;
       float IdleRange;        // Past this range, the grunt will be idle, within the range, it will patrol
       float PatrolDistance;   // The distance from the starting position that the grunt will move before turning around
       bool IsPatrolRight;       // True = Grunt moves right first, false = moves left first
@@ -38,9 +42,10 @@ namespace DCEngine {
       float AttackJumpStrengthX;
       float AttackJumpStrengthY;
       float AttackJumpPeriod;
-      Vec4 IdleColor = Vec4(0, 1, 0, 1);
-      Vec4 PatrolColor = Vec4(0, 0, 1, 1);
-      Vec4 AttackColor = Vec4(1, 0, 0, 1);
+      //bool IsDebugColorActive;
+      //Vec4 IdleColor = Vec4(0, 1, 0, 1);
+      //Vec4 PatrolColor = Vec4(0, 0, 1, 1);
+      //Vec4 AttackColor = Vec4(1, 0, 0, 1);
 
       
 
@@ -51,6 +56,9 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(int, startingHealth);
       DCE_DEFINE_PROPERTY(int, maxHealth);
       DCE_DEFINE_PROPERTY(bool, IsInvulnerable);
+      DCE_DEFINE_PROPERTY(ArchetypeHandle, HeadArchetype);
+      DCE_DEFINE_PROPERTY(ArchetypeHandle, BodyArchetype);
+      DCE_DEFINE_PROPERTY(ArchetypeHandle, SawArchetype);
       DCE_DEFINE_PROPERTY(float, IdleRange);
       DCE_DEFINE_PROPERTY(float, PatrolDistance);
       DCE_DEFINE_PROPERTY(bool, IsPatrolRight);
@@ -61,9 +69,10 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(float, AttackJumpStrengthX);
       DCE_DEFINE_PROPERTY(float, AttackJumpStrengthY);
       DCE_DEFINE_PROPERTY(float, AttackJumpPeriod);
-      DCE_DEFINE_PROPERTY(Vec4, IdleColor);
-      DCE_DEFINE_PROPERTY(Vec4, PatrolColor);
-      DCE_DEFINE_PROPERTY(Vec4, AttackColor);
+      //DCE_DEFINE_PROPERTY(Vec4, IdleColor);
+      //DCE_DEFINE_PROPERTY(Vec4, PatrolColor);
+      //DCE_DEFINE_PROPERTY(Vec4, AttackColor);
+      //DCE_DEFINE_PROPERTY(bool, IsDebugColorActive);
 
       // Methods
       Grunt(Entity& owner) : Component(std::string("Grunt"), owner) {}
@@ -79,6 +88,10 @@ namespace DCEngine {
     private:
       StateMachine<Grunt> *stateMachine;
       GameObject *player;
+      GameObjectPtr head;
+      GameObjectPtr body;
+      GameObjectPtr saw;
+      std::vector<GameObjectPtr> sprites;
       int health;
       int startingHealth;
       int maxHealth;
@@ -89,6 +102,11 @@ namespace DCEngine {
       float dt;
       Vec4 defaultColor;
       bool ModifyHealth(int amount);
+      void CreateSprites();
+      void UpdateSprites(float timePassed);
+      void FlipSprites(bool flipx);
+      void ChangeStateRight();
+      void ChangeStateLeft();
 
       void Jump(int direction, float period, float strengthX, float strengthY);
 
