@@ -2243,7 +2243,7 @@
             {
               "Vec3": 
               {
-                "x": -12.383636, 
+                "x": -19.384001, 
                 "y": 15.351398, 
                 "z": 0.000000
               }
@@ -2252,7 +2252,7 @@
             {
               "Vec3": 
               {
-                "x": -12.383636, 
+                "x": -19.384001, 
                 "y": 15.351398, 
                 "z": 0.000000
               }
@@ -2261,7 +2261,7 @@
             {
               "Vec3": 
               {
-                "x": -12.383636, 
+                "x": -19.384001, 
                 "y": 15.351398, 
                 "z": 0.000000
               }
@@ -12840,8 +12840,8 @@
             {
               "Vec3": 
               {
-                "x": -12.195314, 
-                "y": 15.106581, 
+                "x": -17.195000, 
+                "y": 15.107000, 
                 "z": 0.000000
               }
             }, 
@@ -12849,8 +12849,8 @@
             {
               "Vec3": 
               {
-                "x": -12.195314, 
-                "y": 15.106581, 
+                "x": -17.195000, 
+                "y": 15.107000, 
                 "z": 0.000000
               }
             }, 
@@ -12858,8 +12858,8 @@
             {
               "Vec3": 
               {
-                "x": -12.195314, 
-                "y": 15.106581, 
+                "x": -17.195000, 
+                "y": 15.107000, 
                 "z": 0.000000
               }
             }, 
@@ -12877,7 +12877,7 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 1.000000, 
+                "y": 50.000000, 
                 "z": 1.000000
               }
             }
@@ -13107,27 +13107,29 @@
                     "w": 1.000000
                   }
                 }, 
-                "Font": "SafetyMedium", 
+                "Font": "Electrolize-Regular", 
                 "FontSize": 5, 
                 "Text": "123456789ABCDEFGHFFF F asdasd", 
                 "PixelsPerUnit": 64, 
                 "Smoothing": true, 
-                "WordWrap": 20, 
+                "WordWrap": 30, 
                 "DrawLayer": 4
               }, 
               "DialogText": 
               {
                 "SystemDelay": 0.000000, 
                 "FadeInTime": 1.500000, 
-                "FadeEase": "QuadIn", 
+                "FadeEase": "Linear", 
                 "MessageTime": 5.000000, 
                 "ScaleTimeWithSize": true, 
-                "TimePerChar": 0.100000, 
+                "TimePerChar": 0.050000, 
                 "Message": "NoMessageEvent", 
-                "WordWrap": 25, 
+                "WordWrap": 30, 
                 "TextEase": "Linear", 
                 "DeleteAfterTime": false, 
                 "TimeToDelete": 10.000000, 
+                "AshaReplySoundName": "ScrapperAttack", 
+                "CyrusReplySoundName": "ScrapperAttack", 
                 "AshaVoiceColor": 
                 {
                   "Vec3": 
@@ -13210,7 +13212,7 @@
               }, 
               "SpriteText": 
               {
-                "Visible": true, 
+                "Visible": false, 
                 "Color": 
                 {
                   "Vec4": 
