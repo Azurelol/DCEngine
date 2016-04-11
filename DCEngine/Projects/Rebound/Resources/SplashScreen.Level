@@ -156,12 +156,6 @@
             "Active": true, 
             "CaptureMouse": true, 
             "Noise": false
-          }, 
-          "LevelManager": 
-          {
-            "NextLevel": "MainMenu", 
-            "LoadingTime": 8.000000, 
-            "TimerStarted": true
           }
         }, 
         "Children": 
@@ -189,8 +183,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
+                    "x": 0.130641, 
+                    "y": -0.026333, 
                     "z": -0.100000
                   }
                 }, 
@@ -611,6 +605,12 @@
         "Protected": true, 
         "Components": 
         {
+          "LevelTransition": 
+          {
+            "Enabled": true, 
+            "NextLevel": "MainMenu", 
+            "Delay": 8.000000
+          }
         }, 
         "Children": 
         {

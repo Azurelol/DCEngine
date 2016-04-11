@@ -71,7 +71,7 @@ namespace DCEngine {
     void Editor::ApplyEditorWindowLayout()
     {
       auto viewportResize = new Events::WindowResize();
-      if (Enabled) {
+      if (Active) {
         viewportResize->Dimensions.x = 1;
         viewportResize->Dimensions.y = 1;
       }

@@ -42,7 +42,7 @@ namespace DCEngine {
     void EditorLauncher::Launch()
     {
       DCTrace << "EditorLauncher::Launch \n";
-      Access().setEnabled(true);
+      Access().setActive(true);
       // Pause the engine (Physics, Input, Events)
       DispatchSystemEvents::EnginePause();
       // Quit the Game
@@ -67,7 +67,7 @@ namespace DCEngine {
     void EditorLauncher::Close()
     {
       DCTrace << "EditorLauncher::Close \n";
-      Access().setEnabled(false);
+      Access().setActive(false);
       // Unpause the engine (Physics, Input, Events)
       DispatchSystemEvents::EngineResume();
       // Send the game start event

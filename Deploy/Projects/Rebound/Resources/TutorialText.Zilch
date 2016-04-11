@@ -1,0 +1,41 @@
+class TutorialText : ZilchComponent
+{
+    [Property]
+    var WaitTime : Real = 0;
+    [Property]
+    var TransitionTime: Real = 0;
+    var Timer : Real = 0;
+    var TransitionStarted : Boolean = false;
+        
+    function Initialize()
+    {
+        Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+        Daisy.Connect(this.Space, DaisyEvent.KeyDown, this.OnKeyDownEvent);
+    }
+
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+      this.Timer += event.Dt;
+      if (this.Timer < 5 && !this.TransitionStarted)
+      {
+        var seq = Actions.Sequence(this.Owner.Actions);
+        Actions.Property(seq, @this.Owner.Sprite.Color, Real4(this.Owner.Sprite.Color.XYZ,1), this.TransitionTime, Ease.Linear);
+        this.TransitionStarted = true;
+        //Console.WriteLine("visible\n");
+      }
+    }
+
+    function OnKeyDownEvent(event : KeyDown)
+    {
+      if (event.Key == Keys.A || event.Key == Keys.D)
+      {
+        this.Timer = 0;
+      }
+      
+      if (event.Key == Keys.W || event.Key == Keys.Space)
+      {
+        this.Timer = 0;
+      }
+      
+    }
+}

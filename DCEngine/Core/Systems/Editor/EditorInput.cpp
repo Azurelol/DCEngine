@@ -22,7 +22,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::OnMouseDownEvent(Events::MouseDown* event)
     {
-      if (!Enabled)
+      if (!Active)
         return;
 
       // Update the mouse's starting position
@@ -94,7 +94,7 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::OnMouseUpEvent(Events::MouseUp* event)
     {
-      if (!Enabled)
+      if (!Active)
         return;
 
       // Stop panning

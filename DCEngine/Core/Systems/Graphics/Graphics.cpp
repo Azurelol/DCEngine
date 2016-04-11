@@ -87,8 +87,11 @@ namespace DCEngine {
           continue;
 
         std::vector<Components::Graphical*> graphicalComponents = gfxSpace->getGraphicsComponents();
-        for (auto graphicalComponent : graphicalComponents)
-          mDrawList[graphicalComponent->getDrawLayer()].push_back(graphicalComponent);
+        for (auto graphicalComponent : graphicalComponents) {
+          auto drawLayer = graphicalComponent->getDrawLayer(); 
+          //DCTrace << "DrawLayer: " << drawLayer << "\n";
+          mDrawList[drawLayer].push_back(graphicalComponent);
+        }
 
         std::vector<Components::Light*> lightComponents;
         if (Settings.LightningEnabled)
@@ -122,9 +125,9 @@ namespace DCEngine {
         for (auto&& drawList : mDrawList)
           drawList.clear();
 
-				GraphicsHandler->ClearFrameBufferObjects();
+        GraphicsHandler->ClearFrameBufferObjects();
       }
-			GraphicsHandler->FinalRender();
+      GraphicsHandler->FinalRender();
       // Load any graphical assets
       LoadGraphicalResources();
 
