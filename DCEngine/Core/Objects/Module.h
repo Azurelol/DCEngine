@@ -1,6 +1,7 @@
 #pragma once
 #include "Object.h"
 
+#include "../Engine/Macros.h"
 #include "..\Objects\Entity.h"
 
 namespace DCEngine {

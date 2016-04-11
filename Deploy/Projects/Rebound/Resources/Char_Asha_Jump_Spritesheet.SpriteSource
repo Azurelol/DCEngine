@@ -1,0 +1,19 @@
+
+{
+  "SpriteSource": 
+  {
+    "Name": "Char_Asha_Jump_Spritesheet", 
+    "Properties": 
+    {
+      "FrameRate": 24.000000, 
+      "PixelsPerUnit": 0.000000, 
+      "ColumnCount": 4, 
+      "RowCount": 1, 
+      "Smoothing": false, 
+      "Looping": false, 
+      "Fill": false, 
+      "TotalFrame": 4, 
+      "AssetPath": "Projects\\Rebound\\Assets\\Images\\Char_Asha_Jump_Spritesheet.png"
+    }
+  }
+}

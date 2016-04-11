@@ -1,0 +1,11 @@
+
+{
+  "Font": 
+  {
+    "Name": "SafetyMedium", 
+    "Properties": 
+    {
+      "AssetPath": "Projects\\Rebound\\Assets\\Fonts\\SafetyMedium.ttf"
+    }
+  }
+}

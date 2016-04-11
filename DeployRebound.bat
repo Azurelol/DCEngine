@@ -21,7 +21,7 @@ xcopy DCEngine\Dependencies\lib\MSVC\x64\Release\sfml-graphics-2.dll Deploy
 xcopy DCEngine\Dependencies\lib\MSVC\x64\Release\sfml-system-2.dll Deploy
 xcopy DCEngine\Dependencies\lib\MSVC\x64\Release\sfml-window-2.dll Deploy
 
-xcopy DCEngine\Daisy.cfg Deploy
+xcopy DCEngine\*.cfg Deploy
 cd DCEngine
 msbuild /p:Configuration=Production
 cd..

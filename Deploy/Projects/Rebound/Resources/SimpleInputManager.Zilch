@@ -1,0 +1,66 @@
+class MoveLeftInput : ZilchEvent
+{
+	sends MoveLeftInput : MoveLeftInput;
+}
+
+class MoveRightInput : ZilchEvent
+{
+	sends MoveRightInput : MoveRightInput;
+}
+
+class JumpInput : ZilchEvent
+{
+	sends JumpInput : JumpInput;
+}
+
+
+class SimpleInputManager : ZilchComponent
+{
+	[Property]
+	var JumpKey : Keys = Keys.W;
+
+	[Property]
+	var AltJumpKey : Keys = Keys.Space;
+
+	[Property]
+	var LeftKey : Keys = Keys.A;
+
+	[Property]
+	var RightKey : Keys = Keys.D;
+	
+	[Property]
+	var JumpInputDelay : Real;
+
+	var DelayTimer : Real;
+
+    function Initialize()
+    {
+        Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+
+        this.DelayTimer = this.JumpInputDelay;
+    }
+
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+    	this.DelayTimer -= event.Dt;
+
+    	if(Daisy.Keyboard.KeyIsDown(this.LeftKey))
+    	{
+    		this.Owner.Dispatch(DaisyEvent.MoveLeftInput, MoveLeftInput());
+    	}
+
+    	if(Daisy.Keyboard.KeyIsDown(this.RightKey))
+    	{
+    		this.Owner.Dispatch(DaisyEvent.MoveRightInput, MoveRightInput());
+    	}
+    	
+    	if(this.DelayTimer < 0.0 && (Daisy.Keyboard.KeyIsDown(this.JumpKey) || Daisy.Keyboard.KeyIsDown(this.AltJumpKey)))
+    	{
+    		this.DelayTimer = this.JumpInputDelay;
+
+    		this.Owner.Dispatch(DaisyEvent.JumpInput, JumpInput());
+    	}
+
+	
+    }
+}

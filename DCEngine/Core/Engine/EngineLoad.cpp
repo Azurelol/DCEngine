@@ -109,7 +109,7 @@ namespace DCEngine {
     Systems.push_back(SystemPtr(new Systems::Window(Configurations.Graphics, EngineConfiguration->Caption)));
     Systems.push_back(SystemPtr(new Systems::Input));
     // Editor configuration @todo change me next!
-    Configurations.Editor.EditorEnabled = EngineConfiguration->EditorEnabled;
+    Configurations.Editor.Enabled = EngineConfiguration->EditorEnabled;
     Configurations.Editor.ProjectsPath = EngineConfiguration->ProjectsPath;
     Configurations.Editor.RecentProject = EngineConfiguration->RecentProject;
     // Add the systems to the engine's systems container
