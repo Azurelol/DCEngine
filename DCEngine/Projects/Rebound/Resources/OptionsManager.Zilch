@@ -309,20 +309,11 @@ class OptionsManager : ZilchComponent
     	}
     	if(button.Name == "FullScreenB")
         {
-            if(this.InFullscreen)
-            {
-                this.InFullscreen = false;
-                this.CurAspect = AspectRatio.A_16x9;
-                this.CurRes = Resolution.A_1920x1080;
-            }
-            else
-            {
-                this.InFullscreen = true;
-                this.CurAspect = AspectRatio.Native;
-                this.CurRes = Resolution.Native;
-            }
 
+            this.InFullscreen = !this.InFullscreen;
             this.Owner.Dispatch(DaisyEvent.FullScreenChange, FullScreenChange());
+            this.CurAspect = AspectRatio.Native;
+            this.CurRes = Resolution.Native;
         }
         else if(button.Name == "NextRatio")
         {
