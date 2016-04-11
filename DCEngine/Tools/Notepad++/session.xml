@@ -1,7 +1,9 @@
 <NotepadPlus>
     <Session activeView="0">
-        <mainView activeIndex="0">
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="640" startPos="189" endPos="189" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\GravityManager.Zilch" backupFilePath="" originalFileLastModifTimestamp="1460362312" />
+        <mainView activeIndex="2">
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="632" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\john.myres\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\TestSoundInstance.Zilch" backupFilePath="" originalFileLastModifTimestamp="1460395765" />
+            <File firstVisibleLine="90" xOffset="0" scrollWidth="712" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\john.myres\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\DialogTrigger.Zilch" backupFilePath="" originalFileLastModifTimestamp="1460325560" />
+            <File firstVisibleLine="45" xOffset="0" scrollWidth="856" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\john.myres\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\DialogText.Zilch" backupFilePath="" originalFileLastModifTimestamp="1460325560" />
         </mainView>
         <subView activeIndex="0" />
     </Session>

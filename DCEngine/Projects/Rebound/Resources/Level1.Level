@@ -147,7 +147,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -254,7 +254,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -361,7 +361,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -468,7 +468,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -531,27 +531,27 @@
             {
               "Vec3": 
               {
-                "x": 38.627338, 
-                "y": 23.155519, 
-                "z": 0.000000
+                "x": 38.917377, 
+                "y": 23.192696, 
+                "z": -0.001000
               }
             }, 
             "LocalTranslation": 
             {
               "Vec3": 
               {
-                "x": 38.627338, 
-                "y": 23.155519, 
-                "z": 0.000000
+                "x": 38.917377, 
+                "y": 23.192696, 
+                "z": -0.001000
               }
             }, 
             "WorldTranslation": 
             {
               "Vec3": 
               {
-                "x": 38.627338, 
-                "y": 23.155519, 
-                "z": 0.000000
+                "x": 38.917377, 
+                "y": 23.192696, 
+                "z": -0.001000
               }
             }, 
             "Rotation": 
@@ -567,7 +567,7 @@
             {
               "Vec3": 
               {
-                "x": 10.000000, 
+                "x": 10.300000, 
                 "y": 2.000000, 
                 "z": 1.000000
               }
@@ -580,9 +580,9 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 0.097000, 
+                "y": 0.183000, 
+                "z": 0.175000, 
                 "w": 1.000000
               }
             }, 
@@ -591,7 +591,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 3
           }, 
           "BoxCollider": 
           {
@@ -682,7 +682,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -789,7 +789,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -896,7 +896,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -1003,7 +1003,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -1110,7 +1110,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -1217,7 +1217,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -1324,7 +1324,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -1431,7 +1431,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -1538,7 +1538,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -1645,7 +1645,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -1752,7 +1752,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -1859,7 +1859,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -1966,7 +1966,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -2078,13 +2078,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 0.100000, 
+                "y": 0.200000, 
+                "z": 0.200000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -2185,13 +2185,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 0.100000, 
+                "y": 0.200000, 
+                "z": 0.200000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -2243,8 +2243,8 @@
             {
               "Vec3": 
               {
-                "x": 82.962395, 
-                "y": 30.420143, 
+                "x": -12.383636, 
+                "y": 15.351398, 
                 "z": 0.000000
               }
             }, 
@@ -2252,8 +2252,8 @@
             {
               "Vec3": 
               {
-                "x": 82.962395, 
-                "y": 30.420143, 
+                "x": -12.383636, 
+                "y": 15.351398, 
                 "z": 0.000000
               }
             }, 
@@ -2261,8 +2261,8 @@
             {
               "Vec3": 
               {
-                "x": 82.962395, 
-                "y": 30.420143, 
+                "x": -12.383636, 
+                "y": 15.351398, 
                 "z": 0.000000
               }
             }, 
@@ -2303,7 +2303,7 @@
             "FlipY": false, 
             "AnimationActive": true, 
             "AnimationSpeed": 10.000000, 
-            "DrawLayer": 5
+            "DrawLayer": 4
           }, 
           "RigidBody": 
           {
@@ -2479,7 +2479,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -2591,13 +2591,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 0.100000, 
+                "y": 0.200000, 
+                "z": 0.200000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -2649,8 +2649,8 @@
             {
               "Vec3": 
               {
-                "x": 135.975815, 
-                "y": 5.523479, 
+                "x": 135.993393, 
+                "y": 5.382849, 
                 "z": 0.000000
               }
             }, 
@@ -2658,8 +2658,8 @@
             {
               "Vec3": 
               {
-                "x": 135.975815, 
-                "y": 5.523479, 
+                "x": 135.993393, 
+                "y": 5.382849, 
                 "z": 0.000000
               }
             }, 
@@ -2667,8 +2667,8 @@
             {
               "Vec3": 
               {
-                "x": 135.975815, 
-                "y": 5.523479, 
+                "x": 135.993393, 
+                "y": 5.382849, 
                 "z": 0.000000
               }
             }, 
@@ -2698,9 +2698,9 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 0.097000, 
+                "y": 0.183000, 
+                "z": 0.175000, 
                 "w": 1.000000
               }
             }, 
@@ -2800,7 +2800,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -2907,7 +2907,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -3014,7 +3014,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -3121,7 +3121,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -3328,8 +3328,8 @@
               "Vec4": 
               {
                 "x": 0.200000, 
-                "y": 0.400000, 
-                "z": 0.700000, 
+                "y": 0.800000, 
+                "z": 1.000000, 
                 "w": 0.500000
               }
             }, 
@@ -3454,7 +3454,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -3561,7 +3561,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -3673,9 +3673,9 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 0.097000, 
+                "y": 0.183000, 
+                "z": 0.175000, 
                 "w": 1.000000
               }
             }, 
@@ -3780,9 +3780,9 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 0.097000, 
+                "y": 0.183000, 
+                "z": 0.175000, 
                 "w": 1.000000
               }
             }, 
@@ -3882,7 +3882,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -3989,7 +3989,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -4096,7 +4096,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -4208,9 +4208,9 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 0.097000, 
+                "y": 0.183000, 
+                "z": 0.175000, 
                 "w": 1.000000
               }
             }, 
@@ -4310,7 +4310,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -4417,7 +4417,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -4524,7 +4524,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -4945,7 +4945,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -5616,7 +5616,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -5723,7 +5723,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -5830,7 +5830,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -5937,7 +5937,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -6049,9 +6049,9 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 0.097000, 
+                "y": 0.183000, 
+                "z": 0.175000, 
                 "w": 1.000000
               }
             }, 
@@ -6151,7 +6151,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -6258,7 +6258,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -6365,7 +6365,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -6472,7 +6472,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -6579,7 +6579,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -6691,9 +6691,9 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 0.097000, 
+                "y": 0.183000, 
+                "z": 0.175000, 
                 "w": 1.000000
               }
             }, 
@@ -6798,9 +6798,9 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 0.097000, 
+                "y": 0.183000, 
+                "z": 0.175000, 
                 "w": 1.000000
               }
             }, 
@@ -6994,7 +6994,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -7101,7 +7101,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -7518,7 +7518,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -7625,7 +7625,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -7732,7 +7732,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -7839,7 +7839,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -7946,7 +7946,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -8053,7 +8053,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -8160,7 +8160,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -8267,7 +8267,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -8374,7 +8374,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -8481,7 +8481,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -8593,9 +8593,9 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 0.097000, 
+                "y": 0.183000, 
+                "z": 0.175000, 
                 "w": 1.000000
               }
             }, 
@@ -8695,7 +8695,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -8807,13 +8807,13 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 0.100000, 
+                "y": 0.200000, 
+                "z": 0.200000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -8865,8 +8865,8 @@
             {
               "Vec3": 
               {
-                "x": -29.993685, 
-                "y": 26.511389, 
+                "x": -47.993683, 
+                "y": 22.511389, 
                 "z": 0.000000
               }
             }, 
@@ -8874,8 +8874,8 @@
             {
               "Vec3": 
               {
-                "x": -29.993685, 
-                "y": 26.511389, 
+                "x": -47.993683, 
+                "y": 22.511389, 
                 "z": 0.000000
               }
             }, 
@@ -8883,8 +8883,8 @@
             {
               "Vec3": 
               {
-                "x": -29.993685, 
-                "y": 26.511389, 
+                "x": -47.993683, 
+                "y": 22.511389, 
                 "z": 0.000000
               }
             }, 
@@ -8901,8 +8901,8 @@
             {
               "Vec3": 
               {
-                "x": 3.000000, 
-                "y": 29.000000, 
+                "x": 40.000000, 
+                "y": 40.000000, 
                 "z": 1.000000
               }
             }
@@ -8914,9 +8914,9 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 0.097000, 
+                "y": 0.183000, 
+                "z": 0.175000, 
                 "w": 1.000000
               }
             }, 
@@ -8972,7 +8972,7 @@
             {
               "Vec3": 
               {
-                "x": 342.468567, 
+                "x": 342.583710, 
                 "y": -13.825388, 
                 "z": 0.000000
               }
@@ -8981,7 +8981,7 @@
             {
               "Vec3": 
               {
-                "x": 342.468567, 
+                "x": 342.583710, 
                 "y": -13.825388, 
                 "z": 0.000000
               }
@@ -8990,7 +8990,7 @@
             {
               "Vec3": 
               {
-                "x": 342.468567, 
+                "x": 342.583710, 
                 "y": -13.825388, 
                 "z": 0.000000
               }
@@ -9021,9 +9021,9 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 0.097000, 
+                "y": 0.183000, 
+                "z": 0.175000, 
                 "w": 1.000000
               }
             }, 
@@ -9123,7 +9123,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -9230,7 +9230,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -9705,27 +9705,27 @@
             {
               "Vec3": 
               {
-                "x": 103.578583, 
-                "y": -9.442540, 
-                "z": 0.000000
+                "x": 103.374168, 
+                "y": -9.722214, 
+                "z": 0.001000
               }
             }, 
             "LocalTranslation": 
             {
               "Vec3": 
               {
-                "x": 103.578583, 
-                "y": -9.442540, 
-                "z": 0.000000
+                "x": 103.374168, 
+                "y": -9.722214, 
+                "z": 0.001000
               }
             }, 
             "WorldTranslation": 
             {
               "Vec3": 
               {
-                "x": 103.578583, 
-                "y": -9.442540, 
-                "z": 0.000000
+                "x": 103.374168, 
+                "y": -9.722214, 
+                "z": 0.001000
               }
             }, 
             "Rotation": 
@@ -9741,7 +9741,7 @@
             {
               "Vec3": 
               {
-                "x": 8.000000, 
+                "x": 7.500000, 
                 "y": 2.000000, 
                 "z": 1.000000
               }
@@ -9754,18 +9754,18 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
+                "x": 1.000000, 
                 "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
+                "z": 1.000000, 
+                "w": 0.700000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "Acid", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 4
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -9807,10 +9807,10 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.700000, 
-                "z": 0.200000, 
-                "w": 1.000000
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 0.950000
               }
             }, 
             "Fading": true, 
@@ -9850,12 +9850,12 @@
             "Active": true, 
             "ResetCount": false, 
             "EmitCount": 0, 
-            "EmitRate": 15, 
+            "EmitRate": 10, 
             "EmitVariance": 1, 
-            "Size": 0.300000, 
-            "SizeVariance": 0.400000, 
-            "Lifetime": 1.000000, 
-            "LifetimeVariance": 2.500000, 
+            "Size": 0.200000, 
+            "SizeVariance": 0.100000, 
+            "Lifetime": 0.500000, 
+            "LifetimeVariance": 0.250000, 
             "Spin": 0.000000, 
             "SpinVariance": 0.000000, 
             "StartVelocity": 
@@ -10881,7 +10881,7 @@
                 "x": 0.000000, 
                 "y": 1.000000, 
                 "z": 0.000000, 
-                "w": 1.000000
+                "w": 0.533000
               }
             }, 
             "SpriteSource": "square", 
@@ -11435,7 +11435,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -11542,7 +11542,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -11670,7 +11670,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Default", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "DefaultPhysicsMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -11734,7 +11734,11 @@
             "JumpPeriod": 0.500000, 
             "AttackJumpStrengthX": 20.100040, 
             "AttackJumpStrengthY": 12.000010, 
-            "AttackJumpPeriod": 1.000000
+            "AttackJumpPeriod": 1.000000, 
+            "AnimationSpeedHead": 0.000000, 
+            "AnimationDistanceHead": 0.000000, 
+            "AnimationSpeedSaw": 0.000000, 
+            "AnimationDistanceSaw": 0.000000
           }, 
           "HealthController": 
           {
@@ -11872,7 +11876,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -11979,7 +11983,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -12091,9 +12095,9 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 0.097000, 
+                "y": 0.183000, 
+                "z": 0.175000, 
                 "w": 1.000000
               }
             }, 
@@ -12193,7 +12197,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -12581,8 +12585,8 @@
               "Vec3": 
               {
                 "x": 158.650406, 
-                "y": 13.764401, 
-                "z": -0.100000
+                "y": 5.764401, 
+                "z": -0.050000
               }
             }, 
             "LocalTranslation": 
@@ -12590,8 +12594,8 @@
               "Vec3": 
               {
                 "x": 158.650406, 
-                "y": 13.764401, 
-                "z": -0.100000
+                "y": 5.764401, 
+                "z": -0.050000
               }
             }, 
             "WorldTranslation": 
@@ -12599,8 +12603,8 @@
               "Vec3": 
               {
                 "x": 158.650406, 
-                "y": 13.764401, 
-                "z": -0.100000
+                "y": 5.764401, 
+                "z": -0.050000
               }
             }, 
             "Rotation": 
@@ -12649,7 +12653,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": false, 
+        "Locked": true, 
         "GameObjectID": 122, 
         "Name": "Foreground", 
         "Protected": false, 
@@ -12721,7 +12725,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 4
+            "DrawLayer": 5
           }
         }, 
         "Children": 
@@ -12825,90 +12829,8 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 146, 
-        "Name": "DialogText", 
-        "Protected": false, 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": -13.014625, 
-                "y": 24.004524, 
-                "z": 0.000000
-              }
-            }, 
-            "LocalTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": -13.014625, 
-                "y": 24.004524, 
-                "z": 0.000000
-              }
-            }, 
-            "WorldTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": -13.014625, 
-                "y": 24.004524, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "SpriteText": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Font": "SafetyMedium", 
-            "FontSize": 5, 
-            "Text": "123456789ABCDEFGHFFF F asdasd", 
-            "PixelsPerUnit": 64, 
-            "Smoothing": true, 
-            "WordWrap": 20, 
-            "DrawLayer": 4
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
         "GameObjectID": 147, 
-        "Name": "Sprite", 
+        "Name": "DialogTrigger", 
         "Protected": false, 
         "Components": 
         {
@@ -12918,8 +12840,8 @@
             {
               "Vec3": 
               {
-                "x": -1.629375, 
-                "y": 14.748413, 
+                "x": -12.195314, 
+                "y": 15.106581, 
                 "z": 0.000000
               }
             }, 
@@ -12927,8 +12849,8 @@
             {
               "Vec3": 
               {
-                "x": -1.629375, 
-                "y": 14.748413, 
+                "x": -12.195314, 
+                "y": 15.106581, 
                 "z": 0.000000
               }
             }, 
@@ -12936,8 +12858,8 @@
             {
               "Vec3": 
               {
-                "x": -1.629375, 
-                "y": 14.748413, 
+                "x": -12.195314, 
+                "y": 15.106581, 
                 "z": 0.000000
               }
             }, 
@@ -12962,7 +12884,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "Color": 
             {
               "Vec4": 
@@ -13002,7 +12924,7 @@
                 "z": 0.000000
               }
             }, 
-            "Ghost": false, 
+            "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }, 
@@ -13012,19 +12934,19 @@
             "OnlyOnFirstCollision": false, 
             "ActiveOnCollision": true, 
             "ActiveOnlyOnce": true, 
-            "Message1String": "123", 
+            "Message1String": "Asha, can you read me? Your signal is feint.", 
             "Message1Speaker": "Cyrus", 
-            "Message2String": "456", 
+            "Message2String": "Not exactly loud and clear, but yeah. I'm in, by the way.", 
             "Message2Speaker": "Asha", 
-            "Message3String": "1233", 
+            "Message3String": "Good. To be completely honest, I have no idea what you’ll find in there.", 
             "Message3Speaker": "Cyrus", 
-            "Message4String": "12344", 
+            "Message4String": "Gotcha. Over and out.", 
             "Message4Speaker": "Asha", 
-            "Message5String": "12222", 
+            "Message5String": "", 
             "Message5Speaker": "Cyrus", 
-            "Message6String": "123333", 
+            "Message6String": "", 
             "Message6Speaker": "Cyrus", 
-            "Message7String": "233", 
+            "Message7String": "", 
             "Message7Speaker": "Asha"
           }
         }, 
@@ -13048,7 +12970,7 @@
               {
                 "x": -9.158772, 
                 "y": 22.800550, 
-                "z": -0.001000
+                "z": 0.001000
               }
             }, 
             "LocalTranslation": 
@@ -13057,7 +12979,7 @@
               {
                 "x": -9.158772, 
                 "y": 22.800550, 
-                "z": -0.001000
+                "z": 0.001000
               }
             }, 
             "WorldTranslation": 
@@ -13066,7 +12988,7 @@
               {
                 "x": -9.158772, 
                 "y": 22.800550, 
-                "z": -0.001000
+                "z": 0.001000
               }
             }, 
             "Rotation": 
@@ -13082,8 +13004,8 @@
             {
               "Vec3": 
               {
-                "x": 8.000000, 
-                "y": 4.000000, 
+                "x": 9.000000, 
+                "y": 5.000000, 
                 "z": 1.000000
               }
             }
@@ -13098,24 +13020,220 @@
                 "x": 1.000000, 
                 "y": 1.000000, 
                 "z": 1.000000, 
-                "w": 1.000000
+                "w": 0.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "DialogBack", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.500000, 
-            "DrawLayer": 4
+            "DrawLayer": 5
           }, 
           "DialogBackgroundBehavior": 
           {
-            "UnitsAbovePlayer": 7, 
-            "UnitsInFrontOfPlayer": 2
+            "UnitsAbovePlayer": 5, 
+            "UnitsInFrontOfPlayer": 3
           }
         }, 
         "Children": 
         {
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 146, 
+            "Name": "DialogText", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -13.250000, 
+                    "y": 23.850000, 
+                    "z": 0.001000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -4.091228, 
+                    "y": 1.049450, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -13.250000, 
+                    "y": 23.850000, 
+                    "z": 0.001000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "SpriteText": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "Font": "SafetyMedium", 
+                "FontSize": 5, 
+                "Text": "123456789ABCDEFGHFFF F asdasd", 
+                "PixelsPerUnit": 64, 
+                "Smoothing": true, 
+                "WordWrap": 20, 
+                "DrawLayer": 4
+              }, 
+              "DialogText": 
+              {
+                "SystemDelay": 0.000000, 
+                "FadeInTime": 1.500000, 
+                "FadeEase": "QuadIn", 
+                "MessageTime": 5.000000, 
+                "ScaleTimeWithSize": true, 
+                "TimePerChar": 0.100000, 
+                "Message": "NoMessageEvent", 
+                "WordWrap": 25, 
+                "TextEase": "Linear", 
+                "DeleteAfterTime": false, 
+                "TimeToDelete": 10.000000, 
+                "AshaVoiceColor": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 1.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "CyrusVoiceColor": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 146, 
+            "Name": "DialogSpeaker", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -13.250000, 
+                    "y": 24.500000, 
+                    "z": 0.001000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -4.091228, 
+                    "y": 1.699450, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -13.250000, 
+                    "y": 24.500000, 
+                    "z": 0.001000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "SpriteText": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 0.000000
+                  }
+                }, 
+                "Font": "SafetyMedium", 
+                "FontSize": 5, 
+                "Text": "SPEAKER", 
+                "PixelsPerUnit": 64, 
+                "Smoothing": true, 
+                "WordWrap": 20, 
+                "DrawLayer": 4
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }
         }
       }, 
       "GameObject": 
