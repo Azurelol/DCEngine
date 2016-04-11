@@ -10,7 +10,6 @@
         "Locked": false, 
         "GameObjectID": 126, 
         "Name": "Camera", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -94,7 +93,6 @@
         "Locked": true, 
         "GameObjectID": 293, 
         "Name": "WhiteboardBackground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -175,7 +173,6 @@
         "Locked": true, 
         "GameObjectID": 3405, 
         "Name": "Foreground2", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -256,7 +253,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -363,7 +359,6 @@
         "Locked": false, 
         "GameObjectID": 147, 
         "Name": "Player", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -555,7 +550,6 @@
         "Locked": false, 
         "GameObjectID": 3530, 
         "Name": "Ball", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -853,7 +847,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -960,7 +953,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1067,7 +1059,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1174,7 +1165,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1281,7 +1271,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1388,7 +1377,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1495,7 +1483,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1602,7 +1589,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1709,7 +1695,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1816,7 +1801,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1923,7 +1907,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2030,7 +2013,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2137,7 +2119,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2244,7 +2225,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2351,7 +2331,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2458,7 +2437,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2565,7 +2543,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2672,7 +2649,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2779,7 +2755,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2886,7 +2861,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2993,7 +2967,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3100,7 +3073,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3207,7 +3179,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3314,7 +3285,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3421,7 +3391,6 @@
         "Locked": true, 
         "GameObjectID": 3405, 
         "Name": "Foreground1", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3502,7 +3471,6 @@
         "Locked": true, 
         "GameObjectID": 130, 
         "Name": "LevelSettings", 
-        "Protected": false, 
         "Components": 
         {
         }, 
@@ -3515,7 +3483,6 @@
         "Locked": true, 
         "GameObjectID": 3405, 
         "Name": "Background2", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3596,7 +3563,6 @@
         "Locked": true, 
         "GameObjectID": 3405, 
         "Name": "Foreground3", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3677,7 +3643,6 @@
         "Locked": false, 
         "GameObjectID": 310, 
         "Name": "Sprite", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3758,7 +3723,6 @@
         "Locked": true, 
         "GameObjectID": 3405, 
         "Name": "Midground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3839,7 +3803,6 @@
         "Locked": true, 
         "GameObjectID": 3405, 
         "Name": "Background1", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3920,7 +3883,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4027,7 +3989,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4134,7 +4095,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4241,7 +4201,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4348,7 +4307,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4455,7 +4413,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4562,7 +4519,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4669,7 +4625,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4776,114 +4731,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 26.101429, 
-                "y": 42.469280, 
-                "z": 0.000000
-              }
-            }, 
-            "LocalTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 26.101429, 
-                "y": 42.469280, 
-                "z": 0.000000
-              }
-            }, 
-            "WorldTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 26.101429, 
-                "y": 42.469280, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 90.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 3.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "tile_basic_both", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 5
-          }, 
-          "BoxCollider": 
-          {
-            "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
-            "Size": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Ghost": false, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 3528, 
-        "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4990,7 +4837,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5097,7 +4943,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5204,7 +5049,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5311,7 +5155,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5418,7 +5261,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5525,7 +5367,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5632,7 +5473,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5739,7 +5579,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5846,7 +5685,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5953,7 +5791,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6060,7 +5897,6 @@
         "Locked": false, 
         "GameObjectID": 3528, 
         "Name": "Ground", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6167,7 +6003,6 @@
         "Locked": false, 
         "GameObjectID": 11, 
         "Name": "LandingParticleSand", 
-        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6311,9 +6146,8 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 360, 
-        "Name": "ParticleSystem", 
-        "Protected": false, 
+        "GameObjectID": 900, 
+        "Name": "Scrapper4", 
         "Components": 
         {
           "Transform": 
@@ -6322,8 +6156,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 3.805592, 
+                "y": 38.916626, 
                 "z": 0.000000
               }
             }, 
@@ -6331,8 +6165,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 3.805592, 
+                "y": 38.916626, 
                 "z": 0.000000
               }
             }, 
@@ -6340,8 +6174,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 3.805592, 
+                "y": 38.916626, 
                 "z": 0.000000
               }
             }, 
@@ -6358,16 +6192,16 @@
             {
               "Vec3": 
               {
-                "x": 10.000000, 
-                "y": 10.000000, 
+                "x": 1.500000, 
+                "y": 1.500000, 
                 "z": 1.000000
               }
             }
           }, 
-          "SpriteParticleSystem": 
+          "Sprite": 
           {
             "Visible": true, 
-            "Tint": 
+            "Color": 
             {
               "Vec4": 
               {
@@ -6377,36 +6211,27 @@
                 "w": 1.000000
               }
             }, 
-            "Texture": "", 
-            "VelocityScale": 1.000000, 
-            "LengthScale": 1.000000, 
-            "SystemSize": 
+            "SpriteSource": "Char_Scrap", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Enemy", 
+            "PhysicsMaterial": "DefaultPhysicsMaterial", 
+            "Size": 
             {
               "Vec3": 
               {
-                "x": 40.000000, 
-                "y": 4.000000, 
-                "z": 4.000000
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
               }
             }, 
-            "Additive": false, 
-            "Lock": false, 
-            "DrawLayer": 4
-          }, 
-          "ParticleEmitter": 
-          {
-            "Active": true, 
-            "ResetCount": false, 
-            "EmitCount": 0, 
-            "EmitRate": 1, 
-            "EmitVariance": 60, 
-            "Size": 1.000000, 
-            "SizeVariance": 1.000000, 
-            "Lifetime": 1.000000, 
-            "LifetimeVariance": 1.000000, 
-            "Spin": 100.000000, 
-            "SpinVariance": 100.000000, 
-            "StartVelocity": 
+            "Offset": 
             {
               "Vec3": 
               {
@@ -6415,39 +6240,79 @@
                 "z": 0.000000
               }
             }, 
-            "RandomVelocity": 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }, 
+          "RigidBody": 
+          {
+            "Velocity": 
             {
               "Vec3": 
               {
-                "x": 5.000000, 
-                "y": 5.000000, 
+                "x": 0.000000, 
+                "y": 0.000000, 
                 "z": 0.000000
+              }
+            }, 
+            "AngularVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Mass": 10.000000, 
+            "RotationLocked": true
+          }, 
+          "Grunt": 
+          {
+            "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
+            "IdleRange": 100.000000, 
+            "PatrolDistance": 20.000000, 
+            "IsPatrolRight": true, 
+            "IsAggressive": true, 
+            "JumpStrengthX": 5.000000, 
+            "JumpStrengthY": 25.000000, 
+            "JumpPeriod": 2.000000, 
+            "AttackJumpStrengthX": 10.000000, 
+            "AttackJumpStrengthY": 15.000000, 
+            "AttackJumpPeriod": 1.000000, 
+            "IdleColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "PatrolColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
               }
             }
-          }, 
-          "LinearParticleAnimator": 
-          {
-            "Force": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "RandomForce": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Torque": 0.000000, 
-            "Growth": 0.000000, 
-            "Dampening": 0.000000
           }
         }, 
         "Children": 
