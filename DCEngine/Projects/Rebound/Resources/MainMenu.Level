@@ -10,6 +10,7 @@
         "Locked": false, 
         "GameObjectID": 140, 
         "Name": "MusicManager", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -77,6 +78,7 @@
         "Locked": false, 
         "GameObjectID": 141, 
         "Name": "ConfirmButton", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -163,6 +165,7 @@
         "Locked": false, 
         "GameObjectID": 143, 
         "Name": "Camera", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -234,6 +237,7 @@
             "Locked": false, 
             "GameObjectID": 568, 
             "Name": "Shroud", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -316,6 +320,7 @@
         "Locked": false, 
         "GameObjectID": 144, 
         "Name": "CancelButton", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -402,6 +407,7 @@
         "Locked": true, 
         "GameObjectID": 28, 
         "Name": "MenuManager", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -516,6 +522,7 @@
             "Locked": false, 
             "GameObjectID": 142, 
             "Name": "NewGameButton", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -662,6 +669,7 @@
                 "Locked": false, 
                 "GameObjectID": 476, 
                 "Name": "NGText", 
+                "Protected": false, 
                 "Components": 
                 {
                   "Transform": 
@@ -745,6 +753,7 @@
             "Locked": false, 
             "GameObjectID": 149, 
             "Name": "HowToPlayButton", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -891,6 +900,7 @@
                 "Locked": false, 
                 "GameObjectID": 476, 
                 "Name": "HTPText", 
+                "Protected": false, 
                 "Components": 
                 {
                   "Transform": 
@@ -974,6 +984,7 @@
             "Locked": false, 
             "GameObjectID": 151, 
             "Name": "OptionsButton", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -1120,6 +1131,7 @@
                 "Locked": false, 
                 "GameObjectID": 476, 
                 "Name": "OText", 
+                "Protected": false, 
                 "Components": 
                 {
                   "Transform": 
@@ -1203,6 +1215,7 @@
             "Locked": false, 
             "GameObjectID": 138, 
             "Name": "CreditsButton", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -1349,6 +1362,7 @@
                 "Locked": false, 
                 "GameObjectID": 476, 
                 "Name": "CText", 
+                "Protected": false, 
                 "Components": 
                 {
                   "Transform": 
@@ -1432,6 +1446,7 @@
             "Locked": false, 
             "GameObjectID": 142, 
             "Name": "QuitGameButton", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -1578,6 +1593,7 @@
                 "Locked": false, 
                 "GameObjectID": 476, 
                 "Name": "QGText", 
+                "Protected": false, 
                 "Components": 
                 {
                   "Transform": 
@@ -1663,6 +1679,7 @@
         "Locked": true, 
         "GameObjectID": 590, 
         "Name": "Background", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1743,6 +1760,7 @@
         "Locked": true, 
         "GameObjectID": 82, 
         "Name": "CenterData", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -1821,6 +1839,7 @@
             "Locked": false, 
             "GameObjectID": 334, 
             "Name": "HighlightText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -1904,6 +1923,7 @@
         "Locked": false, 
         "GameObjectID": 470, 
         "Name": "Title", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2019,6 +2039,7 @@
         "Locked": false, 
         "GameObjectID": 98, 
         "Name": "HtPElements", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2092,6 +2113,7 @@
             "Locked": false, 
             "GameObjectID": 142, 
             "Name": "HtPBack", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -2238,6 +2260,7 @@
                 "Locked": false, 
                 "GameObjectID": 476, 
                 "Name": "BackText", 
+                "Protected": false, 
                 "Components": 
                 {
                   "Transform": 
@@ -2323,6 +2346,7 @@
         "Locked": false, 
         "GameObjectID": 98, 
         "Name": "CrElements", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2396,6 +2420,7 @@
             "Locked": false, 
             "GameObjectID": 142, 
             "Name": "CrBack", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -2542,6 +2567,7 @@
                 "Locked": false, 
                 "GameObjectID": 476, 
                 "Name": "BackText", 
+                "Protected": false, 
                 "Components": 
                 {
                   "Transform": 
@@ -2627,6 +2653,7 @@
         "Locked": false, 
         "GameObjectID": 98, 
         "Name": "OpElements", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -2700,6 +2727,7 @@
             "Locked": false, 
             "GameObjectID": 142, 
             "Name": "OpBack", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -2846,6 +2874,7 @@
                 "Locked": false, 
                 "GameObjectID": 476, 
                 "Name": "BackText", 
+                "Protected": false, 
                 "Components": 
                 {
                   "Transform": 
@@ -2931,6 +2960,7 @@
         "Locked": false, 
         "GameObjectID": 432, 
         "Name": "HtPTitle", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3031,6 +3061,7 @@
             "Locked": false, 
             "GameObjectID": 434, 
             "Name": "SpriteText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -3114,6 +3145,7 @@
         "Locked": false, 
         "GameObjectID": 432, 
         "Name": "CrTitle", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3214,6 +3246,7 @@
             "Locked": false, 
             "GameObjectID": 434, 
             "Name": "SpriteText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -3297,6 +3330,7 @@
         "Locked": false, 
         "GameObjectID": 432, 
         "Name": "OpTitle", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3397,6 +3431,7 @@
             "Locked": false, 
             "GameObjectID": 434, 
             "Name": "SpriteText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -3480,6 +3515,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Chikara", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3561,6 +3597,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Jason", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3642,6 +3679,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Will", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3723,6 +3761,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "John", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3804,6 +3843,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Gabe", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3885,6 +3925,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Mike", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -3966,6 +4007,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Abby", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4047,6 +4089,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Christian", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4128,6 +4171,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Blaine", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4209,6 +4253,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Connor", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4290,6 +4335,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "ChikaraRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4371,6 +4417,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "JasonRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4452,6 +4499,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "WillRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4533,6 +4581,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "JohnRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4614,6 +4663,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "GabeRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4695,6 +4745,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "MikeRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4776,6 +4827,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "AbbyRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4857,6 +4909,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "ChristianRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -4938,6 +4991,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "BlaineRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5019,6 +5073,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "ConnorRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5100,6 +5155,7 @@
         "Locked": false, 
         "GameObjectID": 2076, 
         "Name": "MoonwardLogo", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5201,6 +5257,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Thanks", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5282,6 +5339,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Allan", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5363,6 +5421,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "AllanRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5444,6 +5503,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": " Mariah", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5525,6 +5585,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "MariahRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5606,6 +5667,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "CopyrightText", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5687,6 +5749,7 @@
         "Locked": false, 
         "GameObjectID": 126, 
         "Name": "KeyUp", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5786,6 +5849,7 @@
             "Locked": false, 
             "GameObjectID": 254, 
             "Name": "SpriteText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -5867,6 +5931,7 @@
             "Locked": false, 
             "GameObjectID": 388, 
             "Name": "UpText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -5948,6 +6013,7 @@
             "Locked": false, 
             "GameObjectID": 254, 
             "Name": "SpriteText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -6029,6 +6095,7 @@
             "Locked": false, 
             "GameObjectID": 1399, 
             "Name": "Sprite", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -6111,6 +6178,7 @@
         "Locked": false, 
         "GameObjectID": 126, 
         "Name": "KeyRight", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6210,6 +6278,7 @@
             "Locked": false, 
             "GameObjectID": 254, 
             "Name": "SpriteText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -6291,6 +6360,7 @@
             "Locked": false, 
             "GameObjectID": 388, 
             "Name": "RightText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -6374,6 +6444,7 @@
         "Locked": false, 
         "GameObjectID": 126, 
         "Name": "KeyLeft", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6473,6 +6544,7 @@
             "Locked": false, 
             "GameObjectID": 254, 
             "Name": "SpriteText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -6554,6 +6626,7 @@
             "Locked": false, 
             "GameObjectID": 388, 
             "Name": "LeftText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -6637,6 +6710,7 @@
         "Locked": false, 
         "GameObjectID": 1101, 
         "Name": "OrText", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6718,6 +6792,7 @@
         "Locked": false, 
         "GameObjectID": 150, 
         "Name": "Mouse1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6798,6 +6873,7 @@
         "Locked": false, 
         "GameObjectID": 152, 
         "Name": "LMouse1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6879,6 +6955,7 @@
         "Locked": false, 
         "GameObjectID": 152, 
         "Name": "LMouse2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -6960,6 +7037,7 @@
         "Locked": false, 
         "GameObjectID": 152, 
         "Name": "LMouse3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7041,6 +7119,7 @@
         "Locked": false, 
         "GameObjectID": 150, 
         "Name": "Mouse2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7121,6 +7200,7 @@
         "Locked": false, 
         "GameObjectID": 945, 
         "Name": "Sprite", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7201,6 +7281,7 @@
         "Locked": false, 
         "GameObjectID": 945, 
         "Name": "Sprite", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7281,6 +7362,7 @@
         "Locked": false, 
         "GameObjectID": 152, 
         "Name": "WithBall", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7362,6 +7444,7 @@
         "Locked": false, 
         "GameObjectID": 152, 
         "Name": "BallFree", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7443,6 +7526,7 @@
         "Locked": false, 
         "GameObjectID": 152, 
         "Name": "RMouse1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7524,6 +7608,7 @@
         "Locked": false, 
         "GameObjectID": 126, 
         "Name": "KeyFreeze", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7623,6 +7708,7 @@
             "Locked": false, 
             "GameObjectID": 254, 
             "Name": "SpriteText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -7704,6 +7790,7 @@
             "Locked": false, 
             "GameObjectID": 388, 
             "Name": "RightText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -7787,6 +7874,7 @@
         "Locked": false, 
         "GameObjectID": 126, 
         "Name": "KeyDissipate", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -7886,6 +7974,7 @@
             "Locked": false, 
             "GameObjectID": 254, 
             "Name": "SpriteText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -7967,6 +8056,7 @@
             "Locked": false, 
             "GameObjectID": 388, 
             "Name": "RightText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -8050,6 +8140,7 @@
         "Locked": false, 
         "GameObjectID": 1101, 
         "Name": "MoveText", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8131,6 +8222,7 @@
         "Locked": false, 
         "GameObjectID": 184, 
         "Name": "Copyright", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8211,6 +8303,7 @@
         "Locked": true, 
         "GameObjectID": 590, 
         "Name": "Background", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8291,6 +8384,7 @@
         "Locked": true, 
         "GameObjectID": 590, 
         "Name": "Background", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8371,6 +8465,7 @@
         "Locked": false, 
         "GameObjectID": 98, 
         "Name": "OptionsManager", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -8444,6 +8539,7 @@
             "Locked": false, 
             "GameObjectID": 142, 
             "Name": "FullScreenB", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -8590,6 +8686,7 @@
                 "Locked": false, 
                 "GameObjectID": 476, 
                 "Name": "FullScTxt", 
+                "Protected": false, 
                 "Components": 
                 {
                   "Transform": 
@@ -8673,6 +8770,7 @@
             "Locked": false, 
             "GameObjectID": 789, 
             "Name": "NextRatio", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -8821,6 +8919,7 @@
             "Locked": false, 
             "GameObjectID": 789, 
             "Name": "PrevRatio", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -8969,6 +9068,7 @@
             "Locked": false, 
             "GameObjectID": 1786, 
             "Name": "AspectText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -9050,6 +9150,7 @@
             "Locked": false, 
             "GameObjectID": 789, 
             "Name": "NextRes", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -9198,6 +9299,7 @@
             "Locked": false, 
             "GameObjectID": 789, 
             "Name": "PrevRes", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -9346,6 +9448,7 @@
             "Locked": false, 
             "GameObjectID": 1786, 
             "Name": "ResText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -9427,6 +9530,7 @@
             "Locked": false, 
             "GameObjectID": 789, 
             "Name": "NextAA", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -9575,6 +9679,7 @@
             "Locked": false, 
             "GameObjectID": 789, 
             "Name": "PrevAA", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -9723,6 +9828,7 @@
             "Locked": false, 
             "GameObjectID": 1786, 
             "Name": "AAText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -9804,6 +9910,7 @@
             "Locked": false, 
             "GameObjectID": 142, 
             "Name": "Apply", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -9950,6 +10057,7 @@
                 "Locked": false, 
                 "GameObjectID": 476, 
                 "Name": "ApplyTxt", 
+                "Protected": false, 
                 "Components": 
                 {
                   "Transform": 
@@ -10033,6 +10141,7 @@
             "Locked": false, 
             "GameObjectID": 789, 
             "Name": "NextAudio", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -10181,6 +10290,7 @@
             "Locked": false, 
             "GameObjectID": 789, 
             "Name": "PrevAudio", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -10329,6 +10439,7 @@
             "Locked": false, 
             "GameObjectID": 1786, 
             "Name": "AudioText", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -10412,6 +10523,7 @@
         "Locked": true, 
         "GameObjectID": 196, 
         "Name": "LevelSettings", 
+        "Protected": false, 
         "Components": 
         {
         }, 
@@ -10424,6 +10536,7 @@
         "Locked": false, 
         "GameObjectID": 1786, 
         "Name": "AspectTitle", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -10505,6 +10618,7 @@
         "Locked": false, 
         "GameObjectID": 1786, 
         "Name": "AATitle", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -10586,6 +10700,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Claude", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -10667,6 +10782,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "ClaudeRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -10748,6 +10864,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Ellen", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -10829,6 +10946,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "IRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -10910,6 +11028,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Ben", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -10991,6 +11110,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Rachel", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -11072,6 +11192,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Trevor", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -11153,6 +11274,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "AllanRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -11234,6 +11356,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Josh", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -11315,6 +11438,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "JoshRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -11396,6 +11520,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Johannes", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -11477,6 +11602,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "JohannesRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -11558,6 +11684,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Johannes", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -11639,6 +11766,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "JohannesRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -11720,6 +11848,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "FMODCopyrightText", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -11801,6 +11930,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "ChenRole", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -11882,6 +12012,7 @@
         "Locked": false, 
         "GameObjectID": 72, 
         "Name": "Chen", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -11963,6 +12094,7 @@
         "Locked": false, 
         "GameObjectID": 1786, 
         "Name": "Audio", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
