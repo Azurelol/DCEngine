@@ -12955,7 +12955,8 @@
                     "y": 0.000000, 
                     "z": 0.000000
                   }
-                }
+                }, 
+                "SkipMessageDelay": false
               }
             }, 
             "Children": 
