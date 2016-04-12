@@ -193,8 +193,11 @@ class DialogText : ZilchComponent
 		if(background.Sprite.Color.W == 0)
 		{
 			var speaker = this.Space.FindObjectByName("DialogSpeaker");
-			var ball = this.Space.FindObjectByName("Ball");
-			ball.BallController.ToggleForceFreeze();
+			if(this.Space.FindObjectByName("Ball") != null)
+			{
+				var ball = this.Space.FindObjectByName("Ball");
+				ball.BallController.ToggleForceFreeze();
+			}
 			Actions.Property(masterSeq, @background.Sprite.Color, Real4(background.Sprite.Color.XYZ, 0.9), this.FadeInTime, this.TextEase);
 			Actions.Property(masterSeq, @speaker.SpriteText.Color, Real4(speaker.SpriteText.Color.XYZ, 0.9), this.FadeInTime, this.TextEase);
 		}
@@ -225,7 +228,12 @@ class DialogText : ZilchComponent
         var masterSeq = Actions.Sequence(this.Owner.Actions);
         var masterGrp = Actions.Group(this.Owner.Actions);
 		Actions.Property(masterSeq, @background.Sprite.Color, Real4(background.Sprite.Color.XYZ, 0), this.FadeInTime, this.TextEase);
-		ball.BallController.ToggleForceFreeze();
+
+		if(ball != null)
+		{
+			ball.BallController.ToggleForceFreeze();
+		}
+		
 		
 		if(this.CurSpeaker == Speaker.Asha)
 		{
