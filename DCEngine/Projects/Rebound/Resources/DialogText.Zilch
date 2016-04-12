@@ -50,6 +50,7 @@ class DialogText : ZilchComponent
 	var XShiftPerChar : Real;
 	var CurTime : Real = 0.0;
 	var Finished : Boolean = true;
+	var SkipMessageDelay : Boolean = false;
 	var ThePlace : Integer = 0;
 	var CurSpeaker : Speaker = Speaker.Cyrus;
 	var Instance : SoundInstance;
@@ -107,7 +108,10 @@ class DialogText : ZilchComponent
 			
 			this.PlaySound();
 		}
-		this.Owner.SpriteText.Text = this.Message.SubString(0, this.ThePlace);
+		if(this.SkipMessageDelay)
+			this.Owner.SpriteText.Text = this.Message;
+		else
+			this.Owner.SpriteText.Text = this.Message.SubString(0, this.ThePlace);
     }
 	
 	function PlaySound()
