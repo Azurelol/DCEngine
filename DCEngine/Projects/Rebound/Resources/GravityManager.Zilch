@@ -10,6 +10,6 @@ class GravityManager : ZilchComponent
 	
 	function SetGravity()
 	{
-		//this.Space.PhysicsSpace.Gravity = this.LocalGravity;
+		this.Space.PhysicsSpace.Gravity = this.LocalGravity;
 	}
 }

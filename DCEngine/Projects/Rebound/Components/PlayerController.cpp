@@ -156,7 +156,7 @@ namespace DCEngine {
 				//Grounded = true;
 				// play landing sound.
 				SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(LandSound);
-				if (event->OtherObject->getComponent<Components::Collider>() && event->OtherObject->getComponent<Components::Collider>()->getCollisionGroup() == "Terrain")
+				if (event->OtherObject->getComponent<Components::BoxCollider>() && event->OtherObject->getComponent<Components::BoxCollider>()->getCollisionGroup() == "Terrain")
 				{
 					auto particle = SpaceRef->CreateObject(LandingParticle);
 					if (particle)
