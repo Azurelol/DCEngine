@@ -72,6 +72,8 @@ namespace DCEngine {
 
       stateMachine = new StateMachine<Sentinel>(this);
 
+      health = startingHealth;
+
       stateMachine->SetGlobalState(Global::Instance());
       stateMachine->SetCurrentState(Idle::Instance());
 
