@@ -1074,7 +1074,8 @@
                 "z": 0.700000, 
                 "w": 0.010000
               }
-            }
+            }, 
+            "CollideSound": ""
           }
         }, 
         "Children": 
@@ -1206,7 +1207,8 @@
                 "z": 0.700000, 
                 "w": 0.010000
               }
-            }
+            }, 
+            "CollideSound": ""
           }
         }, 
         "Children": 
@@ -1719,7 +1721,8 @@
           }, 
           "PressurePlate": 
           {
-            "Target": "Door4"
+            "Target": "Door4", 
+            "CollideSound": ""
           }, 
           "BoxCollider": 
           {
@@ -2018,7 +2021,8 @@
           }, 
           "PressurePlate": 
           {
-            "Target": "AntiEnergy1"
+            "Target": "AntiEnergy1", 
+            "CollideSound": ""
           }, 
           "BoxCollider": 
           {
@@ -4779,18 +4783,9 @@
                 "w": 1.000000
               }
             }, 
-            "NormalColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.700000, 
-                "z": 0.300000, 
-                "w": 1.000000
-              }
-            }, 
             "NormalGravity": 0.400000, 
             "ShotGravity": 0.200000, 
+            "AttractYBoost": 3.000000, 
             "ChargedColor": 
             {
               "Vec4": 
@@ -5333,7 +5328,8 @@
                 "z": 0.700000, 
                 "w": 0.010000
               }
-            }
+            }, 
+            "CollideSound": ""
           }
         }, 
         "Children": 
@@ -7165,7 +7161,8 @@
                 "z": 0.700000, 
                 "w": 0.500000
               }
-            }
+            }, 
+            "CollideSound": ""
           }
         }, 
         "Children": 
@@ -7297,7 +7294,8 @@
                 "z": 0.700000, 
                 "w": 0.500000
               }
-            }
+            }, 
+            "CollideSound": ""
           }
         }, 
         "Children": 
@@ -7429,7 +7427,8 @@
                 "z": 0.700000, 
                 "w": 0.010000
               }
-            }
+            }, 
+            "CollideSound": ""
           }
         }, 
         "Children": 
@@ -7561,7 +7560,8 @@
                 "z": 0.700000, 
                 "w": 0.010000
               }
-            }
+            }, 
+            "CollideSound": ""
           }
         }, 
         "Children": 
@@ -7693,7 +7693,8 @@
                 "z": 0.700000, 
                 "w": 0.010000
               }
-            }
+            }, 
+            "CollideSound": ""
           }
         }, 
         "Children": 
@@ -7932,7 +7933,8 @@
                 "z": 0.700000, 
                 "w": 0.010000
               }
-            }
+            }, 
+            "CollideSound": ""
           }
         }, 
         "Children": 
@@ -8064,7 +8066,8 @@
                 "z": 0.700000, 
                 "w": 0.010000
               }
-            }
+            }, 
+            "CollideSound": ""
           }
         }, 
         "Children": 
@@ -8815,7 +8818,8 @@
           }, 
           "PressurePlate": 
           {
-            "Target": "Door3"
+            "Target": "Door3", 
+            "CollideSound": ""
           }, 
           "BoxCollider": 
           {
@@ -10439,6 +10443,21 @@
         "Protected": false, 
         "Components": 
         {
+          "GravityManager": 
+          {
+            "LocalGravity": 50.000000
+          }, 
+          "PauseManagerZ": 
+          {
+            "PauseLevelName": "PauseMenu"
+          }, 
+          "MusicManager": 
+          {
+            "Track": "NO TRACK SET", 
+            "Volume": 1.000000, 
+            "PlayOnStart": true, 
+            "StopOnEnd": false
+          }
         }, 
         "Children": 
         {

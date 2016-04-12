@@ -9520,6 +9520,17 @@
           "GravityManager": 
           {
             "LocalGravity": 20.000000
+          }, 
+          "MusicManager": 
+          {
+            "Track": "NO TRACK SET", 
+            "Volume": 1.000000, 
+            "PlayOnStart": true, 
+            "StopOnEnd": false
+          }, 
+          "PauseManagerZ": 
+          {
+            "PauseLevelName": "PauseMenu"
           }
         }, 
         "Children": 
@@ -15488,7 +15499,7 @@
           "PlayerController": 
           {
             "MoveSpeed": 0.200000, 
-            "VelocityXCap": 4.000000, 
+            "VelocityXCap": 6.000000, 
             "JumpPower": 10.000000, 
             "JumpFrames": 1.000000, 
             "Health": 10.000000, 
