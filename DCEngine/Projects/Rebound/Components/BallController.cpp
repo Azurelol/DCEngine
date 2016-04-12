@@ -27,7 +27,6 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(BallController, MaxCharge);
       DCE_BINDING_DEFINE_PROPERTY(BallController, ChargeFactor);
       DCE_BINDING_DEFINE_PROPERTY(BallController, FrozenColor);
-      DCE_BINDING_DEFINE_PROPERTY(BallController, NormalColor);
       DCE_BINDING_DEFINE_PROPERTY(BallController, NormalGravity);
       DCE_BINDING_DEFINE_PROPERTY(BallController, ShotGravity);
       DCE_BINDING_DEFINE_PROPERTY(BallController, ChargedColor);
@@ -75,7 +74,7 @@ namespace DCEngine {
       TrailRef = SpaceRef->CreateObject("TestParticle");
       TrailRef->AttachTo(gameObj);
       TrailRef->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation);
-
+	  NormalColor = SpriteRef->Color;
       if (BallControllerTraceOn)
       {
         DCTrace << PlayerRef->getComponent<Components::Transform>()->Translation.x;

@@ -728,16 +728,6 @@
                 "w": 1.000000
               }
             }, 
-            "NormalColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.700000, 
-                "z": 0.300000, 
-                "w": 1.000000
-              }
-            }, 
             "NormalGravity": 0.250000, 
             "ShotGravity": 0.100000, 
             "ChargedColor": 
