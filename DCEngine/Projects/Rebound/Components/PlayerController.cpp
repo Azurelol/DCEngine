@@ -41,6 +41,18 @@ namespace DCEngine {
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, LandSound);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, FootstepSound);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, CollideSound);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, DamageFromScrapper);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, DamageFromSentinel);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, DamageFromLancer);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, ColorOnDamage);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, ColorOnDamageFlashDuration);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, KnockBackForceOnDamageFromScrapperX);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, KnockBackForceOnDamageFromScrapperY);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, KnockBackForceOnDamageFromSentinelX);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, KnockBackForceOnDamageFromSentinelY);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, KnockBackForceOnDamageFromLancerX);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, KnockBackForceOnDamageFromLancerY);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, DamageCooldown);
 		}
 #endif
 
@@ -72,6 +84,15 @@ namespace DCEngine {
 
 			//SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("Dogma");
 		}
+
+    void PlayerController::FlashColor(Vec4 color, float duration)
+    {
+      Vec4 oldColor = SpriteComponent->Color;
+      SpriteComponent->Color = color;
+      ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
+      Actions::Property(seq, SpriteComponent->Color, oldColor, duration, Ease::Linear);
+      
+    }
 
 		void PlayerController::OnMouseDownEvent(Events::MouseDown * event)
 		{
@@ -174,6 +195,31 @@ namespace DCEngine {
 					event->OtherObject->getComponent<Components::Fade>()->setFading(true);
 				}
 			}
+
+      if (event->OtherObject->getComponent<Grunt>() != nullptr)
+      {
+        if (TakeDamage(DamageFromScrapper))
+        {
+          FlashColor(ColorOnDamage, ColorOnDamageFlashDuration);
+          RigidBodyRef->ApplyForce(Vec3(event->Normal.x * KnockBackForceOnDamageFromScrapperX, KnockBackForceOnDamageFromScrapperY, 0));
+        }
+      }
+      if (event->OtherObject->getComponent<BoxCollider>()->getCollisionGroup() == "SentinelShield")
+      {
+        if (TakeDamage(DamageFromSentinel))
+        {
+          FlashColor(ColorOnDamage, ColorOnDamageFlashDuration);
+          RigidBodyRef->ApplyForce(Vec3(event->Normal.x * KnockBackForceOnDamageFromSentinelX, KnockBackForceOnDamageFromSentinelY, 0));
+        }
+      }
+      if (event->OtherObject->getComponent<Lancer>() != nullptr)
+      {
+        if (TakeDamage(DamageFromLancer))
+        {
+          FlashColor(ColorOnDamage, ColorOnDamageFlashDuration);
+          RigidBodyRef->ApplyForce(Vec3(event->Normal.x * KnockBackForceOnDamageFromLancerX, KnockBackForceOnDamageFromLancerY, 0));
+        }
+      }
 		}
 
 		void PlayerController::OnCollisionEndedEvent(Events::CollisionEnded * event)
@@ -363,17 +409,28 @@ namespace DCEngine {
 			Grounded = false;
 		}
 
-		void PlayerController::TakeDamage(int damage)
+		bool PlayerController::TakeDamage(int damage)
 		{
+      int startingHealth = Health;
+
 			if (Invincible)
 			{
-				return;
+				return false;
 			}
-			SpriteComponent->Color = Vec4(1, 0, 0, 1);
-			Health -= damage;
+			//SpriteComponent->Color = Vec4(1, 0, 0, 1);
 
-			// Play hurt sound.
-			SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CollideSound);
+      if (IsDamageable)
+      {
+        Health -= damage;
+
+			  // Play hurt sound.
+			  SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CollideSound);
+
+        IsDamageable = false;
+        ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
+        Actions::Property(seq, IsDamageable, true, DamageCooldown, Ease::Linear);
+      }
+
 
 			if (PlayerControllerTraceOn)
 			{
@@ -388,6 +445,11 @@ namespace DCEngine {
 			{
 				// play take damage sound.
 			}
+
+      if (Health == startingHealth)
+        return false;
+      else
+        return true;
 
 		}
 
