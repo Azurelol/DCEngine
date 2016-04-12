@@ -32,6 +32,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(BallController, NormalGravity);
       DCE_BINDING_DEFINE_PROPERTY(BallController, ShotGravity);
       DCE_BINDING_DEFINE_PROPERTY(BallController, ChargedColor);
+      DCE_BINDING_DEFINE_PROPERTY(BallController, ForcedFreeze);
       DCE_BINDING_DEFINE_PROPERTY(BallController, FreezeEnabled);
       DCE_BINDING_DEFINE_PROPERTY(BallController, MaxAttractSpeed);
       DCE_BINDING_DEFINE_PROPERTY(BallController, MaxAttractForce);
@@ -39,7 +40,8 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(BallController, MinAttractSpeed);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, ParentToPlayer);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, FreezeBall);
-      DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, PseudoFreezeBall);
+      DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, ToggleForceFreeze);
+    DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, PseudoFreezeBall);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, LockBall);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, UnlockBall);
 
@@ -90,6 +92,11 @@ namespace DCEngine {
     void BallController::OnMouseDownEvent(Events::MouseDown * event)
     {
 
+      if (ForcedFreeze == true)
+      {
+        return;
+      }
+
       // Call the CameraViewport component of the space with this screen position.. ?
 
 
@@ -133,6 +140,11 @@ namespace DCEngine {
 
     void BallController::OnMouseUpEvent(Events::MouseUp * event)
     {
+
+      if (ForcedFreeze == true)
+      {
+        return;
+      }
       if (event->ButtonReleased == MouseButton::Left)
       {
         if (gameObj->Parent() != nullptr)
@@ -161,6 +173,7 @@ namespace DCEngine {
           }
 
           RigidBodyRef->ApplyForce(MouseVector * ChargeFactor * CurrentCharge);
+		  PlayerRef->getComponent<Components::PlayerController>()->FramesOfThrowAnimation = 10;
 
           Charging = false;
           CurrentCharge = 0;
@@ -192,16 +205,20 @@ namespace DCEngine {
 
       RigidBodyRef->setGravityRatio(NormalGravity);
       if (event->OtherObject->getComponent<Components::PlayerController>())
-      {
+	  {
         hitPlayer = true;
         CollidingWithPlayer = true;
-        if (CollisionTableRef->GetResolve("Ball", "Player") == CollisionFlag::SkipResolution && gameObj->Parent() == nullptr)
+        if (CollisionTableRef->GetResolve("Ball", "Player") == CollisionFlag::SkipResolution && (gameObj->Parent() == nullptr || gameObj->Parent()->getComponent<Components::LockField>()))
         {
+			if(gameObj->Parent() && gameObj->Parent()->getComponent<Components::LockField>() != nullptr)
+			{
+				gameObj->Parent()->getComponent<Components::LockField>()->UnlockBall(gameObj);
+			}
           ParentToPlayer();
         }
       }
-      
-      if(event->OtherObject->getComponent<Components::Transform>()->getScale().y > 3 || event->OtherObject->getComponent<Components::Transform>()->getScale().x > 3)  //this is a bad check for terrain, fix later
+      std::string terrain = std::string("Terrain");
+      if(event->OtherObject->getComponent<Components::BoxCollider>() && event->OtherObject->getComponent<Components::BoxCollider>()->getCollisionGroup() == terrain)  //this is a bad check for terrain, fix later
       {
         hitTerrain = true;
         auto particle = SpaceRef->CreateObject("BounceParticle");
@@ -211,14 +228,13 @@ namespace DCEngine {
         }
       }
 
-      //DCTrace << "Ball colliding with " << event->OtherObject->getObjectName() << " id " << event->OtherObject->getObjectID() << "\n";
-
+      std::string DialogTrigger = std::string("DialogTrigger");
       // If collides with any type of enemy
-      //if ( event->OtherObject->getObjectID() == SENTINEL_SHIELD_ID )
       if ( event->OtherObject->getObjectName().compare("Sentinel Shield") == 0 )
       {
         SoundCollideWithSentinelShield();
       }
+      if ( event->OtherObject->Name() != DialogTrigger) && (hitPlayer == false) && (hitTerrain == false) )
       else if ( (hitPlayer == false) && (hitTerrain == false) )
       {
         SoundCollide();
@@ -261,6 +277,10 @@ namespace DCEngine {
       //DCTrace << (CollisionTableRef->GetResolve("Ball", "Player");
       if (Daisy->getKeyboard()->KeyIsDown(Keys::F))
       {
+        if (ForcedFreeze == true)
+        {
+          return;
+        }
         if (BallControllerTraceOn)
         {
           DCTrace << "BallController::OnLogicUpdate :: F key pressed";
@@ -269,14 +289,26 @@ namespace DCEngine {
       }			
       if (Daisy->getKeyboard()->KeyIsDown(Keys::E))
       {
+        if (ForcedFreeze == true)
+        {
+          return;
+        }
         ParentToPlayer();
       }
       if (ControlScheme == ControlScheme::Connor && Daisy->getMouse()->MouseDown(MouseButton::Left))
       {
+        if (ForcedFreeze == true)
+        {
+          return;
+        }
         AttractBall();
       }
       if (ControlScheme == ControlScheme::John && Daisy->getMouse()->MouseDown(MouseButton::Right))
       {
+        if (ForcedFreeze == true)
+        {
+          return;
+        }
         AttractBall();
       }
       if (Charging)
@@ -396,8 +428,24 @@ namespace DCEngine {
       }
     }
 
-  void BallController::PseudoFreezeBall()
-  {
+    void BallController::ToggleForceFreeze()
+    {
+      if (ForcedFreeze == false)
+      {
+        UnlockBall();
+        CollidingWithPlayer = true;
+        ParentToPlayer();
+       // FreezeBall();
+        ForcedFreeze = true;
+      }
+      else
+      {
+        ForcedFreeze = false;
+      }
+    }
+
+    void BallController::PseudoFreezeBall()
+    {
     if (Frozen || Locked || !FreezeEnabled)
     {
       return;

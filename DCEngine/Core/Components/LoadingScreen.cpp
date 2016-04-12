@@ -118,7 +118,7 @@ namespace DCEngine {
       AnimationObj->getComponent<Transform>()->setTranslation(Vec3(0, -30, 0));
       AnimationObj->getComponent<Transform>()->setScale(Vec3(40, 40, 0));
       auto animationObjSprite = dynamic_cast<Sprite*>(AnimationObj->AddComponentByName("Sprite"));
-      animationObjSprite->setSpriteSource("Jotaro");
+      animationObjSprite->setSpriteSource("ReboundLogoLowRes");
 
       // Background
       BackgroundSpriteObj = SpaceRef->CreateObject();

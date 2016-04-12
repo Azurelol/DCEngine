@@ -1,0 +1,15 @@
+class GravityManager : ZilchComponent
+{
+	[Property]
+	var LocalGravity : Real;
+	
+    function Initialize()
+    {
+        this.SetGravity();
+    }
+	
+	function SetGravity()
+	{
+		//this.Space.PhysicsSpace.Gravity = this.LocalGravity;
+	}
+}

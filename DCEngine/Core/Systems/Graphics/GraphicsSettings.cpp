@@ -10,6 +10,7 @@
 */
 /******************************************************************************/
 
+#include "..\..\Engine\Engine.h"
 #include "Graphics.h"
 
 namespace DCEngine
@@ -32,12 +33,16 @@ namespace DCEngine
 		{
 			if (Settings.Fullscreen)
 			{
-				DispatchSystemEvents::WindowFullScreenDisabled();
+				auto fsevent = new Events::WindowFullScreenToggle();
+				Daisy->Dispatch<Events::WindowFullScreenToggle>(fsevent);
+				delete fsevent;
 				Settings.Fullscreen = false;
 			}
 			else
 			{
-				DispatchSystemEvents::WindowFullScreenEnabled();
+				auto fsevent = new Events::WindowFullScreenToggle();
+				Daisy->Dispatch<Events::WindowFullScreenToggle>(fsevent);
+				delete fsevent;
 				Settings.Fullscreen = true;
 			}
 		}

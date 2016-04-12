@@ -90,6 +90,7 @@ namespace DCEngine {
       EditorConfig();
       static std::string FileName() { return "ConfigurationEditor.cfg"; }
       //----------------------------------------------------------------------/
+      bool Enabled = false;
       // Saving
       bool AutoSave;
       int AutoSaveTime;      
@@ -111,7 +112,7 @@ namespace DCEngine {
       // Projects
       std::string RecentProject;
       std::string ProjectsPath;
-      bool EditorEnabled = false;
+      std::string AssetsPath;
       ProjectProperties* ProjectProperties;
       // Window
       Vec2 ViewportResize;
@@ -130,6 +131,7 @@ namespace DCEngine {
       size_t PreviousConsoleWindowStringLength = 0;
 
       void Serialize(Json::Value& root) {
+        DCE_JSON_SERIALIZE(Enabled);
         DCE_JSON_SERIALIZE(AutoSave);
         DCE_JSON_SERIALIZE(AutoSaveTime);
         DCE_JSON_SERIALIZE(GridActive);
@@ -139,6 +141,7 @@ namespace DCEngine {
         DCE_JSON_SERIALIZE(SnapAngle);
         DCE_JSON_SERIALIZE(RecentProject);
         DCE_JSON_SERIALIZE(ProjectsPath);
+        DCE_JSON_SERIALIZE(AssetsPath);
         DCE_JSON_SERIALIZE(ExternalTextEditor);
         DCE_JSON_SERIALIZE(CompileOnContextSwitch);
         DCE_JSON_SERIALIZE(CompilationPopUps);
@@ -147,6 +150,7 @@ namespace DCEngine {
       }
 
       void Deserialize(Json::Value& root) {
+        DCE_JSON_DESERIALIZE_INTRINSIC(Enabled).asBool();
         DCE_JSON_DESERIALIZE_INTRINSIC(AutoSave).asBool();
         DCE_JSON_DESERIALIZE_INTRINSIC(AutoSaveTime).asInt();
         DCE_JSON_DESERIALIZE_INTRINSIC(GridActive).asBool();
@@ -156,6 +160,7 @@ namespace DCEngine {
         DCE_JSON_DESERIALIZE_INTRINSIC(SnapAngle).asFloat();
         DCE_JSON_DESERIALIZE_INTRINSIC(RecentProject).asString();
         DCE_JSON_DESERIALIZE_INTRINSIC(ProjectsPath).asString();
+        DCE_JSON_DESERIALIZE_INTRINSIC(AssetsPath).asString();
         DCE_JSON_DESERIALIZE_INTRINSIC(ExternalTextEditor).asString();
         DCE_JSON_DESERIALIZE_INTRINSIC(CompileOnContextSwitch).asBool();
         DCE_JSON_DESERIALIZE_INTRINSIC(CompilationPopUps).asBool();
@@ -182,15 +187,17 @@ namespace DCEngine {
       bool Fullscreen;
       int Samples;
       std::string Caption;
+      bool DisplayFPS;
       Vec4 ClearColor = Vec4(0.0f, 0.5f, 1.0f, 1.0f);
 
       void Serialize(Json::Value& root) {
+        DCE_JSON_SERIALIZE(Caption);
+        DCE_JSON_SERIALIZE(Fullscreen);
+        DCE_JSON_SERIALIZE(Framerate);
+        DCE_JSON_SERIALIZE(DisplayFPS);
         DCE_JSON_SERIALIZE(MaxDrawLayers);
         DCE_JSON_SERIALIZE(ScreenWidth);
         DCE_JSON_SERIALIZE(ScreenHeight);
-        DCE_JSON_SERIALIZE(Framerate);
-        DCE_JSON_SERIALIZE(Fullscreen);
-        DCE_JSON_SERIALIZE(Caption);
         DCE_JSON_SERIALIZE(Samples);
         //root["MaxDrawLayers"] = MaxDrawLayers;
         root["ClearColorW"] = ClearColor.w;
@@ -200,13 +207,14 @@ namespace DCEngine {
       }
 
       void Deserialize(Json::Value& root) {
+        DCE_JSON_DESERIALIZE_INTRINSIC(Caption).asString();
+        DCE_JSON_DESERIALIZE_INTRINSIC(Fullscreen).asBool();
+        DCE_JSON_DESERIALIZE_INTRINSIC(Framerate).asInt();
+        DCE_JSON_DESERIALIZE_INTRINSIC(DisplayFPS).asBool();
         DCE_JSON_DESERIALIZE_INTRINSIC(MaxDrawLayers).asInt();
+        DCE_JSON_DESERIALIZE_INTRINSIC(Samples).asInt();
         DCE_JSON_DESERIALIZE_INTRINSIC(ScreenWidth).asInt();
         DCE_JSON_DESERIALIZE_INTRINSIC(ScreenHeight).asInt();
-        DCE_JSON_DESERIALIZE_INTRINSIC(Framerate).asInt();
-        DCE_JSON_DESERIALIZE_INTRINSIC(Fullscreen).asBool();
-        DCE_JSON_DESERIALIZE_INTRINSIC(Caption).asString();
-        DCE_JSON_DESERIALIZE_INTRINSIC(Samples).asInt();
         ClearColor.x = root.get("ClearColorX", "").asFloat();
         ClearColor.y = root.get("ClearColorY", "").asFloat();
         ClearColor.z = root.get("ClearColorZ", "").asFloat();

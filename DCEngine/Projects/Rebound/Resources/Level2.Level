@@ -10,6 +10,7 @@
         "Locked": false, 
         "GameObjectID": 216, 
         "Name": "Player", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -18,8 +19,26 @@
             {
               "Vec3": 
               {
-                "x": 124.442207, 
-                "y": 26.045986, 
+                "x": 8.049225, 
+                "y": 3.215595, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 8.049225, 
+                "y": 3.215595, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 8.049225, 
+                "y": 3.215595, 
                 "z": 0.000000
               }
             }, 
@@ -125,7 +144,9 @@
             "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
             "RunAnimation": "Char_Asha_Run_Spritesheet", 
             "FallAnimation": "Char_Asha_Fall_Spritesheet", 
+            "ThrowAnimation": "Char_Asha_Throw_Spritesheet", 
             "AutoPlayTimer": 2.000000, 
+            "LandingParticle": "LandingParticle", 
             "TeleportStartSound": "Teleport", 
             "TeleportArriveSound": "TeleportArrive", 
             "JumpSound": "Jump", 
@@ -184,11 +205,30 @@
         "Locked": false, 
         "GameObjectID": 217, 
         "Name": "Ground1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 10.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 10.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -272,11 +312,30 @@
         "Locked": false, 
         "GameObjectID": 218, 
         "Name": "Ground2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 40.828068, 
+                "y": -0.255948, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 40.828068, 
+                "y": -0.255948, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -360,11 +419,30 @@
         "Locked": false, 
         "GameObjectID": 219, 
         "Name": "Ground3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 61.657867, 
+                "y": -0.501460, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 61.657867, 
+                "y": -0.501460, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -448,11 +526,30 @@
         "Locked": false, 
         "GameObjectID": 220, 
         "Name": "Ground4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 106.629875, 
+                "y": -0.756562, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 106.629875, 
+                "y": -0.756562, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -536,11 +633,30 @@
         "Locked": false, 
         "GameObjectID": 221, 
         "Name": "Ground5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 94.602676, 
+                "y": -0.992271, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 94.602676, 
+                "y": -0.992271, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -624,11 +740,30 @@
         "Locked": false, 
         "GameObjectID": 222, 
         "Name": "Ground6", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 82.481148, 
+                "y": -0.746675, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 82.481148, 
+                "y": -0.746675, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -712,11 +847,30 @@
         "Locked": false, 
         "GameObjectID": 223, 
         "Name": "Ground7", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 135.130295, 
+                "y": -0.514000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 135.130295, 
+                "y": -0.514000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -800,11 +954,30 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield10", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 147.148849, 
+                "y": 20.657240, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 147.148849, 
+                "y": 20.657240, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -913,11 +1086,30 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield6", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 137.110260, 
+                "y": 9.829202, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 137.110260, 
+                "y": 9.829202, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1026,11 +1218,30 @@
         "Locked": false, 
         "GameObjectID": 226, 
         "Name": "Ground11", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 149.556030, 
+                "y": 24.100000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 149.556030, 
+                "y": 24.100000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1114,11 +1325,30 @@
         "Locked": false, 
         "GameObjectID": 227, 
         "Name": "Ground12", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 139.575943, 
+                "y": 0.479584, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 139.575943, 
+                "y": 0.479584, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1202,11 +1432,30 @@
         "Locked": false, 
         "GameObjectID": 228, 
         "Name": "Ground13", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 139.114578, 
+                "y": 9.702473, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 139.114578, 
+                "y": 9.702473, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1290,11 +1539,30 @@
         "Locked": false, 
         "GameObjectID": 229, 
         "Name": "Ground14", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 135.605011, 
+                "y": 9.702473, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 135.605011, 
+                "y": 9.702473, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1378,11 +1646,30 @@
         "Locked": false, 
         "GameObjectID": 293, 
         "Name": "PressurePlate2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 152.702942, 
+                "y": 24.735071, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 152.702942, 
+                "y": 24.735071, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1470,11 +1757,30 @@
         "Locked": false, 
         "GameObjectID": 312, 
         "Name": "StreetLight", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -14.357639, 
+                "y": 25.020929, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -14.357639, 
+                "y": 25.020929, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1545,11 +1851,30 @@
         "Locked": false, 
         "GameObjectID": 311, 
         "Name": "Light", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1620,11 +1945,30 @@
         "Locked": false, 
         "GameObjectID": 293, 
         "Name": "PressurePlate1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 70.343407, 
+                "y": 0.191943, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 70.343407, 
+                "y": 0.191943, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1712,11 +2056,30 @@
         "Locked": false, 
         "GameObjectID": 310, 
         "Name": "GlobalLight", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 62.919121, 
+                "y": 4.951467, 
+                "z": 10.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 62.919121, 
+                "y": 4.951467, 
+                "z": 10.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1787,11 +2150,30 @@
         "Locked": false, 
         "GameObjectID": 288, 
         "Name": "PowerField1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 100.000000, 
+                "y": 1.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 100.000000, 
+                "y": 1.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1899,11 +2281,30 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Button2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 41.771526, 
+                "y": 7.689502, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 41.771526, 
+                "y": 7.689502, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -1944,7 +2345,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_button_off", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -2012,11 +2413,30 @@
         "Locked": false, 
         "GameObjectID": 307, 
         "Name": "PauseManager", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -8.800000, 
+                "y": 16.177778, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -8.800000, 
+                "y": 16.177778, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2057,11 +2477,30 @@
         "Locked": false, 
         "GameObjectID": 288, 
         "Name": "PowerField1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 88.000000, 
+                "y": 1.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 88.000000, 
+                "y": 1.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2169,11 +2608,30 @@
         "Locked": false, 
         "GameObjectID": 241, 
         "Name": "Ceiling1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 32.000000, 
+                "y": 5.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 32.000000, 
+                "y": 5.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2257,11 +2715,30 @@
         "Locked": false, 
         "GameObjectID": 242, 
         "Name": "Ceiling2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 41.000000, 
+                "y": 7.200000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 41.000000, 
+                "y": 7.200000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2345,11 +2822,30 @@
         "Locked": false, 
         "GameObjectID": 243, 
         "Name": "Ceiling3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 67.703262, 
+                "y": 6.964519, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 67.703262, 
+                "y": 6.964519, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2433,11 +2929,30 @@
         "Locked": false, 
         "GameObjectID": 244, 
         "Name": "Ceiling4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 56.000000, 
+                "y": 5.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 56.000000, 
+                "y": 5.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2521,11 +3036,30 @@
         "Locked": false, 
         "GameObjectID": 245, 
         "Name": "Ceiling5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 47.254261, 
+                "y": 8.455927, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 47.254261, 
+                "y": 8.455927, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2609,11 +3143,30 @@
         "Locked": false, 
         "GameObjectID": 246, 
         "Name": "Ceiling6", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 82.050026, 
+                "y": 7.693838, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 82.050026, 
+                "y": 7.693838, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2697,11 +3250,30 @@
         "Locked": false, 
         "GameObjectID": 247, 
         "Name": "Ceiling7", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 94.380882, 
+                "y": 9.053491, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 94.380882, 
+                "y": 9.053491, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2785,11 +3357,30 @@
         "Locked": false, 
         "GameObjectID": 248, 
         "Name": "Ceiling8", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 106.693604, 
+                "y": 7.693608, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 106.693604, 
+                "y": 7.693608, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2873,11 +3464,30 @@
         "Locked": false, 
         "GameObjectID": 249, 
         "Name": "Ceiling9", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 110.545303, 
+                "y": 6.697704, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 110.545303, 
+                "y": 6.697704, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -2961,11 +3571,30 @@
         "Locked": false, 
         "GameObjectID": 250, 
         "Name": "Ceiling10", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 136.248535, 
+                "y": 4.959025, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 136.248535, 
+                "y": 4.959025, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -3049,11 +3678,30 @@
         "Locked": false, 
         "GameObjectID": 251, 
         "Name": "Ceiling11", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 149.992676, 
+                "y": 36.016350, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 149.992676, 
+                "y": 36.016350, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -3137,11 +3785,30 @@
         "Locked": false, 
         "GameObjectID": 288, 
         "Name": "PowerField3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 143.568970, 
+                "y": 1.482980, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 143.568970, 
+                "y": 1.482980, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -3249,11 +3916,30 @@
         "Locked": false, 
         "GameObjectID": 253, 
         "Name": "Wall1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -19.508421, 
+                "y": 5.479687, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -19.508421, 
+                "y": 5.479687, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -3337,11 +4023,30 @@
         "Locked": false, 
         "GameObjectID": 254, 
         "Name": "Wall2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 19.000000, 
+                "y": 7.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 19.000000, 
+                "y": 7.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -3425,11 +4130,30 @@
         "Locked": false, 
         "GameObjectID": 255, 
         "Name": "Wall3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 47.258198, 
+                "y": 5.756142, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 47.258198, 
+                "y": 5.756142, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -3513,11 +4237,30 @@
         "Locked": false, 
         "GameObjectID": 256, 
         "Name": "Wall4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 113.557281, 
+                "y": 18.014961, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 113.557281, 
+                "y": 18.014961, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -3601,11 +4344,30 @@
         "Locked": false, 
         "GameObjectID": 257, 
         "Name": "Wall5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 136.139267, 
+                "y": -4.854113, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 136.139267, 
+                "y": -4.854113, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -3689,11 +4451,30 @@
         "Locked": false, 
         "GameObjectID": 258, 
         "Name": "Wall6", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 144.555267, 
+                "y": 11.955159, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 144.555267, 
+                "y": 11.955159, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -3777,11 +4558,30 @@
         "Locked": false, 
         "GameObjectID": 126, 
         "Name": "Camera", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 5.789633, 
+                "y": 3.002574, 
+                "z": 1.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 5.789633, 
+                "y": 3.002574, 
+                "z": 1.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -3842,11 +4642,30 @@
         "Locked": false, 
         "GameObjectID": 305, 
         "Name": "Ball", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 137.553101, 
+                "y": 24.591127, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 137.553101, 
+                "y": 24.591127, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -3983,6 +4802,7 @@
                 "w": 1.000000
               }
             }, 
+            "ForcedFreeze": false, 
             "FreezeEnabled": true, 
             "MaxAttractSpeed": 10.000000, 
             "MaxAttractForce": 50.000000, 
@@ -4084,7 +4904,16 @@
                 "y": 1.500000, 
                 "z": 0.000000
               }
-            }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
           }, 
           "LinearParticleAnimator": 
           {
@@ -4116,6 +4945,161 @@
         }, 
         "Children": 
         {
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 98, 
+            "Name": "TestParticle", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 137.553101, 
+                    "y": 24.591127, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 137.553101, 
+                    "y": 24.591127, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "SpriteParticleSystem": 
+              {
+                "Visible": true, 
+                "Tint": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "Texture": "Laser", 
+                "VelocityScale": 1.000000, 
+                "LengthScale": 1.000000, 
+                "SystemSize": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 4.000000, 
+                    "y": 4.000000, 
+                    "z": 4.000000
+                  }
+                }, 
+                "Additive": true, 
+                "Lock": false, 
+                "DrawLayer": 4
+              }, 
+              "ParticleEmitter": 
+              {
+                "Active": true, 
+                "ResetCount": false, 
+                "EmitCount": 0, 
+                "EmitRate": 20, 
+                "EmitVariance": 0, 
+                "Size": 0.200000, 
+                "SizeVariance": 0.100000, 
+                "Lifetime": 4.000000, 
+                "LifetimeVariance": 0.000000, 
+                "Spin": 100.000000, 
+                "SpinVariance": 100.000000, 
+                "StartVelocity": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "RandomVelocity": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.125000, 
+                    "y": 0.125000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "EmissionArea": 
+                {
+                  "Vec2": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000
+                  }
+                }, 
+                "EmissionCircle": false
+              }, 
+              "LinearParticleAnimator": 
+              {
+                "Force": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "RandomForce": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Torque": 0.000000, 
+                "Growth": -0.050000, 
+                "Dampening": 0.000000
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }
         }
       }, 
       "GameObject": 
@@ -4123,11 +5107,30 @@
         "Locked": false, 
         "GameObjectID": 257, 
         "Name": "Wall5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 146.238464, 
+                "y": 33.182968, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 146.238464, 
+                "y": 33.182968, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -4211,11 +5214,30 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield8", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 130.275864, 
+                "y": -4.003217, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 130.275864, 
+                "y": -4.003217, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -4324,11 +5346,30 @@
         "Locked": false, 
         "GameObjectID": 288, 
         "Name": "PowerField5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 113.566452, 
+                "y": 4.702326, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 113.566452, 
+                "y": 4.702326, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -4436,11 +5477,30 @@
         "Locked": false, 
         "GameObjectID": 265, 
         "Name": "Door1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 19.008417, 
+                "y": 2.500321, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 19.008417, 
+                "y": 2.500321, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -4522,8 +5582,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 5.000000, 
+                "x": 19.008417, 
+                "y": -2.499679, 
                 "z": 0.000000
               }
             }, 
@@ -4542,11 +5602,30 @@
         "Locked": false, 
         "GameObjectID": 266, 
         "Name": "Door2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 54.538704, 
+                "y": 2.605158, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 54.538704, 
+                "y": 2.605158, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -4628,8 +5707,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 5.000000, 
+                "x": 54.538704, 
+                "y": -3.394842, 
                 "z": 0.000000
               }
             }, 
@@ -4648,11 +5727,30 @@
         "Locked": false, 
         "GameObjectID": 265, 
         "Name": "Door4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 152.569565, 
+                "y": 33.048630, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 152.569565, 
+                "y": 33.048630, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -4734,8 +5832,8 @@
             {
               "Vec3": 
               {
-                "x": 4.000000, 
-                "y": 0.000000, 
+                "x": 148.569565, 
+                "y": 33.048630, 
                 "z": 0.000000
               }
             }, 
@@ -4754,11 +5852,30 @@
         "Locked": false, 
         "GameObjectID": 298, 
         "Name": "BioField4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 124.091721, 
+                "y": 6.602479, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 124.091721, 
+                "y": 6.602479, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -4867,11 +5984,30 @@
         "Locked": false, 
         "GameObjectID": 298, 
         "Name": "BioField3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 131.040726, 
+                "y": -5.663845, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 131.040726, 
+                "y": -5.663845, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -4980,11 +6116,30 @@
         "Locked": false, 
         "GameObjectID": 288, 
         "Name": "PowerField4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 135.580231, 
+                "y": 10.464851, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 135.580231, 
+                "y": 10.464851, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5092,11 +6247,30 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Button3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 53.198399, 
+                "y": 7.668521, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 53.198399, 
+                "y": 7.668521, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5137,7 +6311,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_button_off", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -5205,11 +6379,30 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Button4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 65.330063, 
+                "y": 4.694941, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 65.330063, 
+                "y": 4.694941, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5250,7 +6443,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_button_off", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -5318,11 +6511,30 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Button5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 76.591049, 
+                "y": 4.699968, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 76.591049, 
+                "y": 4.699968, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5363,7 +6575,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_button_off", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -5431,6 +6643,7 @@
         "Locked": false, 
         "GameObjectID": 275, 
         "Name": "Button5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -5440,7 +6653,25 @@
               "Vec3": 
               {
                 "x": 148.320557, 
-                "y": 31.039030, 
+                "y": 30.958385, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 148.320557, 
+                "y": 30.958385, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 148.320557, 
+                "y": 30.958385, 
                 "z": 0.000000
               }
             }, 
@@ -5493,11 +6724,30 @@
         "Locked": false, 
         "GameObjectID": 223, 
         "Name": "Ground7", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 112.497032, 
+                "y": -0.514283, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 112.497032, 
+                "y": -0.514283, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5581,11 +6831,30 @@
         "Locked": false, 
         "GameObjectID": 298, 
         "Name": "AntiEnergy1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 70.097527, 
+                "y": 2.630389, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 70.097527, 
+                "y": 2.630389, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5694,11 +6963,30 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Button8", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 135.101379, 
+                "y": -1.504835, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 135.101379, 
+                "y": -1.504835, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5739,7 +7027,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_button_off", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -5807,11 +7095,30 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 61.985565, 
+                "y": 2.609283, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 61.985565, 
+                "y": 2.609283, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -5920,11 +7227,30 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 73.078934, 
+                "y": 2.609283, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 73.078934, 
+                "y": 2.609283, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6033,11 +7359,30 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 91.500000, 
+                "y": 3.712500, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 91.500000, 
+                "y": 3.712500, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6146,11 +7491,30 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 96.500000, 
+                "y": 3.712500, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 96.500000, 
+                "y": 3.712500, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6259,11 +7623,30 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 141.105988, 
+                "y": 4.942499, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 141.105988, 
+                "y": 4.942499, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6372,11 +7755,30 @@
         "Locked": false, 
         "GameObjectID": 227, 
         "Name": "Ground12", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 127.645966, 
+                "y": -8.922501, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 127.645966, 
+                "y": -8.922501, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6460,11 +7862,30 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield7", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 139.562729, 
+                "y": 16.356318, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 139.562729, 
+                "y": 16.356318, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6573,11 +7994,30 @@
         "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield9", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 131.204559, 
+                "y": 18.845514, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 131.204559, 
+                "y": 18.845514, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6686,11 +8126,30 @@
         "Locked": false, 
         "GameObjectID": 227, 
         "Name": "Ground12", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 118.952393, 
+                "y": -7.208021, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 118.952393, 
+                "y": -7.208021, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6774,11 +8233,30 @@
         "Locked": false, 
         "GameObjectID": 227, 
         "Name": "Ground12", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 115.460709, 
+                "y": -2.984548, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 115.460709, 
+                "y": -2.984548, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6862,11 +8340,30 @@
         "Locked": false, 
         "GameObjectID": 227, 
         "Name": "Ground12", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 117.237915, 
+                "y": -5.179917, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 117.237915, 
+                "y": -5.179917, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -6950,11 +8447,30 @@
         "Locked": false, 
         "GameObjectID": 257, 
         "Name": "Wall5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 134.593903, 
+                "y": 14.443151, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 134.593903, 
+                "y": 14.443151, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -7038,11 +8554,30 @@
         "Locked": false, 
         "GameObjectID": 298, 
         "Name": "BioField4", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 133.465408, 
+                "y": -2.244142, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 133.465408, 
+                "y": -2.244142, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -7151,11 +8686,30 @@
         "Locked": false, 
         "GameObjectID": 226, 
         "Name": "Ground11", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 129.592087, 
+                "y": 24.100199, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 129.592087, 
+                "y": 24.100199, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -7239,11 +8793,30 @@
         "Locked": false, 
         "GameObjectID": 293, 
         "Name": "PressurePlate2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 108.675018, 
+                "y": 0.106688, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 108.675018, 
+                "y": 0.106688, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -7331,11 +8904,30 @@
         "Locked": false, 
         "GameObjectID": 257, 
         "Name": "Wall5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 124.579544, 
+                "y": 19.439234, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 124.579544, 
+                "y": 19.439234, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -7419,11 +9011,30 @@
         "Locked": false, 
         "GameObjectID": 265, 
         "Name": "Door3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 112.283127, 
+                "y": 2.569751, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 112.283127, 
+                "y": 2.569751, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -7505,8 +9116,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 5.250000, 
+                "x": 112.283127, 
+                "y": -2.680249, 
                 "z": 0.000000
               }
             }, 
@@ -7525,11 +9136,30 @@
         "Locked": false, 
         "GameObjectID": 257, 
         "Name": "Wall5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 156.562927, 
+                "y": 30.522577, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 156.562927, 
+                "y": 30.522577, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -7613,11 +9243,30 @@
         "Locked": false, 
         "GameObjectID": 257, 
         "Name": "Wall5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 150.588242, 
+                "y": 31.561031, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 150.588242, 
+                "y": 31.561031, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -7701,11 +9350,30 @@
         "Locked": false, 
         "GameObjectID": 251, 
         "Name": "Ceiling11", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 132.081268, 
+                "y": 30.044624, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 132.081268, 
+                "y": 30.044624, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -7789,11 +9457,30 @@
         "Locked": false, 
         "GameObjectID": 275, 
         "Name": "Button5", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 129.565109, 
+                "y": 23.105209, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 129.565109, 
+                "y": 23.105209, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -7851,11 +9538,30 @@
         "Locked": false, 
         "GameObjectID": 106, 
         "Name": "Gate1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 48.183979, 
+                "y": 5.047847, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 48.183979, 
+                "y": 5.047847, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -7901,11 +9607,30 @@
         "Locked": false, 
         "GameObjectID": 106, 
         "Name": "Transistor1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 138.371719, 
+                "y": 13.709374, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 138.371719, 
+                "y": 13.709374, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -7950,11 +9675,30 @@
         "Locked": false, 
         "GameObjectID": 228, 
         "Name": "GroundExtra1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 142.214691, 
+                "y": 15.702473, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 142.214691, 
+                "y": 15.702473, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -8038,11 +9782,30 @@
         "Locked": false, 
         "GameObjectID": 228, 
         "Name": "GroundExtra2", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 135.801270, 
+                "y": 15.637198, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 135.801270, 
+                "y": 15.637198, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -8126,11 +9889,30 @@
         "Locked": false, 
         "GameObjectID": 228, 
         "Name": "GroundExtra3", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 137.105484, 
+                "y": 9.575050, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 137.105484, 
+                "y": 9.575050, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -8214,11 +9996,30 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Button1", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 17.809904, 
+                "y": 6.209835, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 17.809904, 
+                "y": 6.209835, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -8259,7 +10060,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_button_off", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -8327,11 +10128,30 @@
         "Locked": true, 
         "GameObjectID": 274, 
         "Name": "Foreground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 71.365578, 
+                "y": 10.790378, 
+                "z": 0.010000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 71.365578, 
+                "y": 10.790378, 
+                "z": 0.010000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -8389,11 +10209,30 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Midground", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 72.431358, 
+                "y": 11.653145, 
+                "z": -0.030000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 72.431358, 
+                "y": 11.653145, 
+                "z": -0.030000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -8451,11 +10290,30 @@
         "Locked": false, 
         "GameObjectID": 274, 
         "Name": "Background", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 71.560989, 
+                "y": 14.731395, 
+                "z": -0.300000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 71.560989, 
+                "y": 14.731395, 
+                "z": -0.300000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -8513,11 +10371,30 @@
         "Locked": false, 
         "GameObjectID": 206, 
         "Name": "Generator", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 132.442932, 
+                "y": 25.319235, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 132.442932, 
+                "y": 25.319235, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -8615,6 +10492,19 @@
               }
             }
           }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": true, 
+        "GameObjectID": 97, 
+        "Name": "LevelSettings", 
+        "Protected": false, 
+        "Components": 
+        {
         }, 
         "Children": 
         {

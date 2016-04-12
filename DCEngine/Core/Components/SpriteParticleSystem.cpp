@@ -225,7 +225,9 @@ namespace DCEngine {
 		void SpriteParticleSystem::Draw(void)
 		{
 			//mShader->Use();
+			glEnable(GL_DEPTH_TEST);
 			glDepthMask(GL_FALSE);
+			glDepthFunc(GL_LEQUAL);
 			glEnable(GL_BLEND);
 			std::vector<glm::vec2> offset(GetPositionData());
 			std::vector<glm::vec4> color(GetColorData());
@@ -235,6 +237,7 @@ namespace DCEngine {
 				glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			if (Visible)
 			{
+				glDrawBuffer(GL_COLOR_ATTACHMENT2);
 				glBindBuffer(GL_ARRAY_BUFFER, mColorInstanceVBO);
 				glBufferSubData(GL_ARRAY_BUFFER, 0,
 					sizeof(glm::vec4) * GetParticleCount(), color.data());
@@ -249,6 +252,7 @@ namespace DCEngine {
 			}
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			glDepthMask(GL_TRUE);
+			glDepthFunc(GL_LESS);
 			transformData.clear();
 		}
 
@@ -260,21 +264,31 @@ namespace DCEngine {
     /**************************************************************************/
 		void SpriteParticleSystem::AddParticle(void)
 		{
-			unsigned emitCount = 1 + rand() % (mParticleEmitter->EmitVariance + 1);
+			unsigned emitCount = mParticleEmitter->EmitVariance;
 			for (unsigned i = 0; i < emitCount; ++i)
 			{
-				float lifetime = mParticleEmitter->Lifetime + mParticleEmitter->LifetimeVariance * (rand() % 100 - 50) / 100;
+				float lifetime = mParticleEmitter->Lifetime + mParticleEmitter->LifetimeVariance * (rand() % 100 - 50) / 50;
 				Vec2 velocity = Vec2(mParticleEmitter->StartVelocity.x + mParticleEmitter->RandomVelocity.x * (rand() % 100 - 50) / 50,
 					mParticleEmitter->StartVelocity.y + mParticleEmitter->RandomVelocity.y * (rand() % 100 - 50) / 50);
-				float size = mParticleEmitter->Size + mParticleEmitter->SizeVariance * (rand() % 100 - 50) / 100;
-				float spin = mParticleEmitter->Spin + mParticleEmitter->SpinVariance * (rand() % 100 - 50) / 100;
+				float size = mParticleEmitter->Size + mParticleEmitter->SizeVariance * (rand() % 100 - 50) / 50;
+				float spin = mParticleEmitter->Spin + mParticleEmitter->SpinVariance * (rand() % 100 - 50) / 50;
 				Vec2 force = Vec2(0, 0);
-				Vec2 position = Vec2(0, 0);
+				Vec2 position = Vec2(0,0);
+				if (mParticleEmitter->EmissionCircle)
+				{
+					float angle = float(rand() % 180) / 3.1415926535;
+					float magnitude = float(rand() % 100 - 50) / 50;
+					position = Vec2(std::cos(angle) * mParticleEmitter->EmissionArea.x * magnitude,
+						std::sin(angle) * mParticleEmitter->EmissionArea.y * magnitude);
+				}
+				else
+					position = Vec2(mParticleEmitter->EmissionArea.x * (rand() % 100 - 50) / 50,
+						mParticleEmitter->EmissionArea.y * (rand() % 100 - 50) / 50);
 				if (mLinearAnimator)
 					force = Vec2(mLinearAnimator->Force.x + mLinearAnimator->RandomForce.x * (rand() % 100 - 50) / 50,
 						mLinearAnimator->Force.y + mLinearAnimator->RandomForce.y * (rand() % 100 - 50) / 50);
 				if (!Lock)
-					position = Vec2(TransformComponent->Translation.x, TransformComponent->Translation.y);
+					position += Vec2(TransformComponent->Translation.x, TransformComponent->Translation.y);
 				mParticleList.push_back(Particle(
 					lifetime, position, velocity, force, size, spin, Tint, mColorAnimator, mLinearAnimator));
 			}

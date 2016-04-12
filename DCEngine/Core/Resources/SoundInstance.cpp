@@ -90,10 +90,22 @@ namespace DCEngine {
   void SoundInstance::InterpolateVolume(Real newVolume, Real time)
   {
     Settings.Volume = newVolume;
-    if (Type == SoundCue::SoundCueType::Event && SoundHandle.EventInstance)
-      SoundHandle.EventInstance->setVolume(newVolume);
-    else if (Type == SoundCue::SoundCueType::File && SoundHandle.Channel)
-      SoundHandle.Channel->setVolume(newVolume);
+
+    if (Type == SoundCue::SoundCueType::Event && SoundHandle.EventInstance) {      
+      if (time > 0) {
+        SoundHandle.EventInstance->setVolume(newVolume); // temp
+      }
+      else 
+        SoundHandle.EventInstance->setVolume(newVolume);
+    }
+    else if (Type == SoundCue::SoundCueType::File && SoundHandle.Channel) {      
+      if (time > 0) {
+        SoundHandle.Channel->setVolume(newVolume); // temp
+      }
+      else
+        SoundHandle.Channel->setVolume(newVolume);
+    }
+
   }
 
   /**************************************************************************/
@@ -106,7 +118,22 @@ namespace DCEngine {
   /**************************************************************************/
   void SoundInstance::InterpolatePitch(Real newPitch, Real time)
   {
+    Settings.Pitch = newPitch;
 
+    if (Type == SoundCue::SoundCueType::Event && SoundHandle.EventInstance) {
+      if (time > 0) {
+        SoundHandle.EventInstance->setPitch(newPitch); // temp
+      }
+      else
+        SoundHandle.EventInstance->setPitch(newPitch);
+    }
+    else if (Type == SoundCue::SoundCueType::File && SoundHandle.Channel) {
+      if (time > 0) {
+        SoundHandle.Channel->setPitch(newPitch); // temp
+      }
+      else
+        SoundHandle.Channel->setPitch(newPitch);
+    }
   }
 
   /**************************************************************************/

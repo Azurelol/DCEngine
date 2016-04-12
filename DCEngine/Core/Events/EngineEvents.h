@@ -56,6 +56,11 @@ namespace DCEngine {
       WindowGainedFocus() : Event("WindowGainedFocus") {}
     };
 
+		class WindowResizeToNative : public Event {
+		public:
+			WindowResizeToNative() : Event("WindowResizeToNative") {}
+		};
+
     class GraphicsCompileShaders : public Event {
     public:
       GraphicsCompileShaders() : Event("GraphicsCompileShaders") {}

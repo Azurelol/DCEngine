@@ -19,7 +19,7 @@ class Button : ZilchComponent
         Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollisionStarted);
 
         this.Active = false;
-
+		this.Owner.Sprite.SpriteSource = "tile_button_off";
         this.Owner.Sprite.Color = this.InactiveColor;
     }
 	
@@ -29,11 +29,11 @@ class Button : ZilchComponent
 		{
 			if(this.Active)
 			{
-				this.Owner.Sprite.Color = this.InactiveColor;
+				this.Owner.Sprite.SpriteSource = "tile_button_off";
 			}
 			else 
 			{
-				this.Owner.Sprite.Color = this.ActiveColor;
+				this.Owner.Sprite.SpriteSource = "tile_button_on";
 			}
 
 			this.Active = !this.Active;

@@ -1,7 +1,7 @@
 /******************************************************************************/
 /*!
 @file   Sprite.h
-@author Chen Shu, Christian Sagel
+@author Chen Shu, Christian Sagel, William Mao
 @par    email: c.sagel\@digipen.edu
 @date   9/19/2015
 @brief  The Sprite component allows the graphical representation of this object
@@ -73,6 +73,7 @@ namespace DCEngine {
       int UpdateAnimationSpeed(void);
       //reutrn 1 if it is the time to goto next frame, else 0
       bool CheckAnimationIntialized(void);
+			void ResetAnimationIndex(void);
       void SetColorUsing255(Vec3 newColor);
 
       //graphical inhereted

@@ -4,7 +4,8 @@
   {
     "Locked": false, 
     "GameObjectID": 900, 
-    "Name": "Scrapper4", 
+    "Name": "Scrapper", 
+    "Protected": false, 
     "Components": 
     {
       "Transform": 
@@ -13,8 +14,26 @@
         {
           "Vec3": 
           {
-            "x": -10.105388, 
-            "y": -47.143784, 
+            "x": -4.895833, 
+            "y": -0.625000, 
+            "z": 0.000000
+          }
+        }, 
+        "LocalTranslation": 
+        {
+          "Vec3": 
+          {
+            "x": -4.895833, 
+            "y": -0.625000, 
+            "z": 0.000000
+          }
+        }, 
+        "WorldTranslation": 
+        {
+          "Vec3": 
+          {
+            "x": -4.895833, 
+            "y": -0.625000, 
             "z": 0.000000
           }
         }, 
@@ -37,25 +56,29 @@
           }
         }
       }, 
-      "Sprite": 
+      "Grunt": 
       {
-        "Visible": true, 
-        "Color": 
-        {
-          "Vec4": 
-          {
-            "x": 1.000000, 
-            "y": 1.000000, 
-            "z": 1.000000, 
-            "w": 1.000000
-          }
-        }, 
-        "SpriteSource": "Char_Scrap", 
-        "FlipX": false, 
-        "FlipY": false, 
-        "AnimationActive": false, 
-        "AnimationSpeed": 1.000000, 
-        "DrawLayer": 0
+        "PlayerName": "Player", 
+        "StartingHealth": 1, 
+        "MaxHealth": 1, 
+        "IsInvulnerable": false, 
+        "HeadArchetype": "ScrapperHead", 
+        "BodyArchetype": "ScrapperBody", 
+        "SawArchetype": "ScrapperSaw", 
+        "IdleRange": 100.000000, 
+        "PatrolDistance": 20.000000, 
+        "IsPatrolRight": true, 
+        "IsAggressive": true, 
+        "JumpStrengthX": 5.000000, 
+        "JumpStrengthY": 25.000000, 
+        "JumpPeriod": 2.000000, 
+        "AttackJumpStrengthX": 10.000000, 
+        "AttackJumpStrengthY": 15.000000, 
+        "AttackJumpPeriod": 1.000000, 
+        "AnimationSpeedHead": 10.000000, 
+        "AnimationDistanceHead": 0.010000, 
+        "AnimationSpeedSaw": 10.000000, 
+        "AnimationDistanceSaw": 0.010000
       }, 
       "BoxCollider": 
       {
@@ -106,55 +129,27 @@
         "Mass": 10.000000, 
         "RotationLocked": true
       }, 
-      "Grunt": 
+      "Sprite": 
       {
-        "PlayerName": "Player", 
-        "StartingHealth": 1, 
-        "MaxHealth": 1, 
-        "IsInvulnerable": false, 
-        "IdleRange": 100.000000, 
-        "PatrolDistance": 20.000000, 
-        "IsPatrolRight": true, 
-        "IsAggressive": true, 
-        "JumpStrengthX": 5.000000, 
-        "JumpStrengthY": 25.000000, 
-        "JumpPeriod": 2.000000, 
-        "AttackJumpStrengthX": 10.000000, 
-        "AttackJumpStrengthY": 15.000000, 
-        "AttackJumpPeriod": 1.000000, 
-		    "AttackSound": "ScrapperAttack",
-		    "DeathSound": "ScrapperDeath",
-		    "TakeDamageSound": "ScrapperTakeDamage",
-        "IdleColor": 
-        {
+        "Visible": true,			"AttackSound": "ScrapperAttack",
+			"DeathSound": "ScrapperDeath",
+			"TakeDamageSound": "ScrapperTakeDamage", 
+        "Color":
+         {
           "Vec4": 
           {
-            "x": 0.000000, 
+            "x": 1.000000, 
             "y": 1.000000, 
-            "z": 0.000000, 
-            "w": 1.000000
-          }
-        }, 
-        "PatrolColor": 
-        {
-          "Vec4": 
-          {
-            "x": 0.000000, 
-            "y": 0.000000, 
             "z": 1.000000, 
             "w": 1.000000
           }
         }, 
-        "AttackColor": 
-        {
-          "Vec4": 
-          {
-            "x": 1.000000, 
-            "y": 0.000000, 
-            "z": 0.000000, 
-            "w": 1.000000
-          }
-        }
+        "SpriteSource": "Char_Scrap", 
+        "FlipX": false, 
+        "FlipY": false, 
+        "AnimationActive": false, 
+        "AnimationSpeed": 1.000000, 
+        "DrawLayer": 4
       }
     }, 
     "Children": 

@@ -1,0 +1,24 @@
+class LevelTransition : ZilchComponent
+{
+
+	[Property] var Enabled : Boolean = true;
+	[Property] var NextLevel : String = "";
+	[Property] var Delay : Real;
+
+    function Initialize()
+    {
+    	var seq = Actions.Sequence(this.Owner.Actions);
+    	Actions.Delay(seq, this.Delay);
+    	Actions.Call(seq, this.LoadLevel);
+
+        //Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function LoadLevel() {
+    	this.Space.LoadLevel(this.NextLevel);
+    }
+
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+    }
+}

@@ -35,11 +35,21 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(Archetype);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, ShieldArchetype);
       DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyShieldArchetype, attributeArchetype);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, HeadArchetype);
+      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyHeadArchetype, attributeArchetype);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, ShoulderArchetype);
+      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyShoulderArchetype, attributeArchetype);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, BodyArchetype);
+      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyBodyArchetype, attributeArchetype);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, ShieldRadius);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, ShieldBashDistance);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, ShieldBashOutTime);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, ShieldBashInTime);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, ShieldBashCooldown);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, AnimationSpeedHead);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, AnimationDistanceHead);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, AnimationSpeedShoulder);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, AnimationDistanceShoulder);
 
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, AttackSound);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, DeathSound);
@@ -79,6 +89,15 @@ namespace DCEngine {
       shieldLocalTranslation = Vec3(2, 0, 0);
       isBashing = false;
       canBash = true;
+
+      std::random_device rd;
+      std::mt19937 generator(rd());
+      std::uniform_real_distribution<float> distribution(0, 1);
+
+      SpriteRef->Visible = false;
+      randomPhase = distribution(generator);
+      CreateSprites();
+
       CreateShield();
 
       timer = 0.0;
@@ -105,6 +124,8 @@ namespace DCEngine {
         UpdateShield();
 
       shield->getComponent<Transform>()->SetLocalTranslation(shieldLocalTranslation);
+
+      UpdateSprites(event->TimePassed);
     }
 
     void Sentinel::OnCollisionStartedEvent(Events::CollisionStarted * event)
@@ -180,13 +201,46 @@ namespace DCEngine {
 
     void Sentinel::CreateShield()
     {
-      shield = SpaceRef->CreateObject("Sentinel Shield");
+      shield = SpaceRef->CreateObject(ShieldArchetype);
       shield->AttachTo(gameObj);
       shield->getComponent<Transform>()->SetLocalTranslation(shieldLocalTranslation);
       shield->getComponent<Orientation>()->WorldForward = Vec3(1, 0, 0);
       shield->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
       CollisionTablePtr CollisionTableRef = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));
       CollisionTableRef->SetResolve("Enemy", "SentinelShield", CollisionFlag::SkipDetecting);
+    }
+
+    void Sentinel::CreateSprites()
+    {
+      head = SpaceRef->CreateObject(HeadArchetype);
+      shoulder = SpaceRef->CreateObject(ShoulderArchetype);
+      body = SpaceRef->CreateObject(BodyArchetype);
+      sprites.push_back(head);
+      sprites.push_back(shoulder);
+      sprites.push_back(body);
+
+      for (unsigned i = 0; i < sprites.size(); ++i)
+      {
+        sprites.at(i)->AttachTo(gameObj);
+        sprites.at(i)->getComponent<Transform>()->SetLocalTranslation(Vec3(0, 0, 0));
+      }
+    }
+
+    void Sentinel::UpdateSprites(float timePassed)
+    {
+      float y = sin((timePassed * AnimationSpeedHead) + randomPhase) * AnimationDistanceHead;
+      head->getComponent<Transform>()->Translation.y += y;
+
+      y = sin((timePassed * AnimationSpeedShoulder) + randomPhase) * AnimationDistanceShoulder;
+      shoulder->getComponent<Transform>()->Translation.y += y;
+    }
+
+    void Sentinel::FlipSprites(bool flipX)
+    {
+      for (unsigned i = 0; i < sprites.size(); ++i)
+      {
+        sprites.at(i)->getComponent<Sprite>()->FlipX = flipX;
+      }
     }
 
     void Sentinel::UpdateShield()
@@ -326,13 +380,13 @@ namespace DCEngine {
         if (direction.x < 0)
         {
           owner->RigidBodyRef->setVelocity(Vec3(-owner->MoveSpeed, owner->RigidBodyRef->getVelocity().y, 0));
-          owner->SpriteRef->FlipX = false;
+          owner->FlipSprites(false);
           owner->shield->getComponent<Sprite>()->FlipX = false;
         }
         else
         {
           owner->RigidBodyRef->setVelocity(Vec3(owner->MoveSpeed, owner->RigidBodyRef->getVelocity().y, 0));
-          owner->SpriteRef->FlipX = true;
+          owner->FlipSprites(true);
           owner->shield->getComponent<Sprite>()->FlipX = true;
         }
       }

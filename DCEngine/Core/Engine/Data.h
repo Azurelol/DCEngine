@@ -23,19 +23,9 @@ namespace DCEngine {
   */
   /**************************************************************************/
   struct EngineConfig {
-
-    /* Window Settings */
+        
     std::string Caption;
     double Version;
-    unsigned int Framerate;
-    unsigned int ResolutionWidth;
-    unsigned int ResolutionHeight;
-    bool IsFullScreen;  
-    std::string AssetPath;
-    bool EditorEnabled;
-    std::string ProjectsPath;
-    std::string RecentProject;
-		unsigned MaxDrawLayers;
 
     void Serialize(Json::Value& root) {
     }
@@ -43,25 +33,15 @@ namespace DCEngine {
     void Deserialize(Json::Value& root) {
       Caption = root.get("Caption", "").asString();
       Version = root.get("Version", "").asDouble();
-      Framerate = root.get("Framerate", "").asInt();
-      ResolutionWidth = root.get("ResolutionWidth", "").asInt();
-      ResolutionHeight = root.get("ResolutionHeight", "").asInt();
-      IsFullScreen = root.get("IsFullScreen", "").asBool(); 
-      AssetPath = root.get("AssetPath", "").asString();
-      EditorEnabled = root.get("EditorEnabled", "").asBool();
-      ProjectsPath = root.get("ProjectsPath", "").asString();
-      RecentProject = root.get("RecentProject", "").asString();
-			MaxDrawLayers = root.get("MaxDrawLayers", "").asInt();
-      
-      /*SpritePath = root.get("SpritePath", "").asString();
-      SoundPath = root.get("SoundPath", "").asString();
-      ShaderPath = root.get("ShaderPath", "").asString();
-      FontPath = root.get("FontPath", "").asString();
-      ArchetypePath = root.get("ArchetypePath", "").asString();
-      LevelPath = root.get("LevelPath", "").asString();*/
     }
   };
   using EngineConfigPtr = std::unique_ptr<EngineConfig>;
+
+  struct EngineStatistics {
+    float RunTime;
+
+    EngineStatistics() : RunTime(0) {}
+  };
 
   /**************************************************************************/
   /*!

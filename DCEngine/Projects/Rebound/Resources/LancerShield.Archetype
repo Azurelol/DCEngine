@@ -5,6 +5,7 @@
     "Locked": false, 
     "GameObjectID": 45, 
     "Name": "LancerShield", 
+    "Protected": false, 
     "Components": 
     {
       "Transform": 
@@ -13,8 +14,26 @@
         {
           "Vec3": 
           {
-            "x": -132.332947, 
-            "y": 2.905980, 
+            "x": 7.000000, 
+            "y": -2.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "LocalTranslation": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "WorldTranslation": 
+        {
+          "Vec3": 
+          {
+            "x": 7.000000, 
+            "y": -2.000000, 
             "z": 0.000000
           }
         }, 
@@ -31,8 +50,8 @@
         {
           "Vec3": 
           {
-            "x": 8.000000, 
-            "y": 5.000000, 
+            "x": 16.000000, 
+            "y": 10.000000, 
             "z": 1.000000
           }
         }
@@ -50,7 +69,7 @@
             "w": 0.295000
           }
         }, 
-        "SpriteSource": "Circle", 
+        "SpriteSource": "Char_Lanc_Shield_2", 
         "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 

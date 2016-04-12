@@ -51,6 +51,7 @@ namespace DCEngine {
     SpacePtr GetSpace(std::string name);
     SpaceMap& AllSpaces();
     Space* getDefaultSpace();
+    void Quit();
 
   private:
 
@@ -60,19 +61,17 @@ namespace DCEngine {
     SystemVec Systems; //!< Container for the GameSession's systems. 
     SpaceMap ActiveSpaces; //!< A map of spaces created by the engine.
     // Methods
+    void Serialize(Zilch::JsonBuilder& builder);
+    void Deserialize(Zilch::JsonValue* properties);
     void Initialize();
     void Subscribe();
-    void Update(float dt);
     void UpdateSpace(SpacePtr space, float dt);
     void OnUpdateEvent() {};
     void RemoveSpace(SpacePtr);   
 
-
-
-
-
   }; // GameSession
 
-  using GameSessionPtr = std::unique_ptr<GameSession>;
+  using GameSessionPtr = GameSession*;
+  using GameSessionStrongPtr = std::unique_ptr<GameSession>;
 
 } // DCEngine

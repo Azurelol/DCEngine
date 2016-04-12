@@ -1,3 +1,8 @@
+class LoadMain : ZilchEvent
+{
+    sends LoadMain : LoadMain;
+}
+
 class UIManager : ZilchComponent
 {
 	[Property]
@@ -45,10 +50,14 @@ class UIManager : ZilchComponent
 	var HoveredReceived : Integer;
 	var DefaultReceived : Integer;
 
+    var MainGameSpace : Space;
+
     function Initialize()
     {
         Daisy.Connect(this.Owner, DaisyEvent.UIButtonEvent, this.OnUIButtonEvent);
         Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+        Daisy.Connect(this.Space, DaisyEvent.ReportSpace, this.OnReportSpace);
+        Daisy.Connect(this.Space, DaisyEvent.LoadMain, this.OnLoadMain);
 		
 		this.HoveredReceived = 0;
 		this.DefaultReceived = 0;
@@ -70,6 +79,11 @@ class UIManager : ZilchComponent
         {
             this.RefText = this.Space.FindObjectByName(this.RefTextName);
         }
+    }
+
+    function OnReportSpace(event : ReportSpace)
+    {
+        this.MainGameSpace = event.MainSpace;
     }
 
     function OnUIButtonEvent(event : UIButtonEvent)
@@ -130,6 +144,10 @@ class UIManager : ZilchComponent
         {
             this.RefText.SpriteText.Text = "     Play Rebound";
         }
+        else if(button.Name == "ResumeGameButton")
+        {
+            this.RefText.SpriteText.Text = "   Return to Rebound";
+        }
         else if(button.Name == "HowToPlayButton")
         {
             this.RefText.SpriteText.Text = "  View the game's              controls";
@@ -141,6 +159,10 @@ class UIManager : ZilchComponent
         else if(button.Name == "CreditsButton")
         {
             this.RefText.SpriteText.Text = "Learn about the team";
+        }
+        else if(button.Name == "ReturnButton")
+        {
+            this.RefText.SpriteText.Text = "Return to the Main Menu";
         }
         else if(button.Name == "QuitGameButton")
         {
@@ -160,6 +182,10 @@ class UIManager : ZilchComponent
     	{
     		this.Space.Dispatch(DaisyEvent.StartGame, StartGame());
     	}
+        else if(button.Name == "ResumeGameButton" && this.MainGameSpace != null)
+        {
+            this.MainGameSpace.Dispatch(DaisyEvent.PauseEvent, PauseEvent());
+        }
     	else if(button.Name == "HowToPlayButton")
     	{
             var htpPan = PanEvent();
@@ -187,9 +213,58 @@ class UIManager : ZilchComponent
 
             this.Space.Dispatch(DaisyEvent.PanEvent, crPan);
     	}
+        else if(button.Name == "ReturnButton")
+        {
+            var cSpace = this.GameSession.CreateSpace("ConfirmationSpace", true);
+            cSpace.LoadLevel("ConfirmReturn");
+
+            var disableEvent = EnableOrDisableButton();
+            disableEvent.Enable = false;
+            
+            this.Space.Dispatch(DaisyEvent.EnableOrDisableButton, disableEvent);
+
+            var reportSpace = ReportSpace();
+            reportSpace.MainSpace = this.Space;
+
+            cSpace.Dispatch(DaisyEvent.ReportSpace, reportSpace);
+        }
+
     	else if(button.Name == "QuitGameButton")
     	{
-    		Console.WriteLine("NEED TO HOOK UP CONFIRMATION");
+    		var cSpace = this.GameSession.CreateSpace("ConfirmationSpace", true);
+            cSpace.LoadLevel("ConfirmQuit");
+
+            var disableEvent = EnableOrDisableButton();
+            disableEvent.Enable = false;
+            
+            this.Space.Dispatch(DaisyEvent.EnableOrDisableButton, disableEvent);
+
+            var reportSpace = ReportSpace();
+            reportSpace.MainSpace = this.Space;
+
+            cSpace.Dispatch(DaisyEvent.ReportSpace, reportSpace);
     	}
+        else if(button.Name == "ConfirmQuitButton")
+        {
+            this.GameSession.Quit();
+        }
+        else if(button.Name == "ConfirmReturnButton")
+        {
+            this.Space.Destroy();
+            this.MainGameSpace.Dispatch(DaisyEvent.EnableOrDisableButton, EnableOrDisableButton());
+            this.MainGameSpace.Dispatch(DaisyEvent.LoadMain, LoadMain());
+        }
+        else if(button.Name == "RetractQuitButton")
+        {
+            this.MainGameSpace.Dispatch(DaisyEvent.EnableOrDisableButton, EnableOrDisableButton());
+
+            this.Space.Destroy();
+        }
+    }
+
+    function OnLoadMain(event : LoadMain)
+    {
+        this.MainGameSpace.Dispatch(DaisyEvent.PauseEvent, PauseEvent());
+        this.MainGameSpace.LoadLevel("MainMenu");
     }
 }

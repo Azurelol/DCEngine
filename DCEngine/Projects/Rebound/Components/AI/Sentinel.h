@@ -31,12 +31,19 @@ namespace DCEngine {
       String PlayerName = "Player";
       float IdleRange; // Past this range, the grunt will be idle, within the range, it will patrol
       float MoveSpeed;
+      ArchetypeHandle HeadArchetype;
+      ArchetypeHandle BodyArchetype;
+      ArchetypeHandle ShoulderArchetype;
       ArchetypeHandle ShieldArchetype;
       float ShieldRadius;
       float ShieldBashDistance;
       float ShieldBashOutTime;
       float ShieldBashInTime;
       float ShieldBashCooldown;
+      float AnimationSpeedHead;
+      float AnimationDistanceHead;
+      float AnimationSpeedShoulder;
+      float AnimationDistanceShoulder;
 
       DCE_DEFINE_PROPERTY(String, PlayerName);
       DCE_DEFINE_PROPERTY(int, startingHealth);
@@ -45,11 +52,18 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(float, IdleRange);
       DCE_DEFINE_PROPERTY(float, MoveSpeed);
       DCE_DEFINE_PROPERTY(ArchetypeHandle, ShieldArchetype);
+      DCE_DEFINE_PROPERTY(ArchetypeHandle, HeadArchetype);
+      DCE_DEFINE_PROPERTY(ArchetypeHandle, ShoulderArchetype);
+      DCE_DEFINE_PROPERTY(ArchetypeHandle, BodyArchetype);
       DCE_DEFINE_PROPERTY(float, ShieldRadius);
       DCE_DEFINE_PROPERTY(float, ShieldBashDistance);
       DCE_DEFINE_PROPERTY(float, ShieldBashOutTime);
       DCE_DEFINE_PROPERTY(float, ShieldBashInTime);
       DCE_DEFINE_PROPERTY(float, ShieldBashCooldown);
+      DCE_DEFINE_PROPERTY(float, AnimationSpeedHead);
+      DCE_DEFINE_PROPERTY(float, AnimationDistanceHead);
+      DCE_DEFINE_PROPERTY(float, AnimationSpeedShoulder);
+      DCE_DEFINE_PROPERTY(float, AnimationDistanceShoulder);
 
       DCE_DEFINE_PROPERTY(String, AttackSound);
       DCE_DEFINE_PROPERTY(String, DeathSound);
@@ -69,6 +83,10 @@ namespace DCEngine {
       GameObject *player;
       float dt;
       GameObjectPtr shield;
+      GameObjectPtr head;
+      GameObjectPtr shoulder;
+      GameObjectPtr body;
+      std::vector<GameObjectPtr> sprites;
       GameObject* gameObj;
       Transform* TransformRef;
       RigidBody* RigidBodyRef;
@@ -81,6 +99,7 @@ namespace DCEngine {
       bool IsInvulnerable;
       bool isBashing;
       bool canBash;
+      float randomPhase;
 
       String AttackSound;
       String DeathSound;
@@ -95,6 +114,9 @@ namespace DCEngine {
       void UpdateShield();
       void ShieldBash();
       bool ModifyHealth(int amount);
+      void CreateSprites();
+      void UpdateSprites(float timePassed);
+      void FlipSprites(bool flipx);
      
       void PlayAttackSound(void);
       void PlayDamagedSound(void);

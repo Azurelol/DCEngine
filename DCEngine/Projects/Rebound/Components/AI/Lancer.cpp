@@ -30,10 +30,25 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Lancer, startingHealth);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, maxHealth);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, IsInvulnerable);
+      DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(Archetype);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, HeadArchetype);
+      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyHeadArchetype, attributeArchetype);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, ShoulderArchetype);
+      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyShoulderArchetype, attributeArchetype);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, BodyArchetype);
+      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyBodyArchetype, attributeArchetype);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, SpearArchetype);
+      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertySpearArchetype, attributeArchetype);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, IdleRange);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, ChargeForce);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, ShieldVelocityDifferenceThreshold);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, ShieldActivationSpeed);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, AnimationSpeedHead);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, AnimationDistanceHead);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, AnimationSpeedShoulder);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, AnimationDistanceShoulder);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, AnimationSpeedSpear);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, AnimationDistanceSpear);
 
       DCE_BINDING_DEFINE_PROPERTY(Lancer, AttackSound);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, DeathSound);
@@ -76,6 +91,15 @@ namespace DCEngine {
       timer = 0.0;
       cooldown = DEFAULT_TIMER;
       canPlay = true;
+
+      std::random_device rd;
+      std::mt19937 generator(rd());
+      std::uniform_real_distribution<float> distribution(0, 1);
+      randomPhase = distribution(generator);
+
+      SpriteRef->Visible = false;
+
+      CreateSprites();
     }
 
     void Lancer::OnLogicUpdateEvent(Events::LogicUpdate * event)
@@ -91,6 +115,8 @@ namespace DCEngine {
       }
 
       stateMachine->Update();
+
+      UpdateSprites(event->TimePassed);
     }
 
     void Lancer::OnCollisionStartedEvent(Events::CollisionStarted * event)
@@ -137,6 +163,43 @@ namespace DCEngine {
         return true;
     }
 
+    void Lancer::CreateSprites()
+    {
+      head = SpaceRef->CreateObject(HeadArchetype);
+      shoulder = SpaceRef->CreateObject(ShoulderArchetype);
+      body = SpaceRef->CreateObject(BodyArchetype);
+      spear = SpaceRef->CreateObject(SpearArchetype);
+      sprites.push_back(head);
+      sprites.push_back(shoulder);
+      sprites.push_back(body);
+      sprites.push_back(spear);
+
+      for (unsigned i = 0; i < sprites.size(); ++i)
+      {
+        sprites.at(i)->AttachTo(gameObj);
+        sprites.at(i)->getComponent<Transform>()->setLocalTranslation(Vec3(0, 0, 0));
+      }
+    }
+
+    void Lancer::UpdateSprites(float timePassed)
+    {
+      float y = sin((timePassed * AnimationSpeedHead) + randomPhase) * AnimationDistanceHead;
+      head->getComponent<Transform>()->Translation.y += y;
+      y = sin((timePassed * AnimationSpeedShoulder) + randomPhase) * AnimationDistanceShoulder;
+      shoulder->getComponent<Transform>()->Translation.y += y;
+
+      float x = sin((timePassed * AnimationSpeedSpear) + randomPhase) * AnimationDistanceSpear;
+      spear->getComponent<Transform>()->Translation.x += x;
+    }
+
+    void Lancer::FlipSprites(bool flipX)
+    {
+      for (unsigned i = 0; i < sprites.size(); ++i)
+      {
+        sprites.at(i)->getComponent<Sprite>()->FlipX = flipX;
+      }
+    }
+
 
     void Lancer::PlayAttackSound(void)
     {
@@ -147,6 +210,7 @@ namespace DCEngine {
       }
     }
 
+
     void Lancer::PlayDamagedSound(void)
     {
       if (canPlay == true)
@@ -156,6 +220,7 @@ namespace DCEngine {
       }
     }
 
+
     void Lancer::PlayDeathSound(void)
     {
       if (canPlay == true)
@@ -164,7 +229,6 @@ namespace DCEngine {
         canPlay = false;
       }
     }
-
 
 #pragma region Global State
     void Lancer::Global::Enter(Lancer *owner) {}
@@ -182,7 +246,7 @@ namespace DCEngine {
       {
         Ray leftRay;
         leftRay.Direction = Vec3(-1, 0, 0);
-        leftRay.Origin = owner->TransformRef->Translation;
+        leftRay.Origin = Vec3(owner->TransformRef->Translation.x, owner->TransformRef->Translation.y - (owner->TransformRef->Scale.y / 4), owner->TransformRef->Translation.z);
         CastFilter filter;
         filter.CollisionGroups.push_back(CollisionGroup::Find("Player"));
         filter.CollisionGroups.push_back(CollisionGroup::Find("Terrain"));
@@ -196,7 +260,7 @@ namespace DCEngine {
        
         Ray rightRay;
         rightRay.Direction = Vec3(1, 0, 0);
-        rightRay.Origin = owner->TransformRef->Translation;
+        rightRay.Origin = Vec3(owner->TransformRef->Translation.x, owner->TransformRef->Translation.y - (owner->TransformRef->Scale.y / 4), owner->TransformRef->Translation.z);
         CastResult castRight = owner->PhysicsSpaceRef->CastRay(rightRay, filter);
 
         if (castRight.ObjectHit == owner->player)
@@ -257,7 +321,9 @@ namespace DCEngine {
 #pragma region ChargeLeft State
     void Lancer::ChargeLeft::Enter(Lancer *owner)
     {
-      owner->SpriteRef->FlipX = false;
+      //DCTrace << "Lancer ChargeLeft Enter\n";
+
+      owner->FlipSprites(false);
     }
 
     void Lancer::ChargeLeft::Update(Lancer *owner)
@@ -280,7 +346,9 @@ namespace DCEngine {
 #pragma region ChargeRight State
     void Lancer::ChargeRight::Enter(Lancer *owner)
     {
-      owner->SpriteRef->FlipX = true;
+      DCTrace << "Lancer ChargeRight Enter\n";
+
+      owner->FlipSprites(true);
     }
 
     void Lancer::ChargeRight::Update(Lancer *owner)

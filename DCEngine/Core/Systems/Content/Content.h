@@ -33,7 +33,6 @@ namespace DCEngine {
     using SpriteLayerMap = std::map<std::string, SpriteLayerPtr>;
     using SpriteLayerOrderMap = std::map<std::string, SpriteLayerOrderPtr>;
     using SoundCueMap = std::map<std::string, SoundCuePtr>;
-    using BankMap = std::map<std::string, BankPtr>;
     using ShaderMap = std::map<std::string, ShaderPtr>;
     using FontMap = std::map<std::string, FontPtr>;
     using ArchetypeMap = std::map<std::string, ArchetypePtr>;
@@ -50,7 +49,7 @@ namespace DCEngine {
       friend class Editor;
     public:    
 
-      ResourceQueue& LoadedGraphicalResources() { return this->LoadedGraphicalResourcesQueue; }
+      ResourceQueue& LoadedGraphicalResources() { return this->GraphicalResourcesQueue; }
       void LoadProjectResources(); //!< Load resources from a project.
       
       // Individual getters
@@ -111,9 +110,7 @@ namespace DCEngine {
       ContentConfig& Settings;
       // Resource loading
       std::thread LoadingThread;
-      std::mutex LoadingLock;
-      ResourceQueue LoadedGraphicalResourcesQueue;
-      bool IsProjectLoaded;
+      ResourceQueue GraphicalResourcesQueue;
       // Data
       ProjectDataPtr ProjectInfo;
       std::unique_ptr<FileScanner> ProjectScanner;

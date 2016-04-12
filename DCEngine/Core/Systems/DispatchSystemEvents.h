@@ -42,6 +42,7 @@ namespace DCEngine {
       static void WindowFullScreenDisabled();
       static void WindowLostFocus();
       static void WindowGainedFocus();
+			static void WindowResizeToNative();
       
       static void GraphicsCompileShaders();
       static void GraphicsCompileShadersError(const std::string& message);

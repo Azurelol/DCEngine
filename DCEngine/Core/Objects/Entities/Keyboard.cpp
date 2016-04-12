@@ -23,6 +23,12 @@ namespace DCEngine {
   {
     switch (key) {
 
+	/*case Keys::Escape:
+		if (KeyDown_Escape)
+			return true;
+		else
+			return false;
+		break;*/
     case Keys::Space:
       if (KeyDown_Space)
         return true;

@@ -33,11 +33,20 @@ namespace DCEngine {
       CollisionTablePtr CollisionTableRef;
       GraphicsSpace* GraphicsSpaceRef;
       String PlayerName = "Player";
+      ArchetypeHandle HeadArchetype;
+      ArchetypeHandle ShoulderArchetype;
+      ArchetypeHandle BodyArchetype;
+      ArchetypeHandle SpearArchetype;
       float IdleRange;        // Past this range, the grunt will be idle, within the range, it will patrol
       float ChargeForce;
       float ShieldVelocityDifferenceThreshold;
       float ShieldActivationSpeed;
-      
+      float AnimationSpeedHead;
+      float AnimationDistanceHead;
+      float AnimationSpeedShoulder;
+      float AnimationDistanceShoulder;
+      float AnimationSpeedSpear;
+      float AnimationDistanceSpear;
 
 
       DCE_COMPONENT_DECLARE_DEPENDENCIES;
@@ -47,10 +56,20 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(int, startingHealth);
       DCE_DEFINE_PROPERTY(int, maxHealth);
       DCE_DEFINE_PROPERTY(bool, IsInvulnerable);
+      DCE_DEFINE_PROPERTY(ArchetypeHandle, HeadArchetype);
+      DCE_DEFINE_PROPERTY(ArchetypeHandle, ShoulderArchetype);
+      DCE_DEFINE_PROPERTY(ArchetypeHandle, BodyArchetype);
+      DCE_DEFINE_PROPERTY(ArchetypeHandle, SpearArchetype);
       DCE_DEFINE_PROPERTY(float, IdleRange);
       DCE_DEFINE_PROPERTY(float, ChargeForce);
       DCE_DEFINE_PROPERTY(float, ShieldVelocityDifferenceThreshold);
       DCE_DEFINE_PROPERTY(float, ShieldActivationSpeed);
+      DCE_DEFINE_PROPERTY(float, AnimationSpeedHead);
+      DCE_DEFINE_PROPERTY(float, AnimationDistanceHead);
+      DCE_DEFINE_PROPERTY(float, AnimationSpeedShoulder);
+      DCE_DEFINE_PROPERTY(float, AnimationDistanceShoulder);
+      DCE_DEFINE_PROPERTY(float, AnimationSpeedSpear);
+      DCE_DEFINE_PROPERTY(float, AnimationDistanceSpear);
 
       DCE_DEFINE_PROPERTY(String, AttackSound);
       DCE_DEFINE_PROPERTY(String, DeathSound);
@@ -70,6 +89,11 @@ namespace DCEngine {
     private:
       StateMachine<Lancer> *stateMachine;
       GameObject *player;
+      GameObjectPtr head;
+      GameObjectPtr shoulder;
+      GameObjectPtr body;
+      GameObjectPtr spear;
+      std::vector<GameObjectPtr> sprites;
       Vec3 startingPosition;
       Vec3 endPosition;
       int health;
@@ -77,6 +101,7 @@ namespace DCEngine {
       int maxHealth;
       bool IsInvulnerable;
       LancerShield *shield;
+      float randomPhase;
 
       String AttackSound;
       String DeathSound;
@@ -87,6 +112,9 @@ namespace DCEngine {
       bool canPlay;
 
       bool ModifyHealth(int amount);
+      void CreateSprites();
+      void UpdateSprites(float timePassed);
+      void FlipSprites(bool flipx);
 
       void PlayAttackSound(void);
       void PlayDamagedSound(void);

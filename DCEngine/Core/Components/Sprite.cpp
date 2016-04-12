@@ -1,7 +1,7 @@
 /******************************************************************************/
 /*!
 @file   Sprite.cpp
-@author Chen Shu, Christian Sagel
+@author Chen Shu, Christian Sagel, William Mao
 @par    email: c.sagel\@digipen.edu
 @date   11/11/2015
 @brief  The Sprite component allows the graphical representation of this object
@@ -182,6 +182,8 @@ namespace DCEngine {
       {
         silhouette = false;
         shader = mShader;
+				GLuint attachments[3] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2 };
+				glDrawBuffers(3, attachments);
       }
       else silhouette = true;
       shader->Use();
@@ -297,6 +299,8 @@ namespace DCEngine {
       // Skip drawing if visible is false...
       if (!Visible)
         return;
+
+			
 
       glBindVertexArray(mVAO);
       if(silhouette)

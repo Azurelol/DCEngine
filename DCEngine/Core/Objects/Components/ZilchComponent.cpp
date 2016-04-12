@@ -149,12 +149,12 @@ namespace DCEngine {
   {
     auto boundType = BoundType();
     TerminateFunc = boundType->FindFunction("Terminate", Zilch::Array<Zilch::Type*>(), 
-                    ZilchTypeId(void), Zilch::FindMemberOptions::None);
+                    ZilchTypeId(void), Zilch::FindMemberOptions::DoNotIncludeBaseClasses);
 
     if (!TerminateFunc)
       return;
 
-    DCTrace << Owner()->Name() << "::ZilchComponent::Terminate \n";
+    //DCTrace << Owner()->Name() << "::ZilchComponent::Terminate \n";
     // Invoke the Terminate Method
     Zilch::Call terminate(TerminateFunc, Systems::ZilchInterface::GetState());
     terminate.Set<Zilch::Handle>(Zilch::Call::This, Handle());

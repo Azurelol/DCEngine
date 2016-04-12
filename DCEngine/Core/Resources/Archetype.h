@@ -30,11 +30,11 @@ namespace DCEngine {
     void Save();
     bool Load();
     const std::string& Get();
+    DCE_DEFINE_PROPERTY(EntityType, Type);
 
   private:
+    EntityType Type;
 
-    //std::string SerializedData;
-    //std::string SourceFile;
   };
 
   using ArchetypeHandle = std::string;
