@@ -391,8 +391,8 @@
             {
               "Vec3": 
               {
-                "x": -0.059314, 
-                "y": -4.535312, 
+                "x": -29.037090, 
+                "y": -6.313090, 
                 "z": 0.000000
               }
             }, 
@@ -400,8 +400,8 @@
             {
               "Vec3": 
               {
-                "x": -0.059314, 
-                "y": -4.535312, 
+                "x": -29.037090, 
+                "y": -6.313090, 
                 "z": 0.000000
               }
             }, 
@@ -409,8 +409,8 @@
             {
               "Vec3": 
               {
-                "x": -0.059314, 
-                "y": -4.535312, 
+                "x": -29.037090, 
+                "y": -6.313090, 
                 "z": 0.000000
               }
             }, 
@@ -420,7 +420,7 @@
               {
                 "x": 0.000000, 
                 "y": 0.000000, 
-                "z": 0.000000
+                "z": 90.000000
               }
             }, 
             "Scale": 
@@ -657,7 +657,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Ball", 
-            "PhysicsMaterial": "PlayerMaterial", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -873,6 +873,113 @@
           }, 
           "BallTemp": 
           {
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 907, 
+        "Name": "Floor", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -0.059314, 
+                "y": -4.535312, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -0.059314, 
+                "y": -4.535312, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -0.059314, 
+                "y": -4.535312, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 400.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "DefaultPhysicsMaterial", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
           }
         }, 
         "Children": 
