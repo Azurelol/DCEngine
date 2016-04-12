@@ -19,8 +19,8 @@
             {
               "Vec3": 
               {
-                "x": -11.656552, 
-                "y": -3.035312, 
+                "x": 4.953981, 
+                "y": 24.122658, 
                 "z": 0.000000
               }
             }, 
@@ -28,8 +28,8 @@
             {
               "Vec3": 
               {
-                "x": -11.656552, 
-                "y": -3.035312, 
+                "x": 4.953981, 
+                "y": 24.122658, 
                 "z": 0.000000
               }
             }, 
@@ -37,8 +37,8 @@
             {
               "Vec3": 
               {
-                "x": -11.656552, 
-                "y": -3.035312, 
+                "x": 4.953981, 
+                "y": 24.122658, 
                 "z": 0.000000
               }
             }, 
@@ -64,6 +64,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -158,10 +159,10 @@
           }, 
           "Light": 
           {
-            "Visible": false, 
+            "Visible": true, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": false, 
+            "CastShadows": true, 
             "Diffuse": false, 
             "Type": "Point", 
             "Color": 
@@ -174,8 +175,8 @@
                 "w": 1.000000
               }
             }, 
-            "Intensity": 0.400000, 
-            "Range": 5.000000, 
+            "Intensity": 1.311000, 
+            "Range": 86.885002, 
             "Falloff": 0.300000, 
             "DirectionVector": 
             {
@@ -186,7 +187,7 @@
                 "z": 0.000000
               }
             }, 
-            "InnerAngle": 0.000000, 
+            "InnerAngle": 95.902008, 
             "OuterAngle": 0.000000
           }, 
           "HealthController": 
@@ -271,6 +272,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -391,8 +393,8 @@
             {
               "Vec3": 
               {
-                "x": -0.059314, 
-                "y": -4.535312, 
+                "x": -0.041518, 
+                "y": -4.553107, 
                 "z": 0.000000
               }
             }, 
@@ -400,8 +402,8 @@
             {
               "Vec3": 
               {
-                "x": -0.059314, 
-                "y": -4.535312, 
+                "x": -0.041518, 
+                "y": -4.553107, 
                 "z": 0.000000
               }
             }, 
@@ -409,8 +411,8 @@
             {
               "Vec3": 
               {
-                "x": -0.059314, 
-                "y": -4.535312, 
+                "x": -0.041518, 
+                "y": -4.553107, 
                 "z": 0.000000
               }
             }, 
@@ -436,6 +438,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -542,11 +545,11 @@
           }, 
           "Light": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
-            "Diffuse": false, 
+            "Diffuse": true, 
             "Type": "Point", 
             "Color": 
             {
@@ -592,8 +595,8 @@
             {
               "Vec3": 
               {
-                "x": -12.000000, 
-                "y": -3.000000, 
+                "x": 4.183488, 
+                "y": 14.483489, 
                 "z": 0.000000
               }
             }, 
@@ -601,8 +604,8 @@
             {
               "Vec3": 
               {
-                "x": -12.000000, 
-                "y": -3.000000, 
+                "x": 4.183488, 
+                "y": 14.483489, 
                 "z": 0.000000
               }
             }, 
@@ -610,8 +613,8 @@
             {
               "Vec3": 
               {
-                "x": -12.000000, 
-                "y": -3.000000, 
+                "x": 4.183488, 
+                "y": 14.483489, 
                 "z": 0.000000
               }
             }, 
@@ -637,6 +640,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -746,11 +750,11 @@
           }, 
           "Light": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "VisibilityCulling": false, 
-            "VisibilityEvents": true, 
-            "CastShadows": false, 
-            "Diffuse": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Diffuse": true, 
             "Type": "Point", 
             "Color": 
             {
@@ -763,7 +767,7 @@
               }
             }, 
             "Intensity": 5.347000, 
-            "Range": 4.167000, 
+            "Range": 119.672005, 
             "Falloff": 0.583000, 
             "DirectionVector": 
             {
@@ -893,8 +897,8 @@
             {
               "Vec3": 
               {
-                "x": 4.000000, 
-                "y": 0.000000, 
+                "x": 3.362988, 
+                "y": 0.114662, 
                 "z": 0.000000
               }
             }, 
@@ -902,8 +906,8 @@
             {
               "Vec3": 
               {
-                "x": 4.000000, 
-                "y": 0.000000, 
+                "x": 3.362988, 
+                "y": 0.114662, 
                 "z": 0.000000
               }
             }, 
@@ -911,8 +915,8 @@
             {
               "Vec3": 
               {
-                "x": 4.000000, 
-                "y": 0.000000, 
+                "x": 3.362988, 
+                "y": 0.114662, 
                 "z": 0.000000
               }
             }, 
@@ -938,6 +942,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 

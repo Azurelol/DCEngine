@@ -103,8 +103,8 @@
             {
               "Vec3": 
               {
-                "x": -14.000000, 
-                "y": 13.000000, 
+                "x": 6.767014, 
+                "y": 14.594484, 
                 "z": 0.000000
               }
             }, 
@@ -112,8 +112,8 @@
             {
               "Vec3": 
               {
-                "x": -14.000000, 
-                "y": 13.000000, 
+                "x": 6.767014, 
+                "y": 14.594484, 
                 "z": 0.000000
               }
             }, 
@@ -121,8 +121,8 @@
             {
               "Vec3": 
               {
-                "x": -14.000000, 
-                "y": 13.000000, 
+                "x": 6.767014, 
+                "y": 14.594484, 
                 "z": 0.000000
               }
             }, 
@@ -139,7 +139,7 @@
             {
               "Vec3": 
               {
-                "x": 29.000000, 
+                "x": 15.750000, 
                 "y": 2.000000, 
                 "z": 1.000000
               }
@@ -147,121 +147,15 @@
           }, 
           "Sprite": 
           {
-            "Visible": false, 
+            "Visible": true, 
+            "CullVisibility": false, 
             "Color": 
             {
               "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "square", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "BoxCollider": 
-          {
-            "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
-            "Size": 
-            {
-              "Vec3": 
               {
                 "x": 1.000000, 
                 "y": 1.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Ghost": false, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 128, 
-        "Name": "g2", 
-        "Protected": false, 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 6.943368, 
-                "y": 14.960076, 
-                "z": 0.000000
-              }
-            }, 
-            "LocalTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 6.943368, 
-                "y": 14.960076, 
-                "z": 0.000000
-              }
-            }, 
-            "WorldTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 6.943368, 
-                "y": 14.960076, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 16.000000, 
-                "y": 2.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": false, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
@@ -270,7 +164,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -362,6 +256,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -424,8 +319,8 @@
             {
               "Vec3": 
               {
-                "x": 20.997116, 
-                "y": 6.337496, 
+                "x": 21.037088, 
+                "y": 6.177610, 
                 "z": 0.000000
               }
             }, 
@@ -433,8 +328,8 @@
             {
               "Vec3": 
               {
-                "x": 20.997116, 
-                "y": 6.337496, 
+                "x": 21.037088, 
+                "y": 6.177610, 
                 "z": 0.000000
               }
             }, 
@@ -442,8 +337,8 @@
             {
               "Vec3": 
               {
-                "x": 20.997116, 
-                "y": 6.337496, 
+                "x": 21.037088, 
+                "y": 6.177610, 
                 "z": 0.000000
               }
             }, 
@@ -468,15 +363,16 @@
           }, 
           "Sprite": 
           {
-            "Visible": false, 
+            "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 0.020000
               }
             }, 
             "SpriteSource": "square", 
@@ -484,7 +380,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -576,6 +472,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -682,14 +579,15 @@
           }, 
           "Sprite": 
           {
-            "Visible": false, 
+            "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
@@ -698,7 +596,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -790,6 +688,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -897,6 +796,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -1004,6 +904,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -1111,6 +1012,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -1218,6 +1120,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -1325,6 +1228,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -1432,6 +1336,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -1539,6 +1444,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -1646,6 +1552,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -1753,6 +1660,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -1860,6 +1768,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -1967,6 +1876,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -2074,6 +1984,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -2181,6 +2092,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -2243,8 +2155,8 @@
             {
               "Vec3": 
               {
-                "x": -16.198381, 
-                "y": 30.302334, 
+                "x": -18.219149, 
+                "y": 24.115425, 
                 "z": 0.000000
               }
             }, 
@@ -2252,8 +2164,8 @@
             {
               "Vec3": 
               {
-                "x": -16.198381, 
-                "y": 30.302334, 
+                "x": -18.219149, 
+                "y": 24.115425, 
                 "z": 0.000000
               }
             }, 
@@ -2261,8 +2173,8 @@
             {
               "Vec3": 
               {
-                "x": -16.198381, 
-                "y": 30.302334, 
+                "x": -18.219149, 
+                "y": 24.115425, 
                 "z": 0.000000
               }
             }, 
@@ -2288,6 +2200,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": false, 
             "Color": 
             {
               "Vec4": 
@@ -2365,6 +2278,8 @@
             "TurnSpeedScalar": 5.000000, 
             "DoAutoPlay": true, 
             "StandAnimation": "Char_Asha_Idle_Spritesheet", 
+            "AmountOfJumpPowerAddedToHorizontalJump": 0.500000, 
+            "AmountOfMaxSpeedRequiredForHorizontalJump": 0.800000, 
             "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
             "RunAnimation": "Char_Asha_Run_Spritesheet", 
             "FallAnimation": "Char_Asha_Fall_Spritesheet", 
@@ -2385,10 +2300,10 @@
           }, 
           "Light": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "VisibilityCulling": false, 
             "VisibilityEvents": false, 
-            "CastShadows": true, 
+            "CastShadows": false, 
             "Diffuse": false, 
             "Type": "Point", 
             "Color": 
@@ -2480,6 +2395,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -2587,6 +2503,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -2694,6 +2611,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -2801,6 +2719,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -2908,6 +2827,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -3015,6 +2935,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -3122,6 +3043,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -3323,6 +3245,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -3456,6 +3379,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -3563,6 +3487,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -3670,6 +3595,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -3777,6 +3703,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -3884,6 +3811,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -3991,6 +3919,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -4098,6 +4027,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -4205,6 +4135,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -4312,6 +4243,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -4419,6 +4351,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -4526,6 +4459,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -4633,6 +4567,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -4714,27 +4649,27 @@
             {
               "Vec3": 
               {
-                "x": -24.593378, 
-                "y": 55.761921, 
-                "z": -0.010000
+                "x": 30.511402, 
+                "y": 45.317142, 
+                "z": 0.000000
               }
             }, 
             "LocalTranslation": 
             {
               "Vec3": 
               {
-                "x": -24.593378, 
-                "y": 55.761921, 
-                "z": -0.010000
+                "x": 30.511402, 
+                "y": 45.317142, 
+                "z": 0.000000
               }
             }, 
             "WorldTranslation": 
             {
               "Vec3": 
               {
-                "x": -24.593378, 
-                "y": 55.761921, 
-                "z": -0.010000
+                "x": 30.511402, 
+                "y": 45.317142, 
+                "z": 0.000000
               }
             }, 
             "Rotation": 
@@ -4759,10 +4694,10 @@
           "Light": 
           {
             "Visible": true, 
-            "VisibilityCulling": false, 
+            "VisibilityCulling": true, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
-            "Diffuse": false, 
+            "Diffuse": true, 
             "Type": "Spot", 
             "Color": 
             {
@@ -4774,14 +4709,14 @@
                 "w": 1.000000
               }
             }, 
-            "Intensity": 10.000000, 
+            "Intensity": 0.500000, 
             "Range": 50.877003, 
-            "Falloff": 0.965000, 
+            "Falloff": 1.885000, 
             "DirectionVector": 
             {
               "Vec3": 
               {
-                "x": 0.300000, 
+                "x": 0.000000, 
                 "y": -1.000000, 
                 "z": 0.000000
               }
@@ -4947,6 +4882,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -5618,6 +5554,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -5725,6 +5662,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -5832,6 +5770,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -5939,6 +5878,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -6046,6 +5986,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -6153,6 +6094,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -6260,6 +6202,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -6367,6 +6310,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -6474,6 +6418,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -6581,6 +6526,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -6688,6 +6634,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -6795,6 +6742,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -6857,8 +6805,8 @@
             {
               "Vec3": 
               {
-                "x": -11.115204, 
-                "y": 45.004578, 
+                "x": -7.714085, 
+                "y": 45.397015, 
                 "z": -0.100000
               }
             }, 
@@ -6866,8 +6814,8 @@
             {
               "Vec3": 
               {
-                "x": -11.115204, 
-                "y": 45.004578, 
+                "x": -7.714085, 
+                "y": 45.397015, 
                 "z": -0.100000
               }
             }, 
@@ -6875,8 +6823,8 @@
             {
               "Vec3": 
               {
-                "x": -11.115204, 
-                "y": 45.004578, 
+                "x": -7.714085, 
+                "y": 45.397015, 
                 "z": -0.100000
               }
             }, 
@@ -6886,7 +6834,7 @@
               {
                 "x": 0.000000, 
                 "y": 0.000000, 
-                "z": -31.000000
+                "z": 0.000000
               }
             }, 
             "Scale": 
@@ -6902,10 +6850,10 @@
           "Light": 
           {
             "Visible": true, 
-            "VisibilityCulling": false, 
+            "VisibilityCulling": true, 
             "VisibilityEvents": false, 
             "CastShadows": true, 
-            "Diffuse": false, 
+            "Diffuse": true, 
             "Type": "Spot", 
             "Color": 
             {
@@ -6925,7 +6873,7 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": -0.200000, 
+                "y": -1.000000, 
                 "z": 0.000000
               }
             }, 
@@ -6940,8 +6888,8 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 192, 
-        "Name": "w2", 
+        "GameObjectID": 244, 
+        "Name": "Light", 
         "Protected": false, 
         "Components": 
         {
@@ -6951,8 +6899,8 @@
             {
               "Vec3": 
               {
-                "x": 13.937392, 
-                "y": 10.417741, 
+                "x": 30.511402, 
+                "y": 45.317142, 
                 "z": 0.000000
               }
             }, 
@@ -6960,8 +6908,8 @@
             {
               "Vec3": 
               {
-                "x": 13.937392, 
-                "y": 10.417741, 
+                "x": 30.511402, 
+                "y": 45.317142, 
                 "z": 0.000000
               }
             }, 
@@ -6969,8 +6917,8 @@
             {
               "Vec3": 
               {
-                "x": 13.937392, 
-                "y": 10.417741, 
+                "x": 30.511402, 
+                "y": 45.317142, 
                 "z": 0.000000
               }
             }, 
@@ -6987,57 +6935,44 @@
             {
               "Vec3": 
               {
-                "x": 2.000000, 
-                "y": 10.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": false, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "square", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "BoxCollider": 
-          {
-            "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
-            "Size": 
-            {
-              "Vec3": 
-              {
                 "x": 1.000000, 
                 "y": 1.000000, 
                 "z": 1.000000
               }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Diffuse": true, 
+            "Type": "Spot", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
             }, 
-            "Offset": 
+            "Intensity": 0.500000, 
+            "Range": 50.877003, 
+            "Falloff": 0.965000, 
+            "DirectionVector": 
             {
               "Vec3": 
               {
                 "x": 0.000000, 
-                "y": 0.000000, 
+                "y": -1.000000, 
                 "z": 0.000000
               }
             }, 
-            "Ghost": false, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
+            "InnerAngle": 9.474000, 
+            "OuterAngle": 71.053001
           }
         }, 
         "Children": 
@@ -7103,6 +7038,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -7210,6 +7146,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": false, 
             "Color": 
             {
               "Vec4": 
@@ -7317,6 +7254,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -7379,8 +7317,8 @@
             {
               "Vec3": 
               {
-                "x": 15.941115, 
-                "y": 9.373935, 
+                "x": 15.687390, 
+                "y": 9.194385, 
                 "z": 0.000000
               }
             }, 
@@ -7388,8 +7326,8 @@
             {
               "Vec3": 
               {
-                "x": 15.941115, 
-                "y": 9.373935, 
+                "x": 15.687390, 
+                "y": 9.194385, 
                 "z": 0.000000
               }
             }, 
@@ -7397,8 +7335,8 @@
             {
               "Vec3": 
               {
-                "x": 15.941115, 
-                "y": 9.373935, 
+                "x": 15.687390, 
+                "y": 9.194385, 
                 "z": 0.000000
               }
             }, 
@@ -7423,14 +7361,15 @@
           }, 
           "Sprite": 
           {
-            "Visible": false, 
+            "Visible": true, 
+            "CullVisibility": false, 
             "Color": 
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
@@ -7439,7 +7378,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -7487,7 +7426,7 @@
               "Vec3": 
               {
                 "x": 17.921076, 
-                "y": 7.920534, 
+                "y": 7.426435, 
                 "z": 0.000000
               }
             }, 
@@ -7496,7 +7435,7 @@
               "Vec3": 
               {
                 "x": 17.921076, 
-                "y": 7.920534, 
+                "y": 7.426435, 
                 "z": 0.000000
               }
             }, 
@@ -7505,7 +7444,7 @@
               "Vec3": 
               {
                 "x": 17.921076, 
-                "y": 7.920534, 
+                "y": 7.426435, 
                 "z": 0.000000
               }
             }, 
@@ -7531,13 +7470,14 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": false, 
             "Color": 
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
                 "w": 1.000000
               }
             }, 
@@ -7638,6 +7578,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -7745,6 +7686,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -7852,6 +7794,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -7959,6 +7902,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -8066,6 +8010,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -8173,6 +8118,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -8280,6 +8226,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -8387,6 +8334,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -8494,6 +8442,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -8601,6 +8550,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -8608,7 +8558,7 @@
                 "x": 0.097000, 
                 "y": 0.183000, 
                 "z": 0.175000, 
-                "w": 1.000000
+                "w": 0.163000
               }
             }, 
             "SpriteSource": "square", 
@@ -8708,6 +8658,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -8815,6 +8766,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -8922,6 +8874,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -9029,6 +8982,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -9160,6 +9114,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -9441,6 +9396,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -9720,6 +9676,7 @@
               "Sprite": 
               {
                 "Visible": false, 
+                "CullVisibility": true, 
                 "Color": 
                 {
                   "Vec4": 
@@ -9821,6 +9778,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -10102,6 +10060,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -10383,6 +10342,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -10664,6 +10624,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -10945,6 +10906,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -11226,6 +11188,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -11333,6 +11296,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -11534,6 +11498,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -11683,6 +11648,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -11790,6 +11756,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -11897,6 +11864,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -12004,6 +11972,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -12111,6 +12080,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -12192,6 +12162,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -12273,6 +12244,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -12354,6 +12326,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -12435,6 +12408,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -12516,6 +12490,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -12531,7 +12506,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 5
+            "DrawLayer": 4
           }
         }, 
         "Children": 
@@ -12691,6 +12666,7 @@
           "Sprite": 
           {
             "Visible": false, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -12819,6 +12795,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -13131,6 +13108,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -13212,6 +13190,7 @@
           "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -13228,6 +13207,1054 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 244, 
+        "Name": "Light", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 5.755761, 
+                "y": 57.622128, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 5.755761, 
+                "y": 57.622128, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 5.755761, 
+                "y": 57.622128, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": true, 
+            "VisibilityEvents": false, 
+            "CastShadows": false, 
+            "Diffuse": true, 
+            "Type": "Spot", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 2.000000, 
+            "Range": 50.877003, 
+            "Falloff": 0.965000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": -0.320000, 
+                "y": -1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 9.474000, 
+            "OuterAngle": 71.053001
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 244, 
+        "Name": "Light", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -14.401290, 
+                "y": 60.125584, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -14.401290, 
+                "y": 60.125584, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -14.401290, 
+                "y": 60.125584, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": true, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Diffuse": true, 
+            "Type": "Spot", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 2.000000, 
+            "Range": 50.877003, 
+            "Falloff": 0.965000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": -1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 9.474000, 
+            "OuterAngle": 71.053001
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 244, 
+        "Name": "Light", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -22.307039, 
+                "y": 60.590611, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -22.307039, 
+                "y": 60.590611, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -22.307039, 
+                "y": 60.590611, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": true, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Diffuse": true, 
+            "Type": "Spot", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 4.000000, 
+            "Range": 50.877003, 
+            "Falloff": 0.965000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 0.300000, 
+                "y": -1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 9.474000, 
+            "OuterAngle": 71.053001
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 244, 
+        "Name": "Light", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -6.219123, 
+                "y": 59.366039, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -6.219123, 
+                "y": 59.366039, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -6.219123, 
+                "y": 59.366039, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": true, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Diffuse": true, 
+            "Type": "Spot", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 2.000000, 
+            "Range": 50.877003, 
+            "Falloff": 0.965000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": -1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 9.474000, 
+            "OuterAngle": 71.053001
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 244, 
+        "Name": "Light", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 30.511402, 
+                "y": 45.317142, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 30.511402, 
+                "y": 45.317142, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 30.511402, 
+                "y": 45.317142, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Diffuse": true, 
+            "Type": "Spot", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.500000, 
+            "Range": 50.877003, 
+            "Falloff": 0.965000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": -1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 9.474000, 
+            "OuterAngle": 71.053001
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 244, 
+        "Name": "Light", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 30.511402, 
+                "y": 45.317142, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 30.511402, 
+                "y": 45.317142, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 30.511402, 
+                "y": 45.317142, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Diffuse": true, 
+            "Type": "Spot", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.500000, 
+            "Range": 50.877003, 
+            "Falloff": 0.965000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": -1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 9.474000, 
+            "OuterAngle": 71.053001
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 244, 
+        "Name": "Light", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 30.511402, 
+                "y": 45.317142, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 30.511402, 
+                "y": 45.317142, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 30.511402, 
+                "y": 45.317142, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Diffuse": true, 
+            "Type": "Spot", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.500000, 
+            "Range": 50.877003, 
+            "Falloff": 0.965000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": -1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 9.474000, 
+            "OuterAngle": 71.053001
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 244, 
+        "Name": "Light", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 30.511402, 
+                "y": 45.317142, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 30.511402, 
+                "y": 45.317142, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 30.511402, 
+                "y": 45.317142, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Diffuse": true, 
+            "Type": "Spot", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.500000, 
+            "Range": 50.877003, 
+            "Falloff": 0.965000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": -1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 9.474000, 
+            "OuterAngle": 71.053001
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 244, 
+        "Name": "Light", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 30.511402, 
+                "y": 45.317142, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 30.511402, 
+                "y": 45.317142, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 30.511402, 
+                "y": 45.317142, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Diffuse": true, 
+            "Type": "Spot", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.500000, 
+            "Range": 50.877003, 
+            "Falloff": 0.965000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": -1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 9.474000, 
+            "OuterAngle": 71.053001
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 244, 
+        "Name": "Light", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 30.511402, 
+                "y": 45.317142, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 30.511402, 
+                "y": 45.317142, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 30.511402, 
+                "y": 45.317142, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Light": 
+          {
+            "Visible": true, 
+            "VisibilityCulling": false, 
+            "VisibilityEvents": false, 
+            "CastShadows": true, 
+            "Diffuse": true, 
+            "Type": "Spot", 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Intensity": 0.500000, 
+            "Range": 50.877003, 
+            "Falloff": 0.965000, 
+            "DirectionVector": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": -1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "InnerAngle": 9.474000, 
+            "OuterAngle": 71.053001
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 127, 
+        "Name": "g1", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -15.822829, 
+                "y": 12.883873, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -15.822829, 
+                "y": 12.883873, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -15.822829, 
+                "y": 12.883873, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 29.000000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "CullVisibility": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 0.020000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 5
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
           }
         }, 
         "Children": 
