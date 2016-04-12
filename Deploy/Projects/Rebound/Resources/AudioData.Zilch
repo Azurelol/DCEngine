@@ -22,15 +22,18 @@ class AudioData : ZilchComponent
     {
     	if(newAudio == AudioState.No_Mute)
     	{
-    		//CALL BOUND C++ FUNCTION
+            Bus.Find("MUS").FaderLevel = 1.0;
+            Bus.Find("SFX").FaderLevel = 1.0;
     	}
     	else if(newAudio == AudioState.Mute_Music)
     	{
-    		//CALL BOUND C++ FUNCTION
+            Bus.Find("MUS").FaderLevel = 0.0;
+            Bus.Find("SFX").FaderLevel = 1.0;
     	}
     	else if(newAudio == AudioState.Mute_All)
     	{
-    		//CALL BOUND C++ FUNCTION
+            Bus.Find("MUS").FaderLevel = 0.0;
+            Bus.Find("SFX").FaderLevel = 0.0;
     	}
     }
 }

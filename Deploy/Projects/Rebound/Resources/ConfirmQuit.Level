@@ -10,6 +10,7 @@
         "Locked": true, 
         "GameObjectID": 137, 
         "Name": "LevelSettings", 
+        "Protected": false, 
         "Components": 
         {
         }, 
@@ -22,6 +23,7 @@
         "Locked": false, 
         "GameObjectID": 141, 
         "Name": "Camera", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -74,7 +76,7 @@
           }, 
           "Camera": 
           {
-            "FieldOfView": 171.354004, 
+            "FieldOfView": 171.000000, 
             "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
@@ -91,6 +93,7 @@
         "Locked": false, 
         "GameObjectID": 198, 
         "Name": "ConfQuitBG", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -171,6 +174,7 @@
         "Locked": false, 
         "GameObjectID": 229, 
         "Name": "SpriteText", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -252,6 +256,7 @@
         "Locked": false, 
         "GameObjectID": 366, 
         "Name": "ConfirmManager", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
@@ -346,6 +351,7 @@
             "Locked": false, 
             "GameObjectID": 142, 
             "Name": "ConfirmQuitButton", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -492,6 +498,7 @@
                 "Locked": false, 
                 "GameObjectID": 476, 
                 "Name": "CQText", 
+                "Protected": false, 
                 "Components": 
                 {
                   "Transform": 
@@ -575,6 +582,7 @@
             "Locked": false, 
             "GameObjectID": 142, 
             "Name": "RetractQuitButton", 
+            "Protected": false, 
             "Components": 
             {
               "Transform": 
@@ -721,6 +729,7 @@
                 "Locked": false, 
                 "GameObjectID": 476, 
                 "Name": "RQText", 
+                "Protected": false, 
                 "Components": 
                 {
                   "Transform": 
@@ -799,6 +808,88 @@
               }
             }
           }
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 1786, 
+        "Name": "Note", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -14.024525, 
+                "y": -17.808170, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -14.024525, 
+                "y": -17.808170, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -14.024525, 
+                "y": -17.808170, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.200000, 
+                "z": 0.200000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "SafetyMedium", 
+            "FontSize": 6, 
+            "Text": "Note: You will lose your progress!", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 35, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
         }
       }
     }

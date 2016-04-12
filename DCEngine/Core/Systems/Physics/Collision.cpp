@@ -377,7 +377,7 @@ namespace DCEngine
 
     if (result.Penetration > 2.0f)
     {
-      result.Penetration = 1.0f / 600.0f;
+      //result.Penetration = 1.0f / 600.0f;
     }
 
     result.Object1 = obj1;

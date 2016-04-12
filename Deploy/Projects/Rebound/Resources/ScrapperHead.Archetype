@@ -5,6 +5,7 @@
     "Locked": false, 
     "GameObjectID": 16, 
     "Name": "ScrapperHead", 
+    "Protected": false, 
     "Components": 
     {
       "Transform": 
@@ -13,7 +14,25 @@
         {
           "Vec3": 
           {
-            "x": -0.017579, 
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "LocalTranslation": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "WorldTranslation": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
             "y": 0.000000, 
             "z": 0.000000
           }
@@ -55,7 +74,7 @@
         "FlipY": false, 
         "AnimationActive": false, 
         "AnimationSpeed": 1.000000, 
-        "DrawLayer": 4
+        "DrawLayer": 1
       }
     }, 
     "Children": 

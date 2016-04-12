@@ -1016,7 +1016,7 @@
             "BodyArchetype": "LancerBody", 
             "SpearArchetype": "LancerSpear", 
             "IdleRange": 1000.000000, 
-            "ChargeForce": 10000.000000, 
+            "ChargeForce": 100.000000, 
             "ShieldReflectionForce": 10000000.000000, 
             "AnimationSpeedHead": 10.000000, 
             "AnimationDistanceHead": 0.010000, 
@@ -1034,7 +1034,8 @@
                 "w": 1.000000
               }
             }, 
-            "DamageTakenColorFlashSpeed": 0.200000
+            "DamageTakenColorFlashSpeed": 0.200000, 
+            "KnockBackOnPlayerCollisionForce": 0.000000
           }
         }, 
         "Children": 

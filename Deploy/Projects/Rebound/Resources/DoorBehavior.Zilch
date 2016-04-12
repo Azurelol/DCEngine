@@ -1,0 +1,38 @@
+class DoorBehavior : ZilchComponent
+{
+	[Property]
+	var Closed : Boolean = true;
+	
+    function Initialize()
+    {
+		Daisy.Connect(this.Owner, DaisyEvent.ToggleEvent, this.OnToggleEvent);
+        //Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+    }
+
+	function OnToggleEvent(event : ToggleEvent)
+	{
+		if(this.Closed == false)
+		{
+			this.Close();
+		}
+		else
+		{
+			this.Open();
+		}
+	}
+    function Open()
+    {
+		this.Closed = false;
+		this.Owner.BoxCollider.Ghost = true;
+		this.Owner.Sprite.Visible = false;
+    }
+    function Close()
+    {
+		this.Closed = true;
+		this.Owner.BoxCollider.Ghost = false;
+		this.Owner.Sprite.Visible = true;
+    }
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+    }
+}

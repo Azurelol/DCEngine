@@ -14,8 +14,8 @@
         {
           "Vec3": 
           {
-            "x": 7.000000, 
-            "y": -2.000000, 
+            "x": 10.000000, 
+            "y": 0.000000, 
             "z": 0.000000
           }
         }, 
@@ -23,8 +23,8 @@
         {
           "Vec3": 
           {
-            "x": 7.000000, 
-            "y": -2.000000, 
+            "x": 10.000000, 
+            "y": 0.000000, 
             "z": 0.000000
           }
         }, 
@@ -32,8 +32,8 @@
         {
           "Vec3": 
           {
-            "x": 7.000000, 
-            "y": -2.000000, 
+            "x": 10.000000, 
+            "y": 0.000000, 
             "z": 0.000000
           }
         }, 
@@ -137,14 +137,26 @@
         "BodyArchetype": "LancerBody", 
         "SpearArchetype": "LancerSpear", 
         "IdleRange": 1000.000000, 
-        "ChargeForce": 100.000000, 
+        "ChargeForce": 10.000000, 
         "ShieldReflectionForce": 10000000.000000, 
         "AnimationSpeedHead": 10.000000, 
         "AnimationDistanceHead": 0.010000, 
         "AnimationSpeedShoulder": 10.000000, 
         "AnimationDistanceShoulder": 0.010000, 
         "AnimationSpeedSpear": 10.000000, 
-        "AnimationDistanceSpear": 0.010000
+        "AnimationDistanceSpear": 0.010000, 
+        "DamageTakenColor": 
+        {
+          "Vec4": 
+          {
+            "x": 1.000000, 
+            "y": 0.000000, 
+            "z": 0.000000, 
+            "w": 1.000000
+          }
+        }, 
+        "DamageTakenColorFlashSpeed": 0.200000, 
+        "KnockBackOnPlayerCollisionForce": 1000.000000
       }
     }, 
     "Children": 

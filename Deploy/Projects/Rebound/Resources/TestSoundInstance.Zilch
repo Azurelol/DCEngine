@@ -1,7 +1,14 @@
+enum AudioType { Bus, VCA }
+
 class TestSoundInstance : ZilchComponent
 {
 	[Property] var Music : String = "";
 	var Instance : SoundInstance;
+	[Property] var Type : AudioType = AudioType.VCA;
+	[Property] var TypeHandle : String = "";	
+
+	var BusMuted : Boolean = false;
+	var BusPaused : Boolean = false;
 
     function Initialize()
     {
@@ -19,13 +26,24 @@ class TestSoundInstance : ZilchComponent
     	else if (event.Key == Keys.P) {
     		this.Pause();
     	}
+    	else if (event.Key == Keys.T) {
+    		if (this.Type == AudioType.VCA)
+    			this.SetVCALevel(0.0);
+    		else if (this.Type == AudioType.VCA)
+    			this.SetBusLevel(0.0);
+    	}
+    	else if (event.Key == Keys.Y) {
+			if (this.Type == AudioType.VCA)
+    			this.SetVCALevel(1.0);
+    		else if (this.Type == AudioType.VCA)
+    			this.SetBusLevel(1.0);
+    	}
     	else if (event.Key == Keys.Add) {
     		if (this.Instance != null) this.Instance.InterpolateVolume(1,0);
     	}
     	else if (event.Key == Keys.Subtract) {
     		if (this.Instance != null) this.Instance.InterpolateVolume(0,0);
     	}
-
     }
 
     function PrintStatus() {
@@ -47,5 +65,29 @@ class TestSoundInstance : ZilchComponent
     function Terminate() {
     	Console.WriteLine("Terminating `this.Name`");
     	this.Instance.Stop(StopMode.Immediate);
+    }
+
+    function ShowBusMethods() {
+    	var bus = Bus.Find(this.TypeHandle);
+    }
+
+    function SetBusLevel(level : Real) {
+    	var bus = Bus.Find(this.TypeHandle);
+    	if (bus != null) {    		
+    		Console.WriteLine("Setting `this.TypeHandle` to `level`");
+    		bus.FaderLevel = level;
+    	}
+    	else
+    		Console.WriteLine("Could not find the Bus `this.TypeHandle`!");
+    }
+
+    function SetVCALevel(level : Real) {
+    	var vca = VCA.Find(this.TypeHandle);
+    	if (vca != null) {    		
+    		Console.WriteLine("Setting `this.TypeHandle` to `level`");
+    		vca.FaderLevel = level;
+    	}
+    	else
+    		Console.WriteLine("Could not find the VCA `this.TypeHandle`!");
     }
 }

@@ -131,7 +131,7 @@ namespace DCEngine {
         }
         else
         {
-          Charging = true;
+          //Charging = true;
         }
       }
     }
