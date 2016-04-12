@@ -1,6 +1,8 @@
 /********************************************************************************
 Author: John C. Myres 
 All content © 2016 DigiPen (USA) Corporation, all rights reserved.
+
+PUT THIS ON THE CAMERA!
 ********************************************************************************/
 class LevelTimeFade : ZilchComponent
 {
@@ -34,17 +36,16 @@ class LevelTimeFade : ZilchComponent
     var OnlyFadeIn : Boolean = false;
     
     var FadeStarted : Boolean;
-    /*
+    
     function Initialize()
     {
         if(!this.OnlyFadeIn)
         {
             // Listen for logic updates, calling the OnLogicUpdate function every frame.
             Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
-            // Listen for Left Mouse Presses, calling the ClickSkip function when heard.
-            Daisy.Connect(this.Space, DaisyEvent.MouseDown, this.ClickSkip);
-            // Listen for Right Mouse Presses, calling the ClickSkip function when heard.
-            //Daisy.Connect(this.Space, DaisyEvent.RightMouseDown, this.ClickSkip);
+            // Listen for Mouse Presses, calling the ClickSkip function when heard.
+            Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.ClickSkip);
+            Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDown);
         }
         
         
@@ -55,17 +56,15 @@ class LevelTimeFade : ZilchComponent
     
     function FadeIn()
     {
-        //this.Space.SoundSpace.PlayCue(this.FadeSound);
-		
 		if(this.FadeObject == null)
 		{
-			this.FadeObject = this.Space.CreateAtPosition(this.FadeArchetypeName, Real3(0,0,0));
+			this.FadeObject = this.Space.CreateAtPosition(this.FadeArchetypeName, this.Owner.Transform.Translation - Real3(0,0,0.1));
 		}
         
         // Initialize an action sequence
         var fadeSeq = Actions.Sequence(this.Owner.Actions);
         
-        // Over the course of 0.5 seconds, set the owner to smoothly fade from black.
+        // Over the course of 0.5 seconds, set the fade object to smoothly fade from black.
         Actions.Property(fadeSeq, @this.FadeObject.Sprite.Color, Real4(0, 0, 0, 0.0), this.FadeDuration, Ease.QuadIn);
     }
 
@@ -84,21 +83,28 @@ class LevelTimeFade : ZilchComponent
             // If it is, load the level with the name specified by LevelToLoad.
             this.FadeOut();
         }
-        
-        // Alternatively, if any of the following keys are pressed (Enter, Space, Escape, or Start/A on controller)...
-        if ((Daisy.Keyboard.KeyIsPressed(Keys.Space) ||
-            Daisy.Keyboard.KeyIsPressed(Keys.Escape) ||
-            Daisy.Keyboard.KeyIsPressed(Keys.Enter)) &&
-            Daisy.FadeStarted == false &&
-            Daisy.UnskippableTime <= 0.0)
-        {
-            // Load the level with the name specified by LevelToLoad, irrespective of the time remaining.
-            this.SkipToMain();
-        }
+    }
+
+    function OnKeyDown(event : KeyDown)
+    {
+    	if(this.UnskippableTime > 0.0)
+    	{
+    		return;
+    	}
+
+    	if(event.Key == Keys.Space || event.Key == Keys.Return || event.Key == Keys.Escape)
+    	{
+    		this.SkipToMain();
+    	}
     }
     
     function ClickSkip(event : MouseDown)
     {
+    	if(this.UnskippableTime > 0.0)
+    	{
+    		return;
+    	}
+
         // Call the Load New Level function
         this.SkipToMain();
     }
@@ -116,7 +122,7 @@ class LevelTimeFade : ZilchComponent
         var fadeSeq = Actions.Sequence(this.Owner.Actions);
         
         // First: Over the course of 0.5 seconds, set the owner to smoothly fade to black.
-        Actions.Property(fadeSeq, @this.FadeObject.Cog.Sprite.Color, Real4(0, 0, 0, 1.0), this.FadeDuration, Ease.QuadIn);
+        Actions.Property(fadeSeq, @this.FadeObject.Sprite.Color, Real4(0, 0, 0, 1.0), this.FadeDuration, Ease.QuadIn);
         
         Actions.Call(fadeSeq, this.LoadNewLevel);
     }
@@ -127,5 +133,4 @@ class LevelTimeFade : ZilchComponent
         
         this.FadeOut();
     }
-	*/
 }
