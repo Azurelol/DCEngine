@@ -29,6 +29,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(BallController, FrozenColor);
       DCE_BINDING_DEFINE_PROPERTY(BallController, NormalGravity);
       DCE_BINDING_DEFINE_PROPERTY(BallController, ShotGravity);
+	  DCE_BINDING_DEFINE_PROPERTY(BallController, AttractYBoost);
       DCE_BINDING_DEFINE_PROPERTY(BallController, ChargedColor);
       DCE_BINDING_DEFINE_PROPERTY(BallController, ForcedFreeze);
       DCE_BINDING_DEFINE_PROPERTY(BallController, FreezeEnabled);
@@ -68,7 +69,7 @@ namespace DCEngine {
       CollisionTableRef->AddGroup("Ball");
       CollisionTableRef->AddGroup("Player");
       CollisionTableRef->AddGroup("Shield");
-      auto ColliderRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::BoxCollider>();
+      ColliderRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::BoxCollider>();
       ColliderRef->setCollisionGroup("Ball");
       CollisionTableRef->SetResolve("Ball", "Shield", CollisionFlag::SkipResolution);
       PlayerRef = SpaceRef->FindObjectByName(PlayerName);
@@ -171,7 +172,8 @@ namespace DCEngine {
 
           RigidBodyRef->ApplyForce(MouseVector * ChargeFactor * CurrentCharge);
 		  PlayerRef->getComponent<Components::PlayerController>()->FramesOfThrowAnimation = 10;
-
+		  ColliderRef->SendsEvents = true;
+		  SpriteRef->Visible = true;
           Charging = false;
           CurrentCharge = 0;
           CurrentlyFired = true;
@@ -249,7 +251,7 @@ namespace DCEngine {
 
     void BallController::OnLogicUpdateEvent(Events::LogicUpdate * event)
     {
-		ChangeParticle();
+	  ChangeParticle();
       //DCTrace << "BallController::Init- trail is at" << TrailRef->getComponent<Components::Transform>()->getTranslation().x << ", " << TrailRef->getComponent<Components::Transform>()->getTranslation().y << "\n";
       //DCTrace << "BallController::Init- ball is at" << TransformRef->getTranslation().x << ", " << TransformRef->getTranslation().y << "\n";
       if (gameObj->Parent() != nullptr)
@@ -481,6 +483,8 @@ namespace DCEngine {
       CurrentlyFired = false;
       //SpriteRef->Color = NormalColor;
       RigidBodyRef->setVelocity(Vec3(0, 0, 0));
+	  //ColliderRef->SendsEvents = false;
+	  //SpriteRef->Visible = false;
       //RigidBodyRef->setDynamicState(DynamicStateType::Kinematic);
       TransformRef->setTranslation(PlayerRef->getComponent<Components::Transform>()->Translation);
       gameObj->AttachTo(PlayerRef);

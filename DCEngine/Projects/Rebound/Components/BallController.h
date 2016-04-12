@@ -21,7 +21,7 @@ namespace DCEngine {
     class Sprite;
 	class SpriteParticleSystem;
     class Light;
-    class CircleCollider;
+    class BoxCollider;
     enum class ControlScheme { John, Connor };
     class BallController : public Component {
 
@@ -42,7 +42,7 @@ namespace DCEngine {
 	  SpriteParticleSystem* ParticleRef;
       Light* LightRef;
       CollisionTablePtr CollisionTableRef;
-      //CircleCollider* ColliderRef;
+      BoxCollider* ColliderRef;
       Real CurrentCharge = 0.0f;
       Real MaxCharge = 1.0f;
       Real MinCharge = 0.35f;
@@ -83,6 +83,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Real, MinCharge);
       DCE_DEFINE_PROPERTY(Real, NormalGravity);
       DCE_DEFINE_PROPERTY(Real, ShotGravity);
+	  DCE_DEFINE_PROPERTY(Real, AttractYBoost);
       DCE_DEFINE_PROPERTY(Vec4, FrozenColor);
       DCE_DEFINE_PROPERTY(Vec4, NormalColor);
       DCE_DEFINE_PROPERTY(Vec4, ChargedColor);
