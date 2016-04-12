@@ -426,6 +426,8 @@
             "TurnSpeedScalar": 5.000000, 
             "DoAutoPlay": true, 
             "StandAnimation": "Char_Asha_Idle_Spritesheet", 
+            "AmountOfJumpPowerAddedToHorizontalJump": 0.500000, 
+            "AmountOfMaxSpeedRequiredForHorizontalJump": 0.800000, 
             "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
             "RunAnimation": "Char_Asha_Run_Spritesheet", 
             "FallAnimation": "Char_Asha_Fall_Spritesheet", 
@@ -2015,7 +2017,28 @@
             "AnimationSpeedHead": 0.000000, 
             "AnimationDistanceHead": 0.000000, 
             "AnimationSpeedSaw": 0.000000, 
-            "AnimationDistanceSaw": 0.000000
+            "AnimationDistanceSaw": 0.000000, 
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }
         }, 
         "Children": 
@@ -2169,7 +2192,28 @@
             "AnimationSpeedHead": 0.000000, 
             "AnimationDistanceHead": 0.000000, 
             "AnimationSpeedSaw": 0.000000, 
-            "AnimationDistanceSaw": 0.000000
+            "AnimationDistanceSaw": 0.000000, 
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }
         }, 
         "Children": 
@@ -2323,7 +2367,28 @@
             "AnimationSpeedHead": 0.000000, 
             "AnimationDistanceHead": 0.000000, 
             "AnimationSpeedSaw": 0.000000, 
-            "AnimationDistanceSaw": 0.000000
+            "AnimationDistanceSaw": 0.000000, 
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }
         }, 
         "Children": 
@@ -3428,6 +3493,7 @@
             }, 
             "NormalGravity": 0.400000, 
             "ShotGravity": 0.200000, 
+            "AttractYBoost": 3.000000, 
             "ChargedColor": 
             {
               "Vec4": 
@@ -4419,7 +4485,18 @@
             "AnimationSpeedHead": 10.000000, 
             "AnimationDistanceHead": 0.010000, 
             "AnimationSpeedShoulder": 10.000000, 
-            "AnimationDistanceShoulder": 0.010000
+            "AnimationDistanceShoulder": 0.010000, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }
         }, 
         "Children": 
@@ -5460,7 +5537,28 @@
             "AnimationSpeedHead": 10.000000, 
             "AnimationDistanceHead": 0.010000, 
             "AnimationSpeedSaw": 10.000000, 
-            "AnimationDistanceSaw": 0.010000
+            "AnimationDistanceSaw": 0.010000, 
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }, 
           "BoxCollider": 
           {
@@ -5614,7 +5712,28 @@
             "AnimationSpeedHead": 10.000000, 
             "AnimationDistanceHead": 0.010000, 
             "AnimationSpeedSaw": 10.000000, 
-            "AnimationDistanceSaw": 0.010000
+            "AnimationDistanceSaw": 0.010000, 
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }, 
           "BoxCollider": 
           {
@@ -5768,7 +5887,28 @@
             "AnimationSpeedHead": 10.000000, 
             "AnimationDistanceHead": 0.010000, 
             "AnimationSpeedSaw": 10.000000, 
-            "AnimationDistanceSaw": 0.010000
+            "AnimationDistanceSaw": 0.010000, 
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }, 
           "BoxCollider": 
           {
@@ -5858,8 +5998,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 9.000000, 
+                "x": -19.544296, 
+                "y": -3.278992, 
                 "z": 0.000000
               }
             }, 
@@ -5867,8 +6007,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 9.000000, 
+                "x": -19.544296, 
+                "y": -3.278992, 
                 "z": 0.000000
               }
             }, 
@@ -5876,8 +6016,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 9.000000, 
+                "x": -19.544296, 
+                "y": -3.278992, 
                 "z": 0.000000
               }
             }, 
@@ -5933,9 +6073,9 @@
           {
             "Active": true, 
             "ResetCount": false, 
-            "EmitCount": 15, 
+            "EmitCount": 1, 
             "EmitRate": 1000, 
-            "EmitVariance": 0, 
+            "EmitVariance": 30, 
             "Size": 0.700000, 
             "SizeVariance": 0.200000, 
             "Lifetime": 0.500000, 
@@ -5992,7 +6132,7 @@
             }, 
             "Torque": 0.000000, 
             "Growth": -0.500000, 
-            "Dampening": 5.000000
+            "Dampening": 3.500000
           }, 
           "ParticleColorAnimator": 
           {
@@ -8782,7 +8922,18 @@
             "AnimationSpeedShoulder": 10.000000, 
             "AnimationDistanceShoulder": 0.010000, 
             "AnimationSpeedSpear": 10.000000, 
-            "AnimationDistanceSpear": 0.010000
+            "AnimationDistanceSpear": 0.010000, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }
         }, 
         "Children": 
@@ -8933,7 +9084,226 @@
             "AnimationSpeedShoulder": 10.000000, 
             "AnimationDistanceShoulder": 0.010000, 
             "AnimationSpeedSpear": 10.000000, 
-            "AnimationDistanceSpear": 0.010000
+            "AnimationDistanceSpear": 0.010000, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 1727, 
+        "Name": "EnemyExplosionParticle", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 9.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 9.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 9.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteParticleSystem": 
+          {
+            "Visible": true, 
+            "Tint": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.500000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Texture": "FlashParticle", 
+            "VelocityScale": 1.000000, 
+            "LengthScale": 1.000000, 
+            "SystemSize": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 4.000000, 
+                "z": 4.000000
+              }
+            }, 
+            "Additive": true, 
+            "Lock": false, 
+            "DrawLayer": 4
+          }, 
+          "ParticleEmitter": 
+          {
+            "Active": true, 
+            "ResetCount": false, 
+            "EmitCount": 15, 
+            "EmitRate": 1000, 
+            "EmitVariance": 0, 
+            "Size": 0.700000, 
+            "SizeVariance": 0.200000, 
+            "Lifetime": 0.500000, 
+            "LifetimeVariance": 0.000000, 
+            "Spin": 500.000000, 
+            "SpinVariance": 100.000000, 
+            "StartVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 5.000000, 
+                "y": 5.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
+          }, 
+          "LinearParticleAnimator": 
+          {
+            "Force": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomForce": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Torque": 0.000000, 
+            "Growth": -0.500000, 
+            "Dampening": 5.000000
+          }, 
+          "ParticleColorAnimator": 
+          {
+            "Color0": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color1": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.271000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color2": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.604000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color3": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color4": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 0.500000
+              }
+            }
           }
         }, 
         "Children": 

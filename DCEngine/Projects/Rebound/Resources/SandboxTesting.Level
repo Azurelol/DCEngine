@@ -141,6 +141,8 @@
             "TurnSpeedScalar": 5.000000, 
             "DoAutoPlay": true, 
             "StandAnimation": "Char_Asha_Idle_Spritesheet", 
+            "AmountOfJumpPowerAddedToHorizontalJump": 0.500000, 
+            "AmountOfMaxSpeedRequiredForHorizontalJump": 0.800000, 
             "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
             "RunAnimation": "Char_Asha_Run_Spritesheet", 
             "FallAnimation": "Char_Asha_Fall_Spritesheet", 
@@ -721,6 +723,7 @@
             }, 
             "NormalGravity": 0.250000, 
             "ShotGravity": 0.100000, 
+            "AttractYBoost": 3.000000, 
             "ChargedColor": 
             {
               "Vec4": 

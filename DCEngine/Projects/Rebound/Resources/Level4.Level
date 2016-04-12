@@ -494,6 +494,8 @@
             "TurnSpeedScalar": 5.000000, 
             "DoAutoPlay": true, 
             "StandAnimation": "Char_Asha_Idle_Spritesheet", 
+            "AmountOfJumpPowerAddedToHorizontalJump": 0.500000, 
+            "AmountOfMaxSpeedRequiredForHorizontalJump": 0.800000, 
             "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
             "RunAnimation": "Char_Asha_Run_Spritesheet", 
             "FallAnimation": "Char_Asha_Fall_Spritesheet", 
@@ -695,6 +697,7 @@
             }, 
             "NormalGravity": 0.250000, 
             "ShotGravity": 0.100000, 
+            "AttractYBoost": 3.000000, 
             "ChargedColor": 
             {
               "Vec4": 
@@ -5907,7 +5910,18 @@
             "AnimationSpeedHead": 10.000000, 
             "AnimationDistanceHead": 0.010000, 
             "AnimationSpeedShoulder": 10.000000, 
-            "AnimationDistanceShoulder": 0.010000
+            "AnimationDistanceShoulder": 0.010000, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }
         }, 
         "Children": 
@@ -10029,7 +10043,18 @@
             "AnimationSpeedHead": 10.000000, 
             "AnimationDistanceHead": 0.010000, 
             "AnimationSpeedShoulder": 10.000000, 
-            "AnimationDistanceShoulder": 0.010000
+            "AnimationDistanceShoulder": 0.010000, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }
         }, 
         "Children": 
@@ -10114,7 +10139,28 @@
             "AnimationSpeedHead": 10.000000, 
             "AnimationDistanceHead": 0.010000, 
             "AnimationSpeedSaw": 10.000000, 
-            "AnimationDistanceSaw": 0.010000
+            "AnimationDistanceSaw": 0.010000, 
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }, 
           "BoxCollider": 
           {
@@ -10268,7 +10314,28 @@
             "AnimationSpeedHead": 10.000000, 
             "AnimationDistanceHead": 0.010000, 
             "AnimationSpeedSaw": 10.000000, 
-            "AnimationDistanceSaw": 0.010000
+            "AnimationDistanceSaw": 0.010000, 
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }, 
           "BoxCollider": 
           {
@@ -10489,7 +10556,18 @@
             "AnimationSpeedHead": 10.000000, 
             "AnimationDistanceHead": 0.010000, 
             "AnimationSpeedShoulder": 10.000000, 
-            "AnimationDistanceShoulder": 0.010000
+            "AnimationDistanceShoulder": 0.010000, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }
         }, 
         "Children": 
@@ -10574,7 +10652,28 @@
             "AnimationSpeedHead": 10.000000, 
             "AnimationDistanceHead": 0.010000, 
             "AnimationSpeedSaw": 10.000000, 
-            "AnimationDistanceSaw": 0.010000
+            "AnimationDistanceSaw": 0.010000, 
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }, 
           "BoxCollider": 
           {
@@ -10728,7 +10827,28 @@
             "AnimationSpeedHead": 10.000000, 
             "AnimationDistanceHead": 0.010000, 
             "AnimationSpeedSaw": 10.000000, 
-            "AnimationDistanceSaw": 0.010000
+            "AnimationDistanceSaw": 0.010000, 
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }, 
           "BoxCollider": 
           {
@@ -10949,7 +11069,18 @@
             "AnimationSpeedHead": 10.000000, 
             "AnimationDistanceHead": 0.010000, 
             "AnimationSpeedShoulder": 10.000000, 
-            "AnimationDistanceShoulder": 0.010000
+            "AnimationDistanceShoulder": 0.010000, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }
         }, 
         "Children": 
