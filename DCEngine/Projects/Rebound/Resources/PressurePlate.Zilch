@@ -2,6 +2,10 @@ class PressurePlate : ZilchComponent
 {
     [Property]
     var Target : String = "";
+
+    [Property]
+    var CollideSound : String = "";
+    var CollideSoundInstance : SoundInstance;
     
 	var OriginalScale : Real3;
 	
@@ -34,6 +38,11 @@ class PressurePlate : ZilchComponent
 	
 	function Toggle()
 	{
+        if(this.CollideSound != "")
+            {
+                this.CollideSoundInstance = this.Space.SoundSpace.PlayCue(this.CollideSound);
+            }
+        
 		var tEvent = ToggleEvent();
 		tEvent.Source = this.Owner;
 		
