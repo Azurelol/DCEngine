@@ -3,8 +3,8 @@
   "GameObject": 
   {
     "Locked": false, 
-    "GameObjectID": 11, 
-    "Name": "LandingParticleSand2", 
+    "GameObjectID": 3184, 
+    "Name": "ButtonParticle", 
     "Protected": false, 
     "Components": 
     {
@@ -14,7 +14,7 @@
         {
           "Vec3": 
           {
-            "x": -27.000000, 
+            "x": 0.000000, 
             "y": 0.000000, 
             "z": 0.000000
           }
@@ -23,7 +23,7 @@
         {
           "Vec3": 
           {
-            "x": -27.000000, 
+            "x": 0.000000, 
             "y": 0.000000, 
             "z": 0.000000
           }
@@ -32,7 +32,7 @@
         {
           "Vec3": 
           {
-            "x": -27.000000, 
+            "x": 0.000000, 
             "y": 0.000000, 
             "z": 0.000000
           }
@@ -63,13 +63,13 @@
         {
           "Vec4": 
           {
-            "x": 0.600000, 
-            "y": 0.400000, 
-            "z": 0.225000, 
+            "x": 1.000000, 
+            "y": 1.000000, 
+            "z": 0.000000, 
             "w": 1.000000
           }
         }, 
-        "Texture": "WhiteCloud", 
+        "Texture": "ShockWave", 
         "VelocityScale": 1.000000, 
         "LengthScale": 1.000000, 
         "SystemSize": 
@@ -81,23 +81,23 @@
             "z": 4.000000
           }
         }, 
-        "Additive": false, 
+        "Additive": true, 
         "Lock": false, 
-        "DrawLayer": 5
+        "DrawLayer": 4
       }, 
       "ParticleEmitter": 
       {
         "Active": true, 
         "ResetCount": false, 
-        "EmitCount": 10, 
-        "EmitRate": 5000, 
+        "EmitCount": 1, 
+        "EmitRate": 1, 
         "EmitVariance": 1, 
-        "Size": 2.000000, 
-        "SizeVariance": 1.000000, 
-        "Lifetime": 1.000000, 
-        "LifetimeVariance": 1.000000, 
-        "Spin": 100.000000, 
-        "SpinVariance": 1004.000000, 
+        "Size": 0.100000, 
+        "SizeVariance": 0.000000, 
+        "Lifetime": 0.300000, 
+        "LifetimeVariance": 0.000000, 
+        "Spin": 0.000000, 
+        "SpinVariance": 50.000000, 
         "StartVelocity": 
         {
           "Vec3": 
@@ -111,7 +111,7 @@
         {
           "Vec3": 
           {
-            "x": 7.000000, 
+            "x": 0.000000, 
             "y": 0.000000, 
             "z": 0.000000
           }
@@ -133,7 +133,7 @@
           "Vec3": 
           {
             "x": 0.000000, 
-            "y": 5.000000, 
+            "y": 0.000000, 
             "z": 0.000000
           }
         }, 
@@ -147,8 +147,61 @@
           }
         }, 
         "Torque": 0.000000, 
-        "Growth": -5.000000, 
-        "Dampening": 3.000000
+        "Growth": 6.000000, 
+        "Dampening": 0.000000
+      }, 
+      "ParticleColorAnimator": 
+      {
+        "Color0": 
+        {
+          "Vec4": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000, 
+            "w": 0.000000
+          }
+        }, 
+        "Color1": 
+        {
+          "Vec4": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000, 
+            "w": 1.000000
+          }
+        }, 
+        "Color2": 
+        {
+          "Vec4": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000, 
+            "w": 1.000000
+          }
+        }, 
+        "Color3": 
+        {
+          "Vec4": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000, 
+            "w": 1.000000
+          }
+        }, 
+        "Color4": 
+        {
+          "Vec4": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000, 
+            "w": 0.000000
+          }
+        }
       }
     }, 
     "Children": 

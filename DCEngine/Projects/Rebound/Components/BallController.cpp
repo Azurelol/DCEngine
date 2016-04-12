@@ -78,6 +78,14 @@ namespace DCEngine {
       TrailRef->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation);
 	  NormalColor = SpriteRef->Color;
 	  NormalParticleColor = ParticleRef->getTint();
+
+
+    Frozen = false;
+    Powering = false;
+    RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);
+    SpriteRef->Color = NormalColor;
+    ParentToPlayer();
+
       if (BallControllerTraceOn)
       {
         DCTrace << PlayerRef->getComponent<Components::Transform>()->Translation.x;
@@ -131,7 +139,7 @@ namespace DCEngine {
         }
         else
         {
-          Charging = true;
+          //Charging = true;
         }
       }
     }
@@ -360,6 +368,8 @@ namespace DCEngine {
 
     void BallController::AttractBall()
     {
+      if (gameObj->Parent() != nullptr)
+        return;
       if (BallControllerTraceOn)
       {
         DCTrace << "BallController::AttractBall :: Now attracting!";
@@ -387,6 +397,10 @@ namespace DCEngine {
         }
         PlayerRef->getComponent<Components::RigidBody>()->ApplyForce(-CenteringVector * AttractPower);
       }
+	  else if (gameObj->Parent() != nullptr)
+	  {
+		  return;
+	  }
       else
       {
         // JJ- Using steering behaviors for more natural looking movement
@@ -403,6 +417,8 @@ namespace DCEngine {
 
     void BallController::FreezeBall()
     {
+      if (gameObj->Parent() != nullptr)
+        return;
       if (Frozen || Locked || !FreezeEnabled)
       {
         return;
