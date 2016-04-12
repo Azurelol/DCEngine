@@ -33,20 +33,23 @@ namespace DCEngine {
       CollisionTablePtr CollisionTableRef;
       GraphicsSpace* GraphicsSpaceRef;
       String PlayerName = "Player";
+      ArchetypeHandle ShieldArchetype;
       ArchetypeHandle HeadArchetype;
       ArchetypeHandle ShoulderArchetype;
       ArchetypeHandle BodyArchetype;
       ArchetypeHandle SpearArchetype;
       float IdleRange;        // Past this range, the grunt will be idle, within the range, it will patrol
       float ChargeForce;
-      float ShieldVelocityDifferenceThreshold;
-      float ShieldActivationSpeed;
+      float ShieldReflectionForce;
+      //float ShieldActivationSpeed;
       float AnimationSpeedHead;
       float AnimationDistanceHead;
       float AnimationSpeedShoulder;
       float AnimationDistanceShoulder;
       float AnimationSpeedSpear;
       float AnimationDistanceSpear;
+      Vec4 DamageTakenColor;
+      float DamageTakenColorFlashSpeed;
 
 
       DCE_COMPONENT_DECLARE_DEPENDENCIES;
@@ -56,20 +59,23 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(int, startingHealth);
       DCE_DEFINE_PROPERTY(int, maxHealth);
       DCE_DEFINE_PROPERTY(bool, IsInvulnerable);
+      DCE_DEFINE_PROPERTY(ArchetypeHandle, ShieldArchetype);
       DCE_DEFINE_PROPERTY(ArchetypeHandle, HeadArchetype);
       DCE_DEFINE_PROPERTY(ArchetypeHandle, ShoulderArchetype);
       DCE_DEFINE_PROPERTY(ArchetypeHandle, BodyArchetype);
       DCE_DEFINE_PROPERTY(ArchetypeHandle, SpearArchetype);
       DCE_DEFINE_PROPERTY(float, IdleRange);
       DCE_DEFINE_PROPERTY(float, ChargeForce);
-      DCE_DEFINE_PROPERTY(float, ShieldVelocityDifferenceThreshold);
-      DCE_DEFINE_PROPERTY(float, ShieldActivationSpeed);
+      DCE_DEFINE_PROPERTY(float, ShieldReflectionForce);
+      //DCE_DEFINE_PROPERTY(float, ShieldActivationSpeed);
       DCE_DEFINE_PROPERTY(float, AnimationSpeedHead);
       DCE_DEFINE_PROPERTY(float, AnimationDistanceHead);
       DCE_DEFINE_PROPERTY(float, AnimationSpeedShoulder);
       DCE_DEFINE_PROPERTY(float, AnimationDistanceShoulder);
       DCE_DEFINE_PROPERTY(float, AnimationSpeedSpear);
       DCE_DEFINE_PROPERTY(float, AnimationDistanceSpear);
+      DCE_DEFINE_PROPERTY(Vec4, DamageTakenColor);
+      DCE_DEFINE_PROPERTY(float, DamageTakenColorFlashSpeed);
 
       DCE_DEFINE_PROPERTY(String, AttackSound);
       DCE_DEFINE_PROPERTY(String, DeathSound);
@@ -81,6 +87,7 @@ namespace DCEngine {
       void Initialize();
       void OnCollisionStartedEvent(Events::CollisionStarted* event);
       void OnLogicUpdateEvent(Events::LogicUpdate * event);
+      void OnShieldCollisionStartedEvent(Events::CollisionStarted* event);
 
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
       ZilchDeclareDerivedType(Lancer, Component);
@@ -89,6 +96,7 @@ namespace DCEngine {
     private:
       StateMachine<Lancer> *stateMachine;
       GameObject *player;
+      GameObjectPtr shield;
       GameObjectPtr head;
       GameObjectPtr shoulder;
       GameObjectPtr body;
@@ -100,7 +108,6 @@ namespace DCEngine {
       int startingHealth;
       int maxHealth;
       bool IsInvulnerable;
-      LancerShield *shield;
       float randomPhase;
 
       String AttackSound;
@@ -115,6 +122,7 @@ namespace DCEngine {
       void CreateSprites();
       void UpdateSprites(float timePassed);
       void FlipSprites(bool flipx);
+      void FlashColor(Vec4 color, float duration);
 
       void PlayAttackSound(void);
       void PlayDamagedSound(void);

@@ -23,8 +23,8 @@
         {
           "Vec3": 
           {
-            "x": 0.000000, 
-            "y": 0.000000, 
+            "x": 7.000000, 
+            "y": -2.000000, 
             "z": 0.000000
           }
         }, 
@@ -98,13 +98,9 @@
             "z": 0.000000
           }
         }, 
-        "Ghost": true, 
+        "Ghost": false, 
         "SendsEvents": true, 
         "IsDrawingCollider": false
-      }, 
-      "LancerShield": 
-      {
-        "ShieldReflectionForce": 100000.000000
       }
     }, 
     "Children": 

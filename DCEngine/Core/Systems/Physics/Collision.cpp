@@ -295,11 +295,11 @@ namespace DCEngine
     //Axes.push_back(glm::normalize(topL1 - topR1));
 
 
-    Axes.push_back(glm::normalize(topR2 - topL2));
-    Axes.push_back(glm::normalize(topR2 - botR2));
+    //Axes.push_back(glm::normalize(topR2 - topL2));
+    //Axes.push_back(glm::normalize(topR2 - botR2));
 
-    //Axes.push_back(glm::normalize(botL2 - topL2));
-    //Axes.push_back(glm::normalize(topL2 - topR2));
+    Axes.push_back(glm::normalize(botL2 - topL2));
+    Axes.push_back(glm::normalize(topL2 - topR2));
 
     /* this ^ calculates the 4 axis I will be using to determine collision */
 
@@ -326,7 +326,7 @@ namespace DCEngine
       }
       else if (MinMax[1][1] >= MinMax[0][0] && MinMax[1][0] <= MinMax[0][0])
       {
-        if (MinMax[1][1] - MinMax[0][0] <= result.Penetration)
+        if (MinMax[1][1] - MinMax[0][0] < result.Penetration)
         {
           result.Penetration = MinMax[1][1] - MinMax[0][0];
           result.ContactNormal = Axes[i];
@@ -347,7 +347,7 @@ namespace DCEngine
           if (MinMax[1][1] - MinMax[0][0] < result.Penetration)
           {
             result.Penetration = MinMax[1][1] - MinMax[0][0];
-            result.ContactNormal = -Axes[i];
+            result.ContactNormal = Axes[i];
           }
         }
       }
@@ -366,7 +366,7 @@ namespace DCEngine
           if (MinMax[1][1] - MinMax[0][0] < result.Penetration)
           {
             result.Penetration = MinMax[1][1] - MinMax[0][0];
-            result.ContactNormal = -Axes[i];
+            result.ContactNormal = Axes[i];
           }
         }
       }

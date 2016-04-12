@@ -50,6 +50,8 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, AnimationDistanceHead);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, AnimationSpeedShoulder);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, AnimationDistanceShoulder);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, DamageTakenColor);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, DamageTakenColorFlashSpeed);
 
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, AttackSound);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, DeathSound);
@@ -79,6 +81,8 @@ namespace DCEngine {
       PhysicsSpaceRef = SpaceRef->getComponent<Components::PhysicsSpace>();
 
       stateMachine = new StateMachine<Sentinel>(this);
+
+      health = startingHealth;
 
       stateMachine->SetGlobalState(Global::Instance());
       stateMachine->SetCurrentState(Idle::Instance());
@@ -132,8 +136,11 @@ namespace DCEngine {
     {
       if (event->OtherObject->getComponent<BallController>() != NULL)
       {
-        POSTEVENT(HitBallSound);
-        ModifyHealth(-1);
+		POSTEVENT(HitBallSound);
+        if (ModifyHealth(-1))
+        {
+          FlashColor(DamageTakenColor, DamageTakenColorFlashSpeed);
+        }
       }
       else if (event->OtherObject->getComponent<PlayerController>() != NULL)
       {
@@ -282,6 +289,22 @@ namespace DCEngine {
       Actions::Property(seq, canBash, true, ShieldBashCooldown, Ease::Linear);
     }
 
+    void Sentinel::FlashColor(Vec4 color, float duration)
+    {
+      for (unsigned i = 0; i < sprites.size(); ++i)
+      {
+        Vec4 oldColor = sprites.at(i)->getComponent<Sprite>()->Color;
+        sprites.at(i)->getComponent<Sprite>()->Color = color;
+        ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
+        Actions::Property(seq, sprites.at(i)->getComponent<Sprite>()->Color, oldColor, duration, Ease::Linear);
+      }
+
+      Vec4 oldColor = shield->getComponent<Sprite>()->Color;
+      shield->getComponent<Sprite>()->Color = color;
+      ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
+      Actions::Property(seq, shield->getComponent<Sprite>()->Color, oldColor, duration, Ease::Linear);
+
+    }
 
 #pragma region Global State
     void Sentinel::Global::Enter(Sentinel *owner) {}

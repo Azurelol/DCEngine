@@ -35,7 +35,7 @@ namespace DCEngine {
       TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>(); // ew
       SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
       CollisionTableRef = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));
-      CollisionTableRef->SetResolve("LancerShield", "Player", CollisionFlag::Resolve);
+      CollisionTableRef->SetResolve("LancerShield", "Player", CollisionFlag::SkipDetecting);
       CollisionTableRef->SetResolve("LancerShield", "Ball", CollisionFlag::Resolve);
       CollisionTableRef->SetResolve("LancerShield", "Terrain", CollisionFlag::SkipDetecting);
       CollisionTableRef->SetResolve("LancerShield", "Enemy", CollisionFlag::SkipDetecting);
@@ -43,11 +43,12 @@ namespace DCEngine {
       Connect(SpaceRef, Events::LogicUpdate, LancerShield::OnLogicUpdateEvent);
       Connect(gameObj, Events::CollisionStarted, LancerShield::OnCollisionStartedEvent);
 
-      //gameObj->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
+      gameObj->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
     }
 
     void LancerShield::OnCollisionStartedEvent(Events::CollisionStarted * event)
     {
+      isActive = true;
       if (isActive &&
           event->OtherObject->Name() == "Player" ||
           event->OtherObject->Name() == "Ball")
@@ -56,7 +57,7 @@ namespace DCEngine {
         Vec3 parentPosition = parent->getComponent<Components::Transform>()->getTranslation();
         Vec3 otherVelocity = event->OtherObject->getComponent<Components::RigidBody>()->getVelocity();
         Vec3 otherPosition = event->OtherObject->getComponent<Components::Transform>()->getTranslation();
-        float velocityDifferenceThreshold = parent->getComponent<Components::Lancer>()->ShieldVelocityDifferenceThreshold;
+        //float velocityDifferenceThreshold = parent->getComponent<Components::Lancer>()->ShieldVelocityDifferenceThreshold;
 
         //if (parentVelocity.x - otherVelocity.x > velocityDifferenceThreshold)
         //{

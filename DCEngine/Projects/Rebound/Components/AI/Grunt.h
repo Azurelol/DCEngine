@@ -49,8 +49,9 @@ namespace DCEngine {
       //bool IsDebugColorActive;
       //Vec4 IdleColor = Vec4(0, 1, 0, 1);
       //Vec4 PatrolColor = Vec4(0, 0, 1, 1);
-      //Vec4 AttackColor = Vec4(1, 0, 0, 1);
-
+      Vec4 AttackColor;
+      Vec4 DamageTakenColor;
+      float DamageTakenColorFlashSpeed;
       
 
       DCE_COMPONENT_DECLARE_DEPENDENCIES;
@@ -79,8 +80,10 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(float, AnimationDistanceSaw);
       //DCE_DEFINE_PROPERTY(Vec4, IdleColor);
       //DCE_DEFINE_PROPERTY(Vec4, PatrolColor);
-      //DCE_DEFINE_PROPERTY(Vec4, AttackColor);
+      DCE_DEFINE_PROPERTY(Vec4, AttackColor);
+      DCE_DEFINE_PROPERTY(Vec4, DamageTakenColor);
       //DCE_DEFINE_PROPERTY(bool, IsDebugColorActive);
+      DCE_DEFINE_PROPERTY(float, DamageTakenColorFlashSpeed);
 
       DCE_DEFINE_PROPERTY(String, AttackSound);
       DCE_DEFINE_PROPERTY(String, DeathSound);
@@ -127,6 +130,8 @@ namespace DCEngine {
       void FlipSprites(bool flipx);
       void ChangeStateRight();
       void ChangeStateLeft();
+      void ChangeSpritesColor(Vec4 newColor);
+      void FlashColor(Vec4 color, float duration);
 
       void Jump(int direction, float period, float strengthX, float strengthY);
 
