@@ -17,6 +17,11 @@ class EnergyShield : ZilchComponent
         Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollisionStarted);
 		
 		Daisy.Connect(this.Owner, DaisyEvent.ToggleEvent, this.OnToggleEvent);
+		
+		if(this.Active)
+			this.Owner.Sprite.Color = this.ActiveColor;
+		else
+			this.Owner.Sprite.Color = this.InactiveColor;
     }
 	
 	function OnCollisionStarted(event : CollisionStarted)

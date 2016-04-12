@@ -61,6 +61,7 @@ namespace DCEngine {
       TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>(); // ew
       RigidBodyRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::RigidBody>();
       SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
+	  ParticleRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::SpriteParticleSystem>();
       LightRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Light>();
       //ColliderRef = dynamic_cast<GameObject*>(ObjectOwner)->getComponent<Components::CircleCollider>();
       CollisionTableRef = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));
@@ -75,6 +76,7 @@ namespace DCEngine {
       TrailRef->AttachTo(gameObj);
       TrailRef->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation);
 	  NormalColor = SpriteRef->Color;
+	  NormalParticleColor = ParticleRef->getTint();
       if (BallControllerTraceOn)
       {
         DCTrace << PlayerRef->getComponent<Components::Transform>()->Translation.x;
@@ -247,7 +249,7 @@ namespace DCEngine {
 
     void BallController::OnLogicUpdateEvent(Events::LogicUpdate * event)
     {
-
+		ChangeParticle();
       //DCTrace << "BallController::Init- trail is at" << TrailRef->getComponent<Components::Transform>()->getTranslation().x << ", " << TrailRef->getComponent<Components::Transform>()->getTranslation().y << "\n";
       //DCTrace << "BallController::Init- ball is at" << TransformRef->getTranslation().x << ", " << TransformRef->getTranslation().y << "\n";
       if (gameObj->Parent() != nullptr)
@@ -327,6 +329,18 @@ namespace DCEngine {
       }
     }
 
+	void BallController::ChangeParticle()
+	{
+		if (Frozen)
+		{
+			ParticleRef->setTint(FrozenParticleColor);
+		}
+		else
+		{
+			ParticleRef->setTint(NormalParticleColor);
+		}
+	}
+
 
 
     void BallController::PrintTranslation()
@@ -379,9 +393,9 @@ namespace DCEngine {
         //	CenteringVector.y *= AttractYBoost;
         //}
         //RigidBodyRef->AddForce(CenteringVector * AttractPower);
-        //Vec3 seekForce = SteeringBehaviors::GetSeekVelocity(TransformRef->Translation, PlayerRef->getComponent<Components::Transform>()->Translation, RigidBodyRef->getVelocity(), MaxAttractSpeed, MaxAttractForce);
-        Vec3 arriveForce = SteeringBehaviors::GetArriveVelocity(TransformRef->Translation, PlayerRef->getComponent<Components::Transform>()->Translation, RigidBodyRef->getVelocity(), MaxAttractSpeed, MaxAttractForce, AttractArriveDistance, MinAttractSpeed);
-        RigidBodyRef->ApplyLinearVelocity(arriveForce);
+        Vec3 seekForce = SteeringBehaviors::GetSeekVelocity(TransformRef->Translation, PlayerRef->getComponent<Components::Transform>()->Translation, RigidBodyRef->getVelocity(), MaxAttractSpeed, MaxAttractForce);
+        //Vec3 arriveForce = SteeringBehaviors::GetArriveVelocity(TransformRef->Translation, PlayerRef->getComponent<Components::Transform>()->Translation, RigidBodyRef->getVelocity(), MaxAttractSpeed, MaxAttractForce, AttractArriveDistance, MinAttractSpeed);
+        RigidBodyRef->ApplyLinearVelocity(seekForce);
       }
     }
 

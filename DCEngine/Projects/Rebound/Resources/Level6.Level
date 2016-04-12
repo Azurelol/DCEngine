@@ -63,7 +63,7 @@
           }, 
           "Camera": 
           {
-            "FieldOfView": 160.000000, 
+            "FieldOfView": 150.000000, 
             "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
@@ -9624,6 +9624,10 @@
         "Protected": false, 
         "Components": 
         {
+          "GravityManager": 
+          {
+            "LocalGravity": 20.000000
+          }
         }, 
         "Children": 
         {
@@ -14843,16 +14847,6 @@
                 "w": 1.000000
               }
             }, 
-            "NormalColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.700000, 
-                "z": 0.300000, 
-                "w": 1.000000
-              }
-            }, 
             "NormalGravity": 0.400000, 
             "ShotGravity": 0.200000, 
             "ChargedColor": 
@@ -15876,14 +15870,14 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "ShieldArchetype": "", 
             "HeadArchetype": "", 
             "ShoulderArchetype": "", 
             "BodyArchetype": "", 
             "SpearArchetype": "", 
             "IdleRange": 1000.000000, 
             "ChargeForce": 100.000000, 
-            "ShieldVelocityDifferenceThreshold": 1.000000, 
-            "ShieldActivationSpeed": 5.000000, 
+            "ShieldReflectionForce": 0.000000, 
             "AnimationSpeedHead": 0.000000, 
             "AnimationDistanceHead": 0.000000, 
             "AnimationSpeedShoulder": 0.000000, 
@@ -17046,14 +17040,14 @@
             "StartingHealth": 1, 
             "MaxHealth": 1, 
             "IsInvulnerable": false, 
+            "ShieldArchetype": "", 
             "HeadArchetype": "", 
             "ShoulderArchetype": "", 
             "BodyArchetype": "", 
             "SpearArchetype": "", 
             "IdleRange": 1000.000000, 
             "ChargeForce": 100.000000, 
-            "ShieldVelocityDifferenceThreshold": 1.000000, 
-            "ShieldActivationSpeed": 5.000000, 
+            "ShieldReflectionForce": 0.000000, 
             "AnimationSpeedHead": 0.000000, 
             "AnimationDistanceHead": 0.000000, 
             "AnimationSpeedShoulder": 0.000000, 

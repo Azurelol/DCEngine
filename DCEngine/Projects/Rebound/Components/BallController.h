@@ -19,6 +19,7 @@ namespace DCEngine {
     class Transform;
     class RigidBody;
     class Sprite;
+	class SpriteParticleSystem;
     class Light;
     class CircleCollider;
     enum class ControlScheme { John, Connor };
@@ -38,12 +39,13 @@ namespace DCEngine {
       Transform* TransformRef;
       RigidBody* RigidBodyRef;
       Sprite* SpriteRef;
+	  SpriteParticleSystem* ParticleRef;
       Light* LightRef;
       CollisionTablePtr CollisionTableRef;
       //CircleCollider* ColliderRef;
       Real CurrentCharge = 0.0f;
       Real MaxCharge = 1.0f;
-      Real MinCharge = 0.5f;
+      Real MinCharge = 0.35f;
       Real ChargeFactor = 20.0f * 1000.0f;
       Real Restitution = 0.1f; //set from 0 to 1
       Real Friction = 0.1f; //set from 0 to 1
@@ -62,7 +64,9 @@ namespace DCEngine {
       Boolean ForcedFreeze = false;
       Boolean FreezeEnabled = true;
       Vec4 FrozenColor = Vec4(1, 0, 1, 1);
+	  Vec4 FrozenParticleColor = Vec4(1, 0, 1, 1);
       Vec4 NormalColor = Vec4(0.0f, 0.7f, 0.3f, 1.0f);
+	  Vec4 NormalParticleColor;
       Vec4 ChargedColor = Vec4(0.0f, 0.7f, 1.0f, 1.0f);
       GameObject* PlayerRef; // Use a pointer inside, better to use a handle for serialization
       GameObject* gameObj;
@@ -103,6 +107,7 @@ namespace DCEngine {
       void OnCollisionEndedEvent(Events::CollisionEnded* event);
       void BallController::OnLogicUpdateEvent(Events::LogicUpdate * event);
       void ChangeColor();
+	  void ChangeParticle();
       void ParentToPlayer();
       void AttractBall();
       void FreezeBall();
