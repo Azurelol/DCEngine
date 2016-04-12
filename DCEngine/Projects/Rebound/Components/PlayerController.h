@@ -45,6 +45,8 @@ namespace DCEngine {
       Real VelocityXCap = 30.0f;
       Real GroundFriction = 0.2f;
 	  Real FramesOfThrowAnimation = 0;
+	  Real AmountOfMaxSpeedRequiredForHorizontalJump = 0.8;
+	  Real AmountOfJumpPowerAddedToHorizontalJump = 0.5;
       String StandAnimation = "Char_Asha_Idle_Spritesheet";
       String JumpAnimation = "Char_Asha_Jump_Spritesheet";
       String RunAnimation = "Char_Asha_Run_Spritesheet";
@@ -71,6 +73,8 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Real, AirBrakeScalar);
       DCE_DEFINE_PROPERTY(Real, TurnSpeedScalar);
       DCE_DEFINE_PROPERTY(Real, AutoPlayTimer);
+	  DCE_DEFINE_PROPERTY(Real, AmountOfMaxSpeedRequiredForHorizontalJump);
+	  DCE_DEFINE_PROPERTY(Real, AmountOfJumpPowerAddedToHorizontalJump);
       DCE_DEFINE_PROPERTY(Boolean, DoAutoPlay);
       DCE_DEFINE_PROPERTY(String, StandAnimation);
       DCE_DEFINE_PROPERTY(String, JumpAnimation);

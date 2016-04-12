@@ -27,6 +27,8 @@ namespace DCEngine {
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, TurnSpeedScalar);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, DoAutoPlay);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, StandAnimation);
+			DCE_BINDING_DEFINE_PROPERTY(PlayerController, AmountOfJumpPowerAddedToHorizontalJump);
+			DCE_BINDING_DEFINE_PROPERTY(PlayerController, AmountOfMaxSpeedRequiredForHorizontalJump);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpAnimation);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, RunAnimation);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, FallAnimation);
