@@ -1022,7 +1022,7 @@
             "BodyArchetype": "LancerBody", 
             "SpearArchetype": "LancerSpear", 
             "IdleRange": 1000.000000, 
-            "ChargeForce": 100.000000, 
+            "ChargeForce": 50.000000, 
             "ShieldReflectionForce": 10000000.000000, 
             "AnimationSpeedHead": 10.000000, 
             "AnimationDistanceHead": 0.010000, 
