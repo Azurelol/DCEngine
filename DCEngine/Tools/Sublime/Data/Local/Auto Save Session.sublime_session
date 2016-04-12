@@ -55,7 +55,7 @@
 					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogText.Zilch",
 					"settings":
 					{
-						"buffer_size": 7208,
+						"buffer_size": 7353,
 						"line_ending": "Windows"
 					}
 				},
@@ -214,7 +214,7 @@
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 7208,
+								"buffer_size": 7353,
 								"regions":
 								{
 								},

@@ -4,7 +4,8 @@
   {
     "Locked": false, 
     "GameObjectID": 214, 
-    "Name": "Acid", 
+    "Name": "Acid2", 
+    "Protected": false, 
     "Components": 
     {
       "Transform": 
@@ -13,27 +14,27 @@
         {
           "Vec3": 
           {
-            "x": 88.535210, 
-            "y": 26.692747, 
-            "z": 0.000000
+            "x": 103.374168, 
+            "y": -9.722214, 
+            "z": 0.001000
           }
         }, 
         "LocalTranslation": 
         {
           "Vec3": 
           {
-            "x": 88.535210, 
-            "y": 26.692747, 
-            "z": 0.000000
+            "x": 103.374168, 
+            "y": -9.722214, 
+            "z": 0.001000
           }
         }, 
         "WorldTranslation": 
         {
           "Vec3": 
           {
-            "x": 88.535210, 
-            "y": 26.692747, 
-            "z": 0.000000
+            "x": 103.374168, 
+            "y": -9.722214, 
+            "z": 0.001000
           }
         }, 
         "Rotation": 
@@ -49,8 +50,8 @@
         {
           "Vec3": 
           {
-            "x": 10.000000, 
-            "y": 3.000000, 
+            "x": 7.500000, 
+            "y": 2.000000, 
             "z": 1.000000
           }
         }
@@ -62,18 +63,18 @@
         {
           "Vec4": 
           {
-            "x": 0.000000, 
+            "x": 1.000000, 
             "y": 1.000000, 
-            "z": 0.000000, 
-            "w": 1.000000
+            "z": 1.000000, 
+            "w": 0.750000
           }
         }, 
-        "SpriteSource": "square", 
+        "SpriteSource": "Acid", 
         "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 
         "AnimationSpeed": 1.000000, 
-        "DrawLayer": 4
+        "DrawLayer": 5
       }, 
       "BoxCollider": 
       {
@@ -109,16 +110,16 @@
       "Fade": 
       {
         "Timer": 0.000000, 
-        "FadeTime": 2.000000, 
+        "FadeTime": 1.200000, 
         "FadeTimeGrowth": 1.000000, 
         "TargetColor": 
         {
           "Vec4": 
           {
-            "x": 0.000000, 
-            "y": 0.700000, 
-            "z": 0.200000, 
-            "w": 1.000000
+            "x": 1.000000, 
+            "y": 1.000000, 
+            "z": 1.000000, 
+            "w": 0.900000
           }
         }, 
         "Fading": true, 
@@ -158,12 +159,12 @@
         "Active": true, 
         "ResetCount": false, 
         "EmitCount": 0, 
-        "EmitRate": 15, 
+        "EmitRate": 10, 
         "EmitVariance": 1, 
-        "Size": 0.300000, 
-        "SizeVariance": 0.400000, 
-        "Lifetime": 1.000000, 
-        "LifetimeVariance": 2.500000, 
+        "Size": 0.400000, 
+        "SizeVariance": 0.200000, 
+        "Lifetime": 0.500000, 
+        "LifetimeVariance": 0.620000, 
         "Spin": 0.000000, 
         "SpinVariance": 0.000000, 
         "StartVelocity": 
@@ -180,7 +181,7 @@
           "Vec3": 
           {
             "x": 0.000000, 
-            "y": 1.000000, 
+            "y": 2.000000, 
             "z": 0.000000
           }
         }, 
@@ -278,6 +279,105 @@
     }, 
     "Children": 
     {
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 3275, 
+        "Name": "AcidChild", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 103.984810, 
+                "y": -8.762244, 
+                "z": -0.010000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.610641, 
+                "y": 0.959970, 
+                "z": -0.011000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 103.984810, 
+                "y": -8.762244, 
+                "z": -0.010000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 7.500000, 
+                "y": 2.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 0.750000
+              }
+            }, 
+            "SpriteSource": "Acid", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 3
+          }, 
+          "Fade": 
+          {
+            "Timer": 0.000000, 
+            "FadeTime": 1.200000, 
+            "FadeTimeGrowth": 1.000000, 
+            "TargetColor": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 0.900000
+              }
+            }, 
+            "Fading": true, 
+            "Pulse": true
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }
     }
   }
 }
