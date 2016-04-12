@@ -2,18 +2,27 @@ class PressurePlate : ZilchComponent
 {
     [Property]
     var Target : String = "";
+
+    [Property]
+    var CollideSound : String = "";
+    var CollideSoundInstance : SoundInstance;
     
+	var OriginalScale : Real3;
+	
     function Initialize()
     {
         Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollisionStarted);
         
         Daisy.Connect(this.Owner, DaisyEvent.CollisionEnded, this.OnCollisionEnded);
+		
+		this.OriginalScale = this.Owner.Transform.Scale;
     }
 
     function OnCollisionStarted(event : CollisionStarted)
     {
         if(event.OtherObject.PlayerTemp != null)
         {
+			this.Owner.Transform.Scale = Real3(this.OriginalScale.X, this.OriginalScale.Y/2, this.OriginalScale.Z);
 			this.Toggle();
         }
     }
@@ -22,12 +31,18 @@ class PressurePlate : ZilchComponent
     {
         if(event.OtherObject.PlayerTemp != null)
         {
+			this.Owner.Transform.Scale = Real3(this.OriginalScale.X, this.OriginalScale.Y, this.OriginalScale.Z);
             this.Toggle();
         }
     }
 	
 	function Toggle()
 	{
+        if(this.CollideSound != "")
+            {
+                this.CollideSoundInstance = this.Space.SoundSpace.PlayCue(this.CollideSound);
+            }
+        
 		var tEvent = ToggleEvent();
 		tEvent.Source = this.Owner;
 		

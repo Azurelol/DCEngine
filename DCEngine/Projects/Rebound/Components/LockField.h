@@ -37,6 +37,8 @@ namespace DCEngine {
 			void OnCollisionEndedEvent(Events::CollisionEnded* event);
 			void OnCollisionPersistedEvent(Events::CollisionPersisted * event);
 			void OnLogicUpdateEvent(Events::LogicUpdate * event);
+			void LockBall(GameObject*);
+			void UnlockBall(GameObject*);
 
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
 			ZilchDeclareDerivedType(LockField, Component);
@@ -45,6 +47,7 @@ namespace DCEngine {
 		private:
 			// Member variables
 			Real Timer = 0;
+
 		};
 	}
 

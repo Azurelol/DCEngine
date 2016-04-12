@@ -115,17 +115,25 @@ class OptionsManager : ZilchComponent
 
     function OnLogicUpdate(event : LogicUpdate)
     {
-        if(this.AspectRefText == null || this.AspectRefText.SpriteText == null ||
-        	this.ResolutionRefText == null || this.ResolutionRefText.SpriteText == null ||
-        	this.AntiAliasingRefText == null || this.AntiAliasingRefText.SpriteText == null)
+        if(this.AspectRefText != null && this.AspectRefText.SpriteText != null)
         {
-            return;
+        	this.SetAspectText();
         }
 
-        this.SetAspectText();
-        this.SetResolutiontext();
-        this.SetAAText();
-        this.SetAudioText();
+        if(this.ResolutionRefText != null && this.ResolutionRefText.SpriteText != null)
+        {
+        	this.SetResolutiontext();
+        }
+
+        if(this.AntiAliasingRefText != null && this.AntiAliasingRefText.SpriteText != null)
+        {
+        	this.SetAAText();
+        }
+
+        if(this.AudioRefText != null && this.AudioRefText.SpriteText != null)
+        {
+        	this.SetAudioText();
+        }
     }
 
     function SetAspectText()

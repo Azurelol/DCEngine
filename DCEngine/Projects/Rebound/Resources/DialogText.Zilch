@@ -37,6 +37,12 @@ class DialogText : ZilchComponent
 	//var ArbitraryXShift : Integer = -5;
 	
 	[Property]
+	var AshaReplySoundName : String = "InterfaceReply";
+	
+	[Property]
+	var CyrusReplySoundName : String = "InterfaceNotify";
+	
+	[Property]
 	var AshaVoiceColor : Real3 = Real3(0,1,0);
 	[Property]
 	var CyrusVoiceColor : Real3 = Real3(1,0,0);
@@ -80,7 +86,7 @@ class DialogText : ZilchComponent
 
 		var dialogSpeaker = this.Space.FindObjectByName("DialogSpeaker");
 		var background = this.Space.FindObjectByName("DialogBackground");
-		if(this.Owner.SpriteText.Visible == true && background.Sprite.Color.W == 1)
+		if(this.Owner.SpriteText.Visible == true && background.Sprite.Color.W == 0.9)
 		{
 			dialogSpeaker.SpriteText.Color = Real4(dialogSpeaker.SpriteText.Color.XYZ, 1);
 			this.Owner.SpriteText.Color = Real4(this.Owner.SpriteText.Color.XYZ, 1);
@@ -106,12 +112,12 @@ class DialogText : ZilchComponent
 	
 	function PlaySound()
 	{
-		//Console.WriteLine("DialogSound");
-		//if(this.CurSpeaker == Speaker.Asha)
-		//	this.Instance = this.Space.SoundSpace.PlayCue("InterfaceRepy");
-		//else
-		//	this.Instance = this.Space.SoundSpace.PlayCue("InterfaceNotify");
-    	//if (this.Instance != null) Console.WriteLine("`this.Owner.Name` is playing `this.Instance.Name`");
+		Console.WriteLine("DialogSound");
+		if(this.CurSpeaker == Speaker.Asha)
+			this.Instance = this.Space.SoundSpace.PlayCue(this.AshaReplySoundName);
+		else
+			this.Instance = this.Space.SoundSpace.PlayCue(this.CyrusReplySoundName);
+    	if (this.Instance != null) Console.WriteLine("`this.Owner.Name` is playing `this.Instance.Name`");
 	}
 	
 	function FinishMessage()
@@ -187,10 +193,13 @@ class DialogText : ZilchComponent
 		if(background.Sprite.Color.W == 0)
 		{
 			var speaker = this.Space.FindObjectByName("DialogSpeaker");
-			var ball = this.Space.FindObjectByName("Ball");
-			ball.BallController.ToggleForceFreeze();
-			Actions.Property(masterSeq, @background.Sprite.Color, Real4(background.Sprite.Color.XYZ, 1), this.FadeInTime, this.TextEase);
-			Actions.Property(masterSeq, @speaker.SpriteText.Color, Real4(speaker.SpriteText.Color.XYZ, 1), this.FadeInTime, this.TextEase);
+			if(this.Space.FindObjectByName("Ball") != null)
+			{
+				var ball = this.Space.FindObjectByName("Ball");
+				ball.BallController.ToggleForceFreeze();
+			}
+			Actions.Property(masterSeq, @background.Sprite.Color, Real4(background.Sprite.Color.XYZ, 0.9), this.FadeInTime, this.TextEase);
+			Actions.Property(masterSeq, @speaker.SpriteText.Color, Real4(speaker.SpriteText.Color.XYZ, 0.9), this.FadeInTime, this.TextEase);
 		}
         Actions.Delay(masterSeq, this.SystemDelay);
         Actions.Delay(masterGrp, this.SystemDelay);
@@ -219,7 +228,12 @@ class DialogText : ZilchComponent
         var masterSeq = Actions.Sequence(this.Owner.Actions);
         var masterGrp = Actions.Group(this.Owner.Actions);
 		Actions.Property(masterSeq, @background.Sprite.Color, Real4(background.Sprite.Color.XYZ, 0), this.FadeInTime, this.TextEase);
-		ball.BallController.ToggleForceFreeze();
+
+		if(ball != null)
+		{
+			ball.BallController.ToggleForceFreeze();
+		}
+		
 		
 		if(this.CurSpeaker == Speaker.Asha)
 		{
