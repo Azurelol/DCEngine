@@ -335,13 +335,13 @@ namespace DCEngine {
 		void PlayerController::Jump()
 		{
 			++JumpFramesApplied;
-			if (RigidBodyRef->getVelocity().x > 5)
+			if (RigidBodyRef->getVelocity().x > VelocityXCap * AmountOfMaxSpeedRequiredForHorizontalJump)
 			{
-				RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(JumpPower/4, JumpPower, 0));
+				RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(AmountOfJumpPowerAddedToHorizontalJump/4, JumpPower, 0));
 			}
-			else if (RigidBodyRef->getVelocity().x < -5)
+			else if (RigidBodyRef->getVelocity().x < -VelocityXCap * AmountOfMaxSpeedRequiredForHorizontalJump)
 			{
-				RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(-JumpPower/4, JumpPower, 0));
+				RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(-AmountOfJumpPowerAddedToHorizontalJump/4, JumpPower, 0));
 			}
 			else
 			{
