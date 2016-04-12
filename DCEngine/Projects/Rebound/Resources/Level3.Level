@@ -4989,74 +4989,6 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
-          "Grunt": 
-          {
-            "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
-            "IsInvulnerable": false, 
-            "HeadArchetype": "", 
-            "BodyArchetype": "", 
-            "SawArchetype": "", 
-            "IdleRange": 100.000000, 
-            "PatrolDistance": 20.000000, 
-            "IsPatrolRight": true, 
-            "IsAggressive": true, 
-            "JumpStrengthX": 5.000000, 
-            "JumpStrengthY": 25.000000, 
-            "JumpPeriod": 2.000000, 
-            "AttackJumpStrengthX": 10.000000, 
-            "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "AnimationSpeedHead": 0.000000, 
-            "AnimationDistanceHead": 0.000000, 
-            "AnimationSpeedSaw": 0.000000, 
-            "AnimationDistanceSaw": 0.000000, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.000000
-              }
-            }, 
-            "DamageTakenColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.000000
-              }
-            }, 
-            "DamageTakenColorFlashSpeed": 0.000000
           }
         }, 
         "Children": 
@@ -5173,114 +5105,8 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 44, 
-        "Name": "Ground", 
-        "Protected": false, 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 62.918919, 
-                "y": 10.904671, 
-                "z": 0.000000
-              }
-            }, 
-            "LocalTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 62.918919, 
-                "y": 10.904671, 
-                "z": 0.000000
-              }
-            }, 
-            "WorldTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 62.918919, 
-                "y": 10.904671, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Grunt": 
-          {
-            "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
-            "IsInvulnerable": false, 
-            "HeadArchetype": "", 
-            "BodyArchetype": "", 
-            "SawArchetype": "", 
-            "IdleRange": 100.000000, 
-            "PatrolDistance": 20.000000, 
-            "IsPatrolRight": true, 
-            "IsAggressive": true, 
-            "JumpStrengthX": 5.000000, 
-            "JumpStrengthY": 25.000000, 
-            "JumpPeriod": 2.000000, 
-            "AttackJumpStrengthX": 10.000000, 
-            "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "AnimationSpeedHead": 0.000000, 
-            "AnimationDistanceHead": 0.000000, 
-            "AnimationSpeedSaw": 0.000000, 
-            "AnimationDistanceSaw": 0.000000, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.000000
-              }
-            }, 
-            "DamageTakenColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.000000
-              }
-            }, 
-            "DamageTakenColorFlashSpeed": 0.000000
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
         "GameObjectID": 900, 
-        "Name": "Scrapper4", 
+        "Name": "Ground", 
         "Protected": false, 
         "Components": 
         {
@@ -5354,7 +5180,7 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Terrain", 
+            "CollisionGroup": "Default", 
             "PhysicsMaterial": "", 
             "Size": 
             {
@@ -5377,74 +5203,6 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
-          "Grunt": 
-          {
-            "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
-            "IsInvulnerable": false, 
-            "HeadArchetype": "", 
-            "BodyArchetype": "", 
-            "SawArchetype": "", 
-            "IdleRange": 100.000000, 
-            "PatrolDistance": 20.000000, 
-            "IsPatrolRight": true, 
-            "IsAggressive": true, 
-            "JumpStrengthX": 5.000000, 
-            "JumpStrengthY": 25.000000, 
-            "JumpPeriod": 2.000000, 
-            "AttackJumpStrengthX": 10.000000, 
-            "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "AnimationSpeedHead": 0.000000, 
-            "AnimationDistanceHead": 0.000000, 
-            "AnimationSpeedSaw": 0.000000, 
-            "AnimationDistanceSaw": 0.000000, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.000000
-              }
-            }, 
-            "DamageTakenColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.000000
-              }
-            }, 
-            "DamageTakenColorFlashSpeed": 0.000000
           }
         }, 
         "Children": 
@@ -5552,74 +5310,6 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
-          "Grunt": 
-          {
-            "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
-            "IsInvulnerable": false, 
-            "HeadArchetype": "", 
-            "BodyArchetype": "", 
-            "SawArchetype": "", 
-            "IdleRange": 100.000000, 
-            "PatrolDistance": 20.000000, 
-            "IsPatrolRight": true, 
-            "IsAggressive": true, 
-            "JumpStrengthX": 5.000000, 
-            "JumpStrengthY": 25.000000, 
-            "JumpPeriod": 2.000000, 
-            "AttackJumpStrengthX": 10.000000, 
-            "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "AnimationSpeedHead": 0.000000, 
-            "AnimationDistanceHead": 0.000000, 
-            "AnimationSpeedSaw": 0.000000, 
-            "AnimationDistanceSaw": 0.000000, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.000000
-              }
-            }, 
-            "DamageTakenColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.000000
-              }
-            }, 
-            "DamageTakenColorFlashSpeed": 0.000000
           }
         }, 
         "Children": 
@@ -5727,74 +5417,6 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
-          "Grunt": 
-          {
-            "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
-            "IsInvulnerable": false, 
-            "HeadArchetype": "", 
-            "BodyArchetype": "", 
-            "SawArchetype": "", 
-            "IdleRange": 100.000000, 
-            "PatrolDistance": 20.000000, 
-            "IsPatrolRight": true, 
-            "IsAggressive": true, 
-            "JumpStrengthX": 5.000000, 
-            "JumpStrengthY": 25.000000, 
-            "JumpPeriod": 2.000000, 
-            "AttackJumpStrengthX": 10.000000, 
-            "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "AnimationSpeedHead": 0.000000, 
-            "AnimationDistanceHead": 0.000000, 
-            "AnimationSpeedSaw": 0.000000, 
-            "AnimationDistanceSaw": 0.000000, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.000000
-              }
-            }, 
-            "DamageTakenColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.000000
-              }
-            }, 
-            "DamageTakenColorFlashSpeed": 0.000000
           }
         }, 
         "Children": 
@@ -5902,74 +5524,6 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
-          "Grunt": 
-          {
-            "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
-            "IsInvulnerable": false, 
-            "HeadArchetype": "", 
-            "BodyArchetype": "", 
-            "SawArchetype": "", 
-            "IdleRange": 100.000000, 
-            "PatrolDistance": 20.000000, 
-            "IsPatrolRight": true, 
-            "IsAggressive": true, 
-            "JumpStrengthX": 5.000000, 
-            "JumpStrengthY": 25.000000, 
-            "JumpPeriod": 2.000000, 
-            "AttackJumpStrengthX": 10.000000, 
-            "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "AnimationSpeedHead": 0.000000, 
-            "AnimationDistanceHead": 0.000000, 
-            "AnimationSpeedSaw": 0.000000, 
-            "AnimationDistanceSaw": 0.000000, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.000000
-              }
-            }, 
-            "DamageTakenColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.000000
-              }
-            }, 
-            "DamageTakenColorFlashSpeed": 0.000000
           }
         }, 
         "Children": 
@@ -6077,74 +5631,6 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
-          "Grunt": 
-          {
-            "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
-            "IsInvulnerable": false, 
-            "HeadArchetype": "", 
-            "BodyArchetype": "", 
-            "SawArchetype": "", 
-            "IdleRange": 100.000000, 
-            "PatrolDistance": 20.000000, 
-            "IsPatrolRight": true, 
-            "IsAggressive": true, 
-            "JumpStrengthX": 5.000000, 
-            "JumpStrengthY": 25.000000, 
-            "JumpPeriod": 2.000000, 
-            "AttackJumpStrengthX": 10.000000, 
-            "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "AnimationSpeedHead": 0.000000, 
-            "AnimationDistanceHead": 0.000000, 
-            "AnimationSpeedSaw": 0.000000, 
-            "AnimationDistanceSaw": 0.000000, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.000000
-              }
-            }, 
-            "DamageTakenColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.000000
-              }
-            }, 
-            "DamageTakenColorFlashSpeed": 0.000000
           }
         }, 
         "Children": 
@@ -6252,74 +5738,6 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
-          "Grunt": 
-          {
-            "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
-            "IsInvulnerable": false, 
-            "HeadArchetype": "", 
-            "BodyArchetype": "", 
-            "SawArchetype": "", 
-            "IdleRange": 100.000000, 
-            "PatrolDistance": 20.000000, 
-            "IsPatrolRight": true, 
-            "IsAggressive": true, 
-            "JumpStrengthX": 5.000000, 
-            "JumpStrengthY": 25.000000, 
-            "JumpPeriod": 2.000000, 
-            "AttackJumpStrengthX": 10.000000, 
-            "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000, 
-            "AnimationSpeedHead": 0.000000, 
-            "AnimationDistanceHead": 0.000000, 
-            "AnimationSpeedSaw": 0.000000, 
-            "AnimationDistanceSaw": 0.000000, 
-            "AttackColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.000000
-              }
-            }, 
-            "DamageTakenColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 0.000000
-              }
-            }, 
-            "DamageTakenColorFlashSpeed": 0.000000
           }
         }, 
         "Children": 

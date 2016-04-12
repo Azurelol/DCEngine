@@ -122,11 +122,6 @@ namespace DCEngine {
 				LevelCheatLoaded = true;
 				Die();
 				break;
-			case Keys::P:
-				LevelCheatLoaded = true;
-				level = "YouWon";
-				SpaceRef->LoadLevel(level);
-				break;
 			case Keys::L:
 				LevelCheatLoaded = false;
 				break;
@@ -143,6 +138,21 @@ namespace DCEngine {
 			case Keys::Num3:
 				LevelCheatLoaded = true;
 				level = "Level3";
+				SpaceRef->LoadLevel(level);
+				break;
+			case Keys::Num4:
+				LevelCheatLoaded = true;
+				level = "Level4";
+				SpaceRef->LoadLevel(level);
+				break;
+			case Keys::Num5:
+				LevelCheatLoaded = true;
+				level = "Level5";
+				SpaceRef->LoadLevel(level);
+				break;
+			case Keys::Num6:
+				LevelCheatLoaded = true;
+				level = "Level6";
 				SpaceRef->LoadLevel(level);
 				break;
 
