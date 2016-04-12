@@ -63,7 +63,7 @@
           }, 
           "Camera": 
           {
-            "FieldOfView": 160.000000, 
+            "FieldOfView": 150.000000, 
             "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
@@ -9624,6 +9624,10 @@
         "Protected": false, 
         "Components": 
         {
+          "GravityManager": 
+          {
+            "LocalGravity": 20.000000
+          }
         }, 
         "Children": 
         {
@@ -14840,16 +14844,6 @@
                 "x": 1.000000, 
                 "y": 0.000000, 
                 "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "NormalColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.700000, 
-                "z": 0.300000, 
                 "w": 1.000000
               }
             }, 
