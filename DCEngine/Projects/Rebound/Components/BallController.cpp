@@ -54,6 +54,7 @@ namespace DCEngine {
     void BallController::Initialize()
     {
       gameObj = dynamic_cast<GameObject*>(Owner());
+
       Connect(Daisy->getMouse(), Events::MouseDown, BallController::OnMouseDownEvent);
       Connect(Daisy->getMouse(), Events::MouseUp, BallController::OnMouseUpEvent);
       Connect(gameObj, Events::CollisionStarted, BallController::OnCollisionStartedEvent);
@@ -75,6 +76,12 @@ namespace DCEngine {
       TrailRef = SpaceRef->CreateObject("TestParticle");
       TrailRef->AttachTo(gameObj);
       TrailRef->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation);
+
+      //Set up init state
+      Frozen = false;
+      Powering = false;
+      ParentToPlayer();
+      SpriteRef->Color = NormalColor;
 
       if (BallControllerTraceOn)
       {
@@ -263,7 +270,8 @@ namespace DCEngine {
         {
           DCTrace << "BallController::OnLogicUpdate :: F key pressed";
         }
-        FreezeBall();
+        if(CurrentlyFired == true)
+          FreezeBall();
       }			
       if (Daisy->getKeyboard()->KeyIsDown(Keys::E))
       {
