@@ -60,7 +60,9 @@ namespace DCEngine {
     @brief Camera Constructor
     */
     /**************************************************************************/
-    Camera::Camera(Entity & owner) : Component(std::string("Camera"), owner), Exposure(.5) {
+    Camera::Camera(Entity & owner) : Component(std::string("Camera"), owner), 
+      FieldOfView(90.0f), Size(90.0f), Yaw(90.0f), Pitch(0.0f), Roll(90.0f), Exposure(.5)
+    {
       Configure();
     }
 
@@ -90,7 +92,8 @@ namespace DCEngine {
     \note
     */
     /**************************************************************************/
-    void Camera::Initialize() {      
+    void Camera::Initialize() {    
+      DCTrace << "Camera::Initialize \n";
     }
 
     /**************************************************************************/
