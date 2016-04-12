@@ -303,7 +303,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 126, 
+        "GameObjectID": 1274, 
         "Name": "Camera", 
         "Protected": false, 
         "Components": 
@@ -314,27 +314,27 @@
             {
               "Vec3": 
               {
-                "x": -11.656560, 
-                "y": 0.964688, 
-                "z": 10.000000
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000
               }
             }, 
             "LocalTranslation": 
             {
               "Vec3": 
               {
-                "x": -11.656560, 
-                "y": 0.964688, 
-                "z": 10.000000
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000
               }
             }, 
             "WorldTranslation": 
             {
               "Vec3": 
               {
-                "x": -11.656560, 
-                "y": 0.964688, 
-                "z": 10.000000
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000
               }
             }, 
             "Rotation": 
@@ -358,26 +358,17 @@
           }, 
           "Camera": 
           {
-            "FieldOfView": 100.800003, 
+            "FieldOfView": 171.649002, 
             "Exposure": 0.500000, 
             "NearPlane": 0.100000, 
             "FarPlane": 100.000000, 
             "Size": 70.000000, 
             "Projection": "Perspective"
           }, 
-          "CameraControllerZilch": 
+          "CameraController": 
           {
-            "InterpolationSpeed": 0.060000, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 4.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "ScreenShakeMagnitude": 3.000000
+            "TargetName": "Player", 
+            "InterpolationSpeed": 0.060000
           }
         }, 
         "Children": 
@@ -1022,7 +1013,7 @@
             "BodyArchetype": "LancerBody", 
             "SpearArchetype": "LancerSpear", 
             "IdleRange": 1000.000000, 
-            "ChargeForce": 100.000000, 
+            "ChargeForce": 10000.000000, 
             "ShieldReflectionForce": 10000000.000000, 
             "AnimationSpeedHead": 10.000000, 
             "AnimationDistanceHead": 0.010000, 

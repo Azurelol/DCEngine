@@ -317,6 +317,7 @@ namespace DCEngine {
     void Lancer::ChargeLeft::Update(Lancer *owner)
     {
       owner->RigidBodyRef->setAcceleration(Vec3(-owner->ChargeForce, 0, 0));
+      //owner->RigidBodyRef->ApplyForce(Vec3(-owner->ChargeForce, 0, 0));
     }
 
     void Lancer::ChargeLeft::Exit(Lancer *owner)
@@ -342,6 +343,7 @@ namespace DCEngine {
     void Lancer::ChargeRight::Update(Lancer *owner)
     {
       owner->RigidBodyRef->setAcceleration(Vec3(owner->ChargeForce, 0, 0));
+      //owner->RigidBodyRef->ApplyForce(Vec3(owner->ChargeForce, 0, 0));
     }
 
     void Lancer::ChargeRight::Exit(Lancer *owner)
