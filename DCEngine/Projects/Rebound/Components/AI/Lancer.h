@@ -33,14 +33,15 @@ namespace DCEngine {
       CollisionTablePtr CollisionTableRef;
       GraphicsSpace* GraphicsSpaceRef;
       String PlayerName = "Player";
+      ArchetypeHandle ShieldArchetype;
       ArchetypeHandle HeadArchetype;
       ArchetypeHandle ShoulderArchetype;
       ArchetypeHandle BodyArchetype;
       ArchetypeHandle SpearArchetype;
       float IdleRange;        // Past this range, the grunt will be idle, within the range, it will patrol
       float ChargeForce;
-      float ShieldVelocityDifferenceThreshold;
-      float ShieldActivationSpeed;
+      float ShieldReflectionForce;
+      //float ShieldActivationSpeed;
       float AnimationSpeedHead;
       float AnimationDistanceHead;
       float AnimationSpeedShoulder;
@@ -56,14 +57,15 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(int, startingHealth);
       DCE_DEFINE_PROPERTY(int, maxHealth);
       DCE_DEFINE_PROPERTY(bool, IsInvulnerable);
+      DCE_DEFINE_PROPERTY(ArchetypeHandle, ShieldArchetype);
       DCE_DEFINE_PROPERTY(ArchetypeHandle, HeadArchetype);
       DCE_DEFINE_PROPERTY(ArchetypeHandle, ShoulderArchetype);
       DCE_DEFINE_PROPERTY(ArchetypeHandle, BodyArchetype);
       DCE_DEFINE_PROPERTY(ArchetypeHandle, SpearArchetype);
       DCE_DEFINE_PROPERTY(float, IdleRange);
       DCE_DEFINE_PROPERTY(float, ChargeForce);
-      DCE_DEFINE_PROPERTY(float, ShieldVelocityDifferenceThreshold);
-      DCE_DEFINE_PROPERTY(float, ShieldActivationSpeed);
+      DCE_DEFINE_PROPERTY(float, ShieldReflectionForce);
+      //DCE_DEFINE_PROPERTY(float, ShieldActivationSpeed);
       DCE_DEFINE_PROPERTY(float, AnimationSpeedHead);
       DCE_DEFINE_PROPERTY(float, AnimationDistanceHead);
       DCE_DEFINE_PROPERTY(float, AnimationSpeedShoulder);
@@ -77,6 +79,7 @@ namespace DCEngine {
       void Initialize();
       void OnCollisionStartedEvent(Events::CollisionStarted* event);
       void OnLogicUpdateEvent(Events::LogicUpdate * event);
+      void OnShieldCollisionStartedEvent(Events::CollisionStarted* event);
 
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
       ZilchDeclareDerivedType(Lancer, Component);
@@ -85,6 +88,7 @@ namespace DCEngine {
     private:
       StateMachine<Lancer> *stateMachine;
       GameObject *player;
+      GameObjectPtr shield;
       GameObjectPtr head;
       GameObjectPtr shoulder;
       GameObjectPtr body;
@@ -96,7 +100,6 @@ namespace DCEngine {
       int startingHealth;
       int maxHealth;
       bool IsInvulnerable;
-      LancerShield *shield;
       float randomPhase;
       bool ModifyHealth(int amount);
       void CreateSprites();

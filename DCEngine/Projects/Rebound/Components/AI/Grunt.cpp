@@ -83,6 +83,8 @@ namespace DCEngine {
       startingPosition = TransformRef->Translation;
       endPosition = startingPosition;
 
+      health = startingHealth;
+
       //defaultColor = SpriteRef->Color;
  
       std::random_device rd;
