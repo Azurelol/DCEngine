@@ -54,8 +54,10 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Grunt, AnimationDistanceSaw);
       //DCE_BINDING_DEFINE_PROPERTY(Grunt, IdleColor);
       //DCE_BINDING_DEFINE_PROPERTY(Grunt, PatrolColor);
-      //DCE_BINDING_DEFINE_PROPERTY(Grunt, AttackColor);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, AttackColor);
       //DCE_BINDING_DEFINE_PROPERTY(Grunt, IsDebugColorActive);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, DamageTakenColor);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, DamageTakenColorFlashSpeed);
     }
 
     // Dependancies
@@ -83,7 +85,9 @@ namespace DCEngine {
       startingPosition = TransformRef->Translation;
       endPosition = startingPosition;
 
-      //defaultColor = SpriteRef->Color;
+      health = startingHealth;
+
+      defaultColor = SpriteRef->Color;
  
       std::random_device rd;
       std::mt19937 generator(rd());
@@ -139,7 +143,10 @@ namespace DCEngine {
     {
       if (event->OtherObject->getComponent<BallController>() != NULL)
       {
-        ModifyHealth(-1);
+        if (ModifyHealth(-1))
+        {
+          FlashColor(DamageTakenColor, DamageTakenColorFlashSpeed);
+        }
       }
     }
 
@@ -201,6 +208,25 @@ namespace DCEngine {
       for (unsigned i = 0; i < sprites.size(); ++i)
       {
         sprites.at(i)->getComponent<Sprite>()->FlipX = flipX;
+      }
+    }
+
+    void Grunt::ChangeSpritesColor(Vec4 newColor)
+    {
+      for (unsigned i = 0; i < sprites.size(); ++i)
+      {
+        sprites.at(i)->getComponent<Sprite>()->Color = newColor;
+      }
+    }
+
+    void Grunt::FlashColor(Vec4 color, float duration)
+    {
+      for (unsigned i = 0; i < sprites.size(); ++i)
+      {
+        Vec4 oldColor = sprites.at(i)->getComponent<Sprite>()->Color;
+        sprites.at(i)->getComponent<Sprite>()->Color = color;
+        ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
+        Actions::Property(seq, sprites.at(i)->getComponent<Sprite>()->Color, oldColor, duration, Ease::Linear);
       }
     }
 
@@ -386,9 +412,9 @@ namespace DCEngine {
     void Grunt::Attack::Enter(Grunt *owner)
     {
       //if (owner->IsDebugColorActive)
-        //owner->SpriteRef->Color = owner->AttackColor;
+      owner->ChangeSpritesColor(owner->AttackColor);
 
-      DCTrace << "Grunt Attack Enter\n";
+      //DCTrace << "Grunt Attack Enter\n";
     }
 
     void Grunt::Attack::Update(Grunt *owner)
@@ -429,7 +455,7 @@ namespace DCEngine {
     void Grunt::Attack::Exit(Grunt *owner)
     {
       //if (owner->IsDebugColorActive)
-        //owner->SpriteRef->Color = owner->defaultColor;
+      owner->ChangeSpritesColor(owner->defaultColor);
     }
 
     Grunt::Attack* Grunt::Attack::Instance()

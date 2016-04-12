@@ -28,6 +28,8 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Lancer, maxHealth);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, IsInvulnerable);
       DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(Archetype);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, ShieldArchetype);
+      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyShieldArchetype, attributeArchetype);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, HeadArchetype);
       DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyHeadArchetype, attributeArchetype);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, ShoulderArchetype);
@@ -38,14 +40,16 @@ namespace DCEngine {
       DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertySpearArchetype, attributeArchetype);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, IdleRange);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, ChargeForce);
-      DCE_BINDING_DEFINE_PROPERTY(Lancer, ShieldVelocityDifferenceThreshold);
-      DCE_BINDING_DEFINE_PROPERTY(Lancer, ShieldActivationSpeed);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, ShieldReflectionForce);
+      //DCE_BINDING_DEFINE_PROPERTY(Lancer, ShieldActivationSpeed);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, AnimationSpeedHead);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, AnimationDistanceHead);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, AnimationSpeedShoulder);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, AnimationDistanceShoulder);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, AnimationSpeedSpear);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, AnimationDistanceSpear);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, DamageTakenColor);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, DamageTakenColorFlashSpeed);
     }
 
     // Dependancies
@@ -70,6 +74,11 @@ namespace DCEngine {
       SpriteRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
       PhysicsSpaceRef = SpaceRef->getComponent<Components::PhysicsSpace>();
       GraphicsSpaceRef = SpaceRef->getComponent<Components::GraphicsSpace>();
+      CollisionTableRef = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));
+      CollisionTableRef->SetResolve("LancerShield", "Player", CollisionFlag::SkipDetecting);
+      CollisionTableRef->SetResolve("LancerShield", "Ball", CollisionFlag::Resolve);
+      CollisionTableRef->SetResolve("LancerShield", "Terrain", CollisionFlag::SkipDetecting);
+      CollisionTableRef->SetResolve("LancerShield", "Enemy", CollisionFlag::SkipDetecting);
 
       stateMachine = new StateMachine<Lancer>(this);
       startingPosition = TransformRef->Translation;
@@ -79,16 +88,20 @@ namespace DCEngine {
 
       player = SpaceRef->FindObjectByName(PlayerName);
 
-      shield = gameObj->Children().front()->getComponent<LancerShield>();
-
       std::random_device rd;
       std::mt19937 generator(rd());
       std::uniform_real_distribution<float> distribution(0, 1);
       randomPhase = distribution(generator);
 
+
       SpriteRef->Visible = false;
 
+      health = startingHealth;
+
       CreateSprites();
+
+      Connect(shield, Events::CollisionStarted, Lancer::OnShieldCollisionStartedEvent);
+
     }
 
     void Lancer::OnLogicUpdateEvent(Events::LogicUpdate * event)
@@ -96,13 +109,35 @@ namespace DCEngine {
       stateMachine->Update();
 
       UpdateSprites(event->TimePassed);
+
+      shield->getComponent<Transform>()->Translation = TransformRef->Translation;
     }
 
     void Lancer::OnCollisionStartedEvent(Events::CollisionStarted * event)
     {
       if (event->OtherObject->getComponent<BallController>() != NULL)
       {
-        ModifyHealth(-1);
+        if (ModifyHealth(-1))
+        {
+          FlashColor(DamageTakenColor, DamageTakenColorFlashSpeed);
+        }
+      }
+    }
+
+    void Lancer::OnShieldCollisionStartedEvent(Events::CollisionStarted * event)
+    {
+      if (event->OtherObject->Name() == "Ball")
+      {
+        Vec3 parentPosition = TransformRef->getTranslation();
+        Vec3 otherPosition = event->OtherObject->getComponent<Components::Transform>()->getTranslation();
+
+        //if (parentVelocity.x - otherVelocity.x > velocityDifferenceThreshold)
+        //{
+        //event->OtherObject->getComponent<Components::RigidBody>()->setVelocity(-otherVelocity);
+
+        event->OtherObject->getComponent<Components::RigidBody>()->setVelocity(Vec3(0, 0, 0));
+        event->OtherObject->getComponent<Components::RigidBody>()->ApplyForce(glm::normalize(otherPosition - parentPosition) * ShieldReflectionForce);
+        //}
       }
     }
 
@@ -133,10 +168,12 @@ namespace DCEngine {
 
     void Lancer::CreateSprites()
     {
+      shield = SpaceRef->CreateObject(ShieldArchetype);
       head = SpaceRef->CreateObject(HeadArchetype);
       shoulder = SpaceRef->CreateObject(ShoulderArchetype);
       body = SpaceRef->CreateObject(BodyArchetype);
       spear = SpaceRef->CreateObject(SpearArchetype);
+      sprites.push_back(shield);
       sprites.push_back(head);
       sprites.push_back(shoulder);
       sprites.push_back(body);
@@ -166,6 +203,17 @@ namespace DCEngine {
       for (unsigned i = 0; i < sprites.size(); ++i)
       {
         sprites.at(i)->getComponent<Sprite>()->FlipX = flipX;
+      }
+    }
+
+    void Lancer::FlashColor(Vec4 color, float duration)
+    {
+      for (unsigned i = 0; i < sprites.size(); ++i)
+      {
+        Vec4 oldColor = sprites.at(i)->getComponent<Sprite>()->Color;
+        sprites.at(i)->getComponent<Sprite>()->Color = color;
+        ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
+        Actions::Property(seq, sprites.at(i)->getComponent<Sprite>()->Color, oldColor, duration, Ease::Linear);
       }
     }
 
@@ -209,16 +257,16 @@ namespace DCEngine {
         }
       }
 
-      if (abs(owner->RigidBodyRef->getVelocity().x) > owner->ShieldActivationSpeed)
-      {
-        owner->shield->isActive = true;
-        owner->shield->SpriteRef->Visible = true;
-      }
-      else
-      {
-        owner->shield->isActive = false;
-        owner->shield->SpriteRef->Visible = false;
-      }
+      //if (abs(owner->RigidBodyRef->getVelocity().x) > owner->ShieldActivationSpeed)
+      //{
+      //  //owner->shield->isActive = true;
+      //  //owner->shield->SpriteRef->Visible = true;
+      //}
+      //else
+      //{
+      //  //owner->shield->isActive = false;
+      //  //owner->shield->SpriteRef->Visible = false;
+      //}
     }
 
     void Lancer::Global::Exit(Lancer *owner) {}

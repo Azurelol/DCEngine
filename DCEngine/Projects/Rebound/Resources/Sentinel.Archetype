@@ -14,7 +14,7 @@
         {
           "Vec3": 
           {
-            "x": 0.000000, 
+            "x": 3.000000, 
             "y": 0.000000, 
             "z": 0.000000
           }
@@ -23,7 +23,7 @@
         {
           "Vec3": 
           {
-            "x": 0.000000, 
+            "x": 3.000000, 
             "y": 0.000000, 
             "z": 0.000000
           }
@@ -32,7 +32,7 @@
         {
           "Vec3": 
           {
-            "x": 0.000000, 
+            "x": 3.000000, 
             "y": 0.000000, 
             "z": 0.000000
           }
@@ -128,8 +128,8 @@
       "Sentinel": 
       {
         "PlayerName": "Player", 
-        "StartingHealth": 1, 
-        "MaxHealth": 1, 
+        "StartingHealth": 6, 
+        "MaxHealth": 6, 
         "IsInvulnerable": false, 
         "IdleRange": 100.000000, 
         "MoveSpeed": 2.000000, 
@@ -145,7 +145,18 @@
         "AnimationSpeedHead": 10.000000, 
         "AnimationDistanceHead": 0.010000, 
         "AnimationSpeedShoulder": 10.000000, 
-        "AnimationDistanceShoulder": 0.010000
+        "AnimationDistanceShoulder": 0.010000, 
+        "DamageTakenColor": 
+        {
+          "Vec4": 
+          {
+            "x": 1.000000, 
+            "y": 0.000000, 
+            "z": 0.000000, 
+            "w": 1.000000
+          }
+        }, 
+        "DamageTakenColorFlashSpeed": 0.200000
       }
     }, 
     "Children": 

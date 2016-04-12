@@ -156,7 +156,7 @@ namespace DCEngine {
 				//Grounded = true;
 				// play landing sound.
 				SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(LandSound);
-				if (event->OtherObject->getComponent<Components::Collider>() && event->OtherObject->getComponent<Components::Collider>()->getCollisionGroup() == "Terrain")
+				if (event->OtherObject->getComponent<Components::BoxCollider>() && event->OtherObject->getComponent<Components::BoxCollider>()->getCollisionGroup() == "Terrain")
 				{
 					auto particle = SpaceRef->CreateObject(LandingParticle);
 					if (particle)
@@ -267,7 +267,7 @@ namespace DCEngine {
 				//SpriteComponent->HaveAnimation = true;
 				//SpriteComponent->AnimationActive = true;
 				Jumping = false;
-				if (RigidBodyRef->getVelocity().y > 0 && BallRef->getComponent<Components::BallController>()->Locked == false)
+				if (RigidBodyRef->getVelocity().y > 0 && BallRef && BallRef->getComponent<Components::BallController>()->Locked == false)
 				{
 					RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() * Vec3(1, AirBrakeScalar, 1));
 				}
@@ -333,7 +333,19 @@ namespace DCEngine {
 		void PlayerController::Jump()
 		{
 			++JumpFramesApplied;
-			RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(0, JumpPower, 0));
+			if (RigidBodyRef->getVelocity().x > 5)
+			{
+				RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(JumpPower/4, JumpPower, 0));
+			}
+			else if (RigidBodyRef->getVelocity().x < -5)
+			{
+				RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(-JumpPower/4, JumpPower, 0));
+			}
+			else
+			{
+				RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(0, JumpPower, 0));
+			}
+			
 			if (JumpFramesApplied >= JumpFrames)
 			{
 				Jumping = false;

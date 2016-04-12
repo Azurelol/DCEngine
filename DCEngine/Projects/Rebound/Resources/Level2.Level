@@ -1991,7 +1991,7 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 0.200000, 
+                "y": 0.600000, 
                 "z": 1.000000
               }
             }
@@ -5573,23 +5573,9 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }, 
-          "MoveToLocationZilch": 
+          "DoorBehavior": 
           {
-            "Oscillate": false, 
-            "StartMoving": false, 
-            "TargetLocation": 
-            {
-              "Vec3": 
-              {
-                "x": 19.008417, 
-                "y": -2.499679, 
-                "z": 0.000000
-              }
-            }, 
-            "MinMoveTime": 1.000000, 
-            "MaxMoveTime": 1.000000, 
-            "MinDelay": 0.000000, 
-            "MaxDelay": 0.000000
+            "Closed": true
           }
         }, 
         "Children": 
@@ -5698,23 +5684,9 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }, 
-          "MoveToLocationZilch": 
+          "DoorBehavior": 
           {
-            "Oscillate": false, 
-            "StartMoving": false, 
-            "TargetLocation": 
-            {
-              "Vec3": 
-              {
-                "x": 54.538704, 
-                "y": -3.394842, 
-                "z": 0.000000
-              }
-            }, 
-            "MinMoveTime": 1.000000, 
-            "MaxMoveTime": 1.000000, 
-            "MinDelay": 0.000000, 
-            "MaxDelay": 0.000000
+            "Closed": true
           }
         }, 
         "Children": 
@@ -5823,23 +5795,9 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }, 
-          "MoveToLocationZilch": 
+          "DoorBehavior": 
           {
-            "Oscillate": false, 
-            "StartMoving": false, 
-            "TargetLocation": 
-            {
-              "Vec3": 
-              {
-                "x": 148.569565, 
-                "y": 33.048630, 
-                "z": 0.000000
-              }
-            }, 
-            "MinMoveTime": 1.000000, 
-            "MaxMoveTime": 1.000000, 
-            "MinDelay": 0.000000, 
-            "MaxDelay": 0.000000
+            "Closed": true
           }
         }, 
         "Children": 
@@ -5912,7 +5870,7 @@
                 "x": 0.000000, 
                 "y": 4.000000, 
                 "z": 1.000000, 
-                "w": 1.000000
+                "w": 0.333000
               }
             }, 
             "SpriteSource": "square", 
@@ -5958,7 +5916,7 @@
                 "x": 0.000000, 
                 "y": 4.000000, 
                 "z": 1.000000, 
-                "w": 1.000000
+                "w": 0.333000
               }
             }, 
             "InactiveColor": 
@@ -6089,7 +6047,7 @@
                 "x": 0.000000, 
                 "y": 4.000000, 
                 "z": 1.000000, 
-                "w": 1.000000
+                "w": 0.333300
               }
             }, 
             "InactiveColor": 
@@ -6886,7 +6844,7 @@
                 "x": 0.000000, 
                 "y": 4.000000, 
                 "z": 1.000000, 
-                "w": 1.000000
+                "w": 0.333000
               }
             }, 
             "SpriteSource": "square", 
@@ -6932,7 +6890,7 @@
                 "x": 0.000000, 
                 "y": 4.000000, 
                 "z": 1.000000, 
-                "w": 1.000000
+                "w": 0.333000
               }
             }, 
             "InactiveColor": 
@@ -7146,9 +7104,9 @@
               "Vec4": 
               {
                 "x": 0.200000, 
-                "y": 0.400000, 
-                "z": 0.700000, 
-                "w": 0.500000
+                "y": 0.467000, 
+                "z": 0.800000, 
+                "w": 0.933000
               }
             }, 
             "SpriteSource": "square", 
@@ -7156,7 +7114,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 2
           }, 
           "BoxCollider": 
           {
@@ -7195,17 +7153,17 @@
                 "x": 0.200000, 
                 "y": 0.400000, 
                 "z": 0.700000, 
-                "w": 0.500000
+                "w": 0.900000
               }
             }, 
             "InactiveColor": 
             {
               "Vec4": 
               {
-                "x": 0.200000, 
-                "y": 0.200000, 
+                "x": 0.400000, 
+                "y": 0.400000, 
                 "z": 0.700000, 
-                "w": 0.200000
+                "w": 0.500000
               }
             }
           }
@@ -7288,7 +7246,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 2
           }, 
           "BoxCollider": 
           {
@@ -7327,17 +7285,17 @@
                 "x": 0.200000, 
                 "y": 0.400000, 
                 "z": 0.700000, 
-                "w": 0.500000
+                "w": 0.900000
               }
             }, 
             "InactiveColor": 
             {
               "Vec4": 
               {
-                "x": 0.200000, 
-                "y": 0.200000, 
+                "x": 0.400000, 
+                "y": 0.400000, 
                 "z": 0.700000, 
-                "w": 0.010000
+                "w": 0.500000
               }
             }
           }
@@ -8653,7 +8611,7 @@
                 "x": 0.000000, 
                 "y": 4.000000, 
                 "z": 1.000000, 
-                "w": 1.000000
+                "w": 0.333300
               }
             }, 
             "InactiveColor": 
@@ -8830,7 +8788,7 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 0.200000, 
+                "y": 0.600000, 
                 "z": 1.000000
               }
             }
@@ -9099,23 +9057,9 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }, 
-          "MoveToLocationZilch": 
+          "DoorBehavior": 
           {
-            "Oscillate": false, 
-            "StartMoving": false, 
-            "TargetLocation": 
-            {
-              "Vec3": 
-              {
-                "x": 112.283127, 
-                "y": -2.680249, 
-                "z": 0.000000
-              }
-            }, 
-            "MinMoveTime": 0.250000, 
-            "MaxMoveTime": 0.250000, 
-            "MinDelay": 0.000000, 
-            "MaxDelay": 0.000000
+            "Closed": true
           }
         }, 
         "Children": 
