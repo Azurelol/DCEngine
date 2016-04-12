@@ -12,6 +12,10 @@ class EnergyShield : ZilchComponent
 	[Property]
 	var InactiveColor : Real4 = Real4();
 
+	[Property]
+	var CollideSound : String = "";
+	var CollideSoundInstance : SoundInstance;
+
     function Initialize()
     {
         Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollisionStarted);
@@ -29,6 +33,10 @@ class EnergyShield : ZilchComponent
 		// NOTE: Change to BallController once bound
 		if(event.OtherObject.BallTemp == null && this.Active)
 		{
+			if(this.CollideSound != "")
+			{
+				this.CollideSoundInstance = this.Space.SoundSpace.PlayCue(this.CollideSound);
+			}
 			var contactNormal = event.Normal;
 
 			event.OtherObject.RigidBody.ApplyLinearVelocity(-contactNormal * this.RepulseSpeed);

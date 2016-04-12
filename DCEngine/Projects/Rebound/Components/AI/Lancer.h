@@ -48,6 +48,8 @@ namespace DCEngine {
       float AnimationDistanceShoulder;
       float AnimationSpeedSpear;
       float AnimationDistanceSpear;
+      Vec4 DamageTakenColor;
+      float DamageTakenColorFlashSpeed;
 
 
       DCE_COMPONENT_DECLARE_DEPENDENCIES;
@@ -72,6 +74,8 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(float, AnimationDistanceShoulder);
       DCE_DEFINE_PROPERTY(float, AnimationSpeedSpear);
       DCE_DEFINE_PROPERTY(float, AnimationDistanceSpear);
+      DCE_DEFINE_PROPERTY(Vec4, DamageTakenColor);
+      DCE_DEFINE_PROPERTY(float, DamageTakenColorFlashSpeed);
 
       // Methods
       Lancer(Entity& owner) : Component(std::string("Lancer"), owner) {}
@@ -105,6 +109,7 @@ namespace DCEngine {
       void CreateSprites();
       void UpdateSprites(float timePassed);
       void FlipSprites(bool flipx);
+      void FlashColor(Vec4 color, float duration);
 
       class Global : public IState<Lancer>
       {
