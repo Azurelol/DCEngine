@@ -1,6 +1,10 @@
 {
    "Asset Path" : "Assets/",
+<<<<<<< HEAD
    "Default Level" : "Level6",
+=======
+   "Default Level" : "SandboxTesting",
+>>>>>>> d75ff125a44fb79d0aa7059d1aa8597ad81b6b54
    "Default Space" : "",
    "Play" : false,
    "Project Name" : "Rebound",
