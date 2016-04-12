@@ -10,11 +10,30 @@
         "Locked": false, 
         "GameObjectID": 153, 
         "Name": "Camera", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -61,11 +80,30 @@
         "Locked": false, 
         "GameObjectID": 154, 
         "Name": "Light", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -136,11 +174,30 @@
         "Locked": false, 
         "GameObjectID": 155, 
         "Name": "Sprite", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -198,11 +255,30 @@
         "Locked": false, 
         "GameObjectID": 156, 
         "Name": "BackButtonHTP", 
+        "Protected": false, 
         "Components": 
         {
           "Transform": 
           {
             "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": -13.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": -13.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
             {
               "Vec3": 
               {
@@ -256,6 +332,19 @@
             "CaptureMouse": true, 
             "Noise": false
           }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": true, 
+        "GameObjectID": 1992, 
+        "Name": "LevelSettings", 
+        "Protected": true, 
+        "Components": 
+        {
         }, 
         "Children": 
         {

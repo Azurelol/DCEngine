@@ -27,7 +27,6 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(BallController, MaxCharge);
       DCE_BINDING_DEFINE_PROPERTY(BallController, ChargeFactor);
       DCE_BINDING_DEFINE_PROPERTY(BallController, FrozenColor);
-      DCE_BINDING_DEFINE_PROPERTY(BallController, NormalColor);
       DCE_BINDING_DEFINE_PROPERTY(BallController, NormalGravity);
       DCE_BINDING_DEFINE_PROPERTY(BallController, ShotGravity);
       DCE_BINDING_DEFINE_PROPERTY(BallController, ChargedColor);
@@ -54,7 +53,6 @@ namespace DCEngine {
     void BallController::Initialize()
     {
       gameObj = dynamic_cast<GameObject*>(Owner());
-
       Connect(Daisy->getMouse(), Events::MouseDown, BallController::OnMouseDownEvent);
       Connect(Daisy->getMouse(), Events::MouseUp, BallController::OnMouseUpEvent);
       Connect(gameObj, Events::CollisionStarted, BallController::OnCollisionStartedEvent);
@@ -76,13 +74,7 @@ namespace DCEngine {
       TrailRef = SpaceRef->CreateObject("TestParticle");
       TrailRef->AttachTo(gameObj);
       TrailRef->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation);
-
-      //Set up init state
-      Frozen = false;
-      Powering = false;
-      ParentToPlayer();
-      SpriteRef->Color = NormalColor;
-
+	  NormalColor = SpriteRef->Color;
       if (BallControllerTraceOn)
       {
         DCTrace << PlayerRef->getComponent<Components::Transform>()->Translation.x;
@@ -208,11 +200,15 @@ namespace DCEngine {
 
       RigidBodyRef->setGravityRatio(NormalGravity);
       if (event->OtherObject->getComponent<Components::PlayerController>())
-      {
+	  {
         hitPlayer = true;
         CollidingWithPlayer = true;
-        if (CollisionTableRef->GetResolve("Ball", "Player") == CollisionFlag::SkipResolution && gameObj->Parent() == nullptr)
+        if (CollisionTableRef->GetResolve("Ball", "Player") == CollisionFlag::SkipResolution && (gameObj->Parent() == nullptr || gameObj->Parent()->getComponent<Components::LockField>()))
         {
+			if(gameObj->Parent() && gameObj->Parent()->getComponent<Components::LockField>() != nullptr)
+			{
+				gameObj->Parent()->getComponent<Components::LockField>()->UnlockBall(gameObj);
+			}
           ParentToPlayer();
         }
       }
@@ -270,8 +266,7 @@ namespace DCEngine {
         {
           DCTrace << "BallController::OnLogicUpdate :: F key pressed";
         }
-        if(CurrentlyFired == true)
-          FreezeBall();
+        FreezeBall();
       }			
       if (Daisy->getKeyboard()->KeyIsDown(Keys::E))
       {
