@@ -5,6 +5,7 @@
     "Locked": false, 
     "GameObjectID": 1727, 
     "Name": "EnemyExplosionParticle", 
+    "Protected": false, 
     "Components": 
     {
       "Transform": 
@@ -13,8 +14,26 @@
         {
           "Vec3": 
           {
-            "x": 0.000000, 
-            "y": 9.000000, 
+            "x": -19.544296, 
+            "y": -3.278992, 
+            "z": 0.000000
+          }
+        }, 
+        "LocalTranslation": 
+        {
+          "Vec3": 
+          {
+            "x": -19.544296, 
+            "y": -3.278992, 
+            "z": 0.000000
+          }
+        }, 
+        "WorldTranslation": 
+        {
+          "Vec3": 
+          {
+            "x": -19.544296, 
+            "y": -3.278992, 
             "z": 0.000000
           }
         }, 
@@ -70,9 +89,9 @@
       {
         "Active": true, 
         "ResetCount": false, 
-        "EmitCount": 15, 
+        "EmitCount": 1, 
         "EmitRate": 1000, 
-        "EmitVariance": 0, 
+        "EmitVariance": 30, 
         "Size": 0.700000, 
         "SizeVariance": 0.200000, 
         "Lifetime": 0.500000, 
@@ -96,7 +115,16 @@
             "y": 5.000000, 
             "z": 0.000000
           }
-        }
+        }, 
+        "EmissionArea": 
+        {
+          "Vec2": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000
+          }
+        }, 
+        "EmissionCircle": false
       }, 
       "LinearParticleAnimator": 
       {
@@ -120,7 +148,7 @@
         }, 
         "Torque": 0.000000, 
         "Growth": -0.500000, 
-        "Dampening": 5.000000
+        "Dampening": 3.500000
       }, 
       "ParticleColorAnimator": 
       {

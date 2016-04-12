@@ -5,6 +5,7 @@
     "Locked": false, 
     "GameObjectID": 67, 
     "Name": "Sentinel Shield", 
+    "Protected": false, 
     "Components": 
     {
       "Transform": 
@@ -13,8 +14,26 @@
         {
           "Vec3": 
           {
-            "x": -49.204411, 
-            "y": 3.467019, 
+            "x": -1.168352, 
+            "y": 0.231660, 
+            "z": 0.000000
+          }
+        }, 
+        "LocalTranslation": 
+        {
+          "Vec3": 
+          {
+            "x": -1.168352, 
+            "y": 0.231660, 
+            "z": 0.000000
+          }
+        }, 
+        "WorldTranslation": 
+        {
+          "Vec3": 
+          {
+            "x": -1.168352, 
+            "y": 0.231660, 
             "z": 0.000000
           }
         }, 
@@ -55,7 +74,7 @@
         "FlipY": false, 
         "AnimationActive": false, 
         "AnimationSpeed": 1.000000, 
-        "DrawLayer": 1
+        "DrawLayer": 2
       }, 
       "BoxCollider": 
       {

@@ -304,8 +304,8 @@
             {
               "Vec3": 
               {
-                "x": -67.189919, 
-                "y": -30.895201, 
+                "x": -175.262421, 
+                "y": -83.735481, 
                 "z": 0.000000
               }
             }, 
@@ -313,8 +313,8 @@
             {
               "Vec3": 
               {
-                "x": -67.189919, 
-                "y": -30.895201, 
+                "x": -175.262421, 
+                "y": -83.735481, 
                 "z": 0.000000
               }
             }, 
@@ -322,8 +322,8 @@
             {
               "Vec3": 
               {
-                "x": -67.189919, 
-                "y": -30.895201, 
+                "x": -175.262421, 
+                "y": -83.735481, 
                 "z": 0.000000
               }
             }, 
@@ -1746,143 +1746,26 @@
       }, 
       "GameObject": 
       {
-        "Locked": false, 
-        "GameObjectID": 914, 
-        "Name": "Sentinel", 
+        "Locked": true, 
+        "GameObjectID": 473, 
+        "Name": "LevelSettings", 
         "Protected": false, 
         "Components": 
         {
-          "Transform": 
+          "GravityManager": 
           {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": -145.345184, 
-                "y": -72.688866, 
-                "z": 0.000000
-              }
-            }, 
-            "LocalTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": -145.345184, 
-                "y": -72.688866, 
-                "z": 0.000000
-              }
-            }, 
-            "WorldTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": -145.345184, 
-                "y": -72.688866, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 2.000000, 
-                "z": 1.000000
-              }
-            }
+            "LocalGravity": 50.000000
           }, 
-          "Sprite": 
+          "MusicManager": 
           {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "char_sent", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "Track": "MachineHeart", 
+            "Volume": 1.000000, 
+            "PlayOnStart": true, 
+            "StopOnEnd": false
           }, 
-          "BoxCollider": 
+          "PauseManagerZ": 
           {
-            "CollisionGroup": "Enemy", 
-            "PhysicsMaterial": "", 
-            "Size": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Ghost": false, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
-          }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
-          "Sentinel": 
-          {
-            "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
-            "IsInvulnerable": false, 
-            "IdleRange": 100.000000, 
-            "MoveSpeed": 2.000000, 
-            "ShieldArchetype": "Sentinel Shield", 
-            "ShieldRadius": 1.000000, 
-            "ShieldBashDistance": 2.000000, 
-            "ShieldBashOutTime": 0.200000, 
-            "ShieldBashInTime": 0.100000, 
-            "ShieldBashCooldown": 1.000000
+            "PauseLevelName": "PauseMenu"
           }
         }, 
         "Children": 
@@ -2143,7 +2026,32 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000
+            "AttackJumpPeriod": 1.000000, 
+            "AnimationSpeedHead": 0.000000, 
+            "AnimationDistanceHead": 0.000000, 
+            "AnimationSpeedSaw": 0.000000, 
+            "AnimationDistanceSaw": 0.000000, 
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }
         }, 
         "Children": 
@@ -2293,7 +2201,32 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000
+            "AttackJumpPeriod": 1.000000, 
+            "AnimationSpeedHead": 0.000000, 
+            "AnimationDistanceHead": 0.000000, 
+            "AnimationSpeedSaw": 0.000000, 
+            "AnimationDistanceSaw": 0.000000, 
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }
         }, 
         "Children": 
@@ -2443,7 +2376,32 @@
             "JumpPeriod": 2.000000, 
             "AttackJumpStrengthX": 10.000000, 
             "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000
+            "AttackJumpPeriod": 1.000000, 
+            "AnimationSpeedHead": 0.000000, 
+            "AnimationDistanceHead": 0.000000, 
+            "AnimationSpeedSaw": 0.000000, 
+            "AnimationDistanceSaw": 0.000000, 
+            "AttackColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }
         }, 
         "Children": 
@@ -3546,18 +3504,9 @@
                 "w": 1.000000
               }
             }, 
-            "NormalColor": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 0.700000, 
-                "z": 0.300000, 
-                "w": 1.000000
-              }
-            }, 
             "NormalGravity": 0.400000, 
             "ShotGravity": 0.200000, 
+            "AttractYBoost": 3.000000, 
             "ChargedColor": 
             {
               "Vec4": 
@@ -4145,8 +4094,8 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 915, 
-        "Name": "Lancer", 
+        "GameObjectID": 446, 
+        "Name": "Ground", 
         "Protected": false, 
         "Components": 
         {
@@ -4156,8 +4105,8 @@
             {
               "Vec3": 
               {
-                "x": -136.130081, 
-                "y": -76.526489, 
+                "x": -144.503540, 
+                "y": -42.506165, 
                 "z": 0.000000
               }
             }, 
@@ -4165,8 +4114,8 @@
             {
               "Vec3": 
               {
-                "x": -136.130081, 
-                "y": -76.526489, 
+                "x": -144.503540, 
+                "y": -42.506165, 
                 "z": 0.000000
               }
             }, 
@@ -4174,8 +4123,8 @@
             {
               "Vec3": 
               {
-                "x": -136.130081, 
-                "y": -76.526489, 
+                "x": -144.503540, 
+                "y": -42.506165, 
                 "z": 0.000000
               }
             }, 
@@ -4192,8 +4141,8 @@
             {
               "Vec3": 
               {
-                "x": 4.000000, 
-                "y": 2.000000, 
+                "x": 1.000000, 
+                "y": 15.000000, 
                 "z": 1.000000
               }
             }
@@ -4211,39 +4160,16 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "Char_Lanc", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Enemy", 
+            "CollisionGroup": "Terrain", 
             "PhysicsMaterial": "", 
             "Size": 
             {
@@ -4266,139 +4192,17 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "Lancer": 
-          {
-            "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
-            "IsInvulnerable": false, 
-            "IdleRange": 1000.000000, 
-            "ChargeForce": 100.000000, 
-            "ShieldVelocityDifferenceThreshold": 1.000000, 
-            "ShieldActivationSpeed": 5.000000
           }
         }, 
         "Children": 
         {
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 45, 
-            "Name": "LancerShield", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": -141.042130, 
-                    "y": 0.147878, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": -4.912048, 
-                    "y": 76.674370, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": -141.042130, 
-                    "y": 0.147878, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 8.000000, 
-                    "y": 5.000000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 0.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 0.295000
-                  }
-                }, 
-                "SpriteSource": "Circle", 
-                "FlipX": false, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 0
-              }, 
-              "BoxCollider": 
-              {
-                "CollisionGroup": "LancerShield", 
-                "PhysicsMaterial": "", 
-                "Size": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000
-                  }
-                }, 
-                "Offset": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Ghost": true, 
-                "SendsEvents": true, 
-                "IsDrawingCollider": false
-              }, 
-              "LancerShield": 
-              {
-                "ShieldReflectionForce": 100000.000000
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }
         }
       }, 
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 915, 
-        "Name": "Lancer", 
+        "GameObjectID": 11, 
+        "Name": "LandingParticleUrban", 
         "Protected": false, 
         "Components": 
         {
@@ -4408,8 +4212,8 @@
             {
               "Vec3": 
               {
-                "x": -127.486656, 
-                "y": -75.722237, 
+                "x": 3.000000, 
+                "y": 0.000000, 
                 "z": 0.000000
               }
             }, 
@@ -4417,8 +4221,8 @@
             {
               "Vec3": 
               {
-                "x": -127.486656, 
-                "y": -75.722237, 
+                "x": 3.000000, 
+                "y": 0.000000, 
                 "z": 0.000000
               }
             }, 
@@ -4426,8 +4230,163 @@
             {
               "Vec3": 
               {
-                "x": -127.486656, 
-                "y": -75.722237, 
+                "x": 3.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteParticleSystem": 
+          {
+            "Visible": true, 
+            "Tint": 
+            {
+              "Vec4": 
+              {
+                "x": 0.100000, 
+                "y": 0.100000, 
+                "z": 0.150000, 
+                "w": 1.000000
+              }
+            }, 
+            "Texture": "WhiteCloud", 
+            "VelocityScale": 1.000000, 
+            "LengthScale": 1.000000, 
+            "SystemSize": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 4.000000, 
+                "z": 4.000000
+              }
+            }, 
+            "Additive": false, 
+            "Lock": false, 
+            "DrawLayer": 4
+          }, 
+          "ParticleEmitter": 
+          {
+            "Active": true, 
+            "ResetCount": false, 
+            "EmitCount": 10, 
+            "EmitRate": 5000, 
+            "EmitVariance": 0, 
+            "Size": 0.750000, 
+            "SizeVariance": 0.300000, 
+            "Lifetime": 1.000000, 
+            "LifetimeVariance": 1.000000, 
+            "Spin": 100.000000, 
+            "SpinVariance": 1004.000000, 
+            "StartVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 3.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
+          }, 
+          "LinearParticleAnimator": 
+          {
+            "Force": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 5.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomForce": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Torque": 0.000000, 
+            "Growth": -1.000000, 
+            "Dampening": 3.000000
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 914, 
+        "Name": "Sentinel", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -55.754189, 
+                "y": -32.150223, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -55.754189, 
+                "y": -32.150223, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -55.754189, 
+                "y": -32.150223, 
                 "z": 0.000000
               }
             }, 
@@ -4463,12 +4422,38 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "Char_Lanc", 
+            "SpriteSource": "char_sent", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Enemy", 
+            "PhysicsMaterial": "DefaultPhysicsMaterial", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
           }, 
           "RigidBody": 
           {
@@ -4493,20 +4478,82 @@
             "Mass": 10.000000, 
             "RotationLocked": true
           }, 
-          "BoxCollider": 
+          "Sentinel": 
           {
-            "CollisionGroup": "Enemy", 
-            "PhysicsMaterial": "", 
-            "Size": 
+            "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
+            "IdleRange": 100.000000, 
+            "MoveSpeed": 2.000000, 
+            "ShieldArchetype": "Sentinel Shield", 
+            "HeadArchetype": "SentinelHead", 
+            "ShoulderArchetype": "SentinelShoulders", 
+            "BodyArchetype": "SentinelBody", 
+            "ShieldRadius": 1.000000, 
+            "ShieldBashDistance": 2.000000, 
+            "ShieldBashOutTime": 0.200000, 
+            "ShieldBashInTime": 0.100000, 
+            "ShieldBashCooldown": 1.000000, 
+            "AnimationSpeedHead": 10.000000, 
+            "AnimationDistanceHead": 0.010000, 
+            "AnimationSpeedShoulder": 10.000000, 
+            "AnimationDistanceShoulder": 0.010000, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 11, 
+        "Name": "LandingParticleSand", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
+                "x": -3.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
               }
             }, 
-            "Offset": 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -3.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -3.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
             {
               "Vec3": 
               {
@@ -4515,135 +4562,113 @@
                 "z": 0.000000
               }
             }, 
-            "Ghost": false, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
           }, 
-          "Lancer": 
+          "SpriteParticleSystem": 
           {
-            "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
-            "IsInvulnerable": false, 
-            "IdleRange": 1000.000000, 
-            "ChargeForce": 100.000000, 
-            "ShieldVelocityDifferenceThreshold": 1.000000, 
-            "ShieldActivationSpeed": 5.000000
+            "Visible": true, 
+            "Tint": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.550000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Texture": "WhiteCloud", 
+            "VelocityScale": 1.000000, 
+            "LengthScale": 1.000000, 
+            "SystemSize": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 4.000000, 
+                "z": 4.000000
+              }
+            }, 
+            "Additive": false, 
+            "Lock": false, 
+            "DrawLayer": 4
+          }, 
+          "ParticleEmitter": 
+          {
+            "Active": true, 
+            "ResetCount": false, 
+            "EmitCount": 10, 
+            "EmitRate": 5000, 
+            "EmitVariance": 0, 
+            "Size": 2.000000, 
+            "SizeVariance": 1.000000, 
+            "Lifetime": 1.000000, 
+            "LifetimeVariance": 1.000000, 
+            "Spin": 100.000000, 
+            "SpinVariance": 1004.000000, 
+            "StartVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 7.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
+          }, 
+          "LinearParticleAnimator": 
+          {
+            "Force": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 5.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomForce": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Torque": 0.000000, 
+            "Growth": -5.000000, 
+            "Dampening": 3.000000
           }
         }, 
         "Children": 
         {
-          "GameObject": 
-          {
-            "Locked": false, 
-            "GameObjectID": 45, 
-            "Name": "LancerShield", 
-            "Protected": false, 
-            "Components": 
-            {
-              "Transform": 
-              {
-                "Translation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": -137.469131, 
-                    "y": 10.866873, 
-                    "z": 0.000000
-                  }
-                }, 
-                "LocalTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": -9.982475, 
-                    "y": 86.589111, 
-                    "z": 0.000000
-                  }
-                }, 
-                "WorldTranslation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": -137.469131, 
-                    "y": 10.866873, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Rotation": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Scale": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 8.000000, 
-                    "y": 5.000000, 
-                    "z": 1.000000
-                  }
-                }
-              }, 
-              "Sprite": 
-              {
-                "Visible": true, 
-                "Color": 
-                {
-                  "Vec4": 
-                  {
-                    "x": 0.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000, 
-                    "w": 0.295000
-                  }
-                }, 
-                "SpriteSource": "Circle", 
-                "FlipX": false, 
-                "FlipY": false, 
-                "AnimationActive": false, 
-                "AnimationSpeed": 1.000000, 
-                "DrawLayer": 0
-              }, 
-              "BoxCollider": 
-              {
-                "CollisionGroup": "LancerShield", 
-                "PhysicsMaterial": "", 
-                "Size": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.000000, 
-                    "y": 1.000000, 
-                    "z": 1.000000
-                  }
-                }, 
-                "Offset": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "Ghost": true, 
-                "SendsEvents": true, 
-                "IsDrawingCollider": false
-              }, 
-              "LancerShield": 
-              {
-                "ShieldReflectionForce": 100000.000000
-              }
-            }, 
-            "Children": 
-            {
-            }
-          }
         }
       }, 
       "GameObject": 
@@ -5081,8 +5106,8 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 914, 
-        "Name": "Sentinel", 
+        "GameObjectID": 332, 
+        "Name": "LandingParticle", 
         "Protected": false, 
         "Components": 
         {
@@ -5092,8 +5117,8 @@
             {
               "Vec3": 
               {
-                "x": -145.345184, 
-                "y": -72.688866, 
+                "x": 0.000000, 
+                "y": 0.000000, 
                 "z": 0.000000
               }
             }, 
@@ -5101,8 +5126,8 @@
             {
               "Vec3": 
               {
-                "x": -145.345184, 
-                "y": -72.688866, 
+                "x": 0.000000, 
+                "y": 0.000000, 
                 "z": 0.000000
               }
             }, 
@@ -5110,8 +5135,8 @@
             {
               "Vec3": 
               {
-                "x": -145.345184, 
-                "y": -72.688866, 
+                "x": 0.000000, 
+                "y": 0.000000, 
                 "z": 0.000000
               }
             }, 
@@ -5129,7 +5154,162 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 2.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteParticleSystem": 
+          {
+            "Visible": true, 
+            "Tint": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Texture": "WhiteCloud", 
+            "VelocityScale": 1.000000, 
+            "LengthScale": 1.000000, 
+            "SystemSize": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 4.000000, 
+                "z": 4.000000
+              }
+            }, 
+            "Additive": false, 
+            "Lock": false, 
+            "DrawLayer": 4
+          }, 
+          "ParticleEmitter": 
+          {
+            "Active": true, 
+            "ResetCount": false, 
+            "EmitCount": 10, 
+            "EmitRate": 5000, 
+            "EmitVariance": 0, 
+            "Size": 1.000000, 
+            "SizeVariance": 1.000000, 
+            "Lifetime": 1.000000, 
+            "LifetimeVariance": 1.000000, 
+            "Spin": 100.000000, 
+            "SpinVariance": 100.000000, 
+            "StartVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 5.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
+          }, 
+          "LinearParticleAnimator": 
+          {
+            "Force": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 5.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomForce": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Torque": 0.000000, 
+            "Growth": -2.000000, 
+            "Dampening": 3.000000
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 446, 
+        "Name": "Ground", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -140.018585, 
+                "y": -50.496628, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -140.018585, 
+                "y": -50.496628, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -140.018585, 
+                "y": -50.496628, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 10.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -5147,7 +5327,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "char_sent", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -5156,7 +5336,7 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Enemy", 
+            "CollisionGroup": "Terrain", 
             "PhysicsMaterial": "", 
             "Size": 
             {
@@ -5179,44 +5359,6 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
-          "Sentinel": 
-          {
-            "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
-            "IsInvulnerable": false, 
-            "IdleRange": 100.000000, 
-            "MoveSpeed": 2.000000, 
-            "ShieldArchetype": "Sentinel Shield", 
-            "ShieldRadius": 1.000000, 
-            "ShieldBashDistance": 2.000000, 
-            "ShieldBashOutTime": 0.200000, 
-            "ShieldBashInTime": 0.100000, 
-            "ShieldBashCooldown": 1.000000
           }
         }, 
         "Children": 
@@ -5226,8 +5368,8 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 914, 
-        "Name": "Sentinel", 
+        "GameObjectID": 446, 
+        "Name": "Ground", 
         "Protected": false, 
         "Components": 
         {
@@ -5237,8 +5379,8 @@
             {
               "Vec3": 
               {
-                "x": -145.345184, 
-                "y": -72.688866, 
+                "x": -209.169876, 
+                "y": -100.905434, 
                 "z": 0.000000
               }
             }, 
@@ -5246,8 +5388,8 @@
             {
               "Vec3": 
               {
-                "x": -145.345184, 
-                "y": -72.688866, 
+                "x": -209.169876, 
+                "y": -100.905434, 
                 "z": 0.000000
               }
             }, 
@@ -5255,8 +5397,8 @@
             {
               "Vec3": 
               {
-                "x": -145.345184, 
-                "y": -72.688866, 
+                "x": -209.169876, 
+                "y": -100.905434, 
                 "z": 0.000000
               }
             }, 
@@ -5274,7 +5416,7 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 2.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -5292,7 +5434,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "char_sent", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -5301,7 +5443,7 @@
           }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Enemy", 
+            "CollisionGroup": "Terrain", 
             "PhysicsMaterial": "", 
             "Size": 
             {
@@ -5324,344 +5466,6 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
-          "Sentinel": 
-          {
-            "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
-            "IsInvulnerable": false, 
-            "IdleRange": 100.000000, 
-            "MoveSpeed": 2.000000, 
-            "ShieldArchetype": "Sentinel Shield", 
-            "ShieldRadius": 1.000000, 
-            "ShieldBashDistance": 2.000000, 
-            "ShieldBashOutTime": 0.200000, 
-            "ShieldBashInTime": 0.100000, 
-            "ShieldBashCooldown": 1.000000
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 900, 
-        "Name": "Scrapper4", 
-        "Protected": false, 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": -71.124634, 
-                "y": -34.783146, 
-                "z": 0.000000
-              }
-            }, 
-            "LocalTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": -71.124634, 
-                "y": -34.783146, 
-                "z": 0.000000
-              }
-            }, 
-            "WorldTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": -71.124634, 
-                "y": -34.783146, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.500000, 
-                "y": 1.500000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "Char_Scrap", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "BoxCollider": 
-          {
-            "CollisionGroup": "Enemy", 
-            "PhysicsMaterial": "DefaultPhysicsMaterial", 
-            "Size": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Ghost": false, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
-          }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
-          "Grunt": 
-          {
-            "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
-            "IsInvulnerable": false, 
-            "HeadArchetype": "", 
-            "BodyArchetype": "", 
-            "SawArchetype": "", 
-            "IdleRange": 100.000000, 
-            "PatrolDistance": 20.000000, 
-            "IsPatrolRight": true, 
-            "IsAggressive": true, 
-            "JumpStrengthX": 5.000000, 
-            "JumpStrengthY": 25.000000, 
-            "JumpPeriod": 2.000000, 
-            "AttackJumpStrengthX": 10.000000, 
-            "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 900, 
-        "Name": "Scrapper4", 
-        "Protected": false, 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": -58.097794, 
-                "y": -34.726040, 
-                "z": 0.000000
-              }
-            }, 
-            "LocalTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": -58.097794, 
-                "y": -34.726040, 
-                "z": 0.000000
-              }
-            }, 
-            "WorldTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": -58.097794, 
-                "y": -34.726040, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.500000, 
-                "y": 1.500000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "Char_Scrap", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "BoxCollider": 
-          {
-            "CollisionGroup": "Enemy", 
-            "PhysicsMaterial": "DefaultPhysicsMaterial", 
-            "Size": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Ghost": false, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
-          }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
-          "Grunt": 
-          {
-            "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
-            "IsInvulnerable": false, 
-            "HeadArchetype": "", 
-            "BodyArchetype": "", 
-            "SawArchetype": "", 
-            "IdleRange": 100.000000, 
-            "PatrolDistance": 20.000000, 
-            "IsPatrolRight": true, 
-            "IsAggressive": true, 
-            "JumpStrengthX": 5.000000, 
-            "JumpStrengthY": 25.000000, 
-            "JumpPeriod": 2.000000, 
-            "AttackJumpStrengthX": 10.000000, 
-            "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000
           }
         }, 
         "Children": 
@@ -5724,25 +5528,50 @@
               }
             }
           }, 
-          "Sprite": 
+          "Grunt": 
           {
-            "Visible": true, 
-            "Color": 
+            "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
+            "HeadArchetype": "ScrapperHead", 
+            "BodyArchetype": "ScrapperBody", 
+            "SawArchetype": "ScrapperSaw", 
+            "IdleRange": 100.000000, 
+            "PatrolDistance": 20.000000, 
+            "IsPatrolRight": true, 
+            "IsAggressive": true, 
+            "JumpStrengthX": 5.000000, 
+            "JumpStrengthY": 25.000000, 
+            "JumpPeriod": 2.000000, 
+            "AttackJumpStrengthX": 10.000000, 
+            "AttackJumpStrengthY": 15.000000, 
+            "AttackJumpPeriod": 1.000000, 
+            "AnimationSpeedHead": 10.000000, 
+            "AnimationDistanceHead": 0.010000, 
+            "AnimationSpeedSaw": 10.000000, 
+            "AnimationDistanceSaw": 0.010000, 
+            "AttackColor": 
             {
               "Vec4": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
               }
             }, 
-            "SpriteSource": "Char_Scrap", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }, 
           "BoxCollider": 
           {
@@ -5793,25 +5622,25 @@
             "Mass": 10.000000, 
             "RotationLocked": true
           }, 
-          "Grunt": 
+          "Sprite": 
           {
-            "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
-            "IsInvulnerable": false, 
-            "HeadArchetype": "", 
-            "BodyArchetype": "", 
-            "SawArchetype": "", 
-            "IdleRange": 100.000000, 
-            "PatrolDistance": 20.000000, 
-            "IsPatrolRight": true, 
-            "IsAggressive": true, 
-            "JumpStrengthX": 5.000000, 
-            "JumpStrengthY": 25.000000, 
-            "JumpPeriod": 2.000000, 
-            "AttackJumpStrengthX": 10.000000, 
-            "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Char_Scrap", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
           }
         }, 
         "Children": 
@@ -5874,25 +5703,50 @@
               }
             }
           }, 
-          "Sprite": 
+          "Grunt": 
           {
-            "Visible": true, 
-            "Color": 
+            "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
+            "HeadArchetype": "ScrapperHead", 
+            "BodyArchetype": "ScrapperBody", 
+            "SawArchetype": "ScrapperSaw", 
+            "IdleRange": 100.000000, 
+            "PatrolDistance": 20.000000, 
+            "IsPatrolRight": true, 
+            "IsAggressive": true, 
+            "JumpStrengthX": 5.000000, 
+            "JumpStrengthY": 25.000000, 
+            "JumpPeriod": 2.000000, 
+            "AttackJumpStrengthX": 10.000000, 
+            "AttackJumpStrengthY": 15.000000, 
+            "AttackJumpPeriod": 1.000000, 
+            "AnimationSpeedHead": 10.000000, 
+            "AnimationDistanceHead": 0.010000, 
+            "AnimationSpeedSaw": 10.000000, 
+            "AnimationDistanceSaw": 0.010000, 
+            "AttackColor": 
             {
               "Vec4": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
               }
             }, 
-            "SpriteSource": "Char_Scrap", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }, 
           "BoxCollider": 
           {
@@ -5943,25 +5797,25 @@
             "Mass": 10.000000, 
             "RotationLocked": true
           }, 
-          "Grunt": 
+          "Sprite": 
           {
-            "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
-            "IsInvulnerable": false, 
-            "HeadArchetype": "", 
-            "BodyArchetype": "", 
-            "SawArchetype": "", 
-            "IdleRange": 100.000000, 
-            "PatrolDistance": 20.000000, 
-            "IsPatrolRight": true, 
-            "IsAggressive": true, 
-            "JumpStrengthX": 5.000000, 
-            "JumpStrengthY": 25.000000, 
-            "JumpPeriod": 2.000000, 
-            "AttackJumpStrengthX": 10.000000, 
-            "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Char_Scrap", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
           }
         }, 
         "Children": 
@@ -6024,25 +5878,50 @@
               }
             }
           }, 
-          "Sprite": 
+          "Grunt": 
           {
-            "Visible": true, 
-            "Color": 
+            "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
+            "HeadArchetype": "ScrapperHead", 
+            "BodyArchetype": "ScrapperBody", 
+            "SawArchetype": "ScrapperSaw", 
+            "IdleRange": 100.000000, 
+            "PatrolDistance": 20.000000, 
+            "IsPatrolRight": true, 
+            "IsAggressive": true, 
+            "JumpStrengthX": 5.000000, 
+            "JumpStrengthY": 25.000000, 
+            "JumpPeriod": 2.000000, 
+            "AttackJumpStrengthX": 10.000000, 
+            "AttackJumpStrengthY": 15.000000, 
+            "AttackJumpPeriod": 1.000000, 
+            "AnimationSpeedHead": 10.000000, 
+            "AnimationDistanceHead": 0.010000, 
+            "AnimationSpeedSaw": 10.000000, 
+            "AnimationDistanceSaw": 0.010000, 
+            "AttackColor": 
             {
               "Vec4": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
               }
             }, 
-            "SpriteSource": "Char_Scrap", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }, 
           "BoxCollider": 
           {
@@ -6093,25 +5972,25 @@
             "Mass": 10.000000, 
             "RotationLocked": true
           }, 
-          "Grunt": 
+          "Sprite": 
           {
-            "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
-            "IsInvulnerable": false, 
-            "HeadArchetype": "", 
-            "BodyArchetype": "", 
-            "SawArchetype": "", 
-            "IdleRange": 100.000000, 
-            "PatrolDistance": 20.000000, 
-            "IsPatrolRight": true, 
-            "IsAggressive": true, 
-            "JumpStrengthX": 5.000000, 
-            "JumpStrengthY": 25.000000, 
-            "JumpPeriod": 2.000000, 
-            "AttackJumpStrengthX": 10.000000, 
-            "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Char_Scrap", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
           }
         }, 
         "Children": 
@@ -6121,8 +6000,8 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 900, 
-        "Name": "Scrapper4", 
+        "GameObjectID": 1727, 
+        "Name": "EnemyExplosionParticle", 
         "Protected": false, 
         "Components": 
         {
@@ -6132,8 +6011,8 @@
             {
               "Vec3": 
               {
-                "x": -43.112259, 
-                "y": -35.065235, 
+                "x": 0.000000, 
+                "y": 9.000000, 
                 "z": 0.000000
               }
             }, 
@@ -6141,8 +6020,8 @@
             {
               "Vec3": 
               {
-                "x": -43.112259, 
-                "y": -35.065235, 
+                "x": 0.000000, 
+                "y": 9.000000, 
                 "z": 0.000000
               }
             }, 
@@ -6150,8 +6029,8 @@
             {
               "Vec3": 
               {
-                "x": -43.112259, 
-                "y": -35.065235, 
+                "x": 0.000000, 
+                "y": 9.000000, 
                 "z": 0.000000
               }
             }, 
@@ -6168,100 +6047,158 @@
             {
               "Vec3": 
               {
-                "x": 1.500000, 
-                "y": 1.500000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
           }, 
-          "Sprite": 
+          "SpriteParticleSystem": 
           {
             "Visible": true, 
-            "Color": 
+            "Tint": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.500000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Texture": "FlashParticle", 
+            "VelocityScale": 1.000000, 
+            "LengthScale": 1.000000, 
+            "SystemSize": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 4.000000, 
+                "z": 4.000000
+              }
+            }, 
+            "Additive": true, 
+            "Lock": false, 
+            "DrawLayer": 4
+          }, 
+          "ParticleEmitter": 
+          {
+            "Active": true, 
+            "ResetCount": false, 
+            "EmitCount": 15, 
+            "EmitRate": 1000, 
+            "EmitVariance": 0, 
+            "Size": 0.700000, 
+            "SizeVariance": 0.200000, 
+            "Lifetime": 0.500000, 
+            "LifetimeVariance": 0.000000, 
+            "Spin": 500.000000, 
+            "SpinVariance": 100.000000, 
+            "StartVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 5.000000, 
+                "y": 5.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
+          }, 
+          "LinearParticleAnimator": 
+          {
+            "Force": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomForce": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Torque": 0.000000, 
+            "Growth": -0.500000, 
+            "Dampening": 5.000000
+          }, 
+          "ParticleColorAnimator": 
+          {
+            "Color0": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color1": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.271000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color2": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.604000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color3": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color4": 
             {
               "Vec4": 
               {
                 "x": 1.000000, 
                 "y": 1.000000, 
                 "z": 1.000000, 
-                "w": 1.000000
+                "w": 0.500000
               }
-            }, 
-            "SpriteSource": "Char_Scrap", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "BoxCollider": 
-          {
-            "CollisionGroup": "Enemy", 
-            "PhysicsMaterial": "DefaultPhysicsMaterial", 
-            "Size": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Ghost": false, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
-          }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
-          "Grunt": 
-          {
-            "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
-            "IsInvulnerable": false, 
-            "HeadArchetype": "", 
-            "BodyArchetype": "", 
-            "SawArchetype": "", 
-            "IdleRange": 100.000000, 
-            "PatrolDistance": 20.000000, 
-            "IsPatrolRight": true, 
-            "IsAggressive": true, 
-            "JumpStrengthX": 5.000000, 
-            "JumpStrengthY": 25.000000, 
-            "JumpPeriod": 2.000000, 
-            "AttackJumpStrengthX": 10.000000, 
-            "AttackJumpStrengthY": 15.000000, 
-            "AttackJumpPeriod": 1.000000
+            }
           }
         }, 
         "Children": 
@@ -6342,7 +6279,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 1
+            "DrawLayer": 0
           }
         }, 
         "Children": 
@@ -8857,8 +8794,8 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 446, 
-        "Name": "Ground", 
+        "GameObjectID": 915, 
+        "Name": "Lancer", 
         "Protected": false, 
         "Components": 
         {
@@ -8868,8 +8805,8 @@
             {
               "Vec3": 
               {
-                "x": -144.503540, 
-                "y": -42.506165, 
+                "x": -119.365555, 
+                "y": -78.850586, 
                 "z": 0.000000
               }
             }, 
@@ -8877,8 +8814,8 @@
             {
               "Vec3": 
               {
-                "x": -144.503540, 
-                "y": -42.506165, 
+                "x": -119.365555, 
+                "y": -78.850586, 
                 "z": 0.000000
               }
             }, 
@@ -8886,8 +8823,8 @@
             {
               "Vec3": 
               {
-                "x": -144.503540, 
-                "y": -42.506165, 
+                "x": -119.365555, 
+                "y": -78.850586, 
                 "z": 0.000000
               }
             }, 
@@ -8904,8 +8841,8 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 15.000000, 
+                "x": 4.000000, 
+                "y": 4.000000, 
                 "z": 1.000000
               }
             }
@@ -8923,16 +8860,39 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "tile_basic_both", 
+            "SpriteSource": "Char_Lanc", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }, 
+          "RigidBody": 
+          {
+            "Velocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "AngularVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Mass": 10.000000, 
+            "RotationLocked": true
+          }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Terrain", 
+            "CollisionGroup": "Enemy", 
             "PhysicsMaterial": "", 
             "Size": 
             {
@@ -8955,6 +8915,38 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }, 
+          "Lancer": 
+          {
+            "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
+            "ShieldArchetype": "LancerShield", 
+            "HeadArchetype": "LancerHead", 
+            "ShoulderArchetype": "LancerShoulder", 
+            "BodyArchetype": "LancerBody", 
+            "SpearArchetype": "LancerSpear", 
+            "IdleRange": 1000.000000, 
+            "ChargeForce": 100.000000, 
+            "ShieldReflectionForce": 10000000.000000, 
+            "AnimationSpeedHead": 10.000000, 
+            "AnimationDistanceHead": 0.010000, 
+            "AnimationSpeedShoulder": 10.000000, 
+            "AnimationDistanceShoulder": 0.010000, 
+            "AnimationSpeedSpear": 10.000000, 
+            "AnimationDistanceSpear": 0.010000, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.000000
           }
         }, 
         "Children": 
@@ -8964,8 +8956,8 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 446, 
-        "Name": "Ground", 
+        "GameObjectID": 915, 
+        "Name": "Lancer", 
         "Protected": false, 
         "Components": 
         {
@@ -8975,8 +8967,8 @@
             {
               "Vec3": 
               {
-                "x": -140.018585, 
-                "y": -50.496628, 
+                "x": -157.919312, 
+                "y": -84.489693, 
                 "z": 0.000000
               }
             }, 
@@ -8984,8 +8976,8 @@
             {
               "Vec3": 
               {
-                "x": -140.018585, 
-                "y": -50.496628, 
+                "x": -157.919312, 
+                "y": -84.489693, 
                 "z": 0.000000
               }
             }, 
@@ -8993,8 +8985,8 @@
             {
               "Vec3": 
               {
-                "x": -140.018585, 
-                "y": -50.496628, 
+                "x": -157.919312, 
+                "y": -84.489693, 
                 "z": 0.000000
               }
             }, 
@@ -9011,8 +9003,8 @@
             {
               "Vec3": 
               {
-                "x": 10.000000, 
-                "y": 1.000000, 
+                "x": 4.000000, 
+                "y": 4.000000, 
                 "z": 1.000000
               }
             }
@@ -9030,16 +9022,39 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "tile_basic_both", 
+            "SpriteSource": "Char_Lanc", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }, 
+          "RigidBody": 
+          {
+            "Velocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "AngularVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Mass": 10.000000, 
+            "RotationLocked": true
+          }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Terrain", 
+            "CollisionGroup": "Enemy", 
             "PhysicsMaterial": "", 
             "Size": 
             {
@@ -9062,799 +9077,38 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 332, 
-        "Name": "LandingParticle", 
-        "Protected": false, 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "LocalTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "WorldTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
           }, 
-          "SpriteParticleSystem": 
+          "Lancer": 
           {
-            "Visible": true, 
-            "Tint": 
+            "PlayerName": "Player", 
+            "StartingHealth": 1, 
+            "MaxHealth": 1, 
+            "IsInvulnerable": false, 
+            "ShieldArchetype": "LancerShield", 
+            "HeadArchetype": "LancerHead", 
+            "ShoulderArchetype": "LancerShoulder", 
+            "BodyArchetype": "LancerBody", 
+            "SpearArchetype": "LancerSpear", 
+            "IdleRange": 1000.000000, 
+            "ChargeForce": 100.000000, 
+            "ShieldReflectionForce": 10000000.000000, 
+            "AnimationSpeedHead": 10.000000, 
+            "AnimationDistanceHead": 0.010000, 
+            "AnimationSpeedShoulder": 10.000000, 
+            "AnimationDistanceShoulder": 0.010000, 
+            "AnimationSpeedSpear": 10.000000, 
+            "AnimationDistanceSpear": 0.010000, 
+            "DamageTakenColor": 
             {
               "Vec4": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Texture": "WhiteCloud", 
-            "VelocityScale": 1.000000, 
-            "LengthScale": 1.000000, 
-            "SystemSize": 
-            {
-              "Vec3": 
-              {
-                "x": 4.000000, 
-                "y": 4.000000, 
-                "z": 4.000000
-              }
-            }, 
-            "Additive": false, 
-            "Lock": false, 
-            "DrawLayer": 4
-          }, 
-          "ParticleEmitter": 
-          {
-            "Active": true, 
-            "ResetCount": false, 
-            "EmitCount": 10, 
-            "EmitRate": 5000, 
-            "EmitVariance": 0, 
-            "Size": 1.000000, 
-            "SizeVariance": 1.000000, 
-            "Lifetime": 1.000000, 
-            "LifetimeVariance": 1.000000, 
-            "Spin": 100.000000, 
-            "SpinVariance": 100.000000, 
-            "StartVelocity": 
-            {
-              "Vec3": 
-              {
                 "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "RandomVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 5.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "EmissionArea": 
-            {
-              "Vec2": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000
-              }
-            }, 
-            "EmissionCircle": false
-          }, 
-          "LinearParticleAnimator": 
-          {
-            "Force": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 5.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "RandomForce": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Torque": 0.000000, 
-            "Growth": -2.000000, 
-            "Dampening": 3.000000
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 11, 
-        "Name": "LandingParticleSand", 
-        "Protected": false, 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": -3.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "LocalTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": -3.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "WorldTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": -3.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "SpriteParticleSystem": 
-          {
-            "Visible": true, 
-            "Tint": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.550000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Texture": "WhiteCloud", 
-            "VelocityScale": 1.000000, 
-            "LengthScale": 1.000000, 
-            "SystemSize": 
-            {
-              "Vec3": 
-              {
-                "x": 4.000000, 
-                "y": 4.000000, 
-                "z": 4.000000
-              }
-            }, 
-            "Additive": false, 
-            "Lock": false, 
-            "DrawLayer": 4
-          }, 
-          "ParticleEmitter": 
-          {
-            "Active": true, 
-            "ResetCount": false, 
-            "EmitCount": 10, 
-            "EmitRate": 5000, 
-            "EmitVariance": 0, 
-            "Size": 2.000000, 
-            "SizeVariance": 1.000000, 
-            "Lifetime": 1.000000, 
-            "LifetimeVariance": 1.000000, 
-            "Spin": 100.000000, 
-            "SpinVariance": 1004.000000, 
-            "StartVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "RandomVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 7.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "EmissionArea": 
-            {
-              "Vec2": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000
-              }
-            }, 
-            "EmissionCircle": false
-          }, 
-          "LinearParticleAnimator": 
-          {
-            "Force": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 5.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "RandomForce": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Torque": 0.000000, 
-            "Growth": -5.000000, 
-            "Dampening": 3.000000
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 11, 
-        "Name": "LandingParticleUrban", 
-        "Protected": false, 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 3.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "LocalTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 3.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "WorldTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 3.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "SpriteParticleSystem": 
-          {
-            "Visible": true, 
-            "Tint": 
-            {
-              "Vec4": 
-              {
-                "x": 0.100000, 
-                "y": 0.100000, 
-                "z": 0.150000, 
-                "w": 1.000000
-              }
-            }, 
-            "Texture": "WhiteCloud", 
-            "VelocityScale": 1.000000, 
-            "LengthScale": 1.000000, 
-            "SystemSize": 
-            {
-              "Vec3": 
-              {
-                "x": 4.000000, 
-                "y": 4.000000, 
-                "z": 4.000000
-              }
-            }, 
-            "Additive": false, 
-            "Lock": false, 
-            "DrawLayer": 4
-          }, 
-          "ParticleEmitter": 
-          {
-            "Active": true, 
-            "ResetCount": false, 
-            "EmitCount": 10, 
-            "EmitRate": 5000, 
-            "EmitVariance": 0, 
-            "Size": 0.750000, 
-            "SizeVariance": 0.300000, 
-            "Lifetime": 1.000000, 
-            "LifetimeVariance": 1.000000, 
-            "Spin": 100.000000, 
-            "SpinVariance": 1004.000000, 
-            "StartVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "RandomVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 3.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "EmissionArea": 
-            {
-              "Vec2": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000
-              }
-            }, 
-            "EmissionCircle": false
-          }, 
-          "LinearParticleAnimator": 
-          {
-            "Force": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 5.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "RandomForce": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Torque": 0.000000, 
-            "Growth": -1.000000, 
-            "Dampening": 3.000000
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": true, 
-        "GameObjectID": 473, 
-        "Name": "LevelSettings", 
-        "Protected": false, 
-        "Components": 
-        {
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 1727, 
-        "Name": "EnemyExplosionParticle", 
-        "Protected": false, 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 9.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "LocalTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 9.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "WorldTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 9.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "SpriteParticleSystem": 
-          {
-            "Visible": true, 
-            "Tint": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.500000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "Texture": "FlashParticle", 
-            "VelocityScale": 1.000000, 
-            "LengthScale": 1.000000, 
-            "SystemSize": 
-            {
-              "Vec3": 
-              {
-                "x": 4.000000, 
-                "y": 4.000000, 
-                "z": 4.000000
-              }
-            }, 
-            "Additive": true, 
-            "Lock": false, 
-            "DrawLayer": 4
-          }, 
-          "ParticleEmitter": 
-          {
-            "Active": true, 
-            "ResetCount": false, 
-            "EmitCount": 15, 
-            "EmitRate": 1000, 
-            "EmitVariance": 0, 
-            "Size": 0.700000, 
-            "SizeVariance": 0.200000, 
-            "Lifetime": 0.500000, 
-            "LifetimeVariance": 0.000000, 
-            "Spin": 500.000000, 
-            "SpinVariance": 100.000000, 
-            "StartVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "RandomVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 5.000000, 
-                "y": 5.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "EmissionArea": 
-            {
-              "Vec2": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000
-              }
-            }, 
-            "EmissionCircle": false
-          }, 
-          "LinearParticleAnimator": 
-          {
-            "Force": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "RandomForce": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Torque": 0.000000, 
-            "Growth": -0.500000, 
-            "Dampening": 5.000000
-          }, 
-          "ParticleColorAnimator": 
-          {
-            "Color0": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
                 "y": 0.000000, 
                 "z": 0.000000, 
-                "w": 0.500000
+                "w": 0.000000
               }
             }, 
-            "Color1": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.271000, 
-                "z": 0.000000, 
-                "w": 0.500000
-              }
-            }, 
-            "Color2": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.604000, 
-                "z": 0.000000, 
-                "w": 0.500000
-              }
-            }, 
-            "Color3": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 0.500000
-              }
-            }, 
-            "Color4": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 0.500000
-              }
-            }
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 446, 
-        "Name": "Ground", 
-        "Protected": false, 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": -209.169876, 
-                "y": -100.905434, 
-                "z": 0.000000
-              }
-            }, 
-            "LocalTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": -209.169876, 
-                "y": -100.905434, 
-                "z": 0.000000
-              }
-            }, 
-            "WorldTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": -209.169876, 
-                "y": -100.905434, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "tile_basic_both", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "BoxCollider": 
-          {
-            "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
-            "Size": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Ghost": false, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
+            "DamageTakenColorFlashSpeed": 0.000000
           }
         }, 
         "Children": 

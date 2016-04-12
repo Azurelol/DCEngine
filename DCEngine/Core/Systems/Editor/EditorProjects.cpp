@@ -152,7 +152,7 @@ namespace DCEngine {
     void EditorProjects::OnContentProjectLoadedEvent(Events::ContentProjectLoaded * event)
     {
       // Destroy the current editor camera
-      Access().Launcher.SetEditorCamera(false);
+      // Access().Launcher.SetEditorCamera(false);
       // Turn on the editor
       //Access().Settings.EditorEnabled = true;
       // Save a pointer to the project data
