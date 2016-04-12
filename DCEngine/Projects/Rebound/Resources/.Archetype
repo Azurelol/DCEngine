@@ -3,8 +3,8 @@
   "GameObject": 
   {
     "Locked": false, 
-    "GameObjectID": 1377, 
-    "Name": "Sprite", 
+    "GameObjectID": 244, 
+    "Name": "Light", 
     "Protected": false, 
     "Components": 
     {
@@ -14,8 +14,8 @@
         {
           "Vec3": 
           {
-            "x": 34.367306, 
-            "y": 6.259780, 
+            "x": -22.307039, 
+            "y": 60.590611, 
             "z": 0.000000
           }
         }, 
@@ -23,8 +23,8 @@
         {
           "Vec3": 
           {
-            "x": 34.367306, 
-            "y": 6.259780, 
+            "x": -22.307039, 
+            "y": 60.590611, 
             "z": 0.000000
           }
         }, 
@@ -32,8 +32,8 @@
         {
           "Vec3": 
           {
-            "x": 34.367306, 
-            "y": 6.259780, 
+            "x": -22.307039, 
+            "y": 60.590611, 
             "z": 0.000000
           }
         }, 
@@ -56,9 +56,14 @@
           }
         }
       }, 
-      "Sprite": 
+      "Light": 
       {
-        "Visible": false, 
+        "Visible": true, 
+        "VisibilityCulling": true, 
+        "VisibilityEvents": false, 
+        "CastShadows": true, 
+        "Diffuse": true, 
+        "Type": "Spot", 
         "Color": 
         {
           "Vec4": 
@@ -69,12 +74,20 @@
             "w": 1.000000
           }
         }, 
-        "SpriteSource": "square", 
-        "FlipX": false, 
-        "FlipY": false, 
-        "AnimationActive": false, 
-        "AnimationSpeed": 1.000000, 
-        "DrawLayer": 4
+        "Intensity": 4.000000, 
+        "Range": 50.877003, 
+        "Falloff": 0.965000, 
+        "DirectionVector": 
+        {
+          "Vec3": 
+          {
+            "x": 0.300000, 
+            "y": -1.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "InnerAngle": 9.474000, 
+        "OuterAngle": 71.053001
       }
     }, 
     "Children": 

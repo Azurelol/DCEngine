@@ -50,6 +50,7 @@ class DialogText : ZilchComponent
 	var XShiftPerChar : Real;
 	var CurTime : Real = 0.0;
 	var Finished : Boolean = true;
+	[Property]
 	var SkipMessageDelay : Boolean = false;
 	var ThePlace : Integer = 0;
 	var CurSpeaker : Speaker = Speaker.Cyrus;
@@ -93,8 +94,6 @@ class DialogText : ZilchComponent
 			this.Owner.SpriteText.Color = Real4(this.Owner.SpriteText.Color.XYZ, 1);
 		}
 		
-		if(this.ThePlace == this.Message.Count)
-			this.Finished = true;
 			
 		this.CurTime += event.Dt;
 		
@@ -112,6 +111,9 @@ class DialogText : ZilchComponent
 			this.Owner.SpriteText.Text = this.Message;
 		else
 			this.Owner.SpriteText.Text = this.Message.SubString(0, this.ThePlace);
+			
+		if(this.Owner.SpriteText.Text == this.Message)
+			this.Finished = true;
     }
 	
 	function PlaySound()

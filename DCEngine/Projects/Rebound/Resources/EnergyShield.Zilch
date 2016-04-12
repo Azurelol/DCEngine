@@ -59,11 +59,13 @@ class EnergyShield : ZilchComponent
 	{
 		this.Owner.Sprite.Color = this.ActiveColor;
 		this.Active = true;
+		this.Owner.ParticleEmitter.Active = true;
 	}
 	
 	function Deactivate()
 	{
 		this.Owner.Sprite.Color = this.InactiveColor;
 		this.Active = false;
+		this.Owner.ParticleEmitter.Active = false;
 	}
 }

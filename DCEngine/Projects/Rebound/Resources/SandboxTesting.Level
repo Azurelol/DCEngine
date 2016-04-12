@@ -19,8 +19,8 @@
             {
               "Vec3": 
               {
-                "x": -11.656552, 
-                "y": -3.035312, 
+                "x": -5.055927, 
+                "y": -0.395062, 
                 "z": 0.000000
               }
             }, 
@@ -28,8 +28,8 @@
             {
               "Vec3": 
               {
-                "x": -11.656552, 
-                "y": -3.035312, 
+                "x": -5.055927, 
+                "y": -0.395062, 
                 "z": 0.000000
               }
             }, 
@@ -37,8 +37,8 @@
             {
               "Vec3": 
               {
-                "x": -11.656552, 
-                "y": -3.035312, 
+                "x": -5.055927, 
+                "y": -0.395062, 
                 "z": 0.000000
               }
             }, 
@@ -107,7 +107,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Player", 
-            "PhysicsMaterial": "PlayerMaterial", 
+            "PhysicsMaterial": "DefaultPhysicsMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -391,8 +391,8 @@
             {
               "Vec3": 
               {
-                "x": -0.059314, 
-                "y": -4.535312, 
+                "x": -29.037090, 
+                "y": -6.313090, 
                 "z": 0.000000
               }
             }, 
@@ -400,8 +400,8 @@
             {
               "Vec3": 
               {
-                "x": -0.059314, 
-                "y": -4.535312, 
+                "x": -29.037090, 
+                "y": -6.313090, 
                 "z": 0.000000
               }
             }, 
@@ -409,8 +409,8 @@
             {
               "Vec3": 
               {
-                "x": -0.059314, 
-                "y": -4.535312, 
+                "x": -29.037090, 
+                "y": -6.313090, 
                 "z": 0.000000
               }
             }, 
@@ -420,7 +420,7 @@
               {
                 "x": 0.000000, 
                 "y": 0.000000, 
-                "z": 0.000000
+                "z": 90.000000
               }
             }, 
             "Scale": 
@@ -456,7 +456,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "DefaultPhysicsMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -657,7 +657,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Ball", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -882,8 +882,8 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 915, 
-        "Name": "Lancer", 
+        "GameObjectID": 907, 
+        "Name": "Floor", 
         "Protected": false, 
         "Components": 
         {
@@ -893,8 +893,8 @@
             {
               "Vec3": 
               {
-                "x": 4.000000, 
-                "y": 0.000000, 
+                "x": -0.059314, 
+                "y": -4.535312, 
                 "z": 0.000000
               }
             }, 
@@ -902,8 +902,8 @@
             {
               "Vec3": 
               {
-                "x": 4.000000, 
-                "y": 0.000000, 
+                "x": -0.059314, 
+                "y": -4.535312, 
                 "z": 0.000000
               }
             }, 
@@ -911,8 +911,8 @@
             {
               "Vec3": 
               {
-                "x": 4.000000, 
-                "y": 0.000000, 
+                "x": -0.059314, 
+                "y": -4.535312, 
                 "z": 0.000000
               }
             }, 
@@ -929,8 +929,8 @@
             {
               "Vec3": 
               {
-                "x": 4.000000, 
-                "y": 4.000000, 
+                "x": 400.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -948,40 +948,17 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "Char_Lanc", 
+            "SpriteSource": "square", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
           }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
           "BoxCollider": 
           {
-            "CollisionGroup": "Enemy", 
-            "PhysicsMaterial": "", 
+            "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "DefaultPhysicsMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -1003,39 +980,6 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }, 
-          "Lancer": 
-          {
-            "PlayerName": "Player", 
-            "StartingHealth": 7, 
-            "MaxHealth": 7, 
-            "IsInvulnerable": false, 
-            "ShieldArchetype": "LancerShield", 
-            "HeadArchetype": "LancerHead", 
-            "ShoulderArchetype": "LancerShoulder", 
-            "BodyArchetype": "LancerBody", 
-            "SpearArchetype": "LancerSpear", 
-            "IdleRange": 1000.000000, 
-            "ChargeForce": 100.000000, 
-            "ShieldReflectionForce": 10000000.000000, 
-            "AnimationSpeedHead": 10.000000, 
-            "AnimationDistanceHead": 0.010000, 
-            "AnimationSpeedShoulder": 10.000000, 
-            "AnimationDistanceShoulder": 0.010000, 
-            "AnimationSpeedSpear": 10.000000, 
-            "AnimationDistanceSpear": 0.010000, 
-            "DamageTakenColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "DamageTakenColorFlashSpeed": 0.200000, 
-            "KnockBackOnPlayerCollisionForce": 0.000000
           }
         }, 
         "Children": 
