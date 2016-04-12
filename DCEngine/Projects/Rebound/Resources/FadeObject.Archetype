@@ -3,8 +3,8 @@
   "GameObject": 
   {
     "Locked": false, 
-    "GameObjectID": 133, 
-    "Name": "Sprite", 
+    "GameObjectID": 59, 
+    "Name": "FadeObject", 
     "Protected": false, 
     "Components": 
     {
@@ -50,23 +50,22 @@
         {
           "Vec3": 
           {
-            "x": 1.000000, 
-            "y": 1.000000, 
+            "x": 10.000000, 
+            "y": 10.000000, 
             "z": 1.000000
           }
         }
       }, 
       "Sprite": 
       {
-        "Visible": false, 
-        "CullVisibility": true, 
+        "Visible": true, 
         "Color": 
         {
           "Vec4": 
           {
-            "x": 1.000000, 
-            "y": 1.000000, 
-            "z": 1.000000, 
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000, 
             "w": 1.000000
           }
         }, 

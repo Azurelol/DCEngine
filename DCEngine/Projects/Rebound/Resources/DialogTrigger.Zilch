@@ -1,3 +1,14 @@
+/******************************************************************************/
+/*!
+@file   DialogTrigger.Zilch
+@author Gabriel Neumann
+@par    email: g.neumann\@digipen.edu
+@date   4/12/2016
+@brief  Dialog Trigger event to send dialog messages to the player
+@copyright Copyright 2016, DigiPen Institute of Technology. All rights reserved.
+*/                                                                                                            
+/******************************************************************************/
+
 enum Speaker { Asha, Cyrus}
 
 class DialogTrigger : ZilchComponent

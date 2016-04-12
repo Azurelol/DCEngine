@@ -16,6 +16,10 @@
 				"selected_items":
 				[
 					[
+						"K",
+						"KeyIsDown"
+					],
+					[
 						"Trans",
 						"Translation"
 					],
@@ -52,18 +56,18 @@
 			"buffers":
 			[
 				{
-					"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
+					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Animator.Zilch",
 					"settings":
 					{
-						"buffer_size": 10681,
+						"buffer_size": 1751,
 						"line_ending": "Windows"
 					}
 				},
 				{
-					"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/HealthControllerZ.Zilch",
+					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/LevelTimeFade.Zilch",
 					"settings":
 					{
-						"buffer_size": 1631,
+						"buffer_size": 4054,
 						"line_ending": "Windows"
 					}
 				}
@@ -100,6 +104,8 @@
 			},
 			"file_history":
 			[
+				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/HealthControllerZ.Zilch",
+				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogText.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PressurePlate.Zilch",
@@ -157,39 +163,11 @@
 					[
 						{
 							"buffer": 0,
-							"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Animator.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 10681,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										1668,
-										1668
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax"
-								},
-								"translation.x": 0.0,
-								"translation.y": 1072.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 1,
-							"type": "text"
-						},
-						{
-							"buffer": 1,
-							"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/HealthControllerZ.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 1631,
+								"buffer_size": 1751,
 								"regions":
 								{
 								},
@@ -202,12 +180,38 @@
 								],
 								"settings":
 								{
-									"syntax": "Packages/C#/C#.sublime-syntax",
-									"tab_size": 2,
-									"translate_tabs_to_spaces": true
+									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
 								"translation.x": 0.0,
-								"translation.y": 0.0,
+								"translation.y": 225.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 1,
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/LevelTimeFade.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 4054,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										3111,
+										3111
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C#/C#.sublime-syntax"
+								},
+								"translation.x": 0.0,
+								"translation.y": 90.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -252,7 +256,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,922,-1608,124,-50",
+			"position": "0,0,1,-1,-1,-1,-1,935,231,137,1789",
 			"project": "",
 			"replace":
 			{

@@ -111,13 +111,6 @@ namespace DCEngine
         return;
       }
 
-      Position = TransformComponent->Translation;
-
-      // Store prev position
-      PreviousPosition = Position;
-
-      // Integrate the position using Euler 
-      Position = Position + Velocity * dt; //acceleration term is small
 
                          //Determine the acceleration
       Vec3 newAcceleration;
@@ -139,11 +132,19 @@ namespace DCEngine
       Velocity *= std::pow(Damping, dt);
 
       // Clamp to velocity max for numerical stability
-      if (glm::dot(Velocity, Velocity) > 10 * 1000.0f)
+      if (glm::dot(Velocity, Velocity) > 100.0f * 100.0f)
       {
         Velocity = glm::normalize(Velocity);
         Velocity = Velocity * 100.0f;
       }
+
+      Position = TransformComponent->Translation;
+
+      // Store prev position
+      PreviousPosition = Position;
+
+      // Integrate the position using Euler 
+      Position = Position + Velocity * dt; //acceleration term is small
 
       // Clear the force
       AccumulatedForce = Vec3(0, 0, 0);

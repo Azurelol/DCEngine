@@ -66,7 +66,7 @@ namespace DCEngine {
 			glGenFramebuffers(1, &multisampleFBO);
 			glBindFramebuffer(GL_FRAMEBUFFER, multisampleFBO);
 
-			GLuint msColorTexture;
+			GLuint msColorTexture, msPositionTexture, msNormalTexture;
 
 			// - Color + Specular color buffer
 			glGenTextures(1, &msColorTexture);
@@ -75,6 +75,20 @@ namespace DCEngine {
 				Settings.ScreenWidth, Settings.ScreenHeight, GL_TRUE);
 			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D_MULTISAMPLE,
 				msColorTexture, 0);
+
+			glGenTextures(1, &msPositionTexture);
+			glBindTexture(GL_TEXTURE_2D_MULTISAMPLE, msPositionTexture);
+			glTexImage2DMultisample(GL_TEXTURE_2D_MULTISAMPLE, Settings.Samples, GL_RGBA16F,
+				Settings.ScreenWidth, Settings.ScreenHeight, GL_TRUE);
+			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT1, GL_TEXTURE_2D_MULTISAMPLE,
+				msPositionTexture, 0);
+
+			glGenTextures(1, &msNormalTexture);
+			glBindTexture(GL_TEXTURE_2D_MULTISAMPLE, msNormalTexture);
+			glTexImage2DMultisample(GL_TEXTURE_2D_MULTISAMPLE, Settings.Samples, GL_RGBA16F,
+				Settings.ScreenWidth, Settings.ScreenHeight, GL_TRUE);
+			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT2, GL_TEXTURE_2D_MULTISAMPLE,
+				msNormalTexture, 0);
 
 			GLuint msRboDepth;
 			glGenRenderbuffers(1, &msRboDepth);
