@@ -188,8 +188,8 @@
             {
               "Vec3": 
               {
-                "x": -149.342590, 
-                "y": 15.067073, 
+                "x": -132.769363, 
+                "y": 18.692463, 
                 "z": 0.000000
               }
             }, 
@@ -197,8 +197,8 @@
             {
               "Vec3": 
               {
-                "x": -149.342590, 
-                "y": 15.067073, 
+                "x": -132.769363, 
+                "y": 18.692463, 
                 "z": 0.000000
               }
             }, 
@@ -206,8 +206,8 @@
             {
               "Vec3": 
               {
-                "x": -149.342590, 
-                "y": 15.067073, 
+                "x": -132.769363, 
+                "y": 18.692463, 
                 "z": 0.000000
               }
             }, 
@@ -310,6 +310,8 @@
             "TurnSpeedScalar": 5.000000, 
             "DoAutoPlay": true, 
             "StandAnimation": "Char_Asha_Idle_Spritesheet", 
+            "AmountOfJumpPowerAddedToHorizontalJump": 0.500000, 
+            "AmountOfMaxSpeedRequiredForHorizontalJump": 0.800000, 
             "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
             "RunAnimation": "Char_Asha_Run_Spritesheet", 
             "FallAnimation": "Char_Asha_Fall_Spritesheet", 
@@ -2703,7 +2705,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 28, 
+        "GameObjectID": 60, 
         "Name": "Ground", 
         "Protected": false, 
         "Components": 
@@ -2714,8 +2716,8 @@
             {
               "Vec3": 
               {
-                "x": 51.930981, 
-                "y": 16.651978, 
+                "x": -6.115242, 
+                "y": 2.649678, 
                 "z": 0.000000
               }
             }, 
@@ -2723,8 +2725,8 @@
             {
               "Vec3": 
               {
-                "x": 51.930981, 
-                "y": 16.651978, 
+                "x": -6.115242, 
+                "y": 2.649678, 
                 "z": 0.000000
               }
             }, 
@@ -2732,8 +2734,8 @@
             {
               "Vec3": 
               {
-                "x": 51.930981, 
-                "y": 16.651978, 
+                "x": -6.115242, 
+                "y": 2.649678, 
                 "z": 0.000000
               }
             }, 
@@ -2743,14 +2745,14 @@
               {
                 "x": 0.000000, 
                 "y": 0.000000, 
-                "z": -60.000000
+                "z": -3.000000
               }
             }, 
             "Scale": 
             {
               "Vec3": 
               {
-                "x": 20.000000, 
+                "x": 15.000000, 
                 "y": 1.000000, 
                 "z": 1.000000
               }
@@ -3715,113 +3717,6 @@
               {
                 "x": 1.000000, 
                 "y": 100.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "square", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "BoxCollider": 
-          {
-            "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
-            "Size": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Ghost": false, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 38, 
-        "Name": "Ground", 
-        "Protected": false, 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 62.000000, 
-                "y": -16.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "LocalTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 62.000000, 
-                "y": -16.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "WorldTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 62.000000, 
-                "y": -16.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 10.000000, 
-                "y": 3.000000, 
                 "z": 1.000000
               }
             }
@@ -5294,7 +5189,25 @@
                 "z": 0.000000
               }
             }, 
-            "AngularVelocity": 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 62.918919, 
+                "y": 10.904671, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 62.918919, 
+                "y": 10.904671, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
             {
               "Vec3": 
               {
@@ -5303,8 +5216,15 @@
                 "z": 0.000000
               }
             }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
           }, 
           "Grunt": 
           {
@@ -5370,8 +5290,8 @@
             {
               "Vec3": 
               {
-                "x": 72.378159, 
-                "y": -20.647072, 
+                "x": 62.918919, 
+                "y": 10.904671, 
                 "z": 0.000000
               }
             }, 
@@ -11211,113 +11131,6 @@
               {
                 "x": 1.000000, 
                 "y": 10.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "square", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "BoxCollider": 
-          {
-            "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
-            "Size": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Ghost": false, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 60, 
-        "Name": "Ground", 
-        "Protected": false, 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": -6.115242, 
-                "y": 2.649678, 
-                "z": 0.000000
-              }
-            }, 
-            "LocalTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": -6.115242, 
-                "y": 2.649678, 
-                "z": 0.000000
-              }
-            }, 
-            "WorldTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": -6.115242, 
-                "y": 2.649678, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": -3.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 15.000000, 
-                "y": 1.000000, 
                 "z": 1.000000
               }
             }

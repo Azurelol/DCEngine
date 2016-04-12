@@ -160,7 +160,7 @@ class ZPlayerController : ZilchComponent
 		if(event.OtherObject.Transform.Translation.Y + event.OtherObject.Transform.Scale.Y /2 
 		< this.TransformRef.Translation.Y)
 		{
-			this.Grounded == true;
+			//this.Grounded == true;
 			//auto particle = SpaceRef->CreateObject("LandingParticle");
 			//if (particle)
 			//{

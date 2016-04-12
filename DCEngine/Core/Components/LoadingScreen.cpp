@@ -15,6 +15,8 @@
 namespace DCEngine {
   namespace Components {
 
+    static Camera* sCamera;
+
     /**************************************************************************/
     /*!
     @brief  LoadingScreen ZilchDefinition.
@@ -51,6 +53,11 @@ namespace DCEngine {
     {
       // Subscribe to events
       Daisy->Connect<Events::FrameUpdate>(SpaceRef, &LoadingScreen::OnFrameUpdateEvent, this);
+      // Create a camera on the space
+      auto cameraObj = SpaceRef->CreateObject("Camera");
+      sCamera = cameraObj->getComponent<Components::Camera>();
+      sCamera->TransformComponent->setWorldTranslation(Vec3(0, 0, 1));
+      SpaceRef->getComponent<Components::CameraViewport>()->setCamera(sCamera);
       // Construct the screen
       ConstructScreen();
     }
@@ -102,13 +109,13 @@ namespace DCEngine {
       //-----------------------------------------------------------------------//
       // Title Text
       ProjectTitleObj = SpaceRef->CreateObject();
-      ProjectTitleObj->getComponent<Transform>()->setTranslation(Vec3(-15, 25, 0));
+      ProjectTitleObj->getComponent<Transform>()->setTranslation(Vec3(-15, 5, 0));
       ProjectTitleText = dynamic_cast<SpriteText*>(ProjectTitleObj->AddComponentByName("SpriteText"));
-      ProjectTitleText->setText("Loading 'Rebound'");
+      ProjectTitleText->setText("Now loading...");
       ProjectTitleText->setFontSize(30);
       // Progress Text
       TextProgressObj = SpaceRef->CreateObject();
-      TextProgressObj->getComponent<Transform>()->setTranslation(Vec3(-10, 10, 0));
+      TextProgressObj->getComponent<Transform>()->setTranslation(Vec3(-10, -2.5, 0));
       TextProgress = dynamic_cast<SpriteText*>(TextProgressObj->AddComponentByName("SpriteText"));
       TextProgress->setFontSize(12);
       // Progress Bar

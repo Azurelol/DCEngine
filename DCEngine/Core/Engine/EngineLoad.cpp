@@ -69,7 +69,7 @@ namespace DCEngine {
         CurrentGameSession->DefaultSpace->LoadLevel(std::string("LoadingScreen"));
       }
       else {
-        auto progressText = Systems::Editor::Access().Creator.CreateSpriteText();
+        auto progressText = CurrentGameSession->DefaultSpace->CreateObject();
         progressText->AddComponentByName("LoadingScreen");
         progressText->getComponent<Components::LoadingScreen>()->Initialize();
       }

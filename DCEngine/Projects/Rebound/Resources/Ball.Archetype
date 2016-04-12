@@ -143,18 +143,9 @@
             "w": 1.000000
           }
         }, 
-        "NormalColor": 
-        {
-          "Vec4": 
-          {
-            "x": 0.000000, 
-            "y": 0.700000, 
-            "z": 0.300000, 
-            "w": 1.000000
-          }
-        }, 
         "NormalGravity": 0.250000, 
         "ShotGravity": 0.100000, 
+        "AttractYBoost": 3.000000, 
         "ChargedColor": 
         {
           "Vec4": 
@@ -167,10 +158,10 @@
         }, 
         "ForcedFreeze": false, 
         "FreezeEnabled": true, 
-        "MaxAttractSpeed": 50.000000, 
-        "MaxAttractForce": 100.000000, 
-        "AttractArriveDistance": 200.000000, 
-        "MinAttractSpeed": 25.000000, 
+        "MaxAttractSpeed": 20.000000, 
+        "MaxAttractForce": 8.000000, 
+        "AttractArriveDistance": 0.000000, 
+        "MinAttractSpeed": 9.000000, 
         "CommandSound": "BallCommand", 
         "CollideSound": "BallCollide", 
         "FreezeSound": "BallFreeze"
@@ -216,8 +207,8 @@
           "Vec4": 
           {
             "x": 0.000000, 
-            "y": 1.000000, 
-            "z": 1.000000, 
+            "y": 0.400000, 
+            "z": 0.700000, 
             "w": 1.000000
           }
         }, 

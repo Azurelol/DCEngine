@@ -139,7 +139,7 @@ namespace DCEngine {
         }
         else
         {
-          Charging = true;
+          //Charging = true;
         }
       }
     }
@@ -397,6 +397,10 @@ namespace DCEngine {
         }
         PlayerRef->getComponent<Components::RigidBody>()->ApplyForce(-CenteringVector * AttractPower);
       }
+	  else if (gameObj->Parent() != nullptr)
+	  {
+		  return;
+	  }
       else
       {
         // JJ- Using steering behaviors for more natural looking movement
