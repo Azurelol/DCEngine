@@ -2,7 +2,7 @@ class PressurePlate : ZilchComponent
 {
     [Property]
     var Target : String = "";
-    
+    	
 	var OriginalScale : Real3;
 	
     function Initialize()
@@ -18,6 +18,7 @@ class PressurePlate : ZilchComponent
     {
         if(event.OtherObject.PlayerTemp != null)
         {
+			this.Space.SoundSpace.PlayCue("PressurePlateClick");
 			this.Owner.Transform.Scale = Real3(this.OriginalScale.X, this.OriginalScale.Y/2, this.OriginalScale.Z);
 			this.Toggle();
         }

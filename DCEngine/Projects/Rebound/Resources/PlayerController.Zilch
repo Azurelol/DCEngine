@@ -29,7 +29,7 @@ class ZPlayerController : ZilchComponent
 	[Property]
 	var LandSound : String = "Land";
 	[Property]
-	var TakeDamageSound : String = "Collide";
+	var TakeDamageSound : String = "HitShield";
     [Property]
 	var FootstepSound : String = "Step";
 	[Property]

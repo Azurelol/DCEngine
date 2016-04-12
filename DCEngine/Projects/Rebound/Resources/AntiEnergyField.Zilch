@@ -9,9 +9,6 @@ class AntiEnergyField : ZilchComponent
 	[Property]
 	var InactiveColor : Real4 = Real4();
 	
-	[Property]
-	var DissipateSound : String = "BallDissipate";
-
     function Initialize()
     {
         Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollisionStarted);
@@ -28,7 +25,7 @@ class AntiEnergyField : ZilchComponent
 	{
 		if(event.OtherObject.BallTemp != null && this.Active)
 		{
-			this.Space.SoundSpace.PlayCue(this.DissipateSound);
+			this.Space.SoundSpace.PlayCue("BallDissipate");
 			this.DissipateBall();
 		}
 	}
