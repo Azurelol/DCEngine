@@ -173,7 +173,7 @@ namespace DCEngine
 		std::vector<Vec2> verts;
 		Vec2 topL, topR, botL, botR;
 		Vec3 scale = box->getColliderScale();
-		float rot = transform->WorldRotation.z;
+		float rot = (3.14159265359f / 180.0f) * transform->Rotation.z;
 		Vec3 translation = transform->Translation;
 
 		topL.x = translation.x + box->getOffset().x + (scale.y * -sin(rot)) + (-scale.x * cos(rot));
