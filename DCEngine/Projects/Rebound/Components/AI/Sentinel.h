@@ -44,6 +44,8 @@ namespace DCEngine {
       float AnimationDistanceHead;
       float AnimationSpeedShoulder;
       float AnimationDistanceShoulder;
+      Vec4 DamageTakenColor;
+      float DamageTakenColorFlashSpeed;
 
       DCE_DEFINE_PROPERTY(String, PlayerName);
       DCE_DEFINE_PROPERTY(int, startingHealth);
@@ -64,6 +66,8 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(float, AnimationDistanceHead);
       DCE_DEFINE_PROPERTY(float, AnimationSpeedShoulder);
       DCE_DEFINE_PROPERTY(float, AnimationDistanceShoulder);
+      DCE_DEFINE_PROPERTY(Vec4, DamageTakenColor);
+      DCE_DEFINE_PROPERTY(float, DamageTakenColorFlashSpeed);
 
 
       // Methods
@@ -103,6 +107,7 @@ namespace DCEngine {
       void CreateSprites();
       void UpdateSprites(float timePassed);
       void FlipSprites(bool flipx);
+      void FlashColor(Vec4 color, float duration);
      
       class Global : public IState<Sentinel>
       {

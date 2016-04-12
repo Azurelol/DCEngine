@@ -899,8 +899,8 @@
             {
               "Vec3": 
               {
-                "x": 7.000000, 
-                "y": -2.000000, 
+                "x": 4.000000, 
+                "y": 0.000000, 
                 "z": 0.000000
               }
             }, 
@@ -908,8 +908,8 @@
             {
               "Vec3": 
               {
-                "x": 7.000000, 
-                "y": -2.000000, 
+                "x": 4.000000, 
+                "y": 0.000000, 
                 "z": 0.000000
               }
             }, 
@@ -917,8 +917,8 @@
             {
               "Vec3": 
               {
-                "x": 7.000000, 
-                "y": -2.000000, 
+                "x": 4.000000, 
+                "y": 0.000000, 
                 "z": 0.000000
               }
             }, 
@@ -1013,8 +1013,8 @@
           "Lancer": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
+            "StartingHealth": 7, 
+            "MaxHealth": 7, 
             "IsInvulnerable": false, 
             "ShieldArchetype": "LancerShield", 
             "HeadArchetype": "LancerHead", 
@@ -1029,7 +1029,18 @@
             "AnimationSpeedShoulder": 10.000000, 
             "AnimationDistanceShoulder": 0.010000, 
             "AnimationSpeedSpear": 10.000000, 
-            "AnimationDistanceSpear": 0.010000
+            "AnimationDistanceSpear": 0.010000, 
+            "DamageTakenColor": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "DamageTakenColorFlashSpeed": 0.200000
           }
         }, 
         "Children": 

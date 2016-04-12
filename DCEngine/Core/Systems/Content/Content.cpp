@@ -152,6 +152,21 @@ namespace DCEngine {
       for (auto& soundCue : MapSoundCue) {
         soundCue.second->Load();
         soundCue.second->Generate();
+      }  
+
+      // Load physics materials
+      for (auto& material : MapPhysicsMaterial) {
+        material.second->Load();        
+      }
+
+      // Load the collision tables
+      for (auto& table : MapCollisionTable) {
+        table.second->Load();
+      }
+
+      // Load the sprite layer orders
+      for (auto& layerOrder : MapSpriteLayerOrder) {
+        layerOrder.second->Load();
       }
 
       // Load all banks from file, then add them to audio system

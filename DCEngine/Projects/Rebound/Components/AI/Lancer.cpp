@@ -48,6 +48,8 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Lancer, AnimationDistanceShoulder);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, AnimationSpeedSpear);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, AnimationDistanceSpear);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, DamageTakenColor);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, DamageTakenColorFlashSpeed);
     }
 
     // Dependancies
@@ -91,6 +93,7 @@ namespace DCEngine {
       std::uniform_real_distribution<float> distribution(0, 1);
       randomPhase = distribution(generator);
 
+
       SpriteRef->Visible = false;
 
       health = startingHealth;
@@ -114,7 +117,10 @@ namespace DCEngine {
     {
       if (event->OtherObject->getComponent<BallController>() != NULL)
       {
-        ModifyHealth(-1);
+        if (ModifyHealth(-1))
+        {
+          FlashColor(DamageTakenColor, DamageTakenColorFlashSpeed);
+        }
       }
     }
 
@@ -197,6 +203,17 @@ namespace DCEngine {
       for (unsigned i = 0; i < sprites.size(); ++i)
       {
         sprites.at(i)->getComponent<Sprite>()->FlipX = flipX;
+      }
+    }
+
+    void Lancer::FlashColor(Vec4 color, float duration)
+    {
+      for (unsigned i = 0; i < sprites.size(); ++i)
+      {
+        Vec4 oldColor = sprites.at(i)->getComponent<Sprite>()->Color;
+        sprites.at(i)->getComponent<Sprite>()->Color = color;
+        ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
+        Actions::Property(seq, sprites.at(i)->getComponent<Sprite>()->Color, oldColor, duration, Ease::Linear);
       }
     }
 
