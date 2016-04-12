@@ -52,18 +52,10 @@
 			"buffers":
 			[
 				{
-					"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
+					"file": "/D/DCEngine/DCEngine/Projects/Rebound/Resources/EnergyShield.Zilch",
 					"settings":
 					{
-						"buffer_size": 10681,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/HealthControllerZ.Zilch",
-					"settings":
-					{
-						"buffer_size": 1631,
+						"buffer_size": 1502,
 						"line_ending": "Windows"
 					}
 				}
@@ -100,6 +92,8 @@
 			},
 			"file_history":
 			[
+				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
+				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/HealthControllerZ.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogText.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PressurePlate.Zilch",
@@ -120,7 +114,7 @@
 			],
 			"find":
 			{
-				"height": 23.0
+				"height": 53.0
 			},
 			"find_in_files":
 			{
@@ -152,44 +146,16 @@
 			"groups":
 			[
 				{
-					"selected": 1,
+					"selected": 0,
 					"sheets":
 					[
 						{
 							"buffer": 0,
-							"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
+							"file": "/D/DCEngine/DCEngine/Projects/Rebound/Resources/EnergyShield.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 10681,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										1668,
-										1668
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax"
-								},
-								"translation.x": 0.0,
-								"translation.y": 1072.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 1,
-							"type": "text"
-						},
-						{
-							"buffer": 1,
-							"file": "/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/HealthControllerZ.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 1631,
+								"buffer_size": 1502,
 								"regions":
 								{
 								},
@@ -202,12 +168,10 @@
 								],
 								"settings":
 								{
-									"syntax": "Packages/C#/C#.sublime-syntax",
-									"tab_size": 2,
-									"translate_tabs_to_spaces": true
+									"syntax": "Packages/Text/Plain text.tmLanguage"
 								},
 								"translation.x": 0.0,
-								"translation.y": 0.0,
+								"translation.y": 180.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -218,7 +182,7 @@
 			],
 			"incremental_find":
 			{
-				"height": 23.0
+				"height": 53.0
 			},
 			"input":
 			{
@@ -252,11 +216,11 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,922,-1608,124,-50",
+			"position": "0,0,1,-1,-1,-1,-1,922,0,124,1558",
 			"project": "",
 			"replace":
 			{
-				"height": 42.0
+				"height": 102.0
 			},
 			"save_all_on_build": true,
 			"select_file":
