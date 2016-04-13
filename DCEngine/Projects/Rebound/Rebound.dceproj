@@ -1,8 +1,8 @@
 {
    "Asset Path" : "Assets/",
-   "Default Level" : "Victory",
+   "Default Level" : "SandboxTesting2",
    "Default Space" : "",
-   "Play" : false,
+   "Play" : true,
    "Project Name" : "Rebound",
    "Project Path" : "Projects/Rebound/",
    "Resource Path" : "Resources/"

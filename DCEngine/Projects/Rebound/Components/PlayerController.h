@@ -61,6 +61,18 @@ namespace DCEngine {
       String JumpSound = "Jump";
       String LandSound = "Land";
       String CollideSound = "Collide";
+      int DamageFromScrapper;
+      int DamageFromSentinel;
+      int DamageFromLancer;
+      Vec4 ColorOnDamage;
+      float ColorOnDamageFlashDuration;
+      float KnockBackForceOnDamageFromScrapperX;
+      float KnockBackForceOnDamageFromScrapperY;
+      float KnockBackForceOnDamageFromSentinelX;
+      float KnockBackForceOnDamageFromSentinelY;
+      float KnockBackForceOnDamageFromLancerX;
+      float KnockBackForceOnDamageFromLancerY;
+      float DamageCooldown;
 
       Transform* TransformRef;
       RigidBody* RigidBodyRef;
@@ -90,6 +102,18 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(String, LandSound);
       DCE_DEFINE_PROPERTY(String, FootstepSound);
 	  DCE_DEFINE_PROPERTY(String, CollideSound);
+    DCE_DEFINE_PROPERTY(int, DamageFromScrapper);
+    DCE_DEFINE_PROPERTY(int, DamageFromSentinel);
+    DCE_DEFINE_PROPERTY(int, DamageFromLancer);
+    DCE_DEFINE_PROPERTY(Vec4, ColorOnDamage);
+    DCE_DEFINE_PROPERTY(float, ColorOnDamageFlashDuration);
+    DCE_DEFINE_PROPERTY(float, KnockBackForceOnDamageFromScrapperX);
+    DCE_DEFINE_PROPERTY(float, KnockBackForceOnDamageFromScrapperY);
+    DCE_DEFINE_PROPERTY(float, KnockBackForceOnDamageFromSentinelX);
+    DCE_DEFINE_PROPERTY(float, KnockBackForceOnDamageFromSentinelY);
+    DCE_DEFINE_PROPERTY(float, KnockBackForceOnDamageFromLancerX);
+    DCE_DEFINE_PROPERTY(float, KnockBackForceOnDamageFromLancerY);
+    DCE_DEFINE_PROPERTY(float, DamageCooldown);
 
 
       PlayerController(Entity& owner) : Component(std::string("PlayerController"), owner) {}
@@ -103,7 +127,7 @@ namespace DCEngine {
       void OnLogicUpdateEvent(Events::LogicUpdate * event);
       //void OnDamageEvent(Events::DamageEvent event);
       void Jump();
-      void TakeDamage(int damage);
+      bool TakeDamage(int damage);
       void Die();
 	  Boolean CheckForGround();
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
@@ -119,6 +143,8 @@ namespace DCEngine {
       void MoveRight();
       Boolean FootstepSoundEnabled = false;
       void SoundFootstep(void);
+      void FlashColor(Vec4 color, float duration);
+      bool IsDamageable = true;
     };
   }
 
