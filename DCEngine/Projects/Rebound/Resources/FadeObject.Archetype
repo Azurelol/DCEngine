@@ -59,6 +59,9 @@
       "Sprite": 
       {
         "Visible": true, 
+        "CullVisibility": true, 
+        "ForceLightCulling": false, 
+        "NOSHADOW": false, 
         "Color": 
         {
           "Vec4": 
@@ -74,7 +77,7 @@
         "FlipY": false, 
         "AnimationActive": false, 
         "AnimationSpeed": 1.000000, 
-        "DrawLayer": 4
+        "DrawLayer": 5
       }
     }, 
     "Children": 
