@@ -138,7 +138,9 @@ namespace DCEngine {
 
     void Lancer::OnShieldCollisionStartedEvent(Events::CollisionStarted * event)
     {
-      if (event->OtherObject->Name() == "Ball")
+      if (event->OtherObject->Name() == "Ball" &&
+          event->OtherObject->getComponent<Components::BoxCollider>() &&
+          event->OtherObject->getComponent<Components::BoxCollider>()->getGhost() != true)
       {
         Vec3 parentPosition = TransformRef->getTranslation();
         Vec3 otherPosition = event->OtherObject->getComponent<Components::Transform>()->getTranslation();
