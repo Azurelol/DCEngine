@@ -250,8 +250,8 @@ namespace DCEngine {
       // Load the level
       Access().CurrentSpace->LoadLevel(level);
       // Load the editor camera if not in play mode @todo HACK
-      if (!Access().Settings.ProjectProperties->Play)
-        Access().Launcher.SetEditorCamera(true);
+      //if (!Access().Settings.ProjectProperties->Play)
+      Access().Launcher.SetEditorCamera(true);
 
       // If the level doesn't have a levelsettings object (legacy), add one!
       if (!Access().CurrentSpace->FindObjectByName("LevelSettings")) {
