@@ -53,10 +53,8 @@ class DialogText : ZilchComponent
 	[Property]
 	var CyrusReplySoundName : String = "InterfaceNotify";
 	
-	[Property]
-	var AshaVoiceColor : Real3 = Real3(0,1,0);
-	[Property]
-	var CyrusVoiceColor : Real3 = Real3(1,0,0);
+	var AshaVoiceColor : Real3 = Real3(0.7,0,0.2);
+	var CyrusVoiceColor : Real3 = Real3(0,0.2,0.2);
 	
 	var XShiftPerChar : Real;
 	var CurTime : Real = 0.0;
