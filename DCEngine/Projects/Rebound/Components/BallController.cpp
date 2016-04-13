@@ -264,7 +264,11 @@ namespace DCEngine {
       //DCTrace << "BallController::Init- ball is at" << TransformRef->getTranslation().x << ", " << TransformRef->getTranslation().y << "\n";
       if (gameObj->Parent() != nullptr)
       {
-        RigidBodyRef->setVelocity(Vec3(0, 0, 0));
+		  if (gameObj->Parent()->getComponent<Components::PlayerController>() != nullptr)
+		  {
+			  RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);
+		  }
+		RigidBodyRef->setVelocity(Vec3(0, 0, 0));
         TransformRef->setTranslation(gameObj->Parent()->getComponent<Components::Transform>()->Translation);
       }
       //DCTrace << (CollisionTableRef->GetResolve("Ball", "Player");
