@@ -87,7 +87,15 @@
 					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PauseManagerZ.Zilch",
 					"settings":
 					{
-						"buffer_size": 2134,
+						"buffer_size": 2330,
+						"line_ending": "Windows"
+					}
+				},
+				{
+					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/AudioData.Zilch",
+					"settings":
+					{
+						"buffer_size": 1007,
 						"line_ending": "Windows"
 					}
 				}
@@ -206,7 +214,7 @@
 								"translation.y": 225.0,
 								"zoom_level": 1.0
 							},
-							"stack_index": 2,
+							"stack_index": 3,
 							"type": "text"
 						},
 						{
@@ -234,7 +242,7 @@
 								"translation.y": 90.0,
 								"zoom_level": 1.0
 							},
-							"stack_index": 1,
+							"stack_index": 2,
 							"type": "text"
 						},
 						{
@@ -243,15 +251,15 @@
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 2134,
+								"buffer_size": 2330,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										1126,
-										1126
+										2210,
+										2210
 									]
 								],
 								"settings":
@@ -259,10 +267,40 @@
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
 								"translation.x": 0.0,
-								"translation.y": 270.0,
+								"translation.y": 990.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
+							"type": "text"
+						},
+						{
+							"buffer": 3,
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/AudioData.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 1007,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										606,
+										639
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C#/C#.sublime-syntax",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 1,
 							"type": "text"
 						}
 					]
@@ -304,7 +342,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,934,278,136,1836",
+			"position": "0,0,1,-1,-1,-1,-1,944,293,146,1851",
 			"project": "",
 			"replace":
 			{
