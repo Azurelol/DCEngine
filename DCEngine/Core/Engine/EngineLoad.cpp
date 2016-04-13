@@ -60,7 +60,7 @@ namespace DCEngine {
     // The loading screen object
     //static GameObjectPtr sprite;
 
-    bool loadLevel = false;
+    bool loadLevel = true;
 
     // Display a Sprite on the current space
     if (enable) {

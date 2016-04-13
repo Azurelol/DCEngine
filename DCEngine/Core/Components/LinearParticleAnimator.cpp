@@ -52,7 +52,8 @@ namespace DCEngine {
     void LinearParticleAnimator::Initialize()
     {
       // Store the reference to the object's particle system component
-      ParticleSystem = Owner()->getComponent<SpriteParticleSystem>();
+      auto owner = Owner();
+      ParticleSystem = owner->getComponent<SpriteParticleSystem>();
 			ParticleSystem->mLinearAnimator = this;
     }
   }

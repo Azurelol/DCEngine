@@ -33,7 +33,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     LoadingScreen::LoadingScreen(Entity & owner) : Component(std::string("LoadingScreen"), owner)
-    {      
+    {
     }
 
     /**************************************************************************/
@@ -96,8 +96,8 @@ namespace DCEngine {
     
     void LoadingScreen::SetProgressText()
     {
-      TextProgressObj = SpaceRef->FindObjectByName("ProgressText");
-      ProjectTitleObj = SpaceRef->FindObjectByName("TitleText");
+      TextProgressObj = SpaceRef->FindObjectByName("LastLoadedText");
+      ProjectTitleObj = SpaceRef->FindObjectByName("PercentageText");
 
       if (!TextProgressObj || !ProjectTitleObj)
         return;
@@ -113,9 +113,12 @@ namespace DCEngine {
 
       // Update the progress of the loading
       static auto& resources = Daisy->getSystem<Systems::Content>()->LoadedGraphicalResources();
+      if (resources.Finished)
+        return;
+
       auto percentage = (static_cast<float>(resources.NumLoaded) / static_cast<float>(resources.NumTotal)) * 100.0f;
       auto progressText = resources.LastLoaded;
-      TextTitle->setText("Now loading... [" + std::to_string(static_cast<int>(percentage)) + "%]");
+      TextTitle->setText(std::to_string(static_cast<int>(percentage)) + "%");
       TextProgress->setText(progressText);
     }
 
