@@ -1,0 +1,21 @@
+class Seppuku : ZilchComponent
+{
+	[Property]
+	var TimeUntilHonorRestored : Real = 1;
+	
+    function Initialize()
+    {
+        var seq = Actions.Sequence(this.Owner.Actions);
+		Actions.Delay(seq, this.TimeUntilHonorRestored);
+		Actions.Call(seq, this.CommitSeppuku);
+    }
+
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+    }
+	
+	function CommitSeppuku()
+	{
+		this.Owner.Destroy();
+	}
+}

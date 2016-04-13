@@ -4,7 +4,7 @@
   {
     "Locked": false, 
     "GameObjectID": 12, 
-    "Name": "TeleportationParticle", 
+    "Name": "ReverseTeleportationParticle", 
     "Protected": false, 
     "Components": 
     {
@@ -133,7 +133,7 @@
           "Vec3": 
           {
             "x": 0.000000, 
-            "y": 20.000000, 
+            "y": -20.000000, 
             "z": 0.000000
           }
         }, 
