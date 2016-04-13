@@ -51,6 +51,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Lancer, DamageTakenColor);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, DamageTakenColorFlashSpeed);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, KnockBackOnPlayerCollisionForce);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, BallReflectForce);
     }
 
     // Dependancies
@@ -127,6 +128,8 @@ namespace DCEngine {
         {
           FlashColor(DamageTakenColor, DamageTakenColorFlashSpeed);
         }
+
+        event->OtherObject->getComponent<RigidBody>()->ApplyForce(-event->Normal * BallReflectForce);
       }
 
       if (event->OtherObject->getComponent<PlayerController>() != NULL)
@@ -138,7 +141,9 @@ namespace DCEngine {
 
     void Lancer::OnShieldCollisionStartedEvent(Events::CollisionStarted * event)
     {
-      if (event->OtherObject->Name() == "Ball")
+      if (event->OtherObject->Name() == "Ball" &&
+          event->OtherObject->getComponent<Components::BoxCollider>() &&
+          event->OtherObject->getComponent<Components::BoxCollider>()->getGhost() != true)
       {
         Vec3 parentPosition = TransformRef->getTranslation();
         Vec3 otherPosition = event->OtherObject->getComponent<Components::Transform>()->getTranslation();

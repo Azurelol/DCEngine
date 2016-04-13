@@ -49,6 +49,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, AnimationDistanceShoulder);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, DamageTakenColor);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, DamageTakenColorFlashSpeed);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, BallReflectForce);
     }
 
     DCE_COMPONENT_DEFINE_DEPENDENCIES(Sentinel, "Transform", "RigidBody", "Sprite");
@@ -94,6 +95,7 @@ namespace DCEngine {
       randomPhase = distribution(generator);
 
       CreateShield();
+      Connect(shield, Events::CollisionStarted, Sentinel::OnShieldCollisionStartedEvent);
       CreateSprites();
     }
 
@@ -118,6 +120,17 @@ namespace DCEngine {
         {
           FlashColor(DamageTakenColor, DamageTakenColorFlashSpeed);
         }
+
+        event->OtherObject->getComponent<RigidBody>()->ApplyForce(-event->Normal * BallReflectForce);
+
+      }
+    }
+
+    void Sentinel::OnShieldCollisionStartedEvent(Events::CollisionStarted * event)
+    {
+      if (event->OtherObject->getComponent<BallController>() != NULL)
+      {
+        event->OtherObject->getComponent<RigidBody>()->ApplyForce(-event->Normal * BallReflectForce);
       }
     }
 
