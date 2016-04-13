@@ -144,7 +144,7 @@ namespace DCEngine {
       Boolean FootstepSoundEnabled = false;
       void SoundFootstep(void);
       void FlashColor(Vec4 color, float duration);
-      bool IsDamageable;
+      bool IsDamageable = true;
     };
   }
 
