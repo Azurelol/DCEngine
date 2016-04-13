@@ -13,6 +13,10 @@
         "Protected": true, 
         "Components": 
         {
+          "GravityManager": 
+          {
+            "LocalGravity": 50.000000
+          }
         }, 
         "Children": 
         {
@@ -431,7 +435,7 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
+                "x": -9.000000, 
                 "y": 0.000000, 
                 "z": 0.000000
               }
@@ -440,7 +444,7 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
+                "x": -9.000000, 
                 "y": 0.000000, 
                 "z": 0.000000
               }
@@ -449,7 +453,7 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
+                "x": -9.000000, 
                 "y": 0.000000, 
                 "z": 0.000000
               }
@@ -733,7 +737,7 @@
             {
               "Vec3": 
               {
-                "x": 4.000000, 
+                "x": 7.000000, 
                 "y": 0.000000, 
                 "z": 0.000000
               }
@@ -742,7 +746,7 @@
             {
               "Vec3": 
               {
-                "x": 4.000000, 
+                "x": 7.000000, 
                 "y": 0.000000, 
                 "z": 0.000000
               }
@@ -751,7 +755,7 @@
             {
               "Vec3": 
               {
-                "x": 4.000000, 
+                "x": 7.000000, 
                 "y": 0.000000, 
                 "z": 0.000000
               }
@@ -887,171 +891,6 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 915, 
-        "Name": "Lancer", 
-        "Protected": false, 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "LocalTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "WorldTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 4.000000, 
-                "y": 4.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "CullVisibility": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "Char_Lanc", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "RigidBody": 
-          {
-            "Velocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "AngularVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Mass": 10.000000, 
-            "RotationLocked": true
-          }, 
-          "BoxCollider": 
-          {
-            "CollisionGroup": "Enemy", 
-            "PhysicsMaterial": "", 
-            "Size": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Ghost": false, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
-          }, 
-          "Lancer": 
-          {
-            "PlayerName": "Player", 
-            "StartingHealth": 1, 
-            "MaxHealth": 1, 
-            "IsInvulnerable": false, 
-            "ShieldArchetype": "LancerShield", 
-            "HeadArchetype": "LancerHead", 
-            "ShoulderArchetype": "LancerShoulder", 
-            "BodyArchetype": "LancerBody", 
-            "SpearArchetype": "LancerSpear", 
-            "IdleRange": 1000.000000, 
-            "ChargeForce": 10.000000, 
-            "ShieldReflectionForce": 10000000.000000, 
-            "AnimationSpeedHead": 10.000000, 
-            "AnimationDistanceHead": 0.010000, 
-            "AnimationSpeedShoulder": 10.000000, 
-            "AnimationDistanceShoulder": 0.010000, 
-            "AnimationSpeedSpear": 10.000000, 
-            "AnimationDistanceSpear": 0.010000, 
-            "DamageTakenColor": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 0.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "DamageTakenColorFlashSpeed": 0.200000, 
-            "KnockBackOnPlayerCollisionForce": 1000.000000, 
-            "BallReflectForce": 10000.000000
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper", 
         "Protected": false, 
@@ -1063,7 +902,7 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
+                "x": 4.000000, 
                 "y": 0.000000, 
                 "z": 0.000000
               }
@@ -1072,7 +911,7 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
+                "x": 4.000000, 
                 "y": 0.000000, 
                 "z": 0.000000
               }
@@ -1081,7 +920,7 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
+                "x": 4.000000, 
                 "y": 0.000000, 
                 "z": 0.000000
               }
