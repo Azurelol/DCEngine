@@ -1,0 +1,63 @@
+class CameraInMotion : ZilchEvent
+{
+	var CamMoving : Boolean = false;
+	sends CameraInMotion : CameraInMotion;
+}
+
+class PanEvent : ZilchEvent
+{
+	var PanBy : Real2 = Real2(0,0);
+	var PanTime : Real = 0.0;
+	var PanEase : Ease = Ease.Linear;
+	sends PanEvent : PanEvent;
+}
+
+class FadeEvent : ZilchEvent
+{
+	var FadeTime : Real = 0.0;
+	var FadeEase : Ease = Ease.Linear;
+	sends FadeEvent : FadeEvent;
+}
+
+class MenuPan : ZilchComponent
+{
+	[Property]
+	var FadeSpriteName : String = "";
+
+	var FadeSprite : Entity = null;
+
+    function Initialize()
+    {
+        Daisy.Connect(this.Space, DaisyEvent.PanEvent, this.OnPanEvent);
+        Daisy.Connect(this.Space, DaisyEvent.FadeEvent, this.OnFadeEvent);
+    }
+
+    function OnPanEvent(event : PanEvent)
+    {
+    	var camMove = CameraInMotion();
+    	camMove.CamMoving = true;
+    	this.Space.Dispatch(DaisyEvent.CameraInMotion, camMove);
+
+    	var panLoc = Real3(this.Owner.Transform.Translation.X + event.PanBy.X, this.Owner.Transform.Translation.Y + event.PanBy.Y,
+    											this.Owner.Transform.Translation.Z);
+
+    	var panSeq = Actions.Sequence(this.Owner.Actions);
+
+    	Actions.Property(panSeq, @this.Owner.Transform.Translation, panLoc, event.PanTime, event.PanEase);
+    	Actions.Call(panSeq, this.ReportPanEnd);
+    }
+
+    function OnFadeEvent(event : FadeEvent)
+    {
+    	var shroudRef = this.Space.FindObjectByName(this.FadeSpriteName);
+    	var fadeSeq = Actions.Sequence(this.Owner.Actions);
+    	Actions.Property(fadeSeq, @shroudRef.Sprite.Color, Real4(shroudRef.Sprite.Color.XYZ, 1), event.FadeTime, event.FadeEase);
+    }
+
+    function ReportPanEnd()
+    {
+    	var camMove = CameraInMotion();
+    	camMove.CamMoving = false;
+    	this.Space.Dispatch(DaisyEvent.CameraInMotion, camMove);
+    }
+}

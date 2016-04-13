@@ -1,0 +1,49 @@
+class TestParenting : ZilchComponent
+{
+    function Initialize()
+    {
+        Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent);
+    }
+
+    function OnKeyDownEvent(event : KeyDown) {
+
+    	// Print status
+    	if (event.Key == Keys.S) {
+    		this.PrintStatus();
+    	}
+    	else if (event.Key == Keys.C) {
+    		this.PrintChildren();
+    	}
+
+    }
+
+    function PrintStatus() {
+   		var parent = this.Owner.Parent;
+  		if (parent != null) {
+  			Console.WriteLine("Attaching `this.Owner.Name`'s parent is `parent.Name`");
+  		}
+  		else {  		
+  			Console.WriteLine("`this.Owner.Name` has no parent");
+  		}
+    }
+    
+    function PrintChildren() {
+    	var children = this.Owner.Children;
+    	Console.WriteLine("`this.Owner.Name` has `children.Count` children!");
+
+    	// while
+    	Console.WriteLine("WHILE: `this.Owner.Name`'s children are:");
+    	while (children.IsNotEmpty) {
+    		Console.WriteLine("`children.Current.Name`");
+    		children.MoveNext();
+    	}
+    	
+    	// foreach
+    	children = this.Owner.Children;
+    	Console.WriteLine("FOR: `this.Owner.Name`'s children are:");
+    	foreach(var child in children) {
+    		Console.WriteLine("`child.Name`");
+    	}
+
+    }
+}
