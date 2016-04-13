@@ -53,12 +53,17 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, KnockBackForceOnDamageFromLancerX);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, KnockBackForceOnDamageFromLancerY);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, DamageCooldown);
+      DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(Archetype);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, ShieldArchetype);
+      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyShieldArchetype, attributeArchetype);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, RedHazeArchetype);
+      DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyRedHazeArchetype, attributeArchetype);
 		}
 #endif
 
 		void PlayerController::Initialize()
 		{
-			auto gameObj = dynamic_cast<GameObject*>(Owner());
+			gameObj = dynamic_cast<GameObject*>(Owner());
 			Connect(Daisy->getMouse(), Events::MouseDown, PlayerController::OnMouseDownEvent);
 			Connect(Daisy->getMouse(), Events::MouseUp, PlayerController::OnMouseUpEvent);
 			Connect(Daisy->getKeyboard(), Events::KeyDown, PlayerController::OnKeyDownEvent);
@@ -81,17 +86,60 @@ namespace DCEngine {
 			//ColliderRef->setCollisionGroup("Player");
 			//RigidBodyRef->setGravity(false);
 
-
 			//SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("Dogma");
+
+      maxHealth = Health;
+      redHazeAlphaValue = 0;
+      CreateShield();
+
 		}
 
     void PlayerController::FlashColor(Vec4 color, float duration)
     {
-      Vec4 oldColor = SpriteComponent->Color;
-      SpriteComponent->Color = color;
+      shield->getComponent<Sprite>()->Color = shieldColor;
       ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
-      Actions::Property(seq, SpriteComponent->Color, oldColor, duration, Ease::Linear);
+      Actions::Property(seq, shield->getComponent<Sprite>()->Color.w, 0, duration, Ease::Linear);
       
+      float width = Daisy->getSystem<Systems::Graphics>()->GetScreenWidth();
+      float height = Daisy->getSystem<Systems::Graphics>()->GetScreenHeight();
+      redHaze->getComponent<Transform>()->Scale = Vec3(width / 38, height / 38, 0);
+      redHaze->getComponent<Sprite>()->Color = redHazeColor;
+
+
+
+      if (Health <= maxHealth / 2)
+      {
+        redHazeAlphaValue =  1 - (Health / maxHealth);
+      }
+      else
+      {
+        redHazeAlphaValue = 0.0f;
+      }
+
+      ActionSetPtr seq2 = Actions::Sequence(Owner()->Actions);
+      Actions::Property(seq2, redHaze->getComponent<Sprite>()->Color.w, redHazeAlphaValue, duration, Ease::Linear);
+    }
+
+    void PlayerController::CreateShield()
+    {
+      shield = SpaceRef->CreateObject(ShieldArchetype);
+      shield->AttachTo(gameObj);
+      shield->getComponent<Transform>()->SetLocalTranslation(Vec3(0, 0, 0));
+      shieldColor = shield->getComponent<Sprite>()->Color;
+      shield->getComponent<Sprite>()->Color.w = 0;
+
+      camera = SpaceRef->FindObjectByName("Camera");
+
+      redHaze = SpaceRef->CreateObject(RedHazeArchetype);
+      redHaze->AttachTo(camera);
+      redHaze->getComponent<Transform>()->setLocalTranslation(Vec3(0, 0, -1));
+      float width = Daisy->getSystem<Systems::Graphics>()->GetScreenWidth();
+      float height = Daisy->getSystem<Systems::Graphics>()->GetScreenHeight();
+      redHaze->getComponent<Transform>()->Scale = Vec3(width / 38, height / 38, 0);
+      redHazeColor = redHaze->getComponent<Sprite>()->Color;
+      redHaze->getComponent<Sprite>()->Color.w = 0;
+
+      //DCTrace << "width: " << width << " height: " << height << "\n";
     }
 
 		void PlayerController::OnMouseDownEvent(Events::MouseDown * event)
@@ -197,6 +245,14 @@ namespace DCEngine {
 						particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation - Vec3(0, TransformRef->getScale().y / 2, 0));
 					}
 				}
+				if (event->OtherObject->getComponent<Components::HazardArea>())
+				{
+					auto particle = SpaceRef->CreateObject("AcidSplashParticle");
+					if (particle)
+					{
+						particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation - Vec3(0, TransformRef->getScale().y / 2, 0));
+					}
+				}
 			}
 			if (event->OtherObject->getComponent<Components::LevelManager>())
 			{
@@ -249,6 +305,8 @@ namespace DCEngine {
 
 		void PlayerController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 		{
+      //DCTrace << "Player velocity: " << RigidBodyRef->getVelocity().x << ", " << RigidBodyRef->getVelocity().y << "\n";
+
 			bool animationChanged = false;
 			if (PlayerControllerTraceOn)
 			{

@@ -56,6 +56,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Vec3, DirectionVector);
       DCE_DEFINE_PROPERTY(float, InnerAngle);
 			DCE_DEFINE_PROPERTY(float, OuterAngle);
+			DCE_DEFINE_PROPERTY(float, CullLight);
       
       ZilchDeclareDerivedType(Light, Component);
       Light(Entity& owner);
@@ -78,6 +79,7 @@ namespace DCEngine {
 			Vec3 DirectionVector;
       float InnerAngle;
 			float OuterAngle;
+			float CullLight;
     };
 
 

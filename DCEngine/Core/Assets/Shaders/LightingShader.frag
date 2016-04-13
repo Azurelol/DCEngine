@@ -18,6 +18,7 @@ struct Light
 	float OuterAngle;
 	vec3 Position;
 	mat4 Model;
+	float CullLight;
 };
 
 uniform Light gLight;
@@ -49,10 +50,12 @@ float GenerateZ0DiffuseFactor(vec3 fragPos, vec3 fragNormal, vec3 lightPosition)
 float GenerateFalloffFactor(float distance, float range, float falloff)
 {
 	if(distance <= range)
+  {
 		if(falloff > 0.0)
-			return (1.0 - distance/range) / (exp(falloff) - 1);
+			return (1.0 - (distance / range)) * exp(-falloff);
 		else
 			return 1.0;
+  }
 	else return 0.0;
 }
 
@@ -72,7 +75,8 @@ float GenerateSpotLightValues(vec3 fragPos, vec3 fragNormal, Light light)
 		diffuseFactor = GenerateZ0DiffuseFactor(fragPos, fragNormal, light.Position);
 	float distance = length(fragPos - light.Position);
 	float distanceAttenuation = GenerateFalloffFactor(distance, light.Range, light.Falloff);
-
+  if(distanceAttenuation == 0)
+    return 0;
 	vec3 lightVector = (fragPos - light.Position) / distance;
 	float angleFalloff = 0.0;
 	vec4 worldDirection = light.Model * vec4(light.Direction.xyz, 0.0);
@@ -82,7 +86,7 @@ float GenerateSpotLightValues(vec3 fragPos, vec3 fragNormal, Light light)
 		return 0.0;
 
 	if(light.InnerAngle < light.OuterAngle)
-		angleFalloff = (angleDifference - light.OuterAngle) / (light.InnerAngle - light.OuterAngle);
+		angleFalloff = (light.OuterAngle - angleDifference) / (light.OuterAngle - light.InnerAngle);
 	else
 		angleFalloff = 1;
 
@@ -119,8 +123,9 @@ void main()
 	vec3 normal = texture(gWorldNormal, gTexCoords).rgb;
 	vec4 color = texture(gColor, gTexCoords);
 	if(useLight)
-	{
-		lightValue = GenerateIlluminationValues(fragPos, normal);
-	}
+		if(gLight.CullLight == 0 || (gLight.Position.z + gLight.CullLight <= fragPos.z))
+			lightValue = GenerateIlluminationValues(fragPos, normal);
+		else
+			lightValue = vec3(0);
 	FragColor = color * vec4(lightValue, 1);
 }

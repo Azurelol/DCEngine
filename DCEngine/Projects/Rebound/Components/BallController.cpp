@@ -112,6 +112,9 @@ namespace DCEngine {
       //  << coords.x << " y: " << coords.y << "\n";
       if (event->ButtonPressed == MouseButton::Right)
       {
+
+        IsAttracting = true;
+
         SoundCommand();
 
         if (ControlScheme == ControlScheme::Connor)
@@ -180,6 +183,7 @@ namespace DCEngine {
 
           RigidBodyRef->ApplyForce(MouseVector * ChargeFactor * CurrentCharge);
 		  PlayerRef->getComponent<Components::PlayerController>()->FramesOfThrowAnimation = 10;
+		  ColliderRef->Ghost = false;
 		  ColliderRef->SendsEvents = true;
 		  SpriteRef->Visible = true;
           Charging = false;
@@ -267,6 +271,7 @@ namespace DCEngine {
 		  if (gameObj->Parent()->getComponent<Components::PlayerController>() != nullptr)
 		  {
 			  RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);
+			  CollisionTableRef->SetResolve("Ball", "Player", CollisionFlag::SkipResolution);
 			  ColliderRef->SendsEvents = false;
 		  }
 		RigidBodyRef->setVelocity(Vec3(0, 0, 0));
@@ -307,6 +312,7 @@ namespace DCEngine {
         {
           return;
         }
+        //IsAttracting = true;
         AttractBall();
       }
       if (Charging)
@@ -373,6 +379,9 @@ namespace DCEngine {
 
     void BallController::AttractBall()
     {
+      if (!IsAttracting)
+        return;
+
       if (gameObj->Parent() != nullptr)
         return;
       if (BallControllerTraceOn)
@@ -505,6 +514,7 @@ namespace DCEngine {
       CurrentlyFired = false;
       //SpriteRef->Color = NormalColor;
       RigidBodyRef->setVelocity(Vec3(0, 0, 0));
+	  ColliderRef->Ghost = true;
 	  ColliderRef->SendsEvents = false;
 	  //SpriteRef->Visible = false;
       RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);

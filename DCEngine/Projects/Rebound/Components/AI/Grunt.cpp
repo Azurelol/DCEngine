@@ -58,6 +58,7 @@ namespace DCEngine {
       //DCE_BINDING_DEFINE_PROPERTY(Grunt, IsDebugColorActive);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, DamageTakenColor);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, DamageTakenColorFlashSpeed);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, BallReflectForce);
     }
 
     // Dependancies
@@ -119,6 +120,8 @@ namespace DCEngine {
       
       randomPhase = distribution(generator);
       CreateSprites();
+
+      isDamagable = true;
     }
 
     void Grunt::ChangeStateRight()
@@ -143,10 +146,17 @@ namespace DCEngine {
     {
       if (event->OtherObject->getComponent<BallController>() != NULL)
       {
-        if (ModifyHealth(-1))
+        if (player->getComponent<PlayerController>()->Invincible)
+        {
+          stateMachine->ChangeState(Die::Instance());
+        }
+        else if (ModifyHealth(-1))
         {
           FlashColor(DamageTakenColor, DamageTakenColorFlashSpeed);
         }
+
+        event->OtherObject->getComponent<BallController>()->IsAttracting = false;
+        event->OtherObject->getComponent<RigidBody>()->ApplyForce(-event->Normal * BallReflectForce);
       }
     }
 
@@ -156,12 +166,19 @@ namespace DCEngine {
 
       if (!IsInvulnerable)
       {
-        health += amount;
+        if (isDamagable)
+        {
+          health += amount;
 
-        if (health > maxHealth)
-          health = maxHealth;
-        if (health < 0)
-          health = 0;
+          if (health > maxHealth)
+            health = maxHealth;
+          if (health < 0)
+            health = 0;
+
+          isDamagable = false;
+          ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
+          Actions::Property(seq, isDamagable, true, DamageTakenColorFlashSpeed + 0.3f, Ease::Linear);
+        }
       }
 
       if (health == 0)
@@ -189,6 +206,10 @@ namespace DCEngine {
         sprites.at(i)->AttachTo(gameObj);
         sprites.at(i)->getComponent<Transform>()->SetLocalTranslation(Vec3(0, 0, 0));
       }
+
+      head->getComponent<Transform>()->Translation.z = 0.01;
+      body->getComponent<Transform>()->Translation.z = 0;
+      saw->getComponent<Transform>()->Translation.z = 0.02;
     }
 
     void Grunt::UpdateSprites(float timePassed)
@@ -237,6 +258,8 @@ namespace DCEngine {
       {
         RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(strengthX *  direction, strengthY, 0));
         jumpTimer = 0;
+
+        // particle emitter.size = 0.8;
       }
 
       jumpTimer += dt;

@@ -49,6 +49,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, AnimationDistanceShoulder);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, DamageTakenColor);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, DamageTakenColorFlashSpeed);
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, BallReflectForce);
     }
 
     DCE_COMPONENT_DEFINE_DEPENDENCIES(Sentinel, "Transform", "RigidBody", "Sprite");
@@ -92,9 +93,12 @@ namespace DCEngine {
 
       SpriteRef->Visible = false;
       randomPhase = distribution(generator);
-      CreateSprites();
 
       CreateShield();
+      Connect(shield, Events::CollisionStarted, Sentinel::OnShieldCollisionStartedEvent);
+      CreateSprites();
+
+      isDamageable = true;
     }
 
     void Sentinel::OnLogicUpdateEvent(Events::LogicUpdate * event)
@@ -114,10 +118,26 @@ namespace DCEngine {
     {
       if (event->OtherObject->getComponent<BallController>() != NULL)
       {
-        if (ModifyHealth(-1))
+        if (player->getComponent<PlayerController>()->Invincible)
+        {
+          stateMachine->ChangeState(Die::Instance());
+        }
+        else if (ModifyHealth(-1))
         {
           FlashColor(DamageTakenColor, DamageTakenColorFlashSpeed);
         }
+
+        event->OtherObject->getComponent<BallController>()->IsAttracting = false;
+        event->OtherObject->getComponent<RigidBody>()->ApplyForce(-event->Normal * BallReflectForce);
+
+      }
+    }
+
+    void Sentinel::OnShieldCollisionStartedEvent(Events::CollisionStarted * event)
+    {
+      if (event->OtherObject->getComponent<BallController>() != NULL)
+      {
+        event->OtherObject->getComponent<RigidBody>()->ApplyForce(-event->Normal * BallReflectForce);
       }
     }
 
@@ -127,12 +147,19 @@ namespace DCEngine {
 
       if (!IsInvulnerable)
       {
-        health += amount;
+        if (isDamageable)
+        {
+          health += amount;
 
-        if (health > maxHealth)
-          health = maxHealth;
-        if (health < 0)
-          health = 0;
+          if (health > maxHealth)
+            health = maxHealth;
+          if (health < 0)
+            health = 0;
+
+          isDamageable = false;
+          ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
+          Actions::Property(seq, isDamageable, true, DamageTakenColorFlashSpeed + 0.3f, Ease::Linear);
+        }
       }
 
       if (health == 0)
@@ -155,6 +182,7 @@ namespace DCEngine {
       shield->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
       CollisionTablePtr CollisionTableRef = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));
       CollisionTableRef->SetResolve("Enemy", "SentinelShield", CollisionFlag::SkipDetecting);
+      shield->getComponent<Transform>()->Translation.z = 0.03;
     }
 
     void Sentinel::CreateSprites()
@@ -171,6 +199,11 @@ namespace DCEngine {
         sprites.at(i)->AttachTo(gameObj);
         sprites.at(i)->getComponent<Transform>()->SetLocalTranslation(Vec3(0, 0, 0));
       }
+
+      head->getComponent<Transform>()->Translation.z = 0.01;
+      shoulder->getComponent<Transform>()->Translation.z = 0.02;
+      body->getComponent<Transform>()->Translation.z = 0;
+
     }
 
     void Sentinel::UpdateSprites(float timePassed)

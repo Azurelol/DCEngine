@@ -99,7 +99,8 @@
             "w": 1.000000
           }
         }, 
-        "DamageTakenColorFlashSpeed": 0.200000
+        "DamageTakenColorFlashSpeed": 0.200000, 
+        "BallReflectForce": 10000.000000
       }, 
       "BoxCollider": 
       {
@@ -153,6 +154,7 @@
       "Sprite": 
       {
         "Visible": true, 
+        "CullVisibility": true, 
         "Color": 
         {
           "Vec4": 

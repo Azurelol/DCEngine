@@ -294,6 +294,8 @@ namespace DCEngine {
         auto fontResource = FontPtr(new Font(font));
         fontResource->setAssetPath(font);
         AddFont(fontName, fontResource);
+        fontResource->LoadFontFromFile();
+        fontResource->GenerateFont();
       }
     }
 

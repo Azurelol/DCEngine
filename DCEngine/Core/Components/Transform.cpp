@@ -180,6 +180,8 @@ namespace DCEngine {
         }
 
       }
+
+	  PrevRotation = Rotation;
     }
 
     /**************************************************************************/
@@ -200,8 +202,10 @@ namespace DCEngine {
       point -= rotation;
       Vec3 temp = point;
 
-      point.x = cos(temp.x) + -sin(temp.y);
-      point.y = sin(temp.x) + cos(temp.y);
+	  angle = (3.14159265359f / 180.0f) * angle;
+
+      point.x = temp.x * cos(angle) + temp.y * -sin(angle);
+      point.y = temp.x * sin(angle) + temp.y * cos(angle);
 
       point += rotation;
 

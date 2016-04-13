@@ -187,7 +187,8 @@ namespace DCEngine {
         break;
 
       case Keys::L:
-        if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl)) {          
+        if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl) ||
+            Daisy->getKeyboard()->KeyIsDown(Keys::RControl)) {
           if (Daisy->getKeyboard()->KeyIsDown(Keys::LShift)) {
             Selector.LockAll();
           }
@@ -198,7 +199,8 @@ namespace DCEngine {
         break;
 
       case Keys::U:
-        if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl)) {
+        if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl) ||
+            Daisy->getKeyboard()->KeyIsDown(Keys::RControl)) {
           if (Daisy->getKeyboard()->KeyIsDown(Keys::LShift)) {
             Selector.UnlockAll();
           }

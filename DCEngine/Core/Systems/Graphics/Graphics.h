@@ -50,13 +50,13 @@ namespace DCEngine {
       void DrawRectangle(const Vec3& pos, Real& width, Real& height, const Vec4& color, Components::Camera& cam, bool fill = false);
       void DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color, Components::Camera& cam);
 
-			//graphicsSettings
-			void SetResolution(unsigned x, unsigned y);
-			void SetAntiAliasingLevel(unsigned samples);
-			void ToggleFullscreen();
-			//Setting Gettors
-			unsigned GetScreenWidth() const;
-			unsigned GetScreenHeight() const;
+      //graphicsSettings
+      void SetResolution(unsigned x, unsigned y);
+      void SetAntiAliasingLevel(unsigned samples);
+      void ToggleFullscreen();
+      //Setting Gettors
+      unsigned GetScreenWidth() const;
+      unsigned GetScreenHeight() const;
 
 
     private:
@@ -78,7 +78,7 @@ namespace DCEngine {
       void OnWindowFullScreenEnabledEvent(Events::WindowFullScreenEnabled* event);
       void OnWindowFullScreenDisabledEvent(Events::WindowFullScreenDisabled* event);
       void OnWindowResizeEvent(Events::WindowResize* event);
-			void OnWindowRecreateEvent(Events::WindowRecreate* event);
+      void OnWindowRecreateEvent(Events::WindowRecreate* event);
       void OnGraphicsToggleLightningEvent(Events::GraphicsToggleLightning* event);
       // CTOR/ DTOR, Initialize
       Graphics(GraphicsConfig& settings);

@@ -61,6 +61,8 @@ namespace DCEngine {
       // Properties
       DCE_DEFINE_PROPERTY(bool, Visible);
 			DCE_DEFINE_PROPERTY(bool, CullVisibility);
+			DCE_DEFINE_PROPERTY(bool,	ForceLightCulling);
+			DCE_DEFINE_PROPERTY(bool, NOSHADOW);
       DCE_DEFINE_PROPERTY(Vec4, Color);
       DCE_DEFINE_PROPERTY(String, SpriteSource);
       DCE_DEFINE_PROPERTY(bool, FlipX);
@@ -107,6 +109,8 @@ namespace DCEngine {
       //unsigned DrawLayer;
       bool silhouette;
 			bool CullVisibility;
+			bool ForceLightCulling;
+			bool NOSHADOW;
     };
 
   }

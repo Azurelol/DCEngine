@@ -50,8 +50,9 @@ namespace DCEngine {
     {
       isActive = true;
       if (isActive &&
-          event->OtherObject->Name() == "Player" ||
-          event->OtherObject->Name() == "Ball")
+          event->OtherObject->Name() == "Ball" &&
+          event->OtherObject->getComponent<Components::BoxCollider>() &&
+          event->OtherObject->getComponent<Components::BoxCollider>()->getGhost() != true)
       {
         Vec3 parentVelocity = parent->getComponent<Components::RigidBody>()->getVelocity();
         Vec3 parentPosition = parent->getComponent<Components::Transform>()->getTranslation();
