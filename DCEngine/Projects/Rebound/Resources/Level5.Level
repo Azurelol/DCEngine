@@ -9382,6 +9382,292 @@
         "Children": 
         {
         }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 1817, 
+        "Name": "DialogBackground", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 1.347712, 
+                "y": 8.195467, 
+                "z": 0.001000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 1.347712, 
+                "y": 8.195467, 
+                "z": 0.001000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 1.347712, 
+                "y": 8.195467, 
+                "z": 0.001000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 9.000000, 
+                "y": 5.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "CullVisibility": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "SpriteSource": "DialogBack", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.500000, 
+            "DrawLayer": 5
+          }, 
+          "DialogBackgroundBehavior": 
+          {
+            "UnitsAbovePlayer": 5, 
+            "UnitsInFrontOfPlayer": 0
+          }
+        }, 
+        "Children": 
+        {
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 146, 
+            "Name": "DialogText", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -2.743516, 
+                    "y": 9.045000, 
+                    "z": 0.002000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -4.091228, 
+                    "y": 0.849533, 
+                    "z": 0.001000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -2.743516, 
+                    "y": 9.045000, 
+                    "z": 0.002000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "SpriteText": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "Font": "Electrolize-Regular", 
+                "FontSize": 5, 
+                "Text": "123456789ABCDEFGHFFF F asdasd", 
+                "PixelsPerUnit": 64, 
+                "Smoothing": true, 
+                "WordWrap": 30, 
+                "DrawLayer": 5
+              }, 
+              "DialogText": 
+              {
+                "SystemDelay": 0.000000, 
+                "FadeInTime": 0.500000, 
+                "FadeEase": "Linear", 
+                "MessageTime": 5.000000, 
+                "ScaleTimeWithSize": true, 
+                "TimePerChar": 0.020000, 
+                "Message": "", 
+                "WordWrap": 32, 
+                "TextEase": "Linear", 
+                "DeleteAfterTime": false, 
+                "TimeToDelete": 10.000000, 
+                "AshaReplySoundName": "InterfaceReply", 
+                "CyrusReplySoundName": "InterfaceNotify", 
+                "AshaVoiceColor": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 1.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "CyrusVoiceColor": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "SkipMessageDelay": true
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 146, 
+            "Name": "DialogSpeaker", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -2.743516, 
+                    "y": 9.695000, 
+                    "z": 0.002000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -4.091228, 
+                    "y": 1.499533, 
+                    "z": 0.001000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -2.743516, 
+                    "y": 9.695000, 
+                    "z": 0.002000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "SpriteText": 
+              {
+                "Visible": false, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000, 
+                    "w": 0.000000
+                  }
+                }, 
+                "Font": "SafetyMedium", 
+                "FontSize": 5, 
+                "Text": "SPEAKER", 
+                "PixelsPerUnit": 64, 
+                "Smoothing": true, 
+                "WordWrap": 20, 
+                "DrawLayer": 0
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }
+        }
       }
     }
   }
