@@ -197,6 +197,14 @@ namespace DCEngine {
 						particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation - Vec3(0, TransformRef->getScale().y / 2, 0));
 					}
 				}
+				if (event->OtherObject->getComponent<Components::HazardArea>())
+				{
+					auto particle = SpaceRef->CreateObject("AcidSplashParticle");
+					if (particle)
+					{
+						particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation - Vec3(0, TransformRef->getScale().y / 2, 0));
+					}
+				}
 			}
 			if (event->OtherObject->getComponent<Components::LevelManager>())
 			{
