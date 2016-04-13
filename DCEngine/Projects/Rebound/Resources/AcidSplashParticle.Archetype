@@ -4,7 +4,7 @@
   {
     "Locked": false, 
     "GameObjectID": 1383, 
-    "Name": "LandingParticle", 
+    "Name": "AcidSplashParticle", 
     "Protected": false, 
     "Components": 
     {
@@ -63,9 +63,9 @@
         {
           "Vec4": 
           {
-            "x": 1.000000, 
-            "y": 1.000000, 
-            "z": 1.000000, 
+            "x": 0.000000, 
+            "y": 0.800000, 
+            "z": 0.000000, 
             "w": 1.000000
           }
         }, 
@@ -89,9 +89,9 @@
       {
         "Active": true, 
         "ResetCount": false, 
-        "EmitCount": 10, 
-        "EmitRate": 5000, 
-        "EmitVariance": 1, 
+        "EmitCount": 1, 
+        "EmitRate": 66, 
+        "EmitVariance": 40, 
         "Size": 1.000000, 
         "SizeVariance": 1.000000, 
         "Lifetime": 1.000000, 
@@ -103,7 +103,7 @@
           "Vec3": 
           {
             "x": 0.000000, 
-            "y": 0.000000, 
+            "y": 4.000000, 
             "z": 0.000000
           }
         }, 
@@ -112,7 +112,7 @@
           "Vec3": 
           {
             "x": 5.000000, 
-            "y": 0.000000, 
+            "y": 4.000000, 
             "z": 0.000000
           }
         }, 
@@ -120,7 +120,7 @@
         {
           "Vec2": 
           {
-            "x": 0.000000, 
+            "x": 0.500000, 
             "y": 0.000000
           }
         }, 
@@ -147,8 +147,8 @@
           }
         }, 
         "Torque": 0.000000, 
-        "Growth": -2.000000, 
-        "Dampening": 3.000000
+        "Growth": -4.000000, 
+        "Dampening": 4.500000
       }
     }, 
     "Children": 
