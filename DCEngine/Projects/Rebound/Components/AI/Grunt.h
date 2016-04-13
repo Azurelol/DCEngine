@@ -51,9 +51,10 @@ namespace DCEngine {
       //Vec4 PatrolColor = Vec4(0, 0, 1, 1);
       Vec4 AttackColor;
       Vec4 DamageTakenColor;
+	  Vec3 ParticleOffset = Vec3(0, -0.75, 0);
       float DamageTakenColorFlashSpeed;
       float BallReflectForce;
-      
+	  GameObjectPtr particle;
 
       DCE_COMPONENT_DECLARE_DEPENDENCIES;
 

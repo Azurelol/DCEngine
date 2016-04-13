@@ -120,6 +120,11 @@ namespace DCEngine {
       
       randomPhase = distribution(generator);
       CreateSprites();
+	  particle = SpaceRef->CreateObject("ScrapperParticle");
+	  if (particle)
+	  {
+		  particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation + ParticleOffset + Vec3(RigidBodyRef->getVelocity().x / 60, 0 ,0));
+	  }
     }
 
     void Grunt::ChangeStateRight()
@@ -137,7 +142,7 @@ namespace DCEngine {
       stateMachine->Update();
       dt = event->Dt;
       UpdateSprites(event->TimePassed);
-      
+	  particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation + ParticleOffset + Vec3(RigidBodyRef->getVelocity().x / 60, 0, 0));
     }
 
     void Grunt::OnCollisionStartedEvent(Events::CollisionStarted * event)

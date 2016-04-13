@@ -47,6 +47,7 @@ namespace DCEngine {
       Vec4 DamageTakenColor;
       float DamageTakenColorFlashSpeed;
       float BallReflectForce;
+	  GameObjectPtr particle;
 
       DCE_DEFINE_PROPERTY(String, PlayerName);
       DCE_DEFINE_PROPERTY(int, startingHealth);
