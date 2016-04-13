@@ -267,6 +267,7 @@ namespace DCEngine {
 		  if (gameObj->Parent()->getComponent<Components::PlayerController>() != nullptr)
 		  {
 			  RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);
+			  ColliderRef->SendsEvents = false;
 		  }
 		RigidBodyRef->setVelocity(Vec3(0, 0, 0));
         TransformRef->setTranslation(gameObj->Parent()->getComponent<Components::Transform>()->Translation);
@@ -493,7 +494,8 @@ namespace DCEngine {
       }
 
       SoundCommand();
-
+	  Locked = false;
+	  Frozen = false;
       CollisionTableRef->SetResolve("Ball", "Player", CollisionFlag::SkipResolution);
       auto particle = SpaceRef->CreateObject("BallExplosionParticle");
       if (particle)
@@ -503,9 +505,9 @@ namespace DCEngine {
       CurrentlyFired = false;
       //SpriteRef->Color = NormalColor;
       RigidBodyRef->setVelocity(Vec3(0, 0, 0));
-	  //ColliderRef->SendsEvents = false;
+	  ColliderRef->SendsEvents = false;
 	  //SpriteRef->Visible = false;
-      //RigidBodyRef->setDynamicState(DynamicStateType::Kinematic);
+      RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);
       TransformRef->setTranslation(PlayerRef->getComponent<Components::Transform>()->Translation);
       gameObj->AttachTo(PlayerRef);
     }
