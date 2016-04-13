@@ -2,7 +2,8 @@ class GeneratorDeathEvent : ZilchEvent {}
 
 class CornerBallEnergyGenerationers : ZilchComponent
 {
-
+    [Property]
+    var DamageValue : Real = 0;
     function Initialize()
     {
         Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
@@ -17,12 +18,16 @@ class CornerBallEnergyGenerationers : ZilchComponent
     
     function OnCollisionStartedEvent(event : CollisionStarted)
     {
-      
+      if(event.OtherObject.BallTemp != null)
+      {
+        this.Owner.HealthControllerZ.ModifyHealth(-this.DamageValue);
+      }
     }
     
     function OnDeathEvent(event : DeathEvent)
     {
       var deathEvent = GeneratorDeathEvent();
       this.Space.Dispatch(DaisyEvent.GeneratorDeathEvent, deathEvent);
+      this.Owner.Destroy();
     }
 }

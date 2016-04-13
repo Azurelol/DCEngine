@@ -540,7 +540,9 @@
             "KnockBackForceOnDamageFromSentinelY": 10000.000000, 
             "KnockBackForceOnDamageFromLancerX": 100000.000000, 
             "KnockBackForceOnDamageFromLancerY": 10000.000000, 
-            "DamageCooldown": 1.000000
+            "DamageCooldown": 1.000000, 
+            "ShieldArchetype": "", 
+            "RedHazeArchetype": ""
           }, 
           "Light": 
           {
@@ -11816,8 +11818,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -4.091228, 
-                    "y": 0.849533, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.001000
                   }
                 }, 
@@ -11916,8 +11918,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -4.091228, 
-                    "y": 1.499533, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.001000
                   }
                 }, 

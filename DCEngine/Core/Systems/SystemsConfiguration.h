@@ -195,6 +195,7 @@ namespace DCEngine {
         DCE_JSON_SERIALIZE(Fullscreen);
         DCE_JSON_SERIALIZE(Framerate);
         DCE_JSON_SERIALIZE(DisplayFPS);
+        DCE_JSON_SERIALIZE(LightningEnabled);
         DCE_JSON_SERIALIZE(MaxDrawLayers);
         DCE_JSON_SERIALIZE(ScreenWidth);
         DCE_JSON_SERIALIZE(ScreenHeight);
@@ -211,6 +212,7 @@ namespace DCEngine {
         DCE_JSON_DESERIALIZE_INTRINSIC(Fullscreen).asBool();
         DCE_JSON_DESERIALIZE_INTRINSIC(Framerate).asInt();
         DCE_JSON_DESERIALIZE_INTRINSIC(DisplayFPS).asBool();
+        DCE_JSON_DESERIALIZE_INTRINSIC(LightningEnabled).asBool();
         DCE_JSON_DESERIALIZE_INTRINSIC(MaxDrawLayers).asInt();
         DCE_JSON_DESERIALIZE_INTRINSIC(Samples).asInt();
         DCE_JSON_DESERIALIZE_INTRINSIC(ScreenWidth).asInt();

@@ -121,7 +121,7 @@ namespace DCEngine {
       auto percentage = (static_cast<float>(resources.NumLoaded) / static_cast<float>(resources.NumTotal)) * 100.0f;
       auto progressText = resources.LastLoaded;
       auto charCount = progressText.size();
-      //auto offset = 
+      //auto offset = Vec3(InitialTextTranslation.x + , InitialTextTranslation.y, InitialTextTranslation.z);
 
       TextTitle->setText(std::to_string(static_cast<int>(percentage)) + "%");
       TextProgress->setText(progressText);
