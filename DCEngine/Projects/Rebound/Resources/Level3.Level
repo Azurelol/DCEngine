@@ -348,7 +348,9 @@
             "KnockBackForceOnDamageFromSentinelY": 0.000000, 
             "KnockBackForceOnDamageFromLancerX": 0.000000, 
             "KnockBackForceOnDamageFromLancerY": 0.000000, 
-            "DamageCooldown": 0.000000
+            "DamageCooldown": 0.000000, 
+            "ShieldArchetype": "", 
+            "RedHazeArchetype": ""
           }, 
           "Light": 
           {
