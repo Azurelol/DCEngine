@@ -113,7 +113,7 @@ namespace DCEngine {
       void MoveRight();
       Boolean FootstepSoundEnabled = false;
       
-      void PlaydFootstep(void);
+      void PlayFootstep(void);
       void PlayLandSound(void);
       void PlayJumpSound(void);
       void PlayHitSound(void);

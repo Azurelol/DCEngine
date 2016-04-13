@@ -237,8 +237,7 @@ namespace DCEngine {
       {
         SoundCollideWithSentinelShield();
       }
-      if ( event->OtherObject->Name() != DialogTrigger) && (hitPlayer == false) && (hitTerrain == false) )
-      else if ( (hitPlayer == false) && (hitTerrain == false) )
+      if ( (event->OtherObject->Name() != DialogTrigger) && (hitPlayer == false) && (hitTerrain == false) )
       {
         SoundCollide();
       }

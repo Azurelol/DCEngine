@@ -287,7 +287,7 @@ namespace DCEngine {
 						SpriteComponent->ResetAnimationIndex();
 					SpriteComponent->SpriteSource = RunAnimation;
 					SpriteComponent->AnimationActive = true;
-					SoundFootstep();
+          PlayFootstep();
 				}
 			}
 			else if (Daisy->getKeyboard()->KeyIsDown(Keys::D))
@@ -304,7 +304,6 @@ namespace DCEngine {
 					SpriteComponent->AnimationActive = true;
 					
 					PlayFootstep();
-					SoundFoottep();
 				}
 			}
 			else
@@ -545,7 +544,7 @@ namespace DCEngine {
 			return false;
 		}
 
-    void PlayerController::PlaydFootstep(void)
+    void PlayerController::PlayFootstep(void)
     {
       //SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(FootstepSound);
     }
