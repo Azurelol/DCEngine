@@ -58,6 +58,7 @@ namespace DCEngine {
       //DCE_BINDING_DEFINE_PROPERTY(Grunt, IsDebugColorActive);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, DamageTakenColor);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, DamageTakenColorFlashSpeed);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, BallReflectForce);
     }
 
     // Dependancies
@@ -143,10 +144,16 @@ namespace DCEngine {
     {
       if (event->OtherObject->getComponent<BallController>() != NULL)
       {
-        if (ModifyHealth(-1))
+        if (player->getComponent<PlayerController>()->Invincible)
+        {
+          stateMachine->ChangeState(Die::Instance());
+        }
+        else if (ModifyHealth(-1))
         {
           FlashColor(DamageTakenColor, DamageTakenColorFlashSpeed);
         }
+
+        event->OtherObject->getComponent<RigidBody>()->ApplyForce(-event->Normal * BallReflectForce);
       }
     }
 
@@ -189,6 +196,10 @@ namespace DCEngine {
         sprites.at(i)->AttachTo(gameObj);
         sprites.at(i)->getComponent<Transform>()->SetLocalTranslation(Vec3(0, 0, 0));
       }
+
+      head->getComponent<Transform>()->Translation.z = 0.01;
+      body->getComponent<Transform>()->Translation.z = 0;
+      saw->getComponent<Transform>()->Translation.z = 0.02;
     }
 
     void Grunt::UpdateSprites(float timePassed)
