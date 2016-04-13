@@ -3776,7 +3776,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": false, 
+        "Locked": true, 
         "GameObjectID": 161, 
         "Name": "g37", 
         "Protected": false, 
@@ -16864,7 +16864,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": false, 
+        "Locked": true, 
         "GameObjectID": 161, 
         "Name": "g37", 
         "Protected": false, 
