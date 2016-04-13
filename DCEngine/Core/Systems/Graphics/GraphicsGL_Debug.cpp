@@ -198,5 +198,30 @@ namespace DCEngine {
 			CleanBuffer();
     }
 
+		void GraphicsGL::ScreenSpaceRectangle()
+		{
+			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+			glDrawBuffer(GL_BACK);
+			glEnable(GL_BLEND);
+			glDisable(GL_DEPTH_TEST);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			for (auto obj : *mDeferredObjects)
+			{
+				FinalRenderShader->Use();
+				FinalRenderShader->SetInteger("useLight", 0);
+				FinalRenderShader->SetFloat("Exposure", 0);
+				FinalRenderShader->SetInteger("LightedFrag", 0);
+				glActiveTexture(GL_TEXTURE0);
+				obj->getTexture().Bind();
+
+				glBegin(GL_TRIANGLE_FAN);
+				glVertex4f(-1, -1, 0, 0);
+				glVertex4f(1, -1, 1, 0);
+				glVertex4f(1, 1, 1, 1);
+				glVertex4f(-1, 1, 0, 1);
+				glEnd();
+			}
+		}
+
   }
 }

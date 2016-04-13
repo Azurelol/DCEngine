@@ -118,6 +118,9 @@ namespace DCEngine {
 
       ActionSetPtr seq2 = Actions::Sequence(Owner()->Actions);
       Actions::Property(seq2, redHaze->getComponent<Sprite>()->Color.w, redHazeAlphaValue, duration, Ease::Linear);
+
+			Daisy->getSystem<Systems::Graphics>()->ScreenSpaceRectangle(width, height, 
+				Daisy->getSystem<Systems::Content>()->getSpriteSrc(redHaze->getComponent<Sprite>()->SpriteSource));
     }
 
     void PlayerController::CreateShield()
@@ -132,7 +135,7 @@ namespace DCEngine {
 
       redHaze = SpaceRef->CreateObject(RedHazeArchetype);
       redHaze->AttachTo(camera);
-      redHaze->getComponent<Transform>()->setLocalTranslation(Vec3(0, 0, -1));
+      redHaze->getComponent<Transform>()->setLocalTranslation(Vec3(0, 0, 1));
       float width = Daisy->getSystem<Systems::Graphics>()->GetScreenWidth();
       float height = Daisy->getSystem<Systems::Graphics>()->GetScreenHeight();
       redHaze->getComponent<Transform>()->Scale = Vec3(width / 38, height / 38, 0);

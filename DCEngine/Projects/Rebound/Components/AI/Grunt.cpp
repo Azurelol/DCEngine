@@ -210,6 +210,18 @@ namespace DCEngine {
       head->getComponent<Transform>()->Translation.z = 0.01;
       body->getComponent<Transform>()->Translation.z = 0;
       saw->getComponent<Transform>()->Translation.z = 0.02;
+
+      float scaleX = TransformRef->Scale.x;
+      float scaleY = TransformRef->Scale.y;
+
+      head->getComponent<Transform>()->Scale.x = scaleX;
+      head->getComponent<Transform>()->Scale.y = scaleY;
+      body->getComponent<Transform>()->Scale.x = scaleX;
+      body->getComponent<Transform>()->Scale.y = scaleY;
+      saw->getComponent<Transform>()->Scale.x = scaleX;
+      saw->getComponent<Transform>()->Scale.y = scaleY;
+       
+
     }
 
     void Grunt::UpdateSprites(float timePassed)
