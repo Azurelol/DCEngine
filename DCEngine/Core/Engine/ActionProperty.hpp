@@ -50,6 +50,14 @@ namespace DCEngine {
   template<typename PropertyType>
   inline float ActionZilchFloatProperty<PropertyType>::Interpolate(float dt)
   {
+    if (Elapsed == 0)
+    {
+      Zilch::Call call(Property.Get, Systems::ZilchInterface::GetState());
+      call.Invoke(Report);
+      InitialValue = call.Get<PropertyType>(Zilch::Call::Return);
+      Difference = EndValue - InitialValue;
+    }
+
     Elapsed += dt;
     auto timeLeft = Duration - Elapsed;
 
