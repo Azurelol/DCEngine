@@ -185,8 +185,9 @@ namespace DCEngine {
       case Keys::F:
         CenterSelected();
         break;
-
-      case Keys::N:
+				
+			
+			case Keys::N:
         if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl))
           Windows.AddResourceEnabled = true;
         break;
