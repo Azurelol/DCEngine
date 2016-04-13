@@ -42,7 +42,9 @@ namespace DCEngine {
       Real Health = 10.0f;
       Real AirBrakeScalar = 0.94f; //multiplies your current y velocity by this when you release jump while jumping upwards
       Real TurnSpeedScalar = 5.0f; //how much faster you accelerate when attemping to accelerate opposite your current velocity
+	  Real InitialVelocityXCap;
       Real VelocityXCap = 30.0f;
+	  Real HorizontalJumpingVelocityXCap = VelocityXCap * 1.33;
       Real GroundFriction = 0.2f;
 	  Real FramesOfThrowAnimation = 0;
 	  Real AmountOfMaxSpeedRequiredForHorizontalJump = 0.8;

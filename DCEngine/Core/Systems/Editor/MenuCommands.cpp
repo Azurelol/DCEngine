@@ -231,6 +231,9 @@ namespace DCEngine {
     /**************************************************************************/
     void Editor::MoveToViewportCenter(GameObject* gameobject)
     {
+      if (!EditorCamera)
+        return;
+
       auto viewportCenter = CurrentSpace->getComponent<Components::CameraViewport>()->getCamera()->TransformComponent->Translation;
       gameobject->getComponent<Components::Transform>()->setTranslation(Vec3(viewportCenter.x, viewportCenter.y, 0));
     }

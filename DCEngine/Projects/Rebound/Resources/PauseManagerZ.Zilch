@@ -14,6 +14,7 @@ class PauseManagerZ : ZilchComponent
 {
 	var Paused : Boolean;
 	var PauseSpace : Space;
+	var Focused : Boolean;
 
 	[Property]
 	var PauseLevelName : String = "";
@@ -22,20 +23,31 @@ class PauseManagerZ : ZilchComponent
     {
         Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyUp, this.OnKeyUp);
         Daisy.Connect(this.Space, DaisyEvent.PauseEvent, this.OnPauseEvent);
+        Daisy.Connect(this.GameSession, DaisyEvent.GameFocusOut, this.OnGameFocusOut);
 
         this.Paused = false;
+        this.Focused = true;
     }
 
     function OnPauseEvent(event : PauseEvent)
     {
-    	if(event.PauseState == true)
+
+    	if(event.PauseState == true && !this.Paused)
     	{
     		this.LoadPauseMenu();
     	}
-    	else
+    	else if(event.PauseState == false && this.Paused)
     	{
     		this.DestroyPauseMenu();
     	}
+    }
+
+    function OnGameFocusOut(event : GameFocusOut)
+    {
+    	var focusOut = PauseEvent();
+    	focusOut.PauseState = true;
+
+    	this.Space.Dispatch(Events.PauseEvent, focusOut);
     }
 
     function OnKeyUp(event : KeyUp)

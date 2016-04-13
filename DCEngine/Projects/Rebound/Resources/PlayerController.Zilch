@@ -1,3 +1,14 @@
+/******************************************************************************/
+/*!
+@file   PlayerController.Zilch
+@author Gabriel Neumann
+@par    email: g.neumann\@digipen.edu
+@date   4/12/2016
+@brief  ZPlayerController gives player the control over the character
+@copyright Copyright 2016, DigiPen Institute of Technology. All rights reserved.
+*/                                                                                                            
+/******************************************************************************/
+
 class ZPlayerController : ZilchComponent
 {
     //sends ToggleEvent : ToggleEvent;
@@ -160,7 +171,7 @@ class ZPlayerController : ZilchComponent
 		if(event.OtherObject.Transform.Translation.Y + event.OtherObject.Transform.Scale.Y /2 
 		< this.TransformRef.Translation.Y)
 		{
-			this.Grounded == true;
+			//this.Grounded == true;
 			//auto particle = SpaceRef->CreateObject("LandingParticle");
 			//if (particle)
 			//{

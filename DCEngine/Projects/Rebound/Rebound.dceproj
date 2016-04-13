@@ -1,8 +1,8 @@
 {
    "Asset Path" : "Assets/",
-   "Default Level" : "Level3",
+   "Default Level" : "What1",
    "Default Space" : "",
-   "Play" : false,
+   "Play" : true,
    "Project Name" : "Rebound",
    "Project Path" : "Projects/Rebound/",
    "Resource Path" : "Resources/"
