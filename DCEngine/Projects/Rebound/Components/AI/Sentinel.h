@@ -47,6 +47,7 @@ namespace DCEngine {
       Vec4 DamageTakenColor;
       float DamageTakenColorFlashSpeed;
       float BallReflectForce;
+	  GameObjectPtr particle;
 
       DCE_DEFINE_PROPERTY(String, PlayerName);
       DCE_DEFINE_PROPERTY(int, startingHealth);
@@ -103,6 +104,7 @@ namespace DCEngine {
       bool isBashing;
       bool canBash;
       float randomPhase;
+      bool isDamageable;
       void CreateShield();
       void UpdateShield();
       void ShieldBash();

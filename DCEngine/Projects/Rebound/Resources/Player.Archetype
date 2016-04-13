@@ -14,8 +14,8 @@
         {
           "Vec3": 
           {
-            "x": -7.000000, 
-            "y": 0.000000, 
+            "x": -10.955555, 
+            "y": -0.355556, 
             "z": 0.000000
           }
         }, 
@@ -23,8 +23,8 @@
         {
           "Vec3": 
           {
-            "x": -7.000000, 
-            "y": 0.000000, 
+            "x": -10.955555, 
+            "y": -0.355556, 
             "z": 0.000000
           }
         }, 
@@ -32,8 +32,8 @@
         {
           "Vec3": 
           {
-            "x": -7.000000, 
-            "y": 0.000000, 
+            "x": -10.955555, 
+            "y": -0.355556, 
             "z": 0.000000
           }
         }, 
@@ -164,14 +164,16 @@
             "w": 1.000000
           }
         }, 
-        "ColorOnDamageFlashDuration": 0.200000, 
+        "ColorOnDamageFlashDuration": 0.500000, 
         "KnockBackForceOnDamageFromScrapperX": 20000.000000, 
         "KnockBackForceOnDamageFromScrapperY": 15000.000000, 
         "KnockBackForceOnDamageFromSentinelX": 100000.000000, 
         "KnockBackForceOnDamageFromSentinelY": 10000.000000, 
         "KnockBackForceOnDamageFromLancerX": 100000.000000, 
         "KnockBackForceOnDamageFromLancerY": 10000.000000, 
-        "DamageCooldown": 1.000000
+        "DamageCooldown": 1.000000, 
+        "ShieldArchetype": "PlayerShield", 
+        "RedHazeArchetype": "RedHaze"
       }, 
       "Light": 
       {

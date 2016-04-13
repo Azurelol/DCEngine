@@ -2300,7 +2300,9 @@
             "KnockBackForceOnDamageFromSentinelY": 0.000000, 
             "KnockBackForceOnDamageFromLancerX": 0.000000, 
             "KnockBackForceOnDamageFromLancerY": 0.000000, 
-            "DamageCooldown": 0.000000
+            "DamageCooldown": 0.000000, 
+            "ShieldArchetype": "", 
+            "RedHazeArchetype": ""
           }, 
           "HealthController": 
           {
@@ -11179,7 +11181,7 @@
       {
         "Locked": false, 
         "GameObjectID": 900, 
-        "Name": "Scrapper4", 
+        "Name": "Scrapper", 
         "Protected": false, 
         "Components": 
         {
@@ -11275,7 +11277,7 @@
               }
             }, 
             "DamageTakenColorFlashSpeed": 0.200000, 
-            "BallReflectForce": 0.000000
+            "BallReflectForce": 10000.000000
           }, 
           "BoxCollider": 
           {
@@ -11329,7 +11331,7 @@
           "Sprite": 
           {
             "Visible": true, 
-            "CullVisibility": false, 
+            "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
             "Color": 
