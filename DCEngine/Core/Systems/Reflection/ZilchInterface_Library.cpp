@@ -223,7 +223,7 @@ namespace DCEngine {
     @return The success of the operation.
     */
     /**************************************************************************/
-    void ZilchInterface::AddLibrary(Zilch::LibraryRef & library)
+    void ZilchInterface::AddLibrary(const Zilch::LibraryRef & library)
     {
       if (DCE_TRACE_SCRIPTS)
         DCTrace << "ZilchInterface::AddLibrary - Adding library: " << library->Name.c_str() << "\n";
