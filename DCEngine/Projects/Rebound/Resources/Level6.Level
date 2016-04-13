@@ -15644,7 +15644,7 @@
             "FallAnimation": "Char_Asha_Fall_Spritesheet", 
             "ThrowAnimation": "Char_Asha_Throw_Spritesheet", 
             "AutoPlayTimer": 2.000000, 
-            "LandingParticle": "LandingParticle", 
+            "LandingParticle": "LandingParticleUrban", 
             "TeleportStartSound": "Teleport", 
             "TeleportArriveSound": "TeleportArrive", 
             "JumpSound": "Jump", 

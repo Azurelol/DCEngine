@@ -1,6 +1,6 @@
 {
    "Asset Path" : "Assets/",
-   "Default Level" : "Victory",
+   "Default Level" : "Level6",
    "Default Space" : "",
    "Play" : true,
    "Project Name" : "Rebound",
