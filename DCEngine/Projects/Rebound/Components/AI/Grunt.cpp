@@ -155,6 +155,7 @@ namespace DCEngine {
           FlashColor(DamageTakenColor, DamageTakenColorFlashSpeed);
         }
 
+        event->OtherObject->getComponent<BallController>()->IsAttracting = false;
         event->OtherObject->getComponent<RigidBody>()->ApplyForce(-event->Normal * BallReflectForce);
       }
     }

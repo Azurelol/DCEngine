@@ -112,6 +112,9 @@ namespace DCEngine {
       //  << coords.x << " y: " << coords.y << "\n";
       if (event->ButtonPressed == MouseButton::Right)
       {
+
+        IsAttracting = true;
+
         SoundCommand();
 
         if (ControlScheme == ControlScheme::Connor)
@@ -309,6 +312,7 @@ namespace DCEngine {
         {
           return;
         }
+        //IsAttracting = true;
         AttractBall();
       }
       if (Charging)
@@ -375,6 +379,9 @@ namespace DCEngine {
 
     void BallController::AttractBall()
     {
+      if (!IsAttracting)
+        return;
+
       if (gameObj->Parent() != nullptr)
         return;
       if (BallControllerTraceOn)
