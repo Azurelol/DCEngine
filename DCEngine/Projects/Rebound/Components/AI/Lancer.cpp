@@ -196,6 +196,13 @@ namespace DCEngine {
         sprites.at(i)->AttachTo(gameObj);
         sprites.at(i)->getComponent<Transform>()->setLocalTranslation(Vec3(0, 0, 0));
       }
+
+      head->getComponent<Transform>()->Translation.z = 0.01;
+      shoulder->getComponent<Transform>()->Translation.z = 0.02;
+      body->getComponent<Transform>()->Translation.z = 0;
+      spear->getComponent<Transform>()->Translation.z = 0.03;
+      shield->getComponent<Transform>()->Translation.z = 0.04;
+
     }
 
     void Lancer::UpdateSprites(float timePassed)

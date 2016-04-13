@@ -81,7 +81,6 @@ namespace DCEngine {
 			//ColliderRef->setCollisionGroup("Player");
 			//RigidBodyRef->setGravity(false);
 
-
 			//SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("Dogma");
 		}
 
@@ -249,6 +248,8 @@ namespace DCEngine {
 
 		void PlayerController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 		{
+      DCTrace << "Player velocity: " << RigidBodyRef->getVelocity().x << ", " << RigidBodyRef->getVelocity().y << "\n";
+
 			bool animationChanged = false;
 			if (PlayerControllerTraceOn)
 			{

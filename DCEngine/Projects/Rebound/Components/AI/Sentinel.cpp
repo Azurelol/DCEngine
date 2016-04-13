@@ -92,9 +92,9 @@ namespace DCEngine {
 
       SpriteRef->Visible = false;
       randomPhase = distribution(generator);
-      CreateSprites();
 
       CreateShield();
+      CreateSprites();
     }
 
     void Sentinel::OnLogicUpdateEvent(Events::LogicUpdate * event)
@@ -155,6 +155,7 @@ namespace DCEngine {
       shield->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
       CollisionTablePtr CollisionTableRef = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));
       CollisionTableRef->SetResolve("Enemy", "SentinelShield", CollisionFlag::SkipDetecting);
+      shield->getComponent<Transform>()->Translation.z = 0.03;
     }
 
     void Sentinel::CreateSprites()
@@ -171,6 +172,11 @@ namespace DCEngine {
         sprites.at(i)->AttachTo(gameObj);
         sprites.at(i)->getComponent<Transform>()->SetLocalTranslation(Vec3(0, 0, 0));
       }
+
+      head->getComponent<Transform>()->Translation.z = 0.01;
+      shoulder->getComponent<Transform>()->Translation.z = 0.02;
+      body->getComponent<Transform>()->Translation.z = 0;
+
     }
 
     void Sentinel::UpdateSprites(float timePassed)

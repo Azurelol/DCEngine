@@ -189,6 +189,10 @@ namespace DCEngine {
         sprites.at(i)->AttachTo(gameObj);
         sprites.at(i)->getComponent<Transform>()->SetLocalTranslation(Vec3(0, 0, 0));
       }
+
+      head->getComponent<Transform>()->Translation.z = 0.01;
+      body->getComponent<Transform>()->Translation.z = 0;
+      saw->getComponent<Transform>()->Translation.z = 0.02;
     }
 
     void Grunt::UpdateSprites(float timePassed)
