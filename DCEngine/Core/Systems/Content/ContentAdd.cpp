@@ -36,6 +36,7 @@ namespace DCEngine {
       auto FontPath = Settings.DefaultAssetPath + "Fonts/";
       auto ShaderPath = Settings.DefaultAssetPath + "Shaders/";
       auto ArchetypePath = Settings.DefaultAssetPath + "Archetypes/";
+      auto LevelsPath = Settings.DefaultAssetPath + "Levels/";
 
       // Load default shaders
       AddShader(std::string("SpriteShader"), ShaderPtr(new Shader(std::string("SpriteShader"),
@@ -68,7 +69,7 @@ namespace DCEngine {
       //AddLevel("LoadingScreen", LevelPtr(new ))
 
       // Scan for default assets and generate resources
-      ScanForLevels(Settings.DefaultAssetPath);
+      ScanForLevels(LevelsPath);
       // Load sprites
       ScanForSpriteSources(SpritePath);
       // Load sound files

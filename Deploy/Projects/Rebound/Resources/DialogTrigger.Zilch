@@ -14,7 +14,7 @@ enum Speaker { Asha, Cyrus}
 class DialogTrigger : ZilchComponent
 {
 	[Property]
-	var DialogTextObjectName : String = "";
+	var DialogTextObjectName : String = "DialogText";
 	
 	[Property]
 	var OnlyOnFirstCollision : Boolean = false;

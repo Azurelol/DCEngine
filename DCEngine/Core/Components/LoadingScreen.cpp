@@ -16,6 +16,8 @@ namespace DCEngine {
   namespace Components {
 
     static Camera* sCamera;
+    static bool Construct = false;
+    Vec3 InitialTextTranslation;
 
     /**************************************************************************/
     /*!
@@ -32,7 +34,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     LoadingScreen::LoadingScreen(Entity & owner) : Component(std::string("LoadingScreen"), owner)
-    {      
+    {
     }
 
     /**************************************************************************/
@@ -53,13 +55,15 @@ namespace DCEngine {
     {
       // Subscribe to events
       Daisy->Connect<Events::FrameUpdate>(SpaceRef, &LoadingScreen::OnFrameUpdateEvent, this);
-      // Create a camera on the space
-      auto cameraObj = SpaceRef->CreateObject("Camera");
-      sCamera = cameraObj->getComponent<Components::Camera>();
-      sCamera->TransformComponent->setWorldTranslation(Vec3(0, 0, 1));
-      SpaceRef->getComponent<Components::CameraViewport>()->setCamera(sCamera);
-      // Construct the screen
-      ConstructScreen();
+
+      if (Construct) {
+        CreateCamera();
+        CreateText();
+      }      
+      else {
+        SetProgressText();
+      }
+
     }
 
     /**************************************************************************/
@@ -79,22 +83,48 @@ namespace DCEngine {
     /**************************************************************************/
     void LoadingScreen::Update(float dt)
     {
+      UpdateProgress();
+    }
+
+    void LoadingScreen::CreateCamera()
+    {
+      // Create a camera on the space
+      auto cameraObj = SpaceRef->CreateObject("Camera");
+      sCamera = cameraObj->getComponent<Components::Camera>();
+      sCamera->TransformComponent->setWorldTranslation(Vec3(0, 0, 1));
+      SpaceRef->getComponent<Components::CameraViewport>()->setCamera(sCamera);
+    }
+    
+    void LoadingScreen::SetProgressText()
+    {
+      ProjectTitleObj = SpaceRef->FindObjectByName("PercentageText");
+      TextProgressObj = SpaceRef->FindObjectByName("LastLoadedText");
+
+      if (!TextProgressObj || !ProjectTitleObj)
+        return;
+      
+      InitialTextTranslation = TextProgressObj->getComponent<Transform>()->getTranslation();
+      TextProgress = TextProgressObj->getComponent<SpriteText>();
+      TextTitle = ProjectTitleObj->getComponent<SpriteText>();
+    }
+
+    void LoadingScreen::UpdateProgress()
+    {
+      if (!TextProgress || !TextTitle)
+        return;
+
       // Update the progress of the loading
       static auto& resources = Daisy->getSystem<Systems::Content>()->LoadedGraphicalResources();
-      auto progressText = resources.LastLoaded + " - [" + std::to_string(resources.NumLoaded) + "/" 
-                          + std::to_string(resources.NumTotal) + "]";
+      if (resources.Finished)
+        return;
+
+      auto percentage = (static_cast<float>(resources.NumLoaded) / static_cast<float>(resources.NumTotal)) * 100.0f;
+      auto progressText = resources.LastLoaded;
+      auto charCount = progressText.size();
+      //auto offset = 
+
+      TextTitle->setText(std::to_string(static_cast<int>(percentage)) + "%");
       TextProgress->setText(progressText);
-
-      // Rotate the animation object
-      //static auto rotFactor = 20;
-      //auto currentRotation = AnimationObj->getComponent<Transform>()->getRotation();
-      //AnimationObj->getComponent<Transform>()->setRotation(Vec3(0, -0, currentRotation.z * 1 + dt * rotFactor));
-
-      // Update the light
-      auto& intensity = LightSource->getIntensity();
-      Real newIntensity;
-      //LightSource->setIntensity(LightSource->getIntensity() + 1 * dt);
-
     }
 
     /**************************************************************************/
@@ -102,7 +132,7 @@ namespace DCEngine {
     @brief  Constructs the loading screen programmatically. Ho!
     */
     /**************************************************************************/
-    void LoadingScreen::ConstructScreen()
+    void LoadingScreen::CreateText()
     {
       auto& editor = Daisy->getSystem<Systems::Editor>();
       
@@ -110,43 +140,35 @@ namespace DCEngine {
       // Title Text
       ProjectTitleObj = SpaceRef->CreateObject();
       ProjectTitleObj->getComponent<Transform>()->setTranslation(Vec3(-15, 5, 0));
-      ProjectTitleText = dynamic_cast<SpriteText*>(ProjectTitleObj->AddComponentByName("SpriteText"));
-      ProjectTitleText->setText("Now loading...");
-      ProjectTitleText->setFontSize(30);
+      TextTitle = dynamic_cast<SpriteText*>(ProjectTitleObj->AddComponentByName("SpriteText"));      
+      TextTitle->setFontSize(24);
       // Progress Text
       TextProgressObj = SpaceRef->CreateObject();
       TextProgressObj->getComponent<Transform>()->setTranslation(Vec3(-10, -2.5, 0));
       TextProgress = dynamic_cast<SpriteText*>(TextProgressObj->AddComponentByName("SpriteText"));
       TextProgress->setFontSize(12);
-      // Progress Bar
-
-      // Animation Object
-      AnimationObj = SpaceRef->CreateObject();
-      AnimationObj->getComponent<Transform>()->setTranslation(Vec3(0, -30, 0));
-      AnimationObj->getComponent<Transform>()->setScale(Vec3(40, 40, 0));
-      auto animationObjSprite = dynamic_cast<Sprite*>(AnimationObj->AddComponentByName("Sprite"));
-      animationObjSprite->setSpriteSource("ReboundLogoLowRes");
-
-      // Background
-      BackgroundSpriteObj = SpaceRef->CreateObject();
-      BackgroundSpriteObj->getComponent<Transform>()->setTranslation(Vec3(0, 0, -0.5));
-      BackgroundSpriteObj->getComponent<Transform>()->setScale(Vec3(100, 100, 1));
-      auto backgroundSprite = dynamic_cast<Sprite*>(BackgroundSpriteObj->AddComponentByName("Sprite"));
-      backgroundSprite->setColor(Vec4(0, 0, 0, 0));
-
-      // Light
-      LightObj = SpaceRef->CreateObject();
-      //LightObj->getComponent<Transform>()->setTranslation(Vec3(0, -30, 1));
-      LightSource = dynamic_cast<Light*>(BackgroundSpriteObj->AddComponentByName("Light"));
-      //LightSource->setType(LightType::Spot);
-      //LightSource->setDirectionVector(Vec3(0, 1, 0));
-      //LightSource->setInnerAngle(15);
-      //LightSource->setOuterAngle(150);
-      LightSource->setFalloff(1.5);
-      LightSource->setIntensity(5);
-      LightSource->setRange(50);
+      //// Animation Object
+      //AnimationObj = SpaceRef->CreateObject();
+      //AnimationObj->getComponent<Transform>()->setTranslation(Vec3(0, -30, 0));
+      //AnimationObj->getComponent<Transform>()->setScale(Vec3(40, 40, 0));
+      //auto animationObjSprite = dynamic_cast<Sprite*>(AnimationObj->AddComponentByName("Sprite"));
+      //animationObjSprite->setSpriteSource("ReboundLogoLowRes");
+      //// Background
+      //BackgroundSpriteObj = SpaceRef->CreateObject();
+      //BackgroundSpriteObj->getComponent<Transform>()->setTranslation(Vec3(0, 0, -0.5));
+      //BackgroundSpriteObj->getComponent<Transform>()->setScale(Vec3(100, 100, 1));
+      //auto backgroundSprite = dynamic_cast<Sprite*>(BackgroundSpriteObj->AddComponentByName("Sprite"));
+      //backgroundSprite->setColor(Vec4(0, 0, 0, 0));
+      //// Light
+      //LightObj = SpaceRef->CreateObject();
+      //LightSource = dynamic_cast<Light*>(BackgroundSpriteObj->AddComponentByName("Light"));
+      //LightSource->setFalloff(1.5);
+      //LightSource->setIntensity(5);
+      //LightSource->setRange(50);
       
     }
+
+
 
   }
 }

@@ -34,7 +34,7 @@ float EPSILON = 0.0001;
 void EmitQuad(vec3 StartVertex, vec3 EndVertex, mat4 viewProj)
 {
     // Vertex #1: the starting vertex (just a tiny bit below the original edge)
-    vec3 LightDir = normalize(StartVertex - gLight.Position); 
+    vec3 LightDir = normalize(StartVertex - vec3(gLight.Position.xy, 0)); 
     gl_Position = viewProj * vec4(StartVertex, 1.0);
     EmitVertex();
 
@@ -43,7 +43,7 @@ void EmitQuad(vec3 StartVertex, vec3 EndVertex, mat4 viewProj)
     EmitVertex();
 
     // Vertex #3: the ending vertex (just a tiny bit below the original edge)
-    LightDir = normalize(EndVertex - gLight.Position);
+    LightDir = normalize(EndVertex - vec3(gLight.Position.xy, 0));
     gl_Position = viewProj * vec4(EndVertex, 1.0);
     EmitVertex();
 

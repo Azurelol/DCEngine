@@ -86,11 +86,6 @@ namespace DCEngine {
 			glDrawBuffer(GL_NONE);
 			glStencilFunc(GL_ALWAYS, 0, 0xff);
 
-			if (light->getVisibilityCulling())
-				glStencilOp(GL_KEEP, GL_INCR, GL_INCR);
-			else
-				glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
-
 			std::vector<bool> cullList;
 			for (const auto& drawList : *mDrawList)
 				for (const auto& obj : drawList)
@@ -98,16 +93,30 @@ namespace DCEngine {
 					Components::Sprite* sprite = dynamic_cast<Components::Sprite*>(obj);
 					if (sprite)
 					{
-						if (light->getVisibilityCulling() && !sprite->getCullVisibility())
+						if (sprite->getNOSHADOW())
 							continue;
+						if (light->getVisibilityCulling())
+						{
+							if (sprite->getCullVisibility())
+								glStencilOp(GL_KEEP, GL_INCR, GL_INCR);
+							else
+								glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
+						}
+						else
+							glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
+
+						if (sprite->getForceLightCulling())
+							glStencilOp(GL_KEEP, GL_INCR, GL_INCR);
+
 						Components::Transform* objTfm = obj->Owner()->getComponent<Components::Transform>();
 						if (objTfm->Translation.z == 0)
 						{
 							Components::Transform* lTfm = light->Owner()->getComponent<Components::Transform>();
 							Vec3 vector = Vec3(objTfm->Translation - lTfm->Translation);
 							float lengthSquared = vector.x * vector.x + vector.y * vector.y + vector.z * vector.z;
-							float objRadius = objTfm->Scale.x + objTfm->Scale.y;
-							if (lengthSquared < (objRadius + light->getRange()) * (objRadius + light->getRange()))
+							float objRadiusSquared = objTfm->Scale.x * objTfm->Scale.x + objTfm->Scale.y * objTfm->Scale.y;
+							if (lengthSquared < objRadiusSquared + 2 * light->getRange() * (objTfm->Scale.x + objTfm->Scale.y)
+								+ light->getRange() * light->getRange())
 							{
 								obj->SetUniforms(ShadowingShader, camera, light);
 								obj->Draw();
@@ -177,7 +186,8 @@ namespace DCEngine {
 				LightingShader->SetVector3f(member.c_str(), lightTransform->Translation);
 				member = var + "Model";
 				LightingShader->SetMatrix4(member.c_str(), lightMatrix);
-
+				member = var + "CullLight";
+				LightingShader->SetFloat(member.c_str(), light->getCullLight());
 				if (light->getCastShadows())
 				{
 					glEnable(GL_STENCIL_TEST);
