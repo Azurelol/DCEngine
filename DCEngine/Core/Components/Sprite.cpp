@@ -42,6 +42,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Sprite, Visible);
 			DCE_BINDING_DEFINE_PROPERTY(Sprite, CullVisibility);
 			DCE_BINDING_DEFINE_PROPERTY(Sprite, ForceLightCulling);
+			DCE_BINDING_DEFINE_PROPERTY(Sprite, NOSHADOW);
 
       DCE_BINDING_DEFINE_PROPERTY(Sprite, Color);
       DCE_BINDING_PROPERTY_DEFINE_RANGE(Color, 0, 1);      
@@ -73,8 +74,8 @@ namespace DCEngine {
       None.
     */
     /**************************************************************************/
-    Sprite::Sprite(Entity& owner) : Graphical(std::string("Sprite"), owner),
-			ForceLightCulling(false), CullVisibility(true)
+		Sprite::Sprite(Entity& owner) : Graphical(std::string("Sprite"), owner),
+			ForceLightCulling(false), CullVisibility(true), NOSHADOW(false)
                    {
       // Register this component to the GraphicsSpace so that it can be drawn
       // by the graphics system.

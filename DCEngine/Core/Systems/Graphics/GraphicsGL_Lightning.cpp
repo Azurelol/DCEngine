@@ -93,12 +93,14 @@ namespace DCEngine {
 					Components::Sprite* sprite = dynamic_cast<Components::Sprite*>(obj);
 					if (sprite)
 					{
+						if (sprite->getNOSHADOW())
+							continue;
 						if (light->getVisibilityCulling())
 						{
-							if (!sprite->getCullVisibility())
-								glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
-							else
+							if (sprite->getCullVisibility())
 								glStencilOp(GL_KEEP, GL_INCR, GL_INCR);
+							else
+								glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
 						}
 						else
 							glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
