@@ -231,7 +231,7 @@ namespace DCEngine {
 				-.5f,  .5f,      0.0f, 1.0f,
 			};
 
-			const unsigned MAX_PARTICLES = 10000;
+			const unsigned MAX_PARTICLES = 100000;
 
 			/*
 			Next, we simply send the vertices to the GPU and configure the vertex attributes,
