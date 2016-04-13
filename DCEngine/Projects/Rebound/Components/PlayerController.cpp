@@ -61,7 +61,7 @@ namespace DCEngine {
 			ColliderRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::BoxCollider>();
 			BallRef = SpaceRef->FindObjectByName("Ball");
 			SpriteComponent = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Sprite>();
-
+			InitialVelocityXCap = VelocityXCap;
 			// ColliderRef->	 
 			auto CollisionTableRef = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));
 			//CollisionTableRef->AddGroup("Player");
@@ -347,11 +347,13 @@ namespace DCEngine {
 			++JumpFramesApplied;
 			if (RigidBodyRef->getVelocity().x > VelocityXCap * AmountOfMaxSpeedRequiredForHorizontalJump)
 			{
-				RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(AmountOfJumpPowerAddedToHorizontalJump/4, JumpPower, 0));
+				VelocityXCap = HorizontalJumpingVelocityXCap;
+				RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(AmountOfJumpPowerAddedToHorizontalJump, JumpPower, 0));
 			}
 			else if (RigidBodyRef->getVelocity().x < -VelocityXCap * AmountOfMaxSpeedRequiredForHorizontalJump)
 			{
-				RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(-AmountOfJumpPowerAddedToHorizontalJump/4, JumpPower, 0));
+				VelocityXCap = HorizontalJumpingVelocityXCap;
+				RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(-AmountOfJumpPowerAddedToHorizontalJump, JumpPower, 0));
 			}
 			else
 			{
@@ -539,6 +541,7 @@ namespace DCEngine {
 			graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
 			if (result.Distance < 0.07)
 			{
+				VelocityXCap = InitialVelocityXCap;
 				return true;
 			}
 			ray.Origin = TransformRef->Translation + Vec3(0, -TransformRef->Scale.y / 2.01, 0);
@@ -547,6 +550,7 @@ namespace DCEngine {
 			graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
 			if (result.Distance < 0.07)
 			{
+				VelocityXCap = InitialVelocityXCap;
 				return true;
 			}
 			ray.Origin = TransformRef->Translation + Vec3(-TransformRef->Scale.x * ColliderRef->getSize().x / 2.1, -TransformRef->Scale.y / 2.01, 0);
@@ -555,6 +559,7 @@ namespace DCEngine {
 			graphicsSpace->DrawLineSegment(ray.Origin, ray.Origin + Vec3(0, -1, 0), Vec4(1, 0, 0, 1));
 			if (result.Distance < 0.07)
 			{
+				VelocityXCap = InitialVelocityXCap;
 				return true;
 			}
 			return false;
