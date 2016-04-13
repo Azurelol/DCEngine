@@ -96,6 +96,7 @@ namespace DCEngine {
     void SoundSpace::OnGameFocusInEvent(Events::GameFocusIn * event)
     {
       ResumeAll();
+      Daisy->getSystem<Systems::Audio>()->Pulse();
     }
 
     /**************************************************************************/
@@ -106,6 +107,7 @@ namespace DCEngine {
     void SoundSpace::OnGameFocusOutEvent(Events::GameFocusOut * event)
     {
       PauseAll();
+      Daisy->getSystem<Systems::Audio>()->Pulse();
     }
 
     /**************************************************************************/

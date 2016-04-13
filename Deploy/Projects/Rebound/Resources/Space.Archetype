@@ -1,0 +1,50 @@
+
+{
+  "Space": 
+  {
+    "Name": "Daisy World", 
+    "Components": 
+    {
+      "SoundSpace": 
+      {
+        "Volume": 0.000000, 
+        "Pitch": 0.000000, 
+        "Pause": false
+      }, 
+      "TimeSpace": 
+      {
+        "Paused": false, 
+        "TimeScale": 1.000000, 
+        "StepCount": 1
+      }, 
+      "PhysicsSpace": 
+      {
+        "AllowSleep": false, 
+        "Mode2D": false, 
+        "Deterministic": true, 
+        "Gravity": 45.000000, 
+        "CollisionTable": "DefaultCollisionTable"
+      }, 
+      "CameraViewport": 
+      {
+        "Active": true, 
+        "Blocking": true, 
+        "Layer": 0, 
+        "Background": false, 
+        "ViewportResolution": 
+        {
+          "Vec2": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000
+          }
+        }
+      }, 
+      "GraphicsSpace": 
+      {
+        "SpriteLayerOrder": "DefaultSpriteLayerOrder", 
+        "Active": true
+      }
+    }
+  }
+}
