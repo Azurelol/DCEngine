@@ -130,7 +130,8 @@ namespace DCEngine {
       // Update the current width's, heig
       Settings.ScreenWidth = WindowHandler->getWindowDimensions().x;
       Settings.ScreenHeight = WindowHandler->getWindowDimensions().y;
-      CalculateFPS(dt);
+      if (Settings.DisplayFPS)
+        CalculateFPS(dt);
       WindowHandler->Update(dt);
     }
 
@@ -161,10 +162,7 @@ namespace DCEngine {
       {
         CurrentFramerate = static_cast<int>(frameCounter / localCounter);
         std::stringstream ss;
-				ss << Caption;
-
-				if(Settings.DisplayFPS)
-					ss << "              [FPS =" << CurrentFramerate << "]";
+        ss << Caption << "              [FPS =" << CurrentFramerate << "]";
         WindowHandler->WindowContext->setTitle(ss.str());
         //windowsTitle = ss.str();
         localCounter = 0;

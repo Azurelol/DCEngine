@@ -24,25 +24,30 @@ namespace DCEngine {
       void Initialize();
       virtual ~LoadingScreen();
 
+      // Background
+      GameObjectPtr BackgroundSpriteObj;
       // Light
       GameObjectPtr LightObj;
       Light* LightSource;
       // Title Text
       GameObjectPtr ProjectTitleObj;
-      SpriteText* TextTitle;     
+      SpriteText* ProjectTitleText;
+      // Progress Bar
+      GameObjectPtr ProgressBarForeground;
+      GameObjectPtr ProgressBarBackground;      
       // Progress Text
       GameObjectPtr TextFilenameObj;
       GameObjectPtr TextProgressObj;
       SpriteText* TextFileName;
       SpriteText* TextProgress;
+      // Progress animation
+      GameObjectPtr AnimationObj;
 
     public:
+
       void OnFrameUpdateEvent(Events::FrameUpdate* event);      
       void Update(float dt);
-      void CreateText();
-      void CreateCamera();
-      void SetProgressText();
-      void UpdateProgress();
+      void ConstructScreen();
 
 
     };

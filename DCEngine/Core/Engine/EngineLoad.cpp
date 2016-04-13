@@ -69,7 +69,7 @@ namespace DCEngine {
         CurrentGameSession->DefaultSpace->LoadLevel(std::string("LoadingScreen"));
       }
       else {
-        auto progressText = CurrentGameSession->DefaultSpace->CreateObject();
+        auto progressText = Systems::Editor::Access().Creator.CreateSpriteText();
         progressText->AddComponentByName("LoadingScreen");
         progressText->getComponent<Components::LoadingScreen>()->Initialize();
       }
@@ -118,7 +118,39 @@ namespace DCEngine {
     Systems.push_back(SystemPtr(new Systems::Graphics(Configurations.Graphics)));
     Systems.push_back(SystemPtr(new Systems::GUI(Configurations.GUI)));
   }
-  
+
+
+  /**************************************************************************/
+  /*!
+  \brief Loads the project, using serialization to load all the project data.
+  \param The name of the project file.
+  */
+  /**************************************************************************/
+  //void Engine::LoadProject(std::string & projectFile) {
+
+  //  getSystem<Systems::Content>()->LoadProjectData(projectFile);
+
+  //  DCTrace << "\n[Engine::LoadProject - Loading " << projectFile << "]\n";
+
+  //  // Load all resources, both defaults and project-specific
+  //  getSystem<Systems::Content>()->LoadAllResources();
+  //}
+
+  //void Engine::StartProject()
+  //{
+  //  // Create the default gamesession object, the "game" itself,  which contains all spaces.
+  //  CurrentGameSession.reset(new GameSession(_projectName));
+  //  // Create the default space
+  //  SpacePtr defaultSpace = CurrentGameSession->CreateSpace(_defaultSpace);
+  //  // Set a reference to it in the GameSession object
+  //  CurrentGameSession->DefaultSpace = defaultSpace;
+  //  DCTrace << "\n[Engine::LoadProject - Finished loading " << "]\n\n";
+
+  //  // Initialize the gamesession. (This will initialize its spaces,
+  //  // and later, its gameobjects)
+  //  CurrentGameSession->Initialize();
+  //}
+
 
   /**************************************************************************/
   /*!

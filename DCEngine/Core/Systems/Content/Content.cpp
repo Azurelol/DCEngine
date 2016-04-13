@@ -22,7 +22,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     Content::Content(ContentConfig& config) : System(std::string("ContentSystem"), EnumeratedSystem::Content),
-      Settings(config), CancelLoading(false) {
+      Settings(config) {
       ProjectInfo.reset(new ProjectProperties());
     }
 
@@ -33,7 +33,6 @@ namespace DCEngine {
     /**************************************************************************/
     Content::~Content()
     {
-      CancelLoading = true;
       if (LoadingThread.joinable())
         LoadingThread.join();
     }
@@ -229,13 +228,9 @@ namespace DCEngine {
 
       // Load every SpriteSource's image from file
       for (auto& spriteSource : MapSpriteSource) {
-
-        // Band-aid
-        if (CancelLoading)
-          return;
-
         spriteSource.second->Load();
-        spriteSource.second->LoadImageFromFile();        
+        spriteSource.second->LoadImageFromFile();
+        
         // Add it to the queue of assets ready to be loaded by the graphics system
         std::lock_guard<std::mutex> lock(GraphicalResourcesQueue.AssetsLock);
         GraphicalResourcesQueue.Assets.push(spriteSource.second.get());
@@ -243,14 +238,9 @@ namespace DCEngine {
 
       // Load every Font
       for (auto& font : MapFont) {
-
-        // Band-aid
-        if (CancelLoading)
-          return;
-
-
         font.second->Load();
         font.second->LoadFontFromFile();
+
         // Add it to the queue of assets ready to be loaded by the graphics system
         std::lock_guard<std::mutex> lock(GraphicalResourcesQueue.AssetsLock);
         GraphicalResourcesQueue.Assets.push(font.second.get());

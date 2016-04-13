@@ -152,7 +152,7 @@ namespace DCEngine {
     void EditorProjects::OnContentProjectLoadedEvent(Events::ContentProjectLoaded * event)
     {
       // Destroy the current editor camera
-      // Access().Launcher.SetEditorCamera(false);
+      Access().Launcher.SetEditorCamera(false);
       // Turn on the editor
       //Access().Settings.EditorEnabled = true;
       // Save a pointer to the project data
@@ -249,8 +249,7 @@ namespace DCEngine {
       Access().Deselect();
       // Load the level
       Access().CurrentSpace->LoadLevel(level);
-      // Load the editor camera if the editor is enabled @todo this logic is stupid
-      if (Access().Settings.Enabled)
+      // Load the editor camera
       Access().Launcher.SetEditorCamera(true);
 
       // If the level doesn't have a levelsettings object (legacy), add one!

@@ -1,6 +1,6 @@
 /******************************************************************************/
 /*!
-@file   CoreBindingEnums.cpp
+@file   CoreBindingEvents.cpp
 @author Gabriel Neumann
 @par    email: g.neumann\@digipen.edu
 @date   2/27/2016

@@ -150,8 +150,7 @@ namespace DCEngine {
     {
       // Enable alpha blending for opacity.
       glBindVertexArray(mVAO);
-			if (!Visible)
-				return;
+
       // Retrieve the Font resource from the content system
       auto fontName = getFont();
       auto font = Daisy->getSystem<Systems::Content>()->getFont(fontName);

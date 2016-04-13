@@ -18,7 +18,6 @@ struct Light
 	float OuterAngle;
 	vec3 Position;
 	mat4 Model;
-	float CullLight;
 };
 
 uniform Light gLight;
@@ -51,7 +50,7 @@ float GenerateFalloffFactor(float distance, float range, float falloff)
 {
 	if(distance <= range)
 		if(falloff > 0.0)
-			return (1.0 - (distance / range)) * exp(-falloff);
+			return (1.0 - distance/range) / (exp(falloff) - 1);
 		else
 			return 1.0;
 	else return 0.0;
@@ -120,9 +119,8 @@ void main()
 	vec3 normal = texture(gWorldNormal, gTexCoords).rgb;
 	vec4 color = texture(gColor, gTexCoords);
 	if(useLight)
-		if(gLight.CullLight == 0 || (gLight.Position.z + gLight.CullLight <= fragPos.z))
-			lightValue = GenerateIlluminationValues(fragPos, normal);
-		else
-			lightValue = vec3(0);
+	{
+		lightValue = GenerateIlluminationValues(fragPos, normal);
+	}
 	FragColor = color * vec4(lightValue, 1);
 }

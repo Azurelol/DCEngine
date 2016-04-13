@@ -110,7 +110,6 @@ namespace DCEngine {
       ContentConfig& Settings;
       // Resource loading
       std::thread LoadingThread;
-      bool CancelLoading;
       ResourceQueue GraphicalResourcesQueue;
       // Data
       ProjectDataPtr ProjectInfo;

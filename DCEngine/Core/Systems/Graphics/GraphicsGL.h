@@ -112,7 +112,6 @@ namespace DCEngine {
       GLuint SpriteVAO, SpriteTextVAO, SpriteTextVBO, ParticleVAO, ParticleVBO, ParticleColorInstanceVBO, ParticleTransformInstanceVBO;
       GLuint LineVAO, CircleVAO, RectVAO;
 			GLuint multisampleFBO, FBO, PosTexture, NormalTexture, ColorTexture, FinalColor;
-			GLuint SpriteVBO;
 
 			
 			std::vector<std::vector<Components::Graphical*>>* mDrawList;

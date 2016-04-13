@@ -78,9 +78,9 @@ namespace DCEngine {
     void Editor::OnSpaceInitializedEvent(Events::SpaceInitialized * event)
     {
       // Once the default space has been initialized, set the editor camera
-      //if (event->Name == CurrentSpace->Name()) {
-      //  Launcher.SetEditorCamera(true);
-      //}
+      if (event->Name == CurrentSpace->Name()) {
+        Launcher.SetEditorCamera(true);
+      }
     }
 
 
