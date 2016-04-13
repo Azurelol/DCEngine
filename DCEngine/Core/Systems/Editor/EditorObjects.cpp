@@ -239,6 +239,16 @@ namespace DCEngine {
       }
     }
 
+    void EditorObjects::LockSelected()
+    {
+      if (auto gameObject = dynamic_cast<GameObjectPtr>(Access().SelectedObject())) {
+        for (auto& obj : Access().SelectedObjects) {
+          auto gameObj = dynamic_cast<GameObjectPtr>(obj);
+          gameObj->setLocked(!gameObj->getLocked());
+        }
+      }
+    }
+
     /**************************************************************************/
     /*!
     @brief Checks if an object is locked, and if it is displays a marker.

@@ -52,7 +52,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, AnimationDistanceShoulder);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, DamageTakenColor);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, DamageTakenColorFlashSpeed);
-
+      DCE_BINDING_DEFINE_PROPERTY(Sentinel, BallReflectForce);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, AttackSound);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, DeathSound);
       DCE_BINDING_DEFINE_PROPERTY(Sentinel, TakeDamageSound);
@@ -100,9 +100,10 @@ namespace DCEngine {
 
       SpriteRef->Visible = false;
       randomPhase = distribution(generator);
-      CreateSprites();
 
       CreateShield();
+      Connect(shield, Events::CollisionStarted, Sentinel::OnShieldCollisionStartedEvent);
+      CreateSprites();
 
       timer = 0.0;
       cooldown = DEFAULT_TIMER;
@@ -137,14 +138,29 @@ namespace DCEngine {
       if (event->OtherObject->getComponent<BallController>() != NULL)
       {
 		POSTEVENT(HitBallSound);
-        if (ModifyHealth(-1))
+        if (player->getComponent<PlayerController>()->Invincible)
+        {
+          stateMachine->ChangeState(Die::Instance());
+        }
+        else if (ModifyHealth(-1))
         {
           FlashColor(DamageTakenColor, DamageTakenColorFlashSpeed);
         }
+
+        event->OtherObject->getComponent<RigidBody>()->ApplyForce(-event->Normal * BallReflectForce);
+
       }
       else if (event->OtherObject->getComponent<PlayerController>() != NULL)
       {
         PlayAttackSound();
+      }
+    }
+
+    void Sentinel::OnShieldCollisionStartedEvent(Events::CollisionStarted * event)
+    {
+      if (event->OtherObject->getComponent<BallController>() != NULL)
+      {
+        event->OtherObject->getComponent<RigidBody>()->ApplyForce(-event->Normal * BallReflectForce);
       }
     }
 
@@ -215,6 +231,7 @@ namespace DCEngine {
       shield->getComponent<RigidBody>()->setDynamicState(DynamicStateType::Static);
       CollisionTablePtr CollisionTableRef = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));
       CollisionTableRef->SetResolve("Enemy", "SentinelShield", CollisionFlag::SkipDetecting);
+      shield->getComponent<Transform>()->Translation.z = 0.03;
     }
 
     void Sentinel::CreateSprites()
@@ -231,6 +248,11 @@ namespace DCEngine {
         sprites.at(i)->AttachTo(gameObj);
         sprites.at(i)->getComponent<Transform>()->SetLocalTranslation(Vec3(0, 0, 0));
       }
+
+      head->getComponent<Transform>()->Translation.z = 0.01;
+      shoulder->getComponent<Transform>()->Translation.z = 0.02;
+      body->getComponent<Transform>()->Translation.z = 0;
+
     }
 
     void Sentinel::UpdateSprites(float timePassed)

@@ -16,6 +16,14 @@
 				"selected_items":
 				[
 					[
+						"K",
+						"KeyIsDown"
+					],
+					[
+						"Trans",
+						"Translation"
+					],
+					[
 						"Coll",
 						"CollideSound"
 					],
@@ -48,26 +56,18 @@
 			"buffers":
 			[
 				{
-					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/EnergyShield.Zilch",
+					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Animator.Zilch",
 					"settings":
 					{
-						"buffer_size": 1413,
+						"buffer_size": 1751,
 						"line_ending": "Windows"
 					}
 				},
 				{
-					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogTrigger.Zilch",
+					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/LevelTimeFade.Zilch",
 					"settings":
 					{
-						"buffer_size": 5946,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
-					"settings":
-					{
-						"buffer_size": 7470,
+						"buffer_size": 4054,
 						"line_ending": "Windows"
 					}
 				}
@@ -104,16 +104,20 @@
 			},
 			"file_history":
 			[
+				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/HealthControllerZ.Zilch",
+				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogText.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PressurePlate.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogTrigger.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/EnergyShield.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/MusicBackground.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Animator.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/CameraOffsetVolumeZilch.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HazardAreaZilch.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogBackgroundBehavior.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogText.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogTrigger.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/AudioData.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GravityManager.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PauseManagerZ.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/OptionsManager.Zilch",
@@ -122,7 +126,7 @@
 			],
 			"find":
 			{
-				"height": 0.0
+				"height": 23.0
 			},
 			"find_in_files":
 			{
@@ -136,6 +140,7 @@
 				"case_sensitive": false,
 				"find_history":
 				[
+					"ball"
 				],
 				"highlight": true,
 				"in_selection": false,
@@ -158,27 +163,27 @@
 					[
 						{
 							"buffer": 0,
-							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/EnergyShield.Zilch",
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Animator.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 1413,
+								"buffer_size": 1751,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										937,
-										937
+										0,
+										0
 									]
 								],
 								"settings":
 								{
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
-								"translation.x": -0.0,
-								"translation.y": 180.0,
+								"translation.x": 0.0,
+								"translation.y": 225.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 1,
@@ -186,60 +191,30 @@
 						},
 						{
 							"buffer": 1,
-							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogTrigger.Zilch",
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/LevelTimeFade.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 5946,
+								"buffer_size": 4054,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										0,
-										0
+										3111,
+										3111
 									]
 								],
 								"settings":
 								{
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
-								"translation.x": -0.0,
-								"translation.y": 3015.0,
+								"translation.x": 0.0,
+								"translation.y": 90.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
-							"type": "text"
-						},
-						{
-							"buffer": 2,
-							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 7470,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										0,
-										0
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax",
-									"tab_size": 4,
-									"translate_tabs_to_spaces": true
-								},
-								"translation.x": -0.0,
-								"translation.y": 1845.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 2,
 							"type": "text"
 						}
 					]
@@ -247,7 +222,7 @@
 			],
 			"incremental_find":
 			{
-				"height": 0.0
+				"height": 23.0
 			},
 			"input":
 			{
@@ -281,11 +256,11 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,935,276,137,1834",
+			"position": "0,0,1,-1,-1,-1,-1,935,231,137,1789",
 			"project": "",
 			"replace":
 			{
-				"height": 0.0
+				"height": 42.0
 			},
 			"save_all_on_build": true,
 			"select_file":

@@ -115,17 +115,25 @@ class OptionsManager : ZilchComponent
 
     function OnLogicUpdate(event : LogicUpdate)
     {
-        if(this.AspectRefText == null || this.AspectRefText.SpriteText == null ||
-        	this.ResolutionRefText == null || this.ResolutionRefText.SpriteText == null ||
-        	this.AntiAliasingRefText == null || this.AntiAliasingRefText.SpriteText == null)
+        if(this.AspectRefText != null && this.AspectRefText.SpriteText != null)
         {
-            return;
+        	this.SetAspectText();
         }
 
-        this.SetAspectText();
-        this.SetResolutiontext();
-        this.SetAAText();
-        this.SetAudioText();
+        if(this.ResolutionRefText != null && this.ResolutionRefText.SpriteText != null)
+        {
+        	this.SetResolutiontext();
+        }
+
+        if(this.AntiAliasingRefText != null && this.AntiAliasingRefText.SpriteText != null)
+        {
+        	this.SetAAText();
+        }
+
+        if(this.AudioRefText != null && this.AudioRefText.SpriteText != null)
+        {
+        	this.SetAudioText();
+        }
     }
 
     function SetAspectText()
@@ -309,20 +317,11 @@ class OptionsManager : ZilchComponent
     	}
     	if(button.Name == "FullScreenB")
         {
-            if(this.InFullscreen)
-            {
-                this.InFullscreen = false;
-                this.CurAspect = AspectRatio.A_16x9;
-                this.CurRes = Resolution.A_1920x1080;
-            }
-            else
-            {
-                this.InFullscreen = true;
-                this.CurAspect = AspectRatio.Native;
-                this.CurRes = Resolution.Native;
-            }
 
+            this.InFullscreen = !this.InFullscreen;
             this.Owner.Dispatch(DaisyEvent.FullScreenChange, FullScreenChange());
+            this.CurAspect = AspectRatio.Native;
+            this.CurRes = Resolution.Native;
         }
         else if(button.Name == "NextRatio")
         {

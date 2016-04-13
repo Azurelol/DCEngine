@@ -42,9 +42,13 @@ namespace DCEngine {
       Real Health = 10.0f;
       Real AirBrakeScalar = 0.94f; //multiplies your current y velocity by this when you release jump while jumping upwards
       Real TurnSpeedScalar = 5.0f; //how much faster you accelerate when attemping to accelerate opposite your current velocity
+	  Real InitialVelocityXCap;
       Real VelocityXCap = 30.0f;
+	  Real HorizontalJumpingVelocityXCap = VelocityXCap * 1.2;
       Real GroundFriction = 0.2f;
 	  Real FramesOfThrowAnimation = 0;
+	  Real AmountOfMaxSpeedRequiredForHorizontalJump = 0.8;
+	  Real AmountOfJumpPowerAddedToHorizontalJump = 0.35;
       String StandAnimation = "Char_Asha_Idle_Spritesheet";
       String JumpAnimation = "Char_Asha_Jump_Spritesheet";
       String RunAnimation = "Char_Asha_Run_Spritesheet";
@@ -57,6 +61,18 @@ namespace DCEngine {
       String JumpSound = "Jump";
       String LandSound = "Land";
       String CollideSound = "HitShield";
+      int DamageFromScrapper;
+      int DamageFromSentinel;
+      int DamageFromLancer;
+      Vec4 ColorOnDamage;
+      float ColorOnDamageFlashDuration;
+      float KnockBackForceOnDamageFromScrapperX;
+      float KnockBackForceOnDamageFromScrapperY;
+      float KnockBackForceOnDamageFromSentinelX;
+      float KnockBackForceOnDamageFromSentinelY;
+      float KnockBackForceOnDamageFromLancerX;
+      float KnockBackForceOnDamageFromLancerY;
+      float DamageCooldown;
 
       Transform* TransformRef;
       RigidBody* RigidBodyRef;
@@ -71,6 +87,8 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Real, AirBrakeScalar);
       DCE_DEFINE_PROPERTY(Real, TurnSpeedScalar);
       DCE_DEFINE_PROPERTY(Real, AutoPlayTimer);
+	  DCE_DEFINE_PROPERTY(Real, AmountOfMaxSpeedRequiredForHorizontalJump);
+	  DCE_DEFINE_PROPERTY(Real, AmountOfJumpPowerAddedToHorizontalJump);
       DCE_DEFINE_PROPERTY(Boolean, DoAutoPlay);
       DCE_DEFINE_PROPERTY(String, StandAnimation);
       DCE_DEFINE_PROPERTY(String, JumpAnimation);
@@ -84,6 +102,18 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(String, LandSound);
       DCE_DEFINE_PROPERTY(String, FootstepSound);
 	    DCE_DEFINE_PROPERTY(String, CollideSound);
+    DCE_DEFINE_PROPERTY(int, DamageFromScrapper);
+    DCE_DEFINE_PROPERTY(int, DamageFromSentinel);
+    DCE_DEFINE_PROPERTY(int, DamageFromLancer);
+    DCE_DEFINE_PROPERTY(Vec4, ColorOnDamage);
+    DCE_DEFINE_PROPERTY(float, ColorOnDamageFlashDuration);
+    DCE_DEFINE_PROPERTY(float, KnockBackForceOnDamageFromScrapperX);
+    DCE_DEFINE_PROPERTY(float, KnockBackForceOnDamageFromScrapperY);
+    DCE_DEFINE_PROPERTY(float, KnockBackForceOnDamageFromSentinelX);
+    DCE_DEFINE_PROPERTY(float, KnockBackForceOnDamageFromSentinelY);
+    DCE_DEFINE_PROPERTY(float, KnockBackForceOnDamageFromLancerX);
+    DCE_DEFINE_PROPERTY(float, KnockBackForceOnDamageFromLancerY);
+    DCE_DEFINE_PROPERTY(float, DamageCooldown);
 
 
       PlayerController(Entity& owner) : Component(std::string("PlayerController"), owner) {}
@@ -97,7 +127,7 @@ namespace DCEngine {
       void OnLogicUpdateEvent(Events::LogicUpdate * event);
       //void OnDamageEvent(Events::DamageEvent event);
       void Jump();
-      void TakeDamage(int damage);
+      bool TakeDamage(int damage);
       void Die();
 	    Boolean CheckForGround();
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
@@ -119,6 +149,8 @@ namespace DCEngine {
       void PlayHitSound(void);
       void PlayTeleportStartSound(void);
       void PlayTeleportEndSound(void);
+      void FlashColor(Vec4 color, float duration);
+      bool IsDamageable = true;
     };
   }
 

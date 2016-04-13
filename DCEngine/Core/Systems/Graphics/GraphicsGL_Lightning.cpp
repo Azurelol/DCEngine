@@ -31,12 +31,11 @@ namespace DCEngine {
 		void GraphicsGL::PreRender(Components::Camera * camera)
 		{
       SystemMethodTimer timer("PreRender", EnumeratedSystem::Graphics);
-			glBindFramebuffer(GL_FRAMEBUFFER, FBO);
+			glBindFramebuffer(GL_FRAMEBUFFER, multisampleFBO);
 
 			GLuint attachments[3] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2 };
 			glDrawBuffers(3, attachments);
 
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glEnable(GL_DEPTH_TEST);
 			glDepthFunc(GL_LEQUAL);
 			glEnable(GL_BLEND);
@@ -44,55 +43,69 @@ namespace DCEngine {
 
 			RenderObjects(camera);
 
-			////transfer multisample fbo to regular fbo
-			/////transfer color buffers
-			//for (unsigned i = 0; i < 3; ++i)
-			//{
-			//	glBindFramebuffer(GL_READ_FRAMEBUFFER, multisampleFBO);
-			//	glReadBuffer(GL_COLOR_ATTACHMENT0 + i);
-			//	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, FBO);
-			//	glDrawBuffer(GL_COLOR_ATTACHMENT0 + i);
-			//	glBlitFramebuffer(
-			//		0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
-			//		0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
-			//		GL_COLOR_BUFFER_BIT, GL_NEAREST);
-			//}
-			/////transfer depth buffer
-			//glBindFramebuffer(GL_READ_FRAMEBUFFER, multisampleFBO);
-			//glBindFramebuffer(GL_DRAW_FRAMEBUFFER, FBO);
-			//glBlitFramebuffer(
-			//	0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
-			//	0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
-			//	GL_DEPTH_BUFFER_BIT, GL_NEAREST);
-			/////return control flow to regular fbo
-			//glBindFramebuffer(GL_FRAMEBUFFER, FBO);
-			//glDrawBuffers(3, attachments);
+			//transfer multisample fbo to regular fbo
+			///transfer color buffers
+			for (unsigned i = 0; i < 3; ++i)
+			{
+				glBindFramebuffer(GL_READ_FRAMEBUFFER, multisampleFBO);
+				glReadBuffer(GL_COLOR_ATTACHMENT0 + i);
+				glBindFramebuffer(GL_DRAW_FRAMEBUFFER, FBO);
+				glDrawBuffer(GL_COLOR_ATTACHMENT0 + i);
+				glBlitFramebuffer(
+					0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
+					0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
+					GL_COLOR_BUFFER_BIT, GL_NEAREST);
+			}
+			///transfer depth buffer
+			glBindFramebuffer(GL_READ_FRAMEBUFFER, multisampleFBO);
+			glBindFramebuffer(GL_DRAW_FRAMEBUFFER, FBO);
+			glBlitFramebuffer(
+				0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
+				0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
+				GL_DEPTH_BUFFER_BIT, GL_NEAREST);
+			///return control flow to regular fbo
+			glBindFramebuffer(GL_FRAMEBUFFER, FBO);
+			glDrawBuffers(3, attachments);
 		}
 
 		void GraphicsGL::RenderShadows(Components::Camera * camera, Components::Light * light)
 		{
 			SystemMethodTimer timer("RenderShadows", EnumeratedSystem::Graphics);
+			glBindFramebuffer(GL_FRAMEBUFFER, FBO);
 			glEnable(GL_STENCIL_TEST);
 			glClear(GL_STENCIL_BUFFER_BIT);
 
 			glEnable(GL_DEPTH_CLAMP);
 			glEnable(GL_DEPTH_TEST);
-			glDepthFunc(GL_NOTEQUAL);
+			glDepthFunc(GL_LESS);
 			glDepthMask(GL_FALSE);
 			glDisable(GL_CULL_FACE);
+			//glEnable(GL_BLEND);
+			//glBlendFunc(GL_ONE, GL_ONE);
+			//glDrawBuffer(GL_COLOR_ATTACHMENT2);
 			glDrawBuffer(GL_NONE);
 			glStencilFunc(GL_ALWAYS, 0, 0xff);
-
-			if (light->getVisibilityCulling())
-				glStencilOp(GL_KEEP, GL_INCR, GL_INCR);
-			else
-				glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
 
 			std::vector<bool> cullList;
 			for (const auto& drawList : *mDrawList)
 				for (const auto& obj : drawList)
-					if (dynamic_cast<Components::Sprite*>(obj))
+				{
+					Components::Sprite* sprite = dynamic_cast<Components::Sprite*>(obj);
+					if (sprite)
 					{
+						if (light->getVisibilityCulling())
+						{
+							if (!sprite->getCullVisibility())
+								glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
+							else
+								glStencilOp(GL_KEEP, GL_INCR, GL_INCR);
+						}
+						else
+							glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
+
+						if (sprite->getForceLightCulling())
+							glStencilOp(GL_KEEP, GL_INCR, GL_INCR);
+
 						Components::Transform* objTfm = obj->Owner()->getComponent<Components::Transform>();
 						if (objTfm->Translation.z == 0)
 						{
@@ -100,7 +113,7 @@ namespace DCEngine {
 							Vec3 vector = Vec3(objTfm->Translation - lTfm->Translation);
 							float lengthSquared = vector.x * vector.x + vector.y * vector.y + vector.z * vector.z;
 							float objRadius = objTfm->Scale.x + objTfm->Scale.y;
-							if (lengthSquared > (objRadius + light->getRange()) * (objRadius + light->getRange()))
+							if (lengthSquared < (objRadius + light->getRange()) * (objRadius + light->getRange()))
 							{
 								obj->SetUniforms(ShadowingShader, camera, light);
 								obj->Draw();
@@ -109,6 +122,7 @@ namespace DCEngine {
 								cullList.push_back(true);
 						}
 					}
+				}
 
 			// Restore local stuff
 			glDepthMask(GL_TRUE);
@@ -120,6 +134,7 @@ namespace DCEngine {
 		void GraphicsGL::RenderLights(Components::Light * light)
 		{
 			SystemMethodTimer timer("RenderLights", EnumeratedSystem::Graphics);
+			glBindFramebuffer(GL_FRAMEBUFFER, FBO);
 			LightingShader->Use();
 			glDisable(GL_STENCIL_TEST);
 			if(light)
@@ -168,7 +183,8 @@ namespace DCEngine {
 				LightingShader->SetVector3f(member.c_str(), lightTransform->Translation);
 				member = var + "Model";
 				LightingShader->SetMatrix4(member.c_str(), lightMatrix);
-
+				member = var + "CullLight";
+				LightingShader->SetFloat(member.c_str(), light->getCullLight());
 				if (light->getCastShadows())
 				{
 					glEnable(GL_STENCIL_TEST);
@@ -195,9 +211,7 @@ namespace DCEngine {
 			glActiveTexture(GL_TEXTURE2);
 			glBindTexture(GL_TEXTURE_2D, ColorTexture);
 
-			glBindFramebuffer(GL_READ_FRAMEBUFFER, FBO);
-			glBindFramebuffer(GL_DRAW_FRAMEBUFFER, multisampleFBO);
-			glDrawBuffer(GL_COLOR_ATTACHMENT0);
+			glDrawBuffer(GL_COLOR_ATTACHMENT3);
 
 			glBegin(GL_TRIANGLE_FAN);
 			glVertex4f(-1,-1, 0, 0);
@@ -213,15 +227,16 @@ namespace DCEngine {
 		void GraphicsGL::RenderScene(float exposure, bool lit)
 		{
 			SystemMethodTimer timer("RenderScene", EnumeratedSystem::Graphics);
-			glBindFramebuffer(GL_READ_FRAMEBUFFER, multisampleFBO);
-			glReadBuffer(GL_COLOR_ATTACHMENT0);
-			glBindFramebuffer(GL_DRAW_FRAMEBUFFER, FBO);
-			glDrawBuffer(GL_COLOR_ATTACHMENT3);
-			glBlitFramebuffer(
-				0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
-				0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
-				GL_COLOR_BUFFER_BIT, GL_NEAREST);
+			//glBindFramebuffer(GL_READ_FRAMEBUFFER, multisampleFBO);
+			//glReadBuffer(GL_COLOR_ATTACHMENT0);
+			//glBindFramebuffer(GL_DRAW_FRAMEBUFFER, FBO);
+			//glDrawBuffer(GL_COLOR_ATTACHMENT3);
+			//glBlitFramebuffer(
+			//	0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
+			//	0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
+			//	GL_COLOR_BUFFER_BIT, GL_NEAREST);
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+			glDrawBuffer(GL_BACK);
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			FinalRenderShader->Use();
@@ -256,7 +271,7 @@ namespace DCEngine {
 			glDrawBuffers(4, attachments);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 			glBindFramebuffer(GL_FRAMEBUFFER, multisampleFBO);
-			glDrawBuffer(GL_COLOR_ATTACHMENT0);
+			glDrawBuffers(3, attachments);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			glDrawBuffer(GL_BACK);

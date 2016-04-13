@@ -53,6 +53,8 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Lancer, AnimationDistanceSpear);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, DamageTakenColor);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, DamageTakenColorFlashSpeed);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, KnockBackOnPlayerCollisionForce);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, BallReflectForce);
 
       DCE_BINDING_DEFINE_PROPERTY(Lancer, AttackSound);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, DeathSound);
@@ -113,6 +115,8 @@ namespace DCEngine {
 
       Connect(shield, Events::CollisionStarted, Lancer::OnShieldCollisionStartedEvent);
 
+      velocity = 0.0f;
+      acceleration = 0.0f;
     }
 
     void Lancer::OnLogicUpdateEvent(Events::LogicUpdate * event)
@@ -132,26 +136,40 @@ namespace DCEngine {
       UpdateSprites(event->TimePassed);
 
       shield->getComponent<Transform>()->Translation = TransformRef->Translation;
+
+      velocity += acceleration * event->Dt;
+      TransformRef->Translation.x += velocity * event->Dt;
     }
 
     void Lancer::OnCollisionStartedEvent(Events::CollisionStarted * event)
     {
       if (event->OtherObject->getComponent<BallController>() != NULL)
       {
-        if (ModifyHealth(-1))
+        if (player->getComponent<PlayerController>()->Invincible)
+        {
+          stateMachine->ChangeState(Die::Instance());
+        }
+        else if (ModifyHealth(-1))
         {
           FlashColor(DamageTakenColor, DamageTakenColorFlashSpeed);
         }
+
+        event->OtherObject->getComponent<RigidBody>()->ApplyForce(-event->Normal * BallReflectForce);
       }
-      else if (event->OtherObject->getComponent<PlayerController>() != NULL)
+
+      if (event->OtherObject->getComponent<PlayerController>() != NULL)
       {
-        PlayAttackSound();
+		PlayAttackSound();
+        velocity = 0;
+        RigidBodyRef->ApplyForce(Vec3(-KnockBackOnPlayerCollisionForce * acceleration,0,0));
       }
     }
 
     void Lancer::OnShieldCollisionStartedEvent(Events::CollisionStarted * event)
     {
-      if (event->OtherObject->Name() == "Ball")
+      if (event->OtherObject->Name() == "Ball" &&
+          event->OtherObject->getComponent<Components::BoxCollider>() &&
+          event->OtherObject->getComponent<Components::BoxCollider>()->getGhost() != true)
       {
         Vec3 parentPosition = TransformRef->getTranslation();
         Vec3 otherPosition = event->OtherObject->getComponent<Components::Transform>()->getTranslation();
@@ -216,6 +234,13 @@ namespace DCEngine {
         sprites.at(i)->AttachTo(gameObj);
         sprites.at(i)->getComponent<Transform>()->setLocalTranslation(Vec3(0, 0, 0));
       }
+
+      head->getComponent<Transform>()->Translation.z = 0.01;
+      shoulder->getComponent<Transform>()->Translation.z = 0.02;
+      body->getComponent<Transform>()->Translation.z = 0;
+      spear->getComponent<Transform>()->Translation.z = 0.03;
+      shield->getComponent<Transform>()->Translation.z = 0.04;
+
     }
 
     void Lancer::UpdateSprites(float timePassed)
@@ -341,6 +366,8 @@ namespace DCEngine {
     void Lancer::Idle::Enter(Lancer *owner)
     {
       //DCTrace << "Lancer Idle Enter\n";
+      owner->acceleration = 0;
+      owner->velocity = 0;
     }
 
     void Lancer::Idle::Update(Lancer *owner)
@@ -375,7 +402,8 @@ namespace DCEngine {
 
     void Lancer::ChargeLeft::Update(Lancer *owner)
     {
-      owner->RigidBodyRef->setAcceleration(Vec3(-owner->ChargeForce, 0, 0));
+      owner->acceleration = -owner->ChargeForce;
+      //owner->RigidBodyRef->setAcceleration(Vec3(-owner->ChargeForce, 0, 0));
       //owner->RigidBodyRef->ApplyForce(Vec3(-owner->ChargeForce, 0, 0));
     }
 
@@ -401,7 +429,8 @@ namespace DCEngine {
 
     void Lancer::ChargeRight::Update(Lancer *owner)
     {
-      owner->RigidBodyRef->setAcceleration(Vec3(owner->ChargeForce, 0, 0));
+      owner->acceleration = owner->ChargeForce;
+      //owner->RigidBodyRef->setAcceleration(Vec3(owner->ChargeForce, 0, 0));
       //owner->RigidBodyRef->ApplyForce(Vec3(owner->ChargeForce, 0, 0));
     }
 
@@ -422,6 +451,8 @@ namespace DCEngine {
     {
       //DCTrace << "Lancer Die Enter\n";
 
+      owner->acceleration = 0;
+      owner->velocity = 0;
       owner->RigidBodyRef->setVelocity(Vec3(0, 0, 0));
 
       // Death sound?

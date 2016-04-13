@@ -5,6 +5,7 @@
     "Locked": false, 
     "GameObjectID": 915, 
     "Name": "Lancer", 
+    "Protected": false, 
     "Components": 
     {
       "Transform": 
@@ -13,8 +14,26 @@
         {
           "Vec3": 
           {
-            "x": -132.320313, 
-            "y": 2.643368, 
+            "x": 10.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "LocalTranslation": 
+        {
+          "Vec3": 
+          {
+            "x": 10.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "WorldTranslation": 
+        {
+          "Vec3": 
+          {
+            "x": 10.000000, 
+            "y": 0.000000, 
             "z": 0.000000
           }
         }, 
@@ -112,106 +131,36 @@
         "StartingHealth": 1, 
         "MaxHealth": 1, 
         "IsInvulnerable": false, 
+        "ShieldArchetype": "LancerShield", 
+        "HeadArchetype": "LancerHead", 
+        "ShoulderArchetype": "LancerShoulder", 
+        "BodyArchetype": "LancerBody", 
+        "SpearArchetype": "LancerSpear", 
         "IdleRange": 1000.000000, 
-        "ChargeForce": 100.000000, 
-        "ShieldVelocityDifferenceThreshold": 1.000000, 
-        "ShieldActivationSpeed": 5.000000
+        "ChargeForce": 10.000000, 
+        "ShieldReflectionForce": 10000000.000000, 
+        "AnimationSpeedHead": 10.000000, 
+        "AnimationDistanceHead": 0.010000, 
+        "AnimationSpeedShoulder": 10.000000, 
+        "AnimationDistanceShoulder": 0.010000, 
+        "AnimationSpeedSpear": 10.000000, 
+        "AnimationDistanceSpear": 0.010000, 
+        "DamageTakenColor": 
+        {
+          "Vec4": 
+          {
+            "x": 1.000000, 
+            "y": 0.000000, 
+            "z": 0.000000, 
+            "w": 1.000000
+          }
+        }, 
+        "DamageTakenColorFlashSpeed": 0.200000, 
+        "KnockBackOnPlayerCollisionForce": 1000.000000
       }
     }, 
     "Children": 
     {
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 45, 
-        "Name": "LancerShield", 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": -132.332947, 
-                "y": 2.905980, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 8.000000, 
-                "y": 5.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 0.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 0.295000
-              }
-            }, 
-            "SpriteSource": "Circle", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
-          }, 
-          "BoxCollider": 
-          {
-            "CollisionGroup": "LancerShield", 
-            "PhysicsMaterial": "", 
-            "Size": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Ghost": true, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
-          }, 
-          "LancerShield": 
-          {
-            "ShieldReflectionForce": 100000.000000
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }
     }
   }
 }

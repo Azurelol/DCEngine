@@ -49,6 +49,12 @@ namespace DCEngine {
       return data;
     }
 
+    Transform::Transform(Entity & owner) : Component("Transform", owner),
+      Translation(Vec3(0.0f, 0.0f, 0.0f)), Rotation(Vec3(0.0f, 0.0f, 0.0f)),
+      Scale(Vec3(1.0f, 1.0f, 1.0f))
+    {
+    }
+
     /**************************************************************************/
     /*!
     @brief Initializes the GameObject.

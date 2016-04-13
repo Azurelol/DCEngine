@@ -35,6 +35,8 @@ class Button : ZilchComponent
 			{
 				this.Owner.Sprite.SpriteSource = "tile_button_on";
 			}
+			var particle = this.Space.CreateObject("ButtonParticle");
+			particle.Transform.Translation = this.Owner.Transform.Translation;
 
 			this.Active = !this.Active;
 			
