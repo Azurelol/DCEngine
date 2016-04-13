@@ -51,6 +51,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Lancer, DamageTakenColor);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, DamageTakenColorFlashSpeed);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, KnockBackOnPlayerCollisionForce);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, BallReflectForce);
     }
 
     // Dependancies
@@ -127,6 +128,8 @@ namespace DCEngine {
         {
           FlashColor(DamageTakenColor, DamageTakenColorFlashSpeed);
         }
+
+        event->OtherObject->getComponent<RigidBody>()->ApplyForce(-event->Normal * BallReflectForce);
       }
 
       if (event->OtherObject->getComponent<PlayerController>() != NULL)
