@@ -12888,7 +12888,8 @@
                     "z": 0.000000
                   }
                 }, 
-                "SkipMessageDelay": false
+                "SkipMessageDelay": false, 
+                "CurSpeaker": "Cyrus"
               }
             }, 
             "Children": 

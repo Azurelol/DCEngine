@@ -48,10 +48,8 @@ namespace DCEngine {
 
     void LancerShield::OnCollisionStartedEvent(Events::CollisionStarted * event)
     {
-      isActive = true;
-      if (isActive &&
-          event->OtherObject->Name() == "Player" ||
-          event->OtherObject->Name() == "Ball")
+	  if (event->OtherObject->Name() == "Ball" &&
+		  event->OtherObject->Parent() == nullptr)
       {
         Vec3 parentVelocity = parent->getComponent<Components::RigidBody>()->getVelocity();
         Vec3 parentPosition = parent->getComponent<Components::Transform>()->getTranslation();
