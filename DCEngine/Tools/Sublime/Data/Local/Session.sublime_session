@@ -72,74 +72,10 @@
 			"buffers":
 			[
 				{
-					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Animator.Zilch",
+					"file": "/C/Users/John/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Seppuku.Zilch",
 					"settings":
 					{
-						"buffer_size": 1751,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/LevelTimeFade.Zilch",
-					"settings":
-					{
-						"buffer_size": 4054,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PauseManagerZ.Zilch",
-					"settings":
-					{
-						"buffer_size": 2330,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogText.Zilch",
-					"settings":
-					{
-						"buffer_size": 8356,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HackyClickToProgress.Zilch",
-					"settings":
-					{
-						"buffer_size": 528,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/CornerBallEnergyGenerationers.Zilch",
-					"settings":
-					{
-						"buffer_size": 922,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/RotatingBarrier.Zilch",
-					"settings":
-					{
-						"buffer_size": 664,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HealthControllerZ.Zilch",
-					"settings":
-					{
-						"buffer_size": 1674,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/FinalBossHealth.Zilch",
-					"settings":
-					{
-						"buffer_size": 861,
+						"buffer_size": 394,
 						"line_ending": "Windows"
 					}
 				}
@@ -176,29 +112,35 @@
 			},
 			"file_history":
 			[
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/FinalBossHealth.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/RotatingBarrier.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/CornerBallEnergyGenerationers.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HackyClickToProgress.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogText.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PauseManagerZ.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/LevelTimeFade.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Animator.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HealthControllerZ.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/AudioData.Zilch",
 				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/HealthControllerZ.Zilch",
 				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogText.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PressurePlate.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogTrigger.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/EnergyShield.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/MusicBackground.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Animator.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/CameraOffsetVolumeZilch.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HazardAreaZilch.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogBackgroundBehavior.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GravityManager.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PauseManagerZ.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/OptionsManager.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Testing.Zilch"
 			],
 			"find":
 			{
-				"height": 23.0
+				"height": 53.0
 			},
 			"find_in_files":
 			{
@@ -230,16 +172,16 @@
 			"groups":
 			[
 				{
-					"selected": 7,
+					"selected": 0,
 					"sheets":
 					[
 						{
 							"buffer": 0,
-							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Animator.Zilch",
+							"file": "/C/Users/John/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Seppuku.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 1751,
+								"buffer_size": 394,
 								"regions":
 								{
 								},
@@ -252,246 +194,13 @@
 								],
 								"settings":
 								{
-									"syntax": "Packages/C#/C#.sublime-syntax"
-								},
-								"translation.x": 0.0,
-								"translation.y": 225.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 8,
-							"type": "text"
-						},
-						{
-							"buffer": 1,
-							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/LevelTimeFade.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 4054,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										3111,
-										3111
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax"
-								},
-								"translation.x": 0.0,
-								"translation.y": 90.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 7,
-							"type": "text"
-						},
-						{
-							"buffer": 2,
-							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PauseManagerZ.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 2330,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										2220,
-										2220
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax"
-								},
-								"translation.x": 0.0,
-								"translation.y": 990.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 4,
-							"type": "text"
-						},
-						{
-							"buffer": 3,
-							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogText.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 8356,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										1607,
-										1607
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax",
-									"translate_tabs_to_spaces": false
-								},
-								"translation.x": -0.0,
-								"translation.y": 495.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 6,
-							"type": "text"
-						},
-						{
-							"buffer": 4,
-							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HackyClickToProgress.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 528,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										308,
-										308
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax"
+									"syntax": "Packages/Text/Plain text.tmLanguage"
 								},
 								"translation.x": 0.0,
 								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 5,
-							"type": "text"
-						},
-						{
-							"buffer": 5,
-							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/CornerBallEnergyGenerationers.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 922,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										426,
-										426
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax",
-									"tab_size": 4,
-									"translate_tabs_to_spaces": true
-								},
-								"translation.x": -0.0,
-								"translation.y": 45.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 2,
-							"type": "text"
-						},
-						{
-							"buffer": 6,
-							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/RotatingBarrier.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 664,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										230,
-										230
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax",
-									"tab_size": 2,
-									"translate_tabs_to_spaces": true
-								},
-								"translation.x": -0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 1,
-							"type": "text"
-						},
-						{
-							"buffer": 7,
-							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HealthControllerZ.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 1674,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										520,
-										520
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax",
-									"tab_size": 2,
-									"translate_tabs_to_spaces": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 405.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
-							"type": "text"
-						},
-						{
-							"buffer": 8,
-							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/FinalBossHealth.Zilch",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 861,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										756,
-										756
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C#/C#.sublime-syntax",
-									"tab_size": 4,
-									"translate_tabs_to_spaces": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 3,
 							"type": "text"
 						}
 					]
@@ -499,7 +208,7 @@
 			],
 			"incremental_find":
 			{
-				"height": 23.0
+				"height": 53.0
 			},
 			"input":
 			{
@@ -537,7 +246,7 @@
 			"project": "",
 			"replace":
 			{
-				"height": 42.0
+				"height": 102.0
 			},
 			"save_all_on_build": true,
 			"select_file":
