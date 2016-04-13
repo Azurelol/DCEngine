@@ -96,8 +96,14 @@ namespace DCEngine {
     
     void LoadingScreen::SetProgressText()
     {
-      TextProgress = SpaceRef->FindObjectByName("ProgressText")->getComponent<SpriteText>();
-      TextTitle = SpaceRef->FindObjectByName("TitleText")->getComponent<SpriteText>();
+      TextProgressObj = SpaceRef->FindObjectByName("ProgressText");
+      ProjectTitleObj = SpaceRef->FindObjectByName("TitleText");
+
+      if (!TextProgressObj || !ProjectTitleObj)
+        return;
+      
+      TextProgress = TextProgressObj->getComponent<SpriteText>();
+      TextTitle = ProjectTitleObj->getComponent<SpriteText>();
     }
 
     void LoadingScreen::UpdateProgress()
