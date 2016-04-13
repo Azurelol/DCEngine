@@ -93,12 +93,14 @@ namespace DCEngine {
 					Components::Sprite* sprite = dynamic_cast<Components::Sprite*>(obj);
 					if (sprite)
 					{
+						if (sprite->getNOSHADOW())
+							continue;
 						if (light->getVisibilityCulling())
 						{
-							if (!sprite->getCullVisibility())
-								glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
-							else
+							if (sprite->getCullVisibility())
 								glStencilOp(GL_KEEP, GL_INCR, GL_INCR);
+							else
+								glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
 						}
 						else
 							glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
@@ -112,8 +114,9 @@ namespace DCEngine {
 							Components::Transform* lTfm = light->Owner()->getComponent<Components::Transform>();
 							Vec3 vector = Vec3(objTfm->Translation - lTfm->Translation);
 							float lengthSquared = vector.x * vector.x + vector.y * vector.y + vector.z * vector.z;
-							float objRadius = objTfm->Scale.x + objTfm->Scale.y;
-							if (lengthSquared < (objRadius + light->getRange()) * (objRadius + light->getRange()))
+							float objRadiusSquared = objTfm->Scale.x * objTfm->Scale.x + objTfm->Scale.y * objTfm->Scale.y;
+							if (lengthSquared < objRadiusSquared + 2 * light->getRange() * (objTfm->Scale.x + objTfm->Scale.y)
+								+ light->getRange() * light->getRange())
 							{
 								obj->SetUniforms(ShadowingShader, camera, light);
 								obj->Draw();
