@@ -88,7 +88,7 @@ namespace DCEngine {
 
       if (BallControllerTraceOn)
       {
-        DCTrace << PlayerRef->getComponent<Components::Transform>()->Translation.x;
+        DCTrace << "Player X is " << PlayerRef->getComponent<Components::Transform>()->Translation.x;
       }
       RigidBodyRef->setRestitution(Restitution);
       RigidBodyRef->setFriction(Friction);
