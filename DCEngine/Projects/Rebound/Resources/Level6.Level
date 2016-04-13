@@ -15650,7 +15650,28 @@
             "JumpSound": "Jump", 
             "LandSound": "Land", 
             "FootstepSound": "Step", 
-            "CollideSound": "Collide"
+            "CollideSound": "Collide", 
+            "DamageFromScrapper": 0, 
+            "DamageFromSentinel": 0, 
+            "DamageFromLancer": 0, 
+            "ColorOnDamage": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "ColorOnDamageFlashDuration": 0.000000, 
+            "KnockBackForceOnDamageFromScrapperX": 0.000000, 
+            "KnockBackForceOnDamageFromScrapperY": 0.000000, 
+            "KnockBackForceOnDamageFromSentinelX": 0.000000, 
+            "KnockBackForceOnDamageFromSentinelY": 0.000000, 
+            "KnockBackForceOnDamageFromLancerX": 0.000000, 
+            "KnockBackForceOnDamageFromLancerY": 0.000000, 
+            "DamageCooldown": 0.000000
           }, 
           "Light": 
           {
@@ -15711,7 +15732,7 @@
               {
                 "x": 110.790001, 
                 "y": 25.296000, 
-                "z": 0.000000
+                "z": -0.001000
               }
             }, 
             "LocalTranslation": 
@@ -15720,7 +15741,7 @@
               {
                 "x": 110.790001, 
                 "y": 25.296000, 
-                "z": 0.000000
+                "z": -0.001000
               }
             }, 
             "WorldTranslation": 
@@ -15729,7 +15750,7 @@
               {
                 "x": 110.790001, 
                 "y": 25.296000, 
-                "z": 0.000000
+                "z": -0.001000
               }
             }, 
             "Rotation": 
@@ -20798,8 +20819,8 @@
             {
               "Vec3": 
               {
-                "x": 34.701630, 
-                "y": -2.104269, 
+                "x": 21.728344, 
+                "y": -1.109650, 
                 "z": 0.000000
               }
             }, 
@@ -20807,8 +20828,8 @@
             {
               "Vec3": 
               {
-                "x": 34.701630, 
-                "y": -2.104269, 
+                "x": 21.728344, 
+                "y": -1.109650, 
                 "z": 0.000000
               }
             }, 
@@ -20816,8 +20837,8 @@
             {
               "Vec3": 
               {
-                "x": 34.701630, 
-                "y": -2.104269, 
+                "x": 21.728344, 
+                "y": -1.109650, 
                 "z": 0.000000
               }
             }, 

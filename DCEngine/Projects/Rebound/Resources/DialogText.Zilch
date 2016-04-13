@@ -64,6 +64,7 @@ class DialogText : ZilchComponent
 	[Property]
 	var SkipMessageDelay : Boolean = false;
 	var ThePlace : Integer = 0;
+	[Property]
 	var CurSpeaker : Speaker = Speaker.Cyrus;
 	var Instance : SoundInstance;
 	
