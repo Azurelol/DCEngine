@@ -144,7 +144,11 @@ namespace DCEngine {
     {
       if (event->OtherObject->getComponent<BallController>() != NULL)
       {
-        if (ModifyHealth(-1))
+        if (player->getComponent<PlayerController>()->Invincible)
+        {
+          stateMachine->ChangeState(Die::Instance());
+        }
+        else if (ModifyHealth(-1))
         {
           FlashColor(DamageTakenColor, DamageTakenColorFlashSpeed);
         }

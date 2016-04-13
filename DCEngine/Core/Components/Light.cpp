@@ -71,6 +71,8 @@ namespace DCEngine {
 			DCE_BINDING_DEFINE_PROPERTY(Light, OuterAngle);
       DCE_BINDING_PROPERTY_DEFINE_RANGE(OuterAngle, 0, 180);
       DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyOuterAngle, attributeRangeOuterAngle);
+
+			DCE_BINDING_DEFINE_PROPERTY(Light, CullLight);
     }
 
     /**************************************************************************/
@@ -81,7 +83,7 @@ namespace DCEngine {
     Light::Light(Entity & owner) : Component(std::string("Light"), owner), 
       Visible(true), CastShadows(true), Diffuse(false), Type(LightType::Point), 
       Color(1.0f, 1.0f, 1.0f, 1.0f), Range(20.0f), Intensity(1.0f), Falloff(0.1f),
-      DirectionVector(Vec3(1.0f, 0.0f, 0.0f)), InnerAngle(0.6f), OuterAngle(0.8f)
+      DirectionVector(Vec3(1.0f, 0.0f, 0.0f)), InnerAngle(0.6f), OuterAngle(0.8f), CullLight(0)
     {
 			Initialize();
     }

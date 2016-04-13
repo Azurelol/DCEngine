@@ -41,6 +41,7 @@ namespace DCEngine {
         PlayerRef->getComponent<Components::RigidBody>()->setGravity(true);
         auto vel = PlayerRef->getComponent<Components::RigidBody>()->getVelocity();
         PlayerRef->getComponent<Components::RigidBody>()->setVelocity(Vec3(vel.x / 2, vel.y / 2, 0));
+		Timer = DamageInterval;
         if (HazardAreaTraceOn)
         {
           DCTrace << "HazardArea::OnCollisionStartedEvent \n";
@@ -53,8 +54,8 @@ namespace DCEngine {
       if (event->OtherObject->getComponent<Components::PlayerController>())
       {
         TouchingPlayer = false;
-        Timer = DamageInterval;
         PlayerRef->getComponent<Components::RigidBody>()->setGravity(1);
+		Timer = 0;
         if (HazardAreaTraceOn)
         {
           DCTrace << "HazardArea::OnCollisionEndedEvent \n";

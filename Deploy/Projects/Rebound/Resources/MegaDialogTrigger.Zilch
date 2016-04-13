@@ -11,7 +11,7 @@
 class MegaDialogTrigger : ZilchComponent
 {
 	[Property]
-	var DialogTextObjectName : String = "";
+	var DialogTextObjectName : String = "DialogText";
 	
 	[Property]
 	var OnlyOnFirstCollision : Boolean = false;
