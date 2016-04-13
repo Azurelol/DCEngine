@@ -86,11 +86,6 @@ namespace DCEngine {
 			glDrawBuffer(GL_NONE);
 			glStencilFunc(GL_ALWAYS, 0, 0xff);
 
-			if (light->getVisibilityCulling())
-				glStencilOp(GL_KEEP, GL_INCR, GL_INCR);
-			else
-				glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
-
 			std::vector<bool> cullList;
 			for (const auto& drawList : *mDrawList)
 				for (const auto& obj : drawList)
@@ -98,8 +93,19 @@ namespace DCEngine {
 					Components::Sprite* sprite = dynamic_cast<Components::Sprite*>(obj);
 					if (sprite)
 					{
-						if (light->getVisibilityCulling() && !sprite->getCullVisibility())
-							continue;
+						if (light->getVisibilityCulling())
+						{
+							if (!sprite->getCullVisibility())
+								glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
+							else
+								glStencilOp(GL_KEEP, GL_INCR, GL_INCR);
+						}
+						else
+							glStencilOp(GL_KEEP, GL_INCR, GL_KEEP);
+
+						if (sprite->getForceLightCulling())
+							glStencilOp(GL_KEEP, GL_INCR, GL_INCR);
+
 						Components::Transform* objTfm = obj->Owner()->getComponent<Components::Transform>();
 						if (objTfm->Translation.z == 0)
 						{
@@ -177,7 +183,8 @@ namespace DCEngine {
 				LightingShader->SetVector3f(member.c_str(), lightTransform->Translation);
 				member = var + "Model";
 				LightingShader->SetMatrix4(member.c_str(), lightMatrix);
-
+				member = var + "CullLight";
+				LightingShader->SetFloat(member.c_str(), light->getCullLight());
 				if (light->getCastShadows())
 				{
 					glEnable(GL_STENCIL_TEST);

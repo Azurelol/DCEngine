@@ -228,7 +228,6 @@
           "Sprite": 
           {
             "Visible": true, 
-            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
@@ -310,7 +309,6 @@
           "Sprite": 
           {
             "Visible": true, 
-            "CullVisibility": true, 
             "Color": 
             {
               "Vec4": 
