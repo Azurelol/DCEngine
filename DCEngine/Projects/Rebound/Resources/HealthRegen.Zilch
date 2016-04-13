@@ -15,6 +15,7 @@ class HealthRegen : ZilchComponent
       if(this.CurrentTime >= 1)
       {
         this.Owner.HealthControllerZ.ModifyHealth(this.RegenRate);
+        this.CurrentTime = 0;
       }
       
     }

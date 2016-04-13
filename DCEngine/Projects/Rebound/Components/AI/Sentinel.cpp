@@ -105,6 +105,8 @@ namespace DCEngine {
       Connect(shield, Events::CollisionStarted, Sentinel::OnShieldCollisionStartedEvent);
       CreateSprites();
 
+      isDamageable = true;
+
       timer = 0.0;
       cooldown = DEFAULT_TIMER;
       canPlay = true;
@@ -147,6 +149,7 @@ namespace DCEngine {
           FlashColor(DamageTakenColor, DamageTakenColorFlashSpeed);
         }
 
+        event->OtherObject->getComponent<BallController>()->IsAttracting = false;
         event->OtherObject->getComponent<RigidBody>()->ApplyForce(-event->Normal * BallReflectForce);
 
       }
@@ -170,12 +173,19 @@ namespace DCEngine {
 
       if (!IsInvulnerable)
       {
-        health += amount;
+        if (isDamageable)
+        {
+          health += amount;
 
-        if (health > maxHealth)
-          health = maxHealth;
-        if (health < 0)
-          health = 0;
+          if (health > maxHealth)
+            health = maxHealth;
+          if (health < 0)
+            health = 0;
+
+          isDamageable = false;
+          ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
+          Actions::Property(seq, isDamageable, true, DamageTakenColorFlashSpeed + 0.3f, Ease::Linear);
+        }
       }
 
       if (health == 0)

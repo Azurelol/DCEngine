@@ -1,0 +1,29 @@
+class HackyClickToProgress : ZilchComponent
+{
+	[Property]
+	var ClicksToProceed : Integer = 0;
+
+	var CurrentClicks : Integer;
+
+    function Initialize()
+    {
+        Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseUp, this.OnMouseUp);
+
+        this.CurrentClicks = 0;
+    }
+
+    function OnMouseUp(event : MouseUp)
+    {
+    	this.CurrentClicks += 1;
+
+    	if(this.CurrentClicks >= this.ClicksToProceed)
+    	{
+    		this.ReturnToMain();
+    	}
+    }
+
+    function ReturnToMain()
+    {
+    	this.Space.LoadLevel("MainMenu");
+    }
+}

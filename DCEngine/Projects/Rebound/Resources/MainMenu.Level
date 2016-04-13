@@ -133,6 +133,8 @@
           {
             "Visible": false, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -266,8 +268,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.066892, 
-                    "y": -0.043984, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": -0.100000
                   }
                 }, 
@@ -303,6 +305,8 @@
               {
                 "Visible": true, 
                 "CullVisibility": true, 
+                "ForceLightCulling": false, 
+                "NOSHADOW": false, 
                 "Color": 
                 {
                   "Vec4": 
@@ -387,6 +391,8 @@
           {
             "Visible": false, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -533,8 +539,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -0.499448, 
-                    "y": -7.898058, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -570,6 +576,8 @@
               {
                 "Visible": true, 
                 "CullVisibility": true, 
+                "ForceLightCulling": false, 
+                "NOSHADOW": false, 
                 "Color": 
                 {
                   "Vec4": 
@@ -681,8 +689,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": -1.415777, 
-                        "y": -0.764062, 
+                        "x": 0.000000, 
+                        "y": 0.000000, 
                         "z": 0.010000
                       }
                     }, 
@@ -765,8 +773,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 3.743130, 
-                    "y": -12.138058, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -802,6 +810,8 @@
               {
                 "Visible": true, 
                 "CullVisibility": true, 
+                "ForceLightCulling": false, 
+                "NOSHADOW": false, 
                 "Color": 
                 {
                   "Vec4": 
@@ -913,8 +923,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": -1.742578, 
-                        "y": 0.255376, 
+                        "x": 0.000000, 
+                        "y": 0.000000, 
                         "z": 0.010000
                       }
                     }, 
@@ -997,8 +1007,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -4.739448, 
-                    "y": -12.138058, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -1034,6 +1044,8 @@
               {
                 "Visible": true, 
                 "CullVisibility": true, 
+                "ForceLightCulling": false, 
+                "NOSHADOW": false, 
                 "Color": 
                 {
                   "Vec4": 
@@ -1145,8 +1157,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": -0.460000, 
-                        "y": 0.179430, 
+                        "x": 0.000000, 
+                        "y": 0.000000, 
                         "z": 0.010000
                       }
                     }, 
@@ -1229,8 +1241,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -0.499448, 
-                    "y": -16.382790, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -1266,6 +1278,8 @@
               {
                 "Visible": true, 
                 "CullVisibility": true, 
+                "ForceLightCulling": false, 
+                "NOSHADOW": false, 
                 "Color": 
                 {
                   "Vec4": 
@@ -1377,8 +1391,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": -1.071824, 
-                        "y": 0.684731, 
+                        "x": 0.000000, 
+                        "y": 0.000000, 
                         "z": 0.010000
                       }
                     }, 
@@ -1461,8 +1475,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -15.335731, 
-                    "y": -20.442228, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -1498,6 +1512,8 @@
               {
                 "Visible": true, 
                 "CullVisibility": true, 
+                "ForceLightCulling": false, 
+                "NOSHADOW": false, 
                 "Color": 
                 {
                   "Vec4": 
@@ -1609,8 +1625,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": -1.121675, 
-                        "y": -0.021687, 
+                        "x": 0.000000, 
+                        "y": 0.000000, 
                         "z": 0.010000
                       }
                     }, 
@@ -1732,6 +1748,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -1814,6 +1832,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -1857,8 +1877,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -1.500000, 
-                    "y": 0.269473, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -1978,6 +1998,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -2132,8 +2154,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 4.988880, 
-                    "y": -5.083850, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -2169,6 +2191,8 @@
               {
                 "Visible": true, 
                 "CullVisibility": true, 
+                "ForceLightCulling": false, 
+                "NOSHADOW": false, 
                 "Color": 
                 {
                   "Vec4": 
@@ -2280,8 +2304,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": -0.915035, 
-                        "y": -0.122208, 
+                        "x": 0.000000, 
+                        "y": 0.000000, 
                         "z": 0.001000
                       }
                     }, 
@@ -2440,8 +2464,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 1.145886, 
-                    "y": -14.860489, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -2477,6 +2501,8 @@
               {
                 "Visible": true, 
                 "CullVisibility": true, 
+                "ForceLightCulling": false, 
+                "NOSHADOW": false, 
                 "Color": 
                 {
                   "Vec4": 
@@ -2588,8 +2614,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": -0.920566, 
-                        "y": -0.189854, 
+                        "x": 0.000000, 
+                        "y": 0.000000, 
                         "z": 0.001000
                       }
                     }, 
@@ -2748,8 +2774,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.145885, 
-                    "y": -4.860489, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -2785,6 +2811,8 @@
               {
                 "Visible": true, 
                 "CullVisibility": true, 
+                "ForceLightCulling": false, 
+                "NOSHADOW": false, 
                 "Color": 
                 {
                   "Vec4": 
@@ -2896,8 +2924,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": -0.939104, 
-                        "y": -0.211075, 
+                        "x": 0.000000, 
+                        "y": 0.000000, 
                         "z": 0.001000
                       }
                     }, 
@@ -3083,8 +3111,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -0.087105, 
-                    "y": 0.050938, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -3268,8 +3296,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -0.087103, 
-                    "y": 0.050938, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -3453,8 +3481,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -0.087105, 
-                    "y": 0.050938, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -5214,6 +5242,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -5809,6 +5839,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -5873,8 +5905,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -0.444366, 
-                    "y": -0.302839, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -5955,8 +5987,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 9.236652, 
-                    "y": -0.497001, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -6037,8 +6069,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 4.524590, 
-                    "y": -0.255613, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -6119,8 +6151,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 6.101170, 
-                    "y": -0.021724, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -6156,6 +6188,8 @@
               {
                 "Visible": true, 
                 "CullVisibility": true, 
+                "ForceLightCulling": false, 
+                "NOSHADOW": false, 
                 "Color": 
                 {
                   "Vec4": 
@@ -6240,6 +6274,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -6304,8 +6340,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -0.298138, 
-                    "y": -0.260348, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -6386,8 +6422,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 1.428329, 
-                    "y": -0.453712, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -6507,6 +6543,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -6571,8 +6609,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -0.307877, 
-                    "y": -0.252418, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -6653,8 +6691,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -3.337652, 
-                    "y": -0.556847, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -6856,6 +6894,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -7184,6 +7224,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -7266,6 +7308,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -7348,6 +7392,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -7676,6 +7722,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -7740,8 +7788,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -0.210388, 
-                    "y": -0.256968, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -7822,8 +7870,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 1.626175, 
-                    "y": -0.369600, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -7943,6 +7991,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -8007,8 +8057,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -0.299572, 
-                    "y": -0.269709, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -8089,8 +8139,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 1.401489, 
-                    "y": -0.308329, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -8292,6 +8342,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -8374,6 +8426,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -8456,6 +8510,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -8575,8 +8631,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 3.575581, 
-                    "y": 2.695559, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -8612,6 +8668,8 @@
               {
                 "Visible": true, 
                 "CullVisibility": true, 
+                "ForceLightCulling": false, 
+                "NOSHADOW": false, 
                 "Color": 
                 {
                   "Vec4": 
@@ -8723,8 +8781,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": -1.976250, 
-                        "y": -0.088025, 
+                        "x": 0.000000, 
+                        "y": 0.000000, 
                         "z": 0.001000
                       }
                     }, 
@@ -8807,8 +8865,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -14.407963, 
-                    "y": 0.734540, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -8844,6 +8902,8 @@
               {
                 "Visible": true, 
                 "CullVisibility": true, 
+                "ForceLightCulling": false, 
+                "NOSHADOW": false, 
                 "Color": 
                 {
                   "Vec4": 
@@ -8957,8 +9017,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -22.282314, 
-                    "y": 0.734540, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -8994,6 +9054,8 @@
               {
                 "Visible": true, 
                 "CullVisibility": true, 
+                "ForceLightCulling": false, 
+                "NOSHADOW": false, 
                 "Color": 
                 {
                   "Vec4": 
@@ -9107,8 +9169,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -19.409542, 
-                    "y": 0.446080, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -9189,8 +9251,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -14.407963, 
-                    "y": -1.265460, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -9226,6 +9288,8 @@
               {
                 "Visible": true, 
                 "CullVisibility": true, 
+                "ForceLightCulling": false, 
+                "NOSHADOW": false, 
                 "Color": 
                 {
                   "Vec4": 
@@ -9339,8 +9403,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -22.282314, 
-                    "y": -1.265460, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -9376,6 +9440,8 @@
               {
                 "Visible": true, 
                 "CullVisibility": true, 
+                "ForceLightCulling": false, 
+                "NOSHADOW": false, 
                 "Color": 
                 {
                   "Vec4": 
@@ -9489,8 +9555,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -20.758926, 
-                    "y": -1.528790, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -9571,8 +9637,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -3.282314, 
-                    "y": 0.734540, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -9608,6 +9674,8 @@
               {
                 "Visible": true, 
                 "CullVisibility": true, 
+                "ForceLightCulling": false, 
+                "NOSHADOW": false, 
                 "Color": 
                 {
                   "Vec4": 
@@ -9721,8 +9789,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -10.282314, 
-                    "y": 0.734540, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -9758,6 +9826,8 @@
               {
                 "Visible": true, 
                 "CullVisibility": true, 
+                "ForceLightCulling": false, 
+                "NOSHADOW": false, 
                 "Color": 
                 {
                   "Vec4": 
@@ -9871,8 +9941,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -7.758926, 
-                    "y": 0.471210, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -9953,8 +10023,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.126080, 
-                    "y": -14.038729, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -9990,6 +10060,8 @@
               {
                 "Visible": true, 
                 "CullVisibility": true, 
+                "ForceLightCulling": false, 
+                "NOSHADOW": false, 
                 "Color": 
                 {
                   "Vec4": 
@@ -10101,8 +10173,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": -0.945267, 
-                        "y": -0.113171, 
+                        "x": 0.000000, 
+                        "y": 0.000000, 
                         "z": 0.001000
                       }
                     }, 
@@ -10185,8 +10257,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -8.407963, 
-                    "y": -7.265460, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -10222,6 +10294,8 @@
               {
                 "Visible": true, 
                 "CullVisibility": true, 
+                "ForceLightCulling": false, 
+                "NOSHADOW": false, 
                 "Color": 
                 {
                   "Vec4": 
@@ -10335,8 +10409,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -17.282314, 
-                    "y": -7.265460, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 
@@ -10372,6 +10446,8 @@
               {
                 "Visible": true, 
                 "CullVisibility": true, 
+                "ForceLightCulling": false, 
+                "NOSHADOW": false, 
                 "Color": 
                 {
                   "Vec4": 
@@ -10485,8 +10561,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": -15.758926, 
-                    "y": -7.528790, 
+                    "x": 0.000000, 
+                    "y": 0.000000, 
                     "z": 0.000000
                   }
                 }, 

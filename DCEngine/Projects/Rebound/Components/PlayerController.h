@@ -44,11 +44,11 @@ namespace DCEngine {
       Real TurnSpeedScalar = 5.0f; //how much faster you accelerate when attemping to accelerate opposite your current velocity
       Real InitialVelocityXCap;
       Real VelocityXCap = 30.0f;
-      Real HorizontalJumpingVelocityXCap = VelocityXCap * 1.2f;
+      Real HorizontalJumpingVelocityXCap = VelocityXCap * 1.33f;
       Real GroundFriction = 0.2f;
       Real FramesOfThrowAnimation = 0.0f;
       Real AmountOfMaxSpeedRequiredForHorizontalJump = 0.8f;
-      Real AmountOfJumpPowerAddedToHorizontalJump = 0.35f;
+      Real AmountOfJumpPowerAddedToHorizontalJump = 0.5f;
       String StandAnimation = "Char_Asha_Idle_Spritesheet";
       String JumpAnimation = "Char_Asha_Jump_Spritesheet";
       String RunAnimation = "Char_Asha_Run_Spritesheet";
@@ -73,6 +73,8 @@ namespace DCEngine {
       float KnockBackForceOnDamageFromLancerX;
       float KnockBackForceOnDamageFromLancerY;
       float DamageCooldown;
+      ArchetypeHandle ShieldArchetype;
+      ArchetypeHandle RedHazeArchetype;
 
       Transform* TransformRef;
       RigidBody* RigidBodyRef;
@@ -114,6 +116,8 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(float, KnockBackForceOnDamageFromLancerX);
       DCE_DEFINE_PROPERTY(float, KnockBackForceOnDamageFromLancerY);
       DCE_DEFINE_PROPERTY(float, DamageCooldown);
+      DCE_DEFINE_PROPERTY(ArchetypeHandle, ShieldArchetype);
+      DCE_DEFINE_PROPERTY(ArchetypeHandle, RedHazeArchetype);
 
 
       PlayerController(Entity& owner) : Component(std::string("PlayerController"), owner) {}
@@ -135,6 +139,8 @@ namespace DCEngine {
       #endif
 
     private:
+      GameObject* gameObj;
+      GameObjectPtr camera;
       Sprite* SpriteComponent;
       void PrintTranslation();
       void PrintVelocity();
@@ -151,6 +157,13 @@ namespace DCEngine {
       void PlayTeleportEndSound(void);
       void FlashColor(Vec4 color, float duration);
       bool IsDamageable = true;
+      GameObjectPtr shield;
+      Vec4 shieldColor;
+      GameObjectPtr redHaze;
+      void CreateShield();
+      Vec4 redHazeColor;
+      float redHazeAlphaValue;
+      int maxHealth;
     };
   }
 
