@@ -51,6 +51,7 @@ namespace DCEngine {
       Vec4 DamageTakenColor;
       float DamageTakenColorFlashSpeed;
       float KnockBackOnPlayerCollisionForce;
+      float BallReflectForce;
 
 
       DCE_COMPONENT_DECLARE_DEPENDENCIES;
@@ -78,6 +79,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Vec4, DamageTakenColor);
       DCE_DEFINE_PROPERTY(float, DamageTakenColorFlashSpeed);
       DCE_DEFINE_PROPERTY(float, KnockBackOnPlayerCollisionForce);
+      DCE_DEFINE_PROPERTY(float, BallReflectForce);
 
       // Methods
       Lancer(Entity& owner) : Component(std::string("Lancer"), owner) {}

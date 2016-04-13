@@ -52,6 +52,7 @@ namespace DCEngine {
       Vec4 AttackColor;
       Vec4 DamageTakenColor;
       float DamageTakenColorFlashSpeed;
+      float BallReflectForce;
       
 
       DCE_COMPONENT_DECLARE_DEPENDENCIES;
@@ -84,6 +85,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Vec4, DamageTakenColor);
       //DCE_DEFINE_PROPERTY(bool, IsDebugColorActive);
       DCE_DEFINE_PROPERTY(float, DamageTakenColorFlashSpeed);
+      DCE_DEFINE_PROPERTY(float, BallReflectForce);
 
       // Methods
       Grunt(Entity& owner) : Component(std::string("Grunt"), owner) {}

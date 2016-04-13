@@ -375,8 +375,8 @@
             {
               "Vec3": 
               {
-                "x": -41.965164, 
-                "y": 37.782234, 
+                "x": 42.370525, 
+                "y": 18.589149, 
                 "z": 0.000000
               }
             }, 
@@ -384,8 +384,8 @@
             {
               "Vec3": 
               {
-                "x": -41.965164, 
-                "y": 37.782234, 
+                "x": 42.370525, 
+                "y": 18.589149, 
                 "z": 0.000000
               }
             }, 
@@ -393,8 +393,8 @@
             {
               "Vec3": 
               {
-                "x": -41.965164, 
-                "y": 37.782234, 
+                "x": 42.370525, 
+                "y": 18.589149, 
                 "z": 0.000000
               }
             }, 
@@ -5111,8 +5111,8 @@
             {
               "Vec3": 
               {
-                "x": 26.184391, 
-                "y": 22.494526, 
+                "x": 26.314091, 
+                "y": 22.451292, 
                 "z": 0.000000
               }
             }, 
@@ -5120,8 +5120,8 @@
             {
               "Vec3": 
               {
-                "x": 26.184391, 
-                "y": 22.494526, 
+                "x": 26.314091, 
+                "y": 22.451292, 
                 "z": 0.000000
               }
             }, 
@@ -5129,8 +5129,8 @@
             {
               "Vec3": 
               {
-                "x": 26.184391, 
-                "y": 22.494526, 
+                "x": 26.314091, 
+                "y": 22.451292, 
                 "z": 0.000000
               }
             }, 
@@ -5147,8 +5147,8 @@
             {
               "Vec3": 
               {
-                "x": 9.000000, 
-                "y": 1.000000, 
+                "x": 1.000000, 
+                "y": 9.000000, 
                 "z": 1.000000
               }
             }
@@ -5327,8 +5327,8 @@
             {
               "Vec3": 
               {
-                "x": 40.411041, 
-                "y": 17.135378, 
+                "x": 31.701220, 
+                "y": 16.953178, 
                 "z": 0.000000
               }
             }, 
@@ -5336,8 +5336,8 @@
             {
               "Vec3": 
               {
-                "x": 40.411041, 
-                "y": 17.135378, 
+                "x": 31.701220, 
+                "y": 16.953178, 
                 "z": 0.000000
               }
             }, 
@@ -5345,8 +5345,8 @@
             {
               "Vec3": 
               {
-                "x": 40.411041, 
-                "y": 17.135378, 
+                "x": 31.701220, 
+                "y": 16.953178, 
                 "z": 0.000000
               }
             }, 
@@ -5371,7 +5371,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "Color": 
             {
@@ -6406,8 +6406,8 @@
             {
               "Vec3": 
               {
-                "x": 36.045753, 
-                "y": 17.159224, 
+                "x": 36.030415, 
+                "y": 17.149889, 
                 "z": 0.000000
               }
             }, 
@@ -6415,8 +6415,8 @@
             {
               "Vec3": 
               {
-                "x": 36.045753, 
-                "y": 17.159224, 
+                "x": 36.030415, 
+                "y": 17.149889, 
                 "z": 0.000000
               }
             }, 
@@ -6424,8 +6424,8 @@
             {
               "Vec3": 
               {
-                "x": 36.045753, 
-                "y": 17.159224, 
+                "x": 36.030415, 
+                "y": 17.149889, 
                 "z": 0.000000
               }
             }, 
@@ -11692,24 +11692,6 @@
                 "TimeToDelete": 10.000000, 
                 "AshaReplySoundName": "InterfaceReply", 
                 "CyrusReplySoundName": "InterfaceNotify", 
-                "AshaVoiceColor": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 1.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "CyrusVoiceColor": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
                 "SkipMessageDelay": true
               }
             }, 
@@ -11925,10 +11907,10 @@
             "Message7String": "The last time Cell Epsilon checked in they gave me a code to a teleporter.", 
             "Message7Speaker": "Cyrus", 
             "Message8String": "They had it hidden somewhere in the city away from prying eyes.", 
-            "Message9Speaker": "Cyrus", 
-            "Message9String": "Why wasn’t this plan A?", 
-            "Message10Speaker": "Asha", 
-            "Message10String": "", 
+            "Message9Speaker": "Asha", 
+            "Message9String": "Why wasn't this plan A?", 
+            "Message10Speaker": "Cyrus", 
+            "Message10String": "...", 
             "Message11Speaker": "Cyrus", 
             "Message11String": "I forgot about it, to be honest.", 
             "Message12Speaker": "Cyrus", 
@@ -11936,7 +11918,7 @@
             "Message13Speaker": "Cyrus", 
             "Message13String": "But you are, Asha. I’ve gone ahead and fed their code to the teleporter and it seems to check out.", 
             "Message14Speaker": "Cyrus", 
-            "Message14String": "Head on through when you’re ready.", 
+            "Message14String": "Head on through when you're ready.", 
             "Message15Speaker": "Cyrus", 
             "Message15String": "", 
             "Message16Speaker": "Cyrus", 
@@ -12087,6 +12069,114 @@
             "Message6Speaker": "Cyrus", 
             "Message7String": "", 
             "Message7Speaker": "Cyrus"
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 3528, 
+        "Name": "Ground", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 40.411041, 
+                "y": 17.135378, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 40.411041, 
+                "y": 17.135378, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 40.411041, 
+                "y": 17.135378, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 4.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "CullVisibility": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "tile_basic_both", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 5
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
           }
         }, 
         "Children": 

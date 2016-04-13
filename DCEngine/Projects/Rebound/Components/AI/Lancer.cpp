@@ -51,6 +51,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Lancer, DamageTakenColor);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, DamageTakenColorFlashSpeed);
       DCE_BINDING_DEFINE_PROPERTY(Lancer, KnockBackOnPlayerCollisionForce);
+      DCE_BINDING_DEFINE_PROPERTY(Lancer, BallReflectForce);
     }
 
     // Dependancies
@@ -127,6 +128,8 @@ namespace DCEngine {
         {
           FlashColor(DamageTakenColor, DamageTakenColorFlashSpeed);
         }
+
+        event->OtherObject->getComponent<RigidBody>()->ApplyForce(-event->Normal * BallReflectForce);
       }
 
       if (event->OtherObject->getComponent<PlayerController>() != NULL)
@@ -198,6 +201,13 @@ namespace DCEngine {
         sprites.at(i)->AttachTo(gameObj);
         sprites.at(i)->getComponent<Transform>()->setLocalTranslation(Vec3(0, 0, 0));
       }
+
+      head->getComponent<Transform>()->Translation.z = 0.01;
+      shoulder->getComponent<Transform>()->Translation.z = 0.02;
+      body->getComponent<Transform>()->Translation.z = 0;
+      spear->getComponent<Transform>()->Translation.z = 0.03;
+      shield->getComponent<Transform>()->Translation.z = 0.04;
+
     }
 
     void Lancer::UpdateSprites(float timePassed)

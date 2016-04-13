@@ -46,6 +46,7 @@ namespace DCEngine {
       float AnimationDistanceShoulder;
       Vec4 DamageTakenColor;
       float DamageTakenColorFlashSpeed;
+      float BallReflectForce;
 
       DCE_DEFINE_PROPERTY(String, PlayerName);
       DCE_DEFINE_PROPERTY(int, startingHealth);
@@ -68,6 +69,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(float, AnimationDistanceShoulder);
       DCE_DEFINE_PROPERTY(Vec4, DamageTakenColor);
       DCE_DEFINE_PROPERTY(float, DamageTakenColorFlashSpeed);
+      DCE_DEFINE_PROPERTY(float, BallReflectForce);
 
 
       // Methods
@@ -76,6 +78,7 @@ namespace DCEngine {
       ~Sentinel();
       void Initialize();
       void OnCollisionStartedEvent(Events::CollisionStarted* event);
+      void OnShieldCollisionStartedEvent(Events::CollisionStarted* event);
       void OnLogicUpdateEvent(Events::LogicUpdate * event);
 
     private:

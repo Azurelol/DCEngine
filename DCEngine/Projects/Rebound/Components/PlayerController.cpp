@@ -81,7 +81,6 @@ namespace DCEngine {
 			//ColliderRef->setCollisionGroup("Player");
 			//RigidBodyRef->setGravity(false);
 
-
 			//SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("Dogma");
 		}
 
@@ -197,6 +196,14 @@ namespace DCEngine {
 						particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation - Vec3(0, TransformRef->getScale().y / 2, 0));
 					}
 				}
+				if (event->OtherObject->getComponent<Components::HazardArea>())
+				{
+					auto particle = SpaceRef->CreateObject("AcidSplashParticle");
+					if (particle)
+					{
+						particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation - Vec3(0, TransformRef->getScale().y / 2, 0));
+					}
+				}
 			}
 			if (event->OtherObject->getComponent<Components::LevelManager>())
 			{
@@ -249,6 +256,8 @@ namespace DCEngine {
 
 		void PlayerController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 		{
+      DCTrace << "Player velocity: " << RigidBodyRef->getVelocity().x << ", " << RigidBodyRef->getVelocity().y << "\n";
+
 			bool animationChanged = false;
 			if (PlayerControllerTraceOn)
 			{
