@@ -1,3 +1,14 @@
+/******************************************************************************/
+/*!
+@file   DialogText.Zilch
+@author Gabriel Neumann
+@par    email: g.neumann\@digipen.edu
+@date   4/12/2016
+@brief  DialogText to send dialog many messages to the player
+@copyright Copyright 2016, DigiPen Institute of Technology. All rights reserved.
+*/                                                                                                            
+/******************************************************************************/
+
 class DialogText : ZilchComponent
 {
     [Property]
@@ -50,6 +61,8 @@ class DialogText : ZilchComponent
 	var XShiftPerChar : Real;
 	var CurTime : Real = 0.0;
 	var Finished : Boolean = true;
+	[Property]
+	var SkipMessageDelay : Boolean = false;
 	var ThePlace : Integer = 0;
 	var CurSpeaker : Speaker = Speaker.Cyrus;
 	var Instance : SoundInstance;
@@ -88,12 +101,10 @@ class DialogText : ZilchComponent
 		var background = this.Space.FindObjectByName("DialogBackground");
 		if(this.Owner.SpriteText.Visible == true && background.Sprite.Color.W == 0.9)
 		{
-			dialogSpeaker.SpriteText.Color = Real4(dialogSpeaker.SpriteText.Color.XYZ, 1);
-			this.Owner.SpriteText.Color = Real4(this.Owner.SpriteText.Color.XYZ, 1);
+			dialogSpeaker.SpriteText.Color = Real4(dialogSpeaker.SpriteText.Color.XYZ, 0.9);
+			this.Owner.SpriteText.Color = Real4(this.Owner.SpriteText.Color.XYZ, 0.9);
 		}
 		
-		if(this.ThePlace == this.Message.Count)
-			this.Finished = true;
 			
 		this.CurTime += event.Dt;
 		
@@ -107,7 +118,13 @@ class DialogText : ZilchComponent
 			
 			this.PlaySound();
 		}
-		this.Owner.SpriteText.Text = this.Message.SubString(0, this.ThePlace);
+		if(this.SkipMessageDelay)
+			this.Owner.SpriteText.Text = this.Message;
+		else
+			this.Owner.SpriteText.Text = this.Message.SubString(0, this.ThePlace);
+			
+		if(this.Owner.SpriteText.Text == this.Message)
+			this.Finished = true;
     }
 	
 	function PlaySound()
@@ -193,6 +210,7 @@ class DialogText : ZilchComponent
 		if(background.Sprite.Color.W == 0)
 		{
 			var speaker = this.Space.FindObjectByName("DialogSpeaker");
+			speaker.SpriteText.Visible = true;
 			if(this.Space.FindObjectByName("Ball") != null)
 			{
 				var ball = this.Space.FindObjectByName("Ball");
@@ -234,7 +252,7 @@ class DialogText : ZilchComponent
 			ball.BallController.ToggleForceFreeze();
 		}
 		
-		
+		dialogSpeaker.SpriteText.Visible = false;
 		if(this.CurSpeaker == Speaker.Asha)
 		{
 			dialogSpeaker.SpriteText.Text = "Asha";

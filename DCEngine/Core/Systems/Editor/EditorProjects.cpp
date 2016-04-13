@@ -249,7 +249,8 @@ namespace DCEngine {
       Access().Deselect();
       // Load the level
       Access().CurrentSpace->LoadLevel(level);
-      // Load the editor camera
+      // Load the editor camera if the editor is enabled @todo this logic is stupid
+      if (Access().Settings.Enabled)
       Access().Launcher.SetEditorCamera(true);
 
       // If the level doesn't have a levelsettings object (legacy), add one!

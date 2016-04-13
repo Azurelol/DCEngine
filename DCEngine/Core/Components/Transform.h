@@ -29,11 +29,9 @@ namespace DCEngine {
     public:
 
       // Properties
-      Vec3 Translation = Vec3(0.0f, 0.0f, 0.0f);
-      Vec3 Rotation = Vec3(0.0f, 0.0f, 0.0f);
-      Vec3 Scale = Vec3(1.0f, 1.0f, 1.0f);
-      //DCE_DEFINE_PROPERTY(Vec3, Translation);
-
+      Vec3 Translation;
+      Vec3 Rotation;
+      Vec3 Scale;
 
       const Vec3 & getLocalTranslation() const;
       void setLocalTranslation(const Vec3 & val);
@@ -58,7 +56,7 @@ namespace DCEngine {
       //void setRotation(Vec3 const & rot);
       TransformDataPair getTransformDataPair();
       ZilchDeclareDerivedType(Transform, Component);
-      Transform::Transform(Entity & owner) : Component(std::string("Transform"), owner) {}
+      Transform::Transform(Entity & owner);
       void Initialize();
       void UpdateTranslation();
       void UpdateRotation();

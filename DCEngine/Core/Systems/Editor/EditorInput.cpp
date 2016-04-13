@@ -186,6 +186,27 @@ namespace DCEngine {
         CenterSelected();
         break;
 
+      case Keys::L:
+        if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl)) {          
+          if (Daisy->getKeyboard()->KeyIsDown(Keys::LShift)) {
+            Selector.LockAll();
+          }
+          else {
+            Objects.LockSelected();
+          }
+        }
+        break;
+
+      case Keys::U:
+        if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl)) {
+          if (Daisy->getKeyboard()->KeyIsDown(Keys::LShift)) {
+            Selector.UnlockAll();
+          }
+          else {
+          }
+        }
+        break;
+
       case Keys::N:
         if (Daisy->getKeyboard()->KeyIsDown(Keys::LControl))
           Windows.AddResourceEnabled = true;
