@@ -2,6 +2,8 @@ class FinalBossHealth : ZilchComponent
 {
     [Property]
     var DamageValue : Real = 0;
+    [Property]
+    var RotationSpeed : Real = 0;
     
     function Initialize()
     {
@@ -11,13 +13,15 @@ class FinalBossHealth : ZilchComponent
     }
 
     function OnLogicUpdate(event : LogicUpdate)
-    {}
+    {
+      this.Owner.Transform.Rotation += Real3(0,0,event.Dt * this.RotationSpeed);
+    }
     
     function OnCollisionStartedEvent(event : CollisionStarted)
     {
       if(event.OtherObject.BallController != null)
       {
-        this.Owner.HealthControllerZ.ModifyHealth(this.DamageValue);
+        this.Owner.HealthControllerZ.ModifyHealth(-this.DamageValue);
       }
     }
     

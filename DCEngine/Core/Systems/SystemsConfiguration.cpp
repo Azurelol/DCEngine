@@ -233,7 +233,7 @@ namespace DCEngine {
 
     GraphicsConfig::GraphicsConfig() : Configuration("Graphics"),
       MaxDrawLayers(10), ScreenWidth(1440), ScreenHeight(900), Framerate(60), Fullscreen(false),
-      Caption("Daisy Chain Engine"), ClearColor(0.0f, 0.5f, 1.0f, 1.0f), Samples(4), DisplayFPS(true)
+      Caption("Daisy Chain Engine"), ClearColor(0.0f, 0.5f, 1.0f, 1.0f), Samples(4), DisplayFPS(true), LightningEnabled(true)
     {
     }
 

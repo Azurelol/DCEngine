@@ -19,7 +19,7 @@ class FinalBossHealth : ZilchComponent
     
     function OnCollisionStartedEvent(event : CollisionStarted)
     {
-      if(event.OtherObject.BallController != null)
+      if(event.OtherObject.BallTemp != null)
       {
         this.Owner.HealthControllerZ.ModifyHealth(-this.DamageValue);
       }
@@ -27,6 +27,7 @@ class FinalBossHealth : ZilchComponent
     
     function OnDeathEvent(event : DeathEvent)
     {
-      
+      this.Owner.Destroy();
+      this.Space.Dispatch(DaisyEvent.EndGameEvent, EndGameEvent());
     }
 }

@@ -6,6 +6,7 @@ class HealthControllerZ : ZilchComponent
     [Property] var  StartingHealth : Real = 0;
     [Property] var  IsInvulnerable : Boolean = false;
     [Property] var  InvTime : Real = 0;
+    [Property] var DamagedColor : Real4 = Real4(0,0,0,0);
     var CurrentTime : Real = 0;
 
     var  Health : Real = 0;
@@ -13,7 +14,6 @@ class HealthControllerZ : ZilchComponent
     function Initialize()
     {
         Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
-        Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent);
         this.Health = this.StartingHealth;
     }
 
@@ -26,13 +26,6 @@ class HealthControllerZ : ZilchComponent
       
     }
 
-	function OnKeyDownEvent(event : KeyDown)
-  {
-		// This guy is kil
-		if (event.Key == Keys.D) {
-			//this.ModifyHealth(0);
-		}
-	}
     function ModifyHealth(amount : Real) : Boolean
     {
       if(this.CurrentTime  > 0)
@@ -46,6 +39,11 @@ class HealthControllerZ : ZilchComponent
       if (!this.IsInvulnerable)
       {
         this.Health += amount;
+        if(amount < 0)
+        {
+        	this.Feedback();
+        }
+        
 
         if (this.Health > this.MaxHealth)
         {
@@ -71,6 +69,15 @@ class HealthControllerZ : ZilchComponent
         {
           return true;
         }
+    }
+
+    function Feedback()
+    {
+    	var damSeq = Actions.Sequence(this.Owner.Actions);
+    	Actions.Property(damSeq, @this.Owner.Sprite.Color, this.DamagedColor, 0.06, Ease.Linear);
+    	Actions.Property(damSeq, @this.Owner.Sprite.Color, Real4(1,1,1,1), 0.06, Ease.Linear);
+    	Actions.Property(damSeq, @this.Owner.Sprite.Color, this.DamagedColor, 0.06, Ease.Linear);
+    	Actions.Property(damSeq, @this.Owner.Sprite.Color, Real4(1,1,1,1), 0.06, Ease.Linear);
     }
 
     function GetHealth() : Real

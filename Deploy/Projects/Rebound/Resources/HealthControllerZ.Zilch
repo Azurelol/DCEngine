@@ -14,6 +14,7 @@ class HealthControllerZ : ZilchComponent
     {
         Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
         Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent);
+        this.Health = this.StartingHealth;
     }
 
     function OnLogicUpdate(event : LogicUpdate)
@@ -56,7 +57,7 @@ class HealthControllerZ : ZilchComponent
         }
       }
 
-      if (this.Health == 0)
+      if (this.Health <= 0)
       {
         var deathEvent = DeathEvent();
         this.Owner.Dispatch(DaisyEvent.DeathEvent, deathEvent);

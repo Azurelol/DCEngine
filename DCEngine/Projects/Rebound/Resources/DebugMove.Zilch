@@ -11,6 +11,6 @@ var Speed : Real = 0.1;
     {
 	  this.Owner.Transform.Translation = this.Owner.Transform.Translation + Real3(0,this.Speed,0);
 	  
-	  Console.WriteLine(this.Owner.Transform.Translation);
+	  Console.WriteLine("(DebugMove Zilch Script)My translation is `this.Owner.Transform.Translation`");
     }
 }
