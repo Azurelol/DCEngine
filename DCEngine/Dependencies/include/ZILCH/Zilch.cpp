@@ -13876,6 +13876,12 @@ namespace Zilch
   //***************************************************************************
   Handle ExecutableState::AllocateHeapObject(BoundType* type, ExceptionReport& report, HeapFlags::Enum flags)
   {
+    //if (type == nullptr)
+    //{
+    //  ZilchTodo("Was passed an unkown value to allocate.");
+    //  return Handle();
+    //}
+
     // If we currently are not allowing allocation, then throw an exception
     // This is sort of strange, because we can't even allocate the exception...
     if (this->DoNotAllowAllocation != 0)
