@@ -19,6 +19,7 @@ namespace DCEngine {
     public:
       EditorObjects();
       ~EditorObjects();
+      void LockSelected();
     private:
       void Display();
       void ObjectsListSwapPosition(GameObjectPtr object, Direction dir);
