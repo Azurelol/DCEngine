@@ -1,6 +1,6 @@
 /******************************************************************************/
 /*!
-@file   CoreBindingEnums.h
+@file   CoreBindingEvents.h
 @author Gabriel Neumann
 @par    email: g.neumann\@digipen.edu
 @date   2/27/2016

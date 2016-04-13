@@ -48,7 +48,7 @@ namespace DCEngine {
       
     private:
       GraphicsConfig& Settings;
-      std::string Caption;
+      std::string Caption = "Rebound";
       unsigned CurrentFramerate;
       
       Window(GraphicsConfig& config, const std::string& caption);
