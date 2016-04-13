@@ -64,7 +64,7 @@
           "Sprite": 
           {
             "Visible": true, 
-            "CullVisibility": true, 
+            "CullVisibility": false, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
             "Color": 
