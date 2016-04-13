@@ -385,7 +385,7 @@ namespace DCEngine
 
 
     result.FrictionCof = DetermineFriction(boxcollider1->getFriction(), boxcollider2->getFriction());
-    result.Restitution = std::max(boxcollider1->getRestitution(), boxcollider2->getRestitution());
+    result.Restitution = std::min(boxcollider1->getRestitution(), boxcollider2->getRestitution());
 
 
     return true;
