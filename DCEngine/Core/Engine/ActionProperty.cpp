@@ -174,7 +174,7 @@ namespace DCEngine {
     // Get the initial value of the property
     Zilch::Call call(Property.Get, Systems::ZilchInterface::GetState());
     call.Invoke(Report);
-    InitialValue = call.Get<DCEngine::Boolean>(Zilch::Call::Return);
+    InitialValue = call.Get<DCEngine::Integer>(Zilch::Call::Return);
     // Calculate the difference
     Difference = EndValue - InitialValue;
   }
@@ -187,6 +187,15 @@ namespace DCEngine {
   /**************************************************************************/
   float ActionZilchIntegerProperty::Interpolate(float dt)
   {
+    /*if (Elapsed == 0)
+    {
+      // Get the initial value of the property
+      Zilch::Call call(Property.Get, Systems::ZilchInterface::GetState());
+      call.Invoke(Report);
+      InitialValue = call.Get<DCEngine::Integer>(Zilch::Call::Return);
+      // Calculate the difference
+      Difference = EndValue - InitialValue;
+    }*/
     Elapsed += dt;
     auto timeLeft = Duration - Elapsed;
     DCTrace << "ActionProperty::Update: dt = '" << dt << "', timeLeft = '" << timeLeft << "' \n";
