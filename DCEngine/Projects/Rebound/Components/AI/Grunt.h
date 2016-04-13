@@ -39,6 +39,7 @@ namespace DCEngine {
       float JumpStrengthX;
       float JumpStrengthY;
       float JumpPeriod;
+      float randomPhase;
       float AttackJumpStrengthX;
       float AttackJumpStrengthY;
       float AttackJumpPeriod;
