@@ -72,21 +72,7 @@ namespace DCEngine {
         auto progressText = CurrentGameSession->DefaultSpace->CreateObject();
         progressText->AddComponentByName("LoadingScreen");
         progressText->getComponent<Components::LoadingScreen>()->Initialize();
-      }
-
-      // Control object
-
-      // Background
-      //auto control = Systems::Editor::Access().Creator.CreateSprite();
-      //control->getComponent<Components::Sprite>()->setSpriteSource("Wow");
-      //control->getComponent<Components::Transform>()->setScale(Vec3(10, 10, 1));
-
-      
-    }
-    // Remove it
-    else {
-      //Systems::Editor::Access().SetEditorCamera(false);
-      //sprite->Destroy();
+      }      
     }
 
   }
