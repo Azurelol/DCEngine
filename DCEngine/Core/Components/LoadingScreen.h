@@ -35,6 +35,8 @@ namespace DCEngine {
       GameObjectPtr TextProgressObj;
       SpriteText* TextFileName;
       SpriteText* TextProgress;
+      // Loading Object
+      GameObjectPtr LoadingObj;
 
     public:
       void OnFrameUpdateEvent(Events::FrameUpdate* event);      

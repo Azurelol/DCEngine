@@ -17,6 +17,7 @@ namespace DCEngine {
 
     static Camera* sCamera;
     static bool Construct = false;
+    Vec3 InitialTextTranslation;
 
     /**************************************************************************/
     /*!
@@ -96,12 +97,13 @@ namespace DCEngine {
     
     void LoadingScreen::SetProgressText()
     {
-      TextProgressObj = SpaceRef->FindObjectByName("LastLoadedText");
       ProjectTitleObj = SpaceRef->FindObjectByName("PercentageText");
+      TextProgressObj = SpaceRef->FindObjectByName("LastLoadedText");
 
       if (!TextProgressObj || !ProjectTitleObj)
         return;
       
+      InitialTextTranslation = TextProgressObj->getComponent<Transform>()->getTranslation();
       TextProgress = TextProgressObj->getComponent<SpriteText>();
       TextTitle = ProjectTitleObj->getComponent<SpriteText>();
     }
@@ -118,6 +120,9 @@ namespace DCEngine {
 
       auto percentage = (static_cast<float>(resources.NumLoaded) / static_cast<float>(resources.NumTotal)) * 100.0f;
       auto progressText = resources.LastLoaded;
+      auto charCount = progressText.size();
+      //auto offset = 
+
       TextTitle->setText(std::to_string(static_cast<int>(percentage)) + "%");
       TextProgress->setText(progressText);
     }
