@@ -267,6 +267,7 @@ namespace DCEngine {
 		  if (gameObj->Parent()->getComponent<Components::PlayerController>() != nullptr)
 		  {
 			  RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);
+			  ColliderRef->SendsEvents = false;
 		  }
 		RigidBodyRef->setVelocity(Vec3(0, 0, 0));
         TransformRef->setTranslation(gameObj->Parent()->getComponent<Components::Transform>()->Translation);
