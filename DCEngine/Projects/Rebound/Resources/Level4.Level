@@ -493,7 +493,7 @@
             "VelocityXCap": 10.000000, 
             "JumpPower": 30.000000, 
             "JumpFrames": 1.000000, 
-            "Health": 500.000000, 
+            "Health": 10.000000, 
             "AirBrakeScalar": 0.950000, 
             "TurnSpeedScalar": 5.000000, 
             "DoAutoPlay": true, 
@@ -532,7 +532,9 @@
             "KnockBackForceOnDamageFromSentinelY": 10000.000000, 
             "KnockBackForceOnDamageFromLancerX": 100000.000000, 
             "KnockBackForceOnDamageFromLancerY": 10000.000000, 
-            "DamageCooldown": 1.000000
+            "DamageCooldown": 1.000000, 
+            "ShieldArchetype": "PlayerShield", 
+            "RedHazeArchetype": "RedHaze"
           }, 
           "Light": 
           {
@@ -6010,7 +6012,8 @@
                 "w": 0.000000
               }
             }, 
-            "DamageTakenColorFlashSpeed": 0.000000
+            "DamageTakenColorFlashSpeed": 0.000000, 
+            "BallReflectForce": 0.000000
           }
         }, 
         "Children": 
@@ -10174,7 +10177,8 @@
                 "w": 0.000000
               }
             }, 
-            "DamageTakenColorFlashSpeed": 0.000000
+            "DamageTakenColorFlashSpeed": 0.000000, 
+            "BallReflectForce": 0.000000
           }
         }, 
         "Children": 
@@ -10280,7 +10284,8 @@
                 "w": 0.000000
               }
             }, 
-            "DamageTakenColorFlashSpeed": 0.000000
+            "DamageTakenColorFlashSpeed": 0.000000, 
+            "BallReflectForce": 0.000000
           }, 
           "BoxCollider": 
           {
@@ -10456,7 +10461,8 @@
                 "w": 0.000000
               }
             }, 
-            "DamageTakenColorFlashSpeed": 0.000000
+            "DamageTakenColorFlashSpeed": 0.000000, 
+            "BallReflectForce": 0.000000
           }, 
           "BoxCollider": 
           {
@@ -10690,7 +10696,8 @@
                 "w": 0.000000
               }
             }, 
-            "DamageTakenColorFlashSpeed": 0.000000
+            "DamageTakenColorFlashSpeed": 0.000000, 
+            "BallReflectForce": 0.000000
           }
         }, 
         "Children": 
@@ -10796,7 +10803,8 @@
                 "w": 0.000000
               }
             }, 
-            "DamageTakenColorFlashSpeed": 0.000000
+            "DamageTakenColorFlashSpeed": 0.000000, 
+            "BallReflectForce": 0.000000
           }, 
           "BoxCollider": 
           {
@@ -10972,7 +10980,8 @@
                 "w": 0.000000
               }
             }, 
-            "DamageTakenColorFlashSpeed": 0.000000
+            "DamageTakenColorFlashSpeed": 0.000000, 
+            "BallReflectForce": 0.000000
           }, 
           "BoxCollider": 
           {
@@ -11206,7 +11215,8 @@
                 "w": 0.000000
               }
             }, 
-            "DamageTakenColorFlashSpeed": 0.000000
+            "DamageTakenColorFlashSpeed": 0.000000, 
+            "BallReflectForce": 0.000000
           }
         }, 
         "Children": 
@@ -11692,7 +11702,8 @@
                 "TimeToDelete": 10.000000, 
                 "AshaReplySoundName": "InterfaceReply", 
                 "CyrusReplySoundName": "InterfaceNotify", 
-                "SkipMessageDelay": true
+                "SkipMessageDelay": true, 
+                "CurSpeaker": "Cyrus"
               }
             }, 
             "Children": 

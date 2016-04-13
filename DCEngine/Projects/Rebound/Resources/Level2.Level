@@ -155,7 +155,30 @@
             "JumpSound": "Jump", 
             "LandSound": "Land", 
             "FootstepSound": "Step", 
-            "CollideSound": "Collide"
+            "CollideSound": "Collide", 
+            "DamageFromScrapper": 0, 
+            "DamageFromSentinel": 0, 
+            "DamageFromLancer": 0, 
+            "ColorOnDamage": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.000000
+              }
+            }, 
+            "ColorOnDamageFlashDuration": 0.000000, 
+            "KnockBackForceOnDamageFromScrapperX": 0.000000, 
+            "KnockBackForceOnDamageFromScrapperY": 0.000000, 
+            "KnockBackForceOnDamageFromSentinelX": 0.000000, 
+            "KnockBackForceOnDamageFromSentinelY": 0.000000, 
+            "KnockBackForceOnDamageFromLancerX": 0.000000, 
+            "KnockBackForceOnDamageFromLancerY": 0.000000, 
+            "DamageCooldown": 0.000000, 
+            "ShieldArchetype": "", 
+            "RedHazeArchetype": ""
           }, 
           "Light": 
           {
@@ -11216,25 +11239,8 @@
                 "TimeToDelete": 10.000000, 
                 "AshaReplySoundName": "InterfaceReply", 
                 "CyrusReplySoundName": "InterfaceNotify", 
-                "AshaVoiceColor": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 0.000000, 
-                    "y": 1.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "CyrusVoiceColor": 
-                {
-                  "Vec3": 
-                  {
-                    "x": 1.000000, 
-                    "y": 0.000000, 
-                    "z": 0.000000
-                  }
-                }, 
-                "SkipMessageDelay": true
+                "SkipMessageDelay": true, 
+                "CurSpeaker": "Cyrus"
               }
             }, 
             "Children": 

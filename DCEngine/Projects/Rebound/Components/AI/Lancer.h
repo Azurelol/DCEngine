@@ -109,6 +109,7 @@ namespace DCEngine {
       int maxHealth;
       bool IsInvulnerable;
       float randomPhase;
+      bool isDamageable;
       bool ModifyHealth(int amount);
       void CreateSprites();
       void UpdateSprites(float timePassed);

@@ -73,6 +73,8 @@ namespace DCEngine {
       float KnockBackForceOnDamageFromLancerX;
       float KnockBackForceOnDamageFromLancerY;
       float DamageCooldown;
+      ArchetypeHandle ShieldArchetype;
+      ArchetypeHandle RedHazeArchetype;
 
       Transform* TransformRef;
       RigidBody* RigidBodyRef;
@@ -114,6 +116,8 @@ namespace DCEngine {
     DCE_DEFINE_PROPERTY(float, KnockBackForceOnDamageFromLancerX);
     DCE_DEFINE_PROPERTY(float, KnockBackForceOnDamageFromLancerY);
     DCE_DEFINE_PROPERTY(float, DamageCooldown);
+    DCE_DEFINE_PROPERTY(ArchetypeHandle, ShieldArchetype);
+    DCE_DEFINE_PROPERTY(ArchetypeHandle, RedHazeArchetype);
 
 
       PlayerController(Entity& owner) : Component(std::string("PlayerController"), owner) {}
@@ -135,6 +139,8 @@ namespace DCEngine {
 #endif
 
     private:
+      GameObject* gameObj;
+      GameObjectPtr camera;
       Sprite* SpriteComponent;
       void PrintTranslation();
       void PrintVelocity();
@@ -145,6 +151,13 @@ namespace DCEngine {
       void SoundFootstep(void);
       void FlashColor(Vec4 color, float duration);
       bool IsDamageable = true;
+      GameObjectPtr shield;
+      Vec4 shieldColor;
+      GameObjectPtr redHaze;
+      void CreateShield();
+      Vec4 redHazeColor;
+      float redHazeAlphaValue;
+      int maxHealth;
     };
   }
 
