@@ -60,7 +60,7 @@ namespace DCEngine {
     // The loading screen object
     //static GameObjectPtr sprite;
 
-    bool loadLevel = false;
+    bool loadLevel = true;
 
     // Display a Sprite on the current space
     if (enable) {
@@ -72,21 +72,7 @@ namespace DCEngine {
         auto progressText = Systems::Editor::Access().Creator.CreateSpriteText();
         progressText->AddComponentByName("LoadingScreen");
         progressText->getComponent<Components::LoadingScreen>()->Initialize();
-      }
-
-      // Control object
-
-      // Background
-      //auto control = Systems::Editor::Access().Creator.CreateSprite();
-      //control->getComponent<Components::Sprite>()->setSpriteSource("Wow");
-      //control->getComponent<Components::Transform>()->setScale(Vec3(10, 10, 1));
-
-      
-    }
-    // Remove it
-    else {
-      //Systems::Editor::Access().SetEditorCamera(false);
-      //sprite->Destroy();
+      }      
     }
 
   }

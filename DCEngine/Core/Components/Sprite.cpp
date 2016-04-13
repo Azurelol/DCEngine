@@ -40,6 +40,9 @@ namespace DCEngine {
       DCE_BINDING_PROPERTY_DEFINE_UNSIGNED;
       DCE_BINDING_DEFINE_RESOURCE_ATTRIBUTE(SpriteSource);
       DCE_BINDING_DEFINE_PROPERTY(Sprite, Visible);
+			DCE_BINDING_DEFINE_PROPERTY(Sprite, CullVisibility);
+			DCE_BINDING_DEFINE_PROPERTY(Sprite, ForceLightCulling);
+			DCE_BINDING_DEFINE_PROPERTY(Sprite, NOSHADOW);
 
       DCE_BINDING_DEFINE_PROPERTY(Sprite, Color);
       DCE_BINDING_PROPERTY_DEFINE_RANGE(Color, 0, 1);      
@@ -71,7 +74,8 @@ namespace DCEngine {
       None.
     */
     /**************************************************************************/
-    Sprite::Sprite(Entity& owner) : Graphical(std::string("Sprite"), owner)
+		Sprite::Sprite(Entity& owner) : Graphical(std::string("Sprite"), owner),
+			ForceLightCulling(false), CullVisibility(true), NOSHADOW(false)
                    {
       // Register this component to the GraphicsSpace so that it can be drawn
       // by the graphics system.
@@ -300,7 +304,22 @@ namespace DCEngine {
       if (!Visible)
         return;
 
-			
+			//if (Additive)
+			//{
+			//	glBlendFunc(GL_ONE, GL_ONE);
+			//	glDrawBuffer(GL_COLOR_ATTACHMENT2);
+			//	glBindVertexArray(mVAO);
+			//	if (silhouette)
+			//		glDrawArrays(GL_LINE_LOOP, 0, 4);
+			//	else
+			//		glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+			//	glBindVertexArray(0);
+			//	GLuint attachments[2] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1 };
+			//	glDrawBuffers(2, attachments);
+			//	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			//}
+			//else
+			//	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
       glBindVertexArray(mVAO);
       if(silhouette)
@@ -308,6 +327,9 @@ namespace DCEngine {
       else
         glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
       glBindVertexArray(0);
+			//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			//GLuint attachments[3] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2 };
+			//glDrawBuffers(3, attachments);
     }
 
     void Sprite::SetShader()
