@@ -102,7 +102,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 109, 
         "Name": "Music", 
         "Protected": false, 
@@ -169,7 +169,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 174, 
         "Name": "Camera", 
         "Protected": false, 
