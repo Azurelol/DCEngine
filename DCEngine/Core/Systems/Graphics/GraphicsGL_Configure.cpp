@@ -165,7 +165,6 @@ namespace DCEngine {
       This is commonly accepted in 2D graphics/GUI systems where elements' positions
       are correspond to the top-left corner of the elements.
       */
-      GLuint VBO;
       GLfloat vertices[]{
         // Position,      Texture
         -.5f, -.5f,      0.0f, 0.0f,
@@ -178,18 +177,22 @@ namespace DCEngine {
       Next, we simply send the vertices to the GPU and configure the vertex attributes,
       which in this case is a single vertex attribute.
       */
-      glGenVertexArrays(1, &SpriteVAO);
-			Components::Sprite::mVAO = SpriteVAO;
-      glGenBuffers(1, &VBO);
+			//if (SpriteVAO == 0)
+			//{
+				glGenVertexArrays(1, &SpriteVAO);
+				Components::Sprite::mVAO = SpriteVAO;
 
-      glBindBuffer(GL_ARRAY_BUFFER, VBO);
-      glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-      glBindVertexArray(SpriteVAO);
-      glEnableVertexAttribArray(0);
-      glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (GLvoid*)0);
+				glGenBuffers(1, &SpriteVBO);
 
-      glBindBuffer(GL_ARRAY_BUFFER, 0);
-      glBindVertexArray(0);
+				glBindBuffer(GL_ARRAY_BUFFER, SpriteVBO);
+				glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+				glBindVertexArray(SpriteVAO);
+				glEnableVertexAttribArray(0);
+				glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (GLvoid*)0);
+
+				glBindBuffer(GL_ARRAY_BUFFER, 0);
+				glBindVertexArray(0);
+			//}
     }
 
     /**************************************************************************/
