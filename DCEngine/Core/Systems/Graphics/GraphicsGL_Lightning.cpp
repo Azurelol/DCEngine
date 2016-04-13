@@ -65,7 +65,6 @@ namespace DCEngine {
 				GL_DEPTH_BUFFER_BIT, GL_NEAREST);
 			///return control flow to regular fbo
 			glBindFramebuffer(GL_FRAMEBUFFER, FBO);
-			glDrawBuffers(3, attachments);
 		}
 
 		void GraphicsGL::RenderShadows(Components::Camera * camera, Components::Light * light)
@@ -86,8 +85,8 @@ namespace DCEngine {
 			glDrawBuffer(GL_NONE);
 			glStencilFunc(GL_ALWAYS, 0, 0xff);
 
-			std::vector<bool> cullList;
 			for (const auto& drawList : *mDrawList)
+			{
 				for (const auto& obj : drawList)
 				{
 					Components::Sprite* sprite = dynamic_cast<Components::Sprite*>(obj);
@@ -121,11 +120,10 @@ namespace DCEngine {
 								obj->SetUniforms(ShadowingShader, camera, light);
 								obj->Draw();
 							}
-							else
-								cullList.push_back(true);
 						}
 					}
 				}
+			}
 
 			// Restore local stuff
 			glDepthMask(GL_TRUE);

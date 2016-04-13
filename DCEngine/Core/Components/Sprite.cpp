@@ -55,7 +55,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(Sprite, AnimationActive);
       DCE_BINDING_DEFINE_PROPERTY(Sprite, AnimationSpeed);
       DCE_BINDING_DEFINE_PROPERTY(Sprite, DrawLayer);
-      DCE_BINDING_PROPERTY_DEFINE_RANGE(DrawLayer, 0, 5);
+      DCE_BINDING_PROPERTY_DEFINE_RANGE(DrawLayer, 0, 9);
       DCE_BINDING_PROPERTY_SET_ATTRIBUTE(propertyDrawLayer, attributeRangeDrawLayer);
       DCE_BINDING_PROPERTY_SET_UNSIGNED(propertyDrawLayer);
     }

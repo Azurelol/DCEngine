@@ -42,6 +42,7 @@ namespace DCEngine {
         DCTrace << "Graphics::Initialize \n";
       GraphicsHandler->Initialize();
       GraphicsHandler->mDrawList = &mDrawList;
+			GraphicsHandler->mDeferredObjects = &mDeferredObjects;
       // Subscribe to events
       Subscribe();
     }
@@ -128,6 +129,9 @@ namespace DCEngine {
         GraphicsHandler->ClearFrameBufferObjects();
       }
       GraphicsHandler->FinalRender();
+			if(!mDeferredObjects.empty())
+				GraphicsHandler->ScreenSpaceRectangle();
+			mDeferredObjects.clear();
       // Load any graphical assets
       LoadGraphicalResources();
 
@@ -261,6 +265,11 @@ namespace DCEngine {
 
 
     }
+
+		void Graphics::ScreenSpaceRectangle(float width, float height, SpriteSourcePtr sprite)
+		{
+			mDeferredObjects.push_back(sprite);
+		}
 
     /**************************************************************************/
     /*!

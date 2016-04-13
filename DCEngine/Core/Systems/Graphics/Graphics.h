@@ -27,14 +27,16 @@ namespace DCEngine {
   class Sprite;
   class SpriteText;
   class DebugDrawObject;
+	
 
   namespace Systems {
     class WindowSFML;
-
+		
     class Graphics : public System {
       friend class Engine;
       friend class WindowSFML;
       friend class GraphicsGL;
+			struct DeferredObject;
     public:
       // Registration
       void Register(Components::GraphicsSpace& graphicsSpace);
@@ -57,6 +59,8 @@ namespace DCEngine {
 			//Setting Gettors
 			unsigned GetScreenWidth() const;
 			unsigned GetScreenHeight() const;
+
+			void ScreenSpaceRectangle(float width, float height, SpriteSourcePtr sprite);
 
 
     private:
@@ -100,9 +104,19 @@ namespace DCEngine {
       //int TotalObjNumG = 0;
       //int TotalObjTranspNumG = 0;
       std::vector<std::vector<Components::Graphical*>> mDrawList;
+			std::vector<SpriteSourcePtr> mDeferredObjects;
       void SendCountToGL(int TotalObjNumG, int TotalObjTransNumG);
 
-
+			/*============
+			Deferred OBJECT
+			=============*/
+			struct DeferredObject
+			{
+				DeferredObject(unsigned width, unsigned height, SpriteSourcePtr sprite)
+					: width(width), height(height), sprite(sprite) {}
+				unsigned width, height;
+				SpriteSourcePtr sprite;
+			};
       /*============
        DEBUG OBJECT
       =============*/

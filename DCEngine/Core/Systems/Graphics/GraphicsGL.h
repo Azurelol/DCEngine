@@ -48,7 +48,6 @@ namespace DCEngine {
     // More forward declarations!
     class Window;
     class Graphics;
-
     class GraphicsGL {
       friend class Graphics;
           
@@ -88,6 +87,7 @@ namespace DCEngine {
       void DrawRectangle(const Vec3& pos, Real width, Real height, const Vec4& color, bool fill = false);
       void DrawCircle(const Vec3& pos, Real radius, const Vec4& color, bool fill = false);
       void DrawLineSegment(const Vec3& startPos, const Vec3& endPos, const Vec4& color);
+			void ScreenSpaceRectangle();
       // Lightning
       void RenderShadows(Components::Camera* camera, Components::Light* light);
       void RenderObjects(Components::Camera* camera, Components::Light* light = 0, ShaderPtr shader = 0);
@@ -116,6 +116,7 @@ namespace DCEngine {
 
 			
 			std::vector<std::vector<Components::Graphical*>>* mDrawList;
+			std::vector<SpriteSourcePtr>* mDeferredObjects;
       OpenGLStateData GLState;
       // OpenGL Drawing functions
       void DrawArrays(GLuint VAO, GLuint numVertices, GLenum drawMode);
