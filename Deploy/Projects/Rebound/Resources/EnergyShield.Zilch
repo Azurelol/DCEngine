@@ -1,0 +1,77 @@
+class EnergyShield : ZilchComponent
+{
+    [Property]
+    var RepulseSpeed : Integer = 75;
+	
+	[Property]
+	var Active : Boolean = true;
+	
+	[Property]
+	var ActiveColor : Real4 = Real4();
+	
+	[Property]
+	var InactiveColor : Real4 = Real4();
+
+	[Property]
+	var CollideSound : String = "";
+	var CollideSoundInstance : SoundInstance;
+
+    function Initialize()
+    {
+        Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollisionStarted);
+		
+		Daisy.Connect(this.Owner, DaisyEvent.ToggleEvent, this.OnToggleEvent);
+		
+		if(this.Active)
+		{
+			this.Owner.Sprite.Color = this.ActiveColor;
+			this.Owner.ParticleEmitter.Active = true;
+		}
+		else
+		{
+			this.Owner.ParticleEmitter.Active = false;
+			this.Owner.Sprite.Color = this.InactiveColor;
+		}
+    }
+	
+	function OnCollisionStarted(event : CollisionStarted)
+	{
+		// NOTE: Change to BallController once bound
+		if(event.OtherObject.BallTemp == null && this.Active)
+		{
+			if(this.CollideSound != "")
+			{
+				this.CollideSoundInstance = this.Space.SoundSpace.PlayCue(this.CollideSound);
+			}
+			var contactNormal = event.Normal;
+
+			event.OtherObject.RigidBody.ApplyLinearVelocity(-contactNormal * this.RepulseSpeed);
+		}
+	}
+	
+	function OnToggleEvent(event : ToggleEvent)
+	{
+		if(this.Active)
+		{
+			this.Deactivate();
+		}
+		else
+		{
+			this.Activate();
+		}
+	}
+	
+	function Activate()
+	{
+		this.Owner.Sprite.Color = this.ActiveColor;
+		this.Active = true;
+		this.Owner.ParticleEmitter.Active = true;
+	}
+	
+	function Deactivate()
+	{
+		this.Owner.Sprite.Color = this.InactiveColor;
+		this.Active = false;
+		this.Owner.ParticleEmitter.Active = false;
+	}
+}

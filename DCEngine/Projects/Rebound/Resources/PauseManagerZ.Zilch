@@ -76,6 +76,11 @@ class PauseManagerZ : ZilchComponent
     	this.PauseSpace = this.GameSession.CreateSpace("PauseSpace", true);
     	this.PauseSpace.LoadLevel(this.PauseLevelName);
 
+    	if(Bus.Find("MUS").FaderLevel != 0.0)
+    	{
+    		Bus.Find("MUS").FaderLevel = 0.4;
+    	}
+
     	var spReport = ReportSpace();
     	spReport.MainSpace = this.Space;
     	this.PauseSpace.Dispatch(DaisyEvent.ReportSpace, spReport);
@@ -86,6 +91,11 @@ class PauseManagerZ : ZilchComponent
     	if(this.PauseLevelName == "")
     	{
     		return;
+    	}
+
+    	if(Bus.Find("MUS").FaderLevel != 0.0)
+    	{
+    		Bus.Find("MUS").FaderLevel = 1.0;
     	}
 
     	this.PauseSpace.Destroy();

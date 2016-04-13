@@ -1,0 +1,600 @@
+/******************************************************************************/
+/*!
+@file   MegaDialogTrigger.Zilch
+@author Gabriel Neumann
+@par    email: g.neumann\@digipen.edu
+@date   4/12/2016
+@brief  Mega Dialog Trigger to send dialog many messages to the player
+@copyright Copyright 2016, DigiPen Institute of Technology. All rights reserved.
+*/                                                                                                            
+/******************************************************************************/
+class MegaDialogTrigger : ZilchComponent
+{
+	[Property]
+	var DialogTextObjectName : String = "";
+	
+	[Property]
+	var OnlyOnFirstCollision : Boolean = false;
+	
+	[Property]
+	var ActiveOnCollision : Boolean = true;
+	
+	[Property]
+	var ActiveOnlyOnce : Boolean = true;
+	
+	[Property]
+	var Message1String : String = "";
+	[Property]
+	var Message1Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message2String : String = "";
+	[Property]
+	var Message2Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message3String : String = "";
+	[Property]
+	var Message3Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message4String : String = "";
+	[Property]
+	var Message4Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message5String : String = "";
+	[Property]
+	var Message5Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message6String : String = "";
+	[Property]
+	var Message6Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message7String : String = "";
+	[Property]
+	var Message7Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message8String : String = "";
+	[Property]
+	var Message9Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message9String : String = "";
+	[Property]
+	var Message10Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message10String : String = "";
+	[Property]
+	var Message11Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message11String : String = "";
+	[Property]
+	var Message12Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message12String : String = "";
+	[Property]
+	var Message13Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message13String : String = "";
+	[Property]
+	var Message14Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message14String : String = "";
+	[Property]
+	var Message15Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message15String : String = "";
+	[Property]
+	var Message16Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message16String : String = "";
+	[Property]
+	var Message17Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message17String : String = "";
+	[Property]
+	var Message18Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message18String : String = "";
+	[Property]
+	var Message8Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message19Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message19String : String = "";
+	[Property]
+	var Message20Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message20String : String = "";
+	[Property]
+	var Message21Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message21String : String = "";
+	[Property]
+	var Message22Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message22String : String = "";
+	[Property]
+	var Message23Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message23String : String = "";
+	[Property]
+	var Message24Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message24String : String = "";
+	
+	var Message1 : MessageEvent = MessageEvent();
+	var Message2 : MessageEvent = MessageEvent();
+	var Message3 : MessageEvent = MessageEvent();
+	var Message4 : MessageEvent = MessageEvent();
+	var Message5 : MessageEvent = MessageEvent();
+	var Message6 : MessageEvent = MessageEvent();
+	var Message7 : MessageEvent = MessageEvent();
+	var Message8 : MessageEvent = MessageEvent();
+	var Message9 : MessageEvent = MessageEvent();
+	var Message10 : MessageEvent = MessageEvent();
+	var Message11 : MessageEvent = MessageEvent();
+	var Message12 : MessageEvent = MessageEvent();
+	var Message13 : MessageEvent = MessageEvent();
+	var Message14 : MessageEvent = MessageEvent();
+	var Message15 : MessageEvent = MessageEvent();
+	var Message16 : MessageEvent = MessageEvent();
+	var Message17 : MessageEvent = MessageEvent();
+	var Message18 : MessageEvent = MessageEvent();
+	var Message19 : MessageEvent = MessageEvent();
+	var Message20 : MessageEvent = MessageEvent();
+	var Message21 : MessageEvent = MessageEvent();
+	var Message22 : MessageEvent = MessageEvent();
+	var Message23 : MessageEvent = MessageEvent();
+	var Message24 : MessageEvent = MessageEvent();
+	
+	
+	var Active : Boolean = false;
+	var NoMoreActivating : Boolean = false;
+	var MessageNumber : Integer = 1;
+	var FirstCollisionOccurred : Boolean = false;
+	
+	function Initialize()
+    {
+		if(this.Message1String != "")
+		{
+			this.Message1.Message = this.Message1String;
+			this.Message1.NewMessage = true;
+		}
+		if(this.Message2String != "")
+		{
+			this.Message2.Message = this.Message2String;
+			this.Message2.NewMessage = true;
+		}
+		if(this.Message3String != "")
+		{
+			this.Message3.Message = this.Message3String;
+			this.Message3.NewMessage = true;
+		}
+		if(this.Message4String != "")
+		{
+			this.Message4.Message = this.Message4String;
+			this.Message4.NewMessage = true;
+		}
+		if(this.Message5String != "")
+		{
+			this.Message5.Message = this.Message5String;
+			this.Message5.NewMessage = true;
+		}
+		if(this.Message6String != "")
+		{
+			this.Message6.Message = this.Message6String;
+			this.Message6.NewMessage = true;
+		}
+		if(this.Message7String != "")
+		{
+			this.Message7.Message = this.Message7String;
+			this.Message7.NewMessage = true;
+		}
+		if(this.Message8String != "")
+		{
+			this.Message8.Message = this.Message8String;
+			this.Message8.NewMessage = true;
+		}
+		if(this.Message9String != "")
+		{
+			this.Message9.Message = this.Message9String;
+			this.Message9.NewMessage = true;
+		}
+		if(this.Message10String != "")
+		{
+			this.Message10.Message = this.Message10String;
+			this.Message10.NewMessage = true;
+		}
+		if(this.Message11String != "")
+		{
+			this.Message12.Message = this.Message11String;
+			this.Message11.NewMessage = true;
+		}
+		if(this.Message12String != "")
+		{
+			this.Message12.Message = this.Message12String;
+			this.Message12.NewMessage = true;
+		}
+		if(this.Message13String != "")
+		{
+			this.Message13.Message = this.Message13String;
+			this.Message13.NewMessage = true;
+		}
+		if(this.Message14String != "")
+		{
+			this.Message14.Message = this.Message14String;
+			this.Message14.NewMessage = true;
+		}
+		if(this.Message15String != "")
+		{
+			this.Message15.Message = this.Message15String;
+			this.Message15.NewMessage = true;
+		}
+		if(this.Message16String != "")
+		{
+			this.Message16.Message = this.Message16String;
+			this.Message16.NewMessage = true;
+		}
+		if(this.Message17String != "")
+		{
+			this.Message17.Message = this.Message17String;
+			this.Message17.NewMessage = true;
+		}
+		if(this.Message18String != "")
+		{
+			this.Message18.Message = this.Message18String;
+			this.Message18.NewMessage = true;
+		}
+		if(this.Message19String != "")
+		{
+			this.Message19.Message = this.Message19String;
+			this.Message19.NewMessage = true;
+		}
+		if(this.Message20String != "")
+		{
+			this.Message20.Message = this.Message20String;
+			this.Message20.NewMessage = true;
+		}
+		if(this.Message21String != "")
+		{
+			this.Message21.Message = this.Message21String;
+			this.Message21.NewMessage = true;
+		}
+		if(this.Message22String != "")
+		{
+			this.Message22.Message = this.Message22String;
+			this.Message22.NewMessage = true;
+		}
+		if(this.Message23String != "")
+		{
+			this.Message23.Message = this.Message23String;
+			this.Message23.NewMessage = true;
+		}
+		if(this.Message24String != "")
+		{
+			this.Message24.Message = this.Message24String;
+			this.Message24.NewMessage = true;
+		}
+		
+        Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDown);
+        Daisy.Connect(this.Owner, DaisyEvent.ActivateDialog, this.OnActivateDialogEvent);
+		
+		if(this.ActiveOnCollision == true)
+			Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollision);
+    }
+
+	function SendWipeMessage()
+	{
+		if(this.ActiveOnlyOnce)
+		{
+			this.NoMoreActivating = true;
+		}
+		this.Active = false;
+		var ourText = this.Space.FindObjectByName(this.DialogTextObjectName);
+		ourText.DialogText.WipeMessage();
+	}
+	function OnMouseDown(event : MouseDown)
+    {
+		if(event.ButtonPressed == MouseButton.Left)
+		{
+			if(this.Active == true && this.DialogTextObjectName != "" && 
+			(this.OnlyOnFirstCollision == false || this.FirstCollisionOccurred == false))
+			{
+				var ourText = this.Space.FindObjectByName(this.DialogTextObjectName);
+				if(ourText.DialogText.Finished == true)
+				{
+					var curEvent = this.Message1;
+					if(this.MessageNumber == 1)
+					{
+						ourText.DialogText.CurSpeaker = this.Message1Speaker;
+						if(this.Message1String == "")
+							this.SendWipeMessage();
+					}
+					if(this.MessageNumber == 2)
+					{
+						ourText.DialogText.CurSpeaker = this.Message2Speaker;
+						if(this.Message2String != "")
+							curEvent = this.Message2;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 3)
+					{
+						ourText.DialogText.CurSpeaker = this.Message3Speaker;
+						if(this.Message3String != "")
+							curEvent = this.Message3;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 4)
+					{
+						ourText.DialogText.CurSpeaker = this.Message4Speaker;
+						if(this.Message4String != "")
+							curEvent = this.Message4;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 5)
+					{
+						ourText.DialogText.CurSpeaker = this.Message5Speaker;
+						if(this.Message5String != "")
+							curEvent = this.Message5;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 6)
+					{
+						ourText.DialogText.CurSpeaker = this.Message6Speaker;
+						if(this.Message6String != "")
+							curEvent = this.Message6;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 7)
+					{
+						ourText.DialogText.CurSpeaker = this.Message7Speaker;
+						if(this.Message7String != "")
+							curEvent = this.Message7;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 8)
+					{
+						ourText.DialogText.CurSpeaker = this.Message8Speaker;
+						if(this.Message8String != "")
+							curEvent = this.Message8;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 9)
+					{
+						ourText.DialogText.CurSpeaker = this.Message9Speaker;
+						if(this.Message9String != "")
+							curEvent = this.Message9;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 10)
+					{
+						ourText.DialogText.CurSpeaker = this.Message10Speaker;
+						if(this.Message10String != "")
+							curEvent = this.Message10;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 11)
+					{
+						ourText.DialogText.CurSpeaker = this.Message11Speaker;
+						if(this.Message11String != "")
+							curEvent = this.Message11;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 12)
+					{
+						ourText.DialogText.CurSpeaker = this.Message12Speaker;
+						if(this.Message12String != "")
+							curEvent = this.Message12;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 113)
+					{
+						ourText.DialogText.CurSpeaker = this.Message13Speaker;
+						if(this.Message13String != "")
+							curEvent = this.Message14;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 14)
+					{
+						ourText.DialogText.CurSpeaker = this.Message14Speaker;
+						if(this.Message14String != "")
+							curEvent = this.Message15;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 15)
+					{
+						ourText.DialogText.CurSpeaker = this.Message15Speaker;
+						if(this.Message15String != "")
+							curEvent = this.Message16;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 16)
+					{
+						ourText.DialogText.CurSpeaker = this.Message16Speaker;
+						if(this.Message16String != "")
+							curEvent = this.Message16;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 17)
+					{
+						ourText.DialogText.CurSpeaker = this.Message17Speaker;
+						if(this.Message17String != "")
+							curEvent = this.Message17;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 18)
+					{
+						ourText.DialogText.CurSpeaker = this.Message18Speaker;
+						if(this.Message18String != "")
+							curEvent = this.Message18;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 19)
+					{
+						ourText.DialogText.CurSpeaker = this.Message19Speaker;
+						if(this.Message19String != "")
+							curEvent = this.Message19;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 20)
+					{
+						ourText.DialogText.CurSpeaker = this.Message20Speaker;
+						if(this.Message20String != "")
+							curEvent = this.Message20;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 21)
+					{
+						ourText.DialogText.CurSpeaker = this.Message21Speaker;
+						if(this.Message21String != "")
+							curEvent = this.Message21;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 22)
+					{
+						ourText.DialogText.CurSpeaker = this.Message22Speaker;
+						if(this.Message22String != "")
+							curEvent = this.Message22;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 23)
+					{
+						ourText.DialogText.CurSpeaker = this.Message23Speaker;
+						if(this.Message23String != "")
+							curEvent = this.Message23;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 24)
+					{
+						ourText.DialogText.CurSpeaker = this.Message24Speaker;
+						if(this.Message24String != "")
+							curEvent = this.Message24;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+					this.MessageNumber += 1;
+					ourText.Dispatch(DaisyEvent.MessageEvent, curEvent);
+				}
+				else
+				{
+					ourText.DialogText.FinishMessage();
+				}
+			}
+		}
+	}
+	
+	function OnActivateDialogEvent(event : ActivateDialog)
+	{
+		if(this.NoMoreActivating == false)
+			this.Active = true;
+	}
+
+    function OnCollision(event : CollisionStarted)
+    {
+		if(event.OtherObject.Name == "Player")
+		{
+			if(this.Active == false && this.NoMoreActivating == false)
+			{
+				var curEvent = this.Message1;
+				var ourText = this.Space.FindObjectByName(this.DialogTextObjectName);
+				this.MessageNumber += 1;
+				ourText.Dispatch(DaisyEvent.MessageEvent, curEvent);
+				this.Active = true;
+			}
+		}
+    }
+	
+}

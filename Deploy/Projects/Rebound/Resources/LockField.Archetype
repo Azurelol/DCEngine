@@ -1,0 +1,113 @@
+
+{
+  "GameObject": 
+  {
+    "Locked": false, 
+    "GameObjectID": 459, 
+    "Name": "LockField", 
+    "Components": 
+    {
+      "Transform": 
+      {
+        "Translation": 
+        {
+          "Vec3": 
+          {
+            "x": -48.277161, 
+            "y": 6.916460, 
+            "z": 0.000000
+          }
+        }, 
+        "LocalTranslation": 
+        {
+          "Vec3": 
+          {
+            "x": -48.277161, 
+            "y": 6.916460, 
+            "z": 0.000000
+          }
+        }, 
+        "WorldTranslation": 
+        {
+          "Vec3": 
+          {
+            "x": -48.277161, 
+            "y": 6.916460, 
+            "z": 0.000000
+          }
+        }, 
+        "Rotation": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Scale": 
+        {
+          "Vec3": 
+          {
+            "x": 1.000000, 
+            "y": 1.000000, 
+            "z": 1.000000
+          }
+        }
+      }, 
+      "Sprite": 
+      {
+        "Visible": true, 
+        "Color": 
+        {
+          "Vec4": 
+          {
+            "x": 1.000000, 
+            "y": 0.000000, 
+            "z": 1.000000, 
+            "w": 1.000000
+          }
+        }, 
+        "SpriteSource": "square", 
+        "FlipX": false, 
+        "FlipY": false, 
+        "AnimationActive": false, 
+        "AnimationSpeed": 1.000000, 
+        "DrawLayer": 0
+      }, 
+      "BoxCollider": 
+      {
+        "CollisionGroup": "Default", 
+        "PhysicsMaterial": "", 
+        "Size": 
+        {
+          "Vec3": 
+          {
+            "x": 1.000000, 
+            "y": 1.000000, 
+            "z": 1.000000
+          }
+        }, 
+        "Offset": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Ghost": true, 
+        "SendsEvents": true, 
+        "IsDrawingCollider": false
+      }, 
+      "LockField": 
+      {
+        "Timer": 0.000000
+      }
+    }, 
+    "Children": 
+    {
+    }
+  }
+}
