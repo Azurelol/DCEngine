@@ -174,7 +174,7 @@ namespace DCEngine {
     // Get the initial value of the property
     Zilch::Call call(Property.Get, Systems::ZilchInterface::GetState());
     call.Invoke(Report);
-    InitialValue = call.Get<DCEngine::Integer>(Zilch::Call::Return);
+    InitialValue = call.Get<DCEngine::Boolean>(Zilch::Call::Return);
     // Calculate the difference
     Difference = EndValue - InitialValue;
   }
