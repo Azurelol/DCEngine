@@ -58,6 +58,7 @@ namespace DCEngine {
       //DCE_BINDING_DEFINE_PROPERTY(Grunt, IsDebugColorActive);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, DamageTakenColor);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, DamageTakenColorFlashSpeed);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, BallReflectForce);
     }
 
     // Dependancies
@@ -147,6 +148,8 @@ namespace DCEngine {
         {
           FlashColor(DamageTakenColor, DamageTakenColorFlashSpeed);
         }
+
+        event->OtherObject->getComponent<RigidBody>()->ApplyForce(-event->Normal * BallReflectForce);
       }
     }
 
