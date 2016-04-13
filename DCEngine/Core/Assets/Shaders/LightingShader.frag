@@ -51,7 +51,7 @@ float GenerateFalloffFactor(float distance, float range, float falloff)
 {
 	if(distance <= range)
 		if(falloff > 0.0)
-			return (1.0 - distance/range) / (exp(falloff) - 1);
+			return (1.0 - (distance / range)) * exp(-falloff);
 		else
 			return 1.0;
 	else return 0.0;
@@ -115,12 +115,14 @@ vec3 GenerateIlluminationValues(vec3 fragPos, vec3 fragNormal)
 
 void main()
 {
-	vec3 lightValue = vec3(0);
+	vec3 lightValue = vec3(1);
 	vec3 fragPos = texture(gWorldCoords, gTexCoords).rgb;
 	vec3 normal = texture(gWorldNormal, gTexCoords).rgb;
 	vec4 color = texture(gColor, gTexCoords);
 	if(useLight)
-      if(gLight.CullLight == 0 || (gLight.Position.z + gLight.CullLight <= fragPos.z))
-		lightValue = GenerateIlluminationValues(fragPos, normal);
+		if(gLight.CullLight == 0 || (gLight.Position.z + gLight.CullLight <= fragPos.z))
+			lightValue = GenerateIlluminationValues(fragPos, normal);
+		else
+			lightValue = vec3(0);
 	FragColor = color * vec4(lightValue, 1);
 }
