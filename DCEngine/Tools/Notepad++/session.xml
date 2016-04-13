@@ -1,7 +1,8 @@
 <NotepadPlus>
     <Session activeView="0">
-        <mainView activeIndex="0">
-            <File firstVisibleLine="6" xOffset="0" scrollWidth="744" startPos="625" endPos="625" selMode="0" lang="Normal Text" encoding="-1" filename="D:\DCEngine\DCEngine\Projects\Rebound\Resources\EnergyShield.Zilch" backupFilePath="D:\DCEngine\DCEngine\Tools\Notepad++\backup\EnergyShield.Zilch@2016-04-12_162535" originalFileLastModifTimestamp="1460502782" />
+        <mainView activeIndex="1">
+            <File firstVisibleLine="6" xOffset="0" scrollWidth="744" startPos="625" endPos="625" selMode="0" lang="Normal Text" encoding="-1" filename="D:\DCEngine\DCEngine\Projects\Rebound\Resources\EnergyShield.Zilch" backupFilePath="" originalFileLastModifTimestamp="1460503595" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="640" startPos="47" endPos="47" selMode="0" lang="Normal Text" encoding="-1" filename="D:\DCEngine\DCEngine\Projects\Rebound\Resources\Seppuku.Zilch" backupFilePath="D:\DCEngine\DCEngine\Tools\Notepad++\backup\Seppuku.Zilch@2016-04-12_231747" originalFileLastModifTimestamp="1460528259" />
         </mainView>
         <subView activeIndex="0" />
     </Session>
