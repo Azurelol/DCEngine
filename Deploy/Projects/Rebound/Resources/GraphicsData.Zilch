@@ -32,13 +32,13 @@ class GraphicsData : ZilchComponent
     {
     	if(this.CurrentResolution == Resolution.Native)
     	{
+    		this.CurrentResolution = Resolution.Native;
     		this.Space.GraphicsSpace.ToggleFullscreen();
     	}
     	else
     	{
     		this.CurrentResolution = Resolution.Native;
-    		// CALL SET TO NATIVE RESOLUTION VIA C++
-    		// Which will also set it to fullscreen
+    		this.Space.GraphicsSpace.SetNative();
     	}
     }
 
@@ -73,7 +73,7 @@ class GraphicsData : ZilchComponent
 
     	if(newRes == Resolution.Native)
     	{
-    		// CALL SET TO NATIVE RESOLUTION VIA C++
+    		this.Space.GraphicsSpace.SetNative();
     	}
     	else if(newRes == Resolution.A_1920x1080)
     	{

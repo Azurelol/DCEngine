@@ -377,7 +377,7 @@ namespace DCEngine
 
     if (result.Penetration > 2.0f)
     {
-      result.Penetration = 1.0f / 600.0f;
+      //result.Penetration = 1.0f / 600.0f;
     }
 
     result.Object1 = obj1;
@@ -385,7 +385,7 @@ namespace DCEngine
 
 
     result.FrictionCof = DetermineFriction(boxcollider1->getFriction(), boxcollider2->getFriction());
-    result.Restitution = std::max(boxcollider1->getRestitution(), boxcollider2->getRestitution());
+    result.Restitution = std::min(boxcollider1->getRestitution(), boxcollider2->getRestitution());
 
 
     return true;

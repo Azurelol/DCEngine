@@ -1,7 +1,17 @@
+/******************************************************************************/
+/*!
+@file   MegaDialogTrigger.Zilch
+@author Gabriel Neumann
+@par    email: g.neumann\@digipen.edu
+@date   4/12/2016
+@brief  Mega Dialog Trigger to send dialog many messages to the player
+@copyright Copyright 2016, DigiPen Institute of Technology. All rights reserved.
+*/                                                                                                            
+/******************************************************************************/
 class MegaDialogTrigger : ZilchComponent
 {
 	[Property]
-	var DialogTextObjectName : String = "";
+	var DialogTextObjectName : String = "DialogText";
 	
 	[Property]
 	var OnlyOnFirstCollision : Boolean = false;

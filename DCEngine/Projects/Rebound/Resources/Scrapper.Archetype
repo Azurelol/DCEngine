@@ -78,7 +78,10 @@
         "AnimationSpeedHead": 10.000000, 
         "AnimationDistanceHead": 0.010000, 
         "AnimationSpeedSaw": 10.000000, 
-        "AnimationDistanceSaw": 0.010000, 
+        "AnimationDistanceSaw": 0.010000,
+		AttackSound": "ScrapperAttack",
+		"DeathSound": "ScrapperDeath",
+		"TakeDamageSound": "ScrapperTakeDamage",
         "AttackColor": 
         {
           "Vec4": 
@@ -99,7 +102,8 @@
             "w": 1.000000
           }
         }, 
-        "DamageTakenColorFlashSpeed": 0.200000
+        "DamageTakenColorFlashSpeed": 0.200000, 
+        "BallReflectForce": 10000.000000
       }, 
       "BoxCollider": 
       {
@@ -152,11 +156,10 @@
       }, 
       "Sprite": 
       {
-        "Visible": true,			"AttackSound": "ScrapperAttack",
-			"DeathSound": "ScrapperDeath",
-			"TakeDamageSound": "ScrapperTakeDamage", 
-        "Color":
-         {
+        "Visible": true, 
+        "CullVisibility": true, 
+        "Color": 
+        {
           "Vec4": 
           {
             "x": 1.000000, 

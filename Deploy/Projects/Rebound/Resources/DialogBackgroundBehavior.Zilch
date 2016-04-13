@@ -1,3 +1,14 @@
+/******************************************************************************/
+/*!
+@file   DialogBackgroundBehavior.Zilch
+@author Gabriel Neumann
+@par    email: g.neumann\@digipen.edu
+@date   4/12/2016
+@brief  DialogBackground controls how dialog follows the player
+@copyright Copyright 2016, DigiPen Institute of Technology. All rights reserved.
+*/                                                                                                            
+/******************************************************************************/
+
 class DialogBackgroundBehavior : ZilchComponent
 {
 	[Property]

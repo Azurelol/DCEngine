@@ -30,7 +30,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(BallController, FrozenColor);
       DCE_BINDING_DEFINE_PROPERTY(BallController, NormalGravity);
       DCE_BINDING_DEFINE_PROPERTY(BallController, ShotGravity);
-	  DCE_BINDING_DEFINE_PROPERTY(BallController, AttractYBoost);
+	  DCE_BINDING_DEFINE_PROPERTY(BallController, AttractYBoost																																																															);
       DCE_BINDING_DEFINE_PROPERTY(BallController, ChargedColor);
       DCE_BINDING_DEFINE_PROPERTY(BallController, ForcedFreeze);
       DCE_BINDING_DEFINE_PROPERTY(BallController, FreezeEnabled);
@@ -79,6 +79,14 @@ namespace DCEngine {
       TrailRef->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation);
 	  NormalColor = SpriteRef->Color;
 	  NormalParticleColor = ParticleRef->getTint();
+
+
+    Frozen = false;
+    Powering = false;
+    RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);
+    SpriteRef->Color = NormalColor;
+    ParentToPlayer();
+
       if (BallControllerTraceOn)
       {
         DCTrace << PlayerRef->getComponent<Components::Transform>()->Translation.x;
@@ -176,6 +184,7 @@ namespace DCEngine {
 
           RigidBodyRef->ApplyForce(MouseVector * ChargeFactor * CurrentCharge);
 		  PlayerRef->getComponent<Components::PlayerController>()->FramesOfThrowAnimation = 10;
+		  ColliderRef->Ghost = false;
 		  ColliderRef->SendsEvents = true;
 		  SpriteRef->Visible = true;
           Charging = false;
@@ -275,7 +284,13 @@ namespace DCEngine {
       //DCTrace << "BallController::Init- ball is at" << TransformRef->getTranslation().x << ", " << TransformRef->getTranslation().y << "\n";
       if (gameObj->Parent() != nullptr)
       {
-        RigidBodyRef->setVelocity(Vec3(0, 0, 0));
+		  if (gameObj->Parent()->getComponent<Components::PlayerController>() != nullptr)
+		  {
+			  RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);
+			  CollisionTableRef->SetResolve("Ball", "Player", CollisionFlag::SkipResolution);
+			  ColliderRef->SendsEvents = false;
+		  }
+		RigidBodyRef->setVelocity(Vec3(0, 0, 0));
         TransformRef->setTranslation(gameObj->Parent()->getComponent<Components::Transform>()->Translation);
       }
       //DCTrace << (CollisionTableRef->GetResolve("Ball", "Player");
@@ -379,6 +394,8 @@ namespace DCEngine {
 
     void BallController::AttractBall()
     {
+      if (gameObj->Parent() != nullptr)
+        return;
       if (BallControllerTraceOn)
       {
         DCTrace << "BallController::AttractBall :: Now attracting!";
@@ -406,6 +423,10 @@ namespace DCEngine {
         }
         PlayerRef->getComponent<Components::RigidBody>()->ApplyForce(-CenteringVector * AttractPower);
       }
+	  else if (gameObj->Parent() != nullptr)
+	  {
+		  return;
+	  }
       else
       {
         // JJ- Using steering behaviors for more natural looking movement
@@ -422,6 +443,8 @@ namespace DCEngine {
 
     void BallController::FreezeBall()
     {
+      if (gameObj->Parent() != nullptr)
+        return;
       if (Frozen || Locked || !FreezeEnabled)
       {
         return;
@@ -492,7 +515,8 @@ namespace DCEngine {
       }
 
       SoundCommand();
-
+	  Locked = false;
+	  Frozen = false;
       CollisionTableRef->SetResolve("Ball", "Player", CollisionFlag::SkipResolution);
       auto particle = SpaceRef->CreateObject("BallExplosionParticle");
       if (particle)
@@ -502,9 +526,10 @@ namespace DCEngine {
       CurrentlyFired = false;
       //SpriteRef->Color = NormalColor;
       RigidBodyRef->setVelocity(Vec3(0, 0, 0));
-	  //ColliderRef->SendsEvents = false;
+	  ColliderRef->Ghost = true;
+	  ColliderRef->SendsEvents = false;
 	  //SpriteRef->Visible = false;
-      //RigidBodyRef->setDynamicState(DynamicStateType::Kinematic);
+      RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);
       TransformRef->setTranslation(PlayerRef->getComponent<Components::Transform>()->Translation);
       gameObj->AttachTo(PlayerRef);
     }

@@ -5,6 +5,7 @@
     "Locked": false, 
     "GameObjectID": 147, 
     "Name": "Player", 
+    "Protected": false, 
     "Components": 
     {
       "Transform": 
@@ -13,8 +14,26 @@
         {
           "Vec3": 
           {
-            "x": 82.962395, 
-            "y": 30.420143, 
+            "x": -7.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "LocalTranslation": 
+        {
+          "Vec3": 
+          {
+            "x": -7.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "WorldTranslation": 
+        {
+          "Vec3": 
+          {
+            "x": -7.000000, 
+            "y": 0.000000, 
             "z": 0.000000
           }
         }, 
@@ -40,6 +59,7 @@
       "Sprite": 
       {
         "Visible": true, 
+        "CullVisibility": true, 
         "Color": 
         {
           "Vec4": 
@@ -112,21 +132,46 @@
         "VelocityXCap": 10.000000, 
         "JumpPower": 30.000000, 
         "JumpFrames": 1.000000, 
-        "Health": 10.000000, 
+        "Health": 500.000000, 
         "AirBrakeScalar": 0.950000, 
         "TurnSpeedScalar": 5.000000, 
         "DoAutoPlay": true, 
         "StandAnimation": "Char_Asha_Idle_Spritesheet", 
+        "AmountOfJumpPowerAddedToHorizontalJump": 0.500000, 
+        "AmountOfMaxSpeedRequiredForHorizontalJump": 0.800000, 
         "JumpAnimation": "Char_Asha_Jump_Spritesheet", 
         "RunAnimation": "Char_Asha_Run_Spritesheet", 
         "FallAnimation": "Char_Asha_Fall_Spritesheet", 
+        "ThrowAnimation": "Char_Asha_Throw_Spritesheet", 
         "AutoPlayTimer": 2.000000, 
+        "LandingParticle": "LandingParticle", 
         "TeleportStartSound": "Teleport", 
         "TeleportArriveSound": "TeleportArrive", 
         "JumpSound": "Jump", 
         "LandSound": "Land", 
         "FootstepSound": "Step", 
-        "CollideSound": "Collide"
+        "CollideSound": "Collide", 
+        "DamageFromScrapper": 1, 
+        "DamageFromSentinel": 2, 
+        "DamageFromLancer": 3, 
+        "ColorOnDamage": 
+        {
+          "Vec4": 
+          {
+            "x": 1.000000, 
+            "y": 0.000000, 
+            "z": 0.000000, 
+            "w": 1.000000
+          }
+        }, 
+        "ColorOnDamageFlashDuration": 0.200000, 
+        "KnockBackForceOnDamageFromScrapperX": 20000.000000, 
+        "KnockBackForceOnDamageFromScrapperY": 15000.000000, 
+        "KnockBackForceOnDamageFromSentinelX": 100000.000000, 
+        "KnockBackForceOnDamageFromSentinelY": 10000.000000, 
+        "KnockBackForceOnDamageFromLancerX": 100000.000000, 
+        "KnockBackForceOnDamageFromLancerY": 10000.000000, 
+        "DamageCooldown": 1.000000
       }, 
       "Light": 
       {

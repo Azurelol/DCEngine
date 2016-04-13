@@ -60,6 +60,8 @@ namespace DCEngine {
       int CurrentRow = 0;
       // Properties
       DCE_DEFINE_PROPERTY(bool, Visible);
+			DCE_DEFINE_PROPERTY(bool, CullVisibility);
+			DCE_DEFINE_PROPERTY(bool,	ForceLightCulling);
       DCE_DEFINE_PROPERTY(Vec4, Color);
       DCE_DEFINE_PROPERTY(String, SpriteSource);
       DCE_DEFINE_PROPERTY(bool, FlipX);
@@ -105,6 +107,8 @@ namespace DCEngine {
       float AnimationSpeedFPSCounter = 0;
       //unsigned DrawLayer;
       bool silhouette;
+			bool CullVisibility;
+			bool ForceLightCulling;
     };
 
   }

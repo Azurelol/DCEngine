@@ -50,6 +50,8 @@ namespace DCEngine {
       float AnimationDistanceSpear;
       Vec4 DamageTakenColor;
       float DamageTakenColorFlashSpeed;
+      float KnockBackOnPlayerCollisionForce;
+      float BallReflectForce;
 
 
       DCE_COMPONENT_DECLARE_DEPENDENCIES;
@@ -76,6 +78,8 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(float, AnimationDistanceSpear);
       DCE_DEFINE_PROPERTY(Vec4, DamageTakenColor);
       DCE_DEFINE_PROPERTY(float, DamageTakenColorFlashSpeed);
+      DCE_DEFINE_PROPERTY(float, KnockBackOnPlayerCollisionForce);
+      DCE_DEFINE_PROPERTY(float, BallReflectForce);
 
       DCE_DEFINE_PROPERTY(String, AttackSound);
       DCE_DEFINE_PROPERTY(String, DeathSound);
@@ -123,6 +127,8 @@ namespace DCEngine {
       void UpdateSprites(float timePassed);
       void FlipSprites(bool flipx);
       void FlashColor(Vec4 color, float duration);
+      float velocity;
+      float acceleration;
 
       void PlayAttackSound(void);
       void PlayDamagedSound(void);
