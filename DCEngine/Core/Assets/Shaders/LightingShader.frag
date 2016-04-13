@@ -18,6 +18,7 @@ struct Light
 	float OuterAngle;
 	vec3 Position;
 	mat4 Model;
+	float CullLight;
 };
 
 uniform Light gLight;
@@ -114,13 +115,12 @@ vec3 GenerateIlluminationValues(vec3 fragPos, vec3 fragNormal)
 
 void main()
 {
-	vec3 lightValue = vec3(1);
+	vec3 lightValue = vec3(0);
 	vec3 fragPos = texture(gWorldCoords, gTexCoords).rgb;
 	vec3 normal = texture(gWorldNormal, gTexCoords).rgb;
 	vec4 color = texture(gColor, gTexCoords);
 	if(useLight)
-	{
+      if(gLight.CullLight == 0 || (gLight.Position.z + gLight.CullLight <= fragPos.z))
 		lightValue = GenerateIlluminationValues(fragPos, normal);
-	}
 	FragColor = color * vec4(lightValue, 1);
 }

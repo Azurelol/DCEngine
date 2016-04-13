@@ -177,7 +177,8 @@ namespace DCEngine {
 				LightingShader->SetVector3f(member.c_str(), lightTransform->Translation);
 				member = var + "Model";
 				LightingShader->SetMatrix4(member.c_str(), lightMatrix);
-
+				member = var + "CullLight";
+				LightingShader->SetFloat(member.c_str(), light->getCullLight());
 				if (light->getCastShadows())
 				{
 					glEnable(GL_STENCIL_TEST);
