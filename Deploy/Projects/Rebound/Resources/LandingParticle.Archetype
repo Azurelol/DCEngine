@@ -2,8 +2,10 @@
 {
   "GameObject": 
   {
+    "Locked": false, 
+    "GameObjectID": 1383, 
     "Name": "LandingParticle", 
-    "Archetype": "LandingParticle", 
+    "Protected": false, 
     "Components": 
     {
       "Transform": 
@@ -12,8 +14,26 @@
         {
           "Vec3": 
           {
-            "x": 0.000000, 
-            "y": 0.000000, 
+            "x": 21.000000, 
+            "y": 30.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "LocalTranslation": 
+        {
+          "Vec3": 
+          {
+            "x": 21.000000, 
+            "y": 30.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "WorldTranslation": 
+        {
+          "Vec3": 
+          {
+            "x": 21.000000, 
+            "y": 30.000000, 
             "z": 0.000000
           }
         }, 
@@ -61,7 +81,9 @@
             "z": 4.000000
           }
         }, 
-        "Additive": false
+        "Additive": false, 
+        "Lock": false, 
+        "DrawLayer": 5
       }, 
       "ParticleEmitter": 
       {
@@ -69,7 +91,7 @@
         "ResetCount": false, 
         "EmitCount": 10, 
         "EmitRate": 5000, 
-        "EmitVariance": 0, 
+        "EmitVariance": 1, 
         "Size": 1.000000, 
         "SizeVariance": 1.000000, 
         "Lifetime": 1.000000, 
@@ -93,7 +115,16 @@
             "y": 0.000000, 
             "z": 0.000000
           }
-        }
+        }, 
+        "EmissionArea": 
+        {
+          "Vec2": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000
+          }
+        }, 
+        "EmissionCircle": false
       }, 
       "LinearParticleAnimator": 
       {
@@ -119,6 +150,9 @@
         "Growth": -2.000000, 
         "Dampening": 3.000000
       }
+    }, 
+    "Children": 
+    {
     }
   }
 }

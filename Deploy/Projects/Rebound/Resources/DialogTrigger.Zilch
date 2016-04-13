@@ -135,11 +135,11 @@ class DialogTrigger : ZilchComponent
 				Console.WriteLine(ourText.DialogText.Finished);
 				if(ourText.DialogText.Finished == true)
 				{
-					Console.WriteLine(this.Active);
+					//Console.WriteLine(this.Active);
 					var curEvent = this.Message1;
 					if(this.MessageNumber == 1)
 					{
-						Console.WriteLine("???");
+						//Console.WriteLine("???");
 						ourText.DialogText.CurSpeaker = this.Message1Speaker;
 						if(this.Message1String == "")
 							this.SendWipeMessage();
