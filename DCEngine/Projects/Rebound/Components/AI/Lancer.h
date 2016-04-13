@@ -113,6 +113,7 @@ namespace DCEngine {
       int maxHealth;
       bool IsInvulnerable;
       float randomPhase;
+      bool isDamageable;
 
       String AttackSound;
       String DeathSound;

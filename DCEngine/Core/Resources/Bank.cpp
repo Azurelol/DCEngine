@@ -229,7 +229,7 @@ namespace DCEngine {
 
   const float & Bus::getFaderLevel()
   {
-    float level; Handle->getFaderLevel(&level);
+    static float level; Handle->getFaderLevel(&level);
     return level;
   }
 
@@ -239,8 +239,8 @@ namespace DCEngine {
   }
 
   const bool & Bus::getMute()
-  {
-    bool muted; Handle->getMute(&muted);
+  {    
+    static bool muted; Handle->getMute(&muted);
     return muted;
   }
 
@@ -251,7 +251,7 @@ namespace DCEngine {
 
   const bool & Bus::getPaused()
   {
-    bool paused; Handle->getPaused(&paused);
+    static bool paused; Handle->getPaused(&paused);
     return paused;
   }
 

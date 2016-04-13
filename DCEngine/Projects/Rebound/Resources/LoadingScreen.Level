@@ -321,6 +321,7 @@
             "Visible": true, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -412,7 +413,7 @@
                 "w": 1.000000
               }
             }, 
-            "Font": "SafetyMedium", 
+            "Font": "Verdana", 
             "FontSize": 8, 
             "Text": "Verdana", 
             "PixelsPerUnit": 64, 
@@ -494,7 +495,7 @@
                 "w": 1.000000
               }
             }, 
-            "Font": "SafetyMedium", 
+            "Font": "Verdana", 
             "FontSize": 5, 
             "Text": "99%", 
             "PixelsPerUnit": 64, 

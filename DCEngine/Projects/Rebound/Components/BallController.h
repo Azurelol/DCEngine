@@ -120,6 +120,7 @@ namespace DCEngine {
 	    void PseudoFreezeBall();
       void LockBall();
       void UnlockBall();
+      bool IsAttracting;
 
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
       ZilchDeclareDerivedType(BallController, Component);
@@ -137,6 +138,7 @@ namespace DCEngine {
       String FreezeSound  = "BallFreeze";
       String CommandSound = "BallCommand";
       String CollideSound = "BallCollide";
+
     };
   }
 

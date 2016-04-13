@@ -129,6 +129,8 @@ namespace DCEngine {
       
       randomPhase = distribution(generator);
       CreateSprites();
+
+      isDamagable = true;
     }
 
     void Grunt::ChangeStateRight()
@@ -172,6 +174,7 @@ namespace DCEngine {
           FlashColor(DamageTakenColor, DamageTakenColorFlashSpeed);
         }
 
+        event->OtherObject->getComponent<BallController>()->IsAttracting = false;
         event->OtherObject->getComponent<RigidBody>()->ApplyForce(-event->Normal * BallReflectForce);
       }
       else if (event->OtherObject->getComponent<PlayerController>() != NULL)
@@ -186,12 +189,19 @@ namespace DCEngine {
 
       if (!IsInvulnerable)
       {
-        health += amount;
+        if (isDamagable)
+        {
+          health += amount;
 
-        if (health > maxHealth)
-          health = maxHealth;
-        if (health < 0)
-          health = 0;
+          if (health > maxHealth)
+            health = maxHealth;
+          if (health < 0)
+            health = 0;
+
+          isDamagable = false;
+          ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
+          Actions::Property(seq, isDamagable, true, DamageTakenColorFlashSpeed + 0.3f, Ease::Linear);
+        }
       }
 
       if (health == 0)
@@ -276,6 +286,8 @@ namespace DCEngine {
       {
         RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(strengthX *  direction, strengthY, 0));
         jumpTimer = 0;
+
+        // particle emitter.size = 0.8;
       }
 
       jumpTimer += dt;
