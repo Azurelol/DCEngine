@@ -15955,7 +15955,8 @@
               }
             }, 
             "DamageTakenColorFlashSpeed": 0.000000, 
-            "KnockBackOnPlayerCollisionForce": 0.000000
+            "KnockBackOnPlayerCollisionForce": 0.000000, 
+            "BallReflectForce": 0.000000
           }
         }, 
         "Children": 
@@ -16444,7 +16445,8 @@
                 "w": 0.000000
               }
             }, 
-            "DamageTakenColorFlashSpeed": 0.000000
+            "DamageTakenColorFlashSpeed": 0.000000, 
+            "BallReflectForce": 0.000000
           }
         }, 
         "Children": 
@@ -17046,7 +17048,8 @@
               }
             }, 
             "DamageTakenColorFlashSpeed": 0.000000, 
-            "KnockBackOnPlayerCollisionForce": 0.000000
+            "KnockBackOnPlayerCollisionForce": 0.000000, 
+            "BallReflectForce": 0.000000
           }
         }, 
         "Children": 
@@ -17598,7 +17601,8 @@
                 "w": 0.000000
               }
             }, 
-            "DamageTakenColorFlashSpeed": 0.000000
+            "DamageTakenColorFlashSpeed": 0.000000, 
+            "BallReflectForce": 0.000000
           }
         }, 
         "Children": 
@@ -20962,7 +20966,8 @@
                 "w": 1.000000
               }
             }, 
-            "DamageTakenColorFlashSpeed": 0.200000
+            "DamageTakenColorFlashSpeed": 0.200000, 
+            "BallReflectForce": 0.000000
           }
         }, 
         "Children": 

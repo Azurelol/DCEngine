@@ -505,7 +505,7 @@
             "FallAnimation": "Char_Asha_Fall_Spritesheet", 
             "ThrowAnimation": "Char_Asha_Throw_Spritesheet", 
             "AutoPlayTimer": 2.000000, 
-            "LandingParticle": "LandingParticleUrban", 
+            "LandingParticle": "LandingParticleSand", 
             "TeleportStartSound": "Teleport", 
             "TeleportArriveSound": "TeleportArrive", 
             "JumpSound": "Jump", 
@@ -6010,7 +6010,8 @@
                 "w": 0.000000
               }
             }, 
-            "DamageTakenColorFlashSpeed": 0.000000
+            "DamageTakenColorFlashSpeed": 0.000000, 
+            "BallReflectForce": 0.000000
           }
         }, 
         "Children": 
@@ -10174,7 +10175,8 @@
                 "w": 0.000000
               }
             }, 
-            "DamageTakenColorFlashSpeed": 0.000000
+            "DamageTakenColorFlashSpeed": 0.000000, 
+            "BallReflectForce": 0.000000
           }
         }, 
         "Children": 
@@ -10280,7 +10282,8 @@
                 "w": 0.000000
               }
             }, 
-            "DamageTakenColorFlashSpeed": 0.000000
+            "DamageTakenColorFlashSpeed": 0.000000, 
+            "BallReflectForce": 0.000000
           }, 
           "BoxCollider": 
           {
@@ -10456,7 +10459,8 @@
                 "w": 0.000000
               }
             }, 
-            "DamageTakenColorFlashSpeed": 0.000000
+            "DamageTakenColorFlashSpeed": 0.000000, 
+            "BallReflectForce": 0.000000
           }, 
           "BoxCollider": 
           {
@@ -10690,7 +10694,8 @@
                 "w": 0.000000
               }
             }, 
-            "DamageTakenColorFlashSpeed": 0.000000
+            "DamageTakenColorFlashSpeed": 0.000000, 
+            "BallReflectForce": 0.000000
           }
         }, 
         "Children": 
@@ -10796,7 +10801,8 @@
                 "w": 0.000000
               }
             }, 
-            "DamageTakenColorFlashSpeed": 0.000000
+            "DamageTakenColorFlashSpeed": 0.000000, 
+            "BallReflectForce": 0.000000
           }, 
           "BoxCollider": 
           {
@@ -10972,7 +10978,8 @@
                 "w": 0.000000
               }
             }, 
-            "DamageTakenColorFlashSpeed": 0.000000
+            "DamageTakenColorFlashSpeed": 0.000000, 
+            "BallReflectForce": 0.000000
           }, 
           "BoxCollider": 
           {
@@ -11206,7 +11213,8 @@
                 "w": 0.000000
               }
             }, 
-            "DamageTakenColorFlashSpeed": 0.000000
+            "DamageTakenColorFlashSpeed": 0.000000, 
+            "BallReflectForce": 0.000000
           }
         }, 
         "Children": 
@@ -11692,7 +11700,8 @@
                 "TimeToDelete": 10.000000, 
                 "AshaReplySoundName": "InterfaceReply", 
                 "CyrusReplySoundName": "InterfaceNotify", 
-                "SkipMessageDelay": true
+                "SkipMessageDelay": true, 
+                "CurSpeaker": "Cyrus"
               }
             }, 
             "Children": 

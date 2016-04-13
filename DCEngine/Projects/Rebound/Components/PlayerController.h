@@ -44,11 +44,11 @@ namespace DCEngine {
       Real TurnSpeedScalar = 5.0f; //how much faster you accelerate when attemping to accelerate opposite your current velocity
 	  Real InitialVelocityXCap;
       Real VelocityXCap = 30.0f;
-	  Real HorizontalJumpingVelocityXCap = VelocityXCap * 1.33;
+	  Real HorizontalJumpingVelocityXCap = VelocityXCap * 1.2;
       Real GroundFriction = 0.2f;
 	  Real FramesOfThrowAnimation = 0;
 	  Real AmountOfMaxSpeedRequiredForHorizontalJump = 0.8;
-	  Real AmountOfJumpPowerAddedToHorizontalJump = 0.5;
+	  Real AmountOfJumpPowerAddedToHorizontalJump = 0.35;
       String StandAnimation = "Char_Asha_Idle_Spritesheet";
       String JumpAnimation = "Char_Asha_Jump_Spritesheet";
       String RunAnimation = "Char_Asha_Run_Spritesheet";
