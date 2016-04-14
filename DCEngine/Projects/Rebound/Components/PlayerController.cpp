@@ -209,6 +209,11 @@ namespace DCEngine {
 			case Keys::L:
 				LevelCheatLoaded = false;
 				break;
+			case Keys::P:
+				LevelCheatLoaded = true;
+				level = "Victory";
+				SpaceRef->LoadLevel(level);
+				break;
 			case Keys::Num1:
 				LevelCheatLoaded = true;
 				level = "Level1";
@@ -572,6 +577,8 @@ namespace DCEngine {
 	{
 		Health = InitialHealth;
 		redHazeAlphaValue = 0;
+		ActionSetPtr seq2 = Actions::Sequence(Owner()->Actions);
+		Actions::Property(seq2, redHaze->getComponent<Sprite>()->Color.w, redHazeAlphaValue, 1, Ease::Linear);
 	}
 
 	void PlayerController::DestroyTeleportOutParticle()
