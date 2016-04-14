@@ -4,43 +4,80 @@ class TutorialText : ZilchComponent
     var WaitTime : Real = 0;
     [Property]
     var TransitionTime: Real = 0;
+    [Property]
+    var ListenForMove : Boolean;
     var Timer : Real = 0;
-    var TransitionStarted : Boolean = false;
+    var Visible : Boolean;
         
     function Initialize()
     {
         Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
         Daisy.Connect(Daisy.Keyboard, DaisyEvent.KeyDown, this.OnKeyDownEvent);
+
+        this.Timer = this.WaitTime;
+
+        if(this.Owner.Sprite != null)
+        {
+        	this.Owner.Sprite.Color = Real4(this.Owner.Sprite.Color.XYZ,0);
+        }
+        else
+        {
+        	this.Owner.SpriteText.Color = Real4(this.Owner.SpriteText.Color.XYZ,0);
+        }
+
+        this.Visible = false;
     }
 
     function OnLogicUpdate(event : LogicUpdate)
     {
-      this.Timer += event.Dt;
-      if (this.Timer > this.WaitTime && !this.TransitionStarted)
+
+      this.Timer -= event.Dt;
+      if (this.Timer <= 0 && !this.Visible)
       {
-        var seq = Actions.Sequence(this.Owner.Actions);
-        Actions.Property(seq, @this.Owner.Sprite.Color, Real4(this.Owner.Sprite.Color.XYZ,1), this.TransitionTime, Ease.Linear);
-        this.TransitionStarted = true;
+      	Console.WriteLine("Should happen if player is not moving");
+        var fInSeq = Actions.Sequence(this.Owner.Actions);
+        if(this.Owner.Sprite != null)
+        {
+        	Actions.Property(fInSeq, @this.Owner.Sprite.Color, Real4(this.Owner.Sprite.Color.XYZ,1), this.TransitionTime, Ease.Linear);
+        }
+        else
+        {
+        	Actions.Property(fInSeq, @this.Owner.SpriteText.Color, Real4(this.Owner.SpriteText.Color.XYZ,1), this.TransitionTime, Ease.Linear);
+        }
+        
+        this.Visible = true;
         //Console.WriteLine("visible\n");
       }
-      else if(this.Timer < this.WaitTime && this.TransitionStarted)
-      {
 
+      else if(this.Timer > 0 && this.Visible)
+      {
+      	Console.WriteLine("Should happen if player is moving");
+      	var fOutSeq = Actions.Sequence(this.Owner.Actions);
+      	if(this.Owner.Sprite != null)
+        {
+        	Actions.Property(fOutSeq, @this.Owner.Sprite.Color, Real4(this.Owner.Sprite.Color.XYZ,0), this.TransitionTime, Ease.Linear);
+        }
+        else
+        {
+        	Actions.Property(fOutSeq, @this.Owner.SpriteText.Color, Real4(this.Owner.SpriteText.Color.XYZ,0), this.TransitionTime, Ease.Linear);
+        }
+
+        this.Visible = false;
       }
+
+      
     }
 
     function OnKeyDownEvent(event : KeyDown)
     {
-      if (event.Key == Keys.A || event.Key == Keys.D)
+      if (this.ListenForMove && (event.Key == Keys.A || event.Key == Keys.D))
       {
-        this.Timer = 0;
-        this.TransitionStarted = false;
+        this.Timer = 3;
       }
       
-      if (event.Key == Keys.W || event.Key == Keys.Space)
+      if (!this.ListenForMove && (event.Key == Keys.W || event.Key == Keys.Space))
       {
-        this.Timer = 0;
-        this.TransitionStarted = false;
+        this.Timer = 3;
       }
       
     }
