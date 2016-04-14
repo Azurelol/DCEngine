@@ -325,12 +325,16 @@ namespace DCEngine {
 
 		void PlayerController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 		{
-      float width = Daisy->getSystem<Systems::Graphics>()->GetScreenWidth();
-      float height = Daisy->getSystem<Systems::Graphics>()->GetScreenHeight();
-      //DCTrace << "Player velocity: " << RigidBodyRef->getVelocity().x << ", " << RigidBodyRef->getVelocity().y << "\n";
-      Daisy->getSystem<Systems::Graphics>()->ScreenSpaceRectangle(redHaze->getComponent<Sprite>()->Color,
-        Daisy->getSystem<Systems::Content>()->getSpriteSrc(redHaze->getComponent<Sprite>()->SpriteSource));
-     // DCTrace << "RedHazeAlpha " << redHaze->getComponent<Sprite>()->Color.w << "\n";
+		  float width = Daisy->getSystem<Systems::Graphics>()->GetScreenWidth();
+		  float height = Daisy->getSystem<Systems::Graphics>()->GetScreenHeight();
+		  //DCTrace << "Player velocity: " << RigidBodyRef->getVelocity().x << ", " << RigidBodyRef->getVelocity().y << "\n";
+		  Daisy->getSystem<Systems::Graphics>()->ScreenSpaceRectangle(redHaze->getComponent<Sprite>()->Color,
+			Daisy->getSystem<Systems::Content>()->getSpriteSrc(redHaze->getComponent<Sprite>()->SpriteSource));
+		 // DCTrace << "RedHazeAlpha " << redHaze->getComponent<Sprite>()->Color.w << "\n";
+		  if (TransformRef->getTranslation().y < -100)
+		  {
+			  Die();
+		  }
 
 			bool animationChanged = false;
 			if (PlayerControllerTraceOn)
