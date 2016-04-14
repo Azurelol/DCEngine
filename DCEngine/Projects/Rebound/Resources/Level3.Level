@@ -9956,7 +9956,7 @@
             "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
-            "NOSHADOW": false, 
+            "NOSHADOW": true, 
             "Color": 
             {
               "Vec4": 
