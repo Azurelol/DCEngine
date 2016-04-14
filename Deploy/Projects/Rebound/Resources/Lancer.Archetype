@@ -60,6 +60,8 @@
       {
         "Visible": true, 
         "CullVisibility": true, 
+        "ForceLightCulling": false, 
+        "NOSHADOW": false, 
         "Color": 
         {
           "Vec4": 
@@ -129,8 +131,8 @@
       "Lancer": 
       {
         "PlayerName": "Player", 
-        "StartingHealth": 1, 
-        "MaxHealth": 1, 
+        "StartingHealth": 5, 
+        "MaxHealth": 5, 
         "IsInvulnerable": false, 
         "ShieldArchetype": "LancerShield", 
         "HeadArchetype": "LancerHead", 

@@ -3,11 +3,6 @@ class LoadMain : ZilchEvent
     sends LoadMain : LoadMain;
 }
 
-class Restart : ZilchEvent
-{
-	sends Restart : Restart;
-}
-
 class UIManager : ZilchComponent
 {
 	[Property]
@@ -51,9 +46,6 @@ class UIManager : ZilchComponent
 
     [Property]
     var RefTextName : String = "";
-
-    [Property]
-    var NumberOfButtons : Integer;
 	
 	var HoveredReceived : Integer;
 	var DefaultReceived : Integer;
@@ -66,7 +58,6 @@ class UIManager : ZilchComponent
         Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
         Daisy.Connect(this.Space, DaisyEvent.ReportSpace, this.OnReportSpace);
         Daisy.Connect(this.Space, DaisyEvent.LoadMain, this.OnLoadMain);
-        Daisy.Connect(this.Space, DaisyEvent.Restart, this.Restart);
 		
 		this.HoveredReceived = 0;
 		this.DefaultReceived = 0;
@@ -126,7 +117,7 @@ class UIManager : ZilchComponent
             return;
         }
 		
-		if(this.DefaultReceived - this.HoveredReceived > this.NumberOfButtons - 1)
+		if(this.DefaultReceived - this.HoveredReceived > 4)
 		{
 			this.RefText.SpriteText.Text = "";
 		}
@@ -172,10 +163,6 @@ class UIManager : ZilchComponent
         else if(button.Name == "ReturnButton")
         {
             this.RefText.SpriteText.Text = "Return to the Main Menu";
-        }
-        else if(button.Name == "ResetButton")
-        {
-        	this.RefText.SpriteText.Text = "Restart from the beginning of the game.";
         }
         else if(button.Name == "QuitGameButton")
         {
@@ -226,21 +213,6 @@ class UIManager : ZilchComponent
 
             this.Space.Dispatch(DaisyEvent.PanEvent, crPan);
     	}
-    	else if(button.Name == "ResetButton")
-        {
-        	var cSpace = this.GameSession.CreateSpace("ConfirmationSpace", true);
-            cSpace.LoadLevel("ConfirmRestart");
-
-            var disableEvent = EnableOrDisableButton();
-            disableEvent.Enable = false;
-            
-            this.Space.Dispatch(DaisyEvent.EnableOrDisableButton, disableEvent);
-
-            var reportSpace = ReportSpace();
-            reportSpace.MainSpace = this.Space;
-
-            cSpace.Dispatch(DaisyEvent.ReportSpace, reportSpace);
-        }
         else if(button.Name == "ReturnButton")
         {
             var cSpace = this.GameSession.CreateSpace("ConfirmationSpace", true);
@@ -282,12 +254,6 @@ class UIManager : ZilchComponent
             this.MainGameSpace.Dispatch(DaisyEvent.EnableOrDisableButton, EnableOrDisableButton());
             this.MainGameSpace.Dispatch(DaisyEvent.LoadMain, LoadMain());
         }
-        else if(button.Name == "ConfirmResetButton")
-        {
-            this.Space.Destroy();
-            this.MainGameSpace.Dispatch(DaisyEvent.EnableOrDisableButton, EnableOrDisableButton());
-            this.MainGameSpace.Dispatch(DaisyEvent.Restart, Restart());
-        }
         else if(button.Name == "RetractQuitButton")
         {
             this.MainGameSpace.Dispatch(DaisyEvent.EnableOrDisableButton, EnableOrDisableButton());
@@ -300,11 +266,5 @@ class UIManager : ZilchComponent
     {
         this.MainGameSpace.Dispatch(DaisyEvent.PauseEvent, PauseEvent());
         this.MainGameSpace.LoadLevel("MainMenu");
-    }
-
-    function Restart(event : Restart)
-    {
-    	this.MainGameSpace.Dispatch(DaisyEvent.PauseEvent, PauseEvent());
-    	this.MainGameSpace.LoadLevel("Level1");
     }
 }

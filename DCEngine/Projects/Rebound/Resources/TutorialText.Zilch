@@ -6,9 +6,6 @@ class TutorialText : ZilchComponent
     var TransitionTime: Real = 0;
     [Property]
     var ListenForMove : Boolean;
-    [Property]
-    var ListenForFreeze : Boolean;
-
     var Timer : Real = 0;
     var Visible : Boolean;
         
@@ -37,6 +34,7 @@ class TutorialText : ZilchComponent
       this.Timer -= event.Dt;
       if (this.Timer <= 0 && !this.Visible)
       {
+      	Console.WriteLine("Should happen if player is not moving");
         var fInSeq = Actions.Sequence(this.Owner.Actions);
         if(this.Owner.Sprite != null)
         {
@@ -53,6 +51,7 @@ class TutorialText : ZilchComponent
 
       else if(this.Timer > 0 && this.Visible)
       {
+      	Console.WriteLine("Should happen if player is moving");
       	var fOutSeq = Actions.Sequence(this.Owner.Actions);
       	if(this.Owner.Sprite != null)
         {
@@ -65,19 +64,18 @@ class TutorialText : ZilchComponent
 
         this.Visible = false;
       }
+
+      
     }
 
     function OnKeyDownEvent(event : KeyDown)
     {
-    	if(this.ListenForFreeze && (event.Key == Keys.F))
-    	{
-    		this.Timer = 3;
-    	}
-      else if (this.ListenForMove && (event.Key == Keys.A || event.Key == Keys.D))
+      if (this.ListenForMove && (event.Key == Keys.A || event.Key == Keys.D))
       {
         this.Timer = 3;
       }
-      else if (!this.ListenForMove && (event.Key == Keys.W || event.Key == Keys.Space))
+      
+      if (!this.ListenForMove && (event.Key == Keys.W || event.Key == Keys.Space))
       {
         this.Timer = 3;
       }

@@ -16,30 +16,6 @@
 				"selected_items":
 				[
 					[
-						"List",
-						"ListenForFreeze"
-					],
-					[
-						"Game",
-						"EndGameEvent"
-					],
-					[
-						"fl",
-						"flashSeq"
-					],
-					[
-						"Tra",
-						"Translation"
-					],
-					[
-						"Tran",
-						"Transform"
-					],
-					[
-						"Daisy",
-						"DaisyEvent"
-					],
-					[
 						"On",
 						"OnGeneratorDeathEvent"
 					],
@@ -96,10 +72,46 @@
 			"buffers":
 			[
 				{
-					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PauseManagerZ.Zilch",
+					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/MusicBackground.Zilch",
 					"settings":
 					{
-						"buffer_size": 2330,
+						"buffer_size": 2764,
+						"line_ending": "Windows"
+					}
+				},
+				{
+					"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/CameraControllerZilch.Zilch",
+					"settings":
+					{
+<<<<<<< HEAD
+						"buffer_size": 2320,
+=======
+						"buffer_size": 2617,
+						"line_ending": "Windows"
+					}
+				},
+				{
+					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/MoveToLocationZilch.Zilch",
+					"settings":
+					{
+						"buffer_size": 1929,
+						"line_ending": "Windows"
+					}
+				},
+				{
+					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HealthRegen.Zilch",
+					"settings":
+					{
+						"buffer_size": 489,
+						"line_ending": "Windows"
+					}
+				},
+				{
+					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HealthControllerZ.Zilch",
+					"settings":
+					{
+						"buffer_size": 2067,
+>>>>>>> 18385b789339d60848cfffeb95bd12ced6621320
 						"line_ending": "Windows"
 					}
 				}
@@ -136,70 +148,36 @@
 			},
 			"file_history":
 			[
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/FinalBossHealth.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DebugMove.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GameEndSequence.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/MoveToLocationZilch.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TutorialText.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HealthControllerZ.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HealthRegen.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HazardAreaZilch.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HackyClickToProgress.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GravityManager.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GraphicsData.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GateLogic.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GameStarter.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/EnergyShield.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/FadeZilch.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/EnemySpawner.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DoorBehavior.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogTrigger.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogText.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogBackgroundBehavior.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/CustomEvents.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/CornerBallEnergyGenerationers.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Collector.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/CameraOffsetVolumeZilch.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/CameraControllerZilch.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Button.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/BasicController.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/BallTemp.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/AudioData.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/AntiEnergyField.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Animator.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIButton.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TransistorLogic.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Testing.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TestRayCasting.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TestParenting.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/SimpleAnimator.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/SetParticleEmissionToMatchScale.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Seppuku.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/ScriptUnitTest.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/RotatingBarrier.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PressurePlate.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PowerField.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PlayerTemp.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Player.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PauseManagerZ.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PanButton.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/OptionsManager.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/MusicBackground.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/MenuPan.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/MegaDialogTrigger.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/LevelTransition.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/LevelTimeFade.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Level2Generator.Zilch",
 				"/C/Users/John/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Seppuku.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/FinalBossHealth.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/RotatingBarrier.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/CornerBallEnergyGenerationers.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HackyClickToProgress.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogText.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PauseManagerZ.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/LevelTimeFade.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Animator.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HealthControllerZ.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/AudioData.Zilch",
 				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/HealthControllerZ.Zilch",
-				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch"
+				"/G/Repositories/Daisy Chain Engine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PressurePlate.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogTrigger.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/EnergyShield.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/MusicBackground.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PlayerController.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/CameraOffsetVolumeZilch.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HazardAreaZilch.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DialogBackgroundBehavior.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GravityManager.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/OptionsManager.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TestSoundInstance.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/Testing.Zilch"
 			],
 			"find":
 			{
-				"height": 23.0
+				"height": 22.0
 			},
 			"find_in_files":
 			{
@@ -213,9 +191,6 @@
 				"case_sensitive": false,
 				"find_history":
 				[
-					"Console.WriteLine",
-					"Console.WriteLine\\",
-					"Console.WriteLine",
 					"ball"
 				],
 				"highlight": true,
@@ -234,24 +209,151 @@
 			"groups":
 			[
 				{
-					"selected": 0,
+<<<<<<< HEAD
+					"selected": 1,
+=======
+					"selected": 3,
+>>>>>>> 18385b789339d60848cfffeb95bd12ced6621320
 					"sheets":
 					[
 						{
 							"buffer": 0,
-							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PauseManagerZ.Zilch",
+<<<<<<< HEAD
+							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/MusicBackground.Zilch",
+=======
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DebugMove.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 2330,
+								"buffer_size": 452,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										1515,
-										1513
+										345,
+										362
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C#/C#.sublime-syntax",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 5,
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/FinalBossHealth.Zilch",
+>>>>>>> 18385b789339d60848cfffeb95bd12ced6621320
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 2764,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										989,
+										908
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C#/C#.sublime-syntax"
+								},
+								"translation.x": -0.0,
+								"translation.y": 420.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 2,
+							"type": "text"
+						},
+						{
+<<<<<<< HEAD
+							"buffer": 1,
+							"file": "/C/Development/DCEngine/DCEngine/Projects/Rebound/Resources/CameraControllerZilch.Zilch",
+=======
+							"buffer": 2,
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GameEndSequence.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 2617,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										2474,
+										2474
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C#/C#.sublime-syntax"
+								},
+								"translation.x": 0.0,
+								"translation.y": 180.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 1,
+							"type": "text"
+						},
+						{
+							"buffer": 3,
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/MoveToLocationZilch.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 1929,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C#/C#.sublime-syntax"
+								},
+								"translation.x": -0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 0,
+							"type": "text"
+						},
+						{
+							"buffer": 4,
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HealthRegen.Zilch",
+>>>>>>> 18385b789339d60848cfffeb95bd12ced6621320
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 2320,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
 									]
 								],
 								"settings":
@@ -261,10 +363,44 @@
 									"translate_tabs_to_spaces": true
 								},
 								"translation.x": -0.0,
-								"translation.y": 990.0,
+								"translation.y": 0.0,
 								"zoom_level": 1.0
 							},
+<<<<<<< HEAD
 							"stack_index": 0,
+=======
+							"stack_index": 3,
+							"type": "text"
+						},
+						{
+							"buffer": 5,
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HealthControllerZ.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 2067,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1275,
+										1275
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C#/C#.sublime-syntax",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 360.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 4,
+>>>>>>> 18385b789339d60848cfffeb95bd12ced6621320
 							"type": "text"
 						}
 					]
@@ -272,7 +408,7 @@
 			],
 			"incremental_find":
 			{
-				"height": 23.0
+				"height": 22.0
 			},
 			"input":
 			{
@@ -306,11 +442,15 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-32000,-32000,-1,-1,931,310,133,1868",
+<<<<<<< HEAD
+			"position": "0,0,1,-32000,-32000,-1,-1,997,280,199,1838",
+=======
+			"position": "0,0,1,-32000,-32000,-1,-1,907,351,109,1909",
+>>>>>>> 18385b789339d60848cfffeb95bd12ced6621320
 			"project": "",
 			"replace":
 			{
-				"height": 42.0
+				"height": 40.0
 			},
 			"save_all_on_build": true,
 			"select_file":

@@ -2055,7 +2055,7 @@
             "JumpSound": "Jump", 
             "LandSound": "Land", 
             "FootstepSound": "Step", 
-            "CollideSound": "HitShield", 
+            "CollideSound": "Collide", 
             "DamageFromScrapper": 0, 
             "DamageFromSentinel": 0, 
             "DamageFromLancer": 0, 
@@ -17192,8 +17192,7 @@
           {
             "WaitTime": 1.000000, 
             "TransitionTime": 1.000000, 
-            "ListenForMove": true, 
-            "ListenForFreeze": false
+            "ListenForMove": true
           }
         }, 
         "Children": 
@@ -17279,8 +17278,7 @@
               {
                 "WaitTime": 1.000000, 
                 "TransitionTime": 1.000000, 
-                "ListenForMove": true, 
-                "ListenForFreeze": false
+                "ListenForMove": true
               }
             }, 
             "Children": 
@@ -17368,8 +17366,7 @@
               {
                 "WaitTime": 1.000000, 
                 "TransitionTime": 1.000000, 
-                "ListenForMove": true, 
-                "ListenForFreeze": false
+                "ListenForMove": true
               }
             }, 
             "Children": 
@@ -17482,8 +17479,7 @@
           {
             "WaitTime": 1.000000, 
             "TransitionTime": 1.000000, 
-            "ListenForMove": true, 
-            "ListenForFreeze": false
+            "ListenForMove": true
           }
         }, 
         "Children": 
@@ -17569,8 +17565,7 @@
               {
                 "WaitTime": 1.000000, 
                 "TransitionTime": 1.000000, 
-                "ListenForMove": true, 
-                "ListenForFreeze": false
+                "ListenForMove": true
               }
             }, 
             "Children": 
@@ -17658,8 +17653,7 @@
               {
                 "WaitTime": 1.000000, 
                 "TransitionTime": 1.000000, 
-                "ListenForMove": true, 
-                "ListenForFreeze": false
+                "ListenForMove": true
               }
             }, 
             "Children": 
@@ -17772,8 +17766,7 @@
           {
             "WaitTime": 14.000000, 
             "TransitionTime": 1.000000, 
-            "ListenForMove": false, 
-            "ListenForFreeze": false
+            "ListenForMove": false
           }
         }, 
         "Children": 
@@ -17859,8 +17852,7 @@
               {
                 "WaitTime": 14.000000, 
                 "TransitionTime": 1.000000, 
-                "ListenForMove": false, 
-                "ListenForFreeze": false
+                "ListenForMove": false
               }
             }, 
             "Children": 
@@ -17948,8 +17940,7 @@
               {
                 "WaitTime": 14.000000, 
                 "TransitionTime": 1.000000, 
-                "ListenForMove": false, 
-                "ListenForFreeze": false
+                "ListenForMove": false
               }
             }, 
             "Children": 
@@ -18037,8 +18028,7 @@
               {
                 "WaitTime": 14.000000, 
                 "TransitionTime": 1.000000, 
-                "ListenForMove": false, 
-                "ListenForFreeze": false
+                "ListenForMove": false
               }
             }, 
             "Children": 
@@ -18128,8 +18118,7 @@
               {
                 "WaitTime": 14.000000, 
                 "TransitionTime": 1.000000, 
-                "ListenForMove": false, 
-                "ListenForFreeze": false
+                "ListenForMove": false
               }
             }, 
             "Children": 
@@ -18219,8 +18208,7 @@
           {
             "WaitTime": 14.000000, 
             "TransitionTime": 1.000000, 
-            "ListenForMove": false, 
-            "ListenForFreeze": false
+            "ListenForMove": false
           }
         }, 
         "Children": 
