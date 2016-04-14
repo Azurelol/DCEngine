@@ -8593,8 +8593,8 @@
           }, 
           "OptionsManager": 
           {
-            "HoverSoundName": "", 
-            "ClickSoundName": "", 
+            "HoverSoundName": "MenuCancel", 
+            "ClickSoundName": "MenuSelect", 
             "AspRefTextName": "AspectText", 
             "ResRefTextName": "ResText", 
             "AARefTextName": "AAText", 
