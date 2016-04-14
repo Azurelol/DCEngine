@@ -217,9 +217,9 @@ class DialogText : ZilchComponent
 		if(background.Sprite.Color.W == 0)
 		{
 			var speaker = this.Space.FindObjectByName("DialogSpeaker");
-			if(this.Space.FindObjectByName("Ball") != null)
+			var ball = this.Space.FindObjectByName("Ball");
+			if(ball != null && ball.BallController.ForcedFreeze != true)
 			{
-				var ball = this.Space.FindObjectByName("Ball");
 				ball.BallController.ToggleForceFreeze();
 			}
 			Actions.Property(masterSeq, @background.Sprite.Color, Real4(background.Sprite.Color.XYZ, 0.9), this.FadeInTime, this.TextEase);

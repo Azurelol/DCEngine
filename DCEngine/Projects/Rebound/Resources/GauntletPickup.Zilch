@@ -1,0 +1,54 @@
+class GauntletPickup : ZilchComponent
+{
+	[Property]
+	var MoveDistance : Real = 10.0;
+	[Property]
+	var MoveTime : Real = 0.05;
+	[Property]
+    var Ease : Ease = Ease.Linear;
+	var MovingUp : Boolean = false;
+	var OriginTranslation : Real3 = Real3(0, 0, 0);
+    function Initialize()
+    {
+		var ball = this.Space.FindObjectByName("Ball");
+		if(ball != null && ball.BallController.ForcedFreeze != true)
+		{
+			ball.Sprite.Visible = false;
+			ball.BallController.ToggleForceFreeze();
+		}
+        Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollision);
+        Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnUpdate);
+		this.OriginTranslation = this.Owner.Transform.Translation;
+    }
+
+	function OnUpdate(event : LogicUpdate)
+	{
+        var masterSeq = Actions.Sequence(this.Owner.Actions);
+		if(this.MovingUp == false && this.Owner.Transform.Translation.Y <= this.OriginTranslation.Y)
+		{
+			Actions.Property(masterSeq, @this.Owner.Transform.Translation, Real3(this.OriginTranslation.X, this.OriginTranslation.Y + this.MoveDistance, this.OriginTranslation.Z),
+			this.MoveTime, this.Ease);
+			this.MovingUp = true;
+		}
+		else if(this.MovingUp == true && this.Owner.Transform.Translation.Y >= this.OriginTranslation.Y + this.MoveDistance)
+		{
+			Actions.Property(masterSeq, @this.Owner.Transform.Translation, Real3(this.OriginTranslation.X, this.OriginTranslation.Y, this.OriginTranslation.Z),
+			this.MoveTime, this.Ease);
+			this.MovingUp = false;
+		}
+	}
+	
+    function OnCollision(event : CollisionStarted)
+    {
+		if(event.OtherObject.Name == "Player")
+		{
+			var ball = this.Space.FindObjectByName("Ball");
+			
+			ball.Sprite.Visible = true;
+			ball.SpriteParticleSystem.Visible = true;
+			ball.ParticleEmitter.Active = true;
+			ball.Light.Visible = true;
+			this.Owner.Sprite.Visible = false;
+		}
+    }
+}
