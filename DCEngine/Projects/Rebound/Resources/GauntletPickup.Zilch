@@ -11,7 +11,7 @@ class GauntletPickup : ZilchComponent
     function Initialize()
     {
 		var ball = this.Space.FindObjectByName("Ball");
-		if(ball != null && ball.BallController.ForcedFreeze != true)
+		if(ball != null && ball.BallController.ForcedFreeze != false)
 		{
 			ball.Sprite.Visible = false;
 			ball.BallController.ToggleForceFreeze();
