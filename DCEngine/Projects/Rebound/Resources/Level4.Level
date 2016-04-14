@@ -12057,8 +12057,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
+                    "x": -4.091228, 
+                    "y": 0.849533, 
                     "z": 0.001000
                   }
                 }, 
@@ -12157,8 +12157,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
+                    "x": -4.091228, 
+                    "y": 1.499533, 
                     "z": 0.001000
                   }
                 }, 
@@ -12376,39 +12376,7 @@
             "Message23Speaker": "Cyrus", 
             "Message23String": "", 
             "Message24Speaker": "Cyrus", 
-            "Message24String": "", 
-            "Message25Speaker": "Cyrus", 
-            "Message25String": "", 
-            "Message26Speaker": "Cyrus", 
-            "Message26String": "", 
-            "Message27Speaker": "Cyrus", 
-            "Message27String": "", 
-            "Message28Speaker": "Cyrus", 
-            "Message28String": "", 
-            "Message29Speaker": "Cyrus", 
-            "Message29String": "", 
-            "Message30Speaker": "Cyrus", 
-            "Message30String": "", 
-            "Message31Speaker": "Cyrus", 
-            "Message31String": "", 
-            "Message32Speaker": "Cyrus", 
-            "Message32String": "", 
-            "Message33Speaker": "Cyrus", 
-            "Message33String": "", 
-            "Message34Speaker": "Cyrus", 
-            "Message34String": "", 
-            "Message35Speaker": "Cyrus", 
-            "Message35String": "", 
-            "Message36Speaker": "Cyrus", 
-            "Message36String": "", 
-            "Message37Speaker": "Cyrus", 
-            "Message37String": "", 
-            "Message38Speaker": "Cyrus", 
-            "Message38String": "", 
-            "Message39Speaker": "Cyrus", 
-            "Message39String": "", 
-            "Message40Speaker": "Cyrus", 
-            "Message40String": ""
+            "Message24String": ""
           }
         }, 
         "Children": 
