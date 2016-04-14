@@ -120,11 +120,13 @@ namespace DCEngine {
       
       randomPhase = distribution(generator);
       CreateSprites();
-	  particle = SpaceRef->CreateObject("ScrapperParticle");
-	  if (particle)
-	  {
-		  particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation + ParticleOffset + Vec3(RigidBodyRef->getVelocity().x / 60, 0 ,0));
-	  }
+
+	    particle = SpaceRef->CreateObject("ScrapperParticle");
+      particle->AttachTo(gameObj);
+	    if (particle)
+	    {
+		    particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation + ParticleOffset + Vec3(RigidBodyRef->getVelocity().x / 60, 0 ,0));
+	    }
     }
 
     void Grunt::ChangeStateRight()
@@ -260,9 +262,15 @@ namespace DCEngine {
       {
         RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(strengthX *  direction, strengthY, 0));
         jumpTimer = 0;
+
+        particle->getComponent<ParticleEmitter>()->Size = 0.8f;
       }
 
       jumpTimer += dt;
+
+      if(RigidBodyRef->getVelocity().y < 0)
+        particle->getComponent<ParticleEmitter>()->Size = 0.3f;
+
     }
 
 #pragma region Global State
