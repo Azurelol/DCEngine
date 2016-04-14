@@ -1,0 +1,12 @@
+class GlobalDataCreator : ZilchComponent
+{
+    function Initialize()
+    {
+        //Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+		//this.GameSession.AddObjectByName("GlobalData", true);
+    }
+
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+    }
+}

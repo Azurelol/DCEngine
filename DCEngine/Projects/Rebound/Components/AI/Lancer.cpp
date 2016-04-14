@@ -11,6 +11,9 @@
 #include "Lancer.h"
 #include "../../../CoreComponents.h"
 
+#define PARENTPOSTEVENT(name) owner->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(name)
+#define POSTEVENT(name) SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(name)
+
 namespace DCEngine {
   namespace Components {
 
@@ -148,6 +151,7 @@ namespace DCEngine {
       {
         if (player->getComponent<PlayerController>()->Invincible)
         {
+          POSTEVENT("LancerDeath");
           stateMachine->ChangeState(Die::Instance());
         }
         else if (ModifyHealth(-1))
@@ -164,6 +168,7 @@ namespace DCEngine {
       if (event->OtherObject->getComponent<PlayerController>() != NULL)
       {
         velocity = 0;
+        POSTEVENT("LancerAttack");
         RigidBodyRef->ApplyForce(Vec3(-KnockBackOnPlayerCollisionForce * acceleration,0,0));
       }
     }
@@ -210,7 +215,12 @@ namespace DCEngine {
 
       if (health == 0)
       {
+        POSTEVENT("LancerDeath");
         stateMachine->ChangeState(Die::Instance());
+      }
+      else
+      {
+        POSTEVENT("LancerTakeDamage");
       }
 
       if (oldHealth == health)
@@ -385,7 +395,7 @@ namespace DCEngine {
     void Lancer::ChargeLeft::Enter(Lancer *owner)
     {
       //DCTrace << "Lancer ChargeLeft Enter\n";
-
+      PARENTPOSTEVENT("LancerAlert");
       owner->FlipSprites(false);
     }
 
@@ -412,7 +422,7 @@ namespace DCEngine {
     void Lancer::ChargeRight::Enter(Lancer *owner)
     {
       DCTrace << "Lancer ChargeRight Enter\n";
-
+      PARENTPOSTEVENT("LancerAlert");
       owner->FlipSprites(true);
     }
 

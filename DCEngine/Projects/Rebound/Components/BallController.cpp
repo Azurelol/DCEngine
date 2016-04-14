@@ -12,6 +12,7 @@
 #include "../../CoreComponents.h"
 #include "../../../Core/Engine/SteeringBehaviors.h"
 
+#define POSTEVENT(name) SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(name)
 
 namespace DCEngine {
 
@@ -29,19 +30,19 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(BallController, FrozenColor);
       DCE_BINDING_DEFINE_PROPERTY(BallController, NormalGravity);
       DCE_BINDING_DEFINE_PROPERTY(BallController, ShotGravity);
-	  DCE_BINDING_DEFINE_PROPERTY(BallController, AttractYBoost																																																															);
+	    DCE_BINDING_DEFINE_PROPERTY(BallController, AttractYBoost);
       DCE_BINDING_DEFINE_PROPERTY(BallController, ChargedColor);
       DCE_BINDING_DEFINE_PROPERTY(BallController, ForcedFreeze);
       DCE_BINDING_DEFINE_PROPERTY(BallController, FreezeEnabled);
       DCE_BINDING_DEFINE_PROPERTY(BallController, MaxAttractSpeed);
-	  DCE_BINDING_DEFINE_PROPERTY(BallController, MaxSlamDistance);
+	    DCE_BINDING_DEFINE_PROPERTY(BallController, MaxSlamDistance);
       DCE_BINDING_DEFINE_PROPERTY(BallController, MaxAttractForce);
       DCE_BINDING_DEFINE_PROPERTY(BallController, AttractArriveDistance);
       DCE_BINDING_DEFINE_PROPERTY(BallController, MinAttractSpeed);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, ParentToPlayer);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, FreezeBall);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, ToggleForceFreeze);
-    DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, PseudoFreezeBall);
+      DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, PseudoFreezeBall);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, LockBall);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, UnlockBall);
 
@@ -95,6 +96,8 @@ namespace DCEngine {
       RigidBodyRef->setRestitution(Restitution);
       RigidBodyRef->setFriction(Friction);
       //CollisionTableRef->SetResolve("Ball", "Player", CollisionFlag::SkipResolution);
+
+      ChargeInstance = nullptr;
     }
 
     void BallController::OnMouseDownEvent(Events::MouseDown * event)
@@ -135,7 +138,7 @@ namespace DCEngine {
         //	Frozen = false;
         //	RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);
         //	}
-        SoundCommand();
+        //SoundCommand();
 
 
         if (CurrentlyFired)
@@ -145,6 +148,8 @@ namespace DCEngine {
         else
         {
           Charging = true;
+          ChargeInstance = POSTEVENT("BallCharge");
+          // Start Charge
         }
       }
     }
@@ -192,6 +197,13 @@ namespace DCEngine {
           CurrentCharge = 0;
           CurrentlyFired = true;
           RigidBodyRef->setGravityRatio(ShotGravity);
+
+          // Stop Charge Sound
+          if (ChargeInstance != nullptr)
+          {
+            ChargeInstance->Stop();
+          }
+          SoundCommand();
 
           if (BallControllerTraceOn)
           {

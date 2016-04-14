@@ -323,7 +323,7 @@ namespace DCEngine {
       //DCTrace << "Player velocity: " << RigidBodyRef->getVelocity().x << ", " << RigidBodyRef->getVelocity().y << "\n";
       Daisy->getSystem<Systems::Graphics>()->ScreenSpaceRectangle(redHaze->getComponent<Sprite>()->Color,
         Daisy->getSystem<Systems::Content>()->getSpriteSrc(redHaze->getComponent<Sprite>()->SpriteSource));
-      DCTrace << "RedHazeAlpha " << redHaze->getComponent<Sprite>()->Color.w << "\n";
+     // DCTrace << "RedHazeAlpha " << redHaze->getComponent<Sprite>()->Color.w << "\n";
 
 			bool animationChanged = false;
 			if (PlayerControllerTraceOn)
