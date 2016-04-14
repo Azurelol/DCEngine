@@ -9764,19 +9764,19 @@
           {
             "LocalGravity": 20.000000
           }, 
-          "MusicManager": 
+          "GameEndSequence": 
           {
-            "Track": "NO TRACK SET", 
-            "Volume": 1.000000, 
-            "PlayOnStart": true, 
-            "StopOnEnd": false
           }, 
           "PauseManagerZ": 
           {
             "PauseLevelName": "PauseMenu"
           }, 
-          "GameEndSequence": 
+          "MusicManager": 
           {
+            "Track": "MachineHeart", 
+            "Volume": 1.000000, 
+            "PlayOnStart": true, 
+            "StopOnEnd": true
           }
         }, 
         "Children": 

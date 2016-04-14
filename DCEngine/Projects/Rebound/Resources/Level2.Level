@@ -5489,7 +5489,7 @@
                 "w": 0.010000
               }
             }, 
-            "CollideSound": ""
+            "CollideSound": "HitBioField"
           }
         }, 
         "Children": 
@@ -7794,7 +7794,7 @@
           "EnergyShield": 
           {
             "RepulseSpeed": 75, 
-            "Active": true, 
+            "Active": false, 
             "ActiveColor": 
             {
               "Vec4": 
@@ -7815,7 +7815,7 @@
                 "w": 0.500000
               }
             }, 
-            "CollideSound": ""
+            "CollideSound": "HitBioField"
           }, 
           "SpriteParticleSystem": 
           {
@@ -8025,7 +8025,7 @@
                 "w": 0.500000
               }
             }, 
-            "CollideSound": ""
+            "CollideSound": "HitBioField"
           }, 
           "SpriteParticleSystem": 
           {
@@ -8235,7 +8235,7 @@
                 "w": 0.500000
               }
             }, 
-            "CollideSound": ""
+            "CollideSound": "HitBioField"
           }, 
           "SpriteParticleSystem": 
           {
@@ -8445,7 +8445,7 @@
                 "w": 0.010000
               }
             }, 
-            "CollideSound": ""
+            "CollideSound": "HitBioField"
           }
         }, 
         "Children": 
@@ -8691,7 +8691,7 @@
                 "w": 0.010000
               }
             }, 
-            "CollideSound": ""
+            "CollideSound": "HitBioField"
           }
         }, 
         "Children": 
@@ -9600,7 +9600,7 @@
           "PressurePlate": 
           {
             "Target": "Door3", 
-            "CollideSound": ""
+            "CollideSound": "PressurePlateClick"
           }, 
           "BoxCollider": 
           {
@@ -12295,7 +12295,7 @@
                 "w": 0.500000
               }
             }, 
-            "CollideSound": ""
+            "CollideSound": "HitBioField"
           }, 
           "SpriteParticleSystem": 
           {

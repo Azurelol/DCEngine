@@ -42,6 +42,7 @@ class Level2Generator : ZilchComponent
 		if(this.Active)
 		{
 			this.Active = false;
+      this.Space.SoundSpace.PlayCue("GeneratorPowerOn");
 			var camera = this.Space.FindObjectByName("Camera");
 			var player = this.Space.FindObjectByName("Player");
 			camera.CameraControllerZilch.ScreenShakeTimer = this.LightIncreaseDuration;
@@ -71,6 +72,7 @@ class Level2Generator : ZilchComponent
 		
 		Console.WriteLine("Generator recieved ToggleEvent");
        
+
         //load level code goes here
         
     }
