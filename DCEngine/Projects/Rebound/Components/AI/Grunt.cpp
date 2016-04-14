@@ -142,7 +142,7 @@ namespace DCEngine {
       stateMachine->Update();
       dt = event->Dt;
       UpdateSprites(event->TimePassed);
-	  particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation + ParticleOffset + Vec3(RigidBodyRef->getVelocity().x / 60, 0, 0));
+	    particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation + ParticleOffset + Vec3(RigidBodyRef->getVelocity().x / 60, 0, 0));
     }
 
     void Grunt::OnCollisionStartedEvent(Events::CollisionStarted * event)
@@ -168,12 +168,19 @@ namespace DCEngine {
 
       if (!IsInvulnerable)
       {
-        health += amount;
+        if (isDamageable)
+        {
+          health += amount;
 
-        if (health > maxHealth)
-          health = maxHealth;
-        if (health < 0)
-          health = 0;
+          if (health > maxHealth)
+            health = maxHealth;
+          if (health < 0)
+            health = 0;
+
+          isDamageable = false;
+          ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
+          Actions::Property(seq, isDamageable, true, DamageTakenColorFlashSpeed + 0.3f, Ease::Linear);
+        }
       }
 
       if (health == 0)

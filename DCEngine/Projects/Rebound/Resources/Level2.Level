@@ -180,7 +180,7 @@
             "KnockBackForceOnDamageFromLancerY": 0.000000, 
             "DamageCooldown": 0.000000, 
             "ShieldArchetype": "", 
-            "RedHazeArchetype": ""
+            "RedHazeArchetype": "RedHaze"
           }, 
           "Light": 
           {

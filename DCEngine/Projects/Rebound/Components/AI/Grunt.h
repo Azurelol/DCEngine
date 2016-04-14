@@ -116,6 +116,7 @@ namespace DCEngine {
       float dt;
       Vec4 defaultColor;
       float randomPhase;
+      bool isDamageable;
       bool ModifyHealth(int amount);
       void CreateSprites();
       void UpdateSprites(float timePassed);
