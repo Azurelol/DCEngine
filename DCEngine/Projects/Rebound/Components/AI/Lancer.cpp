@@ -153,6 +153,8 @@ namespace DCEngine {
         else if (ModifyHealth(-1))
         {
           FlashColor(DamageTakenColor, DamageTakenColorFlashSpeed);
+          velocity = 0;
+          RigidBodyRef->ApplyForce(Vec3(-KnockBackOnPlayerCollisionForce * acceleration, 0, 0));
         }
 
         event->OtherObject->getComponent<BallController>()->IsAttracting = false;

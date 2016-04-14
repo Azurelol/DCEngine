@@ -341,7 +341,7 @@
             "VelocityXCap": 10.000000, 
             "JumpPower": 30.000000, 
             "JumpFrames": 1.000000, 
-            "Health": 10.000000, 
+            "Health": 500.000000, 
             "AirBrakeScalar": 0.950000, 
             "TurnSpeedScalar": 5.000000, 
             "DoAutoPlay": true, 
