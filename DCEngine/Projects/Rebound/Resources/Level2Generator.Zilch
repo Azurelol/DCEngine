@@ -28,7 +28,7 @@ class Level2Generator : ZilchComponent
         Daisy.Connect(this.Owner, DaisyEvent.ToggleEvent, this.OnToggleEvent);
         // var ev = ToggleEvent();
         //this.Owner.Dispatch(DaisyEvent.ToggleEvent, ev
-		Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollision);
+		//Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollision);
     }
 
     function OnCollision(event : CollisionStarted)
