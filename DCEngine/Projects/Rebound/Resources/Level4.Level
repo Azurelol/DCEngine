@@ -381,8 +381,8 @@
             {
               "Vec3": 
               {
-                "x": 43.094227, 
-                "y": 16.813328, 
+                "x": -64.268555, 
+                "y": 36.180943, 
                 "z": 0.000000
               }
             }, 
@@ -390,8 +390,8 @@
             {
               "Vec3": 
               {
-                "x": 43.094227, 
-                "y": 16.813328, 
+                "x": -64.268555, 
+                "y": 36.180943, 
                 "z": 0.000000
               }
             }, 
@@ -399,8 +399,8 @@
             {
               "Vec3": 
               {
-                "x": 43.094227, 
-                "y": 16.813328, 
+                "x": -64.268555, 
+                "y": 36.180943, 
                 "z": 0.000000
               }
             }, 
@@ -444,7 +444,7 @@
             "FlipY": false, 
             "AnimationActive": true, 
             "AnimationSpeed": 10.000000, 
-            "DrawLayer": 6
+            "DrawLayer": 5
           }, 
           "RigidBody": 
           {
@@ -656,9 +656,9 @@
           "Sprite": 
           {
             "Visible": true, 
-            "CullVisibility": true, 
+            "CullVisibility": false, 
             "ForceLightCulling": false, 
-            "NOSHADOW": false, 
+            "NOSHADOW": true, 
             "Color": 
             {
               "Vec4": 
@@ -12385,7 +12385,39 @@
             "Message23Speaker": "Cyrus", 
             "Message23String": "", 
             "Message24Speaker": "Cyrus", 
-            "Message24String": ""
+            "Message24String": "", 
+            "Message25Speaker": "Cyrus", 
+            "Message25String": "", 
+            "Message26Speaker": "Cyrus", 
+            "Message26String": "", 
+            "Message27Speaker": "Cyrus", 
+            "Message27String": "", 
+            "Message28Speaker": "Cyrus", 
+            "Message28String": "", 
+            "Message29Speaker": "Cyrus", 
+            "Message29String": "", 
+            "Message30Speaker": "Cyrus", 
+            "Message30String": "", 
+            "Message31Speaker": "Cyrus", 
+            "Message31String": "", 
+            "Message32Speaker": "Cyrus", 
+            "Message32String": "", 
+            "Message33Speaker": "Cyrus", 
+            "Message33String": "", 
+            "Message34Speaker": "Cyrus", 
+            "Message34String": "", 
+            "Message35Speaker": "Cyrus", 
+            "Message35String": "", 
+            "Message36Speaker": "Cyrus", 
+            "Message36String": "", 
+            "Message37Speaker": "Cyrus", 
+            "Message37String": "", 
+            "Message38Speaker": "Cyrus", 
+            "Message38String": "", 
+            "Message39Speaker": "Cyrus", 
+            "Message39String": "", 
+            "Message40Speaker": "Cyrus", 
+            "Message40String": ""
           }
         }, 
         "Children": 
