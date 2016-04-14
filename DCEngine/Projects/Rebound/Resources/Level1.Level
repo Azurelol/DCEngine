@@ -2055,7 +2055,7 @@
             "JumpSound": "Jump", 
             "LandSound": "Land", 
             "FootstepSound": "Step", 
-            "CollideSound": "Collide", 
+            "CollideSound": "HitShield", 
             "DamageFromScrapper": 0, 
             "DamageFromSentinel": 0, 
             "DamageFromLancer": 0, 
@@ -17192,7 +17192,8 @@
           {
             "WaitTime": 1.000000, 
             "TransitionTime": 1.000000, 
-            "ListenForMove": true
+            "ListenForMove": true, 
+            "ListenForFreeze": false
           }
         }, 
         "Children": 
@@ -17278,7 +17279,8 @@
               {
                 "WaitTime": 1.000000, 
                 "TransitionTime": 1.000000, 
-                "ListenForMove": true
+                "ListenForMove": true, 
+                "ListenForFreeze": false
               }
             }, 
             "Children": 
@@ -17366,7 +17368,8 @@
               {
                 "WaitTime": 1.000000, 
                 "TransitionTime": 1.000000, 
-                "ListenForMove": true
+                "ListenForMove": true, 
+                "ListenForFreeze": false
               }
             }, 
             "Children": 
@@ -17479,7 +17482,8 @@
           {
             "WaitTime": 1.000000, 
             "TransitionTime": 1.000000, 
-            "ListenForMove": true
+            "ListenForMove": true, 
+            "ListenForFreeze": false
           }
         }, 
         "Children": 
@@ -17565,7 +17569,8 @@
               {
                 "WaitTime": 1.000000, 
                 "TransitionTime": 1.000000, 
-                "ListenForMove": true
+                "ListenForMove": true, 
+                "ListenForFreeze": false
               }
             }, 
             "Children": 
@@ -17653,7 +17658,8 @@
               {
                 "WaitTime": 1.000000, 
                 "TransitionTime": 1.000000, 
-                "ListenForMove": true
+                "ListenForMove": true, 
+                "ListenForFreeze": false
               }
             }, 
             "Children": 
@@ -17766,7 +17772,8 @@
           {
             "WaitTime": 14.000000, 
             "TransitionTime": 1.000000, 
-            "ListenForMove": false
+            "ListenForMove": false, 
+            "ListenForFreeze": false
           }
         }, 
         "Children": 
@@ -17852,7 +17859,8 @@
               {
                 "WaitTime": 14.000000, 
                 "TransitionTime": 1.000000, 
-                "ListenForMove": false
+                "ListenForMove": false, 
+                "ListenForFreeze": false
               }
             }, 
             "Children": 
@@ -17940,7 +17948,8 @@
               {
                 "WaitTime": 14.000000, 
                 "TransitionTime": 1.000000, 
-                "ListenForMove": false
+                "ListenForMove": false, 
+                "ListenForFreeze": false
               }
             }, 
             "Children": 
@@ -18028,7 +18037,8 @@
               {
                 "WaitTime": 14.000000, 
                 "TransitionTime": 1.000000, 
-                "ListenForMove": false
+                "ListenForMove": false, 
+                "ListenForFreeze": false
               }
             }, 
             "Children": 
@@ -18118,7 +18128,8 @@
               {
                 "WaitTime": 14.000000, 
                 "TransitionTime": 1.000000, 
-                "ListenForMove": false
+                "ListenForMove": false, 
+                "ListenForFreeze": false
               }
             }, 
             "Children": 
@@ -18208,7 +18219,8 @@
           {
             "WaitTime": 14.000000, 
             "TransitionTime": 1.000000, 
-            "ListenForMove": false
+            "ListenForMove": false, 
+            "ListenForFreeze": false
           }
         }, 
         "Children": 

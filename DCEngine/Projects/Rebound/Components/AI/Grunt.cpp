@@ -12,6 +12,7 @@
 #include "Grunt.h"
 #include "../../../CoreComponents.h"
 
+#define PARENTPOSTEVENT(name) owner->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(name)
 #define POSTEVENT(name) SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(name)
 
 namespace DCEngine {
@@ -455,7 +456,7 @@ namespace DCEngine {
     {
       //if (owner->IsDebugColorActive)
       owner->ChangeSpritesColor(owner->AttackColor);
-
+      PARENTPOSTEVENT("ScrapperAlert");
       //DCTrace << "Grunt Attack Enter\n";
     }
 
