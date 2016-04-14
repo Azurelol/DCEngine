@@ -182,6 +182,8 @@ namespace DCEngine {
 
     void Sprite::SetUniforms(ShaderPtr shader, Camera* camera, Light* light)
     {
+			if (!Visible)
+				return;
       if (!shader)
       {
         silhouette = false;

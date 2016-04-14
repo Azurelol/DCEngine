@@ -511,7 +511,8 @@
             "OpEase": "QuadOut", 
             "HoverSoundName": "MenuCancel", 
             "ClickSoundName": "MenuSelect", 
-            "RefTextName": "HighlightText"
+            "RefTextName": "HighlightText", 
+            "NumberOfButtons": 5
           }
         }, 
         "Children": 

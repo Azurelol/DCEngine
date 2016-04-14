@@ -19,46 +19,61 @@ class Level2Generator : ZilchComponent
     var LightIncreaseDuration : Real  =  3;
 
     [Property]
-    var TeleporterLocation: Real3;
+    var TeleporterLocation: Real3 = Real3(0,0,0);
     
+	var Active : Boolean = true;
     function Initialize()
     {
         //Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
         Daisy.Connect(this.Owner, DaisyEvent.ToggleEvent, this.OnToggleEvent);
         // var ev = ToggleEvent();
-        //this.Owner.Dispatch(DaisyEvent.ToggleEvent, ev);
+        //this.Owner.Dispatch(DaisyEvent.ToggleEvent, ev
+		Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollision);
     }
 
-    function OnLogicUpdate(event : LogicUpdate)
+    function OnCollision(event : CollisionStarted)
     {
+		if(event.OtherObject.Name == "Player")
+			this.OnToggleEvent(ToggleEvent());
     }
     
+	function OnMouseDown(event : MouseDown)
+	{ 
+		if(this.Active)
+		{
+			this.Active = false;
+			var camera = this.Space.FindObjectByName("Camera");
+			var player = this.Space.FindObjectByName("Player");
+			camera.CameraControllerZilch.ScreenShakeTimer = this.LightIncreaseDuration;
+			camera.CameraControllerZilch.ScreenShakeMagnitude = 0;
+			var group = Actions.Group(this.Owner.Actions);
+			var seq = Actions.Sequence(this.Owner.Actions);
+			Actions.Property(group, @camera.CameraControllerZilch.ScreenShakeMagnitude, this.FinalScreenShakeIntensity, this.LightIncreaseDuration, Ease.QuadIn);
+			Actions.Property(group, @this.Owner.Light.Range, this.FinalLightRange, this.LightIncreaseDuration, Ease.QuadIn);
+			Actions.Property(group, @this.Owner.Light.Intensity, this.FinalLightIntensity, this.LightIncreaseDuration, Ease.QuadIn);
+			Actions.Property(group, @this.Owner.Light.Falloff, this.FinalLightFalloff, this.LightIncreaseDuration, Ease.QuadIn);
+			var tp = this.Space.CreateObject("TeleportationParticle");
+			tp.Transform.Translation = player.Transform.Translation;
+			
+			Actions.Delay(seq, this.LightIncreaseDuration);
+			Actions.Property(seq, @player.Transform.Translation, this.TeleporterLocation, 0, Ease.Linear);
+			
+			var tele = this.Space.FindObjectByName("Teleporter");
+			tele.Sprite.SpriteSource = "Teleporter Idea Active";
+		}
+	}
+	
     function OnToggleEvent(event : ToggleEvent)
     {
-        Console.WriteLine("Generator recieved ToggleEvent");
-				this.Space.SoundSpace.PlayCue("GeneratorPowerOn");
-        var camera = this.Space.FindObjectByName("Camera");
-        var player = this.Space.FindObjectByName("Player");
-        camera.CameraControllerZilch.ScreenShakeTimer = this.LightIncreaseDuration;
-        camera.CameraControllerZilch.ScreenShakeMagnitude = 0;
-        var group = Actions.Group(this.Owner.Actions);
-        var seq = Actions.Sequence(group);
-        Actions.Property(group, @camera.CameraControllerZilch.ScreenShakeMagnitude, this.FinalScreenShakeIntensity, this.LightIncreaseDuration, Ease.QuadIn);
-        Actions.Property(group, @this.Owner.Light.Range, this.FinalLightRange, this.LightIncreaseDuration, Ease.QuadIn);
-        Actions.Property(group, @this.Owner.Light.Intensity, this.FinalLightIntensity, this.LightIncreaseDuration, Ease.QuadIn);
-        Actions.Property(group, @this.Owner.Light.Falloff, this.FinalLightFalloff, this.LightIncreaseDuration, Ease.QuadIn);
-         var tp = this.Space.CreateObject("TeleportationParticle");
-        tp.Transform.Translation = player.Transform.Translation;
-        Actions.Delay(seq, this.LightIncreaseDuration);
-        Actions.Property(seq, @player.Transform.Translation, this.TeleporterLocation, 0, Ease.Linear);
-
+		
+		this.Owner.Dispatch("ActivateDialog", ActivateDialog());
+		Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDown);
+		
+		Console.WriteLine("Generator recieved ToggleEvent");
+       
         //load level code goes here
         
     }
 
-function SpawnTPParticle()
-{
-
-}
 }
 
