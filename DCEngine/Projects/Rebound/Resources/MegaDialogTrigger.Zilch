@@ -119,6 +119,71 @@ class MegaDialogTrigger : ZilchComponent
 	[Property]
 	var Message24String : String = "";
 	
+	[Property]
+	var Message25Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message25String : String = "";
+	[Property]
+	var Message26Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message26String : String = "";
+	[Property]
+	var Message27Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message27String : String = "";
+	[Property]
+	var Message28Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message28String : String = "";
+	[Property]
+	var Message29Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message29String : String = "";
+	[Property]
+	var Message30Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message30String : String = "";
+	[Property]
+	var Message31Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message31String : String = "";
+	[Property]
+	var Message32Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message32String : String = "";
+	[Property]
+	var Message33Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message33String : String = "";
+	[Property]
+	var Message34Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message34String : String = "";
+	[Property]
+	var Message35Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message35String : String = "";
+	[Property]
+	var Message36Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message36String : String = "";
+	[Property]
+	var Message37Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message37String : String = "";
+	[Property]
+	var Message38Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message38String : String = "";
+	[Property]
+	var Message39Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message39String : String = "";
+	[Property]
+	var Message40Speaker : Speaker = Speaker.Cyrus;
+	[Property]
+	var Message40String : String = "";
+	
 	var Message1 : MessageEvent = MessageEvent();
 	var Message2 : MessageEvent = MessageEvent();
 	var Message3 : MessageEvent = MessageEvent();
@@ -143,9 +208,26 @@ class MegaDialogTrigger : ZilchComponent
 	var Message22 : MessageEvent = MessageEvent();
 	var Message23 : MessageEvent = MessageEvent();
 	var Message24 : MessageEvent = MessageEvent();
+	var Message25 : MessageEvent = MessageEvent();
+	var Message26 : MessageEvent = MessageEvent();
+	var Message27 : MessageEvent = MessageEvent();
+	var Message28 : MessageEvent = MessageEvent();
+	var Message29 : MessageEvent = MessageEvent();
+	var Message30 : MessageEvent = MessageEvent();
+	var Message31 : MessageEvent = MessageEvent();
+	var Message32 : MessageEvent = MessageEvent();
+	var Message33 : MessageEvent = MessageEvent();
+	var Message34 : MessageEvent = MessageEvent();
+	var Message35 : MessageEvent = MessageEvent();
+	var Message36 : MessageEvent = MessageEvent();
+	var Message37 : MessageEvent = MessageEvent();
+	var Message38 : MessageEvent = MessageEvent();
+	var Message39 : MessageEvent = MessageEvent();
+	var Message40 : MessageEvent = MessageEvent();
 	
 	
 	var Active : Boolean = false;
+	var Finished : Boolean = false;
 	var NoMoreActivating : Boolean = false;
 	var MessageNumber : Integer = 1;
 	var FirstCollisionOccurred : Boolean = false;
@@ -204,7 +286,7 @@ class MegaDialogTrigger : ZilchComponent
 		}
 		if(this.Message11String != "")
 		{
-			this.Message12.Message = this.Message11String;
+			this.Message11.Message = this.Message11String;
 			this.Message11.NewMessage = true;
 		}
 		if(this.Message12String != "")
@@ -272,6 +354,86 @@ class MegaDialogTrigger : ZilchComponent
 			this.Message24.Message = this.Message24String;
 			this.Message24.NewMessage = true;
 		}
+		if(this.Message25String != "")
+		{
+			this.Message25.Message = this.Message25String;
+			this.Message25.NewMessage = true;
+		}
+		if(this.Message26String != "")
+		{
+			this.Message26.Message = this.Message26String;
+			this.Message26.NewMessage = true;
+		}
+		if(this.Message27String != "")
+		{
+			this.Message27.Message = this.Message27String;
+			this.Message27.NewMessage = true;
+		}
+		if(this.Message28String != "")
+		{
+			this.Message28.Message = this.Message28String;
+			this.Message28.NewMessage = true;
+		}
+		if(this.Message29String != "")
+		{
+			this.Message29.Message = this.Message29String;
+			this.Message29.NewMessage = true;
+		}
+		if(this.Message30String != "")
+		{
+			this.Message30.Message = this.Message30String;
+			this.Message30.NewMessage = true;
+		}
+		if(this.Message31String != "")
+		{
+			this.Message31.Message = this.Message31String;
+			this.Message31.NewMessage = true;
+		}
+		if(this.Message32String != "")
+		{
+			this.Message32.Message = this.Message32String;
+			this.Message32.NewMessage = true;
+		}
+		if(this.Message33String != "")
+		{
+			this.Message33.Message = this.Message33String;
+			this.Message33.NewMessage = true;
+		}
+		if(this.Message34String != "")
+		{
+			this.Message34.Message = this.Message34String;
+			this.Message34.NewMessage = true;
+		}
+		if(this.Message35String != "")
+		{
+			this.Message35.Message = this.Message35String;
+			this.Message35.NewMessage = true;
+		}
+		if(this.Message36String != "")
+		{
+			this.Message36.Message = this.Message36String;
+			this.Message36.NewMessage = true;
+		}
+		if(this.Message37String != "")
+		{
+			this.Message37.Message = this.Message37String;
+			this.Message37.NewMessage = true;
+		}
+		if(this.Message38String != "")
+		{
+			this.Message38.Message = this.Message38String;
+			this.Message38.NewMessage = true;
+		}
+		if(this.Message39String != "")
+		{
+			this.Message39.Message = this.Message39String;
+			this.Message39.NewMessage = true;
+		}
+		if(this.Message40String != "")
+		{
+			this.Message40.Message = this.Message40String;
+			this.Message40.NewMessage = true;
+		}
 		
         Daisy.Connect(Daisy.Mouse, DaisyEvent.MouseDown, this.OnMouseDown);
         Daisy.Connect(this.Owner, DaisyEvent.ActivateDialog, this.OnActivateDialogEvent);
@@ -286,6 +448,7 @@ class MegaDialogTrigger : ZilchComponent
 		{
 			this.NoMoreActivating = true;
 		}
+		this.Finished = true;
 		this.Active = false;
 		var ourText = this.Space.FindObjectByName(this.DialogTextObjectName);
 		ourText.DialogText.WipeMessage();
@@ -294,284 +457,472 @@ class MegaDialogTrigger : ZilchComponent
     {
 		if(event.ButtonPressed == MouseButton.Left)
 		{
-			if(this.Active == true && this.DialogTextObjectName != "" && 
-			(this.OnlyOnFirstCollision == false || this.FirstCollisionOccurred == false))
+			this.SendMessage();
+		}
+	}
+	
+	function SendMessage()
+	{
+		Console.WriteLine("!!!!!!");
+		Console.WriteLine(this.Active);
+		Console.WriteLine(this.DialogTextObjectName);
+		Console.WriteLine(this.OnlyOnFirstCollision);
+		Console.WriteLine(this.FirstCollisionOccurred);
+		Console.WriteLine("!!!!!!");
+		if(this.Active == true && this.DialogTextObjectName != "" && 
+		(this.OnlyOnFirstCollision == false || this.FirstCollisionOccurred == false))
+		{
+			var ourText = this.Space.FindObjectByName(this.DialogTextObjectName);
+			//Console.WriteLine(ourText.DialogText.Finished);
+			if(ourText.DialogText.Finished == true)
 			{
-				var ourText = this.Space.FindObjectByName(this.DialogTextObjectName);
-				if(ourText.DialogText.Finished == true)
+				var curEvent = this.Message1;
+				if(this.MessageNumber == 1)
 				{
-					var curEvent = this.Message1;
-					if(this.MessageNumber == 1)
-					{
-						ourText.DialogText.CurSpeaker = this.Message1Speaker;
-						if(this.Message1String == "")
-							this.SendWipeMessage();
-					}
-					if(this.MessageNumber == 2)
-					{
-						ourText.DialogText.CurSpeaker = this.Message2Speaker;
-						if(this.Message2String != "")
-							curEvent = this.Message2;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
-					else if(this.MessageNumber == 3)
-					{
-						ourText.DialogText.CurSpeaker = this.Message3Speaker;
-						if(this.Message3String != "")
-							curEvent = this.Message3;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
-					else if(this.MessageNumber == 4)
-					{
-						ourText.DialogText.CurSpeaker = this.Message4Speaker;
-						if(this.Message4String != "")
-							curEvent = this.Message4;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
-					else if(this.MessageNumber == 5)
-					{
-						ourText.DialogText.CurSpeaker = this.Message5Speaker;
-						if(this.Message5String != "")
-							curEvent = this.Message5;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
-					else if(this.MessageNumber == 6)
-					{
-						ourText.DialogText.CurSpeaker = this.Message6Speaker;
-						if(this.Message6String != "")
-							curEvent = this.Message6;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
-					else if(this.MessageNumber == 7)
-					{
-						ourText.DialogText.CurSpeaker = this.Message7Speaker;
-						if(this.Message7String != "")
-							curEvent = this.Message7;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
-					else if(this.MessageNumber == 8)
-					{
-						ourText.DialogText.CurSpeaker = this.Message8Speaker;
-						if(this.Message8String != "")
-							curEvent = this.Message8;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
-					else if(this.MessageNumber == 9)
-					{
-						ourText.DialogText.CurSpeaker = this.Message9Speaker;
-						if(this.Message9String != "")
-							curEvent = this.Message9;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
-					else if(this.MessageNumber == 10)
-					{
-						ourText.DialogText.CurSpeaker = this.Message10Speaker;
-						if(this.Message10String != "")
-							curEvent = this.Message10;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
-					else if(this.MessageNumber == 11)
-					{
-						ourText.DialogText.CurSpeaker = this.Message11Speaker;
-						if(this.Message11String != "")
-							curEvent = this.Message11;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
-					else if(this.MessageNumber == 12)
-					{
-						ourText.DialogText.CurSpeaker = this.Message12Speaker;
-						if(this.Message12String != "")
-							curEvent = this.Message12;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
-					else if(this.MessageNumber == 113)
-					{
-						ourText.DialogText.CurSpeaker = this.Message13Speaker;
-						if(this.Message13String != "")
-							curEvent = this.Message14;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
-					else if(this.MessageNumber == 14)
-					{
-						ourText.DialogText.CurSpeaker = this.Message14Speaker;
-						if(this.Message14String != "")
-							curEvent = this.Message15;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
-					else if(this.MessageNumber == 15)
-					{
-						ourText.DialogText.CurSpeaker = this.Message15Speaker;
-						if(this.Message15String != "")
-							curEvent = this.Message16;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
-					else if(this.MessageNumber == 16)
-					{
-						ourText.DialogText.CurSpeaker = this.Message16Speaker;
-						if(this.Message16String != "")
-							curEvent = this.Message16;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
-					else if(this.MessageNumber == 17)
-					{
-						ourText.DialogText.CurSpeaker = this.Message17Speaker;
-						if(this.Message17String != "")
-							curEvent = this.Message17;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
-					else if(this.MessageNumber == 18)
-					{
-						ourText.DialogText.CurSpeaker = this.Message18Speaker;
-						if(this.Message18String != "")
-							curEvent = this.Message18;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
-					else if(this.MessageNumber == 19)
-					{
-						ourText.DialogText.CurSpeaker = this.Message19Speaker;
-						if(this.Message19String != "")
-							curEvent = this.Message19;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
-					else if(this.MessageNumber == 20)
-					{
-						ourText.DialogText.CurSpeaker = this.Message20Speaker;
-						if(this.Message20String != "")
-							curEvent = this.Message20;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
-					else if(this.MessageNumber == 21)
-					{
-						ourText.DialogText.CurSpeaker = this.Message21Speaker;
-						if(this.Message21String != "")
-							curEvent = this.Message21;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
-					else if(this.MessageNumber == 22)
-					{
-						ourText.DialogText.CurSpeaker = this.Message22Speaker;
-						if(this.Message22String != "")
-							curEvent = this.Message22;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
-					else if(this.MessageNumber == 23)
-					{
-						ourText.DialogText.CurSpeaker = this.Message23Speaker;
-						if(this.Message23String != "")
-							curEvent = this.Message23;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
-					else if(this.MessageNumber == 24)
-					{
-						ourText.DialogText.CurSpeaker = this.Message24Speaker;
-						if(this.Message24String != "")
-							curEvent = this.Message24;
-						else
-						{
-							this.SendWipeMessage();
-							return;
-						}
-					}
+					ourText.DialogText.CurSpeaker = this.Message1Speaker;
+					if(this.Message1String == "")
+						this.SendWipeMessage();
+				}
+				else if(this.MessageNumber == 2)
+				{
+					ourText.DialogText.CurSpeaker = this.Message2Speaker;
+					if(this.Message2String != "")
+						curEvent = this.Message2;
 					else
 					{
 						this.SendWipeMessage();
 						return;
 					}
-					this.MessageNumber += 1;
-					ourText.Dispatch(DaisyEvent.MessageEvent, curEvent);
+				}
+				else if(this.MessageNumber == 3)
+				{
+					ourText.DialogText.CurSpeaker = this.Message3Speaker;
+					if(this.Message3String != "")
+						curEvent = this.Message3;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 4)
+				{
+					ourText.DialogText.CurSpeaker = this.Message4Speaker;
+					if(this.Message4String != "")
+						curEvent = this.Message4;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 5)
+				{
+					ourText.DialogText.CurSpeaker = this.Message5Speaker;
+					if(this.Message5String != "")
+						curEvent = this.Message5;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 6)
+				{
+					ourText.DialogText.CurSpeaker = this.Message6Speaker;
+					if(this.Message6String != "")
+						curEvent = this.Message6;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 7)
+				{
+					ourText.DialogText.CurSpeaker = this.Message7Speaker;
+					if(this.Message7String != "")
+						curEvent = this.Message7;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 8)
+				{
+					ourText.DialogText.CurSpeaker = this.Message8Speaker;
+					if(this.Message8String != "")
+						curEvent = this.Message8;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 9)
+				{
+					ourText.DialogText.CurSpeaker = this.Message9Speaker;
+					if(this.Message9String != "")
+						curEvent = this.Message9;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 10)
+				{
+					ourText.DialogText.CurSpeaker = this.Message10Speaker;
+					if(this.Message10String != "")
+						curEvent = this.Message10;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 11)
+				{
+					ourText.DialogText.CurSpeaker = this.Message11Speaker;
+					if(this.Message11String != "")
+						curEvent = this.Message11;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 12)
+				{
+					ourText.DialogText.CurSpeaker = this.Message12Speaker;
+					if(this.Message12String != "")
+						curEvent = this.Message12;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 13)
+				{
+					ourText.DialogText.CurSpeaker = this.Message13Speaker;
+					if(this.Message13String != "")
+						curEvent = this.Message13;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 14)
+				{
+					ourText.DialogText.CurSpeaker = this.Message14Speaker;
+					if(this.Message14String != "")
+						curEvent = this.Message14;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 15)
+				{
+					ourText.DialogText.CurSpeaker = this.Message15Speaker;
+					if(this.Message15String != "")
+						curEvent = this.Message15;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 16)
+				{
+					ourText.DialogText.CurSpeaker = this.Message16Speaker;
+					if(this.Message16String != "")
+						curEvent = this.Message16;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 17)
+				{
+					ourText.DialogText.CurSpeaker = this.Message17Speaker;
+					if(this.Message17String != "")
+						curEvent = this.Message17;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 18)
+				{
+					ourText.DialogText.CurSpeaker = this.Message18Speaker;
+					if(this.Message18String != "")
+						curEvent = this.Message18;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 19)
+				{
+					ourText.DialogText.CurSpeaker = this.Message19Speaker;
+					if(this.Message19String != "")
+						curEvent = this.Message19;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 20)
+				{
+					ourText.DialogText.CurSpeaker = this.Message20Speaker;
+					if(this.Message20String != "")
+						curEvent = this.Message20;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 21)
+				{
+					ourText.DialogText.CurSpeaker = this.Message21Speaker;
+					if(this.Message21String != "")
+						curEvent = this.Message21;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 22)
+				{
+					ourText.DialogText.CurSpeaker = this.Message22Speaker;
+					if(this.Message22String != "")
+						curEvent = this.Message22;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 23)
+				{
+					ourText.DialogText.CurSpeaker = this.Message23Speaker;
+					if(this.Message23String != "")
+						curEvent = this.Message23;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 24)
+				{
+					ourText.DialogText.CurSpeaker = this.Message24Speaker;
+					if(this.Message24String != "")
+						curEvent = this.Message24;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 25)
+				{
+					ourText.DialogText.CurSpeaker = this.Message25Speaker;
+					if(this.Message25String != "")
+						curEvent = this.Message25;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 26)
+				{
+					ourText.DialogText.CurSpeaker = this.Message26Speaker;
+					if(this.Message26String != "")
+						curEvent = this.Message26;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 27)
+				{
+					ourText.DialogText.CurSpeaker = this.Message27Speaker;
+					if(this.Message27String != "")
+						curEvent = this.Message27;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 28)
+				{
+					ourText.DialogText.CurSpeaker = this.Message28Speaker;
+					if(this.Message28String != "")
+						curEvent = this.Message28;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 29)
+				{
+					ourText.DialogText.CurSpeaker = this.Message29Speaker;
+					if(this.Message29String != "")
+						curEvent = this.Message29;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 30)
+				{
+					ourText.DialogText.CurSpeaker = this.Message30Speaker;
+					if(this.Message30String != "")
+						curEvent = this.Message30;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 31)
+				{
+					ourText.DialogText.CurSpeaker = this.Message31Speaker;
+					if(this.Message31String != "")
+						curEvent = this.Message31;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 32)
+				{
+					ourText.DialogText.CurSpeaker = this.Message32Speaker;
+					if(this.Message32String != "")
+						curEvent = this.Message32;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 33)
+				{
+					ourText.DialogText.CurSpeaker = this.Message33Speaker;
+					if(this.Message33String != "")
+						curEvent = this.Message33;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 34)
+				{
+					ourText.DialogText.CurSpeaker = this.Message34Speaker;
+					if(this.Message34String != "")
+						curEvent = this.Message34;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 35)
+				{
+					ourText.DialogText.CurSpeaker = this.Message35Speaker;
+					if(this.Message35String != "")
+						curEvent = this.Message35;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 36)
+				{
+					ourText.DialogText.CurSpeaker = this.Message36Speaker;
+					if(this.Message36String != "")
+						curEvent = this.Message36;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 37)
+				{
+					ourText.DialogText.CurSpeaker = this.Message37Speaker;
+					if(this.Message37String != "")
+						curEvent = this.Message37;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 38)
+				{
+					ourText.DialogText.CurSpeaker = this.Message38Speaker;
+					if(this.Message38String != "")
+						curEvent = this.Message38;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 39)
+				{
+					ourText.DialogText.CurSpeaker = this.Message39Speaker;
+					if(this.Message39String != "")
+						curEvent = this.Message39;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
+				}
+				else if(this.MessageNumber == 40)
+				{
+					ourText.DialogText.CurSpeaker = this.Message40Speaker;
+					if(this.Message40String != "")
+						curEvent = this.Message40;
+					else
+					{
+						this.SendWipeMessage();
+						return;
+					}
 				}
 				else
 				{
-					ourText.DialogText.FinishMessage();
+					this.SendWipeMessage();
+					return;
 				}
+				this.MessageNumber += 1;
+				ourText.Dispatch(DaisyEvent.MessageEvent, curEvent);
+			}
+			else
+			{
+				ourText.DialogText.FinishMessage();
 			}
 		}
 	}
@@ -579,7 +930,10 @@ class MegaDialogTrigger : ZilchComponent
 	function OnActivateDialogEvent(event : ActivateDialog)
 	{
 		if(this.NoMoreActivating == false)
+		{
 			this.Active = true;
+			this.SendMessage();
+		}
 	}
 
     function OnCollision(event : CollisionStarted)
