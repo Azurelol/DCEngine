@@ -117,6 +117,7 @@ namespace DCEngine {
 							if (lengthSquared < objRadiusSquared + 2 * light->getRange() * (objTfm->Scale.x + objTfm->Scale.y)
 								+ light->getRange() * light->getRange())
 							{
+								SystemMethodTimer timer("ShadowsRendered", EnumeratedSystem::Graphics);
 								obj->SetUniforms(ShadowingShader, camera, light);
 								obj->Draw();
 							}
