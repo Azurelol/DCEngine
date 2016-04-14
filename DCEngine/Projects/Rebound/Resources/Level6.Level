@@ -19,8 +19,8 @@
             {
               "Vec3": 
               {
-                "x": 213.255447, 
-                "y": 27.334675, 
+                "x": 1.255447, 
+                "y": 1.334675, 
                 "z": 1.000000
               }
             }, 
@@ -28,8 +28,8 @@
             {
               "Vec3": 
               {
-                "x": 213.255447, 
-                "y": 27.334675, 
+                "x": 1.255447, 
+                "y": 1.334675, 
                 "z": 1.000000
               }
             }, 
@@ -37,8 +37,8 @@
             {
               "Vec3": 
               {
-                "x": 213.255447, 
-                "y": 27.334675, 
+                "x": 1.255447, 
+                "y": 1.334675, 
                 "z": 1.000000
               }
             }, 
@@ -8390,14 +8390,14 @@
               "Vec3": 
               {
                 "x": 3.040000, 
-                "y": 1.000000, 
+                "y": 1.500000, 
                 "z": 1.000000
               }
             }
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -14936,8 +14936,8 @@
             {
               "Vec3": 
               {
-                "x": 0.567478, 
-                "y": 0.178162, 
+                "x": 192.611923, 
+                "y": 26.200386, 
                 "z": 0.000000
               }
             }, 
@@ -14945,8 +14945,8 @@
             {
               "Vec3": 
               {
-                "x": 0.567478, 
-                "y": 0.178162, 
+                "x": 192.611923, 
+                "y": 26.200386, 
                 "z": 0.000000
               }
             }, 
@@ -14954,8 +14954,8 @@
             {
               "Vec3": 
               {
-                "x": 0.567478, 
-                "y": 0.178162, 
+                "x": 192.611923, 
+                "y": 26.200386, 
                 "z": 0.000000
               }
             }, 
@@ -15167,8 +15167,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 39.432522, 
-                    "y": 15.821838, 
+                    "x": -152.611923, 
+                    "y": -10.200386, 
                     "z": 0.000000
                   }
                 }, 
@@ -18273,8 +18273,8 @@
             {
               "Vec3": 
               {
-                "x": 0.500000, 
-                "y": 0.500000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -18292,11 +18292,11 @@
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
             "IsAggressive": true, 
-            "JumpStrengthX": 5.000000, 
-            "JumpStrengthY": 25.000000, 
+            "JumpStrengthX": 2.500000, 
+            "JumpStrengthY": 15.000000, 
             "JumpPeriod": 2.000000, 
-            "AttackJumpStrengthX": 10.000000, 
-            "AttackJumpStrengthY": 15.000000, 
+            "AttackJumpStrengthX": 5.000000, 
+            "AttackJumpStrengthY": 7.000000, 
             "AttackJumpPeriod": 1.000000, 
             "AnimationSpeedHead": 10.000000, 
             "AnimationDistanceHead": 0.010000, 
@@ -18566,8 +18566,8 @@
             {
               "Vec3": 
               {
-                "x": 0.500000, 
-                "y": 0.500000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -18585,11 +18585,11 @@
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
             "IsAggressive": true, 
-            "JumpStrengthX": 5.000000, 
-            "JumpStrengthY": 25.000000, 
+            "JumpStrengthX": 2.500000, 
+            "JumpStrengthY": 15.000000, 
             "JumpPeriod": 2.000000, 
-            "AttackJumpStrengthX": 10.000000, 
-            "AttackJumpStrengthY": 15.000000, 
+            "AttackJumpStrengthX": 5.000000, 
+            "AttackJumpStrengthY": 7.000000, 
             "AttackJumpPeriod": 1.000000, 
             "AnimationSpeedHead": 10.000000, 
             "AnimationDistanceHead": 0.010000, 
@@ -19611,8 +19611,8 @@
             {
               "Vec3": 
               {
-                "x": 0.500000, 
-                "y": 0.500000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -19630,11 +19630,11 @@
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
             "IsAggressive": true, 
-            "JumpStrengthX": 5.000000, 
-            "JumpStrengthY": 25.000000, 
+            "JumpStrengthX": 2.500000, 
+            "JumpStrengthY": 15.000000, 
             "JumpPeriod": 2.000000, 
-            "AttackJumpStrengthX": 10.000000, 
-            "AttackJumpStrengthY": 15.000000, 
+            "AttackJumpStrengthX": 5.000000, 
+            "AttackJumpStrengthY": 7.000000, 
             "AttackJumpPeriod": 1.000000, 
             "AnimationSpeedHead": 10.000000, 
             "AnimationDistanceHead": 0.010000, 
@@ -19790,8 +19790,8 @@
             {
               "Vec3": 
               {
-                "x": 0.500000, 
-                "y": 0.500000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -19809,11 +19809,11 @@
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
             "IsAggressive": true, 
-            "JumpStrengthX": 5.000000, 
-            "JumpStrengthY": 25.000000, 
+            "JumpStrengthX": 2.500000, 
+            "JumpStrengthY": 15.000000, 
             "JumpPeriod": 2.000000, 
-            "AttackJumpStrengthX": 10.000000, 
-            "AttackJumpStrengthY": 15.000000, 
+            "AttackJumpStrengthX": 5.000000, 
+            "AttackJumpStrengthY": 7.000000, 
             "AttackJumpPeriod": 1.000000, 
             "AnimationSpeedHead": 10.000000, 
             "AnimationDistanceHead": 0.010000, 
@@ -19969,8 +19969,8 @@
             {
               "Vec3": 
               {
-                "x": 0.500000, 
-                "y": 0.500000, 
+                "x": 1.000000, 
+                "y": 1.000000, 
                 "z": 1.000000
               }
             }
@@ -19988,11 +19988,11 @@
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
             "IsAggressive": true, 
-            "JumpStrengthX": 5.000000, 
-            "JumpStrengthY": 25.000000, 
+            "JumpStrengthX": 2.500000, 
+            "JumpStrengthY": 15.000000, 
             "JumpPeriod": 2.000000, 
-            "AttackJumpStrengthX": 10.000000, 
-            "AttackJumpStrengthY": 15.000000, 
+            "AttackJumpStrengthX": 5.000000, 
+            "AttackJumpStrengthY": 7.000000, 
             "AttackJumpPeriod": 1.000000, 
             "AnimationSpeedHead": 10.000000, 
             "AnimationDistanceHead": 0.010000, 
@@ -20148,9 +20148,9 @@
             {
               "Vec3": 
               {
-                "x": 0.500000, 
-                "y": 0.500000, 
-                "z": 1.000000
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 0.000000
               }
             }
           }, 
@@ -20167,11 +20167,11 @@
             "PatrolDistance": 20.000000, 
             "IsPatrolRight": true, 
             "IsAggressive": true, 
-            "JumpStrengthX": 5.000000, 
-            "JumpStrengthY": 25.000000, 
+            "JumpStrengthX": 2.500000, 
+            "JumpStrengthY": 15.000000, 
             "JumpPeriod": 2.000000, 
-            "AttackJumpStrengthX": 10.000000, 
-            "AttackJumpStrengthY": 15.000000, 
+            "AttackJumpStrengthX": 5.000000, 
+            "AttackJumpStrengthY": 7.000000, 
             "AttackJumpPeriod": 1.000000, 
             "AnimationSpeedHead": 10.000000, 
             "AnimationDistanceHead": 0.010000, 
@@ -24102,7 +24102,7 @@
               "Vec3": 
               {
                 "x": 34.085487, 
-                "y": 1.525910, 
+                "y": -1.474090, 
                 "z": 0.000000
               }
             }, 
@@ -24111,7 +24111,7 @@
               "Vec3": 
               {
                 "x": 34.085487, 
-                "y": 1.525910, 
+                "y": -1.474090, 
                 "z": 0.000000
               }
             }, 
@@ -24120,7 +24120,7 @@
               "Vec3": 
               {
                 "x": 34.085487, 
-                "y": 1.525910, 
+                "y": -1.474090, 
                 "z": 0.000000
               }
             }, 
@@ -24137,8 +24137,8 @@
             {
               "Vec3": 
               {
-                "x": 3.000000, 
-                "y": 3.000000, 
+                "x": 2.000000, 
+                "y": 2.000000, 
                 "z": 1.000000
               }
             }
@@ -24218,8 +24218,8 @@
           "Lancer": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 5, 
-            "MaxHealth": 5, 
+            "StartingHealth": 2, 
+            "MaxHealth": 2, 
             "IsInvulnerable": false, 
             "ShieldArchetype": "LancerShield", 
             "HeadArchetype": "LancerHead", 
@@ -24588,8 +24588,8 @@
             {
               "Vec3": 
               {
-                "x": 207.170013, 
-                "y": 26.332829, 
+                "x": 205.888565, 
+                "y": 47.116417, 
                 "z": 0.000000
               }
             }, 
@@ -24597,8 +24597,8 @@
             {
               "Vec3": 
               {
-                "x": 207.170013, 
-                "y": 26.332829, 
+                "x": 205.888565, 
+                "y": 47.116417, 
                 "z": 0.000000
               }
             }, 
@@ -24606,8 +24606,8 @@
             {
               "Vec3": 
               {
-                "x": 207.170013, 
-                "y": 26.332829, 
+                "x": 205.888565, 
+                "y": 47.116417, 
                 "z": 0.000000
               }
             }, 
@@ -24699,15 +24699,6 @@
                 "w": 1.000000
               }
             }
-          }, 
-          "EnemySpawner": 
-          {
-            "Scrapper": false, 
-            "Lancer": false, 
-            "Shield": false, 
-            "SpawnMinDist": 0.000000, 
-            "SpawnMaxDist": 0.000000, 
-            "SpawnTime": 0.000000
           }, 
           "Light": 
           {
@@ -24908,10 +24899,6 @@
             "InnerAngle": 0.600000, 
             "OuterAngle": 0.800000, 
             "CullLight": 0.000000
-          }, 
-          "HealthRegen": 
-          {
-            "RegenRate": 1.000000
           }
         }, 
         "Children": 
@@ -26957,15 +26944,6 @@
               }
             }
           }, 
-          "EnemySpawner": 
-          {
-            "Scrapper": false, 
-            "Lancer": false, 
-            "Shield": false, 
-            "SpawnMinDist": 0.000000, 
-            "SpawnMaxDist": 0.000000, 
-            "SpawnTime": 0.000000
-          }, 
           "Light": 
           {
             "Visible": true, 
@@ -27019,8 +26997,8 @@
             {
               "Vec3": 
               {
-                "x": 209.074738, 
-                "y": 26.402750, 
+                "x": 217.804642, 
+                "y": 46.465523, 
                 "z": 0.000000
               }
             }, 
@@ -27028,8 +27006,8 @@
             {
               "Vec3": 
               {
-                "x": 209.074738, 
-                "y": 26.402750, 
+                "x": 217.804642, 
+                "y": 46.465523, 
                 "z": 0.000000
               }
             }, 
@@ -27037,8 +27015,8 @@
             {
               "Vec3": 
               {
-                "x": 209.074738, 
-                "y": 26.402750, 
+                "x": 217.804642, 
+                "y": 46.465523, 
                 "z": 0.000000
               }
             }, 
@@ -27130,15 +27108,6 @@
                 "w": 1.000000
               }
             }
-          }, 
-          "EnemySpawner": 
-          {
-            "Scrapper": false, 
-            "Lancer": false, 
-            "Shield": false, 
-            "SpawnMinDist": 0.000000, 
-            "SpawnMaxDist": 0.000000, 
-            "SpawnTime": 0.000000
           }, 
           "Light": 
           {
@@ -27193,8 +27162,8 @@
             {
               "Vec3": 
               {
-                "x": 210.743607, 
-                "y": 26.085644, 
+                "x": 221.903778, 
+                "y": 28.165735, 
                 "z": 0.000000
               }
             }, 
@@ -27202,8 +27171,8 @@
             {
               "Vec3": 
               {
-                "x": 210.743607, 
-                "y": 26.085644, 
+                "x": 221.903778, 
+                "y": 28.165735, 
                 "z": 0.000000
               }
             }, 
@@ -27211,8 +27180,8 @@
             {
               "Vec3": 
               {
-                "x": 210.743607, 
-                "y": 26.085644, 
+                "x": 221.903778, 
+                "y": 28.165735, 
                 "z": 0.000000
               }
             }, 
@@ -27304,15 +27273,6 @@
                 "w": 1.000000
               }
             }
-          }, 
-          "EnemySpawner": 
-          {
-            "Scrapper": false, 
-            "Lancer": false, 
-            "Shield": false, 
-            "SpawnMinDist": 0.000000, 
-            "SpawnMaxDist": 0.000000, 
-            "SpawnTime": 0.000000
           }, 
           "Light": 
           {
@@ -28847,7 +28807,7 @@
               "Vec3": 
               {
                 "x": 165.803207, 
-                "y": 23.244068, 
+                "y": 22.244068, 
                 "z": 0.000000
               }
             }, 
@@ -28856,7 +28816,7 @@
               "Vec3": 
               {
                 "x": 165.803207, 
-                "y": 23.244068, 
+                "y": 22.244068, 
                 "z": 0.000000
               }
             }, 
@@ -28865,7 +28825,7 @@
               "Vec3": 
               {
                 "x": 165.803207, 
-                "y": 23.244068, 
+                "y": 22.244068, 
                 "z": 0.000000
               }
             }, 
@@ -28882,8 +28842,8 @@
             {
               "Vec3": 
               {
-                "x": 3.000000, 
-                "y": 3.000000, 
+                "x": 2.000000, 
+                "y": 2.000000, 
                 "z": 1.000000
               }
             }
@@ -28963,8 +28923,8 @@
           "Lancer": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 5, 
-            "MaxHealth": 5, 
+            "StartingHealth": 2, 
+            "MaxHealth": 2, 
             "IsInvulnerable": false, 
             "ShieldArchetype": "LancerShield", 
             "HeadArchetype": "LancerHead", 
