@@ -60,8 +60,6 @@
       {
         "Visible": true, 
         "CullVisibility": true, 
-        "ForceLightCulling": false, 
-        "NOSHADOW": false, 
         "Color": 
         {
           "Vec4": 
@@ -101,7 +99,7 @@
             "z": 0.000000
           }
         }, 
-        "Ghost": true, 
+        "Ghost": false, 
         "SendsEvents": true, 
         "IsDrawingCollider": false
       }

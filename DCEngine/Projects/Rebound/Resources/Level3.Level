@@ -189,8 +189,8 @@
             {
               "Vec3": 
               {
-                "x": 90.044281, 
-                "y": -16.290771, 
+                "x": -141.423340, 
+                "y": 14.009146, 
                 "z": 0.000000
               }
             }, 
@@ -198,8 +198,8 @@
             {
               "Vec3": 
               {
-                "x": 90.044281, 
-                "y": -16.290771, 
+                "x": -141.423340, 
+                "y": 14.009146, 
                 "z": 0.000000
               }
             }, 
@@ -207,8 +207,8 @@
             {
               "Vec3": 
               {
-                "x": 90.044281, 
-                "y": -16.290771, 
+                "x": -141.423340, 
+                "y": 14.009146, 
                 "z": 0.000000
               }
             }, 
@@ -4676,8 +4676,8 @@
             {
               "Vec3": 
               {
-                "x": -141.340469, 
-                "y": 26.450201, 
+                "x": -143.633774, 
+                "y": 26.601076, 
                 "z": 0.000000
               }
             }, 
@@ -4685,8 +4685,8 @@
             {
               "Vec3": 
               {
-                "x": -141.340469, 
-                "y": 26.450201, 
+                "x": -143.633774, 
+                "y": 26.601076, 
                 "z": 0.000000
               }
             }, 
@@ -4694,8 +4694,8 @@
             {
               "Vec3": 
               {
-                "x": -141.340469, 
-                "y": 26.450201, 
+                "x": -143.633774, 
+                "y": 26.601076, 
                 "z": 0.000000
               }
             }, 
@@ -6234,8 +6234,8 @@
             {
               "Vec3": 
               {
-                "x": 67.837547, 
-                "y": 14.885649, 
+                "x": 68.501396, 
+                "y": 13.497592, 
                 "z": 0.000000
               }
             }, 
@@ -6243,8 +6243,8 @@
             {
               "Vec3": 
               {
-                "x": 67.837547, 
-                "y": 14.885649, 
+                "x": 68.501396, 
+                "y": 13.497592, 
                 "z": 0.000000
               }
             }, 
@@ -6252,8 +6252,8 @@
             {
               "Vec3": 
               {
-                "x": 67.837547, 
-                "y": 14.885649, 
+                "x": 68.501396, 
+                "y": 13.497592, 
                 "z": 0.000000
               }
             }, 
@@ -6270,8 +6270,8 @@
             {
               "Vec3": 
               {
-                "x": 2.000000, 
-                "y": 2.000000, 
+                "x": 4.000000, 
+                "y": 6.000000, 
                 "z": 1.000000
               }
             }
@@ -6292,12 +6292,12 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "VictorySymbol", 
+            "SpriteSource": "Dank", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 4
           }, 
           "BoxCollider": 
           {
@@ -9956,7 +9956,7 @@
             "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
-            "NOSHADOW": true, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -11274,8 +11274,8 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 6, 
-            "MaxHealth": 6, 
+            "StartingHealth": 3, 
+            "MaxHealth": 3, 
             "IsInvulnerable": false, 
             "HeadArchetype": "ScrapperHead", 
             "BodyArchetype": "ScrapperBody", 
@@ -11453,8 +11453,8 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 6, 
-            "MaxHealth": 6, 
+            "StartingHealth": 3, 
+            "MaxHealth": 3, 
             "IsInvulnerable": false, 
             "HeadArchetype": "ScrapperHead", 
             "BodyArchetype": "ScrapperBody", 
@@ -11632,8 +11632,8 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 6, 
-            "MaxHealth": 6, 
+            "StartingHealth": 3, 
+            "MaxHealth": 3, 
             "IsInvulnerable": false, 
             "HeadArchetype": "ScrapperHead", 
             "BodyArchetype": "ScrapperBody", 
@@ -11811,8 +11811,8 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 6, 
-            "MaxHealth": 6, 
+            "StartingHealth": 3, 
+            "MaxHealth": 3, 
             "IsInvulnerable": false, 
             "HeadArchetype": "ScrapperHead", 
             "BodyArchetype": "ScrapperBody", 
@@ -11990,8 +11990,8 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 6, 
-            "MaxHealth": 6, 
+            "StartingHealth": 3, 
+            "MaxHealth": 3, 
             "IsInvulnerable": false, 
             "HeadArchetype": "ScrapperHead", 
             "BodyArchetype": "ScrapperBody", 
@@ -12169,8 +12169,8 @@
           "Grunt": 
           {
             "PlayerName": "Player", 
-            "StartingHealth": 6, 
-            "MaxHealth": 6, 
+            "StartingHealth": 3, 
+            "MaxHealth": 3, 
             "IsInvulnerable": false, 
             "HeadArchetype": "ScrapperHead", 
             "BodyArchetype": "ScrapperBody", 
@@ -12468,7 +12468,7 @@
                 "TimeToDelete": 10.000000, 
                 "AshaReplySoundName": "InterfaceReply", 
                 "CyrusReplySoundName": "InterfaceNotify", 
-                "SkipMessageDelay": true, 
+                "SkipMessageDelay": false, 
                 "CurSpeaker": "Cyrus"
               }
             }, 
@@ -12671,19 +12671,19 @@
             "OnlyOnFirstCollision": false, 
             "ActiveOnCollision": true, 
             "ActiveOnlyOnce": true, 
-            "Message1String": "I'm detecting a significant change in the IO of your energy modulator. Did you find something?", 
+            "Message1String": "You'll have to scout around for the next teleporter in the sequence and activate it if you want to get into the city.", 
             "Message1Speaker": "Cyrus", 
-            "Message2String": "Sure did. Fancy pair of techno-gloves. No idea what they do yet. Oh, and a teleporter! Looks functional, too, but no power.", 
-            "Message2Speaker": "Asha", 
-            "Message3String": "Whatever they are, they're putting out a staggering amount of power. You always did have luck on your side.", 
+            "Message2String": "Good luck and keep an eye out for Second Dawn scrapper robots. They send hundreds of them out to salvage.", 
+            "Message2Speaker": "Cyrus", 
+            "Message3String": "", 
             "Message3Speaker": "Cyrus", 
-            "Message4String": "Who needs luck when I’ve got the guardian angel of the resistance watching my back?", 
+            "Message4String": "", 
             "Message4Speaker": "Asha", 
-            "Message5String": "Flatterer. See if you can find a way to activate that portal you found.", 
+            "Message5String": "", 
             "Message5Speaker": "Cyrus", 
-            "Message6String": "If we can get it synced to the network you'll be able to get around a lot easier.", 
+            "Message6String": "", 
             "Message6Speaker": "Cyrus", 
-            "Message7String": "Maybe you can use that new gadget of yours...", 
+            "Message7String": "", 
             "Message7Speaker": "Cyrus"
           }
         }, 
@@ -13558,6 +13558,221 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 786, 
+        "Name": "Sprite", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -141.588806, 
+                "y": 11.670670, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -141.588806, 
+                "y": 11.670670, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -141.588806, 
+                "y": 11.670670, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 6.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Dank", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 7
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 147, 
+        "Name": "DialogTrigger", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 87.156021, 
+                "y": 28.303043, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 87.156021, 
+                "y": 28.303043, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 87.156021, 
+                "y": 28.303043, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 50.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": false, 
+            "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "DefaultCollisionGroup", 
+            "PhysicsMaterial": "DefaultPhysicsMaterial", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": true, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }, 
+          "DialogTrigger": 
+          {
+            "DialogTextObjectName": "DialogText", 
+            "OnlyOnFirstCollision": false, 
+            "ActiveOnCollision": true, 
+            "ActiveOnlyOnce": true, 
+            "Message1String": "Well done. The next frequency is closer to the city, so expect to see a lot more bots.", 
+            "Message1Speaker": "Cyrus", 
+            "Message2String": "", 
+            "Message2Speaker": "Cyrus", 
+            "Message3String": "", 
+            "Message3Speaker": "Cyrus", 
+            "Message4String": "", 
+            "Message4Speaker": "Asha", 
+            "Message5String": "", 
+            "Message5Speaker": "Cyrus", 
+            "Message6String": "", 
+            "Message6Speaker": "Cyrus", 
+            "Message7String": "", 
+            "Message7Speaker": "Cyrus"
           }
         }, 
         "Children": 

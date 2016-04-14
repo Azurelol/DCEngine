@@ -131,8 +131,8 @@
       "Lancer": 
       {
         "PlayerName": "Player", 
-        "StartingHealth": 2, 
-        "MaxHealth": 2, 
+        "StartingHealth": 5, 
+        "MaxHealth": 5, 
         "IsInvulnerable": false, 
         "ShieldArchetype": "LancerShield", 
         "HeadArchetype": "LancerHead", 
