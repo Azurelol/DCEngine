@@ -51,6 +51,8 @@ namespace DCEngine {
       void PrintVelocity();
       std::string FootstepSound;
       Boolean FootstepSoundEnabled = false;
+
+      SoundInstanceWeakPtr AcidHiss;
     };
   }
 

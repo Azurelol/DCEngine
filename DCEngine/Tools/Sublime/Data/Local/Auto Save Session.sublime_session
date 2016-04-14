@@ -16,6 +16,10 @@
 				"selected_items":
 				[
 					[
+						"List",
+						"ListenForFreeze"
+					],
+					[
 						"Game",
 						"EndGameEvent"
 					],
@@ -127,7 +131,7 @@
 					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TutorialText.Zilch",
 					"settings":
 					{
-						"buffer_size": 2380,
+						"buffer_size": 2387,
 						"line_ending": "Windows"
 					}
 				},
@@ -399,23 +403,23 @@
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 2380,
+								"buffer_size": 2387,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										2065,
-										2065
+										2113,
+										2113
 									]
 								],
 								"settings":
 								{
 									"syntax": "Packages/C#/C#.sublime-syntax"
 								},
-								"translation.x": 0.0,
-								"translation.y": 585.0,
+								"translation.x": -0.0,
+								"translation.y": 675.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,

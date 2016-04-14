@@ -2098,7 +2098,7 @@
           "PressurePlate": 
           {
             "Target": "AntiEnergy1", 
-            "CollideSound": ""
+            "CollideSound": "PressurePlateClick"
           }, 
           "BoxCollider": 
           {
@@ -7806,7 +7806,7 @@
                 "w": 0.500000
               }
             }, 
-            "CollideSound": ""
+            "CollideSound": "HitBioField"
           }, 
           "SpriteParticleSystem": 
           {
@@ -8016,7 +8016,7 @@
                 "w": 0.500000
               }
             }, 
-            "CollideSound": ""
+            "CollideSound": "HitBioField"
           }, 
           "SpriteParticleSystem": 
           {
@@ -8226,7 +8226,7 @@
                 "w": 0.500000
               }
             }, 
-            "CollideSound": ""
+            "CollideSound": "HitBioFieldddd"
           }, 
           "SpriteParticleSystem": 
           {
@@ -8436,7 +8436,7 @@
                 "w": 0.010000
               }
             }, 
-            "CollideSound": ""
+            "CollideSound": "HitBioField"
           }
         }, 
         "Children": 
@@ -9591,7 +9591,7 @@
           "PressurePlate": 
           {
             "Target": "Door3", 
-            "CollideSound": ""
+            "CollideSound": "PressurePlateClick"
           }, 
           "BoxCollider": 
           {
@@ -12370,7 +12370,7 @@
                 "w": 0.500000
               }
             }, 
-            "CollideSound": ""
+            "CollideSound": "HitBioField"
           }, 
           "SpriteParticleSystem": 
           {
