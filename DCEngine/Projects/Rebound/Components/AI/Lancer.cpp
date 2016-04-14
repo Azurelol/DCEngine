@@ -11,6 +11,7 @@
 #include "Lancer.h"
 #include "../../../CoreComponents.h"
 
+#define PARENTPOSTEVENT(name) owner->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(name)
 #define POSTEVENT(name) SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(name)
 
 namespace DCEngine {
@@ -394,7 +395,7 @@ namespace DCEngine {
     void Lancer::ChargeLeft::Enter(Lancer *owner)
     {
       //DCTrace << "Lancer ChargeLeft Enter\n";
-
+      PARENTPOSTEVENT("LancerAlert");
       owner->FlipSprites(false);
     }
 
@@ -421,7 +422,7 @@ namespace DCEngine {
     void Lancer::ChargeRight::Enter(Lancer *owner)
     {
       DCTrace << "Lancer ChargeRight Enter\n";
-
+      PARENTPOSTEVENT("LancerAlert");
       owner->FlipSprites(true);
     }
 

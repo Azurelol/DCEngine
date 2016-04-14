@@ -446,7 +446,7 @@
             "JumpSound": "Jump", 
             "LandSound": "Land", 
             "FootstepSound": "Step", 
-            "CollideSound": "Collide", 
+            "CollideSound": "HitShield", 
             "DamageFromScrapper": 0, 
             "DamageFromSentinel": 0, 
             "DamageFromLancer": 0, 
