@@ -19,8 +19,8 @@
             {
               "Vec3": 
               {
-                "x": 12.004173, 
-                "y": 5.922242, 
+                "x": 0.744851, 
+                "y": 1.863075, 
                 "z": 0.000000
               }
             }, 
@@ -28,8 +28,8 @@
             {
               "Vec3": 
               {
-                "x": 12.004173, 
-                "y": 5.922242, 
+                "x": 0.744851, 
+                "y": 1.863075, 
                 "z": 0.000000
               }
             }, 
@@ -37,8 +37,8 @@
             {
               "Vec3": 
               {
-                "x": 12.004173, 
-                "y": 5.922242, 
+                "x": 0.744851, 
+                "y": 1.863075, 
                 "z": 0.000000
               }
             }, 
@@ -3147,8 +3147,8 @@
             {
               "Vec3": 
               {
-                "x": 56.000000, 
-                "y": 5.500000, 
+                "x": 109.672386, 
+                "y": 9.747070, 
                 "z": 0.000000
               }
             }, 
@@ -3156,8 +3156,8 @@
             {
               "Vec3": 
               {
-                "x": 56.000000, 
-                "y": 5.500000, 
+                "x": 109.672386, 
+                "y": 9.747070, 
                 "z": 0.000000
               }
             }, 
@@ -3165,8 +3165,8 @@
             {
               "Vec3": 
               {
-                "x": 56.000000, 
-                "y": 5.500000, 
+                "x": 109.672386, 
+                "y": 9.747070, 
                 "z": 0.000000
               }
             }, 
@@ -3183,8 +3183,8 @@
             {
               "Vec3": 
               {
-                "x": 12.000000, 
-                "y": 0.500000, 
+                "x": 8.000000, 
+                "y": 4.000000, 
                 "z": 1.000000
               }
             }
@@ -3210,7 +3210,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 3
           }, 
           "BoxCollider": 
           {
@@ -5906,7 +5906,7 @@
               "Vec3": 
               {
                 "x": 0.000000, 
-                "y": 5.000000, 
+                "y": -5.000000, 
                 "z": 0.000000
               }
             }, 
@@ -9178,7 +9178,7 @@
             {
               "Vec3": 
               {
-                "x": 134.593903, 
+                "x": 134.682785, 
                 "y": 14.322451, 
                 "z": 0.000000
               }
@@ -9187,7 +9187,7 @@
             {
               "Vec3": 
               {
-                "x": 134.593903, 
+                "x": 134.682785, 
                 "y": 14.322451, 
                 "z": 0.000000
               }
@@ -9196,7 +9196,7 @@
             {
               "Vec3": 
               {
-                "x": 134.593903, 
+                "x": 134.682785, 
                 "y": 14.322451, 
                 "z": 0.000000
               }
@@ -10202,7 +10202,7 @@
               "Vec3": 
               {
                 "x": 130.177490, 
-                "y": 25.891993, 
+                "y": 25.954428, 
                 "z": 0.000000
               }
             }, 
@@ -10211,7 +10211,7 @@
               "Vec3": 
               {
                 "x": 130.177490, 
-                "y": 25.891993, 
+                "y": 25.954428, 
                 "z": 0.000000
               }
             }, 
@@ -10220,7 +10220,7 @@
               "Vec3": 
               {
                 "x": 130.177490, 
-                "y": 25.891993, 
+                "y": 25.954428, 
                 "z": 0.000000
               }
             }, 
@@ -11180,7 +11180,7 @@
             {
               "Vec3": 
               {
-                "x": 129.326126, 
+                "x": 128.170563, 
                 "y": 26.478846, 
                 "z": 0.000000
               }
@@ -11189,7 +11189,7 @@
             {
               "Vec3": 
               {
-                "x": 129.326126, 
+                "x": 128.170563, 
                 "y": 26.478846, 
                 "z": 0.000000
               }
@@ -11198,7 +11198,7 @@
             {
               "Vec3": 
               {
-                "x": 129.326126, 
+                "x": 128.170563, 
                 "y": 26.478846, 
                 "z": 0.000000
               }
@@ -11282,11 +11282,55 @@
           "Level2Generator": 
           {
             "FinalLightRange": 50.000000, 
-            "FinalLightIntensity": 1.000000, 
-            "FinalLightFalloff": 0.700000, 
-            "FinalScreenShakeIntensity": 4.200000, 
-            "LightIncreaseDuration": 3.000000, 
+            "FinalLightIntensity": 9.000000, 
+            "FinalLightFalloff": 0.200000, 
+            "FinalScreenShakeIntensity": 1.000000, 
+            "LightIncreaseDuration": 3.500000, 
             "TeleporterLocation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 2.000000, 
+                "z": 0.000000
+              }
+            }
+          }, 
+          "DialogTrigger": 
+          {
+            "DialogTextObjectName": "DialogText", 
+            "OnlyOnFirstCollision": false, 
+            "ActiveOnCollision": false, 
+            "ActiveOnlyOnce": true, 
+            "Message1String": "Asha, get away from there. There's too much power in the system. It could overload any sec-", 
+            "Message1Speaker": "Cyrus", 
+            "Message2String": "", 
+            "Message2Speaker": "Cyrus", 
+            "Message3String": "", 
+            "Message3Speaker": "Cyrus", 
+            "Message4String": "", 
+            "Message4Speaker": "Cyrus", 
+            "Message5String": "", 
+            "Message5Speaker": "Cyrus", 
+            "Message6String": "", 
+            "Message6Speaker": "Cyrus", 
+            "Message7String": "", 
+            "Message7Speaker": "Cyrus"
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Default", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
             {
               "Vec3": 
               {
@@ -11294,7 +11338,10 @@
                 "y": 0.000000, 
                 "z": 0.000000
               }
-            }
+            }, 
+            "Ghost": true, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
           }
         }, 
         "Children": 
@@ -11543,137 +11590,6 @@
             "Ghost": false, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 147, 
-        "Name": "DialogTrigger2", 
-        "Protected": false, 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 127.605011, 
-                "y": 27.018112, 
-                "z": 0.000000
-              }
-            }, 
-            "LocalTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 127.605011, 
-                "y": 27.018112, 
-                "z": 0.000000
-              }
-            }, 
-            "WorldTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 127.605011, 
-                "y": 27.018112, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 7.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": false, 
-            "CullVisibility": true, 
-            "ForceLightCulling": false, 
-            "NOSHADOW": false, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "square", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 4
-          }, 
-          "BoxCollider": 
-          {
-            "CollisionGroup": "DefaultCollisionGroup", 
-            "PhysicsMaterial": "DefaultPhysicsMaterial", 
-            "Size": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Ghost": true, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
-          }, 
-          "DialogTrigger": 
-          {
-            "DialogTextObjectName": "DialogText", 
-            "OnlyOnFirstCollision": false, 
-            "ActiveOnCollision": true, 
-            "ActiveOnlyOnce": true, 
-            "Message1String": "Asha, get away from there. There's too much power in the system. It could overload any sec-", 
-            "Message1Speaker": "Cyrus", 
-            "Message2String": "", 
-            "Message2Speaker": "Asha", 
-            "Message3String": "", 
-            "Message3Speaker": "Cyrus", 
-            "Message4String": "Who needs luck when I’ve got the guardian angel of the resistance watching my back?", 
-            "Message4Speaker": "Asha", 
-            "Message5String": "Flatterer. See if you can find a way to activate that portal you found.", 
-            "Message5Speaker": "Cyrus", 
-            "Message6String": "If we can get it synced to the network you'll be able to get around a lot easier.", 
-            "Message6Speaker": "Cyrus", 
-            "Message7String": "Maybe you can use that new gadget of yours…", 
-            "Message7Speaker": "Cyrus"
           }
         }, 
         "Children": 
@@ -11965,8 +11881,8 @@
             {
               "Vec3": 
               {
-                "x": -6.350554, 
-                "y": 9.595891, 
+                "x": 8.000000, 
+                "y": 2.000000, 
                 "z": 0.000000
               }
             }, 
@@ -11974,8 +11890,8 @@
             {
               "Vec3": 
               {
-                "x": -6.350554, 
-                "y": 9.595891, 
+                "x": 8.000000, 
+                "y": 2.000000, 
                 "z": 0.000000
               }
             }, 
@@ -11983,8 +11899,8 @@
             {
               "Vec3": 
               {
-                "x": -6.350554, 
-                "y": 9.595891, 
+                "x": 8.000000, 
+                "y": 2.000000, 
                 "z": 0.000000
               }
             }, 
@@ -12001,8 +11917,8 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 50.000000, 
+                "x": 1.500000, 
+                "y": 1.500000, 
                 "z": 1.000000
               }
             }
@@ -13904,7 +13820,7 @@
       {
         "Locked": false, 
         "GameObjectID": 496, 
-        "Name": "Sprite", 
+        "Name": "Teleporter", 
         "Protected": false, 
         "Components": 
         {
@@ -14983,8 +14899,8 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 5929, 
-        "Name": "SpriteText", 
+        "GameObjectID": 1951, 
+        "Name": "Gauntlet", 
         "Protected": false, 
         "Components": 
         {
@@ -14994,27 +14910,27 @@
             {
               "Vec3": 
               {
-                "x": 8.016365, 
-                "y": 3.242348, 
-                "z": 0.010000
+                "x": 9.160000, 
+                "y": 2.434928, 
+                "z": 0.000000
               }
             }, 
             "LocalTranslation": 
             {
               "Vec3": 
               {
-                "x": 8.016365, 
-                "y": 3.242348, 
-                "z": 0.010000
+                "x": 9.160000, 
+                "y": 2.434928, 
+                "z": 0.000000
               }
             }, 
             "WorldTranslation": 
             {
               "Vec3": 
               {
-                "x": 8.016365, 
-                "y": 3.242348, 
-                "z": 0.010000
+                "x": 9.160000, 
+                "y": 2.434928, 
+                "z": 0.000000
               }
             }, 
             "Rotation": 
@@ -15030,15 +14946,18 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
+                "x": 1.500000, 
+                "y": 1.500000, 
                 "z": 1.000000
               }
             }
           }, 
-          "SpriteText": 
+          "Sprite": 
           {
             "Visible": true, 
+            "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -15049,13 +14968,44 @@
                 "w": 1.000000
               }
             }, 
-            "Font": "Electrolize-Regular", 
-            "FontSize": 7, 
-            "Text": "gloves go here", 
-            "PixelsPerUnit": 64, 
-            "Smoothing": true, 
-            "WordWrap": 8, 
-            "DrawLayer": 3
+            "SpriteSource": "Gauntlet", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }, 
+          "GauntletPickup": 
+          {
+            "MoveDistance": 0.300000, 
+            "MoveTime": 0.800000, 
+            "Ease": "QuadOut"
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Default", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": true, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
           }
         }, 
         "Children": 
@@ -15065,8 +15015,8 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 393, 
-        "Name": "Transform", 
+        "GameObjectID": 244, 
+        "Name": "Ceiling4", 
         "Protected": false, 
         "Components": 
         {
@@ -15076,8 +15026,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 56.000000, 
+                "y": 5.500000, 
                 "z": 0.000000
               }
             }, 
@@ -15085,8 +15035,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 56.000000, 
+                "y": 5.500000, 
                 "z": 0.000000
               }
             }, 
@@ -15094,8 +15044,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": 56.000000, 
+                "y": 5.500000, 
                 "z": 0.000000
               }
             }, 
@@ -15112,18 +15062,422 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
+                "x": 12.000000, 
+                "y": 0.500000, 
                 "z": 1.000000
               }
             }
           }, 
-          "MusicManager": 
+          "Sprite": 
           {
-            "Track": "DesertLab", 
-            "Volume": 1.000000, 
-            "PlayOnStart": true, 
-            "StopOnEnd": true
+            "Visible": true, 
+            "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.109000, 
+                "y": 0.109000, 
+                "z": 0.109000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 244, 
+        "Name": "Ceiling4", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 67.842934, 
+                "y": 8.655988, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 67.842934, 
+                "y": 8.655988, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 67.842934, 
+                "y": 8.655988, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 28.000000, 
+                "y": 6.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.109000, 
+                "y": 0.109000, 
+                "z": 0.109000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 3
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 244, 
+        "Name": "Ceiling4", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 95.189705, 
+                "y": 10.216879, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 95.189705, 
+                "y": 10.216879, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 95.189705, 
+                "y": 10.216879, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 28.000000, 
+                "y": 3.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.109000, 
+                "y": 0.109000, 
+                "z": 0.109000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 3
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 147, 
+        "Name": "DialogTrigger2", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 3.125902, 
+                "y": 2.164276, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 3.125902, 
+                "y": 2.164276, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 3.125902, 
+                "y": 2.164276, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.500000, 
+                "y": 1.500000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": false, 
+            "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }, 
+          "ActivateTriggerAfterTele": 
+          {
+          }, 
+          "MegaDialogTrigger": 
+          {
+            "DialogTextObjectName": "DialogText", 
+            "OnlyOnFirstCollision": false, 
+            "ActiveOnCollision": true, 
+            "ActiveOnlyOnce": true, 
+            "Message1String": "Asha, come in! Do you read? Repeat: Do you read?!", 
+            "Message1Speaker": "Cyrus", 
+            "Message2String": "Easy, Cyrus. I read you loud and clear. I’m perfectly fine. Really, really confused, but fine.", 
+            "Message2Speaker": "Asha", 
+            "Message3String": "Absolutely fascinating. Now that the power is back I can access the lab diagnostic information.", 
+            "Message3Speaker": "Cyrus", 
+            "Message4String": "According to these schematics, those gauntlets come fully equipped with an Emergency State Teleportation Activator!", 
+            "Message4Speaker": "Cyrus", 
+            "Message5String": "A what?", 
+            "Message5Speaker": "Asha", 
+            "Message6String": "I heard stories about this kind of tech, but I had no idea it was real!", 
+            "Message6Speaker": "Cyrus", 
+            "Message7String": "The ESTA will automatically sync with your holoshield and detect when a threat to your person has exceeded its capacity.", 
+            "Message7Speaker": "Cyrus", 
+            "Message8String": "When that happens, it will tap into auxiliary power and project you to a new location based on its last active-", 
+            "Message9Speaker": "Asha", 
+            "Message9String": "Cyrus...", 
+            "Message10Speaker": "Cyrus", 
+            "Message10String": "Ah. Sorry. If you've been at this as long as I have, you'd understand my excitement.", 
+            "Message11Speaker": "Cyrus", 
+            "Message11String": "In layman's terms, when you’re in a situation too hot for your shields to handle,", 
+            "Message12Speaker": "Cyrus", 
+            "Message12String": "the ESTA will automatically teleport you to the last node you tagged.", 
+            "Message13Speaker": "Cyrus", 
+            "Message13String": "So, for example, if you were to jump into a pit of acid right now you would be zapped right back to the teleporter.", 
+            "Message14Speaker": "Cyrus", 
+            "Message14String": "It's a good thing that explosion didn't shut down the portal or you'd be toast.", 
+            "Message15Speaker": "Asha", 
+            "Message15String": "Woah… Okay, I feel you now.", 
+            "Message16Speaker": "Cyrus", 
+            "Message16String": "Teleporters aren't the only thing you can tag, by the way.", 
+            "Message17Speaker": "Cyrus", 
+            "Message17String": "Teleporter frequencies often update at specific nodes along their network.", 
+            "Message18Speaker": "Cyrus", 
+            "Message18String": "You might not be able to teleport anywhere from these nodes, but the ESTA will log them as emergency destinations anyway,", 
+            "Message8Speaker": "Cyrus", 
+            "Message19Speaker": "Cyrus", 
+            "Message19String": "so long as you interface with them first.", 
+            "Message20Speaker": "Asha", 
+            "Message20String": "And how do I do that?", 
+            "Message21Speaker": "Cyrus", 
+            "Message21String": "Just touch it. The device's hardware will take care of the rest.", 
+            "Message22Speaker": "Cyrus", 
+            "Message22String": "What you've found down here is downright incredible, girl. ", 
+            "Message23Speaker": "Cyrus", 
+            "Message23String": "I trust you are familiar with the devices other principle property: a state-fluid spherical energy field. ", 
+            "Message24Speaker": "Asha", 
+            "Message24String": "It's an energy ball, Cy. Just for once talk like you aren’t one of the Second Dawn's robots."
           }
         }, 
         "Children": 
