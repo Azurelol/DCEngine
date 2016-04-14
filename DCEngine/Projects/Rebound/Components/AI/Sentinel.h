@@ -104,7 +104,6 @@ namespace DCEngine {
       bool isBashing;
       bool canBash;
       float randomPhase;
-      bool isDamageable;
       void CreateShield();
       void UpdateShield();
       void ShieldBash();

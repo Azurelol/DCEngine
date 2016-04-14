@@ -97,13 +97,16 @@ namespace DCEngine {
       CreateShield();
       Connect(shield, Events::CollisionStarted, Sentinel::OnShieldCollisionStartedEvent);
       CreateSprites();
-
-      isDamageable = true;
+	  particle = SpaceRef->CreateObject("SentinelParticle");
+	  if (particle)
+	  {
+		  particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation);
+	  }
     }
 
     void Sentinel::OnLogicUpdateEvent(Events::LogicUpdate * event)
     {
-      stateMachine->Update();
+	  particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation);
       dt = event->Dt;
 
       if(!isBashing)
@@ -127,7 +130,6 @@ namespace DCEngine {
           FlashColor(DamageTakenColor, DamageTakenColorFlashSpeed);
         }
 
-        event->OtherObject->getComponent<BallController>()->IsAttracting = false;
         event->OtherObject->getComponent<RigidBody>()->ApplyForce(-event->Normal * BallReflectForce);
 
       }
@@ -147,19 +149,12 @@ namespace DCEngine {
 
       if (!IsInvulnerable)
       {
-        if (isDamageable)
-        {
-          health += amount;
+        health += amount;
 
-          if (health > maxHealth)
-            health = maxHealth;
-          if (health < 0)
-            health = 0;
-
-          isDamageable = false;
-          ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
-          Actions::Property(seq, isDamageable, true, DamageTakenColorFlashSpeed + 0.3f, Ease::Linear);
-        }
+        if (health > maxHealth)
+          health = maxHealth;
+        if (health < 0)
+          health = 0;
       }
 
       if (health == 0)
@@ -183,12 +178,6 @@ namespace DCEngine {
       CollisionTablePtr CollisionTableRef = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));
       CollisionTableRef->SetResolve("Enemy", "SentinelShield", CollisionFlag::SkipDetecting);
       shield->getComponent<Transform>()->Translation.z = 0.03;
-
-      float scaleX = TransformRef->Scale.x;
-      float scaleY = TransformRef->Scale.y;
-
-      shield->getComponent<Transform>()->Scale.x = scaleX;
-      shield->getComponent<Transform>()->Scale.y = scaleY;
     }
 
     void Sentinel::CreateSprites()
@@ -209,17 +198,6 @@ namespace DCEngine {
       head->getComponent<Transform>()->Translation.z = 0.01;
       shoulder->getComponent<Transform>()->Translation.z = 0.02;
       body->getComponent<Transform>()->Translation.z = 0;
-
-
-      float scaleX = TransformRef->Scale.x;
-      float scaleY = TransformRef->Scale.y;
-
-      head->getComponent<Transform>()->Scale.x = scaleX;
-      head->getComponent<Transform>()->Scale.y = scaleY;
-      shoulder->getComponent<Transform>()->Scale.x = scaleX;
-      shoulder->getComponent<Transform>()->Scale.y = scaleY;
-      body->getComponent<Transform>()->Scale.x = scaleX;
-      body->getComponent<Transform>()->Scale.y = scaleY;
 
     }
 
