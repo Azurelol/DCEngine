@@ -73,7 +73,7 @@ namespace DCEngine {
       GameObject* gameObj;
       GameObject* TrailRef;
       String PlayerName = "Player";
-
+      
       DCE_DEFINE_PROPERTY(String, PlayerName);
       //DCE_DEFINE_PROPERTY(Boolean, Translation);
       DCE_DEFINE_PROPERTY(Real, MoveSpeed);
@@ -137,6 +137,7 @@ namespace DCEngine {
       String CommandSound = "BallCommand";
       String CollideSound = "BallCollide";
 
+      SoundInstanceWeakPtr ChargeInstance;
     };
   }
 

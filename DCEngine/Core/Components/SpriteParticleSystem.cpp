@@ -168,6 +168,8 @@ namespace DCEngine {
     /**************************************************************************/
 		void SpriteParticleSystem::SetUniforms(ShaderPtr shader, Camera* camera, Light * light)
 		{
+			if (!Visible)
+				return;
 			if (!shader)
 				shader = mShader;
 			shader->Use();
@@ -180,22 +182,28 @@ namespace DCEngine {
 			modelMatrix = glm::scale(modelMatrix,
 				glm::vec3(transform->Scale.x, transform->Scale.y, 0.0f));
 
-			std::vector<glm::vec2> offset(GetPositionData());
-			std::vector<float> rotation(GetRotationData());
-			std::vector<float> scale(GetScaleData());
+			std::vector<std::pair<Vec2, Vec2>> lists;
+			for (unsigned i = 0; i < mParticleList.size(); ++i)
+			{
+				lists.push_back(std::make_pair(mParticleList[i].GetPosition(),
+					Vec2(mParticleList[i].GetScale(), mParticleList[i].GetRotation())));
+			}
+			//std::vector<glm::vec2> offset(GetPositionData());
+			//std::vector<float> rotation(GetRotationData());
+			//std::vector<float> scale(GetScaleData());
 			
 			for (unsigned i = 0; i < GetParticleCount(); ++i)
 			{
 				glm::mat4 modelMatrix;
 				if (Lock)
 					modelMatrix = glm::translate(modelMatrix, glm::vec3(
-						transform->Translation.x + offset[i].x, transform->Translation.y + offset[i].y,
+						transform->Translation.x + lists[i].first.x, transform->Translation.y + lists[i].first.y,
 						transform->Translation.z));
 				else
-					modelMatrix = glm::translate(modelMatrix, glm::vec3(offset[i].x, offset[i].y,
+					modelMatrix = glm::translate(modelMatrix, glm::vec3(lists[i].first.x, lists[i].first.y,
 						transform->Translation.z));
-				modelMatrix = glm::rotate(modelMatrix, rotation[i], glm::vec3(0, 0, 1));
-				modelMatrix = glm::scale(modelMatrix, glm::vec3(scale[i], scale[i], 0.0f));
+				modelMatrix = glm::rotate(modelMatrix, lists[i].second.y, glm::vec3(0, 0, 1));
+				modelMatrix = glm::scale(modelMatrix, glm::vec3(lists[i].second.x, lists[i].second.x, 0.0f));
 				transformData.push_back(modelMatrix);
 			}
 
@@ -224,7 +232,8 @@ namespace DCEngine {
     /**************************************************************************/
 		void SpriteParticleSystem::Draw(void)
 		{
-			//mShader->Use();
+			if (!Visible)
+				return;
 			glEnable(GL_DEPTH_TEST);
 			glDepthMask(GL_FALSE);
 			glDepthFunc(GL_LEQUAL);
@@ -235,21 +244,19 @@ namespace DCEngine {
 				glBlendFunc(GL_ONE, GL_ONE);
 			else
 				glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-			if (Visible)
-			{
-				glDrawBuffer(GL_COLOR_ATTACHMENT2);
-				glBindBuffer(GL_ARRAY_BUFFER, mColorInstanceVBO);
-				glBufferSubData(GL_ARRAY_BUFFER, 0,
-					sizeof(glm::vec4) * GetParticleCount(), color.data());
-				glBindBuffer(GL_ARRAY_BUFFER, mTransformInstanceVBO);
-				glBufferSubData(GL_ARRAY_BUFFER, 0,
-					sizeof(glm::mat4) * GetParticleCount(), transformData.data());
-				glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-				glBindVertexArray(mVAO);
-				glDrawArraysInstanced(GL_TRIANGLE_FAN, 0, 4,  static_cast<GLsizei>(offset.size()));
-				glBindVertexArray(0);
-			}
+			glDrawBuffer(GL_COLOR_ATTACHMENT2);
+			glBindBuffer(GL_ARRAY_BUFFER, mColorInstanceVBO);
+			glBufferSubData(GL_ARRAY_BUFFER, 0,
+				sizeof(glm::vec4) * GetParticleCount(), color.data());
+			glBindBuffer(GL_ARRAY_BUFFER, mTransformInstanceVBO);
+			glBufferSubData(GL_ARRAY_BUFFER, 0,
+				sizeof(glm::mat4) * GetParticleCount(), transformData.data());
+			glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+			glBindVertexArray(mVAO);
+			glDrawArraysInstanced(GL_TRIANGLE_FAN, 0, 4,  static_cast<GLsizei>(offset.size()));
+			glBindVertexArray(0);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			glDepthMask(GL_TRUE);
 			glDepthFunc(GL_LESS);

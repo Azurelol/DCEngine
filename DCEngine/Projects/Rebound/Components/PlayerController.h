@@ -29,7 +29,7 @@ namespace DCEngine {
       bool Invincible = false;
       bool LevelCheatLoaded = true;
       bool musicplay = true;
-      bool Dead = false;
+      
       Real AutoPlayTimer = 2.0f;
       Real DeathTimer = 0.0f;
       Real TimeToDie = 0.7f;
@@ -160,7 +160,9 @@ namespace DCEngine {
       int maxHealth;
       void PlayTeleportArriveSound();
       void ReloadLevel();
-      void Spawn();
+      void TeleportIn();
+      void DestroyTeleportParticle();
+      GameObjectPtr teleportInParticle;
     };
   }
 
