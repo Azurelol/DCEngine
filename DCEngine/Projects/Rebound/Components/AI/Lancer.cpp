@@ -222,6 +222,19 @@ namespace DCEngine {
       spear->getComponent<Transform>()->Translation.z = 0.03f;
       shield->getComponent<Transform>()->Translation.z = 0.04f;
 
+      float scaleX = TransformRef->Scale.x;
+      float scaleY = TransformRef->Scale.y;
+
+      head->getComponent<Transform>()->Scale.x = scaleX;
+      head->getComponent<Transform>()->Scale.y = scaleY;
+      shoulder->getComponent<Transform>()->Scale.x = scaleX;
+      shoulder->getComponent<Transform>()->Scale.y = scaleY;
+      body->getComponent<Transform>()->Scale.x = scaleX;
+      body->getComponent<Transform>()->Scale.y = scaleY;
+      spear->getComponent<Transform>()->Scale.x = scaleX;
+      spear->getComponent<Transform>()->Scale.y = scaleY;
+      shield->getComponent<Transform>()->Scale.x = scaleX * 4;
+      shield->getComponent<Transform>()->Scale.y = scaleY * (10.0f/4.0f);
     }
 
     void Lancer::UpdateSprites(float timePassed)

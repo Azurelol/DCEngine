@@ -107,5 +107,15 @@ namespace DCEngine {
       return (PhyMat->getDensity() * volume.x * volume.y);
     }
 
+    const PhysicsMaterialHandle & Collider::getPhysicsMaterial()
+    {
+      return PhysicsMaterial;
+    }
+    void Collider::setPhysicsMaterial(PhysicsMaterialHandle const & material)
+    {
+      PhysicsMaterial = material;
+    }
+
+
   }
 }

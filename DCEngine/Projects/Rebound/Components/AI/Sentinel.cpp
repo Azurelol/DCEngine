@@ -183,6 +183,12 @@ namespace DCEngine {
       CollisionTablePtr CollisionTableRef = Daisy->getSystem<Systems::Content>()->getCollisionTable(std::string(this->SpaceRef->getComponent<Components::PhysicsSpace>()->getCollisionTable()));
       CollisionTableRef->SetResolve("Enemy", "SentinelShield", CollisionFlag::SkipDetecting);
       shield->getComponent<Transform>()->Translation.z = 0.03;
+
+      float scaleX = TransformRef->Scale.x;
+      float scaleY = TransformRef->Scale.y;
+
+      shield->getComponent<Transform>()->Scale.x = scaleX;
+      shield->getComponent<Transform>()->Scale.y = scaleY;
     }
 
     void Sentinel::CreateSprites()
@@ -203,6 +209,17 @@ namespace DCEngine {
       head->getComponent<Transform>()->Translation.z = 0.01;
       shoulder->getComponent<Transform>()->Translation.z = 0.02;
       body->getComponent<Transform>()->Translation.z = 0;
+
+
+      float scaleX = TransformRef->Scale.x;
+      float scaleY = TransformRef->Scale.y;
+
+      head->getComponent<Transform>()->Scale.x = scaleX;
+      head->getComponent<Transform>()->Scale.y = scaleY;
+      shoulder->getComponent<Transform>()->Scale.x = scaleX;
+      shoulder->getComponent<Transform>()->Scale.y = scaleY;
+      body->getComponent<Transform>()->Scale.x = scaleX;
+      body->getComponent<Transform>()->Scale.y = scaleY;
 
     }
 
