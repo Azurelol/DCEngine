@@ -1,7 +1,8 @@
 <NotepadPlus>
     <Session activeView="0">
         <mainView activeIndex="0">
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="632" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\john.myres\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\HealthControllerZ.Zilch" backupFilePath="" originalFileLastModifTimestamp="1460526487" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="712" startPos="419" endPos="419" selMode="0" lang="Normal Text" encoding="-1" filename="D:\DCEngine\DCEngine\Projects\Rebound\Resources\CheckpointZilch.Zilch" backupFilePath="D:\DCEngine\DCEngine\Tools\Notepad++\backup\CheckpointZilch.Zilch@2016-04-13_223323" originalFileLastModifTimestamp="1460611994" />
+            <File firstVisibleLine="24" xOffset="0" scrollWidth="1432" startPos="774" endPos="773" selMode="0" lang="Normal Text" encoding="-1" filename="D:\DCEngine\DCEngine\Projects\Rebound\Resources\GauntletPickup.Zilch" backupFilePath="" originalFileLastModifTimestamp="1460601277" />
         </mainView>
         <subView activeIndex="0" />
     </Session>

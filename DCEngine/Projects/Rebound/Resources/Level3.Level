@@ -189,8 +189,8 @@
             {
               "Vec3": 
               {
-                "x": -141.423340, 
-                "y": 14.009146, 
+                "x": -141.899002, 
+                "y": 11.979754, 
                 "z": 0.000000
               }
             }, 
@@ -198,8 +198,8 @@
             {
               "Vec3": 
               {
-                "x": -141.423340, 
-                "y": 14.009146, 
+                "x": -141.899002, 
+                "y": 11.979754, 
                 "z": 0.000000
               }
             }, 
@@ -207,8 +207,8 @@
             {
               "Vec3": 
               {
-                "x": -141.423340, 
-                "y": 14.009146, 
+                "x": -141.899002, 
+                "y": 11.979754, 
                 "z": 0.000000
               }
             }, 
@@ -307,6 +307,15 @@
           {
             "MoveSpeed": 0.350000, 
             "VelocityXCap": 10.000000, 
+            "InitialLocation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
             "JumpPower": 30.000000, 
             "JumpFrames": 1.000000, 
             "Health": 2.000000, 
@@ -1926,8 +1935,8 @@
             {
               "Vec3": 
               {
-                "x": -35.500000, 
-                "y": 4.000000, 
+                "x": -35.594746, 
+                "y": 3.857879, 
                 "z": 0.000000
               }
             }, 
@@ -1935,8 +1944,8 @@
             {
               "Vec3": 
               {
-                "x": -35.500000, 
-                "y": 4.000000, 
+                "x": -35.594746, 
+                "y": 3.857879, 
                 "z": 0.000000
               }
             }, 
@@ -1944,8 +1953,8 @@
             {
               "Vec3": 
               {
-                "x": -35.500000, 
-                "y": 4.000000, 
+                "x": -35.594746, 
+                "y": 3.857879, 
                 "z": 0.000000
               }
             }, 
@@ -1962,7 +1971,7 @@
             {
               "Vec3": 
               {
-                "x": 4.000000, 
+                "x": 4.200000, 
                 "y": 1.000000, 
                 "z": 1.000000
               }
@@ -1970,7 +1979,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": false, 
+            "Visible": true, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -1979,12 +1988,12 @@
               "Vec4": 
               {
                 "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
+                "y": 0.429000, 
+                "z": 0.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -7652,12 +7661,12 @@
               "Vec4": 
               {
                 "x": 1.000000, 
-                "y": 0.486000, 
-                "z": 0.171000, 
+                "y": 0.400000, 
+                "z": 0.000000, 
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "tile_basic_both", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -12693,7 +12702,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": false, 
+        "Locked": true, 
         "GameObjectID": 141, 
         "Name": "Darude", 
         "Protected": false, 
@@ -12902,161 +12911,6 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 11, 
-        "Name": "LandingParticleSand2", 
-        "Protected": false, 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "LocalTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "WorldTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "SpriteParticleSystem": 
-          {
-            "Visible": true, 
-            "Tint": 
-            {
-              "Vec4": 
-              {
-                "x": 0.600000, 
-                "y": 0.400000, 
-                "z": 0.225000, 
-                "w": 1.000000
-              }
-            }, 
-            "Texture": "WhiteCloud", 
-            "VelocityScale": 1.000000, 
-            "LengthScale": 1.000000, 
-            "SystemSize": 
-            {
-              "Vec3": 
-              {
-                "x": 4.000000, 
-                "y": 4.000000, 
-                "z": 4.000000
-              }
-            }, 
-            "Additive": false, 
-            "Lock": false, 
-            "DrawLayer": 5
-          }, 
-          "ParticleEmitter": 
-          {
-            "Active": true, 
-            "ResetCount": false, 
-            "EmitCount": 10, 
-            "EmitRate": 5000, 
-            "EmitVariance": 1, 
-            "Size": 2.000000, 
-            "SizeVariance": 1.000000, 
-            "Lifetime": 1.000000, 
-            "LifetimeVariance": 1.000000, 
-            "Spin": 100.000000, 
-            "SpinVariance": 1004.000000, 
-            "StartVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "RandomVelocity": 
-            {
-              "Vec3": 
-              {
-                "x": 7.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "EmissionArea": 
-            {
-              "Vec2": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000
-              }
-            }, 
-            "EmissionCircle": false
-          }, 
-          "LinearParticleAnimator": 
-          {
-            "Force": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 5.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "RandomForce": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Torque": 0.000000, 
-            "Growth": -5.000000, 
-            "Dampening": 3.000000
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
         "GameObjectID": 126, 
         "Name": "KeyFreeze", 
         "Protected": false, 
@@ -13158,8 +13012,7 @@
           {
             "WaitTime": 10.000000, 
             "TransitionTime": 1.000000, 
-            "ListenForMove": false, 
-            "ListenForFreeze": true
+            "ListenForMove": false
           }
         }, 
         "Children": 
@@ -13245,8 +13098,7 @@
               {
                 "WaitTime": 10.000000, 
                 "TransitionTime": 1.000000, 
-                "ListenForMove": false, 
-                "ListenForFreeze": true
+                "ListenForMove": false
               }
             }, 
             "Children": 
@@ -13334,8 +13186,7 @@
               {
                 "WaitTime": 10.000000, 
                 "TransitionTime": 1.000000, 
-                "ListenForMove": false, 
-                "ListenForFreeze": true
+                "ListenForMove": false
               }
             }, 
             "Children": 
