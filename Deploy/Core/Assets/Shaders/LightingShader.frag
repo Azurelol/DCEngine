@@ -123,9 +123,11 @@ void main()
 	vec3 normal = texture(gWorldNormal, gTexCoords).rgb;
 	vec4 color = texture(gColor, gTexCoords);
 	if(useLight)
+	{
 		if(gLight.CullLight == 0 || (gLight.Position.z + gLight.CullLight <= fragPos.z))
 			lightValue = GenerateIlluminationValues(fragPos, normal);
 		else
 			lightValue = vec3(0);
+	}
 	FragColor = color * vec4(lightValue, 1);
 }
