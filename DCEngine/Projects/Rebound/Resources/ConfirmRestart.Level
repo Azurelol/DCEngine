@@ -2,15 +2,15 @@
 {
   "Level": 
   {
-    "Name": "ConfirmQuit", 
+    "Name": "ConfirmRestart", 
     "GameObjects": 
     {
       "GameObject": 
       {
         "Locked": true, 
-        "GameObjectID": 137, 
+        "GameObjectID": 6172, 
         "Name": "LevelSettings", 
-        "Protected": false, 
+        "Protected": true, 
         "Components": 
         {
         }, 
@@ -21,7 +21,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 141, 
+        "GameObjectID": 6173, 
         "Name": "Camera", 
         "Protected": false, 
         "Components": 
@@ -32,8 +32,8 @@
             {
               "Vec3": 
               {
-                "x": -7.671701, 
-                "y": -19.907455, 
+                "x": -7.555556, 
+                "y": -18.577776, 
                 "z": 1.000000
               }
             }, 
@@ -41,8 +41,8 @@
             {
               "Vec3": 
               {
-                "x": -7.671701, 
-                "y": -19.907455, 
+                "x": -7.555556, 
+                "y": -18.577776, 
                 "z": 1.000000
               }
             }, 
@@ -50,8 +50,8 @@
             {
               "Vec3": 
               {
-                "x": -7.671701, 
-                "y": -19.907455, 
+                "x": -7.555556, 
+                "y": -18.577776, 
                 "z": 1.000000
               }
             }, 
@@ -92,7 +92,7 @@
       {
         "Locked": false, 
         "GameObjectID": 198, 
-        "Name": "ConfQuitBG", 
+        "Name": "ConfRestartBG", 
         "Protected": false, 
         "Components": 
         {
@@ -186,7 +186,7 @@
             {
               "Vec3": 
               {
-                "x": -11.509037, 
+                "x": -12.203066, 
                 "y": -16.932600, 
                 "z": 0.000000
               }
@@ -195,7 +195,7 @@
             {
               "Vec3": 
               {
-                "x": -11.509037, 
+                "x": -12.203066, 
                 "y": -16.932600, 
                 "z": 0.000000
               }
@@ -204,7 +204,7 @@
             {
               "Vec3": 
               {
-                "x": -11.509037, 
+                "x": -12.203066, 
                 "y": -16.932600, 
                 "z": 0.000000
               }
@@ -243,7 +243,7 @@
             }, 
             "Font": "SafetyMedium", 
             "FontSize": 10, 
-            "Text": "Really Quit?", 
+            "Text": "Really Restart?", 
             "PixelsPerUnit": 64, 
             "Smoothing": true, 
             "WordWrap": 0, 
@@ -354,7 +354,7 @@
           {
             "Locked": false, 
             "GameObjectID": 142, 
-            "Name": "ConfirmQuitButton", 
+            "Name": "ConfirmResetButton", 
             "Protected": false, 
             "Components": 
             {
@@ -514,8 +514,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": -13.609931, 
-                        "y": -19.754208, 
+                        "x": -14.132281, 
+                        "y": -19.741467, 
                         "z": 0.001000
                       }
                     }, 
@@ -523,8 +523,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": -1.773648, 
-                        "y": -0.210037, 
+                        "x": -2.295999, 
+                        "y": -0.197296, 
                         "z": 0.001000
                       }
                     }, 
@@ -532,8 +532,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": -13.609931, 
-                        "y": -19.754208, 
+                        "x": -14.132281, 
+                        "y": -19.741467, 
                         "z": 0.001000
                       }
                     }, 
@@ -571,7 +571,7 @@
                     }, 
                     "Font": "SafetyMedium", 
                     "FontSize": 6, 
-                    "Text": "Yes, Quit", 
+                    "Text": "Yes, Restart", 
                     "PixelsPerUnit": 64, 
                     "Smoothing": true, 
                     "WordWrap": 0, 
@@ -748,8 +748,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": -6.178621, 
-                        "y": -19.731459, 
+                        "x": -6.382465, 
+                        "y": -19.693237, 
                         "z": 0.001000
                       }
                     }, 
@@ -757,8 +757,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": -2.342338, 
-                        "y": -0.187288, 
+                        "x": -2.546182, 
+                        "y": -0.149067, 
                         "z": 0.001000
                       }
                     }, 
@@ -766,8 +766,8 @@
                     {
                       "Vec3": 
                       {
-                        "x": -6.178621, 
-                        "y": -19.731459, 
+                        "x": -6.382465, 
+                        "y": -19.693237, 
                         "z": 0.001000
                       }
                     }, 
@@ -804,8 +804,8 @@
                       }
                     }, 
                     "Font": "SafetyMedium", 
-                    "FontSize": 6, 
-                    "Text": "No, Don't Quit", 
+                    "FontSize": 5, 
+                    "Text": "No, Don't Restart", 
                     "PixelsPerUnit": 64, 
                     "Smoothing": true, 
                     "WordWrap": 0, 
