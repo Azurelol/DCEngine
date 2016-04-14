@@ -41,10 +41,12 @@ namespace DCEngine {
 
       /* Properties */
       DCE_DEFINE_PROPERTY(String, CollisionGroup);
-      DCE_DEFINE_PROPERTY(PhysicsMaterialHandle, PhysicsMaterial);
+      //DCE_DEFINE_PROPERTY(PhysicsMaterialHandle, PhysicsMaterial);
       // @todo For now it's a string, it will be later a tagged property so there's a dropdown menu in the editor
       //String getCollisionGroup() const;
       //void setCollisionGroup(String);
+      const PhysicsMaterialHandle & getPhysicsMaterial();
+      void setPhysicsMaterial(PhysicsMaterialHandle const & material);
       float getRestitution(void);
       float getFriction(void);
       float GetInvMass(void);
