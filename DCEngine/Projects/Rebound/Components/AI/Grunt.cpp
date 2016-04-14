@@ -121,7 +121,12 @@ namespace DCEngine {
       randomPhase = distribution(generator);
       CreateSprites();
 
-      isDamagable = true;
+	    particle = SpaceRef->CreateObject("ScrapperParticle");
+      particle->AttachTo(gameObj);
+	    if (particle)
+	    {
+		    particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation + ParticleOffset + Vec3(RigidBodyRef->getVelocity().x / 60, 0 ,0));
+	    }
     }
 
     void Grunt::ChangeStateRight()
@@ -139,7 +144,7 @@ namespace DCEngine {
       stateMachine->Update();
       dt = event->Dt;
       UpdateSprites(event->TimePassed);
-      
+	    particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation + ParticleOffset + Vec3(RigidBodyRef->getVelocity().x / 60, 0, 0));
     }
 
     void Grunt::OnCollisionStartedEvent(Events::CollisionStarted * event)
@@ -155,7 +160,6 @@ namespace DCEngine {
           FlashColor(DamageTakenColor, DamageTakenColorFlashSpeed);
         }
 
-        event->OtherObject->getComponent<BallController>()->IsAttracting = false;
         event->OtherObject->getComponent<RigidBody>()->ApplyForce(-event->Normal * BallReflectForce);
       }
     }
@@ -166,7 +170,7 @@ namespace DCEngine {
 
       if (!IsInvulnerable)
       {
-        if (isDamagable)
+        if (isDamageable)
         {
           health += amount;
 
@@ -175,9 +179,9 @@ namespace DCEngine {
           if (health < 0)
             health = 0;
 
-          isDamagable = false;
+          isDamageable = false;
           ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
-          Actions::Property(seq, isDamagable, true, DamageTakenColorFlashSpeed + 0.3f, Ease::Linear);
+          Actions::Property(seq, isDamageable, true, DamageTakenColorFlashSpeed + 0.3f, Ease::Linear);
         }
       }
 
@@ -210,18 +214,6 @@ namespace DCEngine {
       head->getComponent<Transform>()->Translation.z = 0.01;
       body->getComponent<Transform>()->Translation.z = 0;
       saw->getComponent<Transform>()->Translation.z = 0.02;
-
-      float scaleX = TransformRef->Scale.x;
-      float scaleY = TransformRef->Scale.y;
-
-      head->getComponent<Transform>()->Scale.x = scaleX;
-      head->getComponent<Transform>()->Scale.y = scaleY;
-      body->getComponent<Transform>()->Scale.x = scaleX;
-      body->getComponent<Transform>()->Scale.y = scaleY;
-      saw->getComponent<Transform>()->Scale.x = scaleX;
-      saw->getComponent<Transform>()->Scale.y = scaleY;
-       
-
     }
 
     void Grunt::UpdateSprites(float timePassed)
@@ -271,10 +263,14 @@ namespace DCEngine {
         RigidBodyRef->setVelocity(RigidBodyRef->getVelocity() + Vec3(strengthX *  direction, strengthY, 0));
         jumpTimer = 0;
 
-        // particle emitter.size = 0.8;
+        particle->getComponent<ParticleEmitter>()->Size = 0.8f;
       }
 
       jumpTimer += dt;
+
+      if(RigidBodyRef->getVelocity().y < 0)
+        particle->getComponent<ParticleEmitter>()->Size = 0.3f;
+
     }
 
 #pragma region Global State

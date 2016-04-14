@@ -116,7 +116,7 @@ namespace DCEngine {
 
 			
 			std::vector<std::vector<Components::Graphical*>>* mDrawList;
-			std::vector<SpriteSourcePtr>* mDeferredObjects;
+			std::vector<std::pair<SpriteSourcePtr, Vec4>>* mDeferredObjects;
       OpenGLStateData GLState;
       // OpenGL Drawing functions
       void DrawArrays(GLuint VAO, GLuint numVertices, GLenum drawMode);

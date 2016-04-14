@@ -211,8 +211,9 @@ namespace DCEngine {
 				FinalRenderShader->SetInteger("useLight", 0);
 				FinalRenderShader->SetFloat("Exposure", 0);
 				FinalRenderShader->SetInteger("LightedFrag", 0);
+        FinalRenderShader->SetVector4f("ClearColor", obj.second);
 				glActiveTexture(GL_TEXTURE0);
-				obj->getTexture().Bind();
+				obj.first->getTexture().Bind();
 
 				glBegin(GL_TRIANGLE_FAN);
 				glVertex4f(-1, -1, 0, 0);
@@ -220,6 +221,7 @@ namespace DCEngine {
 				glVertex4f(1, 1, 1, 1);
 				glVertex4f(-1, 1, 0, 1);
 				glEnd();
+        FinalRenderShader->SetVector4f("ClearColor", Vec4(1,1,1,1));
 			}
 		}
 

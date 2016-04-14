@@ -102,11 +102,11 @@ namespace DCEngine {
       
       float width = Daisy->getSystem<Systems::Graphics>()->GetScreenWidth();
       float height = Daisy->getSystem<Systems::Graphics>()->GetScreenHeight();
-      redHaze->getComponent<Transform>()->Scale = Vec3(width / 38, height / 38, 0);
+     // redHaze->getComponent<Transform>()->Scale = Vec3(width / 38, height / 38, 0);
       redHaze->getComponent<Sprite>()->Color = redHazeColor;
-
-
-
+      
+      
+      
       if (Health <= maxHealth / 2)
       {
         redHazeAlphaValue =  1 - (Health / maxHealth);
@@ -115,12 +115,11 @@ namespace DCEngine {
       {
         redHazeAlphaValue = 0.0f;
       }
-
+      
       ActionSetPtr seq2 = Actions::Sequence(Owner()->Actions);
       Actions::Property(seq2, redHaze->getComponent<Sprite>()->Color.w, redHazeAlphaValue, duration, Ease::Linear);
 
-			Daisy->getSystem<Systems::Graphics>()->ScreenSpaceRectangle(width, height, 
-				Daisy->getSystem<Systems::Content>()->getSpriteSrc(redHaze->getComponent<Sprite>()->SpriteSource));
+			
     }
 
     void PlayerController::CreateShield()
@@ -308,7 +307,12 @@ namespace DCEngine {
 
 		void PlayerController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 		{
+      float width = Daisy->getSystem<Systems::Graphics>()->GetScreenWidth();
+      float height = Daisy->getSystem<Systems::Graphics>()->GetScreenHeight();
       //DCTrace << "Player velocity: " << RigidBodyRef->getVelocity().x << ", " << RigidBodyRef->getVelocity().y << "\n";
+      Daisy->getSystem<Systems::Graphics>()->ScreenSpaceRectangle(redHaze->getComponent<Sprite>()->Color,
+        Daisy->getSystem<Systems::Content>()->getSpriteSrc(redHaze->getComponent<Sprite>()->SpriteSource));
+      DCTrace << "RedHazeAlpha " << redHaze->getComponent<Sprite>()->Color.w << "\n";
 
 			bool animationChanged = false;
 			if (PlayerControllerTraceOn)
