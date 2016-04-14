@@ -1,6 +1,6 @@
 class ActivateTriggerAfterTele : ZilchComponent
 {
-	var Active: Boolean = true;
+	  var Active : Boolean = true;
     function Initialize()
     {
         Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);

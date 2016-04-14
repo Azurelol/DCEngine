@@ -21,6 +21,8 @@ class Level2Generator : ZilchComponent
     [Property]
     var TeleporterLocation: Real3;
     
+    var Active : Boolean = false; 
+    
     function Initialize()
     {
         //Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
