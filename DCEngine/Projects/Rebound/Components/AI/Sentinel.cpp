@@ -97,11 +97,14 @@ namespace DCEngine {
       CreateShield();
       Connect(shield, Events::CollisionStarted, Sentinel::OnShieldCollisionStartedEvent);
       CreateSprites();
-	  particle = SpaceRef->CreateObject("SentinelParticle");
-	  if (particle)
-	  {
-		  particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation);
-	  }
+
+
+	    particle = SpaceRef->CreateObject("SentinelParticle");
+      particle->AttachTo(gameObj);
+	    if (particle)
+	    {
+		    particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation);
+	    }
     }
 
     void Sentinel::OnLogicUpdateEvent(Events::LogicUpdate * event)
