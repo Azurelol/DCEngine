@@ -148,7 +148,7 @@ namespace DCEngine {
     void Content::LoadAllResources(bool multiThreaded)
     {
       DCTrace << " Content::LoadAllResources: '" << ProjectInfo->ProjectName << "' has started loading... \n";
-
+      
       // Generate every SoundCue from file
       for (auto& soundCue : MapSoundCue) {
         soundCue.second->Load();
@@ -184,6 +184,16 @@ namespace DCEngine {
       }
       Daisy->getSystem<Reflection>()->Handler()->CompileScripts();
       
+      // Load every SpriteSource...
+      for (auto& spriteSource : MapSpriteSource) {
+        spriteSource.second->Load();
+      }
+
+      // Load every Font
+      for (auto& font : MapFont) {
+        font.second->Load();
+      }
+
       // If loading graphical resources multi-threadedly
       if (multiThreaded) {
         // Load the project's graphical resources on a separate thread
@@ -197,14 +207,12 @@ namespace DCEngine {
 
         // Load every spritesource
         for (auto& spriteSource : MapSpriteSource) {
-          spriteSource.second->Load();
           spriteSource.second->LoadImageFromFile();
           spriteSource.second->GenerateTexture();
         }
 
         // Load every Font
         for (auto& font : MapFont) {
-          font.second->Load();
           font.second->LoadFontFromFile();
           font.second->GenerateFont();
         }
@@ -234,7 +242,6 @@ namespace DCEngine {
         if (CancelLoading)
           return;
 
-        spriteSource.second->Load();
         spriteSource.second->LoadImageFromFile();        
         // Add it to the queue of assets ready to be loaded by the graphics system
         std::lock_guard<std::mutex> lock(GraphicalResourcesQueue.AssetsLock);
@@ -248,18 +255,11 @@ namespace DCEngine {
         if (CancelLoading)
           return;
 
-
-        font.second->Load();
         font.second->LoadFontFromFile();
         // Add it to the queue of assets ready to be loaded by the graphics system
         std::lock_guard<std::mutex> lock(GraphicalResourcesQueue.AssetsLock);
         GraphicalResourcesQueue.Assets.push(font.second.get());
       }
-
-      //std::lock_guard<std::mutex> lock(GraphicalResourcesQueue.LockFinished);
-      //GraphicalResourcesQueue.Finished = true;
-
-      //DispatchSystemEvents::ContentProjectLoaded();
 
     }
     

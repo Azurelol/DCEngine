@@ -1,0 +1,45 @@
+class EndGameEvent : ZilchEvent
+{
+	sends EndGameEvent : EndGameEvent;
+}
+
+class GameEndSequence : ZilchComponent
+{
+    function Initialize()
+    {
+        Daisy.Connect(this.Space, DaisyEvent.EndGameEvent, this.OnEndGameEvent);
+        //this.Space.Dispatch(DaisyEvent.EndGameEvent, EndGameEvent());
+    }
+
+    function OnEndGameEvent(event : EndGameEvent)
+    {
+    	
+    	var cam = this.Space.FindObjectByName("Camera");
+/*
+    	var camSeq = Actions.Sequence(cam.Actions);
+    	Actions.Property(camSeq, @cam.Transform.Translation, Real3(cam.Transform.Translation.X + 0.1, cam.Transform.Translation.Y + 0.1, cam.Transform.Translation.Z), 0.3, Ease.Linear);
+    	Actions.Property(camSeq, @cam.Transform.Translation, Real3(cam.Transform.Translation.X - 0.1, cam.Transform.Translation.Y + 0.1, cam.Transform.Translation.Z), 0.3, Ease.Linear);
+    	Actions.Property(camSeq, @cam.Transform.Translation, Real3(cam.Transform.Translation.X - 0.1, cam.Transform.Translation.Y - 0.1, cam.Transform.Translation.Z), 0.3, Ease.Linear);
+    	Actions.Property(camSeq, @cam.Transform.Translation, Real3(cam.Transform.Translation.X + 0.1, cam.Transform.Translation.Y - 0.1, cam.Transform.Translation.Z), 0.3, Ease.Linear);
+
+    	Actions.Property(camSeq, @cam.Transform.Translation, Real3(cam.Transform.Translation.X + 0.1, cam.Transform.Translation.Y + 0.1, cam.Transform.Translation.Z), 0.2, Ease.Linear);
+    	Actions.Property(camSeq, @cam.Transform.Translation, Real3(cam.Transform.Translation.X - 0.1, cam.Transform.Translation.Y + 0.1, cam.Transform.Translation.Z), 0.2, Ease.Linear);
+    	Actions.Property(camSeq, @cam.Transform.Translation, Real3(cam.Transform.Translation.X - 0.1, cam.Transform.Translation.Y - 0.1, cam.Transform.Translation.Z), 0.2, Ease.Linear);
+    	Actions.Property(camSeq, @cam.Transform.Translation, Real3(cam.Transform.Translation.X + 0.1, cam.Transform.Translation.Y - 0.1, cam.Transform.Translation.Z), 0.2, Ease.Linear);
+	*/
+    	var flashSeq = Actions.Sequence(this.Owner.Actions);
+
+    	var flObj = this.Space.CreateAtPosition("FadeObject", cam.Transform.Translation - Real3(0,0,0.1));
+    	flObj.Sprite.Color = Real4(1.0,1.0,1.0,0.0);
+    	//Actions.Property(flashSeq, @flObj.Sprite.Color, Real4(1.0, 1.0, 1.0, 0.0), 0.0, Ease.Linear);
+    	Actions.Property(flashSeq, @flObj.Sprite.Color, Real4(1.0, 1.0, 1.0, 1.0), 1.0, Ease.Linear);
+    	//Actions.Delay(flashSeq, 0.1);
+    	Actions.Property(flashSeq, @flObj.Sprite.Color, Real4(0.0, 0.0, 0.0, 1.0), 1.0, Ease.Linear);
+    	Actions.Call(flashSeq, this.LoadEnd);
+    }
+
+    function LoadEnd()
+    {
+    	this.Space.LoadLevel("Victory");
+    }
+}

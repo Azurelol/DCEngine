@@ -213,14 +213,14 @@ namespace DCEngine {
       for (unsigned i = 0; i < sprites.size(); ++i)
       {
         sprites.at(i)->AttachTo(gameObj);
-        sprites.at(i)->getComponent<Transform>()->setLocalTranslation(Vec3(0, 0, 0));
+        sprites.at(i)->getComponent<Transform>()->setLocalTranslation(Vec3(0.0f, 0.0f, 0.0f));
       }
 
-      head->getComponent<Transform>()->Translation.z = 0.01;
-      shoulder->getComponent<Transform>()->Translation.z = 0.02;
-      body->getComponent<Transform>()->Translation.z = 0;
-      spear->getComponent<Transform>()->Translation.z = 0.03;
-      shield->getComponent<Transform>()->Translation.z = 0.04;
+      head->getComponent<Transform>()->Translation.z = 0.01f;
+      shoulder->getComponent<Transform>()->Translation.z = 0.02f;
+      body->getComponent<Transform>()->Translation.z = 0.0f;
+      spear->getComponent<Transform>()->Translation.z = 0.03f;
+      shield->getComponent<Transform>()->Translation.z = 0.04f;
 
     }
 
