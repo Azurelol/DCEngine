@@ -3,8 +3,8 @@
   "GameObject": 
   {
     "Locked": false, 
-    "GameObjectID": 195, 
-    "Name": "LockField", 
+    "GameObjectID": 126, 
+    "Name": "Checkpoint", 
     "Protected": false, 
     "Components": 
     {
@@ -14,8 +14,8 @@
         {
           "Vec3": 
           {
-            "x": 120.940865, 
-            "y": 22.779566, 
+            "x": 4.895197, 
+            "y": 4.310696, 
             "z": 0.000000
           }
         }, 
@@ -23,8 +23,8 @@
         {
           "Vec3": 
           {
-            "x": 120.940865, 
-            "y": 22.779566, 
+            "x": 4.895197, 
+            "y": 4.310696, 
             "z": 0.000000
           }
         }, 
@@ -32,8 +32,8 @@
         {
           "Vec3": 
           {
-            "x": 120.940865, 
-            "y": 22.779566, 
+            "x": 4.895197, 
+            "y": 4.310696, 
             "z": 0.000000
           }
         }, 
@@ -72,16 +72,16 @@
             "w": 1.000000
           }
         }, 
-        "SpriteSource": "tile_collector_off", 
+        "SpriteSource": "square", 
         "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 
         "AnimationSpeed": 1.000000, 
-        "DrawLayer": 3
+        "DrawLayer": 4
       }, 
       "BoxCollider": 
       {
-        "CollisionGroup": "Default", 
+        "CollisionGroup": "DefaultCollisionGroup", 
         "PhysicsMaterial": "DefaultPhysicsMaterial", 
         "Size": 
         {
@@ -105,9 +105,8 @@
         "SendsEvents": true, 
         "IsDrawingCollider": false
       }, 
-      "LockField": 
+      "CheckpointZilch": 
       {
-        "Timer": 0.000000
       }
     }, 
     "Children": 

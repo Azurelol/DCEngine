@@ -110,6 +110,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(int, DamageFromSentinel);
       DCE_DEFINE_PROPERTY(int, DamageFromLancer);
       DCE_DEFINE_PROPERTY(Vec4, ColorOnDamage);
+	  DCE_DEFINE_PROPERTY(Vec3, InitialLocation);
       DCE_DEFINE_PROPERTY(float, ColorOnDamageFlashDuration);
       DCE_DEFINE_PROPERTY(float, KnockBackForceOnDamageFromScrapperX);
       DCE_DEFINE_PROPERTY(float, KnockBackForceOnDamageFromScrapperY);
