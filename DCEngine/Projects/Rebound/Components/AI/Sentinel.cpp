@@ -11,6 +11,8 @@
 #include "Sentinel.h"
 #include "../../../CoreComponents.h"
 
+#define POSTEVENT(name) SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(name)
+
 namespace DCEngine {
   namespace Components {
 
@@ -126,6 +128,7 @@ namespace DCEngine {
       {
         if (player->getComponent<PlayerController>()->Invincible)
         {
+          POSTEVENT("SentinelDeath");
           stateMachine->ChangeState(Die::Instance());
         }
         else if (ModifyHealth(-1))
@@ -134,7 +137,10 @@ namespace DCEngine {
         }
 
         event->OtherObject->getComponent<RigidBody>()->ApplyForce(-event->Normal * BallReflectForce);
-
+      }
+      else if (event->OtherObject->getComponent<BallController>() != NULL)
+      {
+        POSTEVENT("SentinelAttack");
       }
     }
 
@@ -142,6 +148,7 @@ namespace DCEngine {
     {
       if (event->OtherObject->getComponent<BallController>() != NULL)
       {
+        POSTEVENT("SentinelHitBall");
         event->OtherObject->getComponent<RigidBody>()->ApplyForce(-event->Normal * BallReflectForce);
       }
     }
@@ -169,7 +176,12 @@ namespace DCEngine {
 
       if (health == 0)
       {
+        POSTEVENT("SentinelDeath");
         stateMachine->ChangeState(Die::Instance());
+      }
+      else
+      {
+        POSTEVENT("SentinelTakeDamage");
       }
 
       if (oldHealth == health)

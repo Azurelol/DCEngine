@@ -11,6 +11,8 @@
 #include "Lancer.h"
 #include "../../../CoreComponents.h"
 
+#define POSTEVENT(name) SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(name)
+
 namespace DCEngine {
   namespace Components {
 
@@ -108,6 +110,14 @@ namespace DCEngine {
       acceleration = 0.0f;
 
       isDamageable = true;
+
+      particle = SpaceRef->CreateObject("LancerParticle");
+      particle->AttachTo(gameObj);
+      if (particle)
+      {
+        particle->getComponent<Transform>()->setLocalTranslation(Vec3(0, 0, 0));
+      }
+      particleStartVelocityX = particle->getComponent<ParticleEmitter>()->StartVelocity.x;
     }
 
     void Lancer::OnLogicUpdateEvent(Events::LogicUpdate * event)
@@ -120,6 +130,18 @@ namespace DCEngine {
 
       velocity += acceleration * event->Dt;
       TransformRef->Translation.x += velocity * event->Dt;
+
+      if (velocity > 0)
+      {
+        particle->getComponent<ParticleEmitter>()->StartVelocity.x = -particleStartVelocityX;
+        particle->getComponent<Transform>()->setLocalTranslation(Vec3(-1, -1, 0));
+      }
+      else
+      {
+        particle->getComponent<ParticleEmitter>()->StartVelocity.x = particleStartVelocityX;
+        particle->getComponent<Transform>()->setLocalTranslation(Vec3(1, -1, 0));
+
+      }
     }
 
     void Lancer::OnCollisionStartedEvent(Events::CollisionStarted * event)
@@ -128,11 +150,14 @@ namespace DCEngine {
       {
         if (player->getComponent<PlayerController>()->Invincible)
         {
+          POSTEVENT("LancerDeath");
           stateMachine->ChangeState(Die::Instance());
         }
         else if (ModifyHealth(-1))
         {
           FlashColor(DamageTakenColor, DamageTakenColorFlashSpeed);
+          velocity = 0;
+          RigidBodyRef->ApplyForce(Vec3(-KnockBackOnPlayerCollisionForce * acceleration, 0, 0));
         }
 
         event->OtherObject->getComponent<BallController>()->IsAttracting = false;
@@ -142,6 +167,7 @@ namespace DCEngine {
       if (event->OtherObject->getComponent<PlayerController>() != NULL)
       {
         velocity = 0;
+        POSTEVENT("LancerAttack");
         RigidBodyRef->ApplyForce(Vec3(-KnockBackOnPlayerCollisionForce * acceleration,0,0));
       }
     }
@@ -188,7 +214,12 @@ namespace DCEngine {
 
       if (health == 0)
       {
+        POSTEVENT("LancerDeath");
         stateMachine->ChangeState(Die::Instance());
+      }
+      else
+      {
+        POSTEVENT("LancerTakeDamage");
       }
 
       if (oldHealth == health)

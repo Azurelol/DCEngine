@@ -454,7 +454,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -478,7 +478,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -564,7 +564,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -588,7 +588,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -674,7 +674,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -698,7 +698,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -808,7 +808,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Ball", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -888,6 +888,7 @@
             "ForcedFreeze": false, 
             "FreezeEnabled": true, 
             "MaxAttractSpeed": 50.000000, 
+            "MaxSlamDistance": 3.000000, 
             "MaxAttractForce": 100.000000, 
             "AttractArriveDistance": 200.000000, 
             "MinAttractSpeed": 25.000000, 
@@ -1089,7 +1090,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -1113,7 +1114,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -1199,7 +1200,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -1223,7 +1224,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -1309,7 +1310,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -1333,7 +1334,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -1419,7 +1420,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -1443,7 +1444,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -1529,7 +1530,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -1553,7 +1554,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -1639,7 +1640,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -1663,7 +1664,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -1749,7 +1750,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -1773,7 +1774,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -1859,7 +1860,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -1883,7 +1884,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -1969,7 +1970,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -1993,7 +1994,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -2079,7 +2080,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -2103,7 +2104,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -2189,7 +2190,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -2213,7 +2214,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -2299,7 +2300,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -2323,7 +2324,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -2409,7 +2410,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -2519,7 +2520,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -2543,7 +2544,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -2629,7 +2630,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -2653,7 +2654,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -2739,7 +2740,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -2763,7 +2764,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -2849,7 +2850,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -2873,7 +2874,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -2959,7 +2960,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -2983,7 +2984,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -3069,7 +3070,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -3093,7 +3094,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -3179,7 +3180,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -3203,7 +3204,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -3289,7 +3290,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -3313,7 +3314,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -3399,7 +3400,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -3423,7 +3424,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -3509,7 +3510,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -3533,7 +3534,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -3619,7 +3620,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -3643,7 +3644,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -3729,7 +3730,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -3839,7 +3840,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -3863,7 +3864,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -3949,7 +3950,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -3973,7 +3974,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -4059,7 +4060,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -4083,7 +4084,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -4169,7 +4170,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -4193,7 +4194,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -4279,7 +4280,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -4303,7 +4304,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -4389,7 +4390,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -4413,7 +4414,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -4499,7 +4500,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -4523,7 +4524,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -4609,7 +4610,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -4633,7 +4634,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -4719,7 +4720,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -4743,7 +4744,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -4774,7 +4775,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 49, 
+        "GameObjectID": 214, 
         "Name": "Acid", 
         "Protected": false, 
         "Components": 
@@ -4837,18 +4838,18 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
+                "x": 1.000000, 
                 "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
+                "z": 1.000000, 
+                "w": 0.750000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "Acid", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -4884,20 +4885,171 @@
           "Fade": 
           {
             "Timer": 0.000000, 
-            "FadeTime": 2.000000, 
+            "FadeTime": 1.200000, 
             "FadeTimeGrowth": 1.000000, 
             "TargetColor": 
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.700000, 
-                "z": 0.200000, 
-                "w": 1.000000
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 0.900000
               }
             }, 
             "Fading": true, 
             "Pulse": true
+          }, 
+          "SpriteParticleSystem": 
+          {
+            "Visible": true, 
+            "Tint": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Texture": "Bubble", 
+            "VelocityScale": 1.000000, 
+            "LengthScale": 1.000000, 
+            "SystemSize": 
+            {
+              "Vec3": 
+              {
+                "x": 14.000000, 
+                "y": 9.000000, 
+                "z": 4.000000
+              }
+            }, 
+            "Additive": true, 
+            "Lock": false, 
+            "DrawLayer": 5
+          }, 
+          "ParticleEmitter": 
+          {
+            "Active": true, 
+            "ResetCount": false, 
+            "EmitCount": 0, 
+            "EmitRate": 10, 
+            "EmitVariance": 1, 
+            "Size": 0.400000, 
+            "SizeVariance": 0.200000, 
+            "Lifetime": 0.500000, 
+            "LifetimeVariance": 0.620000, 
+            "Spin": 0.000000, 
+            "SpinVariance": 0.000000, 
+            "StartVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 2.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 2.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 5.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
+          }, 
+          "LinearParticleAnimator": 
+          {
+            "Force": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomForce": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Torque": 0.000000, 
+            "Growth": 0.000000, 
+            "Dampening": 0.000000
+          }, 
+          "SetParticleEmissionToMatchScale": 
+          {
+            "EmitOnEdges": false
+          }, 
+          "ParticleColorAnimator": 
+          {
+            "Color0": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color1": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color2": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color3": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color4": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }
           }
         }, 
         "Children": 
@@ -4907,7 +5059,7 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 50, 
+        "GameObjectID": 214, 
         "Name": "Acid", 
         "Protected": false, 
         "Components": 
@@ -4970,18 +5122,18 @@
             {
               "Vec4": 
               {
-                "x": 0.000000, 
+                "x": 1.000000, 
                 "y": 1.000000, 
-                "z": 0.000000, 
-                "w": 1.000000
+                "z": 1.000000, 
+                "w": 0.750000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "Acid", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 0
+            "DrawLayer": 5
           }, 
           "BoxCollider": 
           {
@@ -5017,20 +5169,171 @@
           "Fade": 
           {
             "Timer": 0.000000, 
-            "FadeTime": 2.000000, 
+            "FadeTime": 1.200000, 
             "FadeTimeGrowth": 1.000000, 
             "TargetColor": 
             {
               "Vec4": 
               {
-                "x": 0.000000, 
-                "y": 0.700000, 
-                "z": 0.200000, 
-                "w": 1.000000
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 0.900000
               }
             }, 
             "Fading": true, 
             "Pulse": true
+          }, 
+          "SpriteParticleSystem": 
+          {
+            "Visible": true, 
+            "Tint": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Texture": "Bubble", 
+            "VelocityScale": 1.000000, 
+            "LengthScale": 1.000000, 
+            "SystemSize": 
+            {
+              "Vec3": 
+              {
+                "x": 19.000000, 
+                "y": 9.000000, 
+                "z": 4.000000
+              }
+            }, 
+            "Additive": true, 
+            "Lock": false, 
+            "DrawLayer": 5
+          }, 
+          "ParticleEmitter": 
+          {
+            "Active": true, 
+            "ResetCount": false, 
+            "EmitCount": 0, 
+            "EmitRate": 10, 
+            "EmitVariance": 1, 
+            "Size": 0.400000, 
+            "SizeVariance": 0.200000, 
+            "Lifetime": 0.500000, 
+            "LifetimeVariance": 0.620000, 
+            "Spin": 0.000000, 
+            "SpinVariance": 0.000000, 
+            "StartVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 2.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 2.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 5.000000, 
+                "y": 0.000000
+              }
+            }, 
+            "EmissionCircle": false
+          }, 
+          "LinearParticleAnimator": 
+          {
+            "Force": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomForce": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Torque": 0.000000, 
+            "Growth": 0.000000, 
+            "Dampening": 0.000000
+          }, 
+          "SetParticleEmissionToMatchScale": 
+          {
+            "EmitOnEdges": false
+          }, 
+          "ParticleColorAnimator": 
+          {
+            "Color0": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color1": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color2": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color3": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color4": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }
           }
         }, 
         "Children": 
@@ -5095,7 +5398,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -5119,7 +5422,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -5205,7 +5508,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -5229,7 +5532,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -5315,7 +5618,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -5339,7 +5642,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Default", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -5425,7 +5728,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -5449,7 +5752,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -5535,7 +5838,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -5559,7 +5862,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -5645,7 +5948,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -5669,7 +5972,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -5755,7 +6058,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -5779,7 +6082,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -5865,7 +6168,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -5889,7 +6192,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -5999,7 +6302,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Default", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -6109,7 +6412,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -6133,7 +6436,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -7051,7 +7354,7 @@
             "Track": "TheOldWorld", 
             "Volume": 1.000000, 
             "PlayOnStart": true, 
-            "StopOnEnd": false
+            "StopOnEnd": true
           }, 
           "PauseManagerZ": 
           {
@@ -7120,7 +7423,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -7230,7 +7533,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -7254,7 +7557,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -7349,8 +7652,8 @@
               "Vec4": 
               {
                 "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
+                "y": 0.486000, 
+                "z": 0.171000, 
                 "w": 1.000000
               }
             }, 
@@ -7364,7 +7667,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -7450,7 +7753,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -7474,7 +7777,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -7560,7 +7863,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -7584,7 +7887,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -7670,7 +7973,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -7694,7 +7997,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -7780,7 +8083,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -7804,7 +8107,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -7890,7 +8193,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -7914,7 +8217,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -8000,7 +8303,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -8110,7 +8413,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -8134,7 +8437,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -8220,7 +8523,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -8244,7 +8547,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -8330,7 +8633,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -8354,7 +8657,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -8440,7 +8743,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -8464,7 +8767,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -8550,7 +8853,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -8574,7 +8877,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -8660,7 +8963,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -8684,7 +8987,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -8770,7 +9073,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -8794,7 +9097,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -8880,7 +9183,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -8904,7 +9207,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -8990,7 +9293,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -9014,7 +9317,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -9100,7 +9403,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -9124,7 +9427,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -9210,7 +9513,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -9234,7 +9537,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -9320,7 +9623,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -9344,7 +9647,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -9430,7 +9733,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -9454,7 +9757,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -9540,7 +9843,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -9564,7 +9867,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -9650,7 +9953,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -9674,7 +9977,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -9717,7 +10020,7 @@
               "Vec3": 
               {
                 "x": -25.649878, 
-                "y": -0.843726, 
+                "y": -0.406000, 
                 "z": 0.000000
               }
             }, 
@@ -9726,7 +10029,7 @@
               "Vec3": 
               {
                 "x": -25.649878, 
-                "y": -0.843726, 
+                "y": -0.406000, 
                 "z": 0.000000
               }
             }, 
@@ -9735,7 +10038,7 @@
               "Vec3": 
               {
                 "x": -25.649878, 
-                "y": -0.843726, 
+                "y": -0.406000, 
                 "z": 0.000000
               }
             }, 
@@ -9760,7 +10063,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -9784,7 +10087,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -9870,7 +10173,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -9980,7 +10283,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -10004,7 +10307,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -10090,7 +10393,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -10114,7 +10417,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -10200,7 +10503,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -10310,7 +10613,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -10334,7 +10637,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -10420,7 +10723,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -10444,7 +10747,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -10530,7 +10833,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -10554,7 +10857,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -10640,7 +10943,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -10664,7 +10967,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -10750,7 +11053,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -10774,7 +11077,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -10860,7 +11163,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -10884,7 +11187,7 @@
           "BoxCollider": 
           {
             "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
+            "PhysicsMaterial": "BallMaterial", 
             "Size": 
             {
               "Vec3": 
@@ -11980,137 +12283,6 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 4
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
-        "GameObjectID": 147, 
-        "Name": "DialogTrigger2", 
-        "Protected": false, 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 72.422218, 
-                "y": 36.037083, 
-                "z": 0.000000
-              }
-            }, 
-            "LocalTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 72.422218, 
-                "y": 36.037083, 
-                "z": 0.000000
-              }
-            }, 
-            "WorldTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 72.422218, 
-                "y": 36.037083, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 20.000000, 
-                "y": 50.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": false, 
-            "CullVisibility": true, 
-            "ForceLightCulling": false, 
-            "NOSHADOW": false, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "square", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 4
-          }, 
-          "BoxCollider": 
-          {
-            "CollisionGroup": "DefaultCollisionGroup", 
-            "PhysicsMaterial": "DefaultPhysicsMaterial", 
-            "Size": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Ghost": true, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
-          }, 
-          "DialogTrigger": 
-          {
-            "DialogTextObjectName": "DialogText", 
-            "OnlyOnFirstCollision": false, 
-            "ActiveOnCollision": true, 
-            "ActiveOnlyOnce": true, 
-            "Message1String": "I'm detecting a significant change in the IO of your energy modulator. Did you find something?", 
-            "Message1Speaker": "Cyrus", 
-            "Message2String": "Sure did. Fancy pair of techno-gloves. No idea what they do yet. Oh, and a teleporter! Looks functional, too, but no power.", 
-            "Message2Speaker": "Asha", 
-            "Message3String": "Whatever they are, they're putting out a staggering amount of power. You always did have luck on your side.", 
-            "Message3Speaker": "Cyrus", 
-            "Message4String": "Who needs luck when I’ve got the guardian angel of the resistance watching my back?", 
-            "Message4Speaker": "Asha", 
-            "Message5String": "Flatterer. See if you can find a way to activate that portal you found.", 
-            "Message5Speaker": "Cyrus", 
-            "Message6String": "If we can get it synced to the network you'll be able to get around a lot easier.", 
-            "Message6Speaker": "Cyrus", 
-            "Message7String": "Maybe you can use that new gadget of yours...", 
-            "Message7Speaker": "Cyrus"
           }
         }, 
         "Children": 
@@ -12880,6 +13052,296 @@
         }, 
         "Children": 
         {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 126, 
+        "Name": "KeyFreeze", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -130.332794, 
+                "y": 18.166355, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -130.332794, 
+                "y": 18.166355, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -130.332794, 
+                "y": 18.166355, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.090568
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "keyBack", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 8
+          }, 
+          "SimpleAnimator": 
+          {
+            "AnimateOnInitialize": true, 
+            "SystemDelay": 0.000000, 
+            "LoopSystem": true, 
+            "UseFadeIn": false, 
+            "UseFadeOut": false, 
+            "FadeSpeed": 0.000000, 
+            "FadeEase": "Linear", 
+            "MoveIterations": 0, 
+            "MoveX": 0.500000, 
+            "MoveY": 0.000000, 
+            "MoveDelay": 0.000000, 
+            "MoveSpeed": 0.000000, 
+            "MoveEase": "Linear", 
+            "ScaleIterations": 1, 
+            "ScaleRatio": 1.050000, 
+            "ScaleDelay": 0.000000, 
+            "ScaleSpeed": 1.000000, 
+            "ScaleEase": "QuadOut"
+          }, 
+          "TutorialText": 
+          {
+            "WaitTime": 10.000000, 
+            "TransitionTime": 1.000000, 
+            "ListenForMove": false, 
+            "ListenForFreeze": true
+          }
+        }, 
+        "Children": 
+        {
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 254, 
+            "Name": "SpriteText", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -130.504028, 
+                    "y": 17.949266, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -0.171234, 
+                    "y": -0.217089, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -130.504028, 
+                    "y": 17.949266, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "SpriteText": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "Font": "SafetyMedium", 
+                "FontSize": 6, 
+                "Text": "F", 
+                "PixelsPerUnit": 64, 
+                "Smoothing": true, 
+                "WordWrap": 0, 
+                "DrawLayer": 5
+              }, 
+              "TutorialText": 
+              {
+                "WaitTime": 10.000000, 
+                "TransitionTime": 1.000000, 
+                "ListenForMove": false, 
+                "ListenForFreeze": true
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }, 
+          "GameObject": 
+          {
+            "Locked": false, 
+            "GameObjectID": 388, 
+            "Name": "RightText", 
+            "Protected": false, 
+            "Components": 
+            {
+              "Transform": 
+              {
+                "Translation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -129.415100, 
+                    "y": 17.945002, 
+                    "z": 0.000000
+                  }
+                }, 
+                "LocalTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.917694, 
+                    "y": -0.221354, 
+                    "z": 0.000000
+                  }
+                }, 
+                "WorldTranslation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": -129.415100, 
+                    "y": 17.945002, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Rotation": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 0.000000, 
+                    "y": 0.000000, 
+                    "z": 0.000000
+                  }
+                }, 
+                "Scale": 
+                {
+                  "Vec3": 
+                  {
+                    "x": 1.000000, 
+                    "y": 1.000000, 
+                    "z": 1.000000
+                  }
+                }
+              }, 
+              "SpriteText": 
+              {
+                "Visible": true, 
+                "Color": 
+                {
+                  "Vec4": 
+                  {
+                    "x": 0.200000, 
+                    "y": 0.800000, 
+                    "z": 1.000000, 
+                    "w": 1.000000
+                  }
+                }, 
+                "Font": "Electrolize-Regular", 
+                "FontSize": 6, 
+                "Text": "Freeze", 
+                "PixelsPerUnit": 64, 
+                "Smoothing": true, 
+                "WordWrap": 0, 
+                "DrawLayer": 5
+              }, 
+              "TutorialText": 
+              {
+                "WaitTime": 10.000000, 
+                "TransitionTime": 1.000000, 
+                "ListenForMove": false, 
+                "ListenForFreeze": true
+              }
+            }, 
+            "Children": 
+            {
+            }
+          }
         }
       }
     }

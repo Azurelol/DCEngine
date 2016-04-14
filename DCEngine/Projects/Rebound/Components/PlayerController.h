@@ -158,6 +158,9 @@ namespace DCEngine {
       Vec4 redHazeColor;
       float redHazeAlphaValue;
       int maxHealth;
+      void PlayTeleportArriveSound();
+      void ReloadLevel();
+      void Spawn();
     };
   }
 

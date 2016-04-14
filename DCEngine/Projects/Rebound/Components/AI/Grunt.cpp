@@ -12,6 +12,7 @@
 #include "Grunt.h"
 #include "../../../CoreComponents.h"
 
+#define POSTEVENT(name) SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(name)
 
 namespace DCEngine {
   namespace Components {
@@ -153,6 +154,7 @@ namespace DCEngine {
       {
         if (player->getComponent<PlayerController>()->Invincible)
         {
+          POSTEVENT("ScrapperDeath");
           stateMachine->ChangeState(Die::Instance());
         }
         else if (ModifyHealth(-1))
@@ -161,6 +163,10 @@ namespace DCEngine {
         }
 
         event->OtherObject->getComponent<RigidBody>()->ApplyForce(-event->Normal * BallReflectForce);
+      }
+      else if (event->OtherObject->getComponent<PlayerController>() != NULL)
+      {
+        POSTEVENT("ScrapperAttack");
       }
     }
 
@@ -187,7 +193,12 @@ namespace DCEngine {
 
       if (health == 0)
       {
+        POSTEVENT("ScrapperDeath");
         stateMachine->ChangeState(Die::Instance());
+      }
+      else
+      {
+        POSTEVENT("ScrapperTakeDamage");
       }
 
       if (oldHealth == health)
