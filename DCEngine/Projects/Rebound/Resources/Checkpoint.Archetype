@@ -72,7 +72,7 @@
             "w": 1.000000
           }
         }, 
-        "SpriteSource": "square", 
+        "SpriteSource": "check", 
         "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 
