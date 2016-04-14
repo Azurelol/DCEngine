@@ -252,7 +252,7 @@
             "FlipY": false, 
             "AnimationActive": true, 
             "AnimationSpeed": 10.000000, 
-            "DrawLayer": 4
+            "DrawLayer": 6
           }, 
           "RigidBody": 
           {
@@ -778,7 +778,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 5
+            "DrawLayer": 2
           }, 
           "BoxCollider": 
           {
