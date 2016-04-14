@@ -12618,7 +12618,7 @@
             "Track": "DesertLab", 
             "Volume": 1.000000, 
             "PlayOnStart": true, 
-            "StopOnEnd": false
+            "StopOnEnd": true
           }
         }, 
         "Children": 
