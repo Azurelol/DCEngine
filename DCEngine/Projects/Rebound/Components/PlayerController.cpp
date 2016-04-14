@@ -89,17 +89,18 @@ namespace DCEngine {
 			//RigidBodyRef->setGravity(false);
 
 			//SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("Dogma");
+			InitialLocation = TransformRef->getTranslation();
+			InitialHealth = Health;
+			maxHealth = Health;
+			redHazeAlphaValue = 0;
+			CreateShield();
 
-      maxHealth = Health;
-      redHazeAlphaValue = 0;
-      CreateShield();
+			if (Dead)
+			{
+			TeleportIn();
+			}
 
-      if (Dead)
-      {
-        TeleportIn();
-      }
-
-      Dead = false;
+			Dead = false;
 		}
 
     void PlayerController::FlashColor(Vec4 color, float duration)
@@ -501,23 +502,25 @@ namespace DCEngine {
 		{
       int startingHealth = Health;
 
-			if (Invincible)
+			if (Invincible || Health <= 0)
 			{
 				return false;
 			}
 			//SpriteComponent->Color = Vec4(1, 0, 0, 1);
 
-      if (IsDamageable)
-      {
-        Health -= damage;
+		  if (IsDamageable)
+		  {
 
-			  // Play hurt sound.
-			  SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CollideSound);
 
-        IsDamageable = false;
-        ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
-        Actions::Property(seq, IsDamageable, true, DamageCooldown, Ease::Linear);
-      }
+			Health -= damage;
+
+				  // Play hurt sound.
+				  SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CollideSound);
+
+			IsDamageable = false;
+			ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
+			Actions::Property(seq, IsDamageable, true, DamageCooldown, Ease::Linear);
+		  }
 
 
 			if (PlayerControllerTraceOn)
@@ -553,8 +556,30 @@ namespace DCEngine {
 
     void PlayerController::DestroyTeleportParticle()
     {
-      teleportInParticle->Destroy();
+		if (teleportOutParticle != nullptr)
+		{
+			teleportInParticle->Destroy();
+		}
     }
+
+	void PlayerController::WarpToCheckpoint()
+	{
+		TransformRef->Translation = InitialLocation;
+	}
+
+	void PlayerController::RestoreHealth()
+	{
+		Health = InitialHealth;
+		redHazeAlphaValue = 0;
+	}
+
+	void PlayerController::DestroyTeleportOutParticle()
+	{
+		if (teleportOutParticle != nullptr)
+		{
+			teleportOutParticle->Destroy();
+		}
+	}
 
 		void PlayerController::Die()
 		{
@@ -566,14 +591,16 @@ namespace DCEngine {
 
 			// play teleport start.
 
-      Dead = true;
-      GameObjectPtr teleportParticle = SpaceRef->CreateObject("TeleportationParticle");
-      teleportParticle->AttachTo(gameObj);
-      teleportParticle->getComponent<Transform>()->setLocalTranslation(Vec3(0, 0, 0));
-			SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(TeleportStartSound);
-      ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
-      Actions::Delay(seq, 1);
-      Actions::Call(seq, &PlayerController::ReloadLevel, this);
+		  //Dead = true;
+		  teleportOutParticle = SpaceRef->CreateObject("TeleportationParticle");
+		  teleportOutParticle->AttachTo(gameObj);
+		  teleportOutParticle->getComponent<Transform>()->setLocalTranslation(Vec3(0, 0, 0));
+				SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(TeleportStartSound);
+		  ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
+		  Actions::Delay(seq, 1);
+		  Actions::Call(seq, &PlayerController::DestroyTeleportOutParticle, this);
+		  Actions::Call(seq, &PlayerController::WarpToCheckpoint, this);
+		  Actions::Call(seq, &PlayerController::RestoreHealth, this);
 		}
 
     void PlayerController::PlayTeleportArriveSound()

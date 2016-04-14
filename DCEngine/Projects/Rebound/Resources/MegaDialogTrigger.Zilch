@@ -149,6 +149,8 @@ class MegaDialogTrigger : ZilchComponent
 	var NoMoreActivating : Boolean = false;
 	var MessageNumber : Integer = 1;
 	var FirstCollisionOccurred : Boolean = false;
+  
+  var Finished : Boolean = false;
 	
 	function Initialize()
     {
