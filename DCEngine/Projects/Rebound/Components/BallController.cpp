@@ -95,6 +95,8 @@ namespace DCEngine {
       RigidBodyRef->setRestitution(Restitution);
       RigidBodyRef->setFriction(Friction);
       //CollisionTableRef->SetResolve("Ball", "Player", CollisionFlag::SkipResolution);
+
+      ChargeInstance = nullptr;
     }
 
     void BallController::OnMouseDownEvent(Events::MouseDown * event)
@@ -135,15 +137,15 @@ namespace DCEngine {
         //	Frozen = false;
         //	RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);
         //	}
-        SoundCommand();
+        //SoundCommand();
 
 
         if (CurrentlyFired)
         {
-
         }
         else
         {
+          ChargeInstance = SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("BallCharge");
           Charging = true;
         }
       }
@@ -192,6 +194,11 @@ namespace DCEngine {
           CurrentCharge = 0;
           CurrentlyFired = true;
           RigidBodyRef->setGravityRatio(ShotGravity);
+          
+          if (ChargeInstance != nullptr)
+          {
+            ChargeInstance->Stop();
+          }
 
           if (BallControllerTraceOn)
           {
