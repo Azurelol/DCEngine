@@ -182,8 +182,7 @@
             "OpEase": "QuadOut", 
             "HoverSoundName": "MenuCancel", 
             "ClickSoundName": "MenuSelect", 
-            "RefTextName": "HighlightText", 
-            "NumberOfButtons": 7
+            "RefTextName": "HighlightText"
           }, 
           "SpriteText": 
           {

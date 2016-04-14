@@ -40,6 +40,7 @@ namespace DCEngine {
       Real JumpFrames = 1.0f;
       Real JumpFramesApplied = 0.0f;
       Real Health = 10.0f;
+	  Real InitialHealth = Health;
       Real AirBrakeScalar = 0.94f; //multiplies your current y velocity by this when you release jump while jumping upwards
       Real TurnSpeedScalar = 5.0f; //how much faster you accelerate when attemping to accelerate opposite your current velocity
       Real InitialVelocityXCap;
@@ -65,6 +66,7 @@ namespace DCEngine {
       int DamageFromSentinel;
       int DamageFromLancer;
       Vec4 ColorOnDamage;
+	  Vec3 InitialLocation;
       float ColorOnDamageFlashDuration;
       float KnockBackForceOnDamageFromScrapperX;
       float KnockBackForceOnDamageFromScrapperY;
@@ -162,7 +164,11 @@ namespace DCEngine {
       void ReloadLevel();
       void TeleportIn();
       void DestroyTeleportParticle();
+	  void WarpToCheckpoint();
+	  void RestoreHealth();
+	  void DestroyTeleportOutParticle();
       GameObjectPtr teleportInParticle;
+	  GameObjectPtr teleportOutParticle;
     };
   }
 
