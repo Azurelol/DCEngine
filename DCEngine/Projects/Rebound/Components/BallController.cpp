@@ -265,18 +265,6 @@ namespace DCEngine {
 
 	void BallController::OnCollisionPersistedEvent(Events::CollisionPersisted * event)
 	{
-		if (event->OtherObject->getComponent<Components::PlayerController>())
-		{
-			CollidingWithPlayer = true;
-			if (CollisionTableRef->GetResolve("Ball", "Player") == CollisionFlag::SkipResolution && (gameObj->Parent() == nullptr || gameObj->Parent()->getComponent<Components::LockField>()))
-			{
-				if (gameObj->Parent() && gameObj->Parent()->getComponent<Components::LockField>() != nullptr)
-				{
-					gameObj->Parent()->getComponent<Components::LockField>()->UnlockBall(gameObj);
-				}
-				ParentToPlayer();
-			}
-		}
 	}
 
     void BallController::OnLogicUpdateEvent(Events::LogicUpdate * event)
