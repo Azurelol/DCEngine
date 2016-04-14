@@ -12732,7 +12732,7 @@
                 "x": 0.600000, 
                 "y": 0.400000, 
                 "z": 0.250000, 
-                "w": 0.100000
+                "w": 0.200000
               }
             }, 
             "Texture": "WhiteCloud", 
@@ -12756,8 +12756,8 @@
             "Active": true, 
             "ResetCount": false, 
             "EmitCount": 0, 
-            "EmitRate": 100, 
-            "EmitVariance": 900, 
+            "EmitRate": 60, 
+            "EmitVariance": 300, 
             "Size": 1.000000, 
             "SizeVariance": 8.000000, 
             "Lifetime": 1.000000, 
