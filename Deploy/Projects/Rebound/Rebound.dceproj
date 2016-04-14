@@ -1,8 +1,8 @@
 {
    "Asset Path" : "Assets/",
-   "Default Level" : "SplashScreen",
+   "Default Level" : "Level2",
    "Default Space" : "",
-   "Play" : true,
+   "Play" : false,
    "Project Name" : "Rebound",
    "Project Path" : "Projects/Rebound/",
    "Resource Path" : "Resources/"

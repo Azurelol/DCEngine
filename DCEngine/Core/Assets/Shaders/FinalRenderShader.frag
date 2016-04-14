@@ -25,6 +25,6 @@ void main(void)
 	}
 	else
 	{
-	  FragColor = texture(LightedFrag, TexCoords);
+	  FragColor = ClearColor * texture(LightedFrag, TexCoords);
 	}
 }
