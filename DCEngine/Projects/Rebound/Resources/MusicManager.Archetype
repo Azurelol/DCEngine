@@ -1,0 +1,52 @@
+
+{
+  "GameObject": 
+  {
+    "Locked": false, 
+    "GameObjectID": 140, 
+    "Name": "MusicManager", 
+    "Components": 
+    {
+      "Transform": 
+      {
+        "Translation": 
+        {
+          "Vec3": 
+          {
+            "x": -10.554329, 
+            "y": 12.659333, 
+            "z": 0.000000
+          }
+        }, 
+        "Rotation": 
+        {
+          "Vec3": 
+          {
+            "x": 0.000000, 
+            "y": 0.000000, 
+            "z": 0.000000
+          }
+        }, 
+        "Scale": 
+        {
+          "Vec3": 
+          {
+            "x": 1.000000, 
+            "y": 1.000000, 
+            "z": 1.000000
+          }
+        }
+      }, 
+      "MusicBackground": 
+      {
+        "PlayOnStart": true, 
+        "StopOnTerminate": true, 
+        "Track": "mainMenu", 
+        "Volume": 1.000000
+      }
+    }, 
+    "Children": 
+    {
+    }
+  }
+}
