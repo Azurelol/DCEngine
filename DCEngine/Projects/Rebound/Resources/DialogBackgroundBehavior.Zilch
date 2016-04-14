@@ -19,17 +19,33 @@ class DialogBackgroundBehavior : ZilchComponent
 	var TitleUnitsAbove : Real = 1.5;
 	var TitleUnitsLeft : Real = 4;
 	var DialogSpeaker : Entity;
+	var DialogText : Entity;
     function Initialize()
     {
+		this.DialogSpeaker = this.Space.FindObjectByName("DialogSpeaker");
+		if(this.DialogSpeaker != null)
+			this.DialogSpeaker.AttachTo(this.Owner);
+		this.DialogText = this.Space.FindObjectByName("DialogText");
+		if(this.DialogText != null)
+			this.DialogText.AttachTo(this.Owner);
         Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
     }
 
     function OnLogicUpdate(event : LogicUpdate)
     {
-		//this.DialogSpeaker = this.Space.FindObjectByName("DialogSpeaker");
 		//this.DialogSpeaker.Transform.Translation = Real3(this.Owner.Transform.Translation.X - this.TitleUnitsLeft,
 		//										 this.Owner.Transform.Translation.Y + this.TitleUnitsAbove,
 		//										 this.Owner.Transform.Translation.Z);
+		if(this.DialogSpeaker != null)
+		{
+			this.DialogSpeaker.Transform.Translation = Real3(this.Owner.Transform.Translation.X - 4, 
+				this.Owner.Transform.Translation.Y + 1.50,  this.Owner.Transform.Translation.Z);
+		}									 
+		if(this.DialogText != null)
+		{
+			this.DialogText.Transform.Translation = Real3(this.Owner.Transform.Translation.X - 4.1, 
+				this.Owner.Transform.Translation.Y + 1.10,  this.Owner.Transform.Translation.Z + 0.001);
+		}
 		var player = this.Space.FindObjectByName("Player");
 		var xShift = this.UnitsInFrontOfPlayer;
 		if(player.RigidBody.Velocity.X < 0)

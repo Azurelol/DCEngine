@@ -68,6 +68,32 @@ class DialogText : ZilchComponent
 	
     function Initialize()
     {
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
 		var dialogSpeaker = this.Space.FindObjectByName("DialogSpeaker");
 		if(this.CurSpeaker == Speaker.Asha)
 		{
