@@ -30,19 +30,19 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(BallController, FrozenColor);
       DCE_BINDING_DEFINE_PROPERTY(BallController, NormalGravity);
       DCE_BINDING_DEFINE_PROPERTY(BallController, ShotGravity);
-	  DCE_BINDING_DEFINE_PROPERTY(BallController, AttractYBoost																																																															);
+	    DCE_BINDING_DEFINE_PROPERTY(BallController, AttractYBoost);
       DCE_BINDING_DEFINE_PROPERTY(BallController, ChargedColor);
       DCE_BINDING_DEFINE_PROPERTY(BallController, ForcedFreeze);
       DCE_BINDING_DEFINE_PROPERTY(BallController, FreezeEnabled);
       DCE_BINDING_DEFINE_PROPERTY(BallController, MaxAttractSpeed);
-	  DCE_BINDING_DEFINE_PROPERTY(BallController, MaxSlamDistance);
+	    DCE_BINDING_DEFINE_PROPERTY(BallController, MaxSlamDistance);
       DCE_BINDING_DEFINE_PROPERTY(BallController, MaxAttractForce);
       DCE_BINDING_DEFINE_PROPERTY(BallController, AttractArriveDistance);
       DCE_BINDING_DEFINE_PROPERTY(BallController, MinAttractSpeed);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, ParentToPlayer);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, FreezeBall);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, ToggleForceFreeze);
-    DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, PseudoFreezeBall);
+      DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, PseudoFreezeBall);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, LockBall);
       DCE_BINDING_DEFINE_METHOD_NO_ARGS(BallController, UnlockBall);
 
@@ -97,7 +97,7 @@ namespace DCEngine {
       RigidBodyRef->setFriction(Friction);
       //CollisionTableRef->SetResolve("Ball", "Player", CollisionFlag::SkipResolution);
 
-      ChargeInstance;
+      ChargeInstance = nullptr;
     }
 
     void BallController::OnMouseDownEvent(Events::MouseDown * event)
