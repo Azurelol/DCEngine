@@ -11,6 +11,7 @@
 #include "Sentinel.h"
 #include "../../../CoreComponents.h"
 
+#define PARENTPOSTEVENT(name) owner->SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(name)
 #define POSTEVENT(name) SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(name)
 
 namespace DCEngine {
@@ -369,7 +370,7 @@ namespace DCEngine {
 #pragma region Attack State
     void Sentinel::Attack::Enter(Sentinel *owner)
     {
-
+      PARENTPOSTEVENT("SentinelAlert");
     }
 
     void Sentinel::Attack::Update(Sentinel *owner)

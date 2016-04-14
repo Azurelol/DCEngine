@@ -100,6 +100,8 @@ namespace DCEngine {
 
     void SpriteText::SetUniforms(ShaderPtr shader, Camera* camera, Light* light)
     {
+			if (!Visible)
+				return;
       if (!shader)
         shader = mShader;
       shader->Use();

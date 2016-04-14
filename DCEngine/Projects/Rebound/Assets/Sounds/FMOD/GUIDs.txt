@@ -24,6 +24,7 @@
 {bda975ba-aea0-4480-9127-1be23ebedb5c} event:/Lancer/LancerAttack
 {db54d765-a11b-4768-bcc5-383f0177adb3} event:/Lancer/LancerDeath
 {8eeb5134-a68b-435d-a094-213a792932f5} event:/Lancer/LancerTakeDamage
+{1a8f4977-b749-435c-aa47-ec4ae423ec2d} event:/Lancer/LancerAlert
 {30571c8e-f06e-4184-8aa7-5f2406aecd48} event:/Menu/MenuCancel
 {4aec920c-c0bf-44b3-82c0-3b9d69f98f2a} event:/Menu/MenuHover
 {79a41996-047e-4517-9957-c873353eda33} event:/Menu/MenuSelect
@@ -34,10 +35,12 @@
 {2040dfcc-d6be-423a-a2f9-0a43569ad8e2} event:/Scrapper/ScrapperAttack
 {384c3f61-f34d-4529-be99-8c5f58ba81c2} event:/Scrapper/ScrapperDeath
 {7b40346a-56d5-4894-9a31-3df1c803e53a} event:/Scrapper/ScrapperTakeDamage
+{daf36829-23ab-4683-9232-defbc012e0e5} event:/Scrapper/ScrapperAlert
 {c617b308-3f8e-46bf-8205-60c58d264df9} event:/Sentinel/SentinelAttack
 {7205017d-690f-4c1e-8d03-db4717f3f4e0} event:/Sentinel/SentinelDeath
 {1c5b539b-57a7-4a9d-b7d7-63812a1ed320} event:/Sentinel/SentinelHitBall
 {04241848-c930-4571-b7f1-65e1e9e8ce16} event:/Sentinel/SentinelTakeDamage
+{6915651b-52db-4758-81fa-57fa7aa9cb68} event:/Sentinel/SentinelAlert
 {94f93528-c162-45ac-a178-10af56c95c17} bus:/
 {a77238f2-08b8-4d0c-bf83-6e9e942a0c7d} bus:/MASTER
 {5d6f9b91-cb2d-4ae1-8ea2-024de24ca668} bus:/MASTER/MUS

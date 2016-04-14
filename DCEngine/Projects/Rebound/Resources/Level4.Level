@@ -519,7 +519,7 @@
             "JumpSound": "Jump", 
             "LandSound": "Land", 
             "FootstepSound": "Step", 
-            "CollideSound": "Collide", 
+            "CollideSound": "HitShield", 
             "DamageFromScrapper": 1, 
             "DamageFromSentinel": 2, 
             "DamageFromLancer": 3, 
