@@ -68,6 +68,32 @@ class DialogText : ZilchComponent
 	
     function Initialize()
     {
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
 		var dialogSpeaker = this.Space.FindObjectByName("DialogSpeaker");
 		if(this.CurSpeaker == Speaker.Asha)
 		{
@@ -137,7 +163,7 @@ class DialogText : ZilchComponent
 	
 	function PlaySound()
 	{
-		//Console.WriteLine("DialogSound");
+		Console.WriteLine("DialogSound");
 		if(this.CurSpeaker == Speaker.Asha)
 			this.Instance = this.Space.SoundSpace.PlayCue(this.AshaReplySoundName);
 		else
@@ -153,7 +179,7 @@ class DialogText : ZilchComponent
 	
 	function OnMessageEvent(event : MessageEvent)
 	{
-		Console.WriteLine("OnMessageEvent");
+						//Console.WriteLine("OnMessageEvent");
 		if(event.NewProperties == true)
 		{
 			if(this.SystemDelay != -1)
@@ -180,7 +206,7 @@ class DialogText : ZilchComponent
 			this.SetMessage(event.Message);
 		}
 		var dialogSpeaker = this.Space.FindObjectByName("DialogSpeaker");
-		//Console.WriteLine(this.CurSpeaker);
+		Console.WriteLine(this.CurSpeaker);
 		if(this.CurSpeaker == Speaker.Asha)
 		{
 			dialogSpeaker.SpriteText.Text = "Asha";
@@ -241,7 +267,7 @@ class DialogText : ZilchComponent
 	
 	function WipeMessage()
 	{
-		//Console.WriteLine("WHAT THE FUCK");
+		Console.WriteLine("WHAT THE FUCK");
 		this.Owner.SpriteText.Text = "";
 		this.Owner.SpriteText.Visible = false;
 		this.ThePlace = 0;

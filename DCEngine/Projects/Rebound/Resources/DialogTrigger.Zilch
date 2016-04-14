@@ -128,123 +128,108 @@ class DialogTrigger : ZilchComponent
     {
 		if(event.ButtonPressed == MouseButton.Left)
 		{
-			this.SendMessage();
-		}
-	}
-	
-	function SendMessage()
-	{
-		//Console.WriteLine(this.Active);
-		//Console.WriteLine(this.DialogTextObjectName);
-		//Console.WriteLine(this.OnlyOnFirstCollision);
-		//Console.WriteLine(this.FirstCollisionOccurred);
-		if(this.Active == true && this.DialogTextObjectName != "" && 
-		(this.OnlyOnFirstCollision == false || this.FirstCollisionOccurred == false))
-		{
-			var ourText = this.Space.FindObjectByName(this.DialogTextObjectName);
-			//Console.WriteLine(ourText.DialogText.Finished);
-			if(ourText.DialogText.Finished == true)
+			if(this.Active == true && this.DialogTextObjectName != "" && 
+			(this.OnlyOnFirstCollision == false || this.FirstCollisionOccurred == false))
 			{
-				//Console.WriteLine(this.Active);
-				var curEvent = this.Message1;
-				if(this.MessageNumber == 1)
+				var ourText = this.Space.FindObjectByName(this.DialogTextObjectName);
+				Console.WriteLine(ourText.DialogText.Finished);
+				if(ourText.DialogText.Finished == true)
 				{
-					//Console.WriteLine("???");
-					ourText.DialogText.CurSpeaker = this.Message1Speaker;
-					if(this.Message1String == "")
-						this.SendWipeMessage();
-				}
-				else if(this.MessageNumber == 2)
-				{
-					ourText.DialogText.CurSpeaker = this.Message2Speaker;
-					if(this.Message2String != "")
-						curEvent = this.Message2;
+					//Console.WriteLine(this.Active);
+					var curEvent = this.Message1;
+					if(this.MessageNumber == 1)
+					{
+						//Console.WriteLine("???");
+						ourText.DialogText.CurSpeaker = this.Message1Speaker;
+						if(this.Message1String == "")
+							this.SendWipeMessage();
+					}
+					if(this.MessageNumber == 2)
+					{
+						ourText.DialogText.CurSpeaker = this.Message2Speaker;
+						if(this.Message2String != "")
+							curEvent = this.Message2;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 3)
+					{
+						ourText.DialogText.CurSpeaker = this.Message3Speaker;
+						if(this.Message3String != "")
+							curEvent = this.Message3;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 4)
+					{
+						ourText.DialogText.CurSpeaker = this.Message4Speaker;
+						if(this.Message4String != "")
+							curEvent = this.Message4;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 5)
+					{
+						ourText.DialogText.CurSpeaker = this.Message5Speaker;
+						if(this.Message5String != "")
+							curEvent = this.Message5;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 6)
+					{
+						ourText.DialogText.CurSpeaker = this.Message6Speaker;
+						if(this.Message6String != "")
+							curEvent = this.Message6;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
+					else if(this.MessageNumber == 7)
+					{
+						ourText.DialogText.CurSpeaker = this.Message7Speaker;
+						if(this.Message7String != "")
+							curEvent = this.Message7;
+						else
+						{
+							this.SendWipeMessage();
+							return;
+						}
+					}
 					else
 					{
 						this.SendWipeMessage();
 						return;
 					}
-				}
-				else if(this.MessageNumber == 3)
-				{
-					ourText.DialogText.CurSpeaker = this.Message3Speaker;
-					if(this.Message3String != "")
-						curEvent = this.Message3;
-					else
-					{
-						this.SendWipeMessage();
-						return;
-					}
-				}
-				else if(this.MessageNumber == 4)
-				{
-					ourText.DialogText.CurSpeaker = this.Message4Speaker;
-					if(this.Message4String != "")
-						curEvent = this.Message4;
-					else
-					{
-						this.SendWipeMessage();
-						return;
-					}
-				}
-				else if(this.MessageNumber == 5)
-				{
-					ourText.DialogText.CurSpeaker = this.Message5Speaker;
-					if(this.Message5String != "")
-						curEvent = this.Message5;
-					else
-					{
-						this.SendWipeMessage();
-						return;
-					}
-				}
-				else if(this.MessageNumber == 6)
-				{
-					ourText.DialogText.CurSpeaker = this.Message6Speaker;
-					if(this.Message6String != "")
-						curEvent = this.Message6;
-					else
-					{
-						this.SendWipeMessage();
-						return;
-					}
-				}
-				else if(this.MessageNumber == 7)
-				{
-					ourText.DialogText.CurSpeaker = this.Message7Speaker;
-					if(this.Message7String != "")
-						curEvent = this.Message7;
-					else
-					{
-						this.SendWipeMessage();
-						return;
-					}
+					this.MessageNumber += 1;
+					ourText.Dispatch(DaisyEvent.MessageEvent, curEvent);
 				}
 				else
 				{
-					this.SendWipeMessage();
-					return;
+					ourText.DialogText.FinishMessage();
 				}
-				this.MessageNumber += 1;
-				//Console.WriteLine("!!!");
-				ourText.Dispatch(DaisyEvent.MessageEvent, curEvent);
-				//Console.WriteLine("!!!");
-			}
-			else
-			{
-				ourText.DialogText.FinishMessage();
 			}
 		}
 	}
 	
 	function OnActivateDialogEvent(event : ActivateDialog)
 	{
-		//Console.WriteLine("WE HERE BOIS");
-		if(this.Active == false && this.NoMoreActivating == false)
-		{
+		if(this.NoMoreActivating == false)
 			this.Active = true;
-			this.SendMessage();
-		}
 	}
 
     function OnCollision(event : CollisionStarted)
