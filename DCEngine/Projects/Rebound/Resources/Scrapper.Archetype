@@ -14,8 +14,8 @@
         {
           "Vec3": 
           {
-            "x": 0.000000, 
-            "y": 0.000000, 
+            "x": 60.624950, 
+            "y": 21.581667, 
             "z": 0.000000
           }
         }, 
@@ -23,8 +23,8 @@
         {
           "Vec3": 
           {
-            "x": 0.000000, 
-            "y": 0.000000, 
+            "x": 60.624950, 
+            "y": 21.581667, 
             "z": 0.000000
           }
         }, 
@@ -32,8 +32,8 @@
         {
           "Vec3": 
           {
-            "x": 0.000000, 
-            "y": 0.000000, 
+            "x": 60.624950, 
+            "y": 21.581667, 
             "z": 0.000000
           }
         }, 
@@ -59,8 +59,8 @@
       "Grunt": 
       {
         "PlayerName": "Player", 
-        "StartingHealth": 6, 
-        "MaxHealth": 6, 
+        "StartingHealth": 3, 
+        "MaxHealth": 3, 
         "IsInvulnerable": false, 
         "HeadArchetype": "ScrapperHead", 
         "BodyArchetype": "ScrapperBody", 
@@ -155,6 +155,8 @@
       {
         "Visible": true, 
         "CullVisibility": true, 
+        "ForceLightCulling": false, 
+        "NOSHADOW": false, 
         "Color": 
         {
           "Vec4": 
