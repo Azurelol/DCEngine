@@ -6304,7 +6304,8 @@
           {
             "NextLevel": "Level4", 
             "LoadingTime": 3.000000, 
-            "TimerStarted": false
+            "TimerStarted": false, 
+            "Active": true
           }, 
           "Fade": 
           {

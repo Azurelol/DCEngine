@@ -19,8 +19,8 @@
             {
               "Vec3": 
               {
-                "x": 0.744851, 
-                "y": 1.863075, 
+                "x": 2.399487, 
+                "y": 16.267426, 
                 "z": 0.000000
               }
             }, 
@@ -28,8 +28,8 @@
             {
               "Vec3": 
               {
-                "x": 0.744851, 
-                "y": 1.863075, 
+                "x": 2.399487, 
+                "y": 16.267426, 
                 "z": 0.000000
               }
             }, 
@@ -37,8 +37,8 @@
             {
               "Vec3": 
               {
-                "x": 0.744851, 
-                "y": 1.863075, 
+                "x": 2.399487, 
+                "y": 16.267426, 
                 "z": 0.000000
               }
             }, 
@@ -13894,6 +13894,39 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 4
+          }, 
+          "LevelManager": 
+          {
+            "NextLevel": "Level3", 
+            "LoadingTime": 3.000000, 
+            "TimerStarted": false, 
+            "Active": false
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "DefaultCollisionGroup", 
+            "PhysicsMaterial": "DefaultPhysicsMaterial", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
           }
         }, 
         "Children": 

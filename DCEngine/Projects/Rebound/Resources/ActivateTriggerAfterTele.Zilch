@@ -26,6 +26,8 @@ class ActivateTriggerAfterTele : ZilchComponent
 			//TURN ON TELEPORTER HERE//
 			///////////////////////////
 			///////////////////////////
+			var tp = this.Space.FindObjectByName("Teleporter");
+			tp.LevelManager.Active = true;
 		}
     }
 }
