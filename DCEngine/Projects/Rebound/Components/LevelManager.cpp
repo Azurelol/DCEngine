@@ -25,6 +25,7 @@ namespace DCEngine {
       DCE_BINDING_DEFINE_PROPERTY(LevelManager, LoadingTime);
       //DCE_BINDING_DEFINE_PROPERTY(LevelManager, Timer);
       DCE_BINDING_DEFINE_PROPERTY(LevelManager, TimerStarted);
+	  DCE_BINDING_DEFINE_PROPERTY(LevelManager, Active);
     }
 #endif
 
@@ -59,6 +60,10 @@ namespace DCEngine {
     {
       if (event->OtherObject->getComponent<Components::PlayerController>())
       {
+		  if (!Active)
+		  {
+			  return;
+		  }
     auto particle = SpaceRef->CreateObject("TeleportationParticle");
     auto otherTransform = event->OtherObject->getComponent<Components::Transform>();
     if (particle)
