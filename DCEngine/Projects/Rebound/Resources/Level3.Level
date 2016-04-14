@@ -3400,7 +3400,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -3620,7 +3620,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -9953,7 +9953,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -13402,7 +13402,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
@@ -13512,7 +13512,7 @@
           }, 
           "Sprite": 
           {
-            "Visible": true, 
+            "Visible": false, 
             "CullVisibility": true, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
