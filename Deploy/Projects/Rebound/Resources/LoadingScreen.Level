@@ -69,20 +69,6 @@
             "FarPlane": 100.000000, 
             "Size": 70.000000, 
             "Projection": "Perspective"
-          }, 
-          "CameraControllerZilch": 
-          {
-            "InterpolationSpeed": 0.060000, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 4.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "ScreenShakeMagnitude": 3.000000
           }
         }, 
         "Children": 
