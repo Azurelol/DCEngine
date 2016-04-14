@@ -58,6 +58,7 @@ namespace DCEngine {
       Connect(Daisy->getMouse(), Events::MouseDown, BallController::OnMouseDownEvent);
       Connect(Daisy->getMouse(), Events::MouseUp, BallController::OnMouseUpEvent);
       Connect(gameObj, Events::CollisionStarted, BallController::OnCollisionStartedEvent);
+	  Connect(gameObj, Events::CollisionPersisted, BallController::OnCollisionPersistedEvent);
       Connect(gameObj, Events::CollisionEnded, BallController::OnCollisionEndedEvent);
       Connect(SpaceRef, Events::LogicUpdate, BallController::OnLogicUpdateEvent);
       TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>(); // ew
@@ -261,6 +262,22 @@ namespace DCEngine {
         }
       }
     }
+
+	void BallController::OnCollisionPersistedEvent(Events::CollisionPersisted * event)
+	{
+		if (event->OtherObject->getComponent<Components::PlayerController>())
+		{
+			CollidingWithPlayer = true;
+			if (CollisionTableRef->GetResolve("Ball", "Player") == CollisionFlag::SkipResolution && (gameObj->Parent() == nullptr || gameObj->Parent()->getComponent<Components::LockField>()))
+			{
+				if (gameObj->Parent() && gameObj->Parent()->getComponent<Components::LockField>() != nullptr)
+				{
+					gameObj->Parent()->getComponent<Components::LockField>()->UnlockBall(gameObj);
+				}
+				ParentToPlayer();
+			}
+		}
+	}
 
     void BallController::OnLogicUpdateEvent(Events::LogicUpdate * event)
     {

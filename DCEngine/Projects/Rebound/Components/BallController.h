@@ -108,6 +108,7 @@ namespace DCEngine {
       void OnMouseUpEvent(Events::MouseUp* event);
       void OnCollisionStartedEvent(Events::CollisionStarted* event);
       void OnCollisionEndedEvent(Events::CollisionEnded* event);
+	  void OnCollisionPersistedEvent(Events::CollisionPersisted* event);
       void BallController::OnLogicUpdateEvent(Events::LogicUpdate * event);
       void ChangeColor();
 	  void ChangeParticle();

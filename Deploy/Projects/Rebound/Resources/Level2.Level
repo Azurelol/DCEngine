@@ -19,8 +19,8 @@
             {
               "Vec3": 
               {
-                "x": -10.528552, 
-                "y": 2.060039, 
+                "x": 12.004173, 
+                "y": 5.922242, 
                 "z": 0.000000
               }
             }, 
@@ -28,8 +28,8 @@
             {
               "Vec3": 
               {
-                "x": -10.528552, 
-                "y": 2.060039, 
+                "x": 12.004173, 
+                "y": 5.922242, 
                 "z": 0.000000
               }
             }, 
@@ -37,8 +37,8 @@
             {
               "Vec3": 
               {
-                "x": -10.528552, 
-                "y": 2.060039, 
+                "x": 12.004173, 
+                "y": 5.922242, 
                 "z": 0.000000
               }
             }, 
@@ -64,7 +64,7 @@
           "Sprite": 
           {
             "Visible": true, 
-            "CullVisibility": true, 
+            "CullVisibility": false, 
             "ForceLightCulling": false, 
             "NOSHADOW": false, 
             "Color": 
@@ -178,7 +178,9 @@
             "KnockBackForceOnDamageFromSentinelY": 0.000000, 
             "KnockBackForceOnDamageFromLancerX": 0.000000, 
             "KnockBackForceOnDamageFromLancerY": 0.000000, 
-            "DamageCooldown": 0.000000
+            "DamageCooldown": 0.000000, 
+            "ShieldArchetype": "", 
+            "RedHazeArchetype": ""
           }, 
           "Light": 
           {
@@ -1011,8 +1013,8 @@
             {
               "Vec3": 
               {
-                "x": 147.148849, 
-                "y": 20.657240, 
+                "x": 115.612259, 
+                "y": 10.027590, 
                 "z": 0.000000
               }
             }, 
@@ -1020,8 +1022,8 @@
             {
               "Vec3": 
               {
-                "x": 147.148849, 
-                "y": 20.657240, 
+                "x": 115.612259, 
+                "y": 10.027590, 
                 "z": 0.000000
               }
             }, 
@@ -1029,8 +1031,8 @@
             {
               "Vec3": 
               {
-                "x": 147.148849, 
-                "y": 20.657240, 
+                "x": 115.612259, 
+                "y": 10.027590, 
                 "z": 0.000000
               }
             }, 
@@ -4172,7 +4174,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 254, 
         "Name": "Wall2", 
         "Protected": false, 
@@ -4184,27 +4186,27 @@
             {
               "Vec3": 
               {
-                "x": 19.000000, 
-                "y": 7.000000, 
-                "z": 0.000000
+                "x": 9.163325, 
+                "y": 1.879740, 
+                "z": -0.001000
               }
             }, 
             "LocalTranslation": 
             {
               "Vec3": 
               {
-                "x": 19.000000, 
-                "y": 7.000000, 
-                "z": 0.000000
+                "x": 9.163325, 
+                "y": 1.879740, 
+                "z": -0.001000
               }
             }, 
             "WorldTranslation": 
             {
               "Vec3": 
               {
-                "x": 19.000000, 
-                "y": 7.000000, 
-                "z": 0.000000
+                "x": 9.163325, 
+                "y": 1.879740, 
+                "z": -0.001000
               }
             }, 
             "Rotation": 
@@ -4220,8 +4222,8 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 5.000000, 
+                "x": 1.500000, 
+                "y": 0.200000, 
                 "z": 1.000000
               }
             }
@@ -4236,9 +4238,9 @@
             {
               "Vec4": 
               {
-                "x": 0.109000, 
-                "y": 0.109000, 
-                "z": 0.109000, 
+                "x": 0.086000, 
+                "y": 0.143000, 
+                "z": 0.143000, 
                 "w": 1.000000
               }
             }, 
@@ -4248,32 +4250,6 @@
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
             "DrawLayer": 0
-          }, 
-          "BoxCollider": 
-          {
-            "CollisionGroup": "Terrain", 
-            "PhysicsMaterial": "", 
-            "Size": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }, 
-            "Offset": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Ghost": false, 
-            "SendsEvents": true, 
-            "IsDrawingCollider": false
           }
         }, 
         "Children": 
@@ -5783,9 +5759,23 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }, 
-          "DoorBehavior": 
+          "MoveToLocationZilch": 
           {
-            "Closed": true
+            "Oscillate": false, 
+            "StartMoving": false, 
+            "TargetLocation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": -5.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "MinMoveTime": 1.000000, 
+            "MaxMoveTime": 1.000000, 
+            "MinDelay": 0.000000, 
+            "MaxDelay": 0.000000
           }
         }, 
         "Children": 
@@ -5897,9 +5887,23 @@
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }, 
-          "DoorBehavior": 
+          "MoveToLocationZilch": 
           {
-            "Closed": true
+            "Oscillate": false, 
+            "StartMoving": false, 
+            "TargetLocation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 5.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "MinMoveTime": 1.000000, 
+            "MaxMoveTime": 1.000000, 
+            "MinDelay": 0.000000, 
+            "MaxDelay": 0.000000
           }
         }, 
         "Children": 
@@ -6035,7 +6039,7 @@
               "Vec3": 
               {
                 "x": 124.091721, 
-                "y": 6.602479, 
+                "y": 7.476576, 
                 "z": 0.000000
               }
             }, 
@@ -6044,7 +6048,7 @@
               "Vec3": 
               {
                 "x": 124.091721, 
-                "y": 6.602479, 
+                "y": 7.476576, 
                 "z": 0.000000
               }
             }, 
@@ -6053,7 +6057,7 @@
               "Vec3": 
               {
                 "x": 124.091721, 
-                "y": 6.602479, 
+                "y": 7.476576, 
                 "z": 0.000000
               }
             }, 
@@ -6071,7 +6075,7 @@
               "Vec3": 
               {
                 "x": 20.000000, 
-                "y": 2.500000, 
+                "y": 4.000000, 
                 "z": 1.000000
               }
             }
@@ -9033,7 +9037,7 @@
               "Vec3": 
               {
                 "x": 134.593903, 
-                "y": 14.443151, 
+                "y": 14.322451, 
                 "z": 0.000000
               }
             }, 
@@ -9042,7 +9046,7 @@
               "Vec3": 
               {
                 "x": 134.593903, 
-                "y": 14.443151, 
+                "y": 14.322451, 
                 "z": 0.000000
               }
             }, 
@@ -9051,7 +9055,7 @@
               "Vec3": 
               {
                 "x": 134.593903, 
-                "y": 14.443151, 
+                "y": 14.322451, 
                 "z": 0.000000
               }
             }, 
@@ -9502,7 +9506,7 @@
               "Vec3": 
               {
                 "x": 124.579544, 
-                "y": 19.439234, 
+                "y": 21.686914, 
                 "z": 0.000000
               }
             }, 
@@ -9511,7 +9515,7 @@
               "Vec3": 
               {
                 "x": 124.579544, 
-                "y": 19.439234, 
+                "y": 21.686914, 
                 "z": 0.000000
               }
             }, 
@@ -9520,7 +9524,7 @@
               "Vec3": 
               {
                 "x": 124.579544, 
-                "y": 19.439234, 
+                "y": 21.686914, 
                 "z": 0.000000
               }
             }, 
@@ -9538,7 +9542,7 @@
               "Vec3": 
               {
                 "x": 1.000000, 
-                "y": 10.000000, 
+                "y": 5.000000, 
                 "z": 1.000000
               }
             }
@@ -11034,8 +11038,8 @@
             {
               "Vec3": 
               {
-                "x": 125.865158, 
-                "y": 25.852568, 
+                "x": 129.326126, 
+                "y": 26.478846, 
                 "z": 0.000000
               }
             }, 
@@ -11043,8 +11047,8 @@
             {
               "Vec3": 
               {
-                "x": 125.865158, 
-                "y": 25.852568, 
+                "x": 129.326126, 
+                "y": 26.478846, 
                 "z": 0.000000
               }
             }, 
@@ -11052,8 +11056,8 @@
             {
               "Vec3": 
               {
-                "x": 125.865158, 
-                "y": 25.852568, 
+                "x": 129.326126, 
+                "y": 26.478846, 
                 "z": 0.000000
               }
             }, 
@@ -11070,8 +11074,8 @@
             {
               "Vec3": 
               {
-                "x": 1.000000, 
-                "y": 1.000000, 
+                "x": 4.000000, 
+                "y": 4.000000, 
                 "z": 1.000000
               }
             }
@@ -11092,7 +11096,7 @@
                 "w": 1.000000
               }
             }, 
-            "SpriteSource": "square", 
+            "SpriteSource": "Generator_off", 
             "FlipX": false, 
             "FlipY": false, 
             "AnimationActive": false, 
@@ -13748,6 +13752,1168 @@
             "InnerAngle": 0.600000, 
             "OuterAngle": 20.412001, 
             "CullLight": 0.000000
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 496, 
+        "Name": "Sprite", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -3.994174, 
+                "y": 3.362736, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -3.994174, 
+                "y": 3.362736, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -3.994174, 
+                "y": 3.362736, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 8.000000, 
+                "y": 10.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Teleporter Idea Inactive", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 4
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 254, 
+        "Name": "Wall2", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 19.026571, 
+                "y": 9.949295, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 19.026571, 
+                "y": 9.949295, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 19.026571, 
+                "y": 9.949295, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 11.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.109000, 
+                "y": 0.109000, 
+                "z": 0.109000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 2
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 254, 
+        "Name": "Wall2", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -9.746942, 
+                "y": 8.171497, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -9.746942, 
+                "y": 8.171497, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -9.746942, 
+                "y": 8.171497, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 2.000000, 
+                "y": 15.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.086000, 
+                "y": 0.143000, 
+                "z": 0.143000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 254, 
+        "Name": "Wall2", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.542202, 
+                "y": 29.446299, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.542202, 
+                "y": 29.446299, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 4.542202, 
+                "y": 29.446299, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 30.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.086000, 
+                "y": 0.143000, 
+                "z": 0.143000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 254, 
+        "Name": "Wall2", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -4.527840, 
+                "y": 15.146722, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -4.527840, 
+                "y": 15.146722, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -4.527840, 
+                "y": 15.146722, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 10.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.086000, 
+                "y": 0.143000, 
+                "z": 0.143000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 254, 
+        "Name": "Wall2", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.073607, 
+                "y": 29.658861, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.073607, 
+                "y": 29.658861, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.073607, 
+                "y": 29.658861, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 30.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.086000, 
+                "y": 0.143000, 
+                "z": 0.143000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 254, 
+        "Name": "Wall2", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 11.810972, 
+                "y": 14.946733, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 11.810972, 
+                "y": 14.946733, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 11.810972, 
+                "y": 14.946733, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 15.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.086000, 
+                "y": 0.143000, 
+                "z": 0.143000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }, 
+          "BoxCollider": 
+          {
+            "CollisionGroup": "Terrain", 
+            "PhysicsMaterial": "", 
+            "Size": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }, 
+            "Offset": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Ghost": false, 
+            "SendsEvents": true, 
+            "IsDrawingCollider": false
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 254, 
+        "Name": "Wall2", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 8.412861, 
+                "y": 0.682033, 
+                "z": -0.001000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 8.412861, 
+                "y": 0.682033, 
+                "z": -0.001000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 8.412861, 
+                "y": 0.682033, 
+                "z": -0.001000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 30.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 0.500000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.086000, 
+                "y": 0.143000, 
+                "z": 0.143000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 254, 
+        "Name": "Wall2", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 9.922229, 
+                "y": 0.687962, 
+                "z": -0.001000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 9.922229, 
+                "y": 0.687962, 
+                "z": -0.001000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 9.922229, 
+                "y": 0.687962, 
+                "z": -0.001000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": -30.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 0.500000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.086000, 
+                "y": 0.143000, 
+                "z": 0.143000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 254, 
+        "Name": "Wall2", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 9.176065, 
+                "y": 0.890258, 
+                "z": -0.001000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 9.176065, 
+                "y": 0.890258, 
+                "z": -0.001000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 9.176065, 
+                "y": 0.890258, 
+                "z": -0.001000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 0.500000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.086000, 
+                "y": 0.143000, 
+                "z": 0.143000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 254, 
+        "Name": "Wall2", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 9.188806, 
+                "y": 1.502498, 
+                "z": -0.001000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 9.188806, 
+                "y": 1.502498, 
+                "z": -0.001000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 9.188806, 
+                "y": 1.502498, 
+                "z": -0.001000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 0.300000, 
+                "y": 0.800000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 0.086000, 
+                "y": 0.143000, 
+                "z": 0.143000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "square", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 0
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 5929, 
+        "Name": "SpriteText", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": 8.016365, 
+                "y": 3.242348, 
+                "z": 0.010000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 8.016365, 
+                "y": 3.242348, 
+                "z": 0.010000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": 8.016365, 
+                "y": 3.242348, 
+                "z": 0.010000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "SpriteText": 
+          {
+            "Visible": true, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "Font": "Electrolize-Regular", 
+            "FontSize": 7, 
+            "Text": "gloves go here", 
+            "PixelsPerUnit": 64, 
+            "Smoothing": true, 
+            "WordWrap": 8, 
+            "DrawLayer": 3
           }
         }, 
         "Children": 

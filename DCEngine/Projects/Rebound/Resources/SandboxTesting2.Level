@@ -157,6 +157,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -265,6 +267,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -411,7 +415,8 @@
               }
             }, 
             "InnerAngle": 0.000000, 
-            "OuterAngle": 0.000000
+            "OuterAngle": 0.000000, 
+            "CullLight": 0.000000
           }, 
           "HealthController": 
           {
@@ -578,6 +583,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -660,6 +667,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -760,6 +769,7 @@
             "ForcedFreeze": false, 
             "FreezeEnabled": true, 
             "MaxAttractSpeed": 20.000000, 
+            "MaxSlamDistance": 3.000000, 
             "MaxAttractForce": 8.000000, 
             "AttractArriveDistance": 0.000000, 
             "MinAttractSpeed": 9.000000, 
@@ -798,7 +808,8 @@
               }
             }, 
             "InnerAngle": 0.000000, 
-            "OuterAngle": 0.000000
+            "OuterAngle": 0.000000, 
+            "CullLight": 0.000000
           }, 
           "SpriteParticleSystem": 
           {
@@ -1057,6 +1068,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -1234,6 +1247,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -1316,6 +1331,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 

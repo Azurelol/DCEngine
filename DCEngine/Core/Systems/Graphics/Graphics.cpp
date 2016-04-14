@@ -266,9 +266,9 @@ namespace DCEngine {
 
     }
 
-		void Graphics::ScreenSpaceRectangle(float width, float height, SpriteSourcePtr sprite)
+		void Graphics::ScreenSpaceRectangle(Vec4 color, SpriteSourcePtr sprite)
 		{
-			mDeferredObjects.push_back(sprite);
+			mDeferredObjects.push_back(std::make_pair(sprite, color));
 		}
 
     /**************************************************************************/
