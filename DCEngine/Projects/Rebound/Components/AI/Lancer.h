@@ -102,6 +102,7 @@ namespace DCEngine {
       GameObjectPtr body;
       GameObjectPtr spear;
       std::vector<GameObjectPtr> sprites;
+      GameObjectPtr particle;
       Vec3 startingPosition;
       Vec3 endPosition;
       int health;
@@ -117,6 +118,7 @@ namespace DCEngine {
       void FlashColor(Vec4 color, float duration);
       float velocity;
       float acceleration;
+      float particleStartVelocityX;
 
       class Global : public IState<Lancer>
       {

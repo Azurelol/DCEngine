@@ -330,14 +330,14 @@ namespace DCEngine {
 			//hacking in logic for color changing, use fade later
 			if (Dead)
 			{
-				DeathTimer += event->Dt;
-				if (DeathTimer > TimeToDie)
-				{
-					Dead = false;
-					this->SpaceRef->ReloadLevel();
-					// Play teleport in sound.
-					SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(TeleportArriveSound);
-				}
+				//DeathTimer += event->Dt;
+				//if (DeathTimer > TimeToDie)
+				//{
+				//	Dead = false;
+				//	this->SpaceRef->ReloadLevel();
+				//	// Play teleport in sound.
+				//	SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(TeleportArriveSound);
+				//}
 				return;
 			}
 			if (SpriteComponent->Color == Vec4(1, 0, 0, 1))
@@ -530,21 +530,41 @@ namespace DCEngine {
 
 		}
 
+    void PlayerController::Spawn()
+    {
+
+    }
+
 		void PlayerController::Die()
 		{
 			DCTrace << "PlayerController::Die - Reloading level \n";
-			SpriteComponent->Color = Vec4(0, 0, 0, 1);
-			Dead = true;
-			auto cameraRef = SpaceRef->FindObjectByName("Camera");
+
+
+
 			SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("Death");
-			if (cameraRef)
-			{
-				//cameraRef->getComponent<Components::CameraControllerZilch>()->DoScreenShake = true;
-				//dispatch event
-			}
+
 			// play teleport start.
+
+      Dead = true;
+      GameObjectPtr teleportParticle = SpaceRef->CreateObject("TeleportationParticle");
+      teleportParticle->AttachTo(gameObj);
+      teleportParticle->getComponent<Transform>()->setLocalTranslation(Vec3(0, 0, 0));
 			SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(TeleportStartSound);
+      ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
+      Actions::Delay(seq, 1);
+      Actions::Call(seq, &PlayerController::PlayTeleportArriveSound, this);
+      Actions::Call(seq, &PlayerController::ReloadLevel, this);
 		}
+
+    void PlayerController::PlayTeleportArriveSound()
+    {
+      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(TeleportArriveSound);
+    }
+
+    void PlayerController::ReloadLevel()
+    {
+      SpaceRef->ReloadLevel();
+    }
 
 
 

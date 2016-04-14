@@ -1,5 +1,6 @@
 {
    "Asset Path" : "Assets/",
+   "Default Level" : "LoadingScreen",
    "Default Level" : "Level1",
    "Default Space" : "",
    "Play" : false,
