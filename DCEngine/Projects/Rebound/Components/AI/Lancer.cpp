@@ -108,6 +108,14 @@ namespace DCEngine {
       acceleration = 0.0f;
 
       isDamageable = true;
+
+      particle = SpaceRef->CreateObject("LancerParticle");
+      particle->AttachTo(gameObj);
+      if (particle)
+      {
+        particle->getComponent<Transform>()->setLocalTranslation(Vec3(0, 0, 0));
+      }
+      particleStartVelocityX = particle->getComponent<ParticleEmitter>()->StartVelocity.x;
     }
 
     void Lancer::OnLogicUpdateEvent(Events::LogicUpdate * event)
@@ -120,6 +128,18 @@ namespace DCEngine {
 
       velocity += acceleration * event->Dt;
       TransformRef->Translation.x += velocity * event->Dt;
+
+      if (velocity > 0)
+      {
+        particle->getComponent<ParticleEmitter>()->StartVelocity.x = -particleStartVelocityX;
+        particle->getComponent<Transform>()->setLocalTranslation(Vec3(-1, -1, 0));
+      }
+      else
+      {
+        particle->getComponent<ParticleEmitter>()->StartVelocity.x = particleStartVelocityX;
+        particle->getComponent<Transform>()->setLocalTranslation(Vec3(1, -1, 0));
+
+      }
     }
 
     void Lancer::OnCollisionStartedEvent(Events::CollisionStarted * event)
