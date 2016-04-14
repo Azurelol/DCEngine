@@ -11,6 +11,8 @@
 #include "PlayerController.h"
 #include "../../CoreComponents.h"
 
+static bool Dead = false;
+
 namespace DCEngine {
 
 	namespace Components
@@ -92,10 +94,19 @@ namespace DCEngine {
       redHazeAlphaValue = 0;
       CreateShield();
 
+      if (Dead)
+      {
+        TeleportIn();
+      }
+
+      Dead = false;
 		}
 
     void PlayerController::FlashColor(Vec4 color, float duration)
     {
+      if (Dead == true)
+        return;
+
       shield->getComponent<Sprite>()->Color = shieldColor;
       ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
       Actions::Property(seq, shield->getComponent<Sprite>()->Color.w, 0, duration, Ease::Linear);
@@ -530,9 +541,19 @@ namespace DCEngine {
 
 		}
 
-    void PlayerController::Spawn()
+    void PlayerController::TeleportIn()
     {
+      teleportInParticle = SpaceRef->CreateObject("ReverseTeleportationParticle");
+      teleportInParticle->getComponent<Transform>()->Translation = TransformRef->Translation;
+      SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(TeleportArriveSound);
+      ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
+      Actions::Delay(seq, 2);
+      Actions::Call(seq, &PlayerController::DestroyTeleportParticle, this);
+    }
 
+    void PlayerController::DestroyTeleportParticle()
+    {
+      teleportInParticle->Destroy();
     }
 
 		void PlayerController::Die()
@@ -552,7 +573,6 @@ namespace DCEngine {
 			SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(TeleportStartSound);
       ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
       Actions::Delay(seq, 1);
-      Actions::Call(seq, &PlayerController::PlayTeleportArriveSound, this);
       Actions::Call(seq, &PlayerController::ReloadLevel, this);
 		}
 
