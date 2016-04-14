@@ -89,6 +89,7 @@ namespace DCEngine {
       endPosition = startingPosition;
 
       health = startingHealth;
+      isDamageable = true;
 
       defaultColor = SpriteRef->Color;
  
