@@ -60,7 +60,7 @@ namespace DCEngine {
       unsigned GetScreenWidth() const;
       unsigned GetScreenHeight() const;
 
-			void ScreenSpaceRectangle(float width, float height, SpriteSourcePtr sprite);
+			void ScreenSpaceRectangle(Vec4 color, SpriteSourcePtr sprite);
 
 
     private:
@@ -104,7 +104,7 @@ namespace DCEngine {
       //int TotalObjNumG = 0;
       //int TotalObjTranspNumG = 0;
       std::vector<std::vector<Components::Graphical*>> mDrawList;
-			std::vector<SpriteSourcePtr> mDeferredObjects;
+			std::vector<std::pair<SpriteSourcePtr, Vec4>> mDeferredObjects;
       void SendCountToGL(int TotalObjNumG, int TotalObjTransNumG);
 
 			/*============
