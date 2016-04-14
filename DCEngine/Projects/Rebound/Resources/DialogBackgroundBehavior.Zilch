@@ -39,7 +39,7 @@ class DialogBackgroundBehavior : ZilchComponent
 		if(this.DialogSpeaker != null)
 		{
 			this.DialogSpeaker.Transform.Translation = Real3(this.Owner.Transform.Translation.X - 4, 
-				this.Owner.Transform.Translation.Y + 1.50,  this.Owner.Transform.Translation.Z);
+				this.Owner.Transform.Translation.Y + 1.6,  this.Owner.Transform.Translation.Z);
 		}									 
 		if(this.DialogText != null)
 		{
