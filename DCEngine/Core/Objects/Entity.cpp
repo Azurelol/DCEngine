@@ -47,7 +47,7 @@ namespace DCEngine {
     dispatchParams.push_back(ZilchTypeId(Zilch::String));
     dispatchParams.push_back(ZilchTypeId(Event));
     ZilchBindMethod(builder, type, &Entity::Dispatch, (void(Entity::*)(std::string, Event*)), "Dispatch", "eventID, event");    
-    ZilchBindMethod(builder, type, &Entity::AddComponentByName, ZilchNoOverload, "AddComponentByName", "name");
+    ZilchBindMethod(builder, type, &Entity::AddComponentByName, ZilchNoOverload, "AddComponentByName", "name, initialize");
     ZilchBindProperty(builder, type, &Entity::Parent, ZilchNoSetter, "Parent", ZilchNoNames);
     ZilchBindMethod(builder, type, &Entity::FindChildByName, ZilchNoOverload, "FindChildByName", "name");
     ZilchBindProperty(builder, type, &Entity::ChildrenByRange, ZilchNoSetter, "Children");
