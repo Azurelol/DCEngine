@@ -1,0 +1,31 @@
+class ActivateTriggerAfterTele : ZilchComponent
+{
+	var Active: Boolean = true;
+    function Initialize()
+    {
+        Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+		var generator = this.Space.FindObjectByName("Generator");
+		var player = this.Space.FindObjectByName("Player");
+		//Console.WriteLine(generator);
+		//Console.WriteLine(generator.Level2Generator.Active);
+		////Console.WriteLine(this.Active);
+		if(generator != null && generator.Level2Generator.Active == false && this.Active == true && player.Transform.Translation.X < 9)
+		{
+			this.Active = false;
+			this.Owner.Dispatch("ActivateDialog", ActivateDialog());
+		}
+		var trigger = this.Space.FindObjectByName("DialogTrigger2");
+		if(trigger != null && trigger.MegaDialogTrigger.Finished == true)
+		{
+			///////////////////////////
+			///////////////////////////
+			//TURN ON TELEPORTER HERE//
+			///////////////////////////
+			///////////////////////////
+		}
+    }
+}
