@@ -339,7 +339,7 @@ namespace DCEngine {
         }
 
         int textSize = 14;
-        int height = data.size() * textSize;
+        int height = static_cast<int>(data.size() * textSize);
 
         // Display the histogram through 
         ImGui::PushItemWidth(290);
