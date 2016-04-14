@@ -56,7 +56,7 @@ namespace DCEngine {
       Real MaxAttractForce = 12.50f;
       Real AttractArriveDistance = 200.0f;
       Real SlamPower = ChargeFactor * MaxCharge;
-	  Real MaxSlamDistance = 3;
+	  Real MaxSlamDistance = 3.0f;
       Real MinimumLightRange = 0.2f;
       Real MaximumLightRange = 2.0f;
       Real ShotGravity = 0.1f;

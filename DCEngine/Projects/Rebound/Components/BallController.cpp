@@ -165,7 +165,7 @@ namespace DCEngine {
         }
         auto coords = SpaceRef->getComponent<Components::CameraViewport>()->ScreenToViewport(Vec2(event->Position));
         auto MouseVector = glm::normalize(Vec3(coords.x - PlayerRef->getComponent<Components::Transform>()->Translation.x, coords.y - PlayerRef->getComponent<Components::Transform>()->Translation.y, 0));
-		if (CurrentlyFired && glm::distance(TransformRef->getTranslation(), PlayerRef->getComponent<Components::Transform>()->getTranslation()) < MaxSlamDistance);
+		if (CurrentlyFired && glm::distance(TransformRef->getTranslation(), PlayerRef->getComponent<Components::Transform>()->getTranslation()) < MaxSlamDistance)
         {
           // DCTrace << "BallController::OnMouseUpEvent - Slam\n";
           RigidBodyRef->setVelocity(Vec3(0, 0, 0));
