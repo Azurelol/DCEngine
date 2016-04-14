@@ -769,6 +769,7 @@
             "ForcedFreeze": false, 
             "FreezeEnabled": true, 
             "MaxAttractSpeed": 20.000000, 
+            "MaxSlamDistance": 3.000000, 
             "MaxAttractForce": 8.000000, 
             "AttractArriveDistance": 0.000000, 
             "MinAttractSpeed": 9.000000, 

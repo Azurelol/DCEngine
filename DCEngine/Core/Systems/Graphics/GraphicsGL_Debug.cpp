@@ -221,7 +221,7 @@ namespace DCEngine {
 				glVertex4f(1, 1, 1, 1);
 				glVertex4f(-1, 1, 0, 1);
 				glEnd();
-        FinalRenderShader->SetVector4f("ClearColor", Vec4(0,0,0,1));
+        FinalRenderShader->SetVector4f("ClearColor", Vec4(1,1,1,1));
 			}
 		}
 
