@@ -1,10 +1,7 @@
 {
    "Asset Path" : "Assets/",
-<<<<<<< HEAD
    "Default Level" : "LoadingScreen",
-=======
    "Default Level" : "Level1",
->>>>>>> 6457bab4a516e11c65659076f31eb070443ab2a8
    "Default Space" : "",
    "Play" : false,
    "Project Name" : "Rebound",
