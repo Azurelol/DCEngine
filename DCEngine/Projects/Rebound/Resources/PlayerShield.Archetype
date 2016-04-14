@@ -59,7 +59,9 @@
       "Sprite": 
       {
         "Visible": true, 
-        "CullVisibility": true, 
+        "CullVisibility": false, 
+        "ForceLightCulling": false, 
+        "NOSHADOW": true, 
         "Color": 
         {
           "Vec4": 
