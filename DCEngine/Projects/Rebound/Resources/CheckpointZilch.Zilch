@@ -1,0 +1,20 @@
+class CheckpointZilch : ZilchComponent
+{
+    function Initialize()
+    {
+        //Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+		Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollision);
+    }
+
+    function OnLogicUpdate(event : LogicUpdate)
+    {
+    }
+	
+	function OnCollision(event : CollisionStarted)
+    {
+		if(event.OtherObject.Name == "Player")
+		{ 
+			event.OtherObject.PlayerController.InitialLocation = this.Owner.Transform.Translation;
+		}
+	}
+}

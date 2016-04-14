@@ -22,6 +22,7 @@ namespace DCEngine {
 			DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(PlayerController);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, MoveSpeed);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, VelocityXCap);
+			DCE_BINDING_DEFINE_PROPERTY(PlayerController, InitialLocation);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpPower);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpFrames);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, Health);
