@@ -519,7 +519,7 @@
             "JumpSound": "Jump", 
             "LandSound": "Land", 
             "FootstepSound": "Step", 
-            "CollideSound": "Collide", 
+            "CollideSound": "HitShield", 
             "DamageFromScrapper": 1, 
             "DamageFromSentinel": 2, 
             "DamageFromLancer": 3, 
@@ -11819,8 +11819,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
+                    "x": -4.091228, 
+                    "y": 0.849533, 
                     "z": 0.001000
                   }
                 }, 
@@ -11919,8 +11919,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
+                    "x": -4.091228, 
+                    "y": 1.499533, 
                     "z": 0.001000
                   }
                 }, 
