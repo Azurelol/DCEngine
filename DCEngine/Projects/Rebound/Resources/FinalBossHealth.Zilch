@@ -27,6 +27,7 @@ class FinalBossHealth : ZilchComponent
     
     function OnDeathEvent(event : DeathEvent)
     {
+      this.Space.SoundSpace.PlayCue("GeneratorExplode");
       this.Owner.Destroy();
       this.Space.Dispatch(DaisyEvent.EndGameEvent, EndGameEvent());
     }

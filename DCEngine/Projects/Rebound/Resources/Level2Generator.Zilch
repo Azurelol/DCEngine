@@ -41,6 +41,7 @@ class Level2Generator : ZilchComponent
 	{ 
 		if(this.Active)
 		{
+      this.Space.SoundSpace.PlayCue("GeneratorPowerOn");
 			this.Active = false;
 			var camera = this.Space.FindObjectByName("Camera");
 			var player = this.Space.FindObjectByName("Player");
