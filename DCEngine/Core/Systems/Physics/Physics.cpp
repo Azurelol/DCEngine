@@ -198,7 +198,12 @@ namespace DCEngine {
     void Physics::Step(float dt)
     {
       // Hardcode dt temporarily
-      dt = 0.0166f;
+      //dt = 0.0166f;
+      if (dt > 0.025f)
+      {
+        dt = 0.025f;
+      }
+
       static bool first = true;
       OnCollisionStarteds.clear();
       OnCollisionPersisteds.clear();
