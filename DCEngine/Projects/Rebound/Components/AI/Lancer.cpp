@@ -132,7 +132,7 @@ namespace DCEngine {
       velocity += acceleration * event->Dt;
       TransformRef->Translation.x += velocity * event->Dt;
 
-      if (velocity > 0)
+      if (head->getComponent<Sprite>()->FlipX)
       {
         particle->getComponent<ParticleEmitter>()->StartVelocity.x = -particleStartVelocityX;
         particle->getComponent<Transform>()->setLocalTranslation(Vec3(-1, -1, 0));

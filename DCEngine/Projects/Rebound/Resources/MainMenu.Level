@@ -511,7 +511,8 @@
             "OpEase": "QuadOut", 
             "HoverSoundName": "MenuCancel", 
             "ClickSoundName": "MenuSelect", 
-            "RefTextName": "HighlightText"
+            "RefTextName": "HighlightText", 
+            "NumberOfButtons": 5
           }
         }, 
         "Children": 
@@ -8592,8 +8593,8 @@
           }, 
           "OptionsManager": 
           {
-            "HoverSoundName": "", 
-            "ClickSoundName": "", 
+            "HoverSoundName": "MenuCancel", 
+            "ClickSoundName": "MenuSelect", 
             "AspRefTextName": "AspectText", 
             "ResRefTextName": "ResText", 
             "AARefTextName": "AAText", 
