@@ -25,6 +25,7 @@ class AntiEnergyField : ZilchComponent
 	{
 		if(event.OtherObject.BallTemp != null && this.Active)
 		{
+			this.Space.SoundSpace.PlayCue("BallDissipate");
 			this.DissipateBall();
 		}
 	}

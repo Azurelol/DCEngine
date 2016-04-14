@@ -138,7 +138,7 @@ namespace DCEngine {
         //	Frozen = false;
         //	RigidBodyRef->setDynamicState(DynamicStateType::Dynamic);
         //	}
-        SoundCommand();
+        //SoundCommand();
 
 
         if (CurrentlyFired)
@@ -203,6 +203,7 @@ namespace DCEngine {
           {
             ChargeInstance->Stop();
           }
+          SoundCommand();
 
           if (BallControllerTraceOn)
           {

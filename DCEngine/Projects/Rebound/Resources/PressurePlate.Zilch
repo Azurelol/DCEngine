@@ -4,7 +4,7 @@ class PressurePlate : ZilchComponent
     var Target : String = "";
 
     [Property]
-    var CollideSound : String = "";
+    var CollideSound : String = "PressurePlateClick";
     var CollideSoundInstance : SoundInstance;
     
 	var OriginalScale : Real3;

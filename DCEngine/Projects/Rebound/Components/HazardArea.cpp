@@ -11,6 +11,8 @@
 #include "HazardArea.h"
 #include "../../CoreComponents.h"
 
+#define POSTEVENT(name) SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(name)
+
 namespace DCEngine {
   namespace Components
   {
@@ -31,6 +33,7 @@ namespace DCEngine {
       TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>(); // ew
       RigidBodyRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::RigidBody>();
       PlayerRef = SpaceRef->FindObjectByName("Player");
+      AcidHiss = nullptr;
     }
     
     void HazardArea::OnCollisionStartedEvent(Events::CollisionStarted * event)
@@ -41,7 +44,8 @@ namespace DCEngine {
         PlayerRef->getComponent<Components::RigidBody>()->setGravity(true);
         auto vel = PlayerRef->getComponent<Components::RigidBody>()->getVelocity();
         PlayerRef->getComponent<Components::RigidBody>()->setVelocity(Vec3(vel.x / 2, vel.y / 2, 0));
-		Timer = DamageInterval;
+		    Timer = DamageInterval;
+        AcidHiss = POSTEVENT("AcidHiss");
         if (HazardAreaTraceOn)
         {
           DCTrace << "HazardArea::OnCollisionStartedEvent \n";
@@ -54,8 +58,12 @@ namespace DCEngine {
       if (event->OtherObject->getComponent<Components::PlayerController>())
       {
         TouchingPlayer = false;
+        if (AcidHiss != nullptr)
+        {
+          AcidHiss->Stop();
+        }
         PlayerRef->getComponent<Components::RigidBody>()->setGravity(1);
-		Timer = 0;
+		    Timer = 0;
         if (HazardAreaTraceOn)
         {
           DCTrace << "HazardArea::OnCollisionEndedEvent \n";
