@@ -16,6 +16,10 @@
 				"selected_items":
 				[
 					[
+						"List",
+						"ListenForFreeze"
+					],
+					[
 						"Game",
 						"EndGameEvent"
 					],
@@ -92,10 +96,10 @@
 			"buffers":
 			[
 				{
-					"file": "/D/DCEngine/DCEngine/Projects/Rebound/Resources/GlobalDataCreator.Zilch",
+					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PauseManagerZ.Zilch",
 					"settings":
 					{
-						"buffer_size": 225,
+						"buffer_size": 2330,
 						"line_ending": "Windows"
 					}
 				}
@@ -132,13 +136,13 @@
 			},
 			"file_history":
 			[
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/FinalBossHealth.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DebugMove.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GameEndSequence.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/MoveToLocationZilch.Zilch",
+				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TutorialText.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HealthControllerZ.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HealthRegen.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/MoveToLocationZilch.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GameEndSequence.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/FinalBossHealth.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/TutorialText.Zilch",
-				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/DebugMove.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HazardAreaZilch.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/HackyClickToProgress.Zilch",
 				"/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/GravityManager.Zilch",
@@ -195,7 +199,7 @@
 			],
 			"find":
 			{
-				"height": 248.0
+				"height": 23.0
 			},
 			"find_in_files":
 			{
@@ -235,27 +239,29 @@
 					[
 						{
 							"buffer": 0,
-							"file": "/D/DCEngine/DCEngine/Projects/Rebound/Resources/GlobalDataCreator.Zilch",
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PauseManagerZ.Zilch",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 225,
+								"buffer_size": 2330,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										0,
-										0
+										1515,
+										1513
 									]
 								],
 								"settings":
 								{
-									"syntax": "Packages/Text/Plain text.tmLanguage"
+									"syntax": "Packages/C#/C#.sublime-syntax",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true
 								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
+								"translation.x": -0.0,
+								"translation.y": 990.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -266,7 +272,7 @@
 			],
 			"incremental_find":
 			{
-				"height": 248.0
+				"height": 23.0
 			},
 			"input":
 			{
@@ -300,11 +306,11 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,931,310,133,1868",
+			"position": "0,0,1,-32000,-32000,-1,-1,931,310,133,1868",
 			"project": "",
 			"replace":
 			{
-				"height": 492.0
+				"height": 42.0
 			},
 			"save_all_on_build": true,
 			"select_file":
