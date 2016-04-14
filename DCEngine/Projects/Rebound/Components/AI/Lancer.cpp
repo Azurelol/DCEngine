@@ -11,6 +11,8 @@
 #include "Lancer.h"
 #include "../../../CoreComponents.h"
 
+#define POSTEVENT(name) SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(name)
+
 namespace DCEngine {
   namespace Components {
 
@@ -128,6 +130,7 @@ namespace DCEngine {
       {
         if (player->getComponent<PlayerController>()->Invincible)
         {
+          POSTEVENT("LancerDeath");
           stateMachine->ChangeState(Die::Instance());
         }
         else if (ModifyHealth(-1))
@@ -142,6 +145,7 @@ namespace DCEngine {
       if (event->OtherObject->getComponent<PlayerController>() != NULL)
       {
         velocity = 0;
+        POSTEVENT("LancerAttack");
         RigidBodyRef->ApplyForce(Vec3(-KnockBackOnPlayerCollisionForce * acceleration,0,0));
       }
     }
@@ -188,7 +192,12 @@ namespace DCEngine {
 
       if (health == 0)
       {
+        POSTEVENT("LancerDeath");
         stateMachine->ChangeState(Die::Instance());
+      }
+      else
+      {
+        POSTEVENT("LancerTakeDamage");
       }
 
       if (oldHealth == health)

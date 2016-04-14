@@ -12,6 +12,7 @@
 #include "../../CoreComponents.h"
 #include "../../../Core/Engine/SteeringBehaviors.h"
 
+#define POSTEVENT(name) SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(name)
 
 namespace DCEngine {
 
@@ -95,6 +96,8 @@ namespace DCEngine {
       RigidBodyRef->setRestitution(Restitution);
       RigidBodyRef->setFriction(Friction);
       //CollisionTableRef->SetResolve("Ball", "Player", CollisionFlag::SkipResolution);
+
+      ChargeInstance;
     }
 
     void BallController::OnMouseDownEvent(Events::MouseDown * event)
@@ -145,6 +148,8 @@ namespace DCEngine {
         else
         {
           Charging = true;
+          ChargeInstance = POSTEVENT("BallCharge");
+          // Start Charge
         }
       }
     }
@@ -192,6 +197,12 @@ namespace DCEngine {
           CurrentCharge = 0;
           CurrentlyFired = true;
           RigidBodyRef->setGravityRatio(ShotGravity);
+
+          // Stop Charge Sound
+          if (ChargeInstance != nullptr)
+          {
+            ChargeInstance->Stop();
+          }
 
           if (BallControllerTraceOn)
           {
