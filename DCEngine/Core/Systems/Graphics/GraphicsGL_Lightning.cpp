@@ -244,6 +244,7 @@ namespace DCEngine {
 			FinalRenderShader->SetInteger("useLight", lit);
 			FinalRenderShader->SetFloat("Exposure", exposure);
 			FinalRenderShader->SetInteger("LightedFrag", 0);
+      FinalRenderShader->SetVector4f("ClearColor", Vec4(1,1,1,1));
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, FinalColor);
 
