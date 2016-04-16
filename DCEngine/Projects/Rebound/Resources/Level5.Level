@@ -19,8 +19,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": -212.418167, 
+                "y": -109.376320, 
                 "z": 1.000000
               }
             }, 
@@ -28,8 +28,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": -212.418167, 
+                "y": -109.376320, 
                 "z": 1.000000
               }
             }, 
@@ -37,8 +37,8 @@
             {
               "Vec3": 
               {
-                "x": 0.000000, 
-                "y": 0.000000, 
+                "x": -212.418167, 
+                "y": -109.376320, 
                 "z": 1.000000
               }
             }, 
@@ -308,8 +308,8 @@
             {
               "Vec3": 
               {
-                "x": -36.272854, 
-                "y": 9.385988, 
+                "x": -215.286240, 
+                "y": -115.163445, 
                 "z": 0.000000
               }
             }, 
@@ -317,8 +317,8 @@
             {
               "Vec3": 
               {
-                "x": -36.272854, 
-                "y": 9.385988, 
+                "x": -215.286240, 
+                "y": -115.163445, 
                 "z": 0.000000
               }
             }, 
@@ -326,8 +326,8 @@
             {
               "Vec3": 
               {
-                "x": -36.272854, 
-                "y": 9.385988, 
+                "x": -215.286240, 
+                "y": -115.163445, 
                 "z": 0.000000
               }
             }, 
@@ -1864,6 +1864,21 @@
         "Protected": false, 
         "Components": 
         {
+          "PauseManagerZ": 
+          {
+            "PauseLevelName": "PauseMenu"
+          }, 
+          "GravityManager": 
+          {
+            "LocalGravity": 50.000000
+          }, 
+          "MusicBackground": 
+          {
+            "PlayOnStart": true, 
+            "StopOnTerminate": false, 
+            "Track": "MachineHeart", 
+            "Volume": 1.000000
+          }
         }, 
         "Children": 
         {
@@ -3582,8 +3597,8 @@
             {
               "Vec3": 
               {
-                "x": -213.762878, 
-                "y": -114.443298, 
+                "x": -216.479813, 
+                "y": -109.597618, 
                 "z": 0.000000
               }
             }, 
@@ -3591,8 +3606,8 @@
             {
               "Vec3": 
               {
-                "x": -213.762878, 
-                "y": -114.443298, 
+                "x": -216.479813, 
+                "y": -109.597618, 
                 "z": 0.000000
               }
             }, 
@@ -3600,8 +3615,8 @@
             {
               "Vec3": 
               {
-                "x": -213.762878, 
-                "y": -114.443298, 
+                "x": -216.479813, 
+                "y": -109.597618, 
                 "z": 0.000000
               }
             }, 
@@ -8478,7 +8493,8 @@
           {
             "NextLevel": "Level6", 
             "LoadingTime": 3.000000, 
-            "TimerStarted": false
+            "TimerStarted": false, 
+            "Active": true
           }, 
           "Fade": 
           {
@@ -11562,6 +11578,90 @@
             "InnerAngle": 0.600000, 
             "OuterAngle": 0.800000, 
             "CullLight": 0.000000
+          }
+        }, 
+        "Children": 
+        {
+        }
+      }, 
+      "GameObject": 
+      {
+        "Locked": false, 
+        "GameObjectID": 234, 
+        "Name": "Sprite", 
+        "Protected": false, 
+        "Components": 
+        {
+          "Transform": 
+          {
+            "Translation": 
+            {
+              "Vec3": 
+              {
+                "x": -215.158127, 
+                "y": -114.619682, 
+                "z": 0.000000
+              }
+            }, 
+            "LocalTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -215.158127, 
+                "y": -114.619682, 
+                "z": 0.000000
+              }
+            }, 
+            "WorldTranslation": 
+            {
+              "Vec3": 
+              {
+                "x": -215.158127, 
+                "y": -114.619682, 
+                "z": 0.000000
+              }
+            }, 
+            "Rotation": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Scale": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 6.000000, 
+                "z": 1.000000
+              }
+            }
+          }, 
+          "Sprite": 
+          {
+            "Visible": true, 
+            "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
+            "Color": 
+            {
+              "Vec4": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 1.000000, 
+                "w": 1.000000
+              }
+            }, 
+            "SpriteSource": "Teleporter Idea Active", 
+            "FlipX": false, 
+            "FlipY": false, 
+            "AnimationActive": false, 
+            "AnimationSpeed": 1.000000, 
+            "DrawLayer": 6
           }
         }, 
         "Children": 
