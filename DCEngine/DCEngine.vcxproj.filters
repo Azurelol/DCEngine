@@ -1677,6 +1677,7 @@
     <ClInclude Include="Core\Systems\Editor\EditorLauncher.h">
       <Filter>Core\Systems\Editor\Modules\Launcher</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Documentation\Style Guide.txt">
@@ -1766,5 +1767,12 @@
     <None Include="ConfigurationGUI.cfg">
       <Filter>Configuration</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Core\Assets\ReboundIcon.ico" />
+    <Image Include="icon1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DCEngine.rc" />
   </ItemGroup>
 </Project>
