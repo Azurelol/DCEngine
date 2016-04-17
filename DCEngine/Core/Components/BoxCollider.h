@@ -21,10 +21,7 @@ namespace DCEngine {
     class BoxCollider : public Collider {
     public:
 
-#if (DCE_USE_ZILCH_INTERNAL_BINDING)
       ZilchDeclareDerivedType(BoxCollider, Collider);
-#endif
-
       // Variables
       Vec3 Size = Vec3(1, 1, 1);
       Vec3 Offset = Vec3(0, 0, 0);

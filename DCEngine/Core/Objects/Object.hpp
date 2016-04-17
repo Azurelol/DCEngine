@@ -100,6 +100,7 @@ namespace DCEngine {
       //  DCTrace << "hello lol\n";
       //  //
       //}
+
       // Property: Boolean
       else if (Zilch::Type::IsSame(property->PropertyType, ZilchTypeId(Zilch::Boolean)))
       {
@@ -196,9 +197,6 @@ namespace DCEngine {
     for (auto property : properties->OrderedMembers.all()) {
       
       Zilch::JsonValue* value = property->Value;
-
-
-
       // Attemot to either get it as a 'Property' with Getter/Setter methods
       Zilch::Property* namedProperty = boundType->GetInstanceProperty(property->Key);
       // If we could not get it as a property, try as a field
@@ -279,6 +277,7 @@ namespace DCEngine {
       //  DCTrace << "hello lol\n";
       //  //call.Set(0, value->AsString());
       //}
+
       // Type is a Boolean.
       else if (Zilch::Type::IsSame(namedProperty->PropertyType, ZilchTypeId(Zilch::Boolean)))
       {
