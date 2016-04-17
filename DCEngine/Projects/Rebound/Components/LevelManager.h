@@ -22,6 +22,8 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(Real, LoadingTime);
       DCE_DEFINE_PROPERTY(Real, Timer);
       DCE_DEFINE_PROPERTY(Boolean, TimerStarted);
+	  DCE_DEFINE_PROPERTY(Boolean, Active);
+
       // Methods
       LevelManager(Entity& owner) : Component(std::string("LevelManager"), owner) {}
       void Initialize();
@@ -43,6 +45,7 @@ namespace DCEngine {
       Real Timer = 1;
       Fade* FadeRef;
       Boolean TimerStarted = false;
+	  Boolean Active = true;
 	  Transform* TransformRef;
 
     };

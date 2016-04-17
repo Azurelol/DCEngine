@@ -145,6 +145,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 
@@ -273,7 +275,8 @@
               }
             }, 
             "InnerAngle": 0.000000, 
-            "OuterAngle": 180.000015
+            "OuterAngle": 180.000015, 
+            "CullLight": 0.000000
           }
         }, 
         "Children": 
@@ -340,6 +343,8 @@
           {
             "Visible": true, 
             "CullVisibility": true, 
+            "ForceLightCulling": false, 
+            "NOSHADOW": false, 
             "Color": 
             {
               "Vec4": 

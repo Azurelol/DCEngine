@@ -22,6 +22,7 @@ namespace DCEngine {
 			DCE_BINDING_COMPONENT_DEFINE_CONSTRUCTOR(PlayerController);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, MoveSpeed);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, VelocityXCap);
+			DCE_BINDING_DEFINE_PROPERTY(PlayerController, InitialLocation);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpPower);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, JumpFrames);
 			DCE_BINDING_DEFINE_PROPERTY(PlayerController, Health);
@@ -208,6 +209,11 @@ namespace DCEngine {
 			case Keys::L:
 				LevelCheatLoaded = false;
 				break;
+			case Keys::P:
+				LevelCheatLoaded = true;
+				level = "Victory";
+				SpaceRef->LoadLevel(level);
+				break;
 			case Keys::Num1:
 				LevelCheatLoaded = true;
 				level = "Level1";
@@ -319,12 +325,16 @@ namespace DCEngine {
 
 		void PlayerController::OnLogicUpdateEvent(Events::LogicUpdate * event)
 		{
-      float width = Daisy->getSystem<Systems::Graphics>()->GetScreenWidth();
-      float height = Daisy->getSystem<Systems::Graphics>()->GetScreenHeight();
-      //DCTrace << "Player velocity: " << RigidBodyRef->getVelocity().x << ", " << RigidBodyRef->getVelocity().y << "\n";
-      Daisy->getSystem<Systems::Graphics>()->ScreenSpaceRectangle(redHaze->getComponent<Sprite>()->Color,
-        Daisy->getSystem<Systems::Content>()->getSpriteSrc(redHaze->getComponent<Sprite>()->SpriteSource));
-     // DCTrace << "RedHazeAlpha " << redHaze->getComponent<Sprite>()->Color.w << "\n";
+		  float width = Daisy->getSystem<Systems::Graphics>()->GetScreenWidth();
+		  float height = Daisy->getSystem<Systems::Graphics>()->GetScreenHeight();
+		  //DCTrace << "Player velocity: " << RigidBodyRef->getVelocity().x << ", " << RigidBodyRef->getVelocity().y << "\n";
+		  Daisy->getSystem<Systems::Graphics>()->ScreenSpaceRectangle(redHaze->getComponent<Sprite>()->Color,
+			Daisy->getSystem<Systems::Content>()->getSpriteSrc(redHaze->getComponent<Sprite>()->SpriteSource));
+		 // DCTrace << "RedHazeAlpha " << redHaze->getComponent<Sprite>()->Color.w << "\n";
+		  if (TransformRef->getTranslation().y < -100)
+		  {
+			  Die();
+		  }
 
 			bool animationChanged = false;
 			if (PlayerControllerTraceOn)
@@ -571,6 +581,8 @@ namespace DCEngine {
 	{
 		Health = InitialHealth;
 		redHazeAlphaValue = 0;
+		ActionSetPtr seq2 = Actions::Sequence(Owner()->Actions);
+		Actions::Property(seq2, redHaze->getComponent<Sprite>()->Color.w, redHazeAlphaValue, 1, Ease::Linear);
 	}
 
 	void PlayerController::DestroyTeleportOutParticle()

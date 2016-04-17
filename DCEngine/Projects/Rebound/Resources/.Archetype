@@ -3,8 +3,13 @@
   "GameObject": 
   {
     "Locked": false, 
+<<<<<<< HEAD
     "GameObjectID": 900, 
     "Name": "Scrapper", 
+=======
+    "GameObjectID": 37, 
+    "Name": "PlayerShield", 
+>>>>>>> 62cdc26c99d564093bee40cf37705e8263320c9f
     "Protected": false, 
     "Components": 
     {
@@ -14,8 +19,13 @@
         {
           "Vec3": 
           {
+<<<<<<< HEAD
             "x": -1.155510, 
             "y": 5.422211, 
+=======
+            "x": -9.001863, 
+            "y": -0.432670, 
+>>>>>>> 62cdc26c99d564093bee40cf37705e8263320c9f
             "z": 0.000000
           }
         }, 
@@ -23,8 +33,13 @@
         {
           "Vec3": 
           {
+<<<<<<< HEAD
             "x": -1.155510, 
             "y": 5.422211, 
+=======
+            "x": -9.001863, 
+            "y": -0.432670, 
+>>>>>>> 62cdc26c99d564093bee40cf37705e8263320c9f
             "z": 0.000000
           }
         }, 
@@ -32,8 +47,13 @@
         {
           "Vec3": 
           {
+<<<<<<< HEAD
             "x": -1.155510, 
             "y": 5.422211, 
+=======
+            "x": -9.001863, 
+            "y": -0.432670, 
+>>>>>>> 62cdc26c99d564093bee40cf37705e8263320c9f
             "z": 0.000000
           }
         }, 
@@ -50,14 +70,20 @@
         {
           "Vec3": 
           {
+<<<<<<< HEAD
             "x": 1.500000, 
             "y": 1.500000, 
+=======
+            "x": 3.000000, 
+            "y": 3.000000, 
+>>>>>>> 62cdc26c99d564093bee40cf37705e8263320c9f
             "z": 1.000000
           }
         }
       }, 
       "Grunt": 
       {
+<<<<<<< HEAD
         "PlayerName": "Player", 
         "StartingHealth": 3, 
         "MaxHealth": 3, 
@@ -168,6 +194,23 @@
           }
         }, 
         "SpriteSource": "Char_Scrap", 
+=======
+        "Visible": true, 
+        "CullVisibility": false, 
+        "ForceLightCulling": false, 
+        "NOSHADOW": true, 
+        "Color": 
+        {
+          "Vec4": 
+          {
+            "x": 0.000000, 
+            "y": 1.000000, 
+            "z": 1.000000, 
+            "w": 1.000000
+          }
+        }, 
+        "SpriteSource": "Char_Asha_shield2", 
+>>>>>>> 62cdc26c99d564093bee40cf37705e8263320c9f
         "FlipX": false, 
         "FlipY": false, 
         "AnimationActive": false, 
