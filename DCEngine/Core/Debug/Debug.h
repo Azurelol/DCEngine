@@ -10,11 +10,6 @@
 */
 /******************************************************************************/
 #pragma once
-#include <string>
-#include <iostream>
-#include <fstream>
-#include <memory>
-#include <sstream>
 
 //#include "../Systems/SystemsConfiguration.h"
 
@@ -75,12 +70,6 @@ namespace DCEngine
 
     class Trace {
     public:
-
-      struct Config {
-
-
-
-      };
 
       Trace(std::string fileName);
       ~Trace();      

@@ -151,9 +151,10 @@ namespace DCEngine {
     }
     void ZilchInterface::SetupConsole()
     {
+      //Zilch::EventConnect(&Zilch::Console::Events, Zilch::Events::ConsoleWrite, CustomWriteText);
+      
       // Setup the console so that when we call 'Console.WriteLine' it outputs to stdio
-      Zilch::EventConnect(&Zilch::Console::Events, Zilch::Events::ConsoleWrite, CustomWriteText);
-      //Zilch::EventConnect(&Zilch::Console::Events, Zilch::Events::ConsoleWrite, Zilch::DefaultWriteText);
+      Zilch::EventConnect(&Zilch::Console::Events, Zilch::Events::ConsoleWrite, Zilch::DefaultWriteText);
       // We can also setup the console so that any 'Read' functions will attempt to read from stdin
       Zilch::EventConnect(&Zilch::Console::Events, Zilch::Events::ConsoleRead, Zilch::DefaultReadText);
     }
@@ -217,10 +218,8 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief  Adds a Zilch library to the interface's dependencies module. 
-            It links together all core libraries, along our own libraries.
+    @brief  Adds a Zilch library to the interface's dependencies module.
     @param  library A reference to the library to add.
-    @return The success of the operation.
     */
     /**************************************************************************/
     void ZilchInterface::AddLibrary(const Zilch::LibraryRef & library)

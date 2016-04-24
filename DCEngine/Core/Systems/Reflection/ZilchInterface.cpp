@@ -42,8 +42,9 @@ namespace DCEngine {
     /**************************************************************************/
     ZilchInterface::~ZilchInterface()
     {
+     // Clean();
       // Clear the script library
-      ScriptLibrary.Clear();
+      // ScriptLibrary.Clear();
     }
 
     /**************************************************************************/
@@ -71,7 +72,10 @@ namespace DCEngine {
 
     /**************************************************************************/
     /*!
-    @brief  Initializes the Zilch interface system.
+    @brief  Initializes the Zilch interface system. Any one time startup and 
+            static initialization Zilch needs to do
+            This also registers a custom assertion handler (Zilch code has many
+            user friendly asserts!)
     */
     /**************************************************************************/
     void ZilchInterface::Initialize()
@@ -164,7 +168,6 @@ namespace DCEngine {
     /**************************************************************************/
     /*!
     @brief  Compiles and links all the libraries into one executable state.
-    @param  A reference to the current Zilch project object.
     */
     /**************************************************************************/
     void ZilchInterface::Build()
@@ -189,12 +192,15 @@ namespace DCEngine {
         delete State;
         State = nullptr;
       }
+      // Clear the script library
+      ScriptLibrary.Clear();
       // Clear the 'Exception' report
       Report.Clear();
       // Clear the 'Dependencies' container
       Dependencies.clear();
       // Re-include Zilch's core libraries
       Dependencies.push_back(Zilch::Core::GetInstance().GetLibrary());
+
     }
 
 
