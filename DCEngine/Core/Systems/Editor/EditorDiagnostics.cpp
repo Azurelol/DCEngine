@@ -130,6 +130,14 @@ namespace DCEngine {
     {
       auto& times = Daisy->Profiler().Graphics();
       DisplaySystemsHistogram("Graphics", times, true); 
+      ImGui::Separator();
+      auto particlesCreated = std::string("Particles allocated: ") +
+        std::to_string(Components::SpriteParticleSystem::Particle::Created);
+      ImGui::Text(particlesCreated.c_str());
+      auto particlesDestroyed = std::string("Particles deallocated: ") +
+        std::to_string(Components::SpriteParticleSystem::Particle::Destroyed);
+      ImGui::Text(particlesDestroyed.c_str());
+
     }
 
     /**************************************************************************/

@@ -17,20 +17,29 @@ namespace DCEngine {
   namespace Components
   {
 
-		/**************************************************************************/
-		/*!
-		@brief SpriteParticleSystem::Particle argument constructor.
-		@param camera Reference to the current camera in the space.
-		*/
-		/**************************************************************************/
-		SpriteParticleSystem::Particle::Particle(float lifetime,
-			const Vec2& position, const Vec2& velocity, const Vec2& acceleration, float scale, float spin, const Vec4& tint,
-			ParticleColorAnimator* colorAnimator, LinearParticleAnimator* linearAnimator)
-			: mLifetime(lifetime), mLifeleft(lifetime), mPosition(position), mVelocity(velocity), mAcceleration(acceleration),
-			mScale(scale), mRotation(0), mRotationRate(spin), mTint(tint),
-			mColorAnimator(colorAnimator), mLinearAnimator(linearAnimator)
-		{
-		}
+    unsigned SpriteParticleSystem::Particle::Created = 0;
+    unsigned SpriteParticleSystem::Particle::Destroyed = 0;
+
+    /**************************************************************************/
+    /*!
+    @brief SpriteParticleSystem::Particle argument constructor.
+    */
+    /**************************************************************************/
+    SpriteParticleSystem::Particle::Particle(float lifetime,
+      const Vec2& position, const Vec2& velocity, const Vec2& acceleration, float scale, float spin, const Vec4& tint,
+      ParticleColorAnimator* colorAnimator, LinearParticleAnimator* linearAnimator)
+      : mLifetime(lifetime), mLifeleft(lifetime), mPosition(position), mVelocity(velocity), mAcceleration(acceleration),
+      mScale(scale), mRotation(0), mRotationRate(spin), mTint(tint),
+      mColorAnimator(colorAnimator), mLinearAnimator(linearAnimator)
+    {
+      Created++;
+    }
+
+    SpriteParticleSystem::Particle::~Particle()
+    {
+      Destroyed++;
+    }
+
     /**************************************************************************/
     /*!
     @brief Updates the particle.
@@ -51,10 +60,10 @@ namespace DCEngine {
         mVelocity.x *= (100 - mLinearAnimator->Dampening) / 100;
         mVelocity.y *= (100 - mLinearAnimator->Dampening) / 100;
         mScale += mLinearAnimator->Growth * dt;
-		if (mScale < 0)
-		{
-			mScale = 0;
-		}
+        if (mScale < 0)
+        {
+          mScale = 0;
+        }
         mRotation += mRotationRate * dt + (mLinearAnimator->Torque * dt * dt) / 2;
         mRotationRate += mLinearAnimator->Torque * dt;
       }
