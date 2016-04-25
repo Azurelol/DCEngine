@@ -62,8 +62,6 @@ namespace DCEngine {
     if (DCE_TRACE_ACTIONS_REMOVE)
       DCTrace << "ActionSpace::Remove \n";
     auto actioniter = std::find(AllActions.begin(), AllActions.end(), action);
-    //std::swap(AllActions.end(), actioniter);
-    //AllActions.pop_back();
     AllActions.erase(actioniter);
   }
 
