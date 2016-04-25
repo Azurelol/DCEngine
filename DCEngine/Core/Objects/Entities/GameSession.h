@@ -12,16 +12,11 @@
 #include "..\Entity.h"
 #pragma once
 
-#include <memory>
-#include <unordered_map>
-#include <stack>
-
 #include "Space.h"
 #include "..\Component.h"
 #include "..\..\Systems\System.h"
 #include "..\..\Systems\SystemsInclude.h"
 #include "..\..\Events\DispatchGameEvents.h"
-
 
 namespace DCEngine {
    
@@ -49,29 +44,26 @@ namespace DCEngine {
 
     SpacePtr CreateSpace(std::string name, bool initialize = true);
     SpacePtr GetSpace(std::string name);
-    SpaceMap& AllSpaces();
-    Space* getDefaultSpace();
+    Space::Container& AllSpaces();
+    SpacePtr getDefaultSpace();
     void Quit();
 
   private:
 
     // Members
-    Space* DefaultSpace;
-    std::string _defaultSpace = "Daisy Space";
-    SystemVec Systems; //!< Container for the GameSession's systems. 
-    SpaceMap ActiveSpaces; //!< A map of spaces created by the engine.
+    SpacePtr DefaultSpace;
+    Space::Container ActiveSpaces; //!< A map of spaces created by the engine.
     // Methods
     void Serialize(Zilch::JsonBuilder& builder);
     void Deserialize(Zilch::JsonValue* properties);
     void Initialize();
     void Subscribe();
     void UpdateSpace(SpacePtr space, float dt);
-    void OnUpdateEvent() {};
     void RemoveSpace(SpacePtr);   
 
-  }; // GameSession
+  };
 
   using GameSessionPtr = GameSession*;
   using GameSessionStrongPtr = std::unique_ptr<GameSession>;
 
-} // DCEngine
+}

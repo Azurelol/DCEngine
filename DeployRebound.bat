@@ -5,6 +5,7 @@ call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat"
 @echo off
 rmdir Deploy /s /q
 mkdir Deploy
+mkdir Deploy\Configuration
 mkdir Deploy\Core\Assets
 mkdir Deploy\Projects\Rebound\
 mkdir Deploy\Projects\Rebound\Resources
@@ -21,7 +22,9 @@ xcopy DCEngine\Dependencies\lib\MSVC\x64\Release\sfml-graphics-2.dll Deploy
 xcopy DCEngine\Dependencies\lib\MSVC\x64\Release\sfml-system-2.dll Deploy
 xcopy DCEngine\Dependencies\lib\MSVC\x64\Release\sfml-window-2.dll Deploy
 
-xcopy DCEngine\*.cfg Deploy
+
+xcopy DCEngine\Daisy.cfg Deploy
+xcopy DCEngine\Configuration\Deploy\*.cfg Deploy\Configuration
 cd DCEngine
 msbuild DCEngine.sln /p:Configuration=Production
 cd..

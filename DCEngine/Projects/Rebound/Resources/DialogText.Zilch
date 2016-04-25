@@ -68,32 +68,6 @@ class DialogText : ZilchComponent
 	
     function Initialize()
     {
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
-		Console.WriteLine("WHAT THE FUCK");
 		var dialogSpeaker = this.Space.FindObjectByName("DialogSpeaker");
 		if(this.CurSpeaker == Speaker.Asha)
 		{
@@ -267,7 +241,6 @@ class DialogText : ZilchComponent
 	
 	function WipeMessage()
 	{
-		Console.WriteLine("WHAT THE FUCK");
 		this.Owner.SpriteText.Text = "";
 		this.Owner.SpriteText.Visible = false;
 		this.ThePlace = 0;

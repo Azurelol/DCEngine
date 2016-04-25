@@ -326,7 +326,7 @@ namespace DCEngine {
     CurrentGameSession->Dispatch<Events::FrameUpdate>(frameUpdateEvent);
 
     // Dispatch update events to all active spaces
-    for (auto space : CurrentGameSession->ActiveSpaces) {
+    for (auto& space : CurrentGameSession->ActiveSpaces) {
       space.second->Update(dt);
       auto timeSpace = space.second->getComponent<Components::TimeSpace>();
 
@@ -432,7 +432,7 @@ namespace DCEngine {
 
     DCTrace << "\n[Engine::Terminate] \n";
     // Clear every Space
-    for (auto space : CurrentGameSession->ActiveSpaces) {
+    for (auto& space : CurrentGameSession->ActiveSpaces) {
       space.second->DestroyAll();      
     }
     // Destroy every GameObject

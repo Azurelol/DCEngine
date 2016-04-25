@@ -78,6 +78,11 @@ namespace DCEngine {
     const GameSession* Owner() { return GameSessionRef; };
     friend std::ostream& operator<<(std::ostream& out, Space const& space);
 
+    // Aliases
+    using Ptr = Space*;
+    using StrongPtr = std::unique_ptr<Space>;
+    using Container = std::unordered_map<std::string, StrongPtr>;
+
   private:
         
     LevelPtr CurrentLevel; //!< The currently-loaded level.

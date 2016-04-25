@@ -11,11 +11,10 @@ engine's underlying graphics system.
 @copyright Copyright 2015, DigiPen Institute of Technology. All rights reserved.
 */
 /******************************************************************************/
-
 #include "GraphicsSpace.h"
+
 #include "EngineReference.h"
 #include "../Systems/Graphics/Graphics.h" // Access to the graphics system
-#include "..\Engine\Engine.h"
 
 namespace DCEngine {
 
@@ -126,10 +125,10 @@ namespace DCEngine {
     {
       return GraphicsSystem->GetScreenHeight();
     }
-		void GraphicsSpace::SetNative()
-		{
-			DCEngine::Systems::DispatchSystemEvents::WindowResizeToNative();
-		}
+    void GraphicsSpace::SetNative()
+    {
+      DCEngine::Systems::DispatchSystemEvents::WindowResizeToNative();
+    }
 
     /**************************************************************************/
     /*!

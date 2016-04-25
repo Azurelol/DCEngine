@@ -108,7 +108,7 @@ namespace DCEngine {
     DCTrace << "[" << ObjectName << "::Initialize - Initializing all spaces... ] \n";
 
     // Initialize all spaces
-    for (auto space : ActiveSpaces) {
+    for (auto& space : ActiveSpaces) {
       space.second->Initialize();
     }
 
@@ -148,7 +148,7 @@ namespace DCEngine {
 
     // If the space doesn't exist, create it
     else
-      ActiveSpaces.emplace(name, SpaceStrongPtr(new DCEngine::Space(name, *this)));
+      ActiveSpaces.emplace(name, Space::StrongPtr(new DCEngine::Space(name, *this)));
 
     /* http://en.cppreference.com/w/cpp/container/unordered_map/emplace
     Inserts a new element into the container by constructing it in-place
@@ -185,7 +185,7 @@ namespace DCEngine {
   /**************************************************************************/
   SpacePtr GameSession::GetSpace(std::string name) {
     // Searches for a space with the specified name
-    SpaceMap::iterator it = ActiveSpaces.find(name);
+    auto& it = ActiveSpaces.find(name);
 
     // Check if the space was found
     if (it != ActiveSpaces.end())
@@ -201,12 +201,24 @@ namespace DCEngine {
     throw std::range_error("The specified space does not exist.");
   }
 
-  SpaceMap & GameSession::AllSpaces()
+  /**************************************************************************/
+  /*!
+  @brief  Returns a container of all the active spaces.
+  @return A pointer to the container of all active spaces.
+  */
+  /**************************************************************************/
+  Space::Container& GameSession::AllSpaces()
   {
     return ActiveSpaces;
   }
 
-  Space* GameSession::getDefaultSpace()
+  /**************************************************************************/
+  /*!
+  @brief  Gets the default Space.
+  @return A pointer to the default Space.
+  */
+  /**************************************************************************/
+  SpacePtr GameSession::getDefaultSpace()
   {
     return DefaultSpace;
   }
@@ -238,15 +250,9 @@ namespace DCEngine {
   /**************************************************************************/
   void GameSession::RemoveSpace(SpacePtr space)
   {
-    SpaceMap::iterator it = ActiveSpaces.find(space->getObjectName());
-    ActiveSpaces.erase(it);
-    return;
-
-    DCTrace << "GameSession::RemoveSpace - Removing: " << space->getObjectName() << "\n";
-    DCTrace << "Remaining spaces: \n";
-    for (auto& space : ActiveSpaces) {
-      DCTrace << "- " << space.second->getObjectName() << "\n";
-    }
+    auto it = ActiveSpaces.find(space->getObjectName());
+    if (it != ActiveSpaces.end())
+      ActiveSpaces.erase(it);
   }
 
 }

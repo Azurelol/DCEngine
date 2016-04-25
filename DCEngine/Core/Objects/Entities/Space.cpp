@@ -99,12 +99,17 @@ namespace DCEngine {
     DestroyAll();
   }
 
+  /**************************************************************************/
+  /*!
+  \brief  Destroys the space.
+  */
+  /**************************************************************************/
   void Space::Destroy()
   {
-    Daisy->getSystem<Systems::Factory>()->MarkSpace(*this);
     // Destroy all the objects in the space
     DestroyAll();
     // Remove this Space from the GameSession
+    Daisy->getSystem<Systems::Factory>()->MarkSpace(*this);
   }
 
   /**************************************************************************/
