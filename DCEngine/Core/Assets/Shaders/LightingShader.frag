@@ -27,6 +27,7 @@ uniform bool useLight;
 uniform sampler2D gWorldCoords;
 uniform sampler2D gWorldNormal;
 uniform sampler2D gColor;
+uniform sampler2D gPattern;
 
 in vec2 gTexCoords;
 
@@ -130,4 +131,5 @@ void main()
 			lightValue = vec3(0);
 	}
 	FragColor = color * vec4(lightValue, 1);
+	FragColor += vec4(texture2D(gPattern, gl_FragCoord.xy / 8.0).r / 32.0 - (1.0 / 128.0));
 }

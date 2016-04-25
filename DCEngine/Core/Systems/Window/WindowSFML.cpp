@@ -166,6 +166,7 @@ namespace DCEngine {
           WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
           WindowInterface.Caption, sf::Style::Titlebar | sf::Style::Close, ContextSettings);
         WindowContext->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
+				WindowContext->setVerticalSyncEnabled(true);
         DispatchSystemEvents::WindowFullScreenDisabled();
         break;
       case WindowMode::Fullscreen:
@@ -175,6 +176,7 @@ namespace DCEngine {
           WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
           WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
         WindowContext->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
+				WindowContext->setVerticalSyncEnabled(true);
         DispatchSystemEvents::WindowFullScreenEnabled();
         break;
       }
@@ -256,7 +258,7 @@ namespace DCEngine {
     */
     /**************************************************************************/
     void WindowSFML::StartFrame() {
-
+			WindowContext->setActive();
     }
 
     /**************************************************************************/

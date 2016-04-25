@@ -204,6 +204,7 @@ namespace DCEngine {
       LightingShader->SetInteger("gWorldCoords", 0);
       LightingShader->SetInteger("gWorldNormal", 1);
       LightingShader->SetInteger("gColor", 2);
+			LightingShader->SetInteger("gPattern", 3);
 
       glActiveTexture(GL_TEXTURE0);
       glBindTexture(GL_TEXTURE_2D, PosTexture);
@@ -211,6 +212,8 @@ namespace DCEngine {
       glBindTexture(GL_TEXTURE_2D, NormalTexture);
       glActiveTexture(GL_TEXTURE2);
       glBindTexture(GL_TEXTURE_2D, ColorTexture);
+			glActiveTexture(GL_TEXTURE3);
+			glBindTexture(GL_TEXTURE_2D, Pattern);
 
       glDrawBuffer(GL_COLOR_ATTACHMENT3);
 
@@ -228,14 +231,6 @@ namespace DCEngine {
     void GraphicsGL::RenderScene(float exposure, bool lit)
     {
       SystemMethodTimer timer("RenderScene", EnumeratedSystem::Graphics);
-      //glBindFramebuffer(GL_READ_FRAMEBUFFER, multisampleFBO);
-      //glReadBuffer(GL_COLOR_ATTACHMENT0);
-      //glBindFramebuffer(GL_DRAW_FRAMEBUFFER, FBO);
-      //glDrawBuffer(GL_COLOR_ATTACHMENT3);
-      //glBlitFramebuffer(
-      //	0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
-      //	0, 0, Settings.ScreenWidth, Settings.ScreenHeight,
-      //	GL_COLOR_BUFFER_BIT, GL_NEAREST);
       glBindFramebuffer(GL_FRAMEBUFFER, 0);
       glDrawBuffer(GL_BACK);
       glEnable(GL_BLEND);

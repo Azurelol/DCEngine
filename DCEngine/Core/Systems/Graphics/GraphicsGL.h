@@ -103,7 +103,7 @@ namespace DCEngine {
 			public:
 				
 			private:
-				GLuint multisampleFBO, FBO, PosTexture, NormalTexture, ColorTexture, FinalColor;
+				GLuint multisampleFBO, FBO, PosTexture, NormalTexture, ColorTexture, FinalColor, Pattern;
 			};
 
     private:
@@ -111,7 +111,7 @@ namespace DCEngine {
       ShaderPtr FinalRenderShader, DebugShader, SpriteShader, SpriteTextShader, DebugDrawShader, ParticleSystemShader, ShadowingShader, LightingShader;
       GLuint SpriteVAO, SpriteTextVAO, SpriteTextVBO, ParticleVAO, ParticleVBO, ParticleColorInstanceVBO, ParticleTransformInstanceVBO;
       GLuint LineVAO, CircleVAO, RectVAO;
-			GLuint multisampleFBO, FBO, PosTexture, NormalTexture, ColorTexture, FinalColor;
+			GLuint multisampleFBO, FBO, PosTexture, NormalTexture, ColorTexture, FinalColor, Pattern;
 			GLuint SpriteVBO;
 
 			
