@@ -275,6 +275,10 @@
             "w": 0.500000
           }
         }
+      }, 
+      "SetParticleEmissionToMatchScale": 
+      {
+        "EmitOnEdges": false
       }
     }, 
     "Children": 
