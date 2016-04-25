@@ -7,7 +7,7 @@
     {
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 82, 
         "Name": "Camera", 
         "Protected": false, 
@@ -91,7 +91,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 83, 
         "Name": "Ground", 
         "Protected": false, 
@@ -201,7 +201,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 84, 
         "Name": "Ground", 
         "Protected": false, 
@@ -311,7 +311,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 85, 
         "Name": "Ground", 
         "Protected": false, 
@@ -421,7 +421,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 86, 
         "Name": "Ground", 
         "Protected": false, 
@@ -531,7 +531,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 87, 
         "Name": "Ground", 
         "Protected": false, 
@@ -641,7 +641,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 88, 
         "Name": "Ground", 
         "Protected": false, 
@@ -751,7 +751,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 89, 
         "Name": "Ground", 
         "Protected": false, 
@@ -861,7 +861,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 90, 
         "Name": "Ground", 
         "Protected": false, 
@@ -971,7 +971,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 91, 
         "Name": "Ground", 
         "Protected": false, 
@@ -1081,7 +1081,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 92, 
         "Name": "Ground", 
         "Protected": false, 
@@ -1191,7 +1191,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 93, 
         "Name": "Ground", 
         "Protected": false, 
@@ -1301,7 +1301,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 94, 
         "Name": "Ground", 
         "Protected": false, 
@@ -1411,7 +1411,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 95, 
         "Name": "Ground", 
         "Protected": false, 
@@ -1521,7 +1521,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 96, 
         "Name": "Ground", 
         "Protected": false, 
@@ -1631,7 +1631,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 97, 
         "Name": "Ground", 
         "Protected": false, 
@@ -1741,7 +1741,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 98, 
         "Name": "Ground", 
         "Protected": false, 
@@ -1851,7 +1851,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 99, 
         "Name": "Ground", 
         "Protected": false, 
@@ -1961,7 +1961,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 100, 
         "Name": "Ground", 
         "Protected": false, 
@@ -2071,7 +2071,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 101, 
         "Name": "Ground", 
         "Protected": false, 
@@ -2181,7 +2181,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 102, 
         "Name": "Ground", 
         "Protected": false, 
@@ -2291,7 +2291,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 103, 
         "Name": "Ground", 
         "Protected": false, 
@@ -2401,7 +2401,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 104, 
         "Name": "Ground", 
         "Protected": false, 
@@ -2511,7 +2511,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 105, 
         "Name": "Ground", 
         "Protected": false, 
@@ -2621,7 +2621,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 106, 
         "Name": "Ground", 
         "Protected": false, 
@@ -2731,7 +2731,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 107, 
         "Name": "Ground", 
         "Protected": false, 
@@ -2841,7 +2841,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 108, 
         "Name": "Ground", 
         "Protected": false, 
@@ -2951,7 +2951,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 109, 
         "Name": "Ground", 
         "Protected": false, 
@@ -3061,7 +3061,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 110, 
         "Name": "Ground", 
         "Protected": false, 
@@ -3171,7 +3171,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 111, 
         "Name": "Ground", 
         "Protected": false, 
@@ -3281,7 +3281,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 112, 
         "Name": "Ground", 
         "Protected": false, 
@@ -3391,7 +3391,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 113, 
         "Name": "Ground", 
         "Protected": false, 
@@ -3501,7 +3501,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 114, 
         "Name": "Ground", 
         "Protected": false, 
@@ -3611,7 +3611,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 115, 
         "Name": "Ground", 
         "Protected": false, 
@@ -3721,7 +3721,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 116, 
         "Name": "Ground", 
         "Protected": false, 
@@ -3831,7 +3831,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 117, 
         "Name": "Ground", 
         "Protected": false, 
@@ -3941,7 +3941,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 118, 
         "Name": "Ground", 
         "Protected": false, 
@@ -4051,7 +4051,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 119, 
         "Name": "Ground", 
         "Protected": false, 
@@ -4161,7 +4161,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 120, 
         "Name": "Ground", 
         "Protected": false, 
@@ -4271,7 +4271,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 121, 
         "Name": "Ground", 
         "Protected": false, 
@@ -4381,7 +4381,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 122, 
         "Name": "Ground", 
         "Protected": false, 
@@ -4491,7 +4491,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 123, 
         "Name": "Ground", 
         "Protected": false, 
@@ -4601,7 +4601,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 124, 
         "Name": "Ground", 
         "Protected": false, 
@@ -4711,7 +4711,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 125, 
         "Name": "Ground", 
         "Protected": false, 
@@ -4821,7 +4821,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 126, 
         "Name": "Ground", 
         "Protected": false, 
@@ -4931,7 +4931,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 127, 
         "Name": "Ground", 
         "Protected": false, 
@@ -5041,7 +5041,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 128, 
         "Name": "Ground", 
         "Protected": false, 
@@ -5151,7 +5151,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 129, 
         "Name": "Ground", 
         "Protected": false, 
@@ -5261,7 +5261,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 131, 
         "Name": "Ground", 
         "Protected": false, 
@@ -5371,7 +5371,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 132, 
         "Name": "Ground", 
         "Protected": false, 
@@ -5481,7 +5481,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 133, 
         "Name": "Ground", 
         "Protected": false, 
@@ -5591,7 +5591,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 134, 
         "Name": "Ground", 
         "Protected": false, 
@@ -5701,7 +5701,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 135, 
         "Name": "Ground", 
         "Protected": false, 
@@ -5811,7 +5811,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 136, 
         "Name": "Ground", 
         "Protected": false, 
@@ -5921,7 +5921,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 137, 
         "Name": "Ground", 
         "Protected": false, 
@@ -6031,7 +6031,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 138, 
         "Name": "Ground", 
         "Protected": false, 
@@ -6141,7 +6141,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 139, 
         "Name": "Ground", 
         "Protected": false, 
@@ -6251,7 +6251,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 140, 
         "Name": "Ground", 
         "Protected": false, 
@@ -6361,7 +6361,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 141, 
         "Name": "Ground", 
         "Protected": false, 
@@ -6471,7 +6471,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 142, 
         "Name": "Ground", 
         "Protected": false, 
@@ -6581,7 +6581,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 143, 
         "Name": "Ground", 
         "Protected": false, 
@@ -6691,7 +6691,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 144, 
         "Name": "Ground", 
         "Protected": false, 
@@ -6801,7 +6801,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 145, 
         "Name": "Ground", 
         "Protected": false, 
@@ -6911,7 +6911,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 146, 
         "Name": "Ground", 
         "Protected": false, 
@@ -7021,7 +7021,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 147, 
         "Name": "Ground", 
         "Protected": false, 
@@ -7131,7 +7131,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 148, 
         "Name": "Ground", 
         "Protected": false, 
@@ -7241,7 +7241,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 149, 
         "Name": "Ground", 
         "Protected": false, 
@@ -7351,7 +7351,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 150, 
         "Name": "Ground", 
         "Protected": false, 
@@ -7461,7 +7461,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 151, 
         "Name": "Ground", 
         "Protected": false, 
@@ -7571,7 +7571,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 152, 
         "Name": "Ground", 
         "Protected": false, 
@@ -7681,7 +7681,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 153, 
         "Name": "Ground", 
         "Protected": false, 
@@ -7791,7 +7791,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 154, 
         "Name": "Ground", 
         "Protected": false, 
@@ -7901,7 +7901,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 155, 
         "Name": "Ground", 
         "Protected": false, 
@@ -8011,7 +8011,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 156, 
         "Name": "Ground", 
         "Protected": false, 
@@ -8121,7 +8121,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 157, 
         "Name": "Ground", 
         "Protected": false, 
@@ -8231,7 +8231,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 158, 
         "Name": "Ground", 
         "Protected": false, 
@@ -8341,7 +8341,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 159, 
         "Name": "Ground", 
         "Protected": false, 
@@ -8451,7 +8451,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 160, 
         "Name": "Ground", 
         "Protected": false, 
@@ -8561,7 +8561,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 161, 
         "Name": "Ground", 
         "Protected": false, 
@@ -8671,7 +8671,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 162, 
         "Name": "Ground", 
         "Protected": false, 
@@ -8781,7 +8781,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 190, 
         "Name": "LockField", 
         "Protected": false, 
@@ -8895,7 +8895,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -8979,7 +8979,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 265, 
         "Name": "LandingParticle", 
         "Protected": false, 
@@ -9134,7 +9134,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 239, 
         "Name": "BounceParticle", 
         "Protected": false, 
@@ -9289,7 +9289,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 238, 
         "Name": "BounceParticle", 
         "Protected": false, 
@@ -9444,7 +9444,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 237, 
         "Name": "BounceParticle", 
         "Protected": false, 
@@ -9599,7 +9599,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 236, 
         "Name": "LandingParticle", 
         "Protected": false, 
@@ -9754,7 +9754,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 493, 
         "Name": "LevelSettings", 
         "Protected": false, 
@@ -9785,7 +9785,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -9869,7 +9869,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -9953,7 +9953,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -10037,7 +10037,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -10121,7 +10121,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -10205,7 +10205,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 165, 
         "Name": "LockField", 
         "Protected": false, 
@@ -10319,7 +10319,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 166, 
         "Name": "LockField", 
         "Protected": false, 
@@ -10433,7 +10433,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 167, 
         "Name": "LockField", 
         "Protected": false, 
@@ -10547,7 +10547,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 298, 
         "Name": "AERight", 
         "Protected": false, 
@@ -10612,9 +10612,9 @@
               "Vec4": 
               {
                 "x": 0.000000, 
-                "y": 4.000000, 
+                "y": 1.000000, 
                 "z": 1.000000, 
-                "w": 1.000000
+                "w": 0.286000
               }
             }, 
             "SpriteSource": "square", 
@@ -10622,7 +10622,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 3
+            "DrawLayer": 2
           }, 
           "BoxCollider": 
           {
@@ -10673,6 +10673,153 @@
                 "w": 0.010000
               }
             }
+          }, 
+          "SpriteParticleSystem": 
+          {
+            "Visible": true, 
+            "Tint": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 0.250000
+              }
+            }, 
+            "Texture": "Bubble", 
+            "VelocityScale": 1.000000, 
+            "LengthScale": 1.000000, 
+            "SystemSize": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 4.000000, 
+                "z": 4.000000
+              }
+            }, 
+            "Additive": true, 
+            "Lock": false, 
+            "DrawLayer": 4
+          }, 
+          "ParticleEmitter": 
+          {
+            "Active": true, 
+            "ResetCount": false, 
+            "EmitCount": 0, 
+            "EmitRate": 10, 
+            "EmitVariance": 3, 
+            "Size": 0.200000, 
+            "SizeVariance": 0.100000, 
+            "Lifetime": 1.000000, 
+            "LifetimeVariance": 1.000000, 
+            "Spin": 100.000000, 
+            "SpinVariance": 100.000000, 
+            "StartVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 3.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 9.000000, 
+                "y": 1.500000
+              }
+            }, 
+            "EmissionCircle": false
+          }, 
+          "LinearParticleAnimator": 
+          {
+            "Force": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomForce": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Torque": 0.000000, 
+            "Growth": 0.000000, 
+            "Dampening": 2.000000
+          }, 
+          "ParticleColorAnimator": 
+          {
+            "Color0": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color1": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color2": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color3": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color4": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }
           }
         }, 
         "Children": 
@@ -10681,7 +10828,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -10765,7 +10912,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -10849,7 +10996,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -10933,7 +11080,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -11017,7 +11164,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -11101,7 +11248,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -11185,7 +11332,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -11269,7 +11416,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -11353,7 +11500,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -11437,7 +11584,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -11521,7 +11668,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -11605,7 +11752,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -11689,7 +11836,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -11773,7 +11920,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -11857,7 +12004,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -11941,7 +12088,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -12025,7 +12172,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -12109,7 +12256,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -12193,7 +12340,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -12277,7 +12424,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -12361,7 +12508,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -12445,7 +12592,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -12555,7 +12702,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -12639,7 +12786,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -12723,7 +12870,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -12807,7 +12954,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -12891,7 +13038,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -12975,7 +13122,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -13059,7 +13206,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -13143,7 +13290,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -13227,7 +13374,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -13311,7 +13458,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -13395,7 +13542,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -13479,7 +13626,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -13563,7 +13710,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -13647,7 +13794,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 1133, 
         "Name": "BackGround", 
         "Protected": false, 
@@ -13731,7 +13878,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 256, 
         "Name": "ForeGround", 
         "Protected": false, 
@@ -13815,7 +13962,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 213, 
         "Name": "PauseManager", 
         "Protected": false, 
@@ -13876,7 +14023,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 212, 
         "Name": "Light", 
         "Protected": false, 
@@ -13971,7 +14118,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 211, 
         "Name": "Light", 
         "Protected": false, 
@@ -14066,7 +14213,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 210, 
         "Name": "Light", 
         "Protected": false, 
@@ -14161,7 +14308,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 209, 
         "Name": "Light", 
         "Protected": false, 
@@ -14256,7 +14403,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 208, 
         "Name": "SmallAcidLight", 
         "Protected": false, 
@@ -14351,7 +14498,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 207, 
         "Name": "AcidLight", 
         "Protected": false, 
@@ -14446,7 +14593,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 206, 
         "Name": "AcidLight", 
         "Protected": false, 
@@ -14541,7 +14688,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 205, 
         "Name": "Transform", 
         "Protected": false, 
@@ -14636,7 +14783,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 204, 
         "Name": "Light", 
         "Protected": false, 
@@ -14731,7 +14878,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 203, 
         "Name": "Light", 
         "Protected": false, 
@@ -14826,7 +14973,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 202, 
         "Name": "Light", 
         "Protected": false, 
@@ -14921,7 +15068,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 147, 
         "Name": "Player", 
         "Protected": false, 
@@ -15152,7 +15299,7 @@
         {
           "GameObject": 
           {
-            "Locked": true, 
+            "Locked": false, 
             "GameObjectID": 194, 
             "Name": "Ball", 
             "Protected": false, 
@@ -15456,7 +15603,7 @@
             {
               "GameObject": 
               {
-                "Locked": true, 
+                "Locked": false, 
                 "GameObjectID": 209, 
                 "Name": "TestParticle", 
                 "Protected": false, 
@@ -15611,7 +15758,7 @@
               }, 
               "GameObject": 
               {
-                "Locked": true, 
+                "Locked": false, 
                 "GameObjectID": 234, 
                 "Name": "TestParticle", 
                 "Protected": false, 
@@ -15766,7 +15913,7 @@
               }, 
               "GameObject": 
               {
-                "Locked": true, 
+                "Locked": false, 
                 "GameObjectID": 263, 
                 "Name": "TestParticle", 
                 "Protected": false, 
@@ -15921,7 +16068,7 @@
               }, 
               "GameObject": 
               {
-                "Locked": true, 
+                "Locked": false, 
                 "GameObjectID": 1644, 
                 "Name": "TestParticle", 
                 "Protected": false, 
@@ -16080,7 +16227,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 461, 
         "Name": "MiddleGround", 
         "Protected": false, 
@@ -16164,7 +16311,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 130, 
         "Name": "Ground", 
         "Protected": false, 
@@ -16274,7 +16421,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 130, 
         "Name": "Ground", 
         "Protected": false, 
@@ -16384,7 +16531,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 459, 
         "Name": "LockField", 
         "Protected": false, 
@@ -16498,7 +16645,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 459, 
         "Name": "LockField", 
         "Protected": false, 
@@ -16612,7 +16759,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 153, 
         "Name": "Ground", 
         "Protected": false, 
@@ -16722,7 +16869,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 214, 
         "Name": "Acid", 
         "Protected": false, 
@@ -17006,7 +17153,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield1", 
         "Protected": false, 
@@ -17216,7 +17363,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 175, 
         "Name": "LockField", 
         "Protected": false, 
@@ -17330,7 +17477,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 914, 
         "Name": "Sentinel", 
         "Protected": false, 
@@ -17497,7 +17644,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 181, 
         "Name": "LockField", 
         "Protected": false, 
@@ -17611,7 +17758,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 3812, 
         "Name": "Transform", 
         "Protected": false, 
@@ -17679,7 +17826,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 167, 
         "Name": "LockField", 
         "Protected": false, 
@@ -17793,7 +17940,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 195, 
         "Name": "LockField", 
         "Protected": false, 
@@ -17907,7 +18054,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 177, 
         "Name": "LockField", 
         "Protected": false, 
@@ -18021,7 +18168,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Lightfield", 
         "Protected": false, 
@@ -18231,7 +18378,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper", 
         "Protected": false, 
@@ -18410,7 +18557,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 167, 
         "Name": "LockField", 
         "Protected": false, 
@@ -18524,7 +18671,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper", 
         "Protected": false, 
@@ -18703,7 +18850,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 298, 
         "Name": "AESpecial", 
         "Protected": false, 
@@ -18837,7 +18984,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield1", 
         "Protected": false, 
@@ -19047,7 +19194,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -19131,7 +19278,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Lightfield", 
         "Protected": false, 
@@ -19341,7 +19488,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 181, 
         "Name": "LockField", 
         "Protected": false, 
@@ -19455,7 +19602,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 182, 
         "Name": "LockField", 
         "Protected": false, 
@@ -19569,7 +19716,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper", 
         "Protected": false, 
@@ -19748,7 +19895,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper", 
         "Protected": false, 
@@ -19927,7 +20074,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper", 
         "Protected": false, 
@@ -20106,7 +20253,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 900, 
         "Name": "Scrapper", 
         "Protected": false, 
@@ -20285,7 +20432,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 191, 
         "Name": "LockField", 
         "Protected": false, 
@@ -20399,7 +20546,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 214, 
         "Name": "Acid", 
         "Protected": false, 
@@ -20683,7 +20830,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 193, 
         "Name": "LockField", 
         "Protected": false, 
@@ -20797,7 +20944,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 184, 
         "Name": "LockField", 
         "Protected": false, 
@@ -20911,7 +21058,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 185, 
         "Name": "LockField", 
         "Protected": false, 
@@ -21025,7 +21172,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 214, 
         "Name": "Acid", 
         "Protected": false, 
@@ -21309,7 +21456,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 187, 
         "Name": "LockField", 
         "Protected": false, 
@@ -21423,7 +21570,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 188, 
         "Name": "LockField", 
         "Protected": false, 
@@ -21537,7 +21684,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 189, 
         "Name": "LockField", 
         "Protected": false, 
@@ -21651,7 +21798,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 116, 
         "Name": "Ground", 
         "Protected": false, 
@@ -21761,7 +21908,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 130, 
         "Name": "Ground", 
         "Protected": false, 
@@ -21871,7 +22018,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 8868, 
         "Name": "TestParticle", 
         "Protected": false, 
@@ -22026,7 +22173,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 153, 
         "Name": "Ground", 
         "Protected": false, 
@@ -22136,7 +22283,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 153, 
         "Name": "Ground", 
         "Protected": false, 
@@ -22246,7 +22393,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 153, 
         "Name": "Ground", 
         "Protected": false, 
@@ -22356,7 +22503,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 153, 
         "Name": "Ground", 
         "Protected": false, 
@@ -22466,7 +22613,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield1", 
         "Protected": false, 
@@ -22676,7 +22823,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 1377, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -22760,7 +22907,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 1377, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -22844,7 +22991,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 1377, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -22928,7 +23075,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 293, 
         "Name": "PressurePlate1", 
         "Protected": false, 
@@ -23043,7 +23190,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield1", 
         "Protected": false, 
@@ -23253,7 +23400,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield1", 
         "Protected": false, 
@@ -23463,7 +23610,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 130, 
         "Name": "Ground", 
         "Protected": false, 
@@ -23573,7 +23720,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 130, 
         "Name": "Ground", 
         "Protected": false, 
@@ -23683,7 +23830,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 130, 
         "Name": "Ground", 
         "Protected": false, 
@@ -23793,7 +23940,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 1377, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -23877,7 +24024,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 1377, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -23961,7 +24108,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 298, 
         "Name": "AELeft", 
         "Protected": false, 
@@ -23974,7 +24121,7 @@
               "Vec3": 
               {
                 "x": 23.887033, 
-                "y": 23.059275, 
+                "y": 22.943785, 
                 "z": -0.001000
               }
             }, 
@@ -23983,7 +24130,7 @@
               "Vec3": 
               {
                 "x": 23.887033, 
-                "y": 23.059275, 
+                "y": 22.943785, 
                 "z": -0.001000
               }
             }, 
@@ -23992,7 +24139,7 @@
               "Vec3": 
               {
                 "x": 23.887033, 
-                "y": 23.059275, 
+                "y": 22.943785, 
                 "z": -0.001000
               }
             }, 
@@ -24026,9 +24173,9 @@
               "Vec4": 
               {
                 "x": 0.000000, 
-                "y": 4.000000, 
+                "y": 1.000000, 
                 "z": 1.000000, 
-                "w": 1.000000
+                "w": 0.286000
               }
             }, 
             "SpriteSource": "square", 
@@ -24036,7 +24183,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 1
+            "DrawLayer": 2
           }, 
           "BoxCollider": 
           {
@@ -24087,6 +24234,153 @@
                 "w": 0.010000
               }
             }
+          }, 
+          "SpriteParticleSystem": 
+          {
+            "Visible": true, 
+            "Tint": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 0.250000
+              }
+            }, 
+            "Texture": "Bubble", 
+            "VelocityScale": 1.000000, 
+            "LengthScale": 1.000000, 
+            "SystemSize": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 4.000000, 
+                "z": 4.000000
+              }
+            }, 
+            "Additive": true, 
+            "Lock": false, 
+            "DrawLayer": 4
+          }, 
+          "ParticleEmitter": 
+          {
+            "Active": true, 
+            "ResetCount": false, 
+            "EmitCount": 0, 
+            "EmitRate": 10, 
+            "EmitVariance": 3, 
+            "Size": 0.200000, 
+            "SizeVariance": 0.100000, 
+            "Lifetime": 1.000000, 
+            "LifetimeVariance": 1.000000, 
+            "Spin": 100.000000, 
+            "SpinVariance": 100.000000, 
+            "StartVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 3.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 1.000000, 
+                "y": 1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 9.000000, 
+                "y": 1.500000
+              }
+            }, 
+            "EmissionCircle": false
+          }, 
+          "LinearParticleAnimator": 
+          {
+            "Force": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomForce": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Torque": 0.000000, 
+            "Growth": 0.000000, 
+            "Dampening": 2.000000
+          }, 
+          "ParticleColorAnimator": 
+          {
+            "Color0": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color1": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color2": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color3": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color4": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }
           }
         }, 
         "Children": 
@@ -24095,7 +24389,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 915, 
         "Name": "Lancer", 
         "Protected": false, 
@@ -24262,7 +24556,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield1", 
         "Protected": false, 
@@ -24472,7 +24766,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 2546, 
         "Name": "Sprite", 
         "Protected": false, 
@@ -24582,7 +24876,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 982, 
         "Name": "SpockySheld", 
         "Protected": false, 
@@ -24747,7 +25041,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 982, 
         "Name": "FinalFNalsheld", 
         "Protected": false, 
@@ -24911,7 +25205,7 @@
         {
           "GameObject": 
           {
-            "Locked": true, 
+            "Locked": false, 
             "GameObjectID": 459, 
             "Name": "Barrier", 
             "Protected": false, 
@@ -25025,7 +25319,7 @@
           }, 
           "GameObject": 
           {
-            "Locked": true, 
+            "Locked": false, 
             "GameObjectID": 459, 
             "Name": "Barrier", 
             "Protected": false, 
@@ -25139,7 +25433,7 @@
           }, 
           "GameObject": 
           {
-            "Locked": true, 
+            "Locked": false, 
             "GameObjectID": 459, 
             "Name": "Barrier", 
             "Protected": false, 
@@ -25253,7 +25547,7 @@
           }, 
           "GameObject": 
           {
-            "Locked": true, 
+            "Locked": false, 
             "GameObjectID": 459, 
             "Name": "Barrier", 
             "Protected": false, 
@@ -25367,7 +25661,7 @@
           }, 
           "GameObject": 
           {
-            "Locked": true, 
+            "Locked": false, 
             "GameObjectID": 459, 
             "Name": "Barrier", 
             "Protected": false, 
@@ -25481,7 +25775,7 @@
           }, 
           "GameObject": 
           {
-            "Locked": true, 
+            "Locked": false, 
             "GameObjectID": 459, 
             "Name": "Barrier", 
             "Protected": false, 
@@ -25595,7 +25889,7 @@
           }, 
           "GameObject": 
           {
-            "Locked": true, 
+            "Locked": false, 
             "GameObjectID": 459, 
             "Name": "Barrier", 
             "Protected": false, 
@@ -25709,7 +26003,7 @@
           }, 
           "GameObject": 
           {
-            "Locked": true, 
+            "Locked": false, 
             "GameObjectID": 459, 
             "Name": "Barrier", 
             "Protected": false, 
@@ -25823,7 +26117,7 @@
           }, 
           "GameObject": 
           {
-            "Locked": true, 
+            "Locked": false, 
             "GameObjectID": 133, 
             "Name": "F**king Magnets", 
             "Protected": false, 
@@ -25910,7 +26204,7 @@
             {
               "GameObject": 
               {
-                "Locked": true, 
+                "Locked": false, 
                 "GameObjectID": 459, 
                 "Name": "Barrier", 
                 "Protected": false, 
@@ -26024,7 +26318,7 @@
               }, 
               "GameObject": 
               {
-                "Locked": true, 
+                "Locked": false, 
                 "GameObjectID": 459, 
                 "Name": "Barrier", 
                 "Protected": false, 
@@ -26138,7 +26432,7 @@
               }, 
               "GameObject": 
               {
-                "Locked": true, 
+                "Locked": false, 
                 "GameObjectID": 459, 
                 "Name": "Barrier", 
                 "Protected": false, 
@@ -26252,7 +26546,7 @@
               }, 
               "GameObject": 
               {
-                "Locked": true, 
+                "Locked": false, 
                 "GameObjectID": 459, 
                 "Name": "Barrier", 
                 "Protected": false, 
@@ -26366,7 +26660,7 @@
               }, 
               "GameObject": 
               {
-                "Locked": true, 
+                "Locked": false, 
                 "GameObjectID": 459, 
                 "Name": "Barrier", 
                 "Protected": false, 
@@ -26480,7 +26774,7 @@
               }, 
               "GameObject": 
               {
-                "Locked": true, 
+                "Locked": false, 
                 "GameObjectID": 459, 
                 "Name": "Barrier", 
                 "Protected": false, 
@@ -26594,7 +26888,7 @@
               }, 
               "GameObject": 
               {
-                "Locked": true, 
+                "Locked": false, 
                 "GameObjectID": 459, 
                 "Name": "Barrier", 
                 "Protected": false, 
@@ -26708,7 +27002,7 @@
               }, 
               "GameObject": 
               {
-                "Locked": true, 
+                "Locked": false, 
                 "GameObjectID": 459, 
                 "Name": "Barrier", 
                 "Protected": false, 
@@ -26826,7 +27120,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 982, 
         "Name": "SpockySheld", 
         "Protected": false, 
@@ -26991,7 +27285,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 982, 
         "Name": "CoreGenerator", 
         "Protected": false, 
@@ -27156,7 +27450,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 982, 
         "Name": "SpockySheld", 
         "Protected": false, 
@@ -27321,7 +27615,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 1645, 
         "Name": "BallParticleSystem", 
         "Protected": false, 
@@ -27529,7 +27823,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 11, 
         "Name": "LandingParticleUrban", 
         "Protected": false, 
@@ -27684,7 +27978,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 1669, 
         "Name": "BallParticleSystem", 
         "Protected": false, 
@@ -27892,7 +28186,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 298, 
         "Name": "AntiEnergy1", 
         "Protected": false, 
@@ -27957,9 +28251,9 @@
               "Vec4": 
               {
                 "x": 0.000000, 
-                "y": 4.000000, 
+                "y": 1.000000, 
                 "z": 1.000000, 
-                "w": 1.000000
+                "w": 0.286000
               }
             }, 
             "SpriteSource": "square", 
@@ -27967,7 +28261,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 1
+            "DrawLayer": 2
           }, 
           "BoxCollider": 
           {
@@ -28018,6 +28312,153 @@
                 "w": 0.010000
               }
             }
+          }, 
+          "SpriteParticleSystem": 
+          {
+            "Visible": true, 
+            "Tint": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 0.250000
+              }
+            }, 
+            "Texture": "Bubble", 
+            "VelocityScale": 1.000000, 
+            "LengthScale": 1.000000, 
+            "SystemSize": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 4.000000, 
+                "z": 4.000000
+              }
+            }, 
+            "Additive": true, 
+            "Lock": false, 
+            "DrawLayer": 4
+          }, 
+          "ParticleEmitter": 
+          {
+            "Active": true, 
+            "ResetCount": false, 
+            "EmitCount": 0, 
+            "EmitRate": 7, 
+            "EmitVariance": 2, 
+            "Size": 0.200000, 
+            "SizeVariance": 0.100000, 
+            "Lifetime": 1.000000, 
+            "LifetimeVariance": 1.000000, 
+            "Spin": 100.000000, 
+            "SpinVariance": 100.000000, 
+            "StartVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.100000, 
+                "y": 0.250000, 
+                "z": 0.000000
+              }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 3.000000, 
+                "y": 0.500000
+              }
+            }, 
+            "EmissionCircle": false
+          }, 
+          "LinearParticleAnimator": 
+          {
+            "Force": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomForce": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Torque": 0.000000, 
+            "Growth": 0.000000, 
+            "Dampening": 2.000000
+          }, 
+          "ParticleColorAnimator": 
+          {
+            "Color0": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color1": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color2": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color3": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color4": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }
           }
         }, 
         "Children": 
@@ -28026,7 +28467,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield1", 
         "Protected": false, 
@@ -28236,7 +28677,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 153, 
         "Name": "Ground", 
         "Protected": false, 
@@ -28346,7 +28787,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 153, 
         "Name": "Ground", 
         "Protected": false, 
@@ -28456,7 +28897,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 279, 
         "Name": "Shield1", 
         "Protected": false, 
@@ -28666,7 +29107,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 298, 
         "Name": "AntiEnergy1", 
         "Protected": false, 
@@ -28731,9 +29172,9 @@
               "Vec4": 
               {
                 "x": 0.000000, 
-                "y": 4.000000, 
+                "y": 1.000000, 
                 "z": 1.000000, 
-                "w": 1.000000
+                "w": 0.286000
               }
             }, 
             "SpriteSource": "square", 
@@ -28741,7 +29182,7 @@
             "FlipY": false, 
             "AnimationActive": false, 
             "AnimationSpeed": 1.000000, 
-            "DrawLayer": 1
+            "DrawLayer": 2
           }, 
           "BoxCollider": 
           {
@@ -28792,6 +29233,153 @@
                 "w": 0.010000
               }
             }
+          }, 
+          "SpriteParticleSystem": 
+          {
+            "Visible": true, 
+            "Tint": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 1.000000, 
+                "z": 0.000000, 
+                "w": 0.250000
+              }
+            }, 
+            "Texture": "Bubble", 
+            "VelocityScale": 1.000000, 
+            "LengthScale": 1.000000, 
+            "SystemSize": 
+            {
+              "Vec3": 
+              {
+                "x": 4.000000, 
+                "y": 4.000000, 
+                "z": 4.000000
+              }
+            }, 
+            "Additive": true, 
+            "Lock": false, 
+            "DrawLayer": 4
+          }, 
+          "ParticleEmitter": 
+          {
+            "Active": true, 
+            "ResetCount": false, 
+            "EmitCount": 0, 
+            "EmitRate": 10, 
+            "EmitVariance": 1, 
+            "Size": 0.200000, 
+            "SizeVariance": 0.100000, 
+            "Lifetime": 1.000000, 
+            "LifetimeVariance": 1.000000, 
+            "Spin": 100.000000, 
+            "SpinVariance": 100.000000, 
+            "StartVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 1.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomVelocity": 
+            {
+              "Vec3": 
+              {
+                "x": 0.250000, 
+                "y": 0.500000, 
+                "z": 0.000000
+              }
+            }, 
+            "EmissionArea": 
+            {
+              "Vec2": 
+              {
+                "x": 0.500000, 
+                "y": 2.000000
+              }
+            }, 
+            "EmissionCircle": false
+          }, 
+          "LinearParticleAnimator": 
+          {
+            "Force": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "RandomForce": 
+            {
+              "Vec3": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000
+              }
+            }, 
+            "Torque": 0.000000, 
+            "Growth": 0.000000, 
+            "Dampening": 2.000000
+          }, 
+          "ParticleColorAnimator": 
+          {
+            "Color0": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color1": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color2": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color3": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }, 
+            "Color4": 
+            {
+              "Vec4": 
+              {
+                "x": 0.000000, 
+                "y": 0.000000, 
+                "z": 0.000000, 
+                "w": 0.500000
+              }
+            }
           }
         }, 
         "Children": 
@@ -28800,7 +29388,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 915, 
         "Name": "Lancer", 
         "Protected": false, 
@@ -28967,7 +29555,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 181, 
         "Name": "LockField", 
         "Protected": false, 
@@ -29081,7 +29669,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 181, 
         "Name": "LockField", 
         "Protected": false, 
@@ -29195,7 +29783,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 181, 
         "Name": "LockField", 
         "Protected": false, 
@@ -29309,7 +29897,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 181, 
         "Name": "LockField", 
         "Protected": false, 
@@ -29423,7 +30011,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 181, 
         "Name": "LockField", 
         "Protected": false, 
@@ -29537,7 +30125,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 177, 
         "Name": "LockField", 
         "Protected": false, 
@@ -29651,7 +30239,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 293, 
         "Name": "PressurePlate1", 
         "Protected": false, 
@@ -29766,7 +30354,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 293, 
         "Name": "PressurePlate1", 
         "Protected": false, 
@@ -29881,7 +30469,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 177, 
         "Name": "LockField", 
         "Protected": false, 
@@ -29995,7 +30583,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 177, 
         "Name": "LockField", 
         "Protected": false, 
@@ -30109,7 +30697,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 181, 
         "Name": "LockField", 
         "Protected": false, 
@@ -30223,7 +30811,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 3591, 
         "Name": "Light", 
         "Protected": false, 
@@ -30318,7 +30906,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 3591, 
         "Name": "Light", 
         "Protected": false, 
@@ -30413,7 +31001,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 3591, 
         "Name": "Light", 
         "Protected": false, 
@@ -30603,7 +31191,7 @@
       }, 
       "GameObject": 
       {
-        "Locked": true, 
+        "Locked": false, 
         "GameObjectID": 3591, 
         "Name": "Light", 
         "Protected": false, 
