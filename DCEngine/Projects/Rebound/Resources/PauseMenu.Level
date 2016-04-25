@@ -164,8 +164,8 @@
             {
               "Vec2": 
               {
-                "x": 4.000000, 
-                "y": -50.000000
+                "x": -50.000000, 
+                "y": 0.000000
               }
             }, 
             "CrPanTime": 0.500000, 
@@ -179,10 +179,11 @@
               }
             }, 
             "OpPanTime": 0.500000, 
-            "OpEase": "QuadOut", 
+            "OpEase": "Linear", 
             "HoverSoundName": "MenuCancel", 
             "ClickSoundName": "MenuSelect", 
-            "RefTextName": "HighlightText"
+            "RefTextName": "HighlightText", 
+            "NumberOfButtons": 7
           }, 
           "SpriteText": 
           {

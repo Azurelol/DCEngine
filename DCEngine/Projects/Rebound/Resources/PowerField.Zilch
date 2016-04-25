@@ -9,6 +9,12 @@ class PowerField : ZilchComponent
 	[Property]
 	var InactiveColor : Real4 = Real4();
 
+    [Property]
+    var InactiveSpriteName : String = "";
+
+    [Property]
+    var ActiveSpriteName : String = "";
+
 	var Powering : Boolean;
 	
     function Initialize()
@@ -17,17 +23,15 @@ class PowerField : ZilchComponent
         
         Daisy.Connect(this.Owner, DaisyEvent.CollisionEnded, this.OnCollisionEnded);
 
-        //Daisy.Connect(this.Owner, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
+        this.Owner.Sprite.SpriteSource = this.InactiveSpriteName;
 
         this.Powering = false;
     }
 	
 	function OnCollisionStarted(event : CollisionStarted)
     {
-    	Console.WriteLine("Colliding");
         if(event.OtherObject.BallTemp != null && !this.Powering)
         {
-        	Console.WriteLine("Starting Power");
         	this.Powering = true;
 
         	this.TogglePower();
@@ -44,16 +48,16 @@ class PowerField : ZilchComponent
 	
 	function FreezeBall()
 	{
-		this.Owner.Sprite.Color = this.PoweredColor;
+		//this.Owner.Sprite.Color = this.PoweredColor;
+        this.Owner.Sprite.SpriteSource = this.ActiveSpriteName;
+
 		this.Space.FindObjectByName("Ball").BallController.PseudoFreezeBall();
 	}
 	
 	function OnCollisionEnded(event : CollisionEnded)
     {
-    	Console.WriteLine("Ending");
         if(event.OtherObject.BallTemp != null && this.Powering)
         {
-        	Console.WriteLine("Cutting Power");
             this.TogglePower();
 
             var powDelay = Actions.Sequence(this.Owner.Actions);
@@ -62,15 +66,11 @@ class PowerField : ZilchComponent
         }
     }
 
-    function OnLogicUpdate(event : LogicUpdate)
-    {
-
-    }
-
     function AllowPowering()
     {
     	this.Powering = false;
-    	this.Owner.Sprite.Color = this.InactiveColor;
+    	//this.Owner.Sprite.Color = this.InactiveColor;
+        this.Owner.Sprite.SpriteSource = this.InactiveSpriteName;
     }
 	
 	function TogglePower()

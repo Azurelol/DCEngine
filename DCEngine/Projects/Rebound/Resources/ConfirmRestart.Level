@@ -344,8 +344,7 @@
             "OpEase": "Linear", 
             "HoverSoundName": "", 
             "ClickSoundName": "", 
-            "RefTextName": "", 
-            "NumberOfButtons": 0
+            "RefTextName": ""
           }
         }, 
         "Children": 
