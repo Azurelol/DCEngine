@@ -80,7 +80,8 @@ namespace DCEngine {
           WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
           WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
         //WindowContext->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
-        WindowContext->setFramerateLimit(WindowInterface.Settings.Framerate);
+        //WindowContext->setFramerateLimit(WindowInterface.Settings.Framerate);
+				WindowContext->setVerticalSyncEnabled(true);
         Daisy->getSystem<GUI>()->Initialize();
       }
     }
@@ -93,7 +94,8 @@ namespace DCEngine {
         WindowContext->create(sf::VideoMode(
           WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
           WindowInterface.Caption, sf::Style::Titlebar | sf::Style::Close, ContextSettings);
-        WindowContext->setFramerateLimit(WindowInterface.Settings.Framerate);
+        //WindowContext->setFramerateLimit(WindowInterface.Settings.Framerate);
+				WindowContext->setVerticalSyncEnabled(true);
         WindowContext->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
       }
       else
@@ -101,7 +103,8 @@ namespace DCEngine {
         WindowContext->create(sf::VideoMode(
           WindowInterface.Settings.ScreenWidth, WindowInterface.Settings.ScreenHeight),
           WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
-        WindowContext->setFramerateLimit(WindowInterface.Settings.Framerate);
+        //WindowContext->setFramerateLimit(WindowInterface.Settings.Framerate);
+				WindowContext->setVerticalSyncEnabled(true);
         //WindowContext->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
       }
       Daisy->getSystem<GUI>()->Initialize();
@@ -119,6 +122,7 @@ namespace DCEngine {
             WindowInterface.Caption, sf::Style::Fullscreen, ContextSettings);
           WindowContext->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
           ShowWindow(WindowContext->getSystemHandle(), SW_MINIMIZE);
+					WindowContext->setVerticalSyncEnabled(true);
           returnToFullscreen = true;
         }
       }
@@ -177,8 +181,8 @@ namespace DCEngine {
       // After this call, the application will run at the same frequency as the monitor's refresh rate
       //WindowContext->setVerticalSyncEnabled(true);
       // In some situations you want the application to run at a given framerate. (!) Do not mix with setVSync
-      WindowContext->setFramerateLimit(WindowInterface.Settings.Framerate);
-
+      //WindowContext->setFramerateLimit(WindowInterface.Settings.Framerate);
+			WindowContext->setVerticalSyncEnabled(true);
       // Restore the previous OpenGL state
       //Daisy->getSystem<Graphics>()->RestoreState();
       Daisy->getSystem<GUI>()->Initialize();
@@ -200,6 +204,7 @@ namespace DCEngine {
       nativeWidth = sf::VideoMode::getDesktopMode().width;
       nativeHeight = sf::VideoMode::getDesktopMode().height;
       image.loadFromFile("Projects/Rebound/Assets/Images/ReboundIcon.png");
+			
       // If it starts as fullscreen
       if (WindowInterface.Settings.Fullscreen) {
         WindowContext.reset(new sf::Window(sf::VideoMode(nativeWidth, nativeHeight),
@@ -218,8 +223,8 @@ namespace DCEngine {
         DispatchSystemEvents::WindowFullScreenDisabled();
       }
       WindowContext->setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
-      WindowContext->setFramerateLimit(WindowInterface.Settings.Framerate);
-
+      //WindowContext->setFramerateLimit(WindowInterface.Settings.Framerate);
+			WindowContext->setVerticalSyncEnabled(true);
       // Configures the window context, then creates it
       //setWindow(WindowMode::Default);
 

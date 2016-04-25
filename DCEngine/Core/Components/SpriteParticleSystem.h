@@ -113,7 +113,7 @@ namespace DCEngine {
         ParticleColorAnimator* mColorAnimator;
         LinearParticleAnimator* mLinearAnimator;
       };
-      std::vector<Particle> mParticleList;
+      std::list<Particle> mParticleList;
       float mParticleEmissionTimer;
       unsigned mEmitCounter;
       bool mActiveFlag;

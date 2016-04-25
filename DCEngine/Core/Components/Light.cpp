@@ -85,7 +85,7 @@ namespace DCEngine {
       Color(1.0f, 1.0f, 1.0f, 1.0f), Range(20.0f), Intensity(1.0f), Falloff(0.1f),
       DirectionVector(Vec3(1.0f, 0.0f, 0.0f)), InnerAngle(0.6f), OuterAngle(0.8f), CullLight(0)
     {
-			Initialize();
+			Register();
     }
 
     /**************************************************************************/
@@ -105,8 +105,18 @@ namespace DCEngine {
     /**************************************************************************/
     void Light::Initialize()
     {
-			SpaceRef->getComponent<GraphicsSpace>()->RegisterLightComponent(this);
+			//SpaceRef->getComponent<GraphicsSpace>()->RegisterLightComponent(this);
     }
+
+		/**************************************************************************/
+		/*!
+		@brief  Registers the Light component.
+		*/
+		/**************************************************************************/
+		void Light::Register()
+		{
+			SpaceRef->getComponent<GraphicsSpace>()->RegisterLightComponent(this);
+		}
 
     /**************************************************************************/
     /*!
