@@ -12,7 +12,7 @@ mkdir Deploy\Projects\Rebound\Assets
 
 xcopy DCEngine\Projects\Rebound\Assets\*.* Deploy\Projects\Rebound\Assets /E
 xcopy DCEngine\Projects\Rebound\Resources\*.* Deploy\Projects\Rebound\Resources /E
-xcopy DCEngine\Projects\Rebound\Rebound.dceproj Deploy\Projects\Rebound\ 
+xcopy DCEngine\Projects\Rebound\Deploy\Rebound.dceproj Deploy\Projects\Rebound\ 
 xcopy DCEngine\Core\Assets\*.* Deploy\Core\Assets /E
 
 xcopy DCEngine\Dependencies\lib\MSVC\x64\fmodstudio64.dll Deploy

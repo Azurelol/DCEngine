@@ -102,10 +102,6 @@ namespace DCEngine {
   /**************************************************************************/
   /*!
   \brief Initializes the GameSession.
-  1. Systems are added to a container in the GameSession.
-  2. Creates the default space.
-  3. Specify which systems should be updated.
-  4. All systems in the container are initialized.
   */
   /**************************************************************************/
   void GameSession::Initialize() {

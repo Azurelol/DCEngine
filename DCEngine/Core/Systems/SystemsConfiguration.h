@@ -23,7 +23,7 @@ namespace DCEngine {
     /**************************************************************************/
     struct Configuration {
       const std::string FileName;
-      static std::string Folder() { return "Configuration"; }
+      static std::string Folder() { return "Configuration\\"; }
       Configuration(std::string extension);
       virtual void Deserialize(Json::Value&) = 0;
       virtual void Serialize(Json::Value&) = 0;

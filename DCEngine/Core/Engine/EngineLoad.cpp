@@ -34,17 +34,23 @@ namespace DCEngine {
       DCTrace << "Engine::LoadConfigurationFiles - Failed to deserialize engine configuration! \n";
 
     // Load the Graphics Config
-    LoadConfiguration(Configurations.Graphics, Systems::GraphicsConfig::FileName());
+    Configurations.Graphics.Load();
+    //LoadConfiguration(Configurations.Graphics, Systems::GraphicsConfig::FileName());
     // Load the Audio Config
-    LoadConfiguration(Configurations.Audio, Systems::AudioConfig::FileName());
+    Configurations.Audio.Load();
+    //LoadConfiguration(Configurations.Audio, Systems::AudioConfig::FileName());
     // Load the Debug Config
-    LoadConfiguration(Configurations.Debug, Systems::DebugConfig::FileName());
+    Configurations.Debug.Load();
+    //LoadConfiguration(Configurations.Debug, Systems::DebugConfig::FileName());
     // Load the GUI Config
-    LoadConfiguration(Configurations.GUI, Systems::GUIConfig::FileName());
+    Configurations.GUI.Load();
+    //LoadConfiguration(Configurations.GUI, Systems::GUIConfig::FileName());
     // Load the Editor Config
-    LoadConfiguration(Configurations.Editor, Systems::EditorConfig::FileName());
+    Configurations.Editor.Load();
+    //LoadConfiguration(Configurations.Editor, Systems::EditorConfig::FileName());
     // Load the Content Config
-    LoadConfiguration(Configurations.Content, Systems::ContentConfig::FileName());
+    Configurations.Content.Load();
+    //LoadConfiguration(Configurations.Content, Systems::ContentConfig::FileName());
 
   }
 

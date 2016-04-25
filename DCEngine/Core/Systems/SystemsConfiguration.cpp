@@ -55,7 +55,7 @@ namespace DCEngine {
 
     bool Configuration::Load()
     {
-      return Load(FileName);
+      return Load(Folder() + FileName);
     }
 
     /**************************************************************************/
