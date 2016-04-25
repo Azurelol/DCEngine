@@ -62,6 +62,7 @@ namespace DCEngine {
       Light(Entity& owner);
       ~Light();
       void Initialize();
+			void Register();
 
     private:
 			//NOTE: these variables must match the light struct in the sprite shader

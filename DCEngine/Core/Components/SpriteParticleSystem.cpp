@@ -183,10 +183,10 @@ namespace DCEngine {
 				glm::vec3(transform->Scale.x, transform->Scale.y, 0.0f));
 
 			std::vector<std::pair<Vec2, Vec2>> lists;
-			for (unsigned i = 0; i < mParticleList.size(); ++i)
+			for (const auto& particle : mParticleList)//unsigned i = 0; i < mParticleList.size(); ++i)
 			{
-				lists.push_back(std::make_pair(mParticleList[i].GetPosition(),
-					Vec2(mParticleList[i].GetScale(), mParticleList[i].GetRotation())));
+				lists.push_back(std::make_pair(particle.GetPosition(),
+					Vec2(particle.GetScale(), particle.GetRotation())));
 			}
 			//std::vector<glm::vec2> offset(GetPositionData());
 			//std::vector<float> rotation(GetRotationData());
@@ -296,7 +296,7 @@ namespace DCEngine {
 						mLinearAnimator->Force.y + mLinearAnimator->RandomForce.y * (rand() % 100 - 50) / 50);
 				if (!Lock)
 					position += Vec2(TransformComponent->Translation.x, TransformComponent->Translation.y);
-				mParticleList.push_back(Particle(
+				mParticleList.push_front(Particle(
 					lifetime, position, velocity, force, size, spin, Tint, mColorAnimator, mLinearAnimator));
 			}
 		}
