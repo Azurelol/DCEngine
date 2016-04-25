@@ -26,6 +26,14 @@
 						"buffer_size": 2330,
 						"line_ending": "Windows"
 					}
+				},
+				{
+					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
+					"settings":
+					{
+						"buffer_size": 8809,
+						"line_ending": "Windows"
+					}
 				}
 			],
 			"build_system": "",
@@ -97,7 +105,7 @@
 			"groups":
 			[
 				{
-					"selected": 0,
+					"selected": 1,
 					"sheets":
 					[
 						{
@@ -123,6 +131,34 @@
 								},
 								"translation.x": 0.0,
 								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 1,
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 8809,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										8809,
+										8809
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C#/C#.sublime-syntax"
+								},
+								"translation.x": -0.0,
+								"translation.y": 4038.0,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,
@@ -167,7 +203,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,862,441,135,1376",
+			"position": "0,2,3,-1,-1,-1,-1,862,218,135,1153",
 			"project": "",
 			"replace":
 			{
