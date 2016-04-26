@@ -42,6 +42,11 @@ namespace DCEngine {
       DeathEvent() : Event("DeathEvent") {}
     };
 
+    class RespawnEvent : public Event {
+    public:
+      RespawnEvent() : Event("RespawnEvent") {}
+    };
+
   }
 }
 

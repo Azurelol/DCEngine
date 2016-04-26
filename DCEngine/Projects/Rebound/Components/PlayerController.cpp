@@ -286,7 +286,7 @@ namespace DCEngine {
       {
         if (TakeDamage(DamageFromScrapper))
         {
-          FlashColor(ColorOnDamage, ColorOnDamageFlashDuration);
+
           RigidBodyRef->ApplyForce(Vec3(event->Normal.x * KnockBackForceOnDamageFromScrapperX, KnockBackForceOnDamageFromScrapperY, 0));
         }
       }
@@ -294,7 +294,7 @@ namespace DCEngine {
       {
         if (TakeDamage(DamageFromSentinel))
         {
-          FlashColor(ColorOnDamage, ColorOnDamageFlashDuration);
+
           RigidBodyRef->ApplyForce(Vec3(event->Normal.x * KnockBackForceOnDamageFromSentinelX, KnockBackForceOnDamageFromSentinelY, 0));
         }
       }
@@ -302,7 +302,7 @@ namespace DCEngine {
       {
         if (TakeDamage(DamageFromLancer))
         {
-          FlashColor(ColorOnDamage, ColorOnDamageFlashDuration);
+
           RigidBodyRef->ApplyForce(Vec3(event->Normal.x * KnockBackForceOnDamageFromLancerX, KnockBackForceOnDamageFromLancerY, 0));
         }
       }
@@ -522,14 +522,15 @@ namespace DCEngine {
       {
 
 
-      Health -= damage;
+        Health -= damage;
+        FlashColor(ColorOnDamage, ColorOnDamageFlashDuration);
 
-          // Play hurt sound.
-          SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CollideSound);
+        // Play hurt sound.
+        SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CollideSound);
 
-      IsDamageable = false;
-      ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
-      Actions::Property(seq, IsDamageable, true, DamageCooldown, Ease::Linear);
+        IsDamageable = false;
+        ActionSetPtr seq = Actions::Sequence(Owner()->Actions);
+        Actions::Property(seq, IsDamageable, true, DamageCooldown, Ease::Linear);
       }
 
 
@@ -600,6 +601,10 @@ namespace DCEngine {
 
 
       SpaceRef->getComponent<Components::SoundSpace>()->PlayCue("Death");
+
+      Events::RespawnEvent *e = new Events::RespawnEvent;
+      SpaceRef->Dispatch<Events::RespawnEvent>(e);
+      delete e;
 
       // play teleport start.
 
