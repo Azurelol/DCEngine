@@ -331,7 +331,7 @@ namespace DCEngine {
       Daisy->getSystem<Systems::Graphics>()->ScreenSpaceRectangle(redHaze->getComponent<Sprite>()->Color,
       Daisy->getSystem<Systems::Content>()->getSpriteSrc(redHaze->getComponent<Sprite>()->SpriteSource));
      // DCTrace << "RedHazeAlpha " << redHaze->getComponent<Sprite>()->Color.w << "\n";
-      if (TransformRef->getTranslation().y < -100)
+      if (TransformRef->getTranslation().y < -150)
       {
         Die();
       }
