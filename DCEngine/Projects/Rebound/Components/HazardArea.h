@@ -10,6 +10,7 @@
 /******************************************************************************/
 #pragma once
 #include "ReboundComponent.h"
+#include "../ReboundEvents.h"
 #define HazardAreaTraceOn 0
 
 namespace DCEngine {
@@ -36,6 +37,7 @@ namespace DCEngine {
       void OnCollisionStartedEvent(Events::CollisionStarted* event);
       void OnCollisionEndedEvent(Events::CollisionEnded* event);
       void OnLogicUpdateEvent(Events::LogicUpdate * event);
+      void OnRespawnEvent(Events::RespawnEvent * event);
 
 #if (DCE_USE_ZILCH_INTERNAL_BINDING)
       ZilchDeclareDerivedType(HazardArea, Component);
@@ -53,6 +55,8 @@ namespace DCEngine {
       Boolean FootstepSoundEnabled = false;
 
       SoundInstanceWeakPtr AcidHiss;
+
+      void PlayerOutOfAcidNowPleaseStop();
     };
   }
 

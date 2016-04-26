@@ -10,6 +10,7 @@
 /******************************************************************************/
 #include "HazardArea.h"
 #include "../../CoreComponents.h"
+#include "../ReboundEvents.h"
 
 #define POSTEVENT(name) SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(name)
 
@@ -30,10 +31,16 @@ namespace DCEngine {
       Connect(gameObj, Events::CollisionStarted, HazardArea::OnCollisionStartedEvent);
       Connect(gameObj, Events::CollisionEnded, HazardArea::OnCollisionEndedEvent);
       Connect(SpaceRef, Events::LogicUpdate, HazardArea::OnLogicUpdateEvent);
+      Connect(SpaceRef, Events::RespawnEvent, HazardArea::OnRespawnEvent);
       TransformRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::Transform>(); // ew
       RigidBodyRef = dynamic_cast<GameObject*>(Owner())->getComponent<Components::RigidBody>();
       PlayerRef = SpaceRef->FindObjectByName("Player");
       AcidHiss = nullptr;
+    }
+
+    void HazardArea::OnRespawnEvent(Events::RespawnEvent * event)
+    {
+      PlayerOutOfAcidNowPleaseStop();
     }
     
     void HazardArea::OnCollisionStartedEvent(Events::CollisionStarted * event)
@@ -57,17 +64,22 @@ namespace DCEngine {
     {
       if (event->OtherObject->getComponent<Components::PlayerController>())
       {
-        TouchingPlayer = false;
-        if (AcidHiss != nullptr)
-        {
-          AcidHiss->Stop();
-        }
-        PlayerRef->getComponent<Components::RigidBody>()->setGravity(1);
-		    Timer = 0;
-        if (HazardAreaTraceOn)
-        {
-          DCTrace << "HazardArea::OnCollisionEndedEvent \n";
-        }
+        PlayerOutOfAcidNowPleaseStop();
+      }
+    }
+
+    void HazardArea::PlayerOutOfAcidNowPleaseStop()
+    {
+      TouchingPlayer = false;
+      if (AcidHiss != nullptr)
+      {
+        AcidHiss->Stop();
+      }
+      PlayerRef->getComponent<Components::RigidBody>()->setGravity(1);
+      Timer = 0;
+      if (HazardAreaTraceOn)
+      {
+        DCTrace << "HazardArea::OnCollisionEndedEvent \n";
       }
     }
 
