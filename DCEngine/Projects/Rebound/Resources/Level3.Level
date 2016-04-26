@@ -365,6 +365,9 @@
           {
             "MaxHealth": 10, 
             "StartingHealth": 10
+          }, 
+          "PlayerTemp": 
+          {
           }
         }, 
         "Children": 
@@ -6296,7 +6299,7 @@
                 "z": 0.000000
               }
             }, 
-            "Ghost": false, 
+            "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }, 
