@@ -12066,8 +12066,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
+                    "x": -4.091228, 
+                    "y": 0.849533, 
                     "z": 0.001000
                   }
                 }, 
@@ -12166,8 +12166,8 @@
                 {
                   "Vec3": 
                   {
-                    "x": 0.000000, 
-                    "y": 0.000000, 
+                    "x": -4.091228, 
+                    "y": 1.499533, 
                     "z": 0.001000
                   }
                 }, 
@@ -14134,90 +14134,6 @@
       "GameObject": 
       {
         "Locked": false, 
-        "GameObjectID": 2655, 
-        "Name": "Sprite", 
-        "Protected": false, 
-        "Components": 
-        {
-          "Transform": 
-          {
-            "Translation": 
-            {
-              "Vec3": 
-              {
-                "x": 34.785751, 
-                "y": 20.833368, 
-                "z": 0.000000
-              }
-            }, 
-            "LocalTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 34.785751, 
-                "y": 20.833368, 
-                "z": 0.000000
-              }
-            }, 
-            "WorldTranslation": 
-            {
-              "Vec3": 
-              {
-                "x": 34.785751, 
-                "y": 20.833368, 
-                "z": 0.000000
-              }
-            }, 
-            "Rotation": 
-            {
-              "Vec3": 
-              {
-                "x": 0.000000, 
-                "y": 0.000000, 
-                "z": 0.000000
-              }
-            }, 
-            "Scale": 
-            {
-              "Vec3": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000
-              }
-            }
-          }, 
-          "Sprite": 
-          {
-            "Visible": true, 
-            "CullVisibility": true, 
-            "ForceLightCulling": false, 
-            "NOSHADOW": false, 
-            "Color": 
-            {
-              "Vec4": 
-              {
-                "x": 1.000000, 
-                "y": 1.000000, 
-                "z": 1.000000, 
-                "w": 1.000000
-              }
-            }, 
-            "SpriteSource": "square", 
-            "FlipX": false, 
-            "FlipY": false, 
-            "AnimationActive": false, 
-            "AnimationSpeed": 1.000000, 
-            "DrawLayer": 4
-          }
-        }, 
-        "Children": 
-        {
-        }
-      }, 
-      "GameObject": 
-      {
-        "Locked": false, 
         "GameObjectID": 2656, 
         "Name": "LevelGoal", 
         "Protected": false, 
@@ -14316,7 +14232,7 @@
                 "z": 0.000000
               }
             }, 
-            "Ghost": false, 
+            "Ghost": true, 
             "SendsEvents": true, 
             "IsDrawingCollider": false
           }, 

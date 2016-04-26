@@ -15,6 +15,10 @@
 			{
 				"selected_items":
 				[
+					[
+						"Ina",
+						"InactiveSpriteName"
+					]
 				]
 			},
 			"buffers":
@@ -24,6 +28,22 @@
 					"settings":
 					{
 						"buffer_size": 2330,
+						"line_ending": "Windows"
+					}
+				},
+				{
+					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
+					"settings":
+					{
+						"buffer_size": 8809,
+						"line_ending": "Windows"
+					}
+				},
+				{
+					"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PowerField.Zilch",
+					"settings":
+					{
+						"buffer_size": 2100,
 						"line_ending": "Windows"
 					}
 				}
@@ -97,7 +117,7 @@
 			"groups":
 			[
 				{
-					"selected": 0,
+					"selected": 2,
 					"sheets":
 					[
 						{
@@ -120,6 +140,64 @@
 								"settings":
 								{
 									"syntax": "Packages/C#/C#.sublime-syntax"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 2,
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/UIManager.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 8809,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										8809,
+										8809
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C#/C#.sublime-syntax"
+								},
+								"translation.x": 0.0,
+								"translation.y": 360.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 1,
+							"type": "text"
+						},
+						{
+							"buffer": 2,
+							"file": "/C/Users/john.myres/Documents/DCEngine/DCEngine/Projects/Rebound/Resources/PowerField.Zilch",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 2100,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1288,
+										1288
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C#/C#.sublime-syntax",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true
 								},
 								"translation.x": 0.0,
 								"translation.y": 0.0,
@@ -167,7 +245,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,862,441,135,1376",
+			"position": "0,0,1,-32000,-32000,-1,-1,938,536,140,1786",
 			"project": "",
 			"replace":
 			{
