@@ -12135,7 +12135,7 @@
                 "TimeToDelete": 10.000000, 
                 "AshaReplySoundName": "InterfaceReply", 
                 "CyrusReplySoundName": "InterfaceNotify", 
-                "SkipMessageDelay": true, 
+                "SkipMessageDelay": false, 
                 "CurSpeaker": "Cyrus"
               }
             }, 
