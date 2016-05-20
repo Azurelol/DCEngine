@@ -61,6 +61,7 @@ namespace DCEngine {
       DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyShieldArchetype, attributeArchetype);
       DCE_BINDING_DEFINE_PROPERTY(PlayerController, RedHazeArchetype);
       DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertyRedHazeArchetype, attributeArchetype);
+      DCE_BINDING_DEFINE_PROPERTY(PlayerController, SecondsPerHealthGainDuringRegen);
     }
 #endif
 
@@ -98,7 +99,7 @@ namespace DCEngine {
 
       if (Dead)
       {
-      TeleportIn();
+        TeleportIn();
       }
 
       Dead = false;
@@ -322,9 +323,37 @@ namespace DCEngine {
       //DCTrace << "PlayerController::OnCollisionPersistedEvent - \n";
     }
 
+    void PlayerController::RegenHealth(float Dt)
+    {
+      
+      if (Health < maxHealth)
+      {
+        healthRegenTimer += Dt;
+        if (healthRegenTimer >= SecondsPerHealthGainDuringRegen)
+        {
+          healthRegenTimer = 0.0f;
+          ++Health;
+          
+
+          if (Health <= maxHealth / 2)
+          {
+            redHazeAlphaValue = 1 - (Health / maxHealth);
+          }
+          else
+          {
+            redHazeAlphaValue = 0.0f;
+          }
+          redHaze->getComponent<Sprite>()->Color.w = redHazeAlphaValue;
+        }
+      }
+    }
+
 
     void PlayerController::OnLogicUpdateEvent(Events::LogicUpdate * event)
     {
+      
+      RegenHealth(event->Dt);
+      DCTrace << "Player Health: " << Health << "\n";
       float width = Daisy->getSystem<Systems::Graphics>()->GetScreenWidth();
       float height = Daisy->getSystem<Systems::Graphics>()->GetScreenHeight();
       //DCTrace << "Player velocity: " << RigidBodyRef->getVelocity().x << ", " << RigidBodyRef->getVelocity().y << "\n";
@@ -524,7 +553,7 @@ namespace DCEngine {
 
         Health -= damage;
         FlashColor(ColorOnDamage, ColorOnDamageFlashDuration);
-
+        healthRegenTimer = 0;
         // Play hurt sound.
         SpaceRef->getComponent<Components::SoundSpace>()->PlayCue(CollideSound);
 

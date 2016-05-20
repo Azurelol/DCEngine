@@ -551,7 +551,8 @@
             "KnockBackForceOnDamageFromLancerY": 10000.000000, 
             "DamageCooldown": 1.000000, 
             "ShieldArchetype": "PlayerShield", 
-            "RedHazeArchetype": "RedHaze"
+            "RedHazeArchetype": "RedHaze", 
+            "SecondsPerHealthGainDuringRegen": 5.000000
           }, 
           "Light": 
           {

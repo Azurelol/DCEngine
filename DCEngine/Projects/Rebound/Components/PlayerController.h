@@ -75,6 +75,7 @@ namespace DCEngine {
       float KnockBackForceOnDamageFromLancerX;
       float KnockBackForceOnDamageFromLancerY;
       float DamageCooldown;
+      float SecondsPerHealthGainDuringRegen;
       ArchetypeHandle ShieldArchetype;
       ArchetypeHandle RedHazeArchetype;
 
@@ -121,6 +122,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(float, DamageCooldown);
       DCE_DEFINE_PROPERTY(ArchetypeHandle, ShieldArchetype);
       DCE_DEFINE_PROPERTY(ArchetypeHandle, RedHazeArchetype);
+      DCE_DEFINE_PROPERTY(float, SecondsPerHealthGainDuringRegen);
 
 
       PlayerController(Entity& owner) : Component(std::string("PlayerController"), owner) {}
@@ -161,15 +163,18 @@ namespace DCEngine {
       Vec4 redHazeColor;
       float redHazeAlphaValue;
       int maxHealth;
+      bool isRegeningHealth = false;
+      float healthRegenTimer = 0;
       void PlayTeleportArriveSound();
       void ReloadLevel();
       void TeleportIn();
       void DestroyTeleportParticle();
-	  void WarpToCheckpoint();
-	  void RestoreHealth();
-	  void DestroyTeleportOutParticle();
+	    void WarpToCheckpoint();
+	    void RestoreHealth();
+	    void DestroyTeleportOutParticle();
       GameObjectPtr teleportInParticle;
-	  GameObjectPtr teleportOutParticle;
+	    GameObjectPtr teleportOutParticle;
+      void RegenHealth(float Dt);
     };
   }
 
