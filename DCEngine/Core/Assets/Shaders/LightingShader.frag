@@ -38,11 +38,11 @@ float GenerateZ0DiffuseFactor(vec3 fragPos, vec3 fragNormal, vec3 lightPosition)
 	if(lightPosition.z == 0.0 && fragPos.z == 0.0)
 	{
 		vec3 lightVector = normalize(lightPosition - fragPos);
-		float luminence = dot(lightVector, fragNormal) + .2;
-		if(luminence < 0)
-			return 0;
-		else
-			return luminence;
+		return max(dot(lightVector, fragNormal) + .2, 0);
+		//if(luminence < 0)
+		//	return 0;
+		//else
+		//	return luminence;
 	}
 	else
 		return 1.0;
@@ -52,10 +52,11 @@ float GenerateFalloffFactor(float distance, float range, float falloff)
 {
 	if(distance <= range)
   {
-		if(falloff > 0.0)
-			return (1.0 - (distance / range)) * exp(-falloff);
-		else
-			return 1.0;
+	return min((1.0 - (distance / range)) * exp(-falloff), 1);
+		//if(falloff > 0.0)
+		//	return (1.0 - (distance / range)) * exp(-falloff);
+		//else
+		//	return 1.0;
   }
 	else return 0.0;
 }
@@ -86,10 +87,11 @@ float GenerateSpotLightValues(vec3 fragPos, vec3 fragNormal, Light light)
 	if(angleDifference > light.OuterAngle)
 		return 0.0;
 
-	if(light.InnerAngle < light.OuterAngle)
-		angleFalloff = (light.OuterAngle - angleDifference) / (light.OuterAngle - light.InnerAngle);
-	else
-		angleFalloff = 1;
+	angleFalloff = min((light.OuterAngle - angleDifference) / (light.OuterAngle - light.InnerAngle), 1);
+	//if(light.InnerAngle < light.OuterAngle)
+	//	angleFalloff = (light.OuterAngle - angleDifference) / (light.OuterAngle - light.InnerAngle);
+	//else
+	//	angleFalloff = 1;
 
 	return distanceAttenuation * angleFalloff * diffuseFactor;
 }
