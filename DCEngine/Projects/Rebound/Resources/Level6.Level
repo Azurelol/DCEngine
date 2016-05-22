@@ -15251,7 +15251,7 @@
             "DamageCooldown": 1.000000, 
             "ShieldArchetype": "PlayerShield", 
             "RedHazeArchetype": "RedHaze", 
-            "SecondsPerHealthGainDuringRegen": 0.000000
+            "SecondsPerHealthGainDuringRegen": 5.000000
           }, 
           "Light": 
           {
