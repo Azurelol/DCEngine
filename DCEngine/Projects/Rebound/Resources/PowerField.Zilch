@@ -22,6 +22,8 @@ class PowerField : ZilchComponent
         Daisy.Connect(this.Owner, DaisyEvent.CollisionStarted, this.OnCollisionStarted);
         
         Daisy.Connect(this.Owner, DaisyEvent.CollisionEnded, this.OnCollisionEnded);
+		
+		Daisy.Connect(this.Space, DaisyEvent.LogicUpdate, this.OnLogicUpdate);
 
         this.Owner.Sprite.SpriteSource = this.InactiveSpriteName;
 
@@ -65,6 +67,18 @@ class PowerField : ZilchComponent
             Actions.Call(powDelay, this.AllowPowering);
         }
     }
+	
+	function OnLogicUpdate(event : LogicUpdate)
+	{
+		if(Daisy.Keyboard.KeyIsDown(Keys.E) && this.Powering)
+    	{
+    		this.TogglePower();
+
+            var powDelay = Actions.Sequence(this.Owner.Actions);
+            Actions.Delay(powDelay, 0.1);
+            Actions.Call(powDelay, this.AllowPowering);
+    	}
+	}
 
     function AllowPowering()
     {
