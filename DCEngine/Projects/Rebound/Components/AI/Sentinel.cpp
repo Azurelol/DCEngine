@@ -113,7 +113,9 @@ namespace DCEngine {
 
     void Sentinel::OnLogicUpdateEvent(Events::LogicUpdate * event)
     {
-	  particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation);
+      stateMachine->Update();
+
+	    particle->getComponent<Components::Transform>()->setTranslation(TransformRef->Translation);
       dt = event->Dt;
 
       if(!isBashing)
