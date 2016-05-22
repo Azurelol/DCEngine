@@ -1,7 +1,11 @@
 <NotepadPlus>
     <Session activeView="0">
-        <mainView activeIndex="0">
-            <File firstVisibleLine="455" xOffset="0" scrollWidth="880" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\john.myres\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\MegaDialogTrigger.Zilch" backupFilePath="" originalFileLastModifTimestamp="1460614229" />
+        <mainView activeIndex="3">
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="792" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\MusicBackground.Zilch" backupFilePath="" originalFileLastModifTimestamp="1460697378" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="768" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\TransistorLogic.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459376585" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="632" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\TestSoundInstance.Zilch" backupFilePath="" originalFileLastModifTimestamp="1460363646" />
+            <File firstVisibleLine="56" xOffset="0" scrollWidth="760" startPos="1961" endPos="1961" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\PowerField.Zilch" backupFilePath="" originalFileLastModifTimestamp="1463957274" />
+            <File firstVisibleLine="27" xOffset="0" scrollWidth="976" startPos="946" endPos="817" selMode="0" lang="Normal Text" encoding="-1" filename="C:\Users\John\Documents\DCEngine\DCEngine\Projects\Rebound\Resources\SimpleInputManager.Zilch" backupFilePath="" originalFileLastModifTimestamp="1459825787" />
         </mainView>
         <subView activeIndex="0" />
     </Session>
