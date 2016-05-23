@@ -34,6 +34,7 @@ namespace DCEngine {
       ArchetypeHandle SawArchetype;
       float IdleRange;        // Past this range, the grunt will be idle, within the range, it will patrol
       float PatrolDistance;   // The distance from the starting position that the grunt will move before turning around
+      float AttackRangeHeight = 10;
       bool IsPatrolRight;       // True = Grunt moves right first, false = moves left first
       bool IsAggressive;
       float JumpStrengthX;
@@ -68,6 +69,7 @@ namespace DCEngine {
       DCE_DEFINE_PROPERTY(ArchetypeHandle, SawArchetype);
       DCE_DEFINE_PROPERTY(float, IdleRange);
       DCE_DEFINE_PROPERTY(float, PatrolDistance);
+      DCE_DEFINE_PROPERTY(float, AttackRangeHeight);
       DCE_DEFINE_PROPERTY(bool, IsPatrolRight);
       DCE_DEFINE_PROPERTY(bool, IsAggressive);
       DCE_DEFINE_PROPERTY(float, JumpStrengthX);

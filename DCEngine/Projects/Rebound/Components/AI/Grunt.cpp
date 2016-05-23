@@ -42,6 +42,7 @@ namespace DCEngine {
       DCE_BINDING_PROPERTY_SET_RESOURCE_ATTRIBUTE(propertySawArchetype, attributeArchetype);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, IdleRange);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, PatrolDistance);
+      DCE_BINDING_DEFINE_PROPERTY(Grunt, AttackRangeHeight);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, IsPatrolRight);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, IsAggressive);
       DCE_BINDING_DEFINE_PROPERTY(Grunt, JumpStrengthX);
@@ -308,7 +309,7 @@ namespace DCEngine {
       Vec3 playerPosition = owner->player->getComponent<Components::Transform>()->Translation;
       Vec3 ownerPosition = owner->TransformRef->Translation;
       float distanceFromPlayer = glm::distance(playerPosition, ownerPosition);
-      
+
       if ((distanceFromPlayer > owner->IdleRange) && !owner->stateMachine->isInState(Idle::Instance()))
         owner->stateMachine->ChangeState(Idle::Instance());
     }
@@ -342,7 +343,7 @@ namespace DCEngine {
       float distanceFromPlayer = glm::distance(playerPosition, ownerPosition);
       
       if (distanceFromPlayer < owner->IdleRange)
-        owner->stateMachine->RevertToPreviousState();
+        owner->stateMachine->ChangeState(PatrolRight::Instance());
     }
 
     void Grunt::Idle::Exit(Grunt *owner)
@@ -382,14 +383,20 @@ namespace DCEngine {
       
       if (owner->IsPatrolRight)
       {
-        if (playerPosition.x > owner->startingPosition.x && playerPosition.x < owner->endPosition.x)
+        if (playerPosition.x > owner->startingPosition.x && 
+            playerPosition.x < owner->endPosition.x &&
+            playerPosition.y > ownerPosition.y - owner->AttackRangeHeight &&
+            playerPosition.y < ownerPosition.y + owner->AttackRangeHeight)
           owner->stateMachine->ChangeState(Attack::Instance());
         else if(ownerPosition.x > owner->endPosition.x)
           owner->stateMachine->ChangeState(PatrolLeft::Instance());
       }
       else
       {
-        if (playerPosition.x < owner->startingPosition.x && playerPosition.x > owner->endPosition.x)
+        if (playerPosition.x < owner->startingPosition.x && 
+            playerPosition.x > owner->endPosition.x &&
+            playerPosition.y > ownerPosition.y - owner->AttackRangeHeight &&
+            playerPosition.y < ownerPosition.y + owner->AttackRangeHeight)
           owner->stateMachine->ChangeState(Attack::Instance());
         else if(ownerPosition.x > owner->startingPosition.x)
           owner->stateMachine->ChangeState(PatrolLeft::Instance());
@@ -433,14 +440,20 @@ namespace DCEngine {
 
       if (owner->IsPatrolRight)
       {
-        if (playerPosition.x > owner->startingPosition.x && playerPosition.x < owner->endPosition.x)
+        if (playerPosition.x > owner->startingPosition.x && 
+            playerPosition.x < owner->endPosition.x && 
+            playerPosition.y > ownerPosition.y - owner->AttackRangeHeight &&
+            playerPosition.y < ownerPosition.y + owner->AttackRangeHeight)
           owner->stateMachine->ChangeState(Attack::Instance());
         else if (ownerPosition.x < owner->startingPosition.x)
           owner->stateMachine->ChangeState(PatrolRight::Instance());
       }
       else
       {
-        if (playerPosition.x < owner->startingPosition.x && playerPosition.x > owner->endPosition.x)
+        if (playerPosition.x < owner->startingPosition.x && 
+            playerPosition.x > owner->endPosition.x &&
+            playerPosition.y > ownerPosition.y - owner->AttackRangeHeight &&
+            playerPosition.y < ownerPosition.y + owner->AttackRangeHeight)
           owner->stateMachine->ChangeState(Attack::Instance());
         else if (ownerPosition.x < owner->endPosition.x)
           owner->stateMachine->ChangeState(PatrolRight::Instance());
