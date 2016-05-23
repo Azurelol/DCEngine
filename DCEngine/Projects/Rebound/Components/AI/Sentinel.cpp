@@ -402,9 +402,11 @@ namespace DCEngine {
       ray.Origin = owner->TransformRef->Translation;
       CastFilter filter;
       filter.CollisionGroups.push_back(CollisionGroup::Find("Terrain"));
+      filter.CollisionGroups.push_back(CollisionGroup::Find("SentinalTerrain"));
       filter.Include = true;
       CastResult cast = owner->PhysicsSpaceRef->CastRay(ray, filter);
 
+      
       if (cast.Distance > owner->ShieldRadius + owner->ShieldBashDistance + owner->player->getComponent<BoxCollider>()->getColliderScale().x)
       {
         if (direction.x < 0)

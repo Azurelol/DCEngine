@@ -1,0 +1,10 @@
+
+{
+  "CollisionGroup": 
+  {
+    "Name": "SentinalTerrain", 
+    "Properties": 
+    {
+    }
+  }
+}
