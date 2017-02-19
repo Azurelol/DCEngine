@@ -1,5 +1,10 @@
 # DCEngine
 
+
+<p align="center">
+<img src="https://i.imgur.com/eUZAy7w.png"/> 
+</p>
+
 This repository holds my DigiPen's GAM 250 Engine, "Daisy Chain Engine". 
  
 My GAM 250 team, "Moonward". The developer team:
