@@ -5,17 +5,17 @@
 <img src="https://i.imgur.com/eUZAy7w.png"/> 
 </p>
 
-This repository holds my DigiPen's GAM 250 Engine, "Daisy Chain Engine". 
+This repository holds my DigiPen's GAM 250 Engine, "Daisy Chain Engine", which has now been discontinued (as of Summer 2016). I am leaving this repository as a testament of everything I learned during my Sophomore year at DigiPen. 
  
 My GAM 250 team, "Moonward". The developer team:
-- Christian Sagel
-- William Mao
-- Jason Jorgensen
-- Gabriel Neumann
-- Connor Tilley
-- John Myres
-- Allan Deutsch
-- Blaine Reiner
+- Allan Deutsch (Producer)
+- Christian Sagel (Technical Director, Engine Programmer)
+- William Mao (Graphics Programmer)
+- Jason Jorgensen (Gameplay Programmer)
+- Gabriel Neumann (Gameplay Programmer)
+- John Myres (Lead Designer)
+- Connor Tilley (Designer)
+- Blaine Reiner (Physics Programmer)
 
 And our esteemed artists:
 - Mariah Millard
