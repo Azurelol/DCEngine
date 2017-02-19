@@ -1,7 +1,7 @@
 # DCEngine
 
-This repository is for my DigiPen GAM 250 Engine, "Daisy Chain". 
-
+This repository holds my DigiPen's GAM 250 Engine, "Daisy Chain Engine". 
+ 
 My GAM 250 team, "Moonward". The developer team:
 - Christian Sagel
 - William Mao
@@ -16,15 +16,19 @@ And our esteemed artists:
 - Mariah Millard
 - Abigail Snider
 
-This ECS engine me and my team are writing, "Daisy Chain" will be directly based on "reverse-engineering" Allan Deutsch's [AJEngine.](https://github.com/Masstronaut/aljeengine), as well as [DigiPen's Zero Engine](http://zero.digipen.edu/). It is implements graphics with GLEW and Modern OpenGL by following these fantastic tutorials: [Learn OpenGL](http://learnopengl.com/)
+This ECS engine me and my team wrote, "Daisy Chain" had very humble beginnings. It first started as a reverse-engineering attempt off Allan Deutsch's [AJEngine.](https://github.com/Masstronaut/aljeengine), as well as [DigiPen's Zero Engine](http://zero.digipen.edu/). It uses the following libraries for its main systems:
+- Window/Input: SFML
+- Graphics: OpenGL (Core Profile)
+- Audio: FMOD Studio
+- UI: dear imgui
+- Scripting: Zilch
+- Serialization: JSON
 
-While AJEngine is a gamestate-driven engine that follows a model us sophomores will be used to by now (after CS 230), I am writing Daisy Chain engine in mind to enable gameplay through components and objects added to a 'game' object and the spaces it contains. In that regard, I want that part to be similar to how the Zero Engine works. 
-
-There is a roadmap of the engine itself in terms of features to be implemented next, bugs, and technical questions that stump me:
+There is a roadmap of sorts that was used during the engine's development:
 
 [Daisy Chain Engine Roadmap](https://trello.com/b/vDmSAbFm/daisy-chain-engine-roadmap)
 
-I am also documenting my day-to-day progress in a log of sorts:
+I also documented my day-to-day progress in a log of sorts:
 
 [Daisy Chain Development Progress Log](https://docs.google.com/spreadsheets/d/1owN00AVVGzIan5TGH_BJrXHaZ0YIHjNjQBijRDP-hFw/edit?usp=sharing)
 
